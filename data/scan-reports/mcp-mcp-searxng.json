@@ -1,0 +1,5281 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\ihor-sokoliuk__mcp-searxng\\mcp-searxng-main",
+    "scanned_at": "2026-10-31T23:04:48.307250+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": ".dockerignore",
+      "type": "other",
+      "lines": 35,
+      "executable": false,
+      "size_bytes": 329,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".env.e2e.example",
+      "type": "other",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 183,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/CODEOWNERS",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 17,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+      "type": "yaml",
+      "lines": 106,
+      "executable": false,
+      "size_bytes": 2748,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/feature_request.yml",
+      "type": "yaml",
+      "lines": 31,
+      "executable": false,
+      "size_bytes": 867,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "type": "markdown",
+      "lines": 31,
+      "executable": false,
+      "size_bytes": 975,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "type": "yaml",
+      "lines": 35,
+      "executable": false,
+      "size_bytes": 763,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "type": "yaml",
+      "lines": 50,
+      "executable": false,
+      "size_bytes": 1047,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/codeql.yml",
+      "type": "yaml",
+      "lines": 39,
+      "executable": false,
+      "size_bytes": 972,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/docker-publish.yml",
+      "type": "yaml",
+      "lines": 129,
+      "executable": false,
+      "size_bytes": 4685,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/mcp-registry-publish.yml",
+      "type": "yaml",
+      "lines": 95,
+      "executable": false,
+      "size_bytes": 4427,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/npm-publish.yml",
+      "type": "yaml",
+      "lines": 72,
+      "executable": false,
+      "size_bytes": 3328,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/scorecard.yml",
+      "type": "yaml",
+      "lines": 78,
+      "executable": false,
+      "size_bytes": 3476,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 64,
+      "executable": false,
+      "size_bytes": 752,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".mcp/server.json",
+      "type": "json",
+      "lines": 44,
+      "executable": false,
+      "size_bytes": 1249,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CHANGELOG.md",
+      "type": "markdown",
+      "lines": 660,
+      "executable": false,
+      "size_bytes": 64627,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "type": "markdown",
+      "lines": 71,
+      "executable": false,
+      "size_bytes": 3415,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CONFIGURATION.md",
+      "type": "markdown",
+      "lines": 669,
+      "executable": false,
+      "size_bytes": 53994,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "type": "markdown",
+      "lines": 81,
+      "executable": false,
+      "size_bytes": 2968,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Dockerfile",
+      "type": "other",
+      "lines": 25,
+      "executable": false,
+      "size_bytes": 641,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1059,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 331,
+      "executable": false,
+      "size_bytes": 14560,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "SECURITY.md",
+      "type": "markdown",
+      "lines": 410,
+      "executable": false,
+      "size_bytes": 28827,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/README.md",
+      "type": "markdown",
+      "lines": 79,
+      "executable": false,
+      "size_bytes": 2021,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/e2e/browser-solver.e2e.ts",
+      "type": "typescript",
+      "lines": 489,
+      "executable": true,
+      "size_bytes": 17544,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/e2e/helpers/spawn-server.ts",
+      "type": "typescript",
+      "lines": 410,
+      "executable": true,
+      "size_bytes": 14158,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/e2e/http-transport.e2e.ts",
+      "type": "typescript",
+      "lines": 211,
+      "executable": true,
+      "size_bytes": 8281,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/e2e/instance-info.e2e.ts",
+      "type": "typescript",
+      "lines": 71,
+      "executable": true,
+      "size_bytes": 2678,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/e2e/run-e2e.ts",
+      "type": "typescript",
+      "lines": 62,
+      "executable": true,
+      "size_bytes": 2241,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/e2e/search.e2e.ts",
+      "type": "typescript",
+      "lines": 271,
+      "executable": true,
+      "size_bytes": 11855,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/e2e/suggestions.e2e.ts",
+      "type": "typescript",
+      "lines": 62,
+      "executable": true,
+      "size_bytes": 1837,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/e2e/timeout.e2e.ts",
+      "type": "typescript",
+      "lines": 480,
+      "executable": true,
+      "size_bytes": 19569,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/e2e/url-reader.e2e.ts",
+      "type": "typescript",
+      "lines": 227,
+      "executable": true,
+      "size_bytes": 7286,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/fixtures/searxng-results.html",
+      "type": "other",
+      "lines": 33,
+      "executable": false,
+      "size_bytes": 932,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/fuzz/search-params.fuzz.ts",
+      "type": "typescript",
+      "lines": 103,
+      "executable": true,
+      "size_bytes": 3438,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/helpers/env-utils.ts",
+      "type": "typescript",
+      "lines": 117,
+      "executable": true,
+      "size_bytes": 2569,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/helpers/mock-fetch.ts",
+      "type": "typescript",
+      "lines": 119,
+      "executable": true,
+      "size_bytes": 2986,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/helpers/mock-server.ts",
+      "type": "typescript",
+      "lines": 53,
+      "executable": true,
+      "size_bytes": 1248,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/helpers/pdf-fixtures.ts",
+      "type": "typescript",
+      "lines": 53,
+      "executable": true,
+      "size_bytes": 3213,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/helpers/test-utils.ts",
+      "type": "typescript",
+      "lines": 76,
+      "executable": true,
+      "size_bytes": 1911,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/integration/cli.test.ts",
+      "type": "typescript",
+      "lines": 203,
+      "executable": true,
+      "size_bytes": 7446,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/integration/credential-output.test.ts",
+      "type": "typescript",
+      "lines": 186,
+      "executable": true,
+      "size_bytes": 9349,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/integration/diagnostic-security.test.ts",
+      "type": "typescript",
+      "lines": 439,
+      "executable": true,
+      "size_bytes": 19084,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/integration/http-server.test.ts",
+      "type": "typescript",
+      "lines": 4034,
+      "executable": true,
+      "size_bytes": 176999,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/integration/index.test.ts",
+      "type": "typescript",
+      "lines": 314,
+      "executable": true,
+      "size_bytes": 11767,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/integration/mcp-handlers.test.ts",
+      "type": "typescript",
+      "lines": 1783,
+      "executable": true,
+      "size_bytes": 79625,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/integration/oauth-http.test.ts",
+      "type": "typescript",
+      "lines": 225,
+      "executable": true,
+      "size_bytes": 13858,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/real-life/test-gzip-fix.ts",
+      "type": "typescript",
+      "lines": 127,
+      "executable": true,
+      "size_bytes": 4510,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/run-all.ts",
+      "type": "typescript",
+      "lines": 193,
+      "executable": true,
+      "size_bytes": 9657,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/browser-solver-content.test.ts",
+      "type": "typescript",
+      "lines": 75,
+      "executable": true,
+      "size_bytes": 4985,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/browser-solver-state.test.ts",
+      "type": "typescript",
+      "lines": 329,
+      "executable": true,
+      "size_bytes": 11458,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/browser-solver.test.ts",
+      "type": "typescript",
+      "lines": 562,
+      "executable": true,
+      "size_bytes": 20935,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/build-tooling.test.ts",
+      "type": "typescript",
+      "lines": 105,
+      "executable": true,
+      "size_bytes": 5107,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/cache.test.ts",
+      "type": "typescript",
+      "lines": 379,
+      "executable": true,
+      "size_bytes": 12208,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/credential-output.test.ts",
+      "type": "typescript",
+      "lines": 165,
+      "executable": true,
+      "size_bytes": 9518,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/diagnostic-output.test.ts",
+      "type": "typescript",
+      "lines": 88,
+      "executable": true,
+      "size_bytes": 3072,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/diagnostic-sanitizer.test.ts",
+      "type": "typescript",
+      "lines": 294,
+      "executable": true,
+      "size_bytes": 11010,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/documentation.test.ts",
+      "type": "typescript",
+      "lines": 1003,
+      "executable": true,
+      "size_bytes": 47604,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/error-handler.test.ts",
+      "type": "typescript",
+      "lines": 382,
+      "executable": true,
+      "size_bytes": 14889,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/http-security.test.ts",
+      "type": "typescript",
+      "lines": 353,
+      "executable": true,
+      "size_bytes": 12242,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/http-server.test.ts",
+      "type": "typescript",
+      "lines": 177,
+      "executable": true,
+      "size_bytes": 6388,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/instance-info.test.ts",
+      "type": "typescript",
+      "lines": 848,
+      "executable": true,
+      "size_bytes": 34938,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/logging.test.ts",
+      "type": "typescript",
+      "lines": 348,
+      "executable": true,
+      "size_bytes": 12569,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/packed-consumer-fixtures.ts",
+      "type": "typescript",
+      "lines": 279,
+      "executable": true,
+      "size_bytes": 8908,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/packed-consumer.test.ts",
+      "type": "typescript",
+      "lines": 680,
+      "executable": true,
+      "size_bytes": 23995,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/pdf-network-guard.test.ts",
+      "type": "typescript",
+      "lines": 61,
+      "executable": true,
+      "size_bytes": 2039,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/pdf-reader.test.ts",
+      "type": "typescript",
+      "lines": 374,
+      "executable": true,
+      "size_bytes": 14740,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/proxy.test.ts",
+      "type": "typescript",
+      "lines": 607,
+      "executable": true,
+      "size_bytes": 21733,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/resources.test.ts",
+      "type": "typescript",
+      "lines": 267,
+      "executable": true,
+      "size_bytes": 10949,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/search-cache.test.ts",
+      "type": "typescript",
+      "lines": 188,
+      "executable": true,
+      "size_bytes": 7283,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/search.test.ts",
+      "type": "typescript",
+      "lines": 3724,
+      "executable": true,
+      "size_bytes": 149587,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/searxng-instances.test.ts",
+      "type": "typescript",
+      "lines": 281,
+      "executable": true,
+      "size_bytes": 11425,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/searxng-response.test.ts",
+      "type": "typescript",
+      "lines": 229,
+      "executable": true,
+      "size_bytes": 10506,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/suggestions.test.ts",
+      "type": "typescript",
+      "lines": 499,
+      "executable": true,
+      "size_bytes": 20094,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/test-utils.test.ts",
+      "type": "typescript",
+      "lines": 82,
+      "executable": true,
+      "size_bytes": 2514,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/tls-config.test.ts",
+      "type": "typescript",
+      "lines": 222,
+      "executable": true,
+      "size_bytes": 8648,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/types.test.ts",
+      "type": "typescript",
+      "lines": 476,
+      "executable": true,
+      "size_bytes": 26676,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/unix-socket-transport.test.ts",
+      "type": "typescript",
+      "lines": 237,
+      "executable": true,
+      "size_bytes": 8312,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/url-reader.test.ts",
+      "type": "typescript",
+      "lines": 3128,
+      "executable": true,
+      "size_bytes": 117244,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/url-security.test.ts",
+      "type": "typescript",
+      "lines": 305,
+      "executable": true,
+      "size_bytes": 13246,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/unit/version.test.ts",
+      "type": "typescript",
+      "lines": 190,
+      "executable": true,
+      "size_bytes": 7506,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docker-compose.http.yml",
+      "type": "yaml",
+      "lines": 13,
+      "executable": false,
+      "size_bytes": 572,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docker-compose.resources.yml",
+      "type": "yaml",
+      "lines": 6,
+      "executable": false,
+      "size_bytes": 172,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docker-compose.yml",
+      "type": "yaml",
+      "lines": 8,
+      "executable": false,
+      "size_bytes": 320,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/browser-solver-deployment.md",
+      "type": "markdown",
+      "lines": 317,
+      "executable": false,
+      "size_bytes": 17512,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/browser-solver-verification.md",
+      "type": "markdown",
+      "lines": 129,
+      "executable": false,
+      "size_bytes": 7621,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/client-configurations.md",
+      "type": "markdown",
+      "lines": 440,
+      "executable": false,
+      "size_bytes": 15640,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/deployment-profiles.md",
+      "type": "markdown",
+      "lines": 269,
+      "executable": false,
+      "size_bytes": 13020,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/examples/search-stack/.env.example",
+      "type": "other",
+      "lines": 12,
+      "executable": false,
+      "size_bytes": 452,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/examples/search-stack/byparr.yml",
+      "type": "yaml",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 562,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/examples/search-stack/compose.yml",
+      "type": "yaml",
+      "lines": 66,
+      "executable": false,
+      "size_bytes": 2174,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/examples/search-stack/flare.yml",
+      "type": "yaml",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 652,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/examples/search-stack/settings/settings.yml",
+      "type": "yaml",
+      "lines": 74,
+      "executable": false,
+      "size_bytes": 1528,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/http-server.md",
+      "type": "markdown",
+      "lines": 139,
+      "executable": false,
+      "size_bytes": 6824,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/index.md",
+      "type": "markdown",
+      "lines": 38,
+      "executable": false,
+      "size_bytes": 1814,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/public-searxng-instances.md",
+      "type": "markdown",
+      "lines": 177,
+      "executable": false,
+      "size_bytes": 8024,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/registry-publication.md",
+      "type": "markdown",
+      "lines": 51,
+      "executable": false,
+      "size_bytes": 2983,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/research-workflow.md",
+      "type": "markdown",
+      "lines": 199,
+      "executable": false,
+      "size_bytes": 8841,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/search-configuration-verification.json",
+      "type": "json",
+      "lines": 2657,
+      "executable": false,
+      "size_bytes": 74172,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/search-configuration-verification.md",
+      "type": "markdown",
+      "lines": 227,
+      "executable": false,
+      "size_bytes": 15950,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/search-configuration.md",
+      "type": "markdown",
+      "lines": 269,
+      "executable": false,
+      "size_bytes": 16325,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/self-hosted-searxng.md",
+      "type": "markdown",
+      "lines": 268,
+      "executable": false,
+      "size_bytes": 14088,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/tools.md",
+      "type": "markdown",
+      "lines": 117,
+      "executable": false,
+      "size_bytes": 11684,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/troubleshooting.md",
+      "type": "markdown",
+      "lines": 238,
+      "executable": false,
+      "size_bytes": 16269,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "eslint.config.js",
+      "type": "javascript",
+      "lines": 51,
+      "executable": true,
+      "size_bytes": 1502,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "glama.json",
+      "type": "json",
+      "lines": 4,
+      "executable": false,
+      "size_bytes": 96,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "package-lock.json",
+      "type": "json",
+      "lines": 4039,
+      "executable": false,
+      "size_bytes": 166011,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "package.json",
+      "type": "json",
+      "lines": 85,
+      "executable": false,
+      "size_bytes": 3054,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/make-dist-executable.mjs",
+      "type": "javascript",
+      "lines": 18,
+      "executable": true,
+      "size_bytes": 1060,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/packed-consumer-contracts.mjs",
+      "type": "javascript",
+      "lines": 522,
+      "executable": true,
+      "size_bytes": 17939,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/publish-mcp-registry.mjs",
+      "type": "javascript",
+      "lines": 272,
+      "executable": true,
+      "size_bytes": 13653,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/publish-mcp-registry.test.mjs",
+      "type": "javascript",
+      "lines": 319,
+      "executable": true,
+      "size_bytes": 18190,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/update-version.js",
+      "type": "javascript",
+      "lines": 48,
+      "executable": true,
+      "size_bytes": 1697,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/verify-packed-consumer.mjs",
+      "type": "javascript",
+      "lines": 459,
+      "executable": true,
+      "size_bytes": 14675,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/browser-solver-config.ts",
+      "type": "typescript",
+      "lines": 91,
+      "executable": true,
+      "size_bytes": 2741,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/browser-solver-content.ts",
+      "type": "typescript",
+      "lines": 116,
+      "executable": true,
+      "size_bytes": 5891,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/browser-solver.ts",
+      "type": "typescript",
+      "lines": 621,
+      "executable": true,
+      "size_bytes": 17623,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cache.ts",
+      "type": "typescript",
+      "lines": 129,
+      "executable": true,
+      "size_bytes": 3419,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cli.ts",
+      "type": "typescript",
+      "lines": 28,
+      "executable": true,
+      "size_bytes": 1034,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/credential-output.ts",
+      "type": "typescript",
+      "lines": 15,
+      "executable": true,
+      "size_bytes": 629,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/diagnostic-output.ts",
+      "type": "typescript",
+      "lines": 61,
+      "executable": true,
+      "size_bytes": 2102,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/diagnostic-sanitizer.ts",
+      "type": "typescript",
+      "lines": 327,
+      "executable": true,
+      "size_bytes": 10478,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/env-int.ts",
+      "type": "typescript",
+      "lines": 49,
+      "executable": true,
+      "size_bytes": 1500,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/error-handler.ts",
+      "type": "typescript",
+      "lines": 216,
+      "executable": true,
+      "size_bytes": 8415,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/http-security.ts",
+      "type": "typescript",
+      "lines": 144,
+      "executable": true,
+      "size_bytes": 4576,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/http-server.ts",
+      "type": "typescript",
+      "lines": 1464,
+      "executable": true,
+      "size_bytes": 52344,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/index.ts",
+      "type": "typescript",
+      "lines": 575,
+      "executable": true,
+      "size_bytes": 20096,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/instance-info.ts",
+      "type": "typescript",
+      "lines": 460,
+      "executable": true,
+      "size_bytes": 13805,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/logging.ts",
+      "type": "typescript",
+      "lines": 111,
+      "executable": true,
+      "size_bytes": 3513,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/oauth-http.ts",
+      "type": "typescript",
+      "lines": 98,
+      "executable": true,
+      "size_bytes": 4511,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/pdf-network-guard.ts",
+      "type": "typescript",
+      "lines": 61,
+      "executable": true,
+      "size_bytes": 2008,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/pdf-reader.ts",
+      "type": "typescript",
+      "lines": 179,
+      "executable": true,
+      "size_bytes": 5652,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/pdf-worker-bootstrap.mjs",
+      "type": "javascript",
+      "lines": 11,
+      "executable": true,
+      "size_bytes": 335,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/pdf-worker.ts",
+      "type": "typescript",
+      "lines": 187,
+      "executable": true,
+      "size_bytes": 5851,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/proxy-environment.ts",
+      "type": "typescript",
+      "lines": 16,
+      "executable": true,
+      "size_bytes": 445,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/proxy.ts",
+      "type": "typescript",
+      "lines": 474,
+      "executable": true,
+      "size_bytes": 16106,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/resources.ts",
+      "type": "typescript",
+      "lines": 235,
+      "executable": true,
+      "size_bytes": 11912,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/search-cache.ts",
+      "type": "typescript",
+      "lines": 126,
+      "executable": true,
+      "size_bytes": 3449,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/search.ts",
+      "type": "typescript",
+      "lines": 1177,
+      "executable": true,
+      "size_bytes": 41264,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/searxng-instances.ts",
+      "type": "typescript",
+      "lines": 154,
+      "executable": true,
+      "size_bytes": 4743,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/searxng-response.ts",
+      "type": "typescript",
+      "lines": 231,
+      "executable": true,
+      "size_bytes": 7324,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/suggestions.ts",
+      "type": "typescript",
+      "lines": 50,
+      "executable": true,
+      "size_bytes": 1675,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tls-config.ts",
+      "type": "typescript",
+      "lines": 105,
+      "executable": true,
+      "size_bytes": 4011,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/types.ts",
+      "type": "typescript",
+      "lines": 440,
+      "executable": true,
+      "size_bytes": 15656,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/url-reader.ts",
+      "type": "typescript",
+      "lines": 907,
+      "executable": true,
+      "size_bytes": 34960,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/url-security.ts",
+      "type": "typescript",
+      "lines": 200,
+      "executable": true,
+      "size_bytes": 7616,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/version.ts",
+      "type": "typescript",
+      "lines": 1,
+      "executable": true,
+      "size_bytes": 39,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tsconfig.json",
+      "type": "json",
+      "lines": 19,
+      "executable": false,
+      "size_bytes": 473,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "TM1",
+      "finding_id": "finding-0b7116806d4c4c559056640cfb98aa98",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "CONFIGURATION.md",
+        "start_line": 435,
+        "end_line": null,
+        "start_column": 37
+      },
+      "finding": "DELETE /mcp`",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "\n**HTTP endpoints (when HTTP mode is active):**\n- Modern: `POST /mcp` \u2014 sessionless MCP protocol\n- Legacy stateful default: `POST/GET/DELETE /mcp` \u2014 session-based MCP protocol\n- With `MCP_HTTP_STATELESS=true`: `POST /mcp` only; GET and DELETE return HTTP 405 with `Allow: POST`\n- `GET /health` \u2014 HTTP reachability check; returns fixed status, server, version and transport metadata without contacting SearXNG. A successful response does not verify tool calls or search readiness.\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ca0b35d3d57511efcf7d1326b5cb73fc630223b54155226e1c2224bdc32a3ab9",
+      "occurrences": [
+        {
+          "file": "CONFIGURATION.md",
+          "start_line": 435,
+          "end_line": null,
+          "start_column": 37
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-c22b30ebde674e8091f9f075055a294d",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "CONFIGURATION.md",
+        "start_line": 439,
+        "end_line": null,
+        "start_column": 383
+      },
+      "finding": "DELETE /mcp`",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "ransport metadata without contacting SearXNG. A successful response does not verify tool calls or search readiness.\n\nHTTP sessions are stored in memory per process. Missing or blank required session IDs on stateful POST/GET/DELETE receive JSON HTTP 400. Unknown or terminated IDs receive JSON HTTP 404 with error code `-32001` and message `\"Session not found\"`; initialize requests are accepted even when they still carry a stale session header and mint a new secure session ID. Clients should send `DELETE /mcp` when finished: the first valid DELETE closes the session and returns an empty HTTP 204, while a repeated DELETE returns 404. After any session 404, recover by running `initialize` again.\n\nFor stateful requests after initialization, the `MCP-Protocol-Version` header may be omitted (the negotiated version is used) or set to a supported version. Unsupported values receive HTTP 400 from the pinned SDK. Modern HTTP requests remain sessionless POSTs, and STDIO remains the default transpor",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ca0b35d3d57511efcf7d1326b5cb73fc630223b54155226e1c2224bdc32a3ab9",
+      "occurrences": [
+        {
+          "file": "CONFIGURATION.md",
+          "start_line": 439,
+          "end_line": null,
+          "start_column": 383
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-1e35b946679e49098852cd34337d5cc8",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "README.md",
+        "start_line": 118,
+        "end_line": null,
+        "start_column": 21
+      },
+      "finding": "DELETE /mcp`",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "[replica configuration](https://github.com/ihor-sokoliuk/mcp-searxng/blob/main/CONFIGURATION.md).\n\nSTDIO is the default. Legacy Streamable HTTP sessions are stateful by default:\nclients should send `DELETE /mcp` when finished, then reinitialize if a later\nrequest receives HTTP 404 for the terminated session. Modern HTTP requests and\nthe `MCP_HTTP_STATELESS=true` legacy mode are sessionless; see\n[HTTP transport configuration](https://github.com/ihor-sokoliuk/mcp-searxng/blob/main/CONFIGURATION.md).",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ca0b35d3d57511efcf7d1326b5cb73fc630223b54155226e1c2224bdc32a3ab9",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 118,
+          "end_line": null,
+          "start_column": 21
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-0526c2d29806440daebae21e6830b23b",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "CONFIGURATION.md",
+        "start_line": 616,
+        "end_line": null,
+        "start_column": 74
+      },
+      "finding": "access\ntokens",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "## Optional OAuth protected resource\n\nThe static bearer-token gate is a non-OAuth deployment control. For MCP OAuth\nclients, configure an external authorization server to issue RFC 9068 JWT access\ntokens for this resource, then set:\n\n| Variable | Default | Meaning |",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5059bb7b75e9337932d45472816371182dc6083e9db6060d8b737da812751493",
+      "occurrences": [
+        {
+          "file": "CONFIGURATION.md",
+          "start_line": 616,
+          "end_line": null,
+          "start_column": 74
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-5ed16d7da0dc4dd9a02446f70c70e238",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "CONFIGURATION.md",
+        "start_line": 667,
+        "end_line": null,
+        "start_column": 48
+      },
+      "finding": "access tokens",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "This server is a protected resource, not an authorization server: login,\nregistration and token issuance belong to your provider. Opaque-token\nintrospection and immediate revocation are not implemented; locally verified\nJWTs remain valid until expiry. Use short-lived access tokens. The MCP access\ntoken is not forwarded as SearXNG credentials or included in error messages or\nconfiguration resources. Static mode and STDIO remain available.",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5059bb7b75e9337932d45472816371182dc6083e9db6060d8b737da812751493",
+      "occurrences": [
+        {
+          "file": "CONFIGURATION.md",
+          "start_line": 667,
+          "end_line": null,
+          "start_column": 48
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-611fa5a716dd4a03ab32b27f39d9f03a",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "SECURITY.md",
+        "start_line": 404,
+        "end_line": null,
+        "start_column": 26
+      },
+      "finding": "access tokens",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\nThe static bearer gate is a non-OAuth deployment control. Optional MCP OAuth\nprotected-resource support uses a configured external issuer and JWKS endpoint,\nvalidates signed RFC 9068 access tokens for this resource on every MCP request,\nand checks every required scope. Authentication failures return a generic 401;\ninsufficient scopes return 403, with protected-resource discovery challenges.\nTokens are never used as upstream SearXNG credentials. Use HTTPS, short token",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5059bb7b75e9337932d45472816371182dc6083e9db6060d8b737da812751493",
+      "occurrences": [
+        {
+          "file": "SECURITY.md",
+          "start_line": 404,
+          "end_line": null,
+          "start_column": 26
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-0cbc4f351b244b72be47af7d880b5c1a",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "docs/http-server.md",
+        "start_line": 22,
+        "end_line": null,
+        "start_column": 48
+      },
+      "finding": "access tokens",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "OAuth mode authenticates MCP requests independently of the hardening flag.\nFor exposed services, also enable hardening and configure the network controls.\nOAuth support does not make every provider/client combination compatible:\nthe provider must issue the required signed JWT access tokens for this resource.\nLogin, client registration and token issuance belong to the provider.\nSee [OAuth requirements and discovery routing](../CONFIGURATION.md#optional-oauth-protected-resource).\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5059bb7b75e9337932d45472816371182dc6083e9db6060d8b737da812751493",
+      "occurrences": [
+        {
+          "file": "docs/http-server.md",
+          "start_line": 22,
+          "end_line": null,
+          "start_column": 48
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-133384c2883a48cdb868d3d8ad219d6d",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "CONFIGURATION.md",
+        "start_line": 667,
+        "end_line": null,
+        "start_column": 71
+      },
+      "finding": "access\ntoken",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "This server is a protected resource, not an authorization server: login,\nregistration and token issuance belong to your provider. Opaque-token\nintrospection and immediate revocation are not implemented; locally verified\nJWTs remain valid until expiry. Use short-lived access tokens. The MCP access\ntoken is not forwarded as SearXNG credentials or included in error messages or\nconfiguration resources. Static mode and STDIO remain available.",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "CONFIGURATION.md",
+          "start_line": 667,
+          "end_line": null,
+          "start_column": 71
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-1c55d2d7320946bcae75898b9b8e54e8",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/integration/oauth-http.test.ts",
+        "start_line": 96,
+        "end_line": null,
+        "start_column": 93
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "        assert.ok(!(await failure!.text()).includes(value));\n      }, results);\n    }\n    await testFunction(\"OAuth requires every configured scope and accepts a correctly signed access token\", async () => {\n      const identity = await protection.authorize(`Bearer ${await token()}`);\n      assert.equal(typeof identity, \"string\");\n      assert.equal(await protection.authorize(`Bearer ${await token({ aud: [config.resource, \"https://other.example.com\"] })}`), identity);",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "__tests__/integration/oauth-http.test.ts",
+          "start_line": 96,
+          "end_line": null,
+          "start_column": 93
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-a4e0071c4b2847028f2b0177740389ee",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/oauth-http.ts",
+        "start_line": 76,
+        "end_line": null,
+        "start_column": 67
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "        return { token, clientId: payload.client_id as string, scopes: payload.scope.split(\" \").filter(Boolean), expiresAt: payload.exp, extra: { principal } };\n      } catch {\n        // Never expose JWTs, claims, JWKS URLs, or provider errors to clients/logs.\n        throw new OAuthError(OAuthErrorCode.InvalidToken, \"Invalid access token\");\n      }\n    },\n  };",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "src/oauth-http.ts",
+          "start_line": 76,
+          "end_line": null,
+          "start_column": 67
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-848b6c1843864ca6a91f292918b2d824",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/oauth-http.ts",
+        "start_line": 91,
+        "end_line": null,
+        "start_column": 114
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    async authorize(header: string | undefined): Promise<Response | string> {\n      try {\n        const auth = await verifyBearerToken(header, options);\n        if (typeof auth.extra?.principal !== \"string\") throw new OAuthError(OAuthErrorCode.InvalidToken, \"Invalid access token\");\n        return auth.extra.principal;\n      } catch (error) {\n        return bearerAuthChallengeResponse(error, options);",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "src/oauth-http.ts",
+          "start_line": 91,
+          "end_line": null,
+          "start_column": 114
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-10dbf70af2774a73963b7eeeb9823ea1",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/helpers/env-utils.ts",
+        "start_line": 30,
+        "end_line": null,
+        "start_column": 20
+      },
+      "finding": "Object.keys(process.env)",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": " * Restore the complete process environment, removing keys added after the snapshot.\n */\nexport function restoreProcessEnv(snapshot: ProcessEnvSnapshot): void {\n  for (const key of Object.keys(process.env)) {\n    if (!Object.hasOwn(snapshot, key)) {\n      delete process.env[key];\n    }",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7fa6dea7bef0a2e119733aab43a571da296c1b0fe15333533202a37e0f20b63d",
+      "occurrences": [
+        {
+          "file": "__tests__/helpers/env-utils.ts",
+          "start_line": 30,
+          "end_line": null,
+          "start_column": 20
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-59c7a7b8e3e844ed91fef98ff25f23a6",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/integration/credential-output.test.ts",
+        "start_line": 78,
+        "end_line": null,
+        "start_column": 20
+      },
+      "finding": "Object.keys(process.env)",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "}\n\nfunction configure(targetUrl: string, password: string) {\n  for (const key of Object.keys(process.env)) {\n    if (/proxy|^AUTH_|^SEARXNG_|^MCP_HTTP_|^FLARESOLVERR|^BYPARR/i.test(key)) delete process.env[key];\n  }\n  const configured = new URL(targetUrl + '/subpath/');",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7fa6dea7bef0a2e119733aab43a571da296c1b0fe15333533202a37e0f20b63d",
+      "occurrences": [
+        {
+          "file": "__tests__/integration/credential-output.test.ts",
+          "start_line": 78,
+          "end_line": null,
+          "start_column": 20
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-aa46e9ea35cc4bc4b8c91b04fa2ddef7",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/integration/diagnostic-security.test.ts",
+        "start_line": 330,
+        "end_line": null,
+        "start_column": 22
+      },
+      "finding": "Object.keys(process.env)",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "  }, results);\n\n  await testFunction(\"loopback HTTP errors and MCP notifications redact malformed proxy credentials\", () => withIsolatedEnv(async () => {\n    for (const key of Object.keys(process.env).filter(key =>\n      /proxy|^MCP_HTTP_|^FLARESOLVERR_|^BYPARR_|^AUTH_|^SEARXNG_FANOUT$/i.test(key))) {\n      delete process.env[key];\n    }",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7fa6dea7bef0a2e119733aab43a571da296c1b0fe15333533202a37e0f20b63d",
+      "occurrences": [
+        {
+          "file": "__tests__/integration/diagnostic-security.test.ts",
+          "start_line": 330,
+          "end_line": null,
+          "start_column": 22
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-fcd65961a1e84e5297dcd1540ec4d315",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/integration/oauth-http.test.ts",
+        "start_line": 20,
+        "end_line": null,
+        "start_column": 22
+      },
+      "finding": "Object.keys(process.env)",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "  const otherPair = await generateKeyPair(\"ES256\");\n  const jwk = { ...await exportJWK(pair.publicKey), kid: \"test-key\" };\n  function configure() {\n    for (const key of Object.keys(process.env)) if (key.startsWith(\"MCP_HTTP_\")) delete process.env[key];\n    Object.assign(process.env, {\n      MCP_HTTP_AUTH_MODE: \"oauth\",\n      MCP_HTTP_OAUTH_ISSUER: \"https://issuer.example.com\",",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7fa6dea7bef0a2e119733aab43a571da296c1b0fe15333533202a37e0f20b63d",
+      "occurrences": [
+        {
+          "file": "__tests__/integration/oauth-http.test.ts",
+          "start_line": 20,
+          "end_line": null,
+          "start_column": 22
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-92092f247b814857b96f80c5d99980d9",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/integration/oauth-http.test.ts",
+        "start_line": 65,
+        "end_line": null,
+        "start_column": 24
+      },
+      "finding": "Object.keys(process.env)",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "        assert.throws(getHttpOAuthConfig, /scope names/);\n      }\n      configure();\n      for (const key of Object.keys(process.env)) if (key.startsWith(\"MCP_HTTP_\")) delete process.env[key];\n      assert.equal(getHttpOAuthConfig(), undefined);\n      configure();\n    }, results);",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7fa6dea7bef0a2e119733aab43a571da296c1b0fe15333533202a37e0f20b63d",
+      "occurrences": [
+        {
+          "file": "__tests__/integration/oauth-http.test.ts",
+          "start_line": 65,
+          "end_line": null,
+          "start_column": 24
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-6b0f31f0971a4c6688d0259ab935fef8",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/unit/credential-output.test.ts",
+        "start_line": 64,
+        "end_line": null,
+        "start_column": 20
+      },
+      "finding": "Object.keys(process.env)",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "}\n\nfunction clearEnvironment() {\n  for (const key of Object.keys(process.env)) {\n    if (/proxy|^AUTH_|^SEARXNG_|^MCP_HTTP_/i.test(key)) delete process.env[key];\n  }\n}",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7fa6dea7bef0a2e119733aab43a571da296c1b0fe15333533202a37e0f20b63d",
+      "occurrences": [
+        {
+          "file": "__tests__/unit/credential-output.test.ts",
+          "start_line": 64,
+          "end_line": null,
+          "start_column": 20
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-e08c4f9314b94273b55c04aca3e1c0f3",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/unit/proxy.test.ts",
+        "start_line": 110,
+        "end_line": null,
+        "start_column": 22
+      },
+      "finding": "Object.keys(process.env)",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "  }, results);\n\n  await testFunction('Proxy configuration errors omit raw credentials before logging', () => {\n    for (const key of Object.keys(process.env).filter(key => /proxy$/i.test(key))) {\n      envManager.delete(key);\n    }\n    try {",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7fa6dea7bef0a2e119733aab43a571da296c1b0fe15333533202a37e0f20b63d",
+      "occurrences": [
+        {
+          "file": "__tests__/unit/proxy.test.ts",
+          "start_line": 110,
+          "end_line": null,
+          "start_column": 22
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-76a816a134d74d419247c97b92f130ff",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "__tests__/integration/http-server.test.ts",
+        "start_line": 3176,
+        "end_line": null,
+        "start_column": 22
+      },
+      "finding": "DELETE /mcp",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "    assert.equal(res.body.error.message, 'Session not found');\n  }, results);\n\n  await testFunction('DELETE /mcp without sessionId returns 400', async () => {\n    const app = await createHttpServer(() => createTestMcpServer());\n\n    const res = await request(app).delete('/mcp');",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5465e7f3fed8e5a41d2f91733122d92d04ab0dd730c2d769ef6422b12d994023",
+      "occurrences": [
+        {
+          "file": "__tests__/integration/http-server.test.ts",
+          "start_line": 3176,
+          "end_line": null,
+          "start_column": 22
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-8e3824d64b8f423e9fd492a57a2ca969",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "__tests__/integration/http-server.test.ts",
+        "start_line": 3190,
+        "end_line": null,
+        "start_column": 22
+      },
+      "finding": "DELETE /mcp",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "    assert.equal(blank.body.error.code, -32000);\n  }, results);\n\n  await testFunction('DELETE /mcp with unknown sessionId returns 404', async () => {\n    const app = await createHttpServer(() => createTestMcpServer());\n\n    const res = await request(app)",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5465e7f3fed8e5a41d2f91733122d92d04ab0dd730c2d769ef6422b12d994023",
+      "occurrences": [
+        {
+          "file": "__tests__/integration/http-server.test.ts",
+          "start_line": 3190,
+          "end_line": null,
+          "start_column": 22
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-6e3890c0f5b74b5c8ad3aa0b41f20238",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "__tests__/integration/http-server.test.ts",
+        "start_line": 3908,
+        "end_line": null,
+        "start_column": 37
+      },
+      "finding": "DELETE /mcp",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "    envManager.restore();\n  }, results);\n\n  await testFunction('Rate limiting: DELETE /mcp returns 429 after exceeding sessionLimiter limit', async () => {\n    envManager.set('MCP_RATE_SESSION_MAX', '3');\n    envManager.set('MCP_RATE_WINDOW_MS', '60000');\n    const app = await createHttpServer(() => createTestMcpServer());",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5465e7f3fed8e5a41d2f91733122d92d04ab0dd730c2d769ef6422b12d994023",
+      "occurrences": [
+        {
+          "file": "__tests__/integration/http-server.test.ts",
+          "start_line": 3908,
+          "end_line": null,
+          "start_column": 37
+        }
+      ]
+    },
+    {
+      "id": "AR2",
+      "finding_id": "finding-1fc86d889151458591bb2e636f7346ad",
+      "category": "Anti-Refusal",
+      "pattern": "Anti-Refusal Statement",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "__tests__/unit/http-server.test.ts",
+        "start_line": 88,
+        "end_line": 88,
+        "start_column": 67,
+        "end_column": 77
+      },
+      "finding": "no warning",
+      "explanation": "Skill instructs the agent to omit warnings, disclaimers, or ethical commentary. Stripping safety caveats hides risk from the user and is a common jailbreak preamble.",
+      "remediation": "Remove instructions that suppress warnings, disclaimers, or ethical commentary. Let the agent surface safety-relevant caveats to the user.",
+      "code_snippet": "\n  // --- parseRateLimitEnv() ---\n\n  await testFunction('parseRateLimitEnv: unset env var \u2192 fallback, no warning', () => {\n    envManager.delete('MCP_RATE_TEST');\n    let result = 0;\n    const warnings = captureWarnings(() => { result = parseRateLimitEnv('MCP_RATE_TEST', 20); });",
+      "intent": null,
+      "tags": [
+        "Anti-Refusal"
+      ],
+      "evidence": {},
+      "match_fingerprint": "449e47b25897541aa26f8824417d1280ef58d2d29e5e3ba95502143b7207c9ec",
+      "occurrences": [
+        {
+          "file": "__tests__/unit/http-server.test.ts",
+          "start_line": 88,
+          "end_line": 88,
+          "start_column": 67,
+          "end_column": 77
+        }
+      ]
+    },
+    {
+      "id": "AR2",
+      "finding_id": "finding-57717e54c5ab4713944f63cd348a20bd",
+      "category": "Anti-Refusal",
+      "pattern": "Anti-Refusal Statement",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "__tests__/unit/http-server.test.ts",
+        "start_line": 97,
+        "end_line": 97,
+        "start_column": 69,
+        "end_column": 79
+      },
+      "finding": "no warning",
+      "explanation": "Skill instructs the agent to omit warnings, disclaimers, or ethical commentary. Stripping safety caveats hides risk from the user and is a common jailbreak preamble.",
+      "remediation": "Remove instructions that suppress warnings, disclaimers, or ethical commentary. Let the agent surface safety-relevant caveats to the user.",
+      "code_snippet": "    assert.equal(warnings.length, 0, 'absent value must not warn');\n  }, results);\n\n  await testFunction('parseRateLimitEnv: whitespace-only \u2192 fallback, no warning', () => {\n    envManager.set('MCP_RATE_TEST', '   ');\n    let result = 0;\n    const warnings = captureWarnings(() => { result = parseRateLimitEnv('MCP_RATE_TEST', 20); });",
+      "intent": null,
+      "tags": [
+        "Anti-Refusal"
+      ],
+      "evidence": {},
+      "match_fingerprint": "449e47b25897541aa26f8824417d1280ef58d2d29e5e3ba95502143b7207c9ec",
+      "occurrences": [
+        {
+          "file": "__tests__/unit/http-server.test.ts",
+          "start_line": 97,
+          "end_line": 97,
+          "start_column": 69,
+          "end_column": 79
+        }
+      ]
+    },
+    {
+      "id": "AR2",
+      "finding_id": "finding-5ca17e7a71714c639cb8fd8455f5f584",
+      "category": "Anti-Refusal",
+      "pattern": "Anti-Refusal Statement",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "__tests__/unit/http-server.test.ts",
+        "start_line": 152,
+        "end_line": 152,
+        "start_column": 83,
+        "end_column": 99
+      },
+      "finding": "without warnings",
+      "explanation": "Skill instructs the agent to omit warnings, disclaimers, or ethical commentary. Stripping safety caveats hides risk from the user and is a common jailbreak preamble.",
+      "remediation": "Remove instructions that suppress warnings, disclaimers, or ethical commentary. Let the agent surface safety-relevant caveats to the user.",
+      "code_snippet": "    envManager.restore();\n  }, results);\n\n  await testFunction('parseRateLimitEnv: strict positive integer forms are honored without warnings', () => {\n    for (const [raw, expected] of [\n      ['50', 50],\n      ['+5', 5],",
+      "intent": null,
+      "tags": [
+        "Anti-Refusal"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5794522f6c58178944cac8e9c872993a23e09b00e15b2f4981f8cd97acee1cf9",
+      "occurrences": [
+        {
+          "file": "__tests__/unit/http-server.test.ts",
+          "start_line": 152,
+          "end_line": 152,
+          "start_column": 83,
+          "end_column": 99
+        }
+      ]
+    },
+    {
+      "id": "SSRF1",
+      "finding_id": "finding-873c08ecf7a4482ba778a0b454516485",
+      "category": "Server-Side Request Forgery",
+      "pattern": "Cloud Metadata Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "__tests__/unit/url-reader.test.ts",
+        "start_line": 2371,
+        "end_line": null,
+        "start_column": 39
+      },
+      "finding": "169.254.169.254",
+      "explanation": "Code accesses a cloud instance metadata endpoint (e.g. 169.254.169.254). A single request can return temporary IAM credentials, making this a high-value SSRF target for credential theft.",
+      "remediation": "Remove access to cloud metadata endpoints unless strictly required. If metadata is needed, restrict it (e.g. IMDSv2 with hop limit) and never expose returned credentials.",
+      "code_snippet": "      'ten.example': [{ address: '10.0.0.5', family: 4 }],\n      'lan.example': [{ address: '192.168.1.20', family: 4 }],\n      'rfc1918.example': [{ address: '172.16.0.9', family: 4 }],\n      'metadata.example': [{ address: '169.254.169.254', family: 4 }],\n      'cgnat.example': [{ address: '100.64.0.1', family: 4 }],\n    };\n    const restoreDns = installDnsLookupMock(privateCases);",
+      "intent": null,
+      "tags": [
+        "Server-Side Request Forgery"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d61ab72824eae3143803cfed4f723d8454fedefdac1d6ad5c7f4299f9032a6ee",
+      "occurrences": [
+        {
+          "file": "__tests__/unit/url-reader.test.ts",
+          "start_line": 2371,
+          "end_line": null,
+          "start_column": 39
+        }
+      ]
+    },
+    {
+      "id": "SSRF1",
+      "finding_id": "finding-633428692952414288f02a58c217cc12",
+      "category": "Server-Side Request Forgery",
+      "pattern": "Cloud Metadata Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "__tests__/unit/url-security.test.ts",
+        "start_line": 65,
+        "end_line": null,
+        "start_column": 32
+      },
+      "finding": "169.254.169.254",
+      "explanation": "Code accesses a cloud instance metadata endpoint (e.g. 169.254.169.254). A single request can return temporary IAM credentials, making this a high-value SSRF target for credential theft.",
+      "remediation": "Remove access to cloud metadata endpoints unless strictly required. If metadata is needed, restrict it (e.g. IMDSv2 with hop limit) and never expose returned credentials.",
+      "code_snippet": "    assert.equal(isPrivateIpv4('127.0.0.1'), true);\n    assert.equal(isPrivateIpv4('126.255.255.255'), false);\n    // link-local 169.254.0.0/16 boundaries\n    assert.equal(isPrivateIpv4('169.254.169.254'), true);\n    assert.equal(isPrivateIpv4('169.253.255.255'), false);\n    assert.equal(isPrivateIpv4('169.255.0.0'), false);\n    // RFC1918 172.16.0.0/12 boundaries",
+      "intent": null,
+      "tags": [
+        "Server-Side Request Forgery"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d61ab72824eae3143803cfed4f723d8454fedefdac1d6ad5c7f4299f9032a6ee",
+      "occurrences": [
+        {
+          "file": "__tests__/unit/url-security.test.ts",
+          "start_line": 65,
+          "end_line": null,
+          "start_column": 32
+        }
+      ]
+    },
+    {
+      "id": "SSRF1",
+      "finding_id": "finding-a3c4d05daf32433dadebe204613a97fa",
+      "category": "Server-Side Request Forgery",
+      "pattern": "Cloud Metadata Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "__tests__/unit/url-security.test.ts",
+        "start_line": 95,
+        "end_line": null,
+        "start_column": 57
+      },
+      "finding": "169.254.169.254",
+      "explanation": "Code accesses a cloud instance metadata endpoint (e.g. 169.254.169.254). A single request can return temporary IAM credentials, making this a high-value SSRF target for credential theft.",
+      "remediation": "Remove access to cloud metadata endpoints unless strictly required. If metadata is needed, restrict it (e.g. IMDSv2 with hop limit) and never expose returned credentials.",
+      "code_snippet": "\n  await testFunction('isPrivateIPv6 decodes every blocked IPv4 category across embeddings', () => {\n    const blockedIpv4 = [\n      '0.0.0.0', '10.0.0.1', '100.64.0.1', '127.0.0.1', '169.254.169.254',\n      '172.16.0.1', '192.0.0.1', '192.0.2.1', '192.88.99.1', '192.168.0.1',\n      '198.18.0.1', '198.51.100.1', '203.0.113.1', '224.0.0.1', '240.0.0.1',\n    ];",
+      "intent": null,
+      "tags": [
+        "Server-Side Request Forgery"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d61ab72824eae3143803cfed4f723d8454fedefdac1d6ad5c7f4299f9032a6ee",
+      "occurrences": [
+        {
+          "file": "__tests__/unit/url-security.test.ts",
+          "start_line": 95,
+          "end_line": null,
+          "start_column": 57
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-2cf680122b0c497c8734363caad77035",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "docs/browser-solver-deployment.md",
+        "start_line": 44,
+        "end_line": null,
+        "start_column": 90
+      },
+      "finding": ".env\"",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  cp docs/examples/search-stack/settings/settings.yml \"$search_stack_dir/settings/settings.yml\" || return 1\n  searxng_secret=\"$(openssl rand -hex 32)\" || return 1\n  printf 'SEARXNG_SECRET=%s\\nMCP_SOURCE_DIR=%s\\nSEARXNG_SETTINGS_DIR=%s\\n' \\\n    \"$searxng_secret\" \"$mcp_source_dir\" \"$search_stack_dir/settings\" > \"$search_stack_dir/.env\" || return 1\n  unset searxng_secret\n  cd \"$search_stack_dir\" || return 1\n  docker compose -f compose.yml config --quiet",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "933e7e6dda63d615cb9ac0846682521855cd79c351e84f3fa87d934c18b752db",
+      "occurrences": [
+        {
+          "file": "docs/browser-solver-deployment.md",
+          "start_line": 44,
+          "end_line": null,
+          "start_column": 90
+        }
+      ]
+    },
+    {
+      "id": "AS1",
+      "finding_id": "finding-9da9963fc1614d57a31b6f5bd5374807",
+      "category": "Agent Snooping",
+      "pattern": "Agent Config Directory Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "docs/client-configurations.md",
+        "start_line": 174,
+        "end_line": null,
+        "start_column": 42
+      },
+      "finding": "~/.codex/config.toml",
+      "explanation": "Skill reads from agent configuration directories (.claude/, .codex/, .gemini/). These directories may contain API keys, personal settings, and other credentials that the skill has no legitimate need to access.",
+      "remediation": "Remove all code or instructions that access agent configuration directories (.claude/, .codex/, .gemini/). If configuration values are needed, pass them explicitly as parameters or environment variables \u2014 never read the agent's own config files.",
+      "code_snippet": "\n## Codex CLI\n\nAdd one local table or the HTTP table to `~/.codex/config.toml` (on Windows,\n`%USERPROFILE%\\.codex\\config.toml`). The TOML shape is the same on every\nplatform.\n",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac8a2c85e2eeb5e14c174cae3d679d330225a562a4847ce1a64de3a1bcf488fb",
+      "occurrences": [
+        {
+          "file": "docs/client-configurations.md",
+          "start_line": 174,
+          "end_line": null,
+          "start_column": 42
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-57da86d75b894e95822484d5e2b94038",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "docs/troubleshooting.md",
+        "start_line": 79,
+        "end_line": null,
+        "start_column": 134
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n| Observable error | Check and interpretation | Next action |\n|---|---|---|\n| MCP `401` | Check the configured auth mode. Static mode expects the operator's token; OAuth requires provider discovery and a valid access token for this resource. | Follow [authentication setup](http-server.md#choose-authentication). SearXNG Basic Auth does not authenticate MCP clients. |\n| MCP `403` | Inspect Host/Origin errors or an OAuth scope challenge. An invalid present Origin is rejected even outside hardened mode. | Compare the actual request Host and Origin with exact allowlist entries; check OAuth scopes. Do not disable protection to guess the cause. |\n| `404` with `Session not found` | A retained legacy session may have expired or reached another process. | Reconnect/reinitialize the client. Review [session handling](../CONFIGURATION.md#http-transport) if the deployment cannot keep sessions on one process. |\n| HTTP `400` protocol/header mismatch, or `405` | Check client/server versions, the endpo",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "docs/troubleshooting.md",
+          "start_line": 79,
+          "end_line": null,
+          "start_column": 134
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-970fc2d5bc3d4b3ab7ded17a538e5517",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/verify-packed-consumer.mjs",
+        "start_line": 110,
+        "end_line": null,
+        "start_column": 42
+      },
+      "finding": ".npmrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "}\n\nfunction isolatedNpmEnvironment(root) {\n  const userConfig = path.join(root, 'user.npmrc');\n  const globalConfig = path.join(root, 'global.npmrc');\n  // eslint-disable-next-line security/detect-non-literal-fs-filename -- root is created by mkdtempSync for this verifier\n  writeFileSync(userConfig, '', 'utf8');",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "90db6f55d69f559161a2849fde8edffb507139938d60d5919717abb304e0abfe",
+      "occurrences": [
+        {
+          "file": "scripts/verify-packed-consumer.mjs",
+          "start_line": 110,
+          "end_line": null,
+          "start_column": 42
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-9c9cf677a7784508b28ddcd5c34bb086",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/verify-packed-consumer.mjs",
+        "start_line": 111,
+        "end_line": null,
+        "start_column": 46
+      },
+      "finding": ".npmrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\nfunction isolatedNpmEnvironment(root) {\n  const userConfig = path.join(root, 'user.npmrc');\n  const globalConfig = path.join(root, 'global.npmrc');\n  // eslint-disable-next-line security/detect-non-literal-fs-filename -- root is created by mkdtempSync for this verifier\n  writeFileSync(userConfig, '', 'utf8');\n  // eslint-disable-next-line security/detect-non-literal-fs-filename -- root is created by mkdtempSync for this verifier",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "90db6f55d69f559161a2849fde8edffb507139938d60d5919717abb304e0abfe",
+      "occurrences": [
+        {
+          "file": "scripts/verify-packed-consumer.mjs",
+          "start_line": 111,
+          "end_line": null,
+          "start_column": 46
+        }
+      ]
+    },
+    {
+      "id": "SC3",
+      "finding_id": "finding-1d5fff569a784ec6af2f6767e4ea1062",
+      "category": "Supply Chain",
+      "pattern": "Obfuscated Code",
+      "severity": "HIGH",
+      "confidence": 0.5,
+      "location": {
+        "file": "scripts/verify-packed-consumer.mjs",
+        "start_line": 171,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "'JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDA",
+      "explanation": "Code contains obfuscation (base64, hex encoding with execution). This is often used to hide malicious functionality.",
+      "remediation": "Remove obfuscated code. Use plain, readable implementations. Obfuscation hinders security review and raises trust concerns.",
+      "code_snippet": "\nfunction packedPdfSmokeScript() {\n  const fixture =\n    'JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA2MTIgNzkyXSAvUmVzb3VyY2VzIDw8IC9Gb250IDw8IC9GMSA0IDAgUiA+PiA+PiAvQ29udGVudHMgNSAwIFIgPj4KZW5kb2JqCjQgMCBvYmoKPDwgL1R5cGUgL0ZvbnQgL1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0aWNhID4+CmVuZG9iago1IDAgb2JqCjw8IC9MZW5ndGggNDggPj4Kc3RyZWFtCkJUIC9GMSAxMiBUZiA3MiA3MjAgVGQgKFBhY2tlZCBQREYgd29ya2VyKSBUaiBFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAwOSAwMDAwMCBuIAowMDAwMDAwMDU4IDAwMDAwIG4gCjAwMDAwMDAxMTUgMDAwMDAgbiAKMDAwMDAwMDI0MSAwMDAwMCBuIAowMDAwMDAwMzExIDAwMDAwIG4gCnRyYWlsZXIKPDwgL1NpemUgNiAvUm9vdCAxIDAgUiA+PgpzdGFydHhyZWYKNDA5CiUlRU9GCg==';\n  return [\n    \"import path from 'node:path';\",\n    \"import { pathToFileURL } from 'node:url';\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "aa5496ec2775bc449335aa2e510e613cb46797b51064b2fdb0e604b19aa9820a",
+      "occurrences": [
+        {
+          "file": "scripts/verify-packed-consumer.mjs",
+          "start_line": 171,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "YR4",
+      "finding_id": "finding-f2532f4bd8234cf480768b178d31ceee",
+      "category": "YARA Match",
+      "pattern": "YARA rule 'agent_skill_mcp_tool_poisoning_metadata': MCP/tool metadata poisoning indicators in tool schemas or skill manifests [agent_skills]",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "scripts/verify-packed-consumer.mjs",
+        "start_line": 171,
+        "end_line": null
+      },
+      "finding": "tools=; JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVu",
+      "explanation": "YARA rule matched a hack tool or exploit indicator (offensive tools, reconnaissance, privilege escalation, or exploit frameworks).",
+      "remediation": "Remove offensive tool references and exploit code. Legitimate agent skills should not contain penetration testing tools, exploit frameworks, or reconnaissance utilities.",
+      "code_snippet": "  params: {},\n    },\n    {\n      jsonrpc: '2.0',\n      id: 4,\n      method: 'resources/read',\n      params: { uri: 'config://server-config' },\n    },\n    {\n      jsonrpc: '2.0',\n      id: 5,\n      method: 'resources/read',\n      params: { uri: 'help://usage-guide' },\n    },\n  ].map((message) => JSON.stringify(message)).join('\\n') + '\\n';\n}\n\nfunction packedPdfSmokeScript() {\n  const fixture =\n    'JVBERi0xLjQKMSAwIG9iago8PCAvVHlwZSAvQ2F0YWxvZyAvUGFnZXMgMiAwIFIgPj4KZW5kb2JqCjIgMCBvYmoKPDwgL1R5cGUgL1BhZ2VzIC9LaWRzIFszIDAgUl0gL0NvdW50IDEgPj4KZW5kb2JqCjMgMCBvYmoKPDwgL1R5cGUgL1BhZ2UgL1BhcmVudCAyIDAgUiAvTWVkaWFCb3ggWzAgMCA2MTIgNzkyXSAvUmVzb3VyY2VzIDw8IC9Gb250IDw8IC9GMSA0IDAgUiA+PiA+PiAvQ29udGVudHMgNSAwIFIgPj4KZW5kb2JqCjQgMCBvYmoKPDwgL1R5cGUgL0ZvbnQgL1N1YnR5cGUgL1R5cGUxIC9CYXNlRm9udCAvSGVsdmV0aWNhID4+CmVuZG9iago1IDAgb2JqCjw8IC9MZW5ndGggNDggPj4Kc3RyZWFtCkJUIC9GMSAxMiBUZiA3MiA3MjAgVGQgKFBhY2tlZCBQREYgd29ya2VyKSBUaiBFVAplbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCA2CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDAwOSAw",
+      "intent": null,
+      "tags": [
+        "YARA Match"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f58127554e3d538b6b0146c592b22d70e4bcda339e7f8d34b751f10c1dd4c317",
+      "occurrences": [
+        {
+          "file": "scripts/verify-packed-consumer.mjs",
+          "start_line": 171,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-5c6d6a9095634bcf86fd65acba9078c6",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/error-handler.ts",
+        "start_line": 51,
+        "end_line": null,
+        "start_column": 76
+      },
+      "finding": "Keychain",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    return 'Set NODE_EXTRA_CA_CERTS=C:\\\\path\\\\to\\\\ca-bundle.pem before starting the server.';\n  }\n  if (platform === 'darwin') {\n    return 'Run: sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /path/to/ca.crt';\n  }\n  return 'Run: sudo cp /path/to/ca.crt /usr/local/share/ca-certificates/ && sudo update-ca-certificates';\n}",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "044e59b8cb232d8d2a59d6f4b1e8fe2b50ce1a35abe47e0398df30fd491b561c",
+      "occurrences": [
+        {
+          "file": "src/error-handler.ts",
+          "start_line": 51,
+          "end_line": null,
+          "start_column": 76
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-36bcd2223ada4ce5a45c983db7edb664",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/error-handler.ts",
+        "start_line": 51,
+        "end_line": null,
+        "start_column": 93
+      },
+      "finding": "keychain",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    return 'Set NODE_EXTRA_CA_CERTS=C:\\\\path\\\\to\\\\ca-bundle.pem before starting the server.';\n  }\n  if (platform === 'darwin') {\n    return 'Run: sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /path/to/ca.crt';\n  }\n  return 'Run: sudo cp /path/to/ca.crt /usr/local/share/ca-certificates/ && sudo update-ca-certificates';\n}",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "cf159af5f3c5aa20214f7ff51b2ec06e8190ff1ab76c35f09188a749bd35c424",
+      "occurrences": [
+        {
+          "file": "src/error-handler.ts",
+          "start_line": 51,
+          "end_line": null,
+          "start_column": 93
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-01d690e92921426b9debfa53427559c9",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/error-handler.ts",
+        "start_line": 53,
+        "end_line": null,
+        "start_column": 73
+      },
+      "finding": "&& sudo",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "  if (platform === 'darwin') {\n    return 'Run: sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /path/to/ca.crt';\n  }\n  return 'Run: sudo cp /path/to/ca.crt /usr/local/share/ca-certificates/ && sudo update-ca-certificates';\n}\n\nexport function createNetworkError(error: any, context: ErrorContext): MCPSearXNGError {",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d54d4fa72a85501965b136126c5daeba7ca262314088bebfb309c2d7804c3dda",
+      "occurrences": [
+        {
+          "file": "src/error-handler.ts",
+          "start_line": 53,
+          "end_line": null,
+          "start_column": 73
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-00ed4120b672455eb73f2e7896c5e4f1",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx mcp-searxng'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/ISSUE_TEMPLATE/bug_report.yml",
+        "start_line": 54,
+        "end_line": null
+      },
+      "finding": "npx mcp-searxng",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "21a8829909a4cfd5243b7eb8e3b78edeb54b84a9c88b9cae8988d578f2e7c90c",
+      "occurrences": [
+        {
+          "file": ".github/ISSUE_TEMPLATE/bug_report.yml",
+          "start_line": 54,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-067349e55edf467f9ba4c85d58c13ee4",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker run command'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": ".github/ISSUE_TEMPLATE/bug_report.yml",
+        "start_line": 91,
+        "end_line": null
+      },
+      "finding": "docker run command",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3199244f39827da5aafeabc24ca3e0c02eb40a8a470096ad06d2e7b27f41c71a",
+      "occurrences": [
+        {
+          "file": ".github/ISSUE_TEMPLATE/bug_report.yml",
+          "start_line": 91,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-861888adf8a94615bece0984d2b72467",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx or'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 77,
+        "end_line": null
+      },
+      "finding": "npx or",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c930bbb355a055b442c054679fb5eb22b3b9ce8fbd202ead331ee6d90dbc3fd",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 77,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-03960b2a28c241ef873d25fb725d5419",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx or'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 101,
+        "end_line": null
+      },
+      "finding": "npx or",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c930bbb355a055b442c054679fb5eb22b3b9ce8fbd202ead331ee6d90dbc3fd",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 101,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "TM3",
+      "finding_id": "finding-a4a2bffd4a4c4dec80077c6630f58b50",
+      "category": "Tool Misuse",
+      "pattern": "Unsafe Defaults",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 438,
+        "end_line": null,
+        "start_column": 492
+      },
+      "finding": "NODE_TLS_REJECT_UNAUTHORIZED=0",
+      "explanation": "Tool defaults are unsafe or overly permissive (e.g. disabled TLS verification, no authentication, world-writable permissions). Unsafe defaults widen the attack surface.",
+      "remediation": "Override unsafe defaults with secure settings (verify=True, auth required, restrictive permissions). Review and harden all tool configurations.",
+      "code_snippet": "ncluding the response preview, instead of failing with an opaque \"Invalid JSON format\". (FEAT-053, [#141](https://github.com/ihor-sokoliuk/mcp-searxng/pull/141), resolves [#137](https://github.com/ihor-sokoliuk/mcp-searxng/issues/137))\n\n- **Documented `NODE_EXTRA_CA_CERTS` for Windows and corporate-proxy TLS:** A new \"TLS / Corporate CA\" section in `CONFIGURATION.md` explains that Linux and macOS auto-detect the system CA bundle, while Windows users behind a TLS-inspecting corporate proxy (Zscaler, Netskope, Palo Alto, Blue Coat) must export the proxy's root CA to PEM and point the standard Node.js `NODE_EXTRA_CA_CERTS` variable at it \u2014 with the PowerShell export steps and an explicit warning never to use the insecure `NODE_TLS_REJECT_UNAUTHORIZED=0`. No code change; the variable was already honored by Node/undici. (FEAT-054, [#143](https://github.com/ihor-sokoliuk/mcp-searxng/pull/143), resolves [#138](https://github.com/ihor-sokoliuk/mcp-searxng/issues/138))\n\n## [1.9.0] - 2026-07-02\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3e26b5bae0badc2e771f65814013ca5c464cd85086af39c403a60d1c61f0fe08",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 438,
+          "end_line": null,
+          "start_column": 492
+        }
+      ]
+    },
+    {
+      "id": "TM3",
+      "finding_id": "finding-7ff4fd07c4af4105936e2faeb7df5844",
+      "category": "Tool Misuse",
+      "pattern": "Unsafe Defaults",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "CONFIGURATION.md",
+        "start_line": 352,
+        "end_line": null,
+        "start_column": 11
+      },
+      "finding": "NODE_TLS_REJECT_UNAUTHORIZED=0",
+      "explanation": "Tool defaults are unsafe or overly permissive (e.g. disabled TLS verification, no authentication, world-writable permissions). Unsafe defaults widen the attack surface.",
+      "remediation": "Override unsafe defaults with secure settings (verify=True, auth required, restrictive permissions). Review and harden all tool configurations.",
+      "code_snippet": "}\n```\n\nNever set `NODE_TLS_REJECT_UNAUTHORIZED=0`. It disables all TLS certificate validation for the Node.js process and makes HTTPS connections vulnerable to interception.\n\n## HTTP Transport\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3e26b5bae0badc2e771f65814013ca5c464cd85086af39c403a60d1c61f0fe08",
+      "occurrences": [
+        {
+          "file": "CONFIGURATION.md",
+          "start_line": 352,
+          "end_line": null,
+          "start_column": 11
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-cf3c21d01c8c44d9aa8e5312938ad62a",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx invocation'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 613,
+        "end_line": null
+      },
+      "finding": "npx invocation",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3244cbdb1a4f47ec10f258356d1b7b3233e4068dd5202b70fdcef730487703de",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 613,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-af1b1160a36f410b99aad1a83d30d41a",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "CODE_OF_CONDUCT.md",
+        "start_line": 27,
+        "end_line": null,
+        "start_column": 60
+      },
+      "finding": "without consent",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "- Harassment, intimidation, threats, or sustained disruption\n- Insults, slurs, demeaning jokes, or personal attacks\n- Sexualized language, imagery, or attention in project spaces\n- Publishing private communications or personal information without consent\n- Repeatedly pushing a conversation after being asked to stop\n- Using project spaces to promote hate, exclusion, or targeted abuse\n- Any conduct that would reasonably make participation unsafe or unwelcome",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8f513068f50cde8c1bd5e878987a91aa2876dd293703f25117ca09675437e4d5",
+      "occurrences": [
+        {
+          "file": "CODE_OF_CONDUCT.md",
+          "start_line": 27,
+          "end_line": null,
+          "start_column": 60
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-97c8e7e49b894ca3a2b1bfe083b5fd14",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "README.md",
+        "start_line": 12,
+        "end_line": null,
+        "start_column": 22
+      },
+      "finding": "https://api.scorecard.dev/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "[![npm downloads](https://img.shields.io/npm/dm/mcp-searxng?style=flat-square&logo=npm&label=downloads%2Fmo%29%5D%28https%3A%2F%2Fwww.npmjs.com%2Fpackage%2Fmcp-searxng)\n[![Docker Pulls](https://img.shields.io/docker/pulls/isokoliuk/mcp-searxng?style=flat-square&logo=docker%29%5D%28https%3A%2F%2Fhub.docker.com%2Fr%2Fisokoliuk%2Fmcp-searxng)\n[![License: MIT](https://img.shields.io/badge/license-MIT-blue?style=flat-square%29%5D%28LICENSE)\n[![OpenSSF Scorecard](https://api.scorecard.dev/projects/github.com/ihor-sokoliuk/mcp-searxng/badge)](https://scorecard.dev/viewer/?uri=github.com%2Fihor-sokoliuk%2Fmcp-searxng)\n[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/13143/badge)](https://www.bestpractices.dev/projects/13143)\n[![mcp-searxng MCP server](https://glama.ai/mcp/servers/ihor-sokoliuk/mcp-searxng/badges/score.svg)](https://glama.ai/mcp/servers/ihor-sokoliuk/mcp-searxng)\n[![GitHub MCP Registry](https://img.shields.io/badge/GitHub_MCP_Registry-listed-2da44e?style=flat-square&logo=github&logoColor=white%29%5D%28https%3A%2F%2F",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "425578e87429e13998b1fddbdbef001bd6a70d2b09c610470a6273c458391dce",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 12,
+          "end_line": null,
+          "start_column": 22
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-8bede2950b1c4a798e15ef0a205e08ad",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'NPX example'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 34,
+        "end_line": null
+      },
+      "finding": "NPX example",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "04ddacce5cf44641adc991cc79c11e371c8af0a3764f5c565bfbe00b70d43a3c",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 34,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-125ec5271b1042688ab339f8483f198f",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'NPX and'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 142,
+        "end_line": null
+      },
+      "finding": "NPX and",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "674ad8864292f943e300a7ec6e62433397b1359bcaf04d77a7dd320b58bdb9f1",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 142,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-4264043a540d404d8e4de2e8f63393b3",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'NPX and'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/unit/documentation.test.ts",
+        "start_line": 576,
+        "end_line": null
+      },
+      "finding": "NPX and",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "674ad8864292f943e300a7ec6e62433397b1359bcaf04d77a7dd320b58bdb9f1",
+      "occurrences": [
+        {
+          "file": "__tests__/unit/documentation.test.ts",
+          "start_line": 576,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-eef391527f314a97ad3044cde40c0d42",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'NPX and'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "docs/deployment-profiles.md",
+        "start_line": 82,
+        "end_line": null
+      },
+      "finding": "NPX and",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "674ad8864292f943e300a7ec6e62433397b1359bcaf04d77a7dd320b58bdb9f1",
+      "occurrences": [
+        {
+          "file": "docs/deployment-profiles.md",
+          "start_line": 82,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-60d5c59f06b943228a6981c917e1938f",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker pull isokoliuk/mcp-searxng:latest'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "README.md",
+        "start_line": 173,
+        "end_line": null
+      },
+      "finding": "docker pull isokoliuk/mcp-searxng:latest",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9ae9cf43bdf008e5a57da5917ac68f47cbb62d0c2ef84dca6d9755a372e0123b",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 173,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-1422c52b04a9409a883f8c0ea6fc86cf",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx tsx'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/README.md",
+        "start_line": 12,
+        "end_line": null
+      },
+      "finding": "npx tsx",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c4192318b5e992b01b5d662b1759272d7e627eb792d40d90d04ed8bba9b08121",
+      "occurrences": [
+        {
+          "file": "__tests__/README.md",
+          "start_line": 12,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-478b4e925e1d40958354b2a29b1b003b",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx tsx'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/real-life/test-gzip-fix.ts",
+        "start_line": 14,
+        "end_line": null
+      },
+      "finding": "npx tsx",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c4192318b5e992b01b5d662b1759272d7e627eb792d40d90d04ed8bba9b08121",
+      "occurrences": [
+        {
+          "file": "__tests__/real-life/test-gzip-fix.ts",
+          "start_line": 14,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-ade12a26ee02410c9778fa94b57e3ffa",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'NPX\nentry'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "docs/client-configurations.md",
+        "start_line": 73,
+        "end_line": null
+      },
+      "finding": "NPX\nentry",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0be013e71b388e0de2b0773aead9445ae566fce0cb4296757521174155a84bb2",
+      "occurrences": [
+        {
+          "file": "docs/client-configurations.md",
+          "start_line": 73,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-a028ef3d6a1746808448eff72ef13e22",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx -y mcp-searxng'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "docs/client-configurations.md",
+        "start_line": 145,
+        "end_line": null
+      },
+      "finding": "npx -y mcp-searxng",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "81042a84fb289b2bb82b50e80a7b678039d4c788957f370ed3702654bb678542",
+      "occurrences": [
+        {
+          "file": "docs/client-configurations.md",
+          "start_line": 145,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-4c65b848b87a4760b053eb56efebaaeb",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx -y mcp-searxng'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "docs/http-server.md",
+        "start_line": 42,
+        "end_line": null
+      },
+      "finding": "npx -y mcp-searxng",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "81042a84fb289b2bb82b50e80a7b678039d4c788957f370ed3702654bb678542",
+      "occurrences": [
+        {
+          "file": "docs/http-server.md",
+          "start_line": 42,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-8d69b84fa65c45d19acfbfa71d68dad9",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx -y mcp-searxng'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "docs/http-server.md",
+        "start_line": 49,
+        "end_line": null
+      },
+      "finding": "npx -y mcp-searxng",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "81042a84fb289b2bb82b50e80a7b678039d4c788957f370ed3702654bb678542",
+      "occurrences": [
+        {
+          "file": "docs/http-server.md",
+          "start_line": 49,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-41b7f7f32c894fb7a2d44cc657ed3bc2",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker run -i'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "docs/client-configurations.md",
+        "start_line": 151,
+        "end_line": null
+      },
+      "finding": "docker run -i",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4ea725006beadae82801abbe40da247faca390d8f65499810782eb797f878de2",
+      "occurrences": [
+        {
+          "file": "docs/client-configurations.md",
+          "start_line": 151,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-a3781d4252f144538b9c8e3df2fd5035",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker run -i'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "docs/deployment-profiles.md",
+        "start_line": 98,
+        "end_line": null
+      },
+      "finding": "docker run -i",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4ea725006beadae82801abbe40da247faca390d8f65499810782eb797f878de2",
+      "occurrences": [
+        {
+          "file": "docs/deployment-profiles.md",
+          "start_line": 98,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-412bc8556d9744ac8d43465d273eb288",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker run -i'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "docs/troubleshooting.md",
+        "start_line": 43,
+        "end_line": null
+      },
+      "finding": "docker run -i",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4ea725006beadae82801abbe40da247faca390d8f65499810782eb797f878de2",
+      "occurrences": [
+        {
+          "file": "docs/troubleshooting.md",
+          "start_line": 43,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-342cc8f0def64a8690fdb63bfa5eafd5",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "docs/client-configurations.md",
+        "start_line": 308,
+        "end_line": null,
+        "start_column": 7
+      },
+      "finding": "autoApprove",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "        \"Authorization\": \"Bearer REPLACE_WITH_TOKEN\"\n      },\n      \"disabled\": false,\n      \"autoApprove\": []\n    }\n  }\n}",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "abd52bad0b9e5ede20e53845e54869fab17f717bfbf2b3a666543424e4c169b6",
+      "occurrences": [
+        {
+          "file": "docs/client-configurations.md",
+          "start_line": 308,
+          "end_line": null,
+          "start_column": 7
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-0844d8849c194a9e8bd510d9ae2511f7",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "docs/client-configurations.md",
+        "start_line": 314,
+        "end_line": null,
+        "start_column": 11
+      },
+      "finding": "autoApprove",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "}\n```\n\nThe empty `autoApprove` list keeps tool calls subject to normal approval.\n\n## OpenCode\n",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "abd52bad0b9e5ede20e53845e54869fab17f717bfbf2b3a666543424e4c169b6",
+      "occurrences": [
+        {
+          "file": "docs/client-configurations.md",
+          "start_line": 314,
+          "end_line": null,
+          "start_column": 11
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-ae14a050b2ff40efa7a3bb824c22fe2b",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'NPX entry'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "docs/client-configurations.md",
+        "start_line": 319,
+        "end_line": null
+      },
+      "finding": "NPX entry",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0be013e71b388e0de2b0773aead9445ae566fce0cb4296757521174155a84bb2",
+      "occurrences": [
+        {
+          "file": "docs/client-configurations.md",
+          "start_line": 319,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-9c7ec429b7ac46b4a2d42890202f2416",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'NPX does'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "docs/deployment-profiles.md",
+        "start_line": 84,
+        "end_line": null
+      },
+      "finding": "NPX does",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "b5ca3d1e5ad3626c4049b238e1870d3feea954a07228ad28cb6f7a72537633d4",
+      "occurrences": [
+        {
+          "file": "docs/deployment-profiles.md",
+          "start_line": 84,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-7c40fcdab4a546ae86a118f950098227",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'NPX processes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "docs/deployment-profiles.md",
+        "start_line": 90,
+        "end_line": null
+      },
+      "finding": "NPX processes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "49678854f7c9b4425e9ae23f0db8989c4060ec3a7f82bde23e29cfc27ff412cf",
+      "occurrences": [
+        {
+          "file": "docs/deployment-profiles.md",
+          "start_line": 90,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SSRF2",
+      "finding_id": "finding-26219886e555438fb734564947288020",
+      "category": "Server-Side Request Forgery",
+      "pattern": "Internal Network Request",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "docs/examples/search-stack/compose.yml",
+        "start_line": 31,
+        "end_line": null,
+        "start_column": 61
+      },
+      "finding": "urllib.request.urlopen('http://127.0.0.1",
+      "explanation": "Code issues a request to a loopback, link-local, or private-range host. This can reach internal services not meant to be exposed and is a common SSRF pivot.",
+      "remediation": "Avoid requests to loopback/link-local/private hosts from skill code. If internal access is intended, document it and validate the target against an allowlist.",
+      "code_snippet": "      valkey:\n        condition: service_healthy\n    healthcheck:\n      test: [\"CMD\", \"python3\", \"-c\", \"import urllib.request; urllib.request.urlopen('http://127.0.0.1:8080/config', timeout=3).read()\"]\n      interval: 10s\n      timeout: 5s\n      retries: 5",
+      "intent": null,
+      "tags": [
+        "Server-Side Request Forgery"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9e690a6790b192bcdf6933954d054b99580a9266a7e3e3ecf0c083ef1e3c260f",
+      "occurrences": [
+        {
+          "file": "docs/examples/search-stack/compose.yml",
+          "start_line": 31,
+          "end_line": null,
+          "start_column": 61
+        }
+      ]
+    },
+    {
+      "id": "SSRF2",
+      "finding_id": "finding-67603217b0654bf3800b4c2d849a68a6",
+      "category": "Server-Side Request Forgery",
+      "pattern": "Internal Network Request",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "docs/examples/search-stack/compose.yml",
+        "start_line": 62,
+        "end_line": null,
+        "start_column": 35
+      },
+      "finding": "fetch('http://127.0.0.1",
+      "explanation": "Code issues a request to a loopback, link-local, or private-range host. This can reach internal services not meant to be exposed and is a common SSRF pivot.",
+      "remediation": "Avoid requests to loopback/link-local/private hosts from skill code. If internal access is intended, document it and validate the target against an allowlist.",
+      "code_snippet": "      searxng:\n        condition: service_healthy\n    healthcheck:\n      test: [\"CMD\", \"node\", \"-e\", \"fetch('http://127.0.0.1:3000/health',{signal:AbortSignal.timeout(3000)}).then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))\"]\n      interval: 10s\n      timeout: 5s\n      retries: 5",
+      "intent": null,
+      "tags": [
+        "Server-Side Request Forgery"
+      ],
+      "evidence": {},
+      "match_fingerprint": "75c2f7bda688c72b52137618e1930dcb4b123ab2d9f44b25cb33e139364b8083",
+      "occurrences": [
+        {
+          "file": "docs/examples/search-stack/compose.yml",
+          "start_line": 62,
+          "end_line": null,
+          "start_column": 35
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-70c15c8fd2a346b3bea158671c18ad9a",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker run --rm'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "docs/http-server.md",
+        "start_line": 63,
+        "end_line": null
+      },
+      "finding": "docker run --rm",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "efc156300614fe5ffcf05d4db3303fe76bb02fad1f9d185be59396ae5dfd036c",
+      "occurrences": [
+        {
+          "file": "docs/http-server.md",
+          "start_line": 63,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "OH3",
+      "finding_id": "finding-1290a6a5929446de8d37f10d154c23fa",
+      "category": "Output Handling",
+      "pattern": "Unbounded Output",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "docs/search-configuration-verification.md",
+        "start_line": 87,
+        "end_line": null,
+        "start_column": 37
+      },
+      "finding": "without cutting",
+      "explanation": "Output size or generation rate is not bounded. Unbounded output enables denial-of-service through resource exhaustion, log flooding, or context-window stuffing.",
+      "remediation": "Set explicit limits on output length, generation count, and rate. Use max_tokens and truncation to prevent unbounded output.",
+      "code_snippet": "  more results. Omitting it returned 31 in the initial study, 30 in the four-engine\n  repeat and 28 in the earlier Google CSE phase. A separate MCP process with operator cap 10 returned ten even when the\n  caller requested 20; an 80-character snippet ceiling produced at most 81\n  characters including the ellipsis, without cutting titles/URLs. In the explicit\n  filtered route a fresh uncapped PostgreSQL call returned 18; a caller limit\n  of 20 also returned 18, because limits cannot create more upstream results.\n- A DuckDuckGo/Yahoo paging pass returned 10/15/16 URLs with a union of 40.",
+      "intent": null,
+      "tags": [
+        "Output Handling"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f779130ca67f295c6e5ead7d314c0c122a37bbed51742fdb8738144d6098b610",
+      "occurrences": [
+        {
+          "file": "docs/search-configuration-verification.md",
+          "start_line": 87,
+          "end_line": null,
+          "start_column": 37
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-b457f8a6fb4c419ea382070b2d5ded6c",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'NPX invocation'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "docs/troubleshooting.md",
+        "start_line": 227,
+        "end_line": null
+      },
+      "finding": "NPX invocation",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a2cc5d893d0d28580287d345cf7ee4e012a1214bc72661f3ad4fea57285f7140",
+      "occurrences": [
+        {
+          "file": "docs/troubleshooting.md",
+          "start_line": 227,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-926819e5bc5b4e379e852fcb8bc4d125",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx @modelcontextprotocol/inspector'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "package.json",
+        "start_line": 45,
+        "end_line": null
+      },
+      "finding": "npx @modelcontextprotocol/inspector",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fa23549bff69cf1d0cc91c3c6865ab824c05e1e659d5db3cb893ae75f3af5fd4",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 45,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-b0fc5ef663a244598da20d66fa41d809",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/error-handler.ts",
+        "start_line": 51,
+        "end_line": null,
+        "start_column": 17
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "    return 'Set NODE_EXTRA_CA_CERTS=C:\\\\path\\\\to\\\\ca-bundle.pem before starting the server.';\n  }\n  if (platform === 'darwin') {\n    return 'Run: sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /path/to/ca.crt';\n  }\n  return 'Run: sudo cp /path/to/ca.crt /usr/local/share/ca-certificates/ && sudo update-ca-certificates';\n}",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "src/error-handler.ts",
+          "start_line": 51,
+          "end_line": null,
+          "start_column": 17
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-042ab636f6d4462e961378e61bd6c65d",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/error-handler.ts",
+        "start_line": 53,
+        "end_line": null,
+        "start_column": 15
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "  if (platform === 'darwin') {\n    return 'Run: sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /path/to/ca.crt';\n  }\n  return 'Run: sudo cp /path/to/ca.crt /usr/local/share/ca-certificates/ && sudo update-ca-certificates';\n}\n\nexport function createNetworkError(error: any, context: ErrorContext): MCPSearXNGError {",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "src/error-handler.ts",
+          "start_line": 53,
+          "end_line": null,
+          "start_column": 15
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-d5ba125f47444837ba77864ae3f7a244",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/error-handler.ts",
+        "start_line": 53,
+        "end_line": null,
+        "start_column": 76
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "  if (platform === 'darwin') {\n    return 'Run: sudo security add-trusted-cert -d -r trustRoot -k /Library/Keychains/System.keychain /path/to/ca.crt';\n  }\n  return 'Run: sudo cp /path/to/ca.crt /usr/local/share/ca-certificates/ && sudo update-ca-certificates';\n}\n\nexport function createNetworkError(error: any, context: ErrorContext): MCPSearXNGError {",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "src/error-handler.ts",
+          "start_line": 53,
+          "end_line": null,
+          "start_column": 76
+        }
+      ]
+    },
+    {
+      "id": "SC2",
+      "finding_id": "finding-584b6310413144c29e805e7485b0bcb4",
+      "category": "Supply Chain",
+      "pattern": "External Script Fetching",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": ".github/workflows/mcp-registry-publish.yml",
+        "start_line": 84,
+        "end_line": null,
+        "start_column": 10
+      },
+      "finding": "curl --fail --silent --show-error --location --max-time 60 \\\n            \"https://github.com/modelcontextprotocol/registry/releases/download/${MCP_PUBLISHER_VERSION}/mcp-publisher_linux_amd64.tar.gz\" ",
+      "explanation": "Remote code is downloaded and executed. This bypasses code review and could introduce malicious code.",
+      "remediation": "Avoid downloading and executing remote scripts. Use trusted packages from PyPI/npm. If remote fetch is required, verify checksums and use HTTPS.",
+      "code_snippet": "          MCP_PUBLISHER_VERSION: \"v1.7.9\"\n          MCP_PUBLISHER_SHA256: \"ab128162b0616090b47cf245afe0a23f3ef08936fdce19074f5ba0a4469281ac\"\n        run: |\n          curl --fail --silent --show-error --location --max-time 60 \\\n            \"https://github.com/modelcontextprotocol/registry/releases/download/${MCP_PUBLISHER_VERSION}/mcp-publisher_linux_amd64.tar.gz\" \\\n            -o \"$RUNNER_TEMP/mcp-publisher.tar.gz\"\n          echo \"${MCP_PUBLISHER_SHA256}  $RUNNER_TEMP/mcp-publisher.tar.gz\" | sha256sum --check",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4bc14e1579fdc27d9f3f51db3b89ef1ed8328784a6ddf98a5ff1405aa0e86277",
+      "occurrences": [
+        {
+          "file": ".github/workflows/mcp-registry-publish.yml",
+          "start_line": 84,
+          "end_line": null,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "PE1",
+      "finding_id": "finding-73dd9ec9f9af4c0c834cb46e842ffea0",
+      "category": "Privilege Escalation",
+      "pattern": "Excessive Permissions",
+      "severity": "LOW",
+      "confidence": 0.8,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 512,
+        "end_line": null,
+        "start_column": 36
+      },
+      "finding": "permissions:*",
+      "explanation": "Skill requests more permissions than appear necessary for its stated functionality. Review if elevated access is justified.",
+      "remediation": "Request only the minimum permissions required. Document why each permission is needed. Remove broad permissions like '*' or 'all'.",
+      "code_snippet": "\n### Security\n\n- **Least-privilege Docker workflow permissions:** `security-events: write` is now isolated to a dedicated image-scan job in both the publish and rebuild workflows, with `id-token: write` confined to the publish/sign job and workflow-level permissions kept read-only.\n\n- **Patched bundled `hono`:** Pinned the transitive `hono` dependency to \u2265 4.12.25 (via npm `overrides`) to resolve CVE-2026-54290 \u2014 a CORS middleware flaw that reflected any origin with credentials \u2014 in the published Docker image.\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7e06ebda296bbeedb4b6c38cfbaea0ac27f9fa01ddf0a23a30d90d135d9575ca",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 512,
+          "end_line": null,
+          "start_column": 36
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-61f747c52f27424c85306dcda81b4a0a",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (9 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "package-lock.json",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "package-lock.json",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-9d44a68da8954adeb4ce175c05508182",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 55,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "\"@types/cors\": \"^2.8.19\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "        \"@modelcontextprotocol/core\": \"2.4.0\",\n        \"@modelcontextprotocol/node\": \"2.1.2\",\n        \"@modelcontextprotocol/server\": \"2.4.0\",\n        \"@types/cors\": \"^2.8.19\",\n        \"@types/express\": \"^5.0.6\",\n        \"cors\": \"^2.8.6\",\n        \"express\": \"5.3.0\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "71e20ef6248bb29a9018e8b826e71e7d3a4de17d6925a4415460b37ba39260e6",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 55,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-6952bf0471504bd1b840c1f588021c73",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 56,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "\"@types/express\": \"^5.0.6\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "        \"@modelcontextprotocol/node\": \"2.1.2\",\n        \"@modelcontextprotocol/server\": \"2.4.0\",\n        \"@types/cors\": \"^2.8.19\",\n        \"@types/express\": \"^5.0.6\",\n        \"cors\": \"^2.8.6\",\n        \"express\": \"5.3.0\",\n        \"express-rate-limit\": \"8.7.1\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c7e9499247f2d9f48d2224ecd123a3cceb948251347a2611fd09c63e06cb4f96",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 56,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-41321786db85496395f32667d9f8b38d",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 57,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "\"cors\": \"^2.8.6\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "        \"@modelcontextprotocol/server\": \"2.4.0\",\n        \"@types/cors\": \"^2.8.19\",\n        \"@types/express\": \"^5.0.6\",\n        \"cors\": \"^2.8.6\",\n        \"express\": \"5.3.0\",\n        \"express-rate-limit\": \"8.7.1\",\n        \"jose\": \"6.2.13\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "639173ba4372e70aae8ef2fcaa25e50a4c528a9ae2fdfaca3e555a526ab1fb48",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 57,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-904a5f0f30c447408849ae84941d53f8",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 61,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "\"node-html-markdown\": \"^2.0.0\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "        \"express\": \"5.3.0\",\n        \"express-rate-limit\": \"8.7.1\",\n        \"jose\": \"6.2.13\",\n        \"node-html-markdown\": \"^2.0.0\",\n        \"node-html-parser\": \"9.0.5\",\n        \"undici\": \"7.30.1\",\n        \"unpdf\": \"1.9.1\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1db53e0dc96794546781f696decfe83c170808b8ef051589102a5c9d4f3b2985",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 61,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-f93eecac484c471fac4d5537e5d5b77f",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 70,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "\"@types/supertest\": \"^7.2.0\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"devDependencies\": {\n        \"@modelcontextprotocol/client\": \"2.4.0\",\n        \"@types/node\": \"22.20.5\",\n        \"@types/supertest\": \"^7.2.0\",\n        \"@typescript-eslint/eslint-plugin\": \"8.72.1\",\n        \"@typescript-eslint/parser\": \"8.72.1\",\n        \"c8\": \"12.0.0\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4f471e01dab6501c56f01ac4b3b8c9a8864c81330a911db3daae7cd932eaff98",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 70,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-269cd46edd02427e85ced85f9891d2f9",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 74,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "\"cross-env\": \"^10.1.0\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "        \"@typescript-eslint/eslint-plugin\": \"8.72.1\",\n        \"@typescript-eslint/parser\": \"8.72.1\",\n        \"c8\": \"12.0.0\",\n        \"cross-env\": \"^10.1.0\",\n        \"eslint\": \"10.13.0\",\n        \"eslint-plugin-security\": \"4.2.0\",\n        \"fast-check\": \"4.10.2\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c38b3687ae5c1ccc1f76c572914ac92027c3f3878f8477dce0cbbcbf6f71e3dc",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 74,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 148,
+    "scanned_components": 103,
+    "coverage_percent": 69.6,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 103,
+    "partially_inspected_files": 45,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/e2e/browser-solver.e2e.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/e2e/helpers/spawn-server.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/e2e/search.e2e.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/e2e/timeout.e2e.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/e2e/url-reader.e2e.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/helpers/pdf-fixtures.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/integration/credential-output.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/integration/diagnostic-security.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "__tests__/integration/http-server.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/integration/http-server.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/integration/index.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/integration/mcp-handlers.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/integration/oauth-http.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/browser-solver-state.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/browser-solver.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/credential-output.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/diagnostic-output.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/diagnostic-sanitizer.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/documentation.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/http-server.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/instance-info.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/logging.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/packed-consumer-fixtures.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/packed-consumer.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/pdf-network-guard.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/pdf-reader.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "__tests__/unit/search.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/search.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/searxng-instances.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/suggestions.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "__tests__/unit/url-reader.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/url-reader.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/unit/url-security.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "package-lock.json",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "output_limit",
+        "message": "Inspection reached its configured output limit.",
+        "path": "package-lock.json",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_output_limit"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "runtime_limit",
+        "message": "Inspection reached its configured runtime limit.",
+        "path": "package-lock.json",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_runtime_limit"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "runtime_limit",
+        "message": "Inspection reached its configured runtime limit.",
+        "path": "package.json",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_runtime_limit"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "scripts/packed-consumer-contracts.mjs",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "scripts/publish-mcp-registry.mjs",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "scripts/publish-mcp-registry.test.mjs",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "scripts/verify-packed-consumer.mjs",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/browser-solver.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/diagnostic-sanitizer.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "src/http-server.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/http-server.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/index.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/instance-info.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/proxy.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/search.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/url-reader.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/url-security.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 148,
+        "completed": 148,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 148,
+        "completed": 148,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "degraded",
+        "planned_work": 148,
+        "completed": 143,
+        "partial": 5,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "degraded",
+        "planned_work": 148,
+        "completed": 143,
+        "partial": 5,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 148,
+        "completed": 148,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "degraded",
+        "planned_work": 148,
+        "completed": 143,
+        "partial": 5,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "degraded",
+        "planned_work": 148,
+        "completed": 143,
+        "partial": 5,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "degraded",
+        "planned_work": 148,
+        "completed": 143,
+        "partial": 5,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "degraded",
+        "planned_work": 148,
+        "completed": 143,
+        "partial": 5,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 148,
+        "completed": 148,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "degraded",
+        "planned_work": 148,
+        "completed": 143,
+        "partial": 5,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "degraded",
+        "planned_work": 148,
+        "completed": 143,
+        "partial": 5,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "degraded",
+        "planned_work": 148,
+        "completed": 143,
+        "partial": 5,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "degraded",
+        "planned_work": 148,
+        "completed": 143,
+        "partial": 5,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 152,
+        "completed": 144,
+        "partial": 8,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "degraded",
+        "planned_work": 148,
+        "completed": 143,
+        "partial": 5,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 148,
+        "completed": 104,
+        "partial": 44,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 148,
+        "completed": 148,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_agent_snooping status: degraded.",
+      "Analyzer static_patterns_anti_refusal status: degraded.",
+      "Analyzer static_patterns_deserialization status: degraded.",
+      "Analyzer static_patterns_excessive_agency status: degraded.",
+      "Analyzer static_patterns_harmful_content status: degraded.",
+      "Analyzer static_patterns_memory_poisoning status: degraded.",
+      "Analyzer static_patterns_privilege_escalation status: degraded.",
+      "Analyzer static_patterns_prompt_injection status: degraded.",
+      "Analyzer static_patterns_rogue_agent status: degraded.",
+      "Analyzer static_patterns_ssrf status: degraded.",
+      "Analyzer static_patterns_supply_chain status: degraded.",
+      "Analyzer static_patterns_system_prompt_leakage status: degraded.",
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 83,
+    "findings_after_filtering": 83,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

@@ -1,0 +1,859 @@
+<title>Vetted Skill Store</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+/* Layout: app-store pattern. Sidebar on desktop, bottom tab bar on phones; Today stories, shelves, product pages, install sheet. All listings are real repos. */
+:root {
+  --bg: #FFFFFF; --bg2: #F2F2F7; --card: #FFFFFF; --label: #000000; --label2: #6E6E73; --label3: #AEAEB2;
+  --sep: rgba(60, 60, 67, 0.18); --fill: #EEEEF3; --blue: #007AFF; --red: #FF3B30; --green: #248A3D; --orange: #C26A00;
+  --sidebar: #F5F5F7; --scrim: rgba(0, 0, 0, 0.4); --shadow: 0 10px 40px rgba(0, 0, 0, 0.12); --code: #F6F6F9;
+  --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI Variable Text", "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #000000; --bg2: #1C1C1E; --card: #1C1C1E; --label: #FFFFFF; --label2: #98989F; --label3: #636366;
+  --sep: rgba(84, 84, 88, 0.6); --fill: #2C2C2E; --blue: #0A84FF; --red: #FF453A; --green: #30D158; --orange: #FF9F0A;
+  --sidebar: #141416; --scrim: rgba(0, 0, 0, 0.6); --shadow: 0 10px 40px rgba(0, 0, 0, 0.6); --code: #0F0F11; color-scheme: dark;
+} }
+:root[data-theme="dark"] {
+  --bg: #000000; --bg2: #1C1C1E; --card: #1C1C1E; --label: #FFFFFF; --label2: #98989F; --label3: #636366;
+  --sep: rgba(84, 84, 88, 0.6); --fill: #2C2C2E; --blue: #0A84FF; --red: #FF453A; --green: #30D158; --orange: #FF9F0A;
+  --sidebar: #141416; --scrim: rgba(0, 0, 0, 0.6); --shadow: 0 10px 40px rgba(0, 0, 0, 0.6); --code: #0F0F11; color-scheme: dark;
+}
+
+* { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+html, body { height: 100%; }
+body { background: var(--bg); color: var(--label); font-family: var(--font); font-size: 15px; line-height: 1.4; -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
+h1, h2, h3, h4 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+a { color: var(--blue); text-decoration: none; }
+button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; padding: 0; }
+:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 6px; }
+.mono { font-family: var(--mono); font-size: 0.9em; }
+.ic { width: 1em; height: 1em; flex: none; }
+.c-green { color: var(--green); } .c-orange { color: var(--orange); } .c-red { color: var(--red); } .c-blue { color: var(--blue); } .c-gray { color: var(--label2); }
+
+/* Shell */
+.shell { display: grid; grid-template-columns: 240px minmax(0, 1fr); min-height: 100%; }
+.side { background: var(--sidebar); border-right: 1px solid var(--sep); padding: 18px 12px; position: sticky; top: 0; height: 100vh; display: flex; flex-direction: column; gap: 4px; }
+.wordmark { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 17px; padding: 4px 10px 12px; }
+.mark { width: 26px; height: 26px; border-radius: 7px; background: linear-gradient(160deg, #3B82F6, #1D4ED8); color: #FFFFFF; display: grid; place-items: center; font-size: 15px; }
+.side-search { position: relative; margin: 0 4px 10px; display: block; }
+.side-search input, .search-field input { width: 100%; border: 0; background: var(--fill); color: var(--label); border-radius: 10px; padding: 8px 10px 8px 32px; font: inherit; }
+.side-search .ic, .search-field .ic { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--label2); font-size: 15px; }
+.nav-item { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 8px; color: var(--label); font-size: 15px; font-weight: 500; width: 100%; text-align: left; }
+.nav-item .ic { color: var(--blue); font-size: 18px; }
+.nav-item[aria-current="page"] { background: var(--fill); }
+.nav-item .n { margin-left: auto; color: var(--label2); font-size: 13px; font-variant-numeric: tabular-nums; }
+.side-foot { margin-top: auto; padding: 10px; font-size: 12px; color: var(--label2); line-height: 1.45; }
+.tabbar { display: none; }
+.main { min-width: 0; }
+.page { max-width: 1120px; margin: 0 auto; padding-block: 28px 60px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+@media (min-width: 761px) { .page { padding-left: 36px; padding-right: 36px; } }
+.date-eyebrow { font-size: 13px; font-weight: 600; color: var(--label2); text-transform: uppercase; letter-spacing: 0.02em; }
+.large-title { margin-bottom: 18px; }
+.large-title h1 { font-size: 34px; font-weight: 700; letter-spacing: 0.01em; }
+.large-title p { color: var(--label2); font-size: 15px; margin-top: 4px; max-width: 70ch; }
+.data-note { margin-top: 40px; font-size: 12px; color: var(--label2); border-top: 1px solid var(--sep); padding-top: 14px; max-width: 80ch; line-height: 1.5; }
+
+/* Today */
+.today { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px; }
+.story { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 5; max-width: 100%; box-shadow: var(--shadow); color: #FFFFFF; text-align: left; display: flex; flex-direction: column; transition: transform .25s cubic-bezier(.2,.8,.2,1); width: 100%; }
+.story:hover { transform: scale(0.99); }
+.story:active { transform: scale(0.97); }
+.story .art { position: absolute; inset: 0; }
+.story .copy { position: relative; padding: 20px 20px 0; display: flex; flex-direction: column; gap: 4px; }
+.story .eyebrow { font-size: 13px; font-weight: 600; text-transform: uppercase; opacity: 0.8; letter-spacing: 0.02em; }
+.story .title { font-size: 28px; font-weight: 800; line-height: 1.08; letter-spacing: -0.01em; max-width: 16ch; }
+.story .bottom { position: relative; margin-top: auto; padding: 0 20px 20px; font-size: 15px; opacity: .9; }
+.story .bottom.frost { opacity: 1; padding: 12px 16px; background: rgba(255,255,255,.16); backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4); display: flex; align-items: center; gap: 12px; }
+.story .bottom.frost .t { flex: 1; min-width: 0; }
+.story .bottom.frost b { display: block; font-size: 15px; }
+.story .bottom.frost span { font-size: 13px; opacity: .85; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.story.wide { grid-column: 1 / -1; aspect-ratio: 2.2 / 1; }
+.story.wide .title { font-size: 40px; max-width: 14ch; }
+.glyph-art { position: absolute; right: -6%; bottom: 12%; width: 62%; aspect-ratio: 1; opacity: 0.2; color: #FFFFFF; }
+.story.wide .glyph-art { width: 34%; right: 4%; bottom: -4%; }
+.orb { position: absolute; border-radius: 50%; }
+.stat-big { font-size: 64px; font-weight: 800; line-height: 1; letter-spacing: -0.02em; }
+
+/* Shelves */
+.shelf { margin-top: 34px; }
+.shelf-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; border-top: 1px solid var(--sep); padding-top: 14px; margin-bottom: 12px; }
+.shelf-head h2 { font-size: 22px; font-weight: 700; }
+.shelf-head .sub { color: var(--label2); font-size: 15px; display: block; font-weight: 400; margin-top: 2px; }
+.see-all { font-size: 17px; white-space: nowrap; color: var(--blue); }
+.scroller { display: grid; grid-auto-flow: column; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
+.scroller::-webkit-scrollbar { display: none; }
+.scroller > * { scroll-snap-align: start; }
+.banners { grid-auto-columns: minmax(0, calc((100% - 18px) / 2)); }
+.banner { display: flex; flex-direction: column; gap: 3px; text-align: left; min-width: 0; color: var(--label); }
+.banner .eb { font-size: 12px; font-weight: 600; color: var(--blue); text-transform: uppercase; letter-spacing: 0.02em; }
+.banner .bt { font-size: 21px; font-weight: 600; }
+.banner .bs { font-size: 16px; color: var(--label2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.banner .bart { margin-top: 8px; border-radius: 12px; aspect-ratio: 16 / 9; max-width: 100%; position: relative; overflow: hidden; display: flex; align-items: flex-end; padding: 16px; color: #FFFFFF; }
+.banner .bart .bline { position: relative; display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; }
+.ranked { grid-template-rows: repeat(3, auto); grid-auto-columns: minmax(300px, calc((100% - 36px) / 3)); column-gap: 18px; row-gap: 0; }
+.ranked.two { grid-template-rows: repeat(2, auto); }
+.ranked.one { grid-template-rows: auto; }
+.tiles { grid-auto-columns: 118px; }
+.tile { display: flex; flex-direction: column; gap: 6px; text-align: left; color: var(--label); min-width: 0; }
+.tile .icon { width: 118px; height: 118px; }
+.tile b { font-size: 14px; font-weight: 500; display: block; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.tile span { font-size: 12px; color: var(--label2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* Icons */
+.icon { flex: none; border-radius: 22.5%; display: grid; place-items: center; color: #FFFFFF; position: relative; overflow: hidden; box-shadow: inset 0 0 0 0.5px rgba(0,0,0,.14); background: var(--fill); }
+.icon::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(255,255,255,.2), rgba(255,255,255,0) 55%); pointer-events: none; }
+.icon > svg { width: 50%; height: 50%; }
+.icon > img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.icon .av { position: absolute; right: 6%; bottom: 6%; width: 34%; height: 34%; border-radius: 28%; background: #FFFFFF; box-shadow: 0 1px 4px rgba(0,0,0,.3); overflow: hidden; z-index: 1; }
+.icon .av img { width: 100%; height: 100%; display: block; }
+
+/* Rows */
+.row { display: flex; align-items: center; gap: 12px; padding: 10px 0; min-width: 0; }
+.row .rank { width: 18px; font-size: 17px; font-weight: 600; text-align: center; flex: none; }
+.row-body { flex: 1; min-width: 0; display: flex; align-items: center; gap: 12px; align-self: stretch; border-bottom: 1px solid var(--sep); padding-block: 6px; }
+.ranked .row:nth-child(3n) .row-body, .ranked.two .row:nth-child(2n) .row-body, .ranked.one .row-body { border-bottom: 0; }
+.ranked.two .row:nth-child(3n) .row-body { border-bottom: 1px solid var(--sep); }
+.ranked.two .row:nth-child(6n) .row-body { border-bottom: 0; }
+.row-txt { flex: 1; min-width: 0; text-align: left; }
+.row-txt b { display: block; font-size: 16px; font-weight: 500; color: var(--label); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row-txt span { display: block; font-size: 13px; color: var(--label2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.btn-col { display: flex; flex-direction: column; align-items: center; gap: 3px; flex: none; }
+.iap { font-size: 10px; color: var(--label2); white-space: nowrap; display: inline-flex; align-items: center; gap: 2px; }
+.get { min-width: 76px; height: 30px; border-radius: 15px; background: var(--fill); color: var(--blue); font-size: 15px; font-weight: 700; letter-spacing: 0.02em; padding: 0 16px; display: inline-grid; place-items: center; }
+.get.primary { background: var(--blue); color: #FFFFFF; }
+.get.light { background: #FFFFFF; color: #007AFF; }
+.pill-link { display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 14px; border-radius: 15px; background: var(--fill); color: var(--blue); font-weight: 600; font-size: 14px; }
+
+/* Product page */
+.navbar { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.navbar .in { max-width: 1120px; margin: 0 auto; display: flex; align-items: center; gap: 10px; padding-block: 10px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+@media (min-width: 761px) { .navbar .in { padding-left: 36px; padding-right: 36px; } }
+.back { display: inline-flex; align-items: center; gap: 2px; color: var(--blue); font-size: 17px; }
+.back .ic { font-size: 22px; }
+.product-head { display: flex; gap: 20px; align-items: flex-start; }
+.product-head .icon { width: 128px; height: 128px; }
+.product-head .txt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; min-height: 128px; }
+.product-head h1 { font-size: 26px; font-weight: 700; overflow-wrap: anywhere; }
+.product-head .sub { font-size: 17px; color: var(--label2); }
+.product-head .acts { margin-top: auto; display: flex; align-items: center; gap: 10px; padding-top: 12px; flex-wrap: wrap; }
+.strip { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(118px, 1fr); overflow-x: auto; scrollbar-width: none; margin-top: 22px; border-block: 1px solid var(--sep); padding-block: 12px; }
+.strip::-webkit-scrollbar { display: none; }
+.strip > div { text-align: center; padding: 0 10px; border-left: 1px solid var(--sep); display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 0; }
+.strip > div:first-child { border-left: 0; }
+.strip .k { font-size: 11px; font-weight: 600; color: var(--label3); text-transform: uppercase; letter-spacing: 0.02em; white-space: nowrap; }
+.strip .v { font-size: 20px; font-weight: 700; color: var(--label2); display: flex; align-items: center; gap: 4px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.strip .v.c-green { color: var(--green); } .strip .v.c-blue { color: var(--blue); }
+.strip .c { font-size: 12px; color: var(--label2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.desc { margin-top: 26px; display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 30px; }
+.desc p { font-size: 15px; line-height: 1.55; max-width: 68ch; }
+.desc .dev a { font-size: 15px; display: block; overflow-wrap: anywhere; }
+.desc .dev span { font-size: 13px; color: var(--label2); display: block; }
+.desc .dev > div + div { margin-top: 12px; }
+
+/* Install blocks */
+.inst-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 14px; }
+.inst-card { background: var(--bg2); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.sheet .inst-card { background: var(--card); }
+.inst-card .h { display: flex; align-items: center; gap: 8px; }
+.inst-card .h b { font-size: 16px; }
+.inst-card .how { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--label2); background: var(--fill); padding: 2px 7px; border-radius: 5px; }
+.inst-card .note { font-size: 13px; color: var(--label2); }
+.inst-card.scan { background: color-mix(in srgb, var(--green) 10%, var(--bg2)); }
+.sheet .inst-card.scan { background: color-mix(in srgb, var(--green) 10%, var(--card)); }
+.copybox { display: flex; gap: 8px; align-items: center; background: var(--code); border: 1px solid var(--sep); border-radius: 10px; padding: 8px 8px 8px 12px; min-width: 0; }
+.copybox code { flex: 1; min-width: 0; font-family: var(--mono); font-size: 12.5px; overflow-x: auto; white-space: nowrap; scrollbar-width: thin; }
+.copy-btn { flex: none; width: 30px; height: 30px; border-radius: 8px; display: grid; place-items: center; color: var(--blue); font-size: 16px; }
+.copy-btn:hover { background: var(--fill); }
+.seg { display: inline-flex; background: var(--fill); border-radius: 9px; padding: 2px; gap: 2px; flex-wrap: wrap; }
+.seg button { padding: 4px 10px; border-radius: 7px; font-size: 13px; font-weight: 600; color: var(--label2); }
+.seg button[aria-pressed="true"] { background: var(--card); color: var(--label); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+
+/* Trust */
+.trust-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.t-card { background: var(--bg2); border-radius: 14px; padding: 18px 16px; display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.t-card .top { display: flex; align-items: center; gap: 10px; }
+.t-card .top .ic { font-size: 28px; }
+.t-card h3 { font-size: 16px; font-weight: 600; }
+.t-card p { font-size: 13.5px; color: var(--label2); line-height: 1.45; }
+.t-card .score { font-size: 34px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.t-card .score small { font-size: 15px; color: var(--label2); font-weight: 600; }
+.checks { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 6px; }
+.checks li { display: grid; grid-template-columns: minmax(0, 1fr) 70px 24px; gap: 8px; align-items: center; font-size: 13px; }
+.checks .bar { height: 5px; border-radius: 3px; background: var(--fill); overflow: hidden; }
+.checks .bar i { display: block; height: 100%; border-radius: 3px; }
+.checks .n { text-align: right; font-variant-numeric: tabular-nums; color: var(--label2); }
+.kv { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.kv li { display: flex; justify-content: space-between; gap: 10px; padding: 6px 0; border-bottom: 1px solid var(--sep); font-size: 13.5px; }
+.kv li:last-child { border-bottom: 0; }
+.kv span:first-child { color: var(--label2); }
+
+/* SkillSpector report */
+.rep { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr) minmax(0, 1fr); gap: 14px; align-items: stretch; }
+.rep > * { background: var(--bg2); border-radius: 14px; padding: 16px; min-width: 0; }
+.rep-score { display: flex; align-items: center; gap: 16px; }
+.dial { --p: 0; width: 92px; height: 92px; border-radius: 50%; flex: none; display: grid; place-items: center;
+  background: conic-gradient(currentColor calc(var(--p) * 1%), var(--fill) 0); }
+.dial span { width: 74px; height: 74px; border-radius: 50%; background: var(--bg2); display: flex; flex-direction: column; align-items: center; justify-content: center; line-height: 1; }
+.dial b { font-size: 28px; font-weight: 800; color: var(--label); font-variant-numeric: tabular-nums; }
+.dial small { font-size: 11px; color: var(--label2); margin-top: 2px; }
+.sevword { font-size: 20px; font-weight: 700; }
+.rec { font-size: 13.5px; color: var(--label2); margin-top: 2px; }
+.rep-counts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; align-content: center; }
+.cnt { display: flex; flex-direction: column; font-size: 12px; color: var(--label2); }
+.cnt b { font-size: 24px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.caveat { font-size: 13px; color: var(--label2); margin-top: 10px; max-width: 80ch; line-height: 1.5; }
+.findings { display: flex; flex-direction: column; margin-top: 12px; background: var(--bg2); border-radius: 14px; overflow: hidden; }
+.fd { padding: 12px 16px; border-top: 1px solid var(--sep); display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.fd:first-child { border-top: 0; }
+.fh { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+.fh b { font-size: 15px; }
+.sev { font-size: 11px; font-weight: 800; letter-spacing: .03em; }
+.pid { color: var(--label3); font-size: 12px; margin-left: auto; }
+.pat { font-size: 13.5px; }
+.loc { font-size: 12px; overflow-wrap: anywhere; }
+.snip { display: block; font-family: var(--mono); font-size: 12px; background: var(--code); border: 1px solid var(--sep); border-radius: 8px; padding: 6px 10px; overflow-x: auto; white-space: pre; }
+.fd .why { font-size: 13px; color: var(--label2); }
+@media (max-width: 1000px) { .rep { grid-template-columns: minmax(0, 1fr); } }
+
+/* Trusted publisher */
+.trusted-note { display: flex; gap: 14px; align-items: flex-start; background: color-mix(in srgb, var(--blue) 9%, var(--bg2)); border-radius: 14px; padding: 16px; }
+.trusted-note > .ic { font-size: 30px; color: var(--blue); flex: none; }
+.trusted-note b { font-size: 18px; display: block; }
+.trusted-note p { color: var(--label2); font-size: 14px; margin-top: 2px; max-width: 75ch; }
+.scan-anyway { margin-top: 14px; }
+.scan-anyway > summary { cursor: pointer; color: var(--blue); font-size: 15px; font-weight: 600; padding: 6px 0; }
+.scan-anyway[open] > summary { margin-bottom: 4px; }
+
+.worth { margin-top: 12px; background: color-mix(in srgb, var(--orange) 10%, var(--bg2)); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+.worth b { font-size: 16px; }
+.worth p { font-size: 14px; color: var(--label2); line-height: 1.5; max-width: 80ch; }
+.ev-row { display: flex; gap: 6px; flex-wrap: wrap; }
+
+/* Purpose check */
+.pc-verdict { display: flex; gap: 14px; align-items: flex-start; background: var(--bg2); border-radius: 14px; padding: 16px; }
+.pc-verdict > .ic { font-size: 34px; flex: none; }
+.pc-verdict b { font-size: 19px; display: block; }
+.pc-verdict p { color: var(--label2); font-size: 14px; margin-top: 2px; }
+.pc-verdict .purpose { color: var(--label); margin-top: 8px; }
+.pc-verdict .purpose span { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--label2); }
+.pc-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 14px; margin-top: 14px; align-items: start; }
+.pc-side { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.pc-card { background: var(--bg2); border-radius: 14px; padding: 16px; min-width: 0; display: flex; flex-direction: column; gap: 8px; }
+.pc-card h3 { font-size: 16px; font-weight: 600; }
+.pc-sub { font-size: 13.5px; color: var(--label2); line-height: 1.45; }
+.pc-card .score { font-size: 30px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.pc-card .score small { font-size: 13px; color: var(--label2); font-weight: 600; }
+.caps { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.cap { padding: 10px 0; border-top: 1px solid var(--sep); display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.cap:first-child { border-top: 0; }
+.cap-h { display: flex; justify-content: space-between; gap: 8px; align-items: center; }
+.cap-h b { font-size: 14.5px; font-weight: 600; }
+.cap p { font-size: 13px; color: var(--label2); }
+.chip { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--fill); white-space: nowrap; }
+.ev { display: flex; flex-direction: column; gap: 2px; font-size: 11.5px; background: var(--code); border: 1px solid var(--sep); border-radius: 8px; padding: 6px 8px; min-width: 0; }
+.ev code { color: var(--label2); overflow-x: auto; white-space: pre; font-family: var(--mono); }
+.tools summary { cursor: pointer; color: var(--blue); font-size: 14px; font-weight: 600; }
+.tools ul { list-style: none; margin: 8px 0 0; padding: 0; max-height: 320px; overflow-y: auto; }
+.tools li { padding: 6px 0; border-top: 1px solid var(--sep); font-size: 13px; }
+.tools li p { color: var(--label2); font-size: 12.5px; margin-top: 2px; }
+.stack { display: flex; height: 10px; border-radius: 5px; overflow: hidden; background: var(--fill); gap: 2px; }
+.stack i { display: block; height: 100%; min-width: 3px; }
+.legend { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 12px; font-size: 13px; color: var(--label2); }
+.legend li { display: flex; align-items: center; gap: 6px; }
+.legend b { margin-left: auto; color: var(--label); font-variant-numeric: tabular-nums; }
+@media (max-width: 1000px) { .pc-grid { grid-template-columns: minmax(0, 1fr); } }
+
+/* Discussions */
+.hn-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; }
+.hn { background: var(--bg2); border-radius: 12px; padding: 14px 16px; display: flex; flex-direction: column; gap: 8px; min-width: 0; color: var(--label); }
+.hn .src { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 700; }
+.hn .src .when { margin-left: auto; font-weight: 400; color: var(--label2); }
+.hn b { font-size: 15px; line-height: 1.3; }
+.hn .foot { display: flex; gap: 12px; font-size: 12.5px; color: var(--label2); margin-top: auto; flex-wrap: wrap; }
+.dotsrc { width: 8px; height: 8px; border-radius: 50%; display: inline-block; flex: none; }
+.social-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.social-links a { display: inline-flex; align-items: center; gap: 7px; padding: 8px 14px; border-radius: 999px; background: var(--bg2); color: var(--label); font-size: 14px; font-weight: 600; }
+.social-links a .ic { color: var(--label2); font-size: 13px; }
+.empty-note { color: var(--label2); font-size: 14px; background: var(--bg2); border-radius: 12px; padding: 14px 16px; }
+
+.info { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 30px; margin: 0; }
+.info div { padding: 10px 0; border-bottom: 1px solid var(--sep); min-width: 0; }
+.info dt { font-size: 13px; color: var(--label2); }
+.info dd { margin: 2px 0 0; font-size: 15px; overflow-wrap: anywhere; }
+
+/* Search */
+.search-field { position: relative; margin-bottom: 18px; display: block; }
+.search-field input { padding: 10px 12px 10px 34px; font-size: 17px; }
+.suggest { list-style: none; padding: 0; margin: 0; }
+.suggest li button { width: 100%; text-align: left; display: flex; gap: 10px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--sep); color: var(--blue); font-size: 20px; }
+.suggest .ic { color: var(--label3); font-size: 18px; }
+.rowlist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 30px; }
+.empty { color: var(--label2); text-align: center; padding: 50px 10px; font-size: 17px; }
+.result-count { color: var(--label2); font-size: 13px; margin-bottom: 6px; }
+
+/* Sheet & story */
+dialog { border: 0; padding: 0; color: var(--label); max-width: none; max-height: none; }
+dialog::backdrop { background: var(--scrim); }
+dialog.sheet { background: var(--bg2); width: min(560px, 100vw); border-radius: 16px; margin: auto; box-shadow: var(--shadow); max-height: calc(100dvh - 40px); overflow-y: auto; }
+dialog.sheet[open] { animation: sheetUp .32s cubic-bezier(.2,.8,.2,1); }
+@keyframes sheetUp { from { transform: translateY(40px); opacity: 0; } }
+.sheet-in { padding: 14px 16px 20px; display: flex; flex-direction: column; gap: 12px; }
+.sheet-bar { display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 17px; }
+.text-btn { color: var(--blue); font-size: 17px; }
+.sheet-app { display: flex; gap: 12px; align-items: center; background: var(--card); border-radius: 12px; padding: 12px; }
+.sheet-app .icon { width: 60px; height: 60px; }
+.sheet-app .t { min-width: 0; flex: 1; }
+.sheet-app b { font-size: 17px; display: block; }
+.sheet-app span { font-size: 13px; color: var(--label2); display: block; overflow-wrap: anywhere; }
+.group-label { font-size: 13px; color: var(--label2); text-transform: uppercase; padding: 4px 4px 0; }
+
+dialog.story-ov { width: min(720px, 100vw); height: 100dvh; border-radius: 0; background: var(--bg); overflow-y: auto; margin: 0 auto; }
+@media (min-width: 761px) { dialog.story-ov { height: calc(100dvh - 48px); margin: 24px auto; border-radius: 18px; } }
+dialog.story-ov[open] { animation: grow .38s cubic-bezier(.2,.8,.2,1); }
+@keyframes grow { from { transform: scale(0.92); opacity: 0; } }
+.story-ov .hero { position: relative; aspect-ratio: 4 / 3; max-width: 100%; color: #FFFFFF; overflow: hidden; padding: calc(24px + env(safe-area-inset-top, 0px)) 22px 22px; display: flex; flex-direction: column; }
+.story-ov .hero .copy { position: relative; display: flex; flex-direction: column; gap: 6px; }
+.story-ov .hero .eyebrow { font-size: 13px; font-weight: 600; opacity: 0.8; text-transform: uppercase; }
+.story-ov .hero .title { font-size: 34px; font-weight: 800; line-height: 1.05; max-width: 15ch; }
+.story-ov .close { position: absolute; top: calc(14px + env(safe-area-inset-top, 0px)); right: 14px; width: 30px; height: 30px; border-radius: 50%; background: rgba(0,0,0,.35); color: #FFFFFF; display: grid; place-items: center; z-index: 2; }
+.article { padding: 22px 22px 40px; display: flex; flex-direction: column; gap: 16px; font-size: 17px; line-height: 1.5; color: var(--label2); }
+.article strong { color: var(--label); }
+.article .rows { border-top: 1px solid var(--sep); }
+
+.toast { position: fixed; inset: auto auto calc(90px + env(safe-area-inset-bottom, 0px)) 50%; margin: 0; border: 0; overflow: visible; transform: translate(-50%, 20px); opacity: 0; background: var(--label); color: var(--bg); padding: 10px 16px; border-radius: 12px; font-size: 14px; transition: opacity .2s, transform .2s; pointer-events: none; z-index: 60; max-width: calc(100vw - 32px); }
+.toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+@media (max-width: 1180px) and (min-width: 761px) { .trust-cards { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 760px) {
+  .shell { grid-template-columns: minmax(0, 1fr); }
+  .side { display: none; }
+  .tabbar { display: grid; grid-template-columns: repeat(5, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; background: color-mix(in srgb, var(--bg2) 88%, transparent); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid var(--sep); padding: 6px max(8px, env(safe-area-inset-right, 0px)) calc(4px + env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px)); }
+  .tabbar button { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 10px; font-weight: 500; color: var(--label3); }
+  .tabbar .ic { font-size: 24px; }
+  .tabbar button[aria-current="page"] { color: var(--blue); }
+  .page { padding-bottom: 110px; padding-top: 14px; }
+  .today { grid-template-columns: minmax(0, 1fr); gap: 22px; }
+  .story.wide { aspect-ratio: 4 / 5; }
+  .story.wide .title { font-size: 28px; }
+  .story.wide .glyph-art { width: 62%; right: -6%; bottom: 12%; }
+  .banners { grid-auto-columns: 86%; }
+  .ranked { grid-auto-columns: 88%; }
+  .tiles { grid-auto-columns: 96px; }
+  .tile .icon { width: 96px; height: 96px; }
+  .product-head .icon { width: 104px; height: 104px; }
+  .product-head .txt { min-height: 104px; }
+  .product-head h1 { font-size: 22px; }
+  .product-head .sub { font-size: 15px; }
+  .desc, .rowlist, .trust-cards, .info { grid-template-columns: minmax(0, 1fr); }
+  .inst-grid, .hn-list { grid-template-columns: minmax(0, 1fr); }
+  dialog.sheet { width: 100vw; margin: auto 0 0; border-radius: 14px 14px 0 0; max-height: 92dvh; padding-bottom: env(safe-area-inset-bottom, 0px); }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="shell">
+  <aside class="side" aria-label="Store navigation">
+    <div class="wordmark"><span class="mark" id="mark"></span>Vetted</div>
+    <label class="side-search" for="side-q"><span id="side-q-ic"></span><input id="side-q" type="search" placeholder="Search" autocomplete="off"></label>
+    <nav id="side-nav"></nav>
+    <div class="side-foot" id="side-foot"></div>
+  </aside>
+  <main class="main" id="main"></main>
+</div>
+<nav class="tabbar" id="tabbar" aria-label="Tabs"></nav>
+<dialog class="sheet" id="sheet" aria-label="Install"><div class="sheet-in" id="sheet-body"></div></dialog>
+<dialog class="story-ov" id="story" aria-label="Story"></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite" popover="manual"></div>
+
+<script>
+const D = /*__DATA__*/null;
+
+const G = {
+  today: '<rect x="4" y="3" width="16" height="18" rx="3"/><path d="M8 8h8M8 12h8M8 16h5"/>',
+  skill: '<path d="M12 3l2.2 5.2L20 9l-4.3 3.8L17 18.5 12 15.6 7 18.5l1.3-5.7L4 9l5.8-.8z"/>',
+  mcp: '<rect x="3" y="4" width="7" height="7" rx="1.5"/><rect x="14" y="13" width="7" height="7" rx="1.5"/><path d="M10 7.5h4.5a2 2 0 0 1 2 2V13M14 16.5H9.5a2 2 0 0 1-2-2V11"/>',
+  tool: '<path d="M14.5 6.5a4 4 0 0 0-5.3 5.3L4 17l3 3 5.2-5.2a4 4 0 0 0 5.3-5.3l-2.5 2.5-2.3-.7-.7-2.3z"/>',
+  search: '<circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4.2-4.2"/>',
+  globe: '<circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/>',
+  table: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 4v16"/>',
+  doc: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4M9 13h6M9 17h6"/>',
+  branch: '<circle cx="6" cy="6" r="2.5"/><circle cx="6" cy="18" r="2.5"/><circle cx="18" cy="8" r="2.5"/><path d="M6 8.5v7M18 10.5c0 3.5-4 4-9.6 6"/>',
+  slides: '<rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8"/>',
+  flask: '<path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3M7.5 15h9"/>',
+  pen: '<path d="M4 20l4-1 11-11-3-3L5 16z"/><path d="M14 7l3 3"/>',
+  book: '<path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"/><path d="M4 19V5M8 7h7"/>',
+  cloud: '<path d="M7 18h10a4 4 0 0 0 .5-8 6 6 0 0 0-11.5 1.5A3.5 3.5 0 0 0 7 18z"/><path d="M12 15V10M9.5 12.5L12 10l2.5 2.5"/>',
+  wave: '<path d="M3 12h2M7 8v8M11 5v14M15 8v8M19 11v2"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+  braces: '<path d="M8 4c-2 0-2 1.5-2 3v2c0 1.5-1 3-2 3 1 0 2 1.5 2 3v2c0 1.5 0 3 2 3M16 4c2 0 2 1.5 2 3v2c0 1.5 1 3 2 3-1 0-2 1.5-2 3v2c0 1.5 0 3-2 3"/>',
+  chip: '<rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/>',
+  shell: '<rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9l3 3-3 3M12 15h5"/>',
+  shield: '<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/>',
+  shieldok: '<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>',
+  shieldq: '<path d="M12 3l8 3v6c0 4.5-3.4 8.3-8 9-4.6-.7-8-4.5-8-9V6z"/><path d="M12 8v5M12 16.2v.1"/>',
+  gauge: '<path d="M4 16a8 8 0 1 1 16 0"/><path d="M12 16l4-5"/>',
+  pulse: '<path d="M3 12h4l2-5 4 10 2-5h6"/>',
+  star: '<path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1L3.2 9.5l6.1-.9z"/>',
+  check: '<path d="M5 12.5l4.5 4.5L19 7.5"/>',
+  x: '<path d="M7 7l10 10M17 7L7 17"/>',
+  back: '<path d="M15 5l-7 7 7 7"/>',
+  copy: '<rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/>',
+  ext: '<path d="M14 4h6v6M20 4l-9 9M18 14v5H5V6h5"/>',
+  person: '<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>',
+  building: '<path d="M4 21V5l8-2v18M12 8h8v13M2 21h20M7 8h2M7 12h2M7 16h2M15 12h2M15 16h2"/>',
+  scale: '<path d="M12 3v18M7 21h10M5 7h14M5 7l-3 7a3 3 0 0 0 6 0zM19 7l-3 7a3 3 0 0 0 6 0z"/>',
+  file: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/>',
+  code: '<path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/>',
+  play: '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9v6l5-3z"/>',
+};
+const ic = (n, sw = 2, fill = 'none') => `<svg class="ic" viewBox="0 0 24 24" fill="${fill}" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${G[n] || G.skill}</svg>`;
+const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+const L = D.L, R = D.R, BY = Object.fromEntries(L.map(l => [l.id, l]));
+const KIND = { skill: 'Agent Skill', mcp: 'MCP Server', tool: 'Developer Tool' };
+const GEN = new Date(D.gen + 'T00:00:00Z');
+const fmtK = n => n >= 1e6 ? (n / 1e6).toFixed(1).replace(/\.0$/, '') + 'M' : n >= 1000 ? (n / 1000).toFixed(n >= 1e4 ? 0 : 1).replace(/\.0$/, '') + 'K' : String(n);
+function ago(date) {
+  if (!date) return '—';
+  const d = Math.round((GEN - new Date(date + 'T00:00:00Z')) / 864e5);
+  if (d <= 0) return 'today'; if (d === 1) return 'yesterday'; if (d < 30) return d + ' days ago';
+  if (d < 365) { const m = Math.round(d / 30); return m + (m === 1 ? ' month ago' : ' months ago'); }
+  const y = Math.round(d / 365); return y + (y === 1 ? ' year ago' : ' years ago');
+}
+const fmtDate = s => s ? new Date(s + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' }) : '—';
+const repoOf = l => R[l.r];
+const owner = l => repoOf(l).own;
+
+const SEVC = { LOW: 'c-green', MEDIUM: 'c-blue', HIGH: 'c-orange', CRITICAL: 'c-red', INFO: 'c-gray' };
+const SEVW = { LOW: 'Low', MEDIUM: 'Medium', HIGH: 'High', CRITICAL: 'Critical', INFO: 'Info' };
+const scanOf = l => (D.SC || {})[l.id];
+function trust(l) {
+  const r = repoOf(l), sc = scanOf(l);
+  if (l.nv) return { short: 'NVIDIA Verified', cls: 'c-green', icon: 'shieldok' };
+  if (l.tr) return { short: 'Trusted publisher', cls: 'c-blue', icon: 'building' };
+  const mr = (D.MR || {})[l.id];
+  if (mr && mr.codeFree && mr.verdict === 'fits') return { short: 'Instructions only', cls: 'c-green', icon: 'shieldok' };
+  if (mr) return mr.verdict === 'fits' ? { short: 'Fits its purpose', cls: 'c-green', icon: 'shieldok' }
+    : mr.verdict === 'review' ? { short: 'Does more than stated', cls: 'c-orange', icon: 'shieldq' } : { short: 'Flagged', cls: 'c-red', icon: 'shieldq' };
+  if (sc) return { short: `Scan ${sc.s} · ${SEVW[sc.sev] || sc.sev}`, cls: SEVC[sc.sev] || 'c-gray', icon: sc.sev === 'LOW' ? 'shieldok' : 'shieldq' };
+  if (r.sc) return { short: `Scorecard ${r.sc.s.toFixed(1)}`, cls: r.sc.s >= 7 ? 'c-green' : 'c-blue', icon: 'gauge' };
+  return { short: 'Not scanned yet', cls: 'c-gray', icon: 'shieldq' };
+}
+function icon(l, size) {
+  const av = D.AV[owner(l)];
+  const st = size ? `width:${size}px;height:${size}px;` : '';
+  if (l.k !== 'skill' && !l.p && av) return `<span class="icon" style="${st}background:#FFFFFF"><img src="${av}" alt=""></span>`;
+  return `<span class="icon" style="${st}background:linear-gradient(160deg,${l.c[0]},${l.c[1]})">${ic(l.g, 1.9)}${av ? `<span class="av"><img src="${av}" alt=""></span>` : ''}</span>`;
+}
+const caption = l => { const t = trust(l); return `<span class="iap ${t.cls}">${t.short}</span>`; };
+const getBtn = (l, v = '') => `<button class="get ${v}" data-get="${l.id}" aria-label="Get ${esc(l.n)}">GET</button>`;
+const row = (l, rank) => `<div class="row">${icon(l, 64)}${rank ? `<span class="rank">${rank}</span>` : ''}
+  <div class="row-body"><a class="row-txt" href="#${l.id}"><b>${esc(l.n)}</b><span>${esc(l.t)}</span></a><div class="btn-col">${getBtn(l)}${caption(l)}</div></div></div>`;
+const tile = l => `<a class="tile" href="#${l.id}">${icon(l)}<b>${esc(l.n)}</b><span class="${trust(l).cls}">${trust(l).short}</span></a>`;
+const art = (g, glyph) => `<div class="art" style="background:linear-gradient(155deg,${g[0]},${g[1]})">
+  <span class="orb" style="width:60%;aspect-ratio:1;left:-20%;top:-15%;background:radial-gradient(circle,rgba(255,255,255,.25),transparent 70%)"></span>
+  <svg class="glyph-art" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">${G[glyph]}</svg></div>`;
+const pick = ids => ids.map(i => BY[i]).filter(Boolean);
+const byRepo = repo => L.filter(l => l.r === repo);
+const byStars = arr => [...arr].sort((a, b) => repoOf(b).st - repoOf(a).st);
+function toast(m) {
+  const t = document.getElementById('toast'); t.textContent = m;
+  try { if (t.matches(':popover-open')) t.hidePopover(); t.showPopover(); } catch (e) {}
+  t.classList.remove('show'); requestAnimationFrame(() => requestAnimationFrame(() => t.classList.add('show')));
+  clearTimeout(toast.h); toast.h = setTimeout(() => { t.classList.remove('show'); setTimeout(() => { try { t.hidePopover(); } catch (e) {} }, 250); }, 2200);
+}
+const dataNote = () => `<p class="data-note">Every listing is a real open-source repository. Community projects get Vetted's Purpose Check and a static NVIDIA SkillSpector scan; trusted publishers aren't scanned up front. Stars, licenses and activity come from GitHub, repository scores from OpenSSF Scorecard, discussions from Hacker News, and install commands from each project's own README. Data fetched ${fmtDate(D.gen)}. Vetted is a prototype and isn't affiliated with these projects.</p>`;
+
+// ---------- stories ----------
+const community = () => L.filter(l => !l.tr);
+const MRof = l => (D.MR || {})[l.id];
+function uniqueRepos(list, max = 1) {
+  const n = {};
+  return list.filter(l => (n[l.r] = (n[l.r] || 0) + 1) <= max);
+}
+function stories() {
+  const spector = BY['skillspector'];
+  const trivyHN = (R['aquasecurity/trivy']?.hn || []).find(h => /compromis/i.test(h[0]));
+  const comm = community();
+  const checked = comm.filter(MRof);
+  const withCode = checked.filter(l => !MRof(l).codeFree);
+  const fits = checked.filter(l => MRof(l).verdict === 'fits').length;
+  const reviewedN = checked.reduce((a, l) => a + MRof(l).reviewed.length, 0);
+  const featured = uniqueRepos(byStars(comm)).slice(0, 8);
+  const out = [];
+  out.push({ id: 'community', eyebrow: 'How Vetted Works', title: 'Made by one person. Checked before you install.', g: ['#14213D', '#3A6EA5'], glyph: 'shieldok', wide: true, app: BY['yazi'] || featured[0],
+    body: [`Most great open-source tools are built by individuals, not companies. Vetted reads their code before you install it and asks one question: <strong>does it do more than its job needs?</strong>`,
+      `A file finder that reads files is fine. A clock that reads your SSH keys is not. So each project gets a <strong>Purpose Check</strong>: what its code can actually do (network, files, running programs, secrets, browser), compared with what it says it's for.`,
+      `So far that's ${checked.length} community projects: ${withCode.length} with code we read, and ${checked.length - withCode.length} skills that are instructions only. ${fits} fit their purpose${checked.length - fits ? `, and ${checked.length - fits} still need${checked.length - fits === 1 ? 's' : ''} a closer look` : ''}. Every mismatch we found (${reviewedN}) was read line by line, and the reason is written on its page.`,
+      `Skills and servers published by companies like Anthropic, OpenAI and NVIDIA sit under <strong>Trusted publishers</strong> instead.`], apps: featured });
+  const commScans = comm.map(l => scanOf(l)).filter(Boolean);
+  if (spector && commScans.length) {
+    const c = {}; for (const x of commScans) c[x.sev] = (c[x.sev] || 0) + 1;
+    out.push({ id: 'scan', eyebrow: 'Security Spotlight', title: 'Scanned with NVIDIA SkillSpector', lede: `${commScans.length} community skills and servers scanned.`, g: ['#0B3D2E', '#1F9D6B'], glyph: 'shieldok',
+      body: [`Skills run with your assistant's permissions, so a bad one can read files, leak data or run commands. NVIDIA's open-source <strong>SkillSpector</strong> flags prompt injection, data exfiltration, privilege escalation and other risky patterns.`,
+        `NVIDIA's own research put numbers on it: in a subset of 31,132 skills they analyzed, 26.1% contained vulnerabilities and 5.2% showed likely malicious intent.`,
+        `We ran SkillSpector ${esc(commScans[0].ver)} in static mode on <strong>${commScans.length} community skills and MCP servers</strong>: ${c.LOW || 0} scored low, ${c.MEDIUM || 0} medium, ${c.HIGH || 0} high and ${c.CRITICAL || 0} critical. Static mode can't judge intent, which is why the Purpose Check comes first on every page.`,
+        `Every listing also has a ready-to-copy SkillSpector command, so you can rerun the check yourself.`], apps: [spector, BY['gitleaks']].filter(Boolean) });
+  }
+  const trustedList = L.filter(l => l.tr);
+  out.push({ id: 'trusted', eyebrow: 'Trusted Publishers', title: 'The big names, in one place', lede: `${trustedList.length} listings from ${new Set(trustedList.map(l => repoOf(l).on)).size} companies.`, g: ['#1D2B53', '#5E6EFF'], glyph: 'building',
+    body: [`Anthropic, OpenAI, NVIDIA, GitHub, Microsoft, Google and others publish skills, MCP servers and tools from their own GitHub organizations, backed by their own security reviews and release processes.`,
+      `Vetted lists them as Trusted publishers and doesn't scan them up front. If you want a second opinion anyway, every listing has a "Scan anyway" section.`],
+    apps: pick(['anthropics-docx', 'openai-security-threat-model', 'mcp-github-mcp-server', 'mcp-playwright-mcp', 'skillspector', 'uv']).concat(L.filter(l => l.nv).slice(0, 2)) });
+  if (trivyHN) out.push({ id: 'trivy', eyebrow: 'Security News', title: 'Even security tools get hit', lede: `${trivyHN[2]} points on Hacker News.`, g: ['#3A0A14', '#C2364A'], glyph: 'shieldq',
+    body: [`A Hacker News thread titled “${esc(trivyHN[0])}” (${trivyHN[2]} points, ${trivyHN[3]} comments, ${fmtDate(trivyHN[4])}) covered a compromise in the Trivy ecosystem's supply chain.`,
+      `The lesson applies to skills too: check when the code last changed, prefer releases from the project's own organization, and rescan after updates.`,
+      `<a href="https://news.ycombinator.com/item?id=${trivyHN[5]}" target="_blank" rel="noopener">Read the thread on Hacker News</a>`], apps: [BY['trivy']].filter(Boolean) });
+  const cm = byStars(comm.filter(l => l.k === 'mcp'));
+  if (cm.length) out.push({ id: 'mcp', eyebrow: 'Community MCP Servers', title: 'Connect your assistant to the apps you use', lede: 'Blender, Zotero, Excel, n8n and more.', g: ['#4A3210', '#D69A32'], glyph: 'mcp',
+    body: [`A skill teaches your assistant <strong>how</strong> to do something. An MCP server gives it <strong>access</strong> to something: a 3D scene, your research library, a spreadsheet.`,
+      `Because they reach real apps and accounts, each one here is Purpose-Checked: we list what it can access and flag anything its purpose doesn't explain.`], apps: cm });
+  return out;
+}
+
+// ---------- pages ----------
+function pageToday() {
+  const d = GEN.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' });
+  const st = stories();
+  const comm = community();
+  const appsTop = byStars(comm.filter(l => l.k === 'tool')).slice(0, 9);
+  const skillsTop = uniqueRepos(byStars(comm.filter(l => l.k === 'skill'))).slice(0, 9);
+  const mcpTop = byStars(comm.filter(l => l.k === 'mcp')).slice(0, 9);
+  return `<div class="page">
+    <div class="date-eyebrow">${d}</div>
+    <div class="large-title"><h1>Today</h1></div>
+    <div class="today">${st.map(s => `<button class="story ${s.wide ? 'wide' : ''}" data-story="${s.id}">${art(s.g, s.glyph)}
+      <div class="copy"><span class="eyebrow">${s.eyebrow}</span><span class="title">${s.title}</span></div>
+      ${s.wide && s.app ? `<div class="bottom frost">${icon(s.app, 48)}<div class="t"><b>${esc(s.app.n)}</b><span>${esc(s.app.t)}</span></div><span class="get light" data-get="${s.app.id}">GET</span></div>`
+        : `<div class="bottom">${s.lede || ''}</div>`}</button>`).join('')}</div>
+    <section class="shelf"><div class="shelf-head"><h2>Popular Community Apps<span class="sub">Built by independent developers · ranked by GitHub stars</span></h2><a class="see-all" href="#tools">See All</a></div>
+      ${ranked(appsTop, true)}</section>
+    <section class="shelf"><div class="shelf-head"><h2>Community Skills<span class="sub">The most-starred skill pack from each developer</span></h2><a class="see-all" href="#skills">See All</a></div>
+      ${ranked(skillsTop)}</section>
+    <section class="shelf"><div class="shelf-head"><h2>Community MCP Servers</h2><a class="see-all" href="#mcp">See All</a></div>
+      ${ranked(mcpTop)}</section>
+    ${trustedShelf(null, 'From Trusted Publishers')}
+    ${dataNote()}</div>`;
+}
+
+function repoTitle(repo) { const n = repo.split('/')[1].replace(/[-_]+/g, ' '); return n.charAt(0).toUpperCase() + n.slice(1); }
+function trustedShelf(kind, title) {
+  const list = byStars(L.filter(l => l.tr && (!kind || l.k === kind)));
+  if (!list.length) return '';
+  return `<section class="shelf"><div class="shelf-head"><h2>${title}<span class="sub">From companies' own GitHub organizations · not scanned up front</span></h2><a class="see-all" href="#trusted">See All</a></div>
+    <div class="scroller tiles">${uniqueRepos(list, 2).slice(0, 16).map(tile).join('')}</div></section>`;
+}
+function ranked(list, numbered) {
+  const rows = list.length <= 2 ? 'one' : list.length <= 6 ? 'two' : '';
+  return `<div class="scroller ranked ${rows}">${list.map((l, i) => row(l, numbered ? i + 1 : 0)).join('')}</div>`;
+}
+function banners(items) {
+  return `<div class="scroller banners">${items.filter(x => x.l).map(({ l, eb, line }) => `<a class="banner" href="#${l.id}">
+    <span class="eb">${eb}</span><span class="bt">${esc(l.n)}</span><span class="bs">${esc(line || l.t)}</span>
+    <span class="bart" style="background:linear-gradient(155deg,${l.c[1]},${l.c[0]})">
+      <svg class="glyph-art" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="opacity:.25;width:46%;right:4%;bottom:-6%">${G[l.g]}</svg>
+      <span class="bline">${icon(l, 40)}<span>★ ${fmtK(repoOf(l).st)} · ${trust(l).short}</span></span></span></a>`).join('')}</div>`;
+}
+function pageSkills() {
+  const comm = community().filter(l => l.k === 'skill');
+  const repos = [...new Set(byStars(comm).map(l => l.r))];
+  return `<div class="page">
+    <div class="large-title"><h1>Skills</h1><p>Instruction packs that teach Claude, Codex and other agents how to do specific jobs. ${comm.length} community skills from ${repos.length} independent developers, each Purpose-Checked and scanned with SkillSpector.</p></div>
+    ${banners(uniqueRepos(byStars(comm)).slice(0, 4).map(l => ({ l, eb: 'Community · ' + repoOf(l).own })))}
+    ${repos.map(repo => { const list = byRepo(repo);
+      return `<section class="shelf"><div class="shelf-head"><h2>${esc(repoTitle(repo))}<span class="sub">by ${esc(repo.split('/')[0])} · ★ ${fmtK(R[repo].st)} on GitHub</span></h2>${list.length > 6 ? `<button class="see-all" data-seeall="${repo}">See All</button>` : ''}</div>${ranked(list.slice(0, 12))}</section>`; }).join('')}
+    ${trustedShelf('skill', 'Skills from Trusted Publishers')}
+    ${dataNote()}</div>`;
+}
+function pageMcp() {
+  const comm = byStars(community().filter(l => l.k === 'mcp'));
+  return `<div class="page">
+    <div class="large-title"><h1>MCP Servers</h1><p>Servers that connect your assistant to real apps and accounts. Each community server is checked against its own stated purpose: what it can access, and whether that matches what it says it's for.</p></div>
+    ${banners(comm.slice(0, 4).map(l => ({ l, eb: 'Community · ' + repoOf(l).own })))}
+    <section class="shelf"><div class="shelf-head"><h2>Community Servers<span class="sub">Built by independent developers · ranked by GitHub stars</span></h2></div>${ranked(comm, true)}</section>
+    ${trustedShelf('mcp', 'MCP Servers from Trusted Publishers')}
+    ${dataNote()}</div>`;
+}
+function pageTools() {
+  const g = ids => pick(ids).filter(l => !l.tr);
+  return `<div class="page">
+    <div class="large-title"><h1>Apps</h1><p>Open-source command-line apps built by independent developers. Each one is Purpose-Checked: we read its code and compare what it can do with what it says it's for.</p></div>
+    ${banners([{ l: BY['yazi'], eb: 'File Manager' }, { l: BY['lazygit'], eb: 'Git, Visually' }, { l: BY['btop'], eb: 'System Monitor' }, { l: BY['ripgrep'], eb: 'Search, Fast' }])}
+    <section class="shelf"><div class="shelf-head"><h2>Terminal Power Tools</h2></div>${ranked(byStars(g(['ripgrep', 'fd', 'fzf', 'bat', 'zoxide', 'yazi', 'dust', 'tokei', 'jq', 'btop'])), true)}</section>
+    <section class="shelf"><div class="shelf-head"><h2>Git &amp; Dev Workflow</h2></div>${ranked(byStars(g(['lazygit', 'gitui', 'delta', 'just', 'mise', 'hyperfine', 'lazydocker', 'gitleaks'])), true)}</section>
+    ${trustedShelf('tool', 'Tools from Trusted Publishers')}
+    ${dataNote()}</div>`;
+}
+function pageTrusted() {
+  const tr = L.filter(l => l.tr);
+  const pubs = {};
+  for (const l of tr) (pubs[repoOf(l).on] ??= []).push(l);
+  const order = Object.entries(pubs).sort((a, b) => Math.max(...b[1].map(l => repoOf(l).st)) - Math.max(...a[1].map(l => repoOf(l).st)));
+  return `<div class="page">
+    <div class="large-title"><h1>Trusted Publishers</h1><p>${tr.length} listings from ${order.length} companies that publish from their own GitHub organizations and run their own security reviews. Vetted doesn't scan these up front; each listing still has a "Scan anyway" section.</p></div>
+    ${order.map(([pub, list]) => `<section class="shelf"><div class="shelf-head"><h2>${esc(pub)}<span class="sub">${list.length} listing${list.length > 1 ? 's' : ''}</span></h2></div><div class="scroller tiles">${byStars(list).map(tile).join('')}</div></section>`).join('')}
+    ${dataNote()}</div>`;
+}
+const searchHits = q => { q = q.trim().toLowerCase(); if (!q) return []; return byStars(L.filter(l => [l.n, l.sl, l.t, l.d, l.r, repoOf(l).on, KIND[l.k], l.nv ? 'nvidia verified' : ''].join(' ').toLowerCase().includes(q))); };
+function resultsHTML() {
+  const q = S.q.trim();
+  if (!q) return `<h2 style="font-size:22px;margin-bottom:6px">Discover</h2><ul class="suggest">${['pdf', 'security', 'figma', 'deploy', 'browser', 'git', 'nvidia', 'test'].map(s => `<li><button data-suggest="${s}">${ic('search')}${s}</button></li>`).join('')}</ul>`;
+  const res = searchHits(q);
+  if (!res.length) return `<p class="empty">No results for “${esc(q)}”.<br>Try a task, like “spreadsheet” or “deploy”.</p>`;
+  return `<p class="result-count">${res.length} result${res.length > 1 ? 's' : ''}</p><div class="rowlist">${res.map(l => row(l)).join('')}</div>`;
+}
+const pageSearch = () => `<div class="page"><div class="large-title"><h1>Search</h1></div>
+  <label class="search-field" for="q">${ic('search')}<input id="q" type="search" placeholder="Skills, MCP servers and tools" value="${esc(S.q)}" autocomplete="off"></label>
+  <div id="results">${resultsHTML()}</div>${dataNote()}</div>`;
+
+// ---------- install blocks ----------
+const copyBox = cmd => `<div class="copybox"><code>${esc(cmd)}</code><button class="copy-btn" data-copy="${esc(cmd)}" aria-label="Copy command">${ic('copy')}</button></div>`;
+const AGENTS = [['claude-code', 'Claude Code'], ['codex', 'Codex'], ['cursor', 'Cursor']];
+function instCards(l) {
+  return l.inst.map((o, i) => {
+    if (o.scan) return `<div class="inst-card scan"><div class="h"><span class="c-green">${ic('shieldok', 2.2)}</span><b>Scan it first</b><span class="how">SkillSpector</span></div>
+      ${o.cmds.map(copyBox).join('')}<span class="note">Static scan with NVIDIA SkillSpector, no API key needed. ${BY['skillspector'] ? `<a href="#skillspector" data-closesheet>Install SkillSpector</a>` : ''}</span></div>`;
+    const agent = S.agent;
+    return `<div class="inst-card"><div class="h"><b>${esc(o.to)}</b><span class="how">${esc(o.how)}</span></div>
+      ${o.agentCmd ? `<div class="seg" role="group" aria-label="Agent">${AGENTS.map(([k, n]) => `<button data-agent="${k}" aria-pressed="${agent === k}">${n}</button>`).join('')}</div>${copyBox(`${o.agentCmd} --agent ${agent}`)}` : ''}
+      ${(o.cmds || []).map(copyBox).join('')}
+      ${o.text ? `<span class="note" style="color:var(--label)">${esc(o.text)}</span>` : ''}
+      ${o.link ? `<a class="pill-link" href="${o.link}" target="_blank" rel="noopener" style="align-self:flex-start">Open install guide ${ic('ext')}</a>` : ''}
+      ${o.note ? `<span class="note">${esc(o.note)}</span>` : ''}</div>`;
+  }).join('');
+}
+
+// ---------- SkillSpector report ----------
+const recWord = r => ({ DO_NOT_INSTALL: 'Do not install', INSTALL: 'Install', SAFE_TO_INSTALL: 'Safe to install', SAFE: 'Safe to install', REVIEW: 'Review before installing',
+  REVIEW_BEFORE_INSTALL: 'Review before installing', INSTALL_WITH_CAUTION: 'Install with caution', CAUTION: 'Install with caution' })[r] || String(r || '').replace(/_/g, ' ').toLowerCase().replace(/^\w/, c => c.toUpperCase());
+function reportHTML(l) {
+  const sc = scanOf(l);
+  if (!sc) return '';
+  return `<section class="shelf"><div class="shelf-head"><h2>SkillSpector Report<span class="sub">NVIDIA SkillSpector ${esc(sc.ver)} · static scan · ${fmtDate(sc.at)}${sc.scope ? ` · scanned ${esc(sc.scope)}/ only (the whole repository is too large)` : ''}</span></h2></div>
+    <div class="rep">
+      <div class="rep-score ${SEVC[sc.sev] || 'c-gray'}"><div class="dial" style="--p:${sc.s}"><span><b>${sc.s}</b><small>/ 100</small></span></div>
+        <div><div class="sevword">${SEVW[sc.sev] || esc(sc.sev)} risk</div><div class="rec">SkillSpector's call: ${esc(recWord(sc.rec))}</div></div></div>
+      <div class="rep-counts">${['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'].map(k => `<span class="cnt"><b class="${SEVC[k]}">${sc.by[k] || 0}</b>${SEVW[k]}</span>`).join('')}</div>
+      <ul class="kv"><li><span>Files scanned</span><span>${sc.files}${sc.cov != null ? ` · ${sc.cov}% coverage` : ''}</span></li>
+        <li><span>Executable scripts</span><span>${sc.exe ? 'Yes' : 'No'}</span></li><li><span>Total findings</span><span>${sc.n}</span></li></ul>
+    </div>
+    <p class="caveat">Static mode checks code and instructions against SkillSpector's 71 risk patterns without judging intent, so routine steps like deleting a temp file or running a bundled script can count as High. Its optional LLM review checks intent and filters many of these; that needs your own API key.</p>
+    ${sc.top.length ? `<div class="findings">${sc.top.map(f => `<div class="fd"><div class="fh"><span class="sev ${SEVC[f[0]] || ''}">${esc(f[0])}</span><b>${esc(f[2])}</b><span class="pid mono">${esc(f[1])}</span></div>
+      <div class="pat">${esc(f[3])}</div>${f[4] ? `<a class="loc mono" href="https://github.com/${l.r}/blob/${repoOf(l).br}/${l.p ? l.p + '/' : ''}${f[4]}${f[5] ? '#L' + f[5] : ''}" target="_blank" rel="noopener">${esc(f[4])}${f[5] ? ':' + f[5] : ''}</a>` : ''}
+      ${f[6] ? `<code class="snip">${esc(f[6])}</code>` : ''}${f[7] ? `<p class="why">${esc(f[7])}</p>` : ''}</div>`).join('')}</div>` : `<p class="empty-note">No findings.</p>`}
+    ${sc.n > sc.top.length ? `<p class="caveat">Showing the ${sc.top.length} most severe of ${sc.n} findings. Run the scan command in Install for the full report.</p>` : ''}
+  </section>`;
+}
+
+// ---------- Purpose check (MCP servers) ----------
+function purposeHTML(l) {
+  const m = (D.MR || {})[l.id];
+  if (!m) return '';
+  const r = repoOf(l);
+  if (m.codeFree) return `<section class="shelf"><div class="shelf-head"><h2>Purpose Check<span class="sub">Checked ${fmtDate(m.reviewDate)}</span></h2></div>
+    <div class="pc-verdict c-green">${ic('shieldok', 1.8)}<div><b>Instructions only</b><p>This skill is plain instructions for your assistant. It ships no code that runs on your machine, so it can only do what your assistant is already allowed to do.</p>
+      <p class="purpose"><span>Stated purpose</span>${esc(m.purpose)}</p></div></div>
+    <p class="caveat">The risk with instruction-only skills is in the words: hidden instructions, or steps that tell your assistant to run risky commands. That's what SkillSpector's report below checks.</p></section>`;
+  const gh = (f, n) => `https://github.com/${l.r}/blob/${r.br}/${l.p ? l.p + '/' : ''}${String(f).replace(/\\/g, '/')}${n ? '#L' + n : ''}`;
+  const V = { fits: ['c-green', 'shieldok', 'Fits its purpose', 'Everything it can do matches what it says it\'s for.'],
+    review: ['c-orange', 'shieldq', 'Does more than its stated purpose', 'It can do things its purpose doesn\'t explain. Check the unexpected items below.'],
+    flag: ['c-red', 'shieldq', 'Flagged', 'It touches secret files or a tool description contains hidden instructions.'] }[m.verdict];
+  const P = m.peers || { n: 1, worse: 0, median: 0 };
+  const kindWord = { skill: 'skills', mcp: 'MCP servers', tool: 'apps' }[m.kind];
+  const w = m.findings.where, tot = Math.max(1, m.findings.total);
+  const seg = [['production', 'Production code', 'var(--orange)'], ['tests & tooling', 'Tests & tooling', 'var(--label3)'], ['docs', 'Docs', 'var(--blue)'], ['other', 'Other files', 'var(--fill)']];
+  const capRows = m.caps.filter(c => c.found || c.expected).map(c => {
+    const st = !c.found ? ['c-gray', 'Not used', c.why ? `Allowed for its purpose (${esc(c.why.toLowerCase())}), but not found in the code.` : '']
+      : c.expected ? ['c-green', 'Expected', esc(c.why)]
+      : c.reviewed ? ['c-blue', 'Reviewed: benign', esc(c.reviewed)]
+      : ['c-orange', 'Unexpected', 'Not explained by its stated purpose.'];
+    return `<li class="cap"><div class="cap-h"><b>${esc(c.label)}</b><span class="chip ${st[0]}">${st[1]}</span></div>${st[2] ? `<p>${st[2]}</p>` : ''}
+      ${c.found && !c.expected ? c.ex.map(e => `<a class="ev mono" href="${gh(e[0], e[1])}" target="_blank" rel="noopener"><span>${esc(e[0])}:${e[1]}</span><code>${esc(e[2])}</code></a>`).join('') : ''}</li>`;
+  }).join('');
+  return `<section class="shelf"><div class="shelf-head"><h2>Purpose Check<span class="sub">Judged against what it says it's for, not on one fixed scale · reviewed ${fmtDate(m.reviewDate)}</span></h2></div>
+    <div class="pc-verdict ${V[0]}">${ic(V[1], 1.8)}<div><b>${V[2]}</b><p>${V[3]}</p><p class="purpose"><span>Stated purpose${m.auto ? ' (from its description; expected access inferred from it)' : ''}</span>${esc(m.purpose)}</p></div></div>
+    ${m.note ? `<p class="empty-note" style="margin-top:12px">${esc(m.note)}</p>` : ''}
+    ${(m.notices || []).map(n => `<div class="worth"><div class="cap-h"><b>${esc(n.title)}</b><span class="chip c-orange">Worth knowing</span></div><p>${esc(n.note)}</p>
+      <div class="ev-row">${(n.where || []).map(([f, ln]) => `<a class="ev mono" href="${gh(f, ln)}" target="_blank" rel="noopener"><span>${esc(f)}:${ln}</span></a>`).join('')}</div></div>`).join('')}
+    <div class="pc-grid">
+      <div class="pc-card"><h3>What it can do</h3><p class="pc-sub">Found by reading its ${m.files.production} production code files (${m.loc.toLocaleString('en-US')} lines).</p><ul class="caps">${capRows || '<li class="cap"><p>No access to files, network, programs or secrets found.</p></li>'}</ul></div>
+      <div class="pc-side">
+        ${m.kind === 'mcp' ? `<div class="pc-card"><h3>Its tools</h3>
+          ${m.toolCount ? `<p class="pc-sub">${m.toolCount} tool${m.toolCount > 1 ? 's' : ''} found. ${m.poisoned ? `<b class="c-red">${m.poisoned} with suspicious instructions in the description.</b>` : 'No hidden instructions in any description.'}</p>
+            <details class="tools"><summary>Show tools</summary><ul>${m.tools.map(t => `<li><span class="mono">${esc(t.name)}</span>${t.desc ? `<p>${esc(t.desc)}</p>` : ''}${t.flags.length ? `<p class="c-red">${esc(t.flags.join(', '))}</p>` : ''}</li>`).join('')}</ul></details>`
+            : `<p class="pc-sub">Couldn't read the tool list from the source automatically.</p>`}
+          ${m.reviewNotes?.poisoning ? `<p class="pc-sub"><span class="chip c-blue">Reviewed: benign</span> ${esc(m.reviewNotes.poisoning)}</p>` : ''}</div>` : ''}
+        ${m.hasScan ? `<div class="pc-card"><h3>Where SkillSpector's findings are</h3>
+          <div class="stack">${seg.map(([k, , c]) => w[k] ? `<i style="width:${(w[k] / tot) * 100}%;background:${c}"></i>` : '').join('')}</div>
+          <ul class="legend">${seg.map(([k, n, c]) => `<li><span class="dotsrc" style="background:${c}"></span>${n}<b>${w[k]}</b></li>`).join('')}</ul>
+          <p class="pc-sub">${m.seriousCode} high or critical finding${m.seriousCode === 1 ? '' : 's'} in running code${m.seriousComment ? `, plus ${m.seriousComment} inside code comments (mostly comments describing attacks the code blocks)` : ''}.</p>
+          ${Object.keys(m.other || {}).length ? `<ul class="caps">${Object.entries(m.other).map(([k, o]) => `<li class="cap"><div class="cap-h"><b>${esc(k)}</b><span class="chip ${o.note ? 'c-blue' : 'c-orange'}">${o.n} · ${o.note ? 'Reviewed: benign' : 'Not reviewed'}</span></div>${o.note ? `<p>${esc(o.note)}</p>` : ''}
+            ${o.ex.map(e => `<a class="ev mono" href="${gh(e[0], e[1])}" target="_blank" rel="noopener"><span>${esc(e[0])}:${e[1]}</span></a>`).join('')}</li>`).join('')}</ul>` : ''}</div>
+        <div class="pc-card"><h3>Compared with other ${kindWord}</h3>
+          <div class="score">${m.findings.density}<small> per 1,000 lines</small></div>
+          <p class="pc-sub">Weighted high and critical findings in running code. ${m.findings.density === 0 ? `Tied for cleanest of the ${P.n} ${kindWord} with code.` : P.worse ? `Lower than ${P.worse} of the other ${P.n - 1}.` : `The highest of the ${P.n} checked.`} Median: ${P.median}.</p></div>` : ''}
+      </div>
+    </div>
+    <p class="caveat">${m.hasScan ? 'SkillSpector\'s raw score below counts every file in the repository, including tests and docs. ' : ''}The Purpose Check counts only code that runs, and every mismatch was read line by line before being marked benign. Running it in a sandbox and watching what it does would be stronger still.</p>
+  </section>`;
+}
+
+// ---------- product page ----------
+const SOCIAL = [['YouTube', '#FF0033', q => `https://www.youtube.com/results?search_query=${q}`], ['TikTok', '#25F4EE', q => `https://www.tiktok.com/search?q=${q}`],
+  ['Reddit', '#FF4500', q => `https://www.reddit.com/search/?q=${q}`], ['X', '#8E8E93', q => `https://x.com/search?q=${q}&f=live`],
+  ['LinkedIn', '#0A66C2', q => `https://www.linkedin.com/search/results/content/?keywords=${q}`], ['Hacker News', '#FF6600', q => `https://hn.algolia.com/?q=${q}`]];
+const CHECK_ORDER = ['Maintained', 'Code-Review', 'Vulnerabilities', 'Dangerous-Workflow', 'Token-Permissions', 'Branch-Protection', 'Security-Policy', 'Pinned-Dependencies', 'SAST', 'Signed-Releases'];
+function pageProduct(id) {
+  const l = BY[id], r = repoOf(l), t = trust(l);
+  const from = { today: 'Today', skills: 'Skills', mcp: 'MCP Servers', tools: 'Apps', trusted: 'Trusted', search: 'Search' }[S.tab];
+  const siblings = byRepo(l.r).filter(x => x.id !== l.id);
+  const q = encodeURIComponent(l.k === 'skill' ? `${l.sl} ${r.on} skill` : l.k === 'mcp' ? `${l.n} MCP` : `${l.n} ${l.r.split('/')[1] === l.n.toLowerCase() ? '' : l.r.split('/')[1]}`.trim());
+  const checks = r.sc ? CHECK_ORDER.map(n => r.sc.ch.find(c => c[0] === n)).filter(Boolean).slice(0, 6) : [];
+  const barColor = s => s >= 8 ? 'var(--green)' : s >= 5 ? 'var(--blue)' : s >= 3 ? 'var(--orange)' : 'var(--red)';
+  return `<div class="navbar"><div class="in"><a class="back" href="#${S.tab}">${ic('back', 2.4)}${from}</a></div></div>
+  <div class="page" style="padding-top:12px">
+    <div class="product-head">${icon(l)}<div class="txt"><h1>${esc(l.n)}</h1><span class="sub">${esc(r.on)} · ${KIND[l.k]}</span>
+      <div class="acts">${getBtn(l, 'primary')}<a class="pill-link" href="${l.u}" target="_blank" rel="noopener">GitHub ${ic('ext')}</a></div></div></div>
+    <div class="strip">
+      <div><span class="k">GitHub</span><span class="v">${ic('star', 2)}${fmtK(r.st)}</span><span class="c">stars${l.p ? ' (whole repo)' : ''}</span></div>
+      <div><span class="k">Trust</span><span class="v ${t.cls}">${ic(t.icon, 2.2)}</span><span class="c">${t.short}</span></div>
+      <div><span class="k">Updated</span><span class="v">${ic('pulse', 2)}</span><span class="c">${ago(r.pu)}</span></div>
+      <div><span class="k">License</span><span class="v">${ic('scale', 2)}</span><span class="c">${esc(l.lic && l.lic.length < 30 ? l.lic : r.lic || 'None listed')}</span></div>
+      <div><span class="k">Publisher</span><span class="v">${ic(r.org ? 'building' : 'person', 2)}</span><span class="c">${r.org ? 'Organization' : 'Individual'}</span></div>
+      ${l.lines ? `<div><span class="k">SKILL.md</span><span class="v">${l.lines}</span><span class="c">lines</span></div>` : r.lang ? `<div><span class="k">Language</span><span class="v">${ic('code', 2)}</span><span class="c">${esc(r.lang)}</span></div>` : ''}
+    </div>
+    <div class="desc"><p>${esc(l.d)}</p>
+      <div class="dev"><div><a href="https://github.com/${l.r.split('/')[0]}" target="_blank" rel="noopener">${esc(r.on)}</a><span>Publisher</span></div>
+        <div><a href="${l.u}" target="_blank" rel="noopener" class="mono">${esc(l.r)}${l.p ? '/' + esc(l.p) : ''}</a><span>Source</span></div></div></div>
+
+    <section class="shelf"><div class="shelf-head"><h2>Install</h2></div><div class="inst-grid">${instCards(l)}</div></section>
+
+    ${l.tr ? `<section class="shelf"><div class="trusted-note">${ic('building', 1.8)}<div><b>Trusted publisher</b><p>Published by ${esc(r.on)} from its own GitHub organization. Companies like this run their own security reviews and release processes, so Vetted doesn't scan their listings up front.</p></div></div>
+      ${purposeHTML(l) || reportHTML(l) ? `<details class="scan-anyway"><summary>Scan anyway</summary>${purposeHTML(l)}${reportHTML(l)}</details>` : ''}</section>`
+      : `${purposeHTML(l)}\n${reportHTML(l)}`}
+
+    <section class="shelf"><div class="shelf-head"><h2>Trust &amp; Security</h2></div>
+      <div class="trust-cards">
+        <div class="t-card"><div class="top"><span class="${l.nv ? 'c-green' : 'c-gray'}">${ic(l.nv ? 'shieldok' : 'shieldq', 1.8)}</span><h3>${l.nv ? 'NVIDIA Verified' : 'Not NVIDIA verified'}</h3></div>
+          <p>${l.nv ? 'Listed in NVIDIA\'s verified skills catalog. NVIDIA\'s pipeline scans, evaluates and signs skills before they are published there.' : `Not in NVIDIA's verified catalog. Use the SkillSpector command in Install to scan ${l.k === 'tool' ? 'skills and MCP servers' : 'it'} yourself.`}</p></div>
+        <div class="t-card"><div class="top"><span class="c-blue">${ic('gauge', 1.8)}</span><h3>OpenSSF Scorecard</h3></div>
+          ${r.sc ? `<div class="score">${r.sc.s.toFixed(1)}<small> / 10</small></div><p>Automated checks of the repository's security practices, run ${fmtDate(r.sc.date)}.</p>
+            <ul class="checks">${checks.map(c => `<li><span>${c[0].replace(/-/g, ' ')}</span><span class="bar"><i style="width:${c[1] * 10}%;background:${barColor(c[1])}"></i></span><span class="n">${c[1]}</span></li>`).join('')}</ul>`
+          : `<p>OpenSSF hasn't published Scorecard results for <span class="mono">${esc(l.r)}</span> yet. Newer AI repositories often aren't covered.</p>`}
+          <a href="https://scorecard.dev/viewer/?uri=github.com/${l.r}" target="_blank" rel="noopener" style="font-size:13px">Open in Scorecard viewer ${ic('ext')}</a></div>
+        <div class="t-card"><div class="top"><span class="c-blue">${ic('pulse', 1.8)}</span><h3>Repository health</h3></div>
+          <ul class="kv"><li><span>Last commit</span><span>${ago(r.pu)}</span></li><li><span>Open issues &amp; PRs</span><span>${fmtK(r.is)}</span></li>
+            <li><span>Forks</span><span>${fmtK(r.fk)}</span></li><li><span>Created</span><span>${fmtDate(r.cr)}</span></li><li><span>Archived</span><span class="${r.ar ? 'c-red' : ''}">${r.ar ? 'Yes' : 'No'}</span></li></ul></div>
+      </div>
+      <p class="note" style="color:var(--label2);font-size:13px;margin-top:10px">Stars show popularity, not safety. Scans read code but don't run it, and anything can change after the next commit.</p></section>
+
+    <section class="shelf"><div class="shelf-head"><h2>Discussions<span class="sub">Real threads that link to this repository</span></h2></div>
+      ${r.hn.length ? `<div class="hn-list">${r.hn.map(h => `<a class="hn" href="https://news.ycombinator.com/item?id=${h[5]}" target="_blank" rel="noopener">
+        <span class="src"><span class="dotsrc" style="background:#FF6600"></span>Hacker News<span class="when">${fmtDate(h[4])}</span></span><b>${esc(h[0])}</b>
+        <span class="foot"><span>${h[2]} points</span><span>${h[3]} comments</span></span></a>`).join('')}</div>`
+        : `<p class="empty-note">No Hacker News threads link to this repository yet.</p>`}
+      <h3 style="font-size:17px;margin-top:22px">Find videos and posts</h3>
+      <div class="social-links">${SOCIAL.map(([n, c, f]) => `<a href="${f(q)}" target="_blank" rel="noopener"><span class="dotsrc" style="background:${c}"></span>${n} ${ic('ext')}</a>`).join('')}</div></section>
+
+    <section class="shelf"><div class="shelf-head"><h2>Information</h2></div>
+      <dl class="info">
+        <div><dt>Publisher</dt><dd>${esc(r.on)} (${r.org ? 'organization' : 'individual'})</dd></div>
+        <div><dt>Repository</dt><dd><a href="https://github.com/${l.r}" target="_blank" rel="noopener" class="mono">${esc(l.r)}</a></dd></div>
+        <div><dt>Category</dt><dd>${KIND[l.k]}</dd></div>
+        ${l.p ? `<div><dt>Path</dt><dd class="mono">${esc(l.p)}</dd></div>` : ''}
+        <div><dt>License</dt><dd>${esc(l.lic || r.lic || 'None listed')}</dd></div>
+        <div><dt>Stars</dt><dd>${r.st.toLocaleString('en-US')}</dd></div>
+        <div><dt>Default branch</dt><dd class="mono">${esc(r.br)}</dd></div>
+        <div><dt>Last commit</dt><dd>${fmtDate(r.pu)}</dd></div>
+        <div><dt>Data fetched</dt><dd>${fmtDate(D.gen)}</dd></div>
+      </dl></section>
+    ${siblings.length ? `<section class="shelf"><div class="shelf-head"><h2>More from ${esc(l.r)}</h2>${siblings.length > 8 ? `<button class="see-all" data-seeall="${l.r}">See All</button>` : ''}</div><div class="scroller tiles">${siblings.slice(0, 16).map(tile).join('')}</div></section>` : ''}
+    ${dataNote()}
+  </div>`;
+}
+
+// ---------- routing ----------
+const S = { tab: 'today', detail: null, q: '', agent: 'claude-code' };
+try { const a = localStorage.getItem('vetted-agent'); if (AGENTS.some(x => x[0] === a)) S.agent = a; } catch (e) {}
+const TABS = [['today', 'Today', 'today'], ['tools', 'Apps', 'tool'], ['skills', 'Skills', 'skill'], ['mcp', 'MCP Servers', 'mcp'], ['trusted', 'Trusted', 'building'], ['search', 'Search', 'search']];
+const MOBILE_TABS = ['today', 'tools', 'skills', 'mcp', 'search'];
+const count = k => L.filter(l => l.k === k && !l.tr).length;
+function chrome() {
+  const n = { skills: count('skill'), mcp: count('mcp'), tools: count('tool'), trusted: L.filter(l => l.tr).length };
+  document.getElementById('side-nav').innerHTML = TABS.filter(t => t[0] !== 'search').map(([k, l, g]) => `<button class="nav-item" data-tab="${k}" aria-current="${S.tab === k && !S.detail ? 'page' : 'false'}">${ic(g)}${l}${n[k] ? `<span class="n">${n[k]}</span>` : ''}</button>`).join('');
+  document.getElementById('tabbar').innerHTML = TABS.filter(t => MOBILE_TABS.includes(t[0])).map(([k, l, g]) => `<button data-tab="${k}" aria-current="${S.tab === k ? 'page' : 'false'}">${ic(g, 1.8)}${k === 'mcp' ? 'MCP' : l}</button>`).join('');
+}
+function render() {
+  document.getElementById('main').innerHTML = S.detail ? pageProduct(S.detail) : { today: pageToday, skills: pageSkills, mcp: pageMcp, tools: pageTools, trusted: pageTrusted, search: pageSearch }[S.tab]();
+  chrome();
+}
+function route() {
+  const h = decodeURIComponent(location.hash.slice(1));
+  if (BY[h]) { S.detail = h; if (!S.tab) S.tab = 'today'; }
+  else { S.detail = null; S.tab = TABS.some(t => t[0] === h) ? h : 'today'; }
+  render();
+}
+function go(tab) { if (location.hash.slice(1) === tab) route(); else location.hash = tab; }
+
+// ---------- sheet & story ----------
+const sheet = document.getElementById('sheet'), story = document.getElementById('story');
+let sheetId = null;
+function drawSheet() {
+  const l = BY[sheetId], t = trust(l);
+  document.getElementById('sheet-body').innerHTML = `<div class="sheet-bar"><span>Install</span><button class="text-btn" data-closesheet>Done</button></div>
+    <div class="sheet-app">${icon(l, 60)}<div class="t"><b>${esc(l.n)}</b><span>${esc(repoOf(l).on)} · ★ ${fmtK(repoOf(l).st)}</span><span class="${t.cls}">${t.short}</span></div></div>
+    <div class="group-label">Choose where to install</div>${instCards(l)}
+    <a class="pill-link" href="#${l.id}" data-closesheet style="align-self:center">View full listing</a>`;
+}
+function openSheet(id) { sheetId = id; drawSheet(); if (!sheet.open) sheet.showModal(); }
+function openStory(id) {
+  const s = stories().find(x => x.id === id);
+  story.innerHTML = `<button class="close" data-closestory aria-label="Close">${ic('x', 2.6)}</button>
+    <div class="hero">${art(s.g, s.glyph)}<div class="copy"><span class="eyebrow">${s.eyebrow}</span><span class="title">${s.title}</span>${s.lede ? `<span style="opacity:.85">${s.lede}</span>` : ''}</div></div>
+    <div class="article">${s.body.map(p => `<p>${p}</p>`).join('')}<div class="rows">${s.apps.map(a => row(a)).join('')}</div></div>`;
+  story.showModal(); story.scrollTop = 0;
+}
+
+document.addEventListener('click', e => {
+  const t = e.target.closest('[data-tab],[data-get],[data-story],[data-closestory],[data-closesheet],[data-copy],[data-agent],[data-suggest],[data-seeall],.story-ov .row-txt');
+  if (!t) return;
+  const d = t.dataset;
+  if (t.matches('.story-ov .row-txt')) { story.close(); return; }
+  if (d.tab) { e.preventDefault(); go(d.tab); }
+  else if (d.get) { e.preventDefault(); e.stopPropagation(); openSheet(d.get); }
+  else if (d.story) openStory(d.story);
+  else if ('closestory' in d) story.close();
+  else if ('closesheet' in d) sheet.close();
+  else if (d.copy) {
+    const text = d.copy;
+    const fallback = () => { const code = t.parentElement.querySelector('code'); const r = document.createRange(); r.selectNodeContents(code); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast('Selected. Press Ctrl+C or ⌘C to copy'); };
+    try { navigator.clipboard.writeText(text).then(() => toast('Copied'), fallback); } catch (err) { fallback(); }
+  }
+  else if (d.agent) {
+    S.agent = d.agent; try { localStorage.setItem('vetted-agent', S.agent); } catch (err) {}
+    if (sheet.open) drawSheet();
+    if (S.detail) { const y = scrollY; render(); scrollTo(0, y); }
+  }
+  else if (d.suggest) { S.q = d.suggest; render(); }
+  else if (d.seeall) { S.q = d.seeall; go('search'); }
+});
+document.addEventListener('input', e => {
+  if (e.target.id === 'q') { S.q = e.target.value; document.getElementById('results').innerHTML = resultsHTML(); }
+  if (e.target.id === 'side-q') {
+    S.q = e.target.value;
+    if (S.tab !== 'search' || S.detail) go('search');
+    else { const r = document.getElementById('results'); if (r) r.innerHTML = resultsHTML(); }
+  }
+});
+sheet.addEventListener('click', e => { if (e.target === sheet) sheet.close(); });
+story.addEventListener('click', e => { if (e.target === story) story.close(); });
+window.addEventListener('hashchange', () => { route(); window.scrollTo(0, 0); });
+
+document.getElementById('mark').innerHTML = ic('shieldok', 2.4);
+document.getElementById('side-q-ic').innerHTML = ic('search');
+document.getElementById('side-foot').innerHTML = `${L.length} real listings · data from GitHub, OpenSSF and Hacker News, ${fmtDate(D.gen)}`;
+route();
+</script>

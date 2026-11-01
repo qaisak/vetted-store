@@ -1,0 +1,2265 @@
+{
+  "skill": {
+    "name": "Agent Cost Report",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\thedotmack__claude-mem\\claude-mem-main\\claude-mem-grok-bot\\skills\\agent-cost-report",
+    "scanned_at": "2026-10-31T22:57:12.620797+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 100,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CHECKSUMS.txt",
+      "type": "text",
+      "lines": 50,
+      "executable": false,
+      "size_bytes": 4813,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "SKILL.md",
+      "type": "markdown",
+      "lines": 241,
+      "executable": false,
+      "size_bytes": 20957,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr.py",
+      "type": "python",
+      "lines": 221,
+      "executable": true,
+      "size_bytes": 12285,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/__init__.py",
+      "type": "python",
+      "lines": 1,
+      "executable": true,
+      "size_bytes": 105,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/behavior.py",
+      "type": "python",
+      "lines": 313,
+      "executable": true,
+      "size_bytes": 16776,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/classify.py",
+      "type": "python",
+      "lines": 83,
+      "executable": true,
+      "size_bytes": 5615,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/costs.py",
+      "type": "python",
+      "lines": 121,
+      "executable": true,
+      "size_bytes": 6410,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/devices.py",
+      "type": "python",
+      "lines": 88,
+      "executable": true,
+      "size_bytes": 5496,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/evidence.py",
+      "type": "python",
+      "lines": 165,
+      "executable": true,
+      "size_bytes": 9411,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/labels.py",
+      "type": "python",
+      "lines": 114,
+      "executable": true,
+      "size_bytes": 7130,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/measure.py",
+      "type": "python",
+      "lines": 89,
+      "executable": true,
+      "size_bytes": 5752,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/mistakes.py",
+      "type": "python",
+      "lines": 321,
+      "executable": true,
+      "size_bytes": 23681,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/patterns.py",
+      "type": "python",
+      "lines": 394,
+      "executable": true,
+      "size_bytes": 25630,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/period.py",
+      "type": "python",
+      "lines": 101,
+      "executable": true,
+      "size_bytes": 3941,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/prices.py",
+      "type": "python",
+      "lines": 102,
+      "executable": true,
+      "size_bytes": 5171,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/render.py",
+      "type": "python",
+      "lines": 584,
+      "executable": true,
+      "size_bytes": 53998,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/rollup.py",
+      "type": "python",
+      "lines": 364,
+      "executable": true,
+      "size_bytes": 32217,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/rules.json",
+      "type": "json",
+      "lines": 26,
+      "executable": false,
+      "size_bytes": 3613,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/rules.py",
+      "type": "python",
+      "lines": 78,
+      "executable": true,
+      "size_bytes": 4550,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/sample.py",
+      "type": "python",
+      "lines": 45,
+      "executable": true,
+      "size_bytes": 3648,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/snapshot.py",
+      "type": "python",
+      "lines": 55,
+      "executable": true,
+      "size_bytes": 2072,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/sync.py",
+      "type": "python",
+      "lines": 78,
+      "executable": true,
+      "size_bytes": 3489,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/transcripts.py",
+      "type": "python",
+      "lines": 130,
+      "executable": true,
+      "size_bytes": 7588,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/acr/wins.py",
+      "type": "python",
+      "lines": 346,
+      "executable": true,
+      "size_bytes": 21567,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/_db.py",
+      "type": "python",
+      "lines": 49,
+      "executable": true,
+      "size_bytes": 3648,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/_paths.py",
+      "type": "python",
+      "lines": 9,
+      "executable": true,
+      "size_bytes": 337,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/fixtures/codex/sessions/2026/09/18/rollout-codex-1.jsonl",
+      "type": "other",
+      "lines": 4,
+      "executable": false,
+      "size_bytes": 664,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/fixtures/make_report_fixtures.py",
+      "type": "python",
+      "lines": 46,
+      "executable": true,
+      "size_bytes": 2049,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/fixtures/prices_sample.json",
+      "type": "json",
+      "lines": 6,
+      "executable": false,
+      "size_bytes": 611,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/fixtures/projects/-workspace-proj-a/sess-aaaa.jsonl",
+      "type": "other",
+      "lines": 8,
+      "executable": false,
+      "size_bytes": 2919,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/fixtures/projects/-workspace-proj-b/sess-bbbb.jsonl",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 537,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/fixtures/report-1day.json",
+      "type": "json",
+      "lines": 823,
+      "executable": false,
+      "size_bytes": 20587,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/fixtures/report-30day.json",
+      "type": "json",
+      "lines": 2213,
+      "executable": false,
+      "size_bytes": 49220,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/fixtures/report-7day.json",
+      "type": "json",
+      "lines": 1252,
+      "executable": false,
+      "size_bytes": 29794,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/fixtures/report-empty.json",
+      "type": "json",
+      "lines": 536,
+      "executable": false,
+      "size_bytes": 14087,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/fixtures/report-session.json",
+      "type": "json",
+      "lines": 662,
+      "executable": false,
+      "size_bytes": 17035,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/test_behavior.py",
+      "type": "python",
+      "lines": 275,
+      "executable": true,
+      "size_bytes": 19202,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/test_devices.py",
+      "type": "python",
+      "lines": 99,
+      "executable": true,
+      "size_bytes": 6624,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/test_labels.py",
+      "type": "python",
+      "lines": 96,
+      "executable": true,
+      "size_bytes": 6233,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/test_measure.py",
+      "type": "python",
+      "lines": 120,
+      "executable": true,
+      "size_bytes": 6964,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/test_pdf_windows.py",
+      "type": "python",
+      "lines": 56,
+      "executable": true,
+      "size_bytes": 2697,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/test_period.py",
+      "type": "python",
+      "lines": 144,
+      "executable": true,
+      "size_bytes": 7200,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/test_prices.py",
+      "type": "python",
+      "lines": 126,
+      "executable": true,
+      "size_bytes": 5381,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/test_render.py",
+      "type": "python",
+      "lines": 225,
+      "executable": true,
+      "size_bytes": 12664,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/test_render_encoding.py",
+      "type": "python",
+      "lines": 74,
+      "executable": true,
+      "size_bytes": 3402,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/test_rollup.py",
+      "type": "python",
+      "lines": 264,
+      "executable": true,
+      "size_bytes": 19245,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/test_snapshot.py",
+      "type": "python",
+      "lines": 64,
+      "executable": true,
+      "size_bytes": 2584,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/test_sync.py",
+      "type": "python",
+      "lines": 52,
+      "executable": true,
+      "size_bytes": 2909,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/test_transcript_encoding.py",
+      "type": "python",
+      "lines": 111,
+      "executable": true,
+      "size_bytes": 6313,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/test_transcripts.py",
+      "type": "python",
+      "lines": 154,
+      "executable": true,
+      "size_bytes": 8630,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/tests/test_wins.py",
+      "type": "python",
+      "lines": 223,
+      "executable": true,
+      "size_bytes": 16229,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "LP1",
+      "finding_id": "finding-fbc4fbe3480b49bcb3260403d1950f89",
+      "category": "MCP Least Privilege",
+      "pattern": "Code capability 'env' detected in scripts/acr/classify.py but not covered by declared permissions.",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "scripts/acr/classify.py",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "Code capability 'env' detected in scripts/acr/classify.py but not covered by declared permissions.",
+      "explanation": "The skill uses 'env' capability that is not covered by the declared 'allowed-tools' preapproval. Review the host runtime's actual enforcement policy; runtime permissions are unknown unless separately verified, and this declaration alone does not establish a permission ceiling.",
+      "remediation": "Review whether the 'env' capability is required and whether the host runtime policy permits it; runtime permissions are unknown unless separately verified. Remove code that does not need the capability; do not broaden 'allowed-tools' preapproval solely to silence this finding.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI02"
+      ],
+      "evidence": {},
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "scripts/acr/classify.py",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "LP1",
+      "finding_id": "finding-071e05ec256d49358d46c21c6bd292f3",
+      "category": "MCP Least Privilege",
+      "pattern": "Code capability 'network' detected in scripts/acr/classify.py but not covered by declared permissions.",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "scripts/acr/classify.py",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "Code capability 'network' detected in scripts/acr/classify.py but not covered by declared permissions.",
+      "explanation": "The skill uses 'network' capability that is not covered by the declared 'allowed-tools' preapproval. Review the host runtime's actual enforcement policy; runtime permissions are unknown unless separately verified, and this declaration alone does not establish a permission ceiling.",
+      "remediation": "Review whether the 'network' capability is required and whether the host runtime policy permits it; runtime permissions are unknown unless separately verified. Remove code that does not need the capability; do not broaden 'allowed-tools' preapproval solely to silence this finding.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI02"
+      ],
+      "evidence": {},
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "scripts/acr/classify.py",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-923cecf14fa84e98aae8d37b70b02652",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/tests/test_measure.py",
+        "start_line": 60,
+        "end_line": 60,
+        "start_column": 32
+      },
+      "finding": "os.environ.items()",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "        self.assertEqual(out, dict(status=\"error\", http_status=401)); self.assertNotIn(\"sk-\", self.read())\n\n    def test_cli_unavailable_exit_zero(self):\n        env = {k: v for k, v in os.environ.items() if k != \"OPENROUTER_API_KEY\"}\n        r = subprocess.run([sys.executable, _paths.ACR_PY, \"measure-openrouter\", \"--out\", self.tmp], capture_output=True, text=True, env=env)\n        self.assertEqual(r.returncode, 0, r.stderr); self.assertIn(\"status=unavailable\", r.stdout)\n",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "21b29b57b89a5a3233f697b487f442cbfa19ad73da80ad74d8531f3d6c0dc384",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_measure.py",
+          "start_line": 60,
+          "end_line": 60,
+          "start_column": 32
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-b5068a57f7b742d3bca02f72c125e6b4",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "scripts/tests/test_period.py",
+        "start_line": 21,
+        "end_line": 21,
+        "start_column": 14
+      },
+      "finding": "dict(os.environ, PYTHONTZPATH=\"\")",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "class MissingTimezoneData(unittest.TestCase):\n    def test_cli_explains_how_to_install_timezone_data(self):\n        # -S hides site-packages; an empty TZPATH hides OS data, as on stock Windows.\n        env = dict(os.environ, PYTHONTZPATH=\"\")\n        result = subprocess.run(\n            [sys.executable, \"-S\", _paths.ACR_PY, \"--help\"],\n            env=env, capture_output=True, text=True, timeout=10,",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "cc641075663133211c3b0df0c3e8f62fe53381e827a66c4bfbe237b8862d60f2",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_period.py",
+          "start_line": 21,
+          "end_line": 21,
+          "start_column": 14
+        }
+      ]
+    },
+    {
+      "id": "AST1",
+      "finding_id": "finding-ad3bf36b0792468280f13a26336eb19b",
+      "category": "Dangerous Code Execution",
+      "pattern": "exec() call detected",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "scripts/tests/test_period.py",
+        "start_line": 54,
+        "end_line": 54,
+        "start_column": 16,
+        "end_column": 79
+      },
+      "finding": "exec(code, {\"__file__\": _paths.ACR_PY, \"__name__\": \"__main__\"})",
+      "explanation": "Direct exec() call allows arbitrary code execution. An attacker can inject code that runs with the full privileges of the process.",
+      "remediation": "Replace exec() with a safe alternative. If dynamic execution is required, use a sandboxed environment or restricted eval with __builtins__ disabled.",
+      "code_snippet": "        with patch(\"builtins.__import__\", side_effect=missing_timezone_import), \\\n                patch(\"os.name\", \"nt\"), patch(\"sys.executable\", interpreter):\n            with self.assertRaises(SystemExit) as error:\n                exec(code, {\"__file__\": _paths.ACR_PY, \"__name__\": \"__main__\"})\n        lines = str(error.exception).splitlines()\n        plain_line = '\"C:\\\\Program Files\\\\Python\\\\python.exe\" -m pip install tzdata'\n        # cmd and Git Bash (Claude Code's Bash tool on Windows) run the plain quoted line;",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d8e16cf996158766e7bdebbd76f598ef1f17f3a5e481f073c1f4a4684830c577",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_period.py",
+          "start_line": 54,
+          "end_line": 54,
+          "start_column": 16,
+          "end_column": 79
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-2a1ff05108b7422b8d3a089f97f3efde",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "scripts/tests/test_render_encoding.py",
+        "start_line": 44,
+        "end_line": 44,
+        "start_column": 41
+      },
+      "finding": "dict(os.environ, PYTHONUTF8=\"0\")",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "\"\"\"\n            process = subprocess.run(\n                [sys.executable, \"-X\", \"utf8=0\", \"-c\", script, _paths.SCRIPTS, str(source), folder],\n                capture_output=True, env=dict(os.environ, PYTHONUTF8=\"0\"),\n            )\n            self.assertEqual(process.returncode, 0, process.stderr.decode(\"utf-8\", errors=\"replace\"))\n",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d0767767eeb023485eaf0ac96c6201a560fb8f6c3e278c645a8a5dcefb33108e",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_render_encoding.py",
+          "start_line": 44,
+          "end_line": 44,
+          "start_column": 41
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-52ff2b3a3e94470c8404ff0cb1dc21e1",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "scripts/tests/test_transcript_encoding.py",
+        "start_line": 94,
+        "end_line": 94,
+        "start_column": 16
+      },
+      "finding": "dict(os.environ, PYTHONUTF8=\"0\")",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "'''\n        result = subprocess.run(\n            [sys.executable, \"-X\", \"utf8=0\", \"-c\", program, _paths.SCRIPTS, kind],\n            env=dict(os.environ, PYTHONUTF8=\"0\"), capture_output=True,\n        )\n        self.assertEqual(result.returncode, 0, result.stderr.decode(\"utf-8\", errors=\"replace\"))\n",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d0767767eeb023485eaf0ac96c6201a560fb8f6c3e278c645a8a5dcefb33108e",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_transcript_encoding.py",
+          "start_line": 94,
+          "end_line": 94,
+          "start_column": 16
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-90c887b527394f06ae6dae1a94dd8083",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "scripts/acr/patterns.py",
+        "start_line": 80,
+        "end_line": null,
+        "start_column": 25
+      },
+      "finding": "without approval",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "# ---- P8 (MI:23): deny list from the HARD rules (trend.md 2026-09-04..23) ----\nP8_DENY_TOOL = re.compile(r\"zapier|computer[_-]?use|mcp__.*computer\", re.I)\nP8_DENY_INPUT = re.compile(r\"zapier\\.com|\\bas Alex\\b|from:\\s*\\\"?alex@|hello@thedotmack|aj@(?!aicollective\\.com)[\\w.-]+\", re.I)\n# ---- P9 (MI:24): sends without approval, recipient count above 10 (G16), Alex's identity ----\nP9_SEND_TOOL = re.compile(r\"(gmail|resend|mail|slack|telegram|sms|twilio|sendgrid|postmark).*?(send|reply|forward|broadcast)|(send|reply|forward).*?(email|broadcast)\", re.I)\nP9_NOT_OUTBOUND = re.compile(r\"^(SendMessage|PushNotification|SendFeedback)$\")   # inter-agent / harness tools, not outbound\nP9_APPROVAL = re.compile(r\"\\b(send it|go ahead|approved?|yes,? send|ship it|do it|fire away)\\b\", re.I)",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7868080a35a6878aa292c53196ddb331f19d628c33953fb70850fdaf54c4191c",
+      "occurrences": [
+        {
+          "file": "scripts/acr/patterns.py",
+          "start_line": 80,
+          "end_line": null,
+          "start_column": 25
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-6c6c506e4f4848bcb9f2026e4029cb7b",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/acr/render.py",
+        "start_line": 571,
+        "end_line": 571,
+        "start_column": 15,
+        "end_column": 75
+      },
+      "finding": "subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=err)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    stderr goes to an anonymous file, not a pipe: Chrome's helper processes can hold a pipe open after Chrome exits.\"\"\"\n    import subprocess, tempfile, time\n    with tempfile.TemporaryFile() as err:\n        proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=err)\n        start = time.monotonic(); done_at = None; timed_out = False\n        while proc.poll() is None:\n            now = time.monotonic()",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "093a75168c5ea1275d065d797caf0ae2d3e276b751ad5ff136d70bbb77fcff64",
+      "occurrences": [
+        {
+          "file": "scripts/acr/render.py",
+          "start_line": 571,
+          "end_line": 571,
+          "start_column": 15,
+          "end_column": 75
+        }
+      ]
+    },
+    {
+      "id": "TT2",
+      "finding_id": "finding-ac2914e76bc34d01a046f945b559b5fd",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'cmd' from os.environ (line 546, credential/environment) \u2192 subprocess.Popen (code execution)",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "scripts/acr/render.py",
+        "start_line": 571,
+        "end_line": 571,
+        "start_column": 15,
+        "end_column": 75
+      },
+      "finding": "subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=err)",
+      "explanation": "Data from a source is assigned to a variable that is later passed to a sink, creating a variable-mediated taint flow.",
+      "remediation": "Validate tainted variables before passing them to sinks. Use allowlists, type checks, or sanitization functions on data from external sources.",
+      "code_snippet": "    stderr goes to an anonymous file, not a pipe: Chrome's helper processes can hold a pipe open after Chrome exits.\"\"\"\n    import subprocess, tempfile, time\n    with tempfile.TemporaryFile() as err:\n        proc = subprocess.Popen(cmd, stdout=subprocess.DEVNULL, stderr=err)\n        start = time.monotonic(); done_at = None; timed_out = False\n        while proc.poll() is None:\n            now = time.monotonic()",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d3f7faa88b9a9cb35d6ff6f6c46a500d3b200ef7b289a7aa2c33c9df280c7a3b",
+      "occurrences": [
+        {
+          "file": "scripts/acr/render.py",
+          "start_line": 571,
+          "end_line": 571,
+          "start_column": 15,
+          "end_column": 75
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-7c2f8d3d789948aebc5e2bffc25334b4",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/acr/wins.py",
+        "start_line": 120,
+        "end_line": 120,
+        "start_column": 12,
+        "end_column": 156
+      },
+      "finding": "subprocess.run([\"git\", \"-C\", cwd, \"remote\", \"get-url\", \"origin\"], capture_output=True, text=True, encoding=\"utf-8\", errors=\"replace\", timeout=5)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "def git_remote(cwd):\n    \"\"\"Read-only: `git -C cwd remote get-url origin`; None when cwd is gone or not a repo.\"\"\"\n    try:\n        r = subprocess.run([\"git\", \"-C\", cwd, \"remote\", \"get-url\", \"origin\"], capture_output=True, text=True, encoding=\"utf-8\", errors=\"replace\", timeout=5)\n        return parse_repo(r.stdout) if r.returncode == 0 else None\n    except Exception: return None\n",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "dfafaff37cd4e0a03c14431138125653162b4d16404957f29dda5341c47a0ee6",
+      "occurrences": [
+        {
+          "file": "scripts/acr/wins.py",
+          "start_line": 120,
+          "end_line": 120,
+          "start_column": 12,
+          "end_column": 156
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-d4b8e3afbcd7416f998574a2e74f8801",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/acr/wins.py",
+        "start_line": 128,
+        "end_line": 129,
+        "start_column": 12,
+        "end_column": 106
+      },
+      "finding": "subprocess.run([\"gh\", \"pr\", \"view\", str(number), \"--repo\", repo, \"--json\", \"mergedAt,url,title,commits\"],\n                           capture_output=True, text=True, encoding=\"utf-8\", errors=\"replace\",",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "def gh_pr_view(number, repo):\n    \"\"\"Read-only: gh pr view <n> --repo <repo> --json mergedAt,url,title,commits. Returns dict or None.\"\"\"\n    try:\n        r = subprocess.run([\"gh\", \"pr\", \"view\", str(number), \"--repo\", repo, \"--json\", \"mergedAt,url,title,commits\"],\n                           capture_output=True, text=True, encoding=\"utf-8\", errors=\"replace\", timeout=25)\n        return json.loads(r.stdout) if r.returncode == 0 and r.stdout.strip() else None\n    except Exception: return None",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "2269279e9ba771cf43f50920e17dfacf924e54697b630834a18dbe1bf15acbfd",
+      "occurrences": [
+        {
+          "file": "scripts/acr/wins.py",
+          "start_line": 128,
+          "end_line": 129,
+          "start_column": 12,
+          "end_column": 106
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-2062be191ef148c7b0a9a3cdc4dbea18",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "scripts/tests/test_measure.py",
+        "start_line": 26,
+        "end_line": null,
+        "start_column": 19
+      },
+      "finding": "timeout=0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    def __exit__(self, *a): return False\n\n\ndef ok_opener(req, timeout=0):\n    assert req.get_header(\"Authorization\") == f\"Bearer {KEY}\"\n    return FakeResp(json.dumps(dict(data=dict(usage=123.45, usage_daily=1.5, usage_weekly=42.25, usage_monthly=99.0, limit=None, limit_remaining=None, is_free_tier=False))).encode())\n",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e44269027db0b77c3f387ffaac96e37ae94b288abcfe941168fb22e5c43c7b09",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_measure.py",
+          "start_line": 26,
+          "end_line": null,
+          "start_column": 19
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-b9c8d3698d4f4895a01ec8b87fc46182",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "scripts/tests/test_measure.py",
+        "start_line": 31,
+        "end_line": null,
+        "start_column": 20
+      },
+      "finding": "timeout=0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    return FakeResp(json.dumps(dict(data=dict(usage=123.45, usage_daily=1.5, usage_weekly=42.25, usage_monthly=99.0, limit=None, limit_remaining=None, is_free_tier=False))).encode())\n\n\ndef http_error(req, timeout=0):\n    raise urllib.error.HTTPError(req.full_url, 401, \"unauthorized\", {}, None)\n\n",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e44269027db0b77c3f387ffaac96e37ae94b288abcfe941168fb22e5c43c7b09",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_measure.py",
+          "start_line": 31,
+          "end_line": null,
+          "start_column": 20
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-59eb839a65ab4470881ead065ce185a6",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/tests/test_measure.py",
+        "start_line": 61,
+        "end_line": 61,
+        "start_column": 12,
+        "end_column": 141
+      },
+      "finding": "subprocess.run([sys.executable, _paths.ACR_PY, \"measure-openrouter\", \"--out\", self.tmp], capture_output=True, text=True, env=env)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "\n    def test_cli_unavailable_exit_zero(self):\n        env = {k: v for k, v in os.environ.items() if k != \"OPENROUTER_API_KEY\"}\n        r = subprocess.run([sys.executable, _paths.ACR_PY, \"measure-openrouter\", \"--out\", self.tmp], capture_output=True, text=True, env=env)\n        self.assertEqual(r.returncode, 0, r.stderr); self.assertIn(\"status=unavailable\", r.stdout)\n\n",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7ebfde6946422b85addebcd675f25ae02b13906233a348758faeac8ed190e2f5",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_measure.py",
+          "start_line": 61,
+          "end_line": 61,
+          "start_column": 12,
+          "end_column": 141
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-e6cef9db84ee49d295d73dd94a4a0eae",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/tests/test_period.py",
+        "start_line": 22,
+        "end_line": 25,
+        "start_column": 17,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            [sys.executable, \"-S\", _paths.ACR_PY, \"--help\"],\n            env=env, capture_output=True, text=True, timeout=10,\n        )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    def test_cli_explains_how_to_install_timezone_data(self):\n        # -S hides site-packages; an empty TZPATH hides OS data, as on stock Windows.\n        env = dict(os.environ, PYTHONTZPATH=\"\")\n        result = subprocess.run(\n            [sys.executable, \"-S\", _paths.ACR_PY, \"--help\"],\n            env=env, capture_output=True, text=True, timeout=10,\n        )",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f72febeacdb9a890cc2d834ca9bf55da11a512e0f971b14a6b0ecfc922c259eb",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_period.py",
+          "start_line": 22,
+          "end_line": 25,
+          "start_column": 17,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "AST6",
+      "finding_id": "finding-b381466b7d974ee1a77c7f7d85c0a85a",
+      "category": "Dangerous Code Execution",
+      "pattern": "compile() call detected",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "scripts/tests/test_period.py",
+        "start_line": 41,
+        "end_line": 41,
+        "start_column": 19,
+        "end_column": 64
+      },
+      "finding": "compile(script.read(), _paths.ACR_PY, \"exec\")",
+      "explanation": "compile() creates code objects from strings. When combined with exec()/eval(), it enables obfuscated code execution.",
+      "remediation": "Avoid compile() with dynamic strings. If code generation is needed, use templates or AST manipulation with strict validation.",
+      "code_snippet": "\n    def test_windows_install_command_handles_spaces_in_interpreter_path(self):\n        with open(_paths.ACR_PY, encoding=\"utf-8\") as script:\n            code = compile(script.read(), _paths.ACR_PY, \"exec\")\n        real_import = builtins.__import__\n\n        def missing_timezone_import(name, *args, **kwargs):",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "2f4afd2eb5880785aa49ac079232670f103ad8428b7a3ce0818457dcf2109dcf",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_period.py",
+          "start_line": 41,
+          "end_line": 41,
+          "start_column": 19,
+          "end_column": 64
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-4fe78605d17047159036de28195dcef1",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/tests/test_prices.py",
+        "start_line": 101,
+        "end_line": 101,
+        "start_column": 15,
+        "end_column": 101
+      },
+      "finding": "subprocess.run([sys.executable, _paths.ACR_PY, *argv], capture_output=True, text=True)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        shutil.rmtree(self.tmp, ignore_errors=True)\n\n    def run_acr(self, *argv):\n        return subprocess.run([sys.executable, _paths.ACR_PY, *argv], capture_output=True, text=True)\n\n    def test_prices_offline_exits_nonzero_with_clear_error(self):\n        r = self.run_acr(\"prices\", \"--out\", self.tmp, \"--url\", \"http://127.0.0.1:9/models\")",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a7a373bedb42e11bd48fec4a595355f6dbd16a4f746a61ed7efb7cdd7a4acd21",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_prices.py",
+          "start_line": 101,
+          "end_line": 101,
+          "start_column": 15,
+          "end_column": 101
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-fe6b8e463dbe449eabcb6ff2afa42ced",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "scripts/tests/test_render.py",
+        "start_line": 127,
+        "end_line": null,
+        "start_column": 19
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "        if self.returncode is None and self.exits: self.returncode = self.exit_code\n        return self.returncode\n\n    def wait(self, timeout=None):\n        return self.poll()\n\n    def terminate(self):",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_render.py",
+          "start_line": 127,
+          "end_line": null,
+          "start_column": 19
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-e1c2a9abe8e743e698222587a60e2098",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/tests/test_render_encoding.py",
+        "start_line": 42,
+        "end_line": 45,
+        "start_column": 22,
+        "end_column": 13
+      },
+      "finding": "subprocess.run(\n                [sys.executable, \"-X\", \"utf8=0\", \"-c\", script, _paths.SCRIPTS, str(source), folder],\n                capture_output=True, env=dict(os.environ, PYTHONUTF8=\"0\"),\n        ",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    assert '\u2039' in text and '\u203a' in text\n    assert '\u4e2d\u6587 report' in text\n\"\"\"\n            process = subprocess.run(\n                [sys.executable, \"-X\", \"utf8=0\", \"-c\", script, _paths.SCRIPTS, str(source), folder],\n                capture_output=True, env=dict(os.environ, PYTHONUTF8=\"0\"),\n            )",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f700fc7740d92da1a61d0d620eec7615f2284ff182b44afb91a2cf7a42a92a1f",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_render_encoding.py",
+          "start_line": 42,
+          "end_line": 45,
+          "start_column": 22,
+          "end_column": 13
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-f1d7cd2141ae4579a1fdf846f1d131f4",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/tests/test_rollup.py",
+        "start_line": 240,
+        "end_line": 241,
+        "start_column": 12,
+        "end_column": 89
+      },
+      "finding": "subprocess.run([sys.executable, _paths.ACR_PY, \"rollup\", \"--start\", \"2026-09-18\", \"--end\", \"2026-09-21\", \"--out\", out, \"--prices\", pf,\n                            \"--db\", self.dbp, \"--no-gh\"], capture",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        out = os.path.join(self.tmp, \"out\"); os.makedirs(out)\n        json.dump(dict(window=W.block(), collector={}, rows=self.rows), open(os.path.join(out, \"usage.json\"), \"w\"))\n        pf = os.path.join(self.tmp, \"prices.json\"); json.dump(PRICES, open(pf, \"w\"))\n        r = subprocess.run([sys.executable, _paths.ACR_PY, \"rollup\", \"--start\", \"2026-09-18\", \"--end\", \"2026-09-21\", \"--out\", out, \"--prices\", pf,\n                            \"--db\", self.dbp, \"--no-gh\"], capture_output=True, text=True)\n        self.assertEqual(r.returncode, 0, r.stderr)\n        for f in (\"report.json\", \"line-items.csv\", \"evidence.json\", \"labels.review.json\", \"snapshot.db\"):",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ea3a7bfcea78fc45c222cbae40d014f22e94f023b10c5e8d1ff0ee78cad8e3e3",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_rollup.py",
+          "start_line": 240,
+          "end_line": 241,
+          "start_column": 12,
+          "end_column": 89
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-2e8db20397974c3692c22ab649db468f",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/tests/test_rollup.py",
+        "start_line": 250,
+        "end_line": 250,
+        "start_column": 12,
+        "end_column": 130
+      },
+      "finding": "subprocess.run([sys.executable, _paths.ACR_PY, \"review\", \"--apply\", rf, \"--out\", out], capture_output=True, text=True)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        rv = json.load(open(os.path.join(out, \"labels.review.json\")))\n        rv[\"items\"][0].update(category=\"Feature\", reviewed_by=\"Alex\")\n        rf = os.path.join(self.tmp, \"reviewed.json\"); json.dump(rv, open(rf, \"w\"))\n        r = subprocess.run([sys.executable, _paths.ACR_PY, \"review\", \"--apply\", rf, \"--out\", out], capture_output=True, text=True)\n        self.assertEqual(r.returncode, 0, r.stderr)\n        rep = json.load(open(os.path.join(out, \"report.json\")))\n        self.assertEqual(rep[\"labels\"], dict(reviewed=1, total=5)); self.assertEqual(rep[\"line_items\"][0][\"label_source\"], \"human\")",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "b5c60bd71bc228114eb10a89cce39805fbfce66e7810a5984d83c96a7bae4bce",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_rollup.py",
+          "start_line": 250,
+          "end_line": 250,
+          "start_column": 12,
+          "end_column": 130
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-405531cd884a4c168b0146862d75e3c2",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/tests/test_rollup.py",
+        "start_line": 255,
+        "end_line": 255,
+        "start_column": 12,
+        "end_column": 130
+      },
+      "finding": "subprocess.run([sys.executable, _paths.ACR_PY, \"review\", \"--apply\", rf, \"--out\", out], capture_output=True, text=True)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        rep = json.load(open(os.path.join(out, \"report.json\")))\n        self.assertEqual(rep[\"labels\"], dict(reviewed=1, total=5)); self.assertEqual(rep[\"line_items\"][0][\"label_source\"], \"human\")\n        rv[\"items\"][1].update(category=\"Feature\", failure_type=\"Made-up type\", reviewed_by=\"Alex\"); json.dump(rv, open(rf, \"w\"))\n        r = subprocess.run([sys.executable, _paths.ACR_PY, \"review\", \"--apply\", rf, \"--out\", out], capture_output=True, text=True)\n        self.assertNotEqual(r.returncode, 0); self.assertIn(\"unknown failure type\", r.stderr)\n\n    def test_rollup_rejects_session_with_period(self):",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "b5c60bd71bc228114eb10a89cce39805fbfce66e7810a5984d83c96a7bae4bce",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_rollup.py",
+          "start_line": 255,
+          "end_line": 255,
+          "start_column": 12,
+          "end_column": 130
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-23515397f69442569bf775bf2b4da736",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/tests/test_rollup.py",
+        "start_line": 259,
+        "end_line": 259,
+        "start_column": 12,
+        "end_column": 163
+      },
+      "finding": "subprocess.run([sys.executable, _paths.ACR_PY, \"rollup\", \"--session\", \"x\", \"--start\", \"2026-09-18\", \"--out\", self.tmp], capture_output=True, text=True)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        self.assertNotEqual(r.returncode, 0); self.assertIn(\"unknown failure type\", r.stderr)\n\n    def test_rollup_rejects_session_with_period(self):\n        r = subprocess.run([sys.executable, _paths.ACR_PY, \"rollup\", \"--session\", \"x\", \"--start\", \"2026-09-18\", \"--out\", self.tmp], capture_output=True, text=True)\n        self.assertNotEqual(r.returncode, 0); self.assertIn(\"--session\", r.stderr)\n\n",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5fb3c8767264ea843336a21bc182c186274e7568ad7a76efa776182902c07296",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_rollup.py",
+          "start_line": 259,
+          "end_line": 259,
+          "start_column": 12,
+          "end_column": 163
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-8ffe5c40c2174b82bce4e9f42e2e26a4",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/tests/test_sync.py",
+        "start_line": 28,
+        "end_line": 28,
+        "start_column": 12,
+        "end_column": 109
+      },
+      "finding": "subprocess.run([\"sha256sum\", \"-c\", sync.CHECKSUMS], cwd=self.src, capture_output=True, text=True)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        self.assertEqual(sync.shipped_files(self.src), [\"SKILL.md\", \"scripts/acr.py\", \"scripts/acr/x.py\"])\n        lines = sync.write_checksums(self.src)\n        self.assertEqual(len(lines), 3); self.assertTrue(all(len(l.split(\"  \")[0]) == 64 for l in lines))\n        r = subprocess.run([\"sha256sum\", \"-c\", sync.CHECKSUMS], cwd=self.src, capture_output=True, text=True)\n        self.assertEqual(r.returncode, 0, r.stdout + r.stderr)\n\n    def test_drift_then_write(self):",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c0b32f8b4488acfa61116584c5daa9fb0e4ac845d0902d63a0abf29444cb3641",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_sync.py",
+          "start_line": 28,
+          "end_line": 28,
+          "start_column": 12,
+          "end_column": 109
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-53f529091a8f4cc6804e7e660ccbf315",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/tests/test_sync.py",
+        "start_line": 47,
+        "end_line": 47,
+        "start_column": 12,
+        "end_column": 130
+      },
+      "finding": "subprocess.run([sys.executable, _paths.ACR_PY, \"sync-check\", \"--dest\", self.dests[0]], capture_output=True, text=True)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        self.assertEqual(d, [\"/h\"] + [f\"/r/{m}/skills/agent-cost-report\" for m in (\"claude-mem-cursor\", \"claude-mem-grok-bot\", \"cowork\", \"openclaw\")])\n\n    def test_cli_exit_code(self):\n        r = subprocess.run([sys.executable, _paths.ACR_PY, \"sync-check\", \"--dest\", self.dests[0]], capture_output=True, text=True)\n        self.assertEqual(r.returncode, 1, r.stdout + r.stderr); self.assertIn(\"DRIFT\", r.stdout)\n\n",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a62fa9027c1f13eb51c81783b037c993210ba1593b2263206637a1ce313355df",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_sync.py",
+          "start_line": 47,
+          "end_line": 47,
+          "start_column": 12,
+          "end_column": 130
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-be59aa9bdf684ca4a6358df2ba34578e",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/tests/test_transcript_encoding.py",
+        "start_line": 92,
+        "end_line": 95,
+        "start_column": 17,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            [sys.executable, \"-X\", \"utf8=0\", \"-c\", program, _paths.SCRIPTS, kind],\n            env=dict(os.environ, PYTHONUTF8=\"0\"), capture_output=True,\n        )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        items = rules.scan_rule_files(folder)\n        assert len(items) == 1 and items[0][\"name\"] == \"\u4fdd\u7559\u8bc1\u636e\", repr(items)\n'''\n        result = subprocess.run(\n            [sys.executable, \"-X\", \"utf8=0\", \"-c\", program, _paths.SCRIPTS, kind],\n            env=dict(os.environ, PYTHONUTF8=\"0\"), capture_output=True,\n        )",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "bfd4b41f404333b01a255e27e9bb0575bcd16e5cdb7f17976e4cf6c3e5887c05",
+      "occurrences": [
+        {
+          "file": "scripts/tests/test_transcript_encoding.py",
+          "start_line": 92,
+          "end_line": 95,
+          "start_column": 17,
+          "end_column": 9
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 52,
+    "scanned_components": 52,
+    "coverage_percent": 100.0,
+    "is_complete": true,
+    "status": "complete_with_caveats",
+    "execution_successful": true,
+    "fully_inspected_files": 52,
+    "partially_inspected_files": 0,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 144,
+        "end_line": 144,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 173,
+        "end_line": 173,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 174,
+        "end_line": 174,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 175,
+        "end_line": 175,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 176,
+        "end_line": 176,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 177,
+        "end_line": 177,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 178,
+        "end_line": 178,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 212,
+        "end_line": 212,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 213,
+        "end_line": 213,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 224,
+        "end_line": 224,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 237,
+        "end_line": 237,
+        "fatal": false
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 39,
+        "completed": 39,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 39,
+        "completed": 39,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "completed",
+        "planned_work": 40,
+        "completed": 40,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 52,
+        "completed": 52,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [
+      {
+        "source_path": "SKILL.md",
+        "line": 22,
+        "column": 49,
+        "evidence": "Resolve the absolute directory containing this `SKILL.md`; all helper paths are relative to that directory. `${CLAUDE_SKILL_DIR}` is the shortcut: `python3 \"${C",
+        "target_path": "SKILL.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 22,
+        "column": 376,
+        "evidence": "lls. `tzdata` is the only exception to the no-pip-installs rule, and only when `acr.py` exits saying that timezone data is unavailable (stock Windows Python shi",
+        "target_path": "scripts/acr.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 22,
+        "column": 764,
+        "evidence": "ed command. Setting `PYTHONTZPATH` instead needs no install. The look lives in `scripts/acr/render.py`, never here.",
+        "target_path": "scripts/acr/render.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 144,
+        "column": 14,
+        "evidence": "Each row in `line-items.csv` / `report.json.line_items`:",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 171,
+        "column": 2,
+        "evidence": "`acr.py` writes one directory containing:",
+        "target_path": "scripts/acr.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 173,
+        "column": 7,
+        "evidence": "1. **`report.html`** \u2014 self-contained (inline CSS, no script, no external resources), Timing-style",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 174,
+        "column": 7,
+        "evidence": "2. **`report.pdf`** \u2014 from `report.print.html` with headless Chrome (`google-chrome` on PATH, else Chrome's standard install location on macOS and Windows); whe",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 174,
+        "column": 29,
+        "evidence": "2. **`report.pdf`** \u2014 from `report.print.html` with headless Chrome (`google-chrome` on PATH, else Chrome's standard install location on macOS and Windows); whe",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 175,
+        "column": 7,
+        "evidence": "3. **`report.json`** \u2014 window, scope, spend, totals, by_day, by_model, by_device, line_items, wins, behavior, timeline",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 176,
+        "column": 7,
+        "evidence": "4. **`line-items.csv`** \u2014 one row per work item",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 177,
+        "column": 7,
+        "evidence": "5. **`evidence.json`** \u2014 observation IDs cited, short titles, observer tokens, model, session ids",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 178,
+        "column": 7,
+        "evidence": "6. **`labels.review.json`** \u2014 the drafted labels for the review pass",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 209,
+        "column": 26,
+        "evidence": "1. **Prices** \u2014 `python3 scripts/acr.py prices --out $OUT` (OpenRouter list prices; `--prices <saved prices.json>` to run offline; no key needed).",
+        "target_path": "scripts/acr.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "inline_command"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 210,
+        "column": 27,
+        "evidence": "2. **Collect** \u2014 `python3 scripts/acr.py collect --out $OUT` (default window) or `\u2026 --start YYYY-MM-DD --end YYYY-MM-DD`, `\u2026 --session <id>`, `\u2026 --project <name",
+        "target_path": "scripts/acr.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "inline_command"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 211,
+        "column": 26,
+        "evidence": "3. **Rollup** \u2014 `python3 scripts/acr.py rollup --out $OUT` with the same period flags. Writes report.json, line-items.csv, evidence.json, labels.review.json. Op",
+        "target_path": "scripts/acr.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "inline_command"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 212,
+        "column": 40,
+        "evidence": "4. **Review** \u2014 for each line item in `labels.review.json`, `get_observations` on its `evidence_ids` (not whole timelines), confirm or change `category`, `failu",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 212,
+        "column": 281,
+        "evidence": " the reviewed file with `reviewed_by` (model id or `Alex`); apply with `python3 scripts/acr.py review --apply <reviewed.json> --out $OUT`. Items left unreviewed",
+        "target_path": "scripts/acr.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "inline_command"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 213,
+        "column": 26,
+        "evidence": "5. **Render** \u2014 `python3 scripts/acr.py render --in $OUT/report.json --out $OUT --print`.",
+        "target_path": "scripts/acr.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "inline_command"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 213,
+        "column": 54,
+        "evidence": "5. **Render** \u2014 `python3 scripts/acr.py render --in $OUT/report.json --out $OUT --print`.",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 214,
+        "column": 23,
+        "evidence": "6. **PDF** \u2014 `python3 scripts/acr.py pdf --out $OUT` (skipped with a message when Chrome is missing).",
+        "target_path": "scripts/acr.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "inline_command"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 215,
+        "column": 142,
+        "evidence": " with a regular inference key in the environment, `OPENROUTER_API_KEY=\u2026 python3 scripts/acr.py measure-openrouter --out $OUT` before step 3. Without the key the",
+        "target_path": "scripts/acr.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 216,
+        "column": 63,
+        "evidence": "8. **Optional, needs Alex's go \u2014 Mac export merge**: `python3 scripts/acr.py rollup \u2026 --device-usage <device-usage-mac.json>` (see Gaps and gates).",
+        "target_path": "scripts/acr.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "inline_command"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 224,
+        "column": 274,
+        "evidence": " the Mac, from a plain checkout of this skill (system `python3` 3.9+): `python3 scripts/acr.py collect --export-device mac --start YYYY-MM-DD --end YYYY-MM-DD -",
+        "target_path": "scripts/acr.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "inline_command"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 224,
+        "column": 746,
+        "evidence": " registered Mac through the house's registered-machine tooling and copies only `device-usage-mac.json` to the box. A go for one run is not a go for the next (G6",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 232,
+        "column": 55,
+        "evidence": "The plugin directory is the source of truth. `python3 scripts/acr.py sync-check` compares `SKILL.md`, `CHECKSUMS.txt` and `scripts/**` against the house copy (`",
+        "target_path": "scripts/acr.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "inline_command"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 232,
+        "column": 92,
+        "evidence": "directory is the source of truth. `python3 scripts/acr.py sync-check` compares `SKILL.md`, `CHECKSUMS.txt` and `scripts/**` against the house copy (`~/agent-dat",
+        "target_path": "SKILL.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 232,
+        "column": 104,
+        "evidence": " the source of truth. `python3 scripts/acr.py sync-check` compares `SKILL.md`, `CHECKSUMS.txt` and `scripts/**` against the house copy (`~/agent-data/workflows/",
+        "target_path": "CHECKSUMS.txt",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 232,
+        "column": 422,
+        "evidence": "d exits 1 on drift; `--write` copies plugin \u2192 destinations and re-checks (G2). `CHECKSUMS.txt` is `sha256sum -c` compatible.",
+        "target_path": "CHECKSUMS.txt",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 237,
+        "column": 4,
+        "evidence": "- `plans/2026-09-25-agent-cost-report-weekly.md` \u2014 the rebuild plan, decisions G1\u2013G16, and the verification targets",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      }
+    ],
+    "limitations": [],
+    "findings_before_filtering": 27,
+    "findings_after_filtering": 27,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

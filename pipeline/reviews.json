@@ -1,0 +1,65 @@
+{
+  "obra-writing-skills": {
+    "files": "A helper script reads skill files and writes the diagrams it renders.",
+    "shell": "Runs Graphviz (dot) to render the flowcharts in skill docs."
+  },
+  "mcp-playwright-mcp": {
+    "secretFiles": "Only in a Docker build script that can use an .npmrc for npm ci. Not part of the server.",
+    "credentials": "Only in a Docker build script that can use an .npmrc for npm ci. Not part of the server."
+  },
+  "mcp-n8n-mcp": {
+    "shell": "These are patterns n8n-mcp uses to warn when workflow code tries to use child_process. It doesn't run programs itself."
+  },
+  "mcp-mcp-for-blender": {
+    "_findings": [
+      { "match": "compile(source", "level": "notice", "title": "Self-updates from the main branch", "where": [["addon.py", 6651], ["addon.py", 6694], ["addon.py", 6787]],
+        "note": "On startup the Blender add-on checks GitHub for a newer addon.py from the project's main branch, not from a signed or tagged release. It only installs when you click \"Update Addon\", syntax-checks the download first (compile() doesn't run it) and keeps a .bak of the old file. SkillSpector rates this critical. It isn't malicious, but clicking update means trusting whatever is on main at that moment. Set BLENDERMCP_NO_UPDATE_CHECK to turn the check off." }
+    ],
+    "files": "The Blender add-on saves downloaded models and textures and imports them into your scene.",
+    "shell": "Its setup command finds Blender and runs it to install the add-on.",
+    "secretFiles": "Its setup command finds your AI clients (Claude Code, Codex, Claude Desktop, VS Code) and adds Blender MCP to their MCP settings. The ~/.codex/config.toml matches are its status message and a printed tip (setup_cli.py:495, 830).",
+    "credentials": "Optional API keys for its asset features are sent only to those services: Hyper3D Rodin (hyperhuman.deemos.com), fal.ai (queue.fal.run) and Sketchfab (api.sketchfab.com). SkillSpector flags each of these key-to-network flows as critical; they're the feature working as designed."
+  },
+  "mcp-zotero-mcp": {
+    "shell": "Its optional Zotero plugin can start an AI agent you configure, through the Agent Client Protocol.",
+    "secretFiles": "Stores your API keys in the OS keychain instead of Zotero's preferences, which is the safer choice."
+  },
+  "mcp-excel-mcp-server": {
+    "credentials": "An optional bearer token that protects its HTTP mode from other users."
+  },
+  "mcp-arxiv-mcp-server": {
+    "credentials": "An optional Semantic Scholar API key for citation lookups."
+  },
+  "mcp-mcp-searxng": {
+    "files": "Reads TLS certificate files you configure.",
+    "credentials": "Optional OAuth protection for its HTTP mode.",
+    "secretFiles": "An error message that explains how to trust a certificate in the macOS keychain. It doesn't read the keychain.",
+    "shell": "The same error message suggests a sudo command for you to run to trust a certificate (src/error-handler.ts:53). The server doesn't run it."
+  },
+  "mcp-codebase-memory-mcp": {
+    "network": "Runs a background daemon over a local socket and serves its graph UI on 127.0.0.1 only (src/ui/httpd.c:248). Most other matches are developer tools in graph-ui/tools.",
+    "shell": "Starts its own background indexing daemon (src/daemon/bootstrap.c). Most other matches are developer scripts in graph-ui/tools.",
+    "credentials": "A list of secret-like key names it uses to spot credentials in infrastructure files.",
+    "secretFiles": "A block list: it refuses to index credential folders like .ssh, .aws and .netrc (src/foundation/workspace.c:132).",
+    "browser": "Only in developer test scripts (graph-ui/tools) that use Playwright. The server itself doesn't drive a browser."
+  },
+  "fzf": {
+    "network": "Its optional --listen server for remote control, on a Unix socket or local port.",
+    "credentials": "Protects that --listen server with an optional FZF_API_KEY."
+  },
+  "lazygit": {
+    "secretFiles": "False match: a file-icon table includes .npmrc."
+  },
+  "gitleaks": {
+    "network": "Its optional --diagnostics mode serves profiling data on localhost:6060."
+  },
+  "dust": {
+    "shell": "False match: it starts a progress thread (std::thread::spawn), not a program."
+  },
+  "gitui": {
+    "secretFiles": "Supports SSH commit signing, which uses your SSH key. These lines are its signing tests."
+  },
+  "mise": {
+    "secretFiles": "Reads Docker registry credentials (~/.docker/config.json) to download tools from OCI registries. The .ssh matches checked are in tests."
+  }
+}

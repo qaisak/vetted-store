@@ -1,0 +1,2955 @@
+{
+  "skill": {
+    "name": "codonfm-score",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\NVIDIA__skills\\skills-main\\skills\\bionemo-codonfm-score",
+    "scanned_at": "2026-10-31T21:50:55.639637+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "CRITICAL"
+  },
+  "components": [
+    {
+      "path": "BENCHMARK.md",
+      "type": "markdown",
+      "lines": 125,
+      "executable": false,
+      "size_bytes": 7469,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "SKILL.md",
+      "type": "markdown",
+      "lines": 159,
+      "executable": false,
+      "size_bytes": 7365,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "agents/openai.yaml",
+      "type": "yaml",
+      "lines": 4,
+      "executable": false,
+      "size_bytes": 236,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/config.yml",
+      "type": "yaml",
+      "lines": 6,
+      "executable": false,
+      "size_bytes": 103,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/evals.json",
+      "type": "json",
+      "lines": 52,
+      "executable": false,
+      "size_bytes": 3482,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/files/codonfm_source.zip",
+      "type": "zip",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 81758,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/files/encodon_checkpoint.json",
+      "type": "json",
+      "lines": 33,
+      "executable": false,
+      "size_bytes": 1025,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/files/variants.csv",
+      "type": "other",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 129,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skill-card.md",
+      "type": "markdown",
+      "lines": 86,
+      "executable": false,
+      "size_bytes": 4524,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skill.oms.sig",
+      "type": "oms_signature",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 5765,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/Dockerfile",
+      "type": "text",
+      "lines": 60,
+      "executable": false,
+      "size_bytes": 1691,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "Dockerfile",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/requirements.txt",
+      "type": "text",
+      "lines": 42,
+      "executable": false,
+      "size_bytes": 1056,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "requirements.txt",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/run_dev.sh",
+      "type": "shell",
+      "lines": 69,
+      "executable": true,
+      "size_bytes": 2120,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "run_dev.sh",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/source-manifest.json",
+      "type": "json",
+      "lines": 52,
+      "executable": false,
+      "size_bytes": 4866,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "source-manifest.json",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/__init__.py",
+      "type": "python",
+      "lines": 15,
+      "executable": true,
+      "size_bytes": 680,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/__init__.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/config.py",
+      "type": "python",
+      "lines": 377,
+      "executable": true,
+      "size_bytes": 12877,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/config.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/data/__init__.py",
+      "type": "python",
+      "lines": 15,
+      "executable": true,
+      "size_bytes": 680,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/data/__init__.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/data/codon_bert_dataset.py",
+      "type": "python",
+      "lines": 113,
+      "executable": true,
+      "size_bytes": 4731,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/data/codon_bert_dataset.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/data/codon_memmap_dataset.py",
+      "type": "python",
+      "lines": 308,
+      "executable": true,
+      "size_bytes": 14253,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/data/codon_memmap_dataset.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/data/datamodule.py",
+      "type": "python",
+      "lines": 240,
+      "executable": true,
+      "size_bytes": 9694,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/data/datamodule.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/data/dataset_utils.py",
+      "type": "python",
+      "lines": 192,
+      "executable": true,
+      "size_bytes": 8963,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/data/dataset_utils.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/data/metadata.py",
+      "type": "python",
+      "lines": 31,
+      "executable": true,
+      "size_bytes": 1095,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/data/metadata.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/data/mutation_dataset.py",
+      "type": "python",
+      "lines": 276,
+      "executable": true,
+      "size_bytes": 11191,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/data/mutation_dataset.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/data/preprocess/__init__.py",
+      "type": "python",
+      "lines": 15,
+      "executable": true,
+      "size_bytes": 680,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/data/preprocess/__init__.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/data/preprocess/codon_sequence.py",
+      "type": "python",
+      "lines": 37,
+      "executable": true,
+      "size_bytes": 1722,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/data/preprocess/codon_sequence.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/data/preprocess/mlm_memmap.py",
+      "type": "python",
+      "lines": 112,
+      "executable": true,
+      "size_bytes": 5581,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/data/preprocess/mlm_memmap.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/data/preprocess/mutation_pred.py",
+      "type": "python",
+      "lines": 89,
+      "executable": true,
+      "size_bytes": 5280,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/data/preprocess/mutation_pred.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/data/stateful_dataset.py",
+      "type": "python",
+      "lines": 112,
+      "executable": true,
+      "size_bytes": 3991,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/data/stateful_dataset.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/data/utils.py",
+      "type": "python",
+      "lines": 192,
+      "executable": true,
+      "size_bytes": 8963,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/data/utils.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/inference/__init__.py",
+      "type": "python",
+      "lines": 15,
+      "executable": true,
+      "size_bytes": 680,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/inference/__init__.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/inference/base.py",
+      "type": "python",
+      "lines": 70,
+      "executable": true,
+      "size_bytes": 2344,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/inference/base.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/inference/encodon.py",
+      "type": "python",
+      "lines": 285,
+      "executable": true,
+      "size_bytes": 12989,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/inference/encodon.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/inference/model_outputs.py",
+      "type": "python",
+      "lines": 83,
+      "executable": true,
+      "size_bytes": 2778,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/inference/model_outputs.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/inference/task_types.py",
+      "type": "python",
+      "lines": 33,
+      "executable": true,
+      "size_bytes": 1406,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/inference/task_types.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/models/__init__.py",
+      "type": "python",
+      "lines": 15,
+      "executable": true,
+      "size_bytes": 680,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/models/__init__.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/models/components/__init__.py",
+      "type": "python",
+      "lines": 15,
+      "executable": true,
+      "size_bytes": 680,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/models/components/__init__.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/models/components/codon_embedding.py",
+      "type": "python",
+      "lines": 63,
+      "executable": true,
+      "size_bytes": 2484,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/models/components/codon_embedding.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/models/components/cross_attention.py",
+      "type": "python",
+      "lines": 76,
+      "executable": true,
+      "size_bytes": 3200,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/models/components/cross_attention.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/models/components/encodon.py",
+      "type": "python",
+      "lines": 203,
+      "executable": true,
+      "size_bytes": 8089,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/models/components/encodon.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/models/components/encodon_config.py",
+      "type": "python",
+      "lines": 91,
+      "executable": true,
+      "size_bytes": 3862,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/models/components/encodon_config.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/models/components/encodon_layer.py",
+      "type": "python",
+      "lines": 123,
+      "executable": true,
+      "size_bytes": 4808,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/models/components/encodon_layer.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/models/components/mha.py",
+      "type": "python",
+      "lines": 112,
+      "executable": true,
+      "size_bytes": 4295,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/models/components/mha.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/models/components/rotary_embedding.py",
+      "type": "python",
+      "lines": 102,
+      "executable": true,
+      "size_bytes": 4112,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/models/components/rotary_embedding.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/models/encodon_pl.py",
+      "type": "python",
+      "lines": 492,
+      "executable": true,
+      "size_bytes": 22069,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/models/encodon_pl.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/models/utils.py",
+      "type": "python",
+      "lines": 158,
+      "executable": true,
+      "size_bytes": 6557,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/models/utils.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/runner.py",
+      "type": "python",
+      "lines": 198,
+      "executable": true,
+      "size_bytes": 9528,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/runner.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/tasks.py",
+      "type": "python",
+      "lines": 181,
+      "executable": true,
+      "size_bytes": 7478,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/tasks.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/tokenizer/__init__.py",
+      "type": "python",
+      "lines": 16,
+      "executable": true,
+      "size_bytes": 712,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/tokenizer/__init__.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/tokenizer/mappings.py",
+      "type": "python",
+      "lines": 111,
+      "executable": true,
+      "size_bytes": 2686,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/tokenizer/mappings.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/tokenizer/tokenizer.py",
+      "type": "python",
+      "lines": 305,
+      "executable": true,
+      "size_bytes": 11288,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/tokenizer/tokenizer.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/utils/__init__.py",
+      "type": "python",
+      "lines": 24,
+      "executable": true,
+      "size_bytes": 907,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/utils/__init__.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/utils/grad_norm_callback.py",
+      "type": "python",
+      "lines": 48,
+      "executable": true,
+      "size_bytes": 1998,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/utils/grad_norm_callback.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/utils/logger.py",
+      "type": "python",
+      "lines": 129,
+      "executable": true,
+      "size_bytes": 4740,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/utils/logger.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/utils/nemorun_utils.py",
+      "type": "python",
+      "lines": 28,
+      "executable": true,
+      "size_bytes": 1235,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/utils/nemorun_utils.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/utils/pred_writer.py",
+      "type": "python",
+      "lines": 220,
+      "executable": true,
+      "size_bytes": 9360,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/utils/pred_writer.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/utils/pylogger.py",
+      "type": "python",
+      "lines": 77,
+      "executable": true,
+      "size_bytes": 3100,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/utils/pylogger.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "evals/files/codonfm_source.zip!/src/utils/scheduler.py",
+      "type": "python",
+      "lines": 68,
+      "executable": true,
+      "size_bytes": 2518,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "evals/files/codonfm_source.zip",
+      "nested_path": "src/utils/scheduler.py",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "SC4",
+      "finding_id": "finding-9e4667433db74f7792ea62a7a0185456",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: torch==2.5.1 \u2014 16 advisory(ies): CVE-2025-2953 (PyTorch susceptible to local Denial of Service); CVE-2025-32434 (PyTorch: `torch.load` with `weights_only=True` leads to remote code execution); CVE-2025-3730 (PyTorch Improper Resource Shutdown or Release vulnerability) +13 more",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/requirements.txt",
+        "start_line": 5,
+        "end_line": null
+      },
+      "finding": "torch==2.5.1",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0b3bff53673a268947f530f84addd789ece0bb0752410bcfd27bdbef2c032daf",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/requirements.txt",
+          "start_line": 5,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-cc569f71281a43fdbf24c4008a0f2b22",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: transformers==4.54.1 \u2014 16 advisory(ies): CVE-2026-4372 (HuggingFace transformers vulnerable to remote code execution); CVE-2026-1839 (HuggingFace Transformers allows for arbitrary code execution in the `Trainer` cl); CVE-2026-5241 (huggingface/transformers: Arbitrary Code Execution During Model Initialization i) +13 more",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/requirements.txt",
+        "start_line": 29,
+        "end_line": null
+      },
+      "finding": "transformers==4.54.1",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d3249423e9b2982888080afa356f2db11127748eafe35933b833c82dfc9eb450",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/requirements.txt",
+          "start_line": 29,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-cbdfa8ecb98a41d5917e1c50d3295a99",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/Dockerfile",
+        "start_line": 57,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "&& chown -R",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "\nRUN groupadd --gid $USER_GID $USERNAME \\\n    && useradd -l --uid $USER_UID --gid $USER_GID -m $USERNAME \\\n    && chown -R $USERNAME:$USERNAME /workspace\n\n# Switch to the non-root user\nUSER $USERNAME",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "61388f61c7a6b05a3e8e9b823f122ad8374f061722ff2e89513a492d45f611b0",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/Dockerfile",
+          "start_line": 57,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-d8adb2debb7e4ad8ac7200e97dea1a94",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: lightning==2.5.2 \u2014 3 advisory(ies): CVE-2026-58659 ( PyTorch Lightning allows arbitrary code execution through checkpoint _instantia); CVE-2026-58659 (PyTorch Lightning through 2.6.5, fixed in commit d710d68, contains a remote code); CVE-2026-31221 (PyTorch Lightning load_from_checkpoint has an insecure checkpoint deserializatio)",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/requirements.txt",
+        "start_line": 7,
+        "end_line": null
+      },
+      "finding": "lightning==2.5.2",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a208898bf9912a826043e37150558669203f6ff3c97b6326c668d53d84dd478b",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/requirements.txt",
+          "start_line": 7,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-77b086f261b9473ba23f940c9a0535f6",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: hydra-core==1.3.2 \u2014 4 advisory(ies): CVE-2026-68508 (Hydra: hydra.utils.instantiate with untrusted config can lead to code execution); CVE-2026-106441 (Hydra logging configuration permits unsafe callable resolution); CVE-2026-68508 (Hydra: hydra.utils.instantiate with untrusted config can lead to code execution) +1 more",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/requirements.txt",
+        "start_line": 11,
+        "end_line": null
+      },
+      "finding": "hydra-core==1.3.2",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9a57dd0eb7d295f01796ac9de4dfeca23ac3aec480255c5b5aa4d3da2cf26f6e",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/requirements.txt",
+          "start_line": 11,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-8da87274a29043cc9ee27d7e4d192748",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: hydra-optuna-sweeper==1.2.0 \u2014 2 advisory(ies): CVE-2026-106440 (Hydra: Optuna custom_search_space can resolve and execute untrusted callables vi); CVE-2026-106440 (Hydra: Optuna custom_search_space can resolve and execute untrusted callables vi)",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/requirements.txt",
+        "start_line": 13,
+        "end_line": null
+      },
+      "finding": "hydra-optuna-sweeper==1.2.0",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3b00d8927e2dbd7f5d9ef24485c05420992aa5f0c8f5ed6f80e0e5455129a172",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/requirements.txt",
+          "start_line": 13,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-aacc56cd15274a47a0d500370ca8fa13",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: pytest==8.1.1 \u2014 2 advisory(ies): CVE-2025-71176 (pytest has vulnerable tmpdir handling); CVE-2025-71176 (pytest has vulnerable tmpdir handling)",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/requirements.txt",
+        "start_line": 26,
+        "end_line": null
+      },
+      "finding": "pytest==8.1.1",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "62ec23e62593ab777510a269d8c795052388b90b33e9aadda17f76a944be7d5c",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/requirements.txt",
+          "start_line": 26,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-acfceca171904061965d8a3d6ea802c4",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: sh==2.2.2 \u2014 2 advisory(ies): CVE-2026-54552 (sh _uid does not drop supplementary groups (incomplete privilege drop)); CVE-2026-54552 (sh _uid does not drop supplementary groups (incomplete privilege drop))",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/requirements.txt",
+        "start_line": 27,
+        "end_line": null
+      },
+      "finding": "sh==2.2.2",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3d3b9cf2664c55ebb6b73577f47b89e3b415b2b458b296f1730f3739279d74d3",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/requirements.txt",
+          "start_line": 27,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "PE5",
+      "finding_id": "finding-03a9c4331b594e2b9d1e6baa3c139d68",
+      "category": "Privilege Escalation",
+      "pattern": "Privileged Container / Container Escape",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/run_dev.sh",
+        "start_line": 57,
+        "end_line": null,
+        "start_column": 2
+      },
+      "finding": "--ipc=host",
+      "explanation": "Potential security issue detected. Manual review is recommended.",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": "# Launch the container with GPU support, mounting volumes, and exposing port 8888\ndocker run -it --rm \\\n  --gpus all \\\n  --ipc=host \\\n  --net=host \\\n  --hostname localhost \\\n  -v $(pwd):/workspace \\",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "859c76c8a5338a12d258946d287987176bedd888cff5fd4dd01c9d122544592a",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/run_dev.sh",
+          "start_line": 57,
+          "end_line": null,
+          "start_column": 2
+        }
+      ]
+    },
+    {
+      "id": "PE5",
+      "finding_id": "finding-828f486fc80142f2bc1ada9e83960f33",
+      "category": "Privilege Escalation",
+      "pattern": "Privileged Container / Container Escape",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/run_dev.sh",
+        "start_line": 58,
+        "end_line": null,
+        "start_column": 2
+      },
+      "finding": "--net=host",
+      "explanation": "Potential security issue detected. Manual review is recommended.",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": "docker run -it --rm \\\n  --gpus all \\\n  --ipc=host \\\n  --net=host \\\n  --hostname localhost \\\n  -v $(pwd):/workspace \\\n  -v \"${DATA_DIR}\":/data \\",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9fd650a21f0436a3d9d32af8d06c27b885cf0731406f54e7607bfea05c804b87",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/run_dev.sh",
+          "start_line": 58,
+          "end_line": null,
+          "start_column": 2
+        }
+      ]
+    },
+    {
+      "id": "AS3",
+      "finding_id": "finding-d41fd1ff186b4b3f87647744d83ab712",
+      "category": "Agent Snooping",
+      "pattern": "Skill Enumeration",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "BENCHMARK.md",
+        "start_line": 82,
+        "end_line": null,
+        "start_column": 98
+      },
+      "finding": "skills/codonfm-score/SKILL.md",
+      "explanation": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills.",
+      "remediation": "Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "code_snippet": "<details>\n<summary>Show detailed findings and successful checks</summary>\n\n- **MEDIUM** QUALITY/quality_correctness: SKILL_SPEC recommended field missing: 'metadata.tags' (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_discoverability: Description very long (385 chars, recommend 50-150) (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_discoverability: No '## Purpose' section (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_reliability: No prerequisites/requirements documented (`skills/codonfm-score/SKILL.md`)",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "74659467f4b5b61efa03c2b5fbe9132408dda9ee505e1b062853237c71662995",
+      "occurrences": [
+        {
+          "file": "BENCHMARK.md",
+          "start_line": 82,
+          "end_line": null,
+          "start_column": 98
+        }
+      ]
+    },
+    {
+      "id": "AS3",
+      "finding_id": "finding-f622a4678d914c08a990bc6de609da4a",
+      "category": "Agent Snooping",
+      "pattern": "Skill Enumeration",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "BENCHMARK.md",
+        "start_line": 83,
+        "end_line": null,
+        "start_column": 97
+      },
+      "finding": "skills/codonfm-score/SKILL.md",
+      "explanation": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills.",
+      "remediation": "Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "code_snippet": "<summary>Show detailed findings and successful checks</summary>\n\n- **MEDIUM** QUALITY/quality_correctness: SKILL_SPEC recommended field missing: 'metadata.tags' (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_discoverability: Description very long (385 chars, recommend 50-150) (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_discoverability: No '## Purpose' section (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_reliability: No prerequisites/requirements documented (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_reliability: No limitations documented (`skills/codonfm-score/SKILL.md`)",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "74659467f4b5b61efa03c2b5fbe9132408dda9ee505e1b062853237c71662995",
+      "occurrences": [
+        {
+          "file": "BENCHMARK.md",
+          "start_line": 83,
+          "end_line": null,
+          "start_column": 97
+        }
+      ]
+    },
+    {
+      "id": "AS3",
+      "finding_id": "finding-b25b103f0edd4a80a1e1c59db6de6598",
+      "category": "Agent Snooping",
+      "pattern": "Skill Enumeration",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "BENCHMARK.md",
+        "start_line": 84,
+        "end_line": null,
+        "start_column": 69
+      },
+      "finding": "skills/codonfm-score/SKILL.md",
+      "explanation": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills.",
+      "remediation": "Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "code_snippet": "\n- **MEDIUM** QUALITY/quality_correctness: SKILL_SPEC recommended field missing: 'metadata.tags' (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_discoverability: Description very long (385 chars, recommend 50-150) (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_discoverability: No '## Purpose' section (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_reliability: No prerequisites/requirements documented (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_reliability: No limitations documented (`skills/codonfm-score/SKILL.md`)\n- 2 additional finding(s) are available in the full evaluation artifacts.",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "74659467f4b5b61efa03c2b5fbe9132408dda9ee505e1b062853237c71662995",
+      "occurrences": [
+        {
+          "file": "BENCHMARK.md",
+          "start_line": 84,
+          "end_line": null,
+          "start_column": 69
+        }
+      ]
+    },
+    {
+      "id": "AS3",
+      "finding_id": "finding-adbd5c587e6b4685a047614bfbcd559c",
+      "category": "Agent Snooping",
+      "pattern": "Skill Enumeration",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "BENCHMARK.md",
+        "start_line": 85,
+        "end_line": null,
+        "start_column": 82
+      },
+      "finding": "skills/codonfm-score/SKILL.md",
+      "explanation": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills.",
+      "remediation": "Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "code_snippet": "- **MEDIUM** QUALITY/quality_correctness: SKILL_SPEC recommended field missing: 'metadata.tags' (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_discoverability: Description very long (385 chars, recommend 50-150) (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_discoverability: No '## Purpose' section (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_reliability: No prerequisites/requirements documented (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_reliability: No limitations documented (`skills/codonfm-score/SKILL.md`)\n- 2 additional finding(s) are available in the full evaluation artifacts.\n",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "74659467f4b5b61efa03c2b5fbe9132408dda9ee505e1b062853237c71662995",
+      "occurrences": [
+        {
+          "file": "BENCHMARK.md",
+          "start_line": 85,
+          "end_line": null,
+          "start_column": 82
+        }
+      ]
+    },
+    {
+      "id": "AS3",
+      "finding_id": "finding-acc640e5a6cd4c5780b3f3d3c76b3ffe",
+      "category": "Agent Snooping",
+      "pattern": "Skill Enumeration",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "BENCHMARK.md",
+        "start_line": 86,
+        "end_line": null,
+        "start_column": 67
+      },
+      "finding": "skills/codonfm-score/SKILL.md",
+      "explanation": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills.",
+      "remediation": "Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "code_snippet": "- **LOW** QUALITY/quality_discoverability: Description very long (385 chars, recommend 50-150) (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_discoverability: No '## Purpose' section (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_reliability: No prerequisites/requirements documented (`skills/codonfm-score/SKILL.md`)\n- **LOW** QUALITY/quality_reliability: No limitations documented (`skills/codonfm-score/SKILL.md`)\n- 2 additional finding(s) are available in the full evaluation artifacts.\n\n</details>",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "74659467f4b5b61efa03c2b5fbe9132408dda9ee505e1b062853237c71662995",
+      "occurrences": [
+        {
+          "file": "BENCHMARK.md",
+          "start_line": 86,
+          "end_line": null,
+          "start_column": 67
+        }
+      ]
+    },
+    {
+      "id": "LP3",
+      "finding_id": "finding-0bf08fcc55ad4860b86c9fde7ef7ddd0",
+      "category": "MCP Least Privilege",
+      "pattern": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: env, file_read.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: env, file_read.",
+      "explanation": "Without declared permissions the skill's intent is opaque and cannot be validated.",
+      "remediation": "Clarify the skill's intended tool scope and review how the host runtime enforces it; runtime permissions are unknown unless separately verified. For Claude Code / Agent Skills SKILL.md, 'allowed-tools' records preapproved tools, not a permission ceiling; add a tool only when it is independently approved as necessary, not to silence this finding. For MCP server manifests, use a 'permissions' list naming the required capabilities.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI02"
+      ],
+      "evidence": {},
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-b774ee6f584645ccb8da989fe8cef5ef",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: python-dotenv==1.0.1 \u2014 2 advisory(ies): CVE-2026-28684 (python-dotenv: Symlink following in set_key allows arbitrary file overwrite via ); CVE-2026-28684 (python-dotenv reads key-value pairs from a .env file and can set them as environ)",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/requirements.txt",
+        "start_line": 28,
+        "end_line": null
+      },
+      "finding": "python-dotenv==1.0.1",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6af051c4467c20e38abb4e19d551b195ab832d98e8057ca8e3a409151606afdb",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/requirements.txt",
+          "start_line": 28,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-3e0004a09e664f6ebd530683bd1374f4",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: datasets==4.0.0 \u2014 2 advisory(ies): CVE-2026-66007 (Hugging Face Datasets folder-based builders allow path traversal through file_na); CVE-2026-66007 (Datasets through 5.0.0, fixed in commit f989ef9, contains a path traversal vulne)",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/requirements.txt",
+        "start_line": 37,
+        "end_line": null
+      },
+      "finding": "datasets==4.0.0",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "29d12d35fca5bd3be7888dfb4dc0a1d65b546ce7dba0c23b436da324e89b3bd3",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/requirements.txt",
+          "start_line": 37,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-8c5d9758438646ecb1a82831f6ee5d5d",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: biopython==1.85 \u2014 2 advisory(ies): CVE-2025-68463 (Biopython is vulnerable to doctype XML external entity (XXE) injection through B); CVE-2025-68463 (Biopython is vulnerable to doctype XML external entity (XXE) injection through B)",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/requirements.txt",
+        "start_line": 40,
+        "end_line": null
+      },
+      "finding": "biopython==1.85",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "495fc6e1a82a8114f1d3281a558718f70dec46d9b64b4b731ecb4611bf360c05",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/requirements.txt",
+          "start_line": 40,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-a976490fb46042c88ad3a01b274fb8c3",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker run -it'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/run_dev.sh",
+        "start_line": 55,
+        "end_line": null
+      },
+      "finding": "docker run -it",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "cf03f37dcb366758fe15d36de27f76fa9df92929d49cf512a9f13b682c0de336",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/run_dev.sh",
+          "start_line": 55,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "AST10",
+      "finding_id": "finding-7a74675633cb4cedac243124c63e3d04",
+      "category": "Dangerous Code Execution",
+      "pattern": "Insecure deserialization: numpy.load(allow_pickle=True)",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/data/codon_memmap_dataset.py",
+        "start_line": 135,
+        "end_line": 135,
+        "start_column": 34,
+        "end_column": 72
+      },
+      "finding": "np.load(cache_path, allow_pickle=True)",
+      "explanation": "Untrusted data is passed to an insecure deserializer (pickle, marshal, dill, jsonpickle, joblib, yaml.load without a safe Loader, or torch.load without weights_only). These deserializers reconstruct arbitrary objects and invoke callables during loading, so deserializing attacker-controlled bytes is equivalent to arbitrary code execution.",
+      "remediation": "Never deserialize untrusted input with pickle/marshal/dill/jsonpickle/joblib. Use a data-only format such as JSON. For YAML use yaml.safe_load; for PyTorch use torch.load(..., weights_only=True); for numpy avoid allow_pickle=True. If a binary format is unavoidable, verify an HMAC/signature over the bytes before loading.",
+      "code_snippet": "        \n        if cache_path.exists():\n            print(\"Loading cached global indices...\")\n            self.global_indices = np.load(cache_path, allow_pickle=True)\n            if key_cache_path.exists(): # - added for backward compatability\n                self.global_keys = np.load(key_cache_path, allow_pickle=True)\n            else:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0774653e5584ac91f061a01e299d229f13d03ee9a78dc43fe2525e0f01c0de8c",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/data/codon_memmap_dataset.py",
+          "start_line": 135,
+          "end_line": 135,
+          "start_column": 34,
+          "end_column": 72
+        }
+      ]
+    },
+    {
+      "id": "AST10",
+      "finding_id": "finding-7aeb768514414740b5266234ae684677",
+      "category": "Dangerous Code Execution",
+      "pattern": "Insecure deserialization: numpy.load(allow_pickle=True)",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/data/codon_memmap_dataset.py",
+        "start_line": 137,
+        "end_line": 137,
+        "start_column": 35,
+        "end_column": 77
+      },
+      "finding": "np.load(key_cache_path, allow_pickle=True)",
+      "explanation": "Untrusted data is passed to an insecure deserializer (pickle, marshal, dill, jsonpickle, joblib, yaml.load without a safe Loader, or torch.load without weights_only). These deserializers reconstruct arbitrary objects and invoke callables during loading, so deserializing attacker-controlled bytes is equivalent to arbitrary code execution.",
+      "remediation": "Never deserialize untrusted input with pickle/marshal/dill/jsonpickle/joblib. Use a data-only format such as JSON. For YAML use yaml.safe_load; for PyTorch use torch.load(..., weights_only=True); for numpy avoid allow_pickle=True. If a binary format is unavoidable, verify an HMAC/signature over the bytes before loading.",
+      "code_snippet": "            print(\"Loading cached global indices...\")\n            self.global_indices = np.load(cache_path, allow_pickle=True)\n            if key_cache_path.exists(): # - added for backward compatability\n                self.global_keys = np.load(key_cache_path, allow_pickle=True)\n            else:\n                self.global_keys = None\n        else:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "041a4447666b724baf701ac19ba345e05e4a156003a158848be8ac5808607c12",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/data/codon_memmap_dataset.py",
+          "start_line": 137,
+          "end_line": 137,
+          "start_column": 35,
+          "end_column": 77
+        }
+      ]
+    },
+    {
+      "id": "AST10",
+      "finding_id": "finding-7ba19c3966104a6ebf315f43a84da239",
+      "category": "Dangerous Code Execution",
+      "pattern": "Insecure deserialization: numpy.load(allow_pickle=True)",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/data/codon_memmap_dataset.py",
+        "start_line": 145,
+        "end_line": 145,
+        "start_column": 31,
+        "end_column": 75
+      },
+      "finding": "np.load(seq_cluster_path, allow_pickle=True)",
+      "explanation": "Untrusted data is passed to an insecure deserializer (pickle, marshal, dill, jsonpickle, joblib, yaml.load without a safe Loader, or torch.load without weights_only). These deserializers reconstruct arbitrary objects and invoke callables during loading, so deserializing attacker-controlled bytes is equivalent to arbitrary code execution.",
+      "remediation": "Never deserialize untrusted input with pickle/marshal/dill/jsonpickle/joblib. Use a data-only format such as JSON. For YAML use yaml.safe_load; for PyTorch use torch.load(..., weights_only=True); for numpy avoid allow_pickle=True. If a binary format is unavoidable, verify an HMAC/signature over the bytes before loading.",
+      "code_snippet": "            global_indices_list = []\n            total_sequences = sum(len(idx_mmap) for idx_mmap in self.indices_mmaps)\n            if seq_cluster_path.exists():\n                seq_clusters = np.load(seq_cluster_path, allow_pickle=True)\n                assert seq_clusters.shape[0] == total_sequences, \"Mismatch in sequence clusters and total sequences.\"\n            else:\n                seq_clusters = np.arange(total_sequences, dtype=int) # NOTE: this is a placeholder for the case where the sequence clusters are not available",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "de047032946f08029010fb98851e760dfdcc386c05e5e9ca60759d0041f2280d",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/data/codon_memmap_dataset.py",
+          "start_line": 145,
+          "end_line": 145,
+          "start_column": 31,
+          "end_column": 75
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-75ee7dd98242406f83c97b84c60f5829",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/data/preprocess/mutation_pred.py",
+        "start_line": 55,
+        "end_line": null
+      },
+      "finding": "U+0020 x114",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "\ndef mlm_process_item(ref_seq, codon_position, ref_codon, alt_codon, context_length, tokenizer, mask_mutation=True):    \n    input_sequence_toks, ref_codon_toks, alt_codon_toks, attention_mask, mutation_token_idx = _construct_sentence(ref_seq, \n                                                                                                                  codon_position, \n                                                                                                                  ref_codon, \n                                                                                                                  alt_codon, \n                                                                                                                  context_length, ",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4d25d2398e2f492b818c54575201f4ffc762200e4d566aeb9a41040f04f803ec",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/data/preprocess/mutation_pred.py",
+          "start_line": 55,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-44f7e9a33d314f02a5dc421fa6d3a667",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/data/preprocess/mutation_pred.py",
+        "start_line": 56,
+        "end_line": null
+      },
+      "finding": "U+0020 x114",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "def mlm_process_item(ref_seq, codon_position, ref_codon, alt_codon, context_length, tokenizer, mask_mutation=True):    \n    input_sequence_toks, ref_codon_toks, alt_codon_toks, attention_mask, mutation_token_idx = _construct_sentence(ref_seq, \n                                                                                                                  codon_position, \n                                                                                                                  ref_codon, \n                                                                                                                  alt_codon, \n                                                                                                                  context_length, \n                                                                                                                  tokenizer, ",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4d25d2398e2f492b818c54575201f4ffc762200e4d566aeb9a41040f04f803ec",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/data/preprocess/mutation_pred.py",
+          "start_line": 56,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-3bd30025f93d4d76a607c854eaf24da5",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/data/preprocess/mutation_pred.py",
+        "start_line": 57,
+        "end_line": null
+      },
+      "finding": "U+0020 x114",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "    input_sequence_toks, ref_codon_toks, alt_codon_toks, attention_mask, mutation_token_idx = _construct_sentence(ref_seq, \n                                                                                                                  codon_position, \n                                                                                                                  ref_codon, \n                                                                                                                  alt_codon, \n                                                                                                                  context_length, \n                                                                                                                  tokenizer, \n                                                                                                                  mask_mutation=mask_mutation, ",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4d25d2398e2f492b818c54575201f4ffc762200e4d566aeb9a41040f04f803ec",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/data/preprocess/mutation_pred.py",
+          "start_line": 57,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-398de4b46d6a4495a97427a0168e6783",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/data/preprocess/mutation_pred.py",
+        "start_line": 58,
+        "end_line": null
+      },
+      "finding": "U+0020 x114",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "                                                                                                                  codon_position, \n                                                                                                                  ref_codon, \n                                                                                                                  alt_codon, \n                                                                                                                  context_length, \n                                                                                                                  tokenizer, \n                                                                                                                  mask_mutation=mask_mutation, \n                                                                                                                  use_alt=False)",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4d25d2398e2f492b818c54575201f4ffc762200e4d566aeb9a41040f04f803ec",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/data/preprocess/mutation_pred.py",
+          "start_line": 58,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-491aa212dbe943faa54068441d3c2989",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/data/preprocess/mutation_pred.py",
+        "start_line": 59,
+        "end_line": null
+      },
+      "finding": "U+0020 x114",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "                                                                                                                  ref_codon, \n                                                                                                                  alt_codon, \n                                                                                                                  context_length, \n                                                                                                                  tokenizer, \n                                                                                                                  mask_mutation=mask_mutation, \n                                                                                                                  use_alt=False)\n    ",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4d25d2398e2f492b818c54575201f4ffc762200e4d566aeb9a41040f04f803ec",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/data/preprocess/mutation_pred.py",
+          "start_line": 59,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-d281adb7e7f14bca8f510e4bc40782d3",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/data/preprocess/mutation_pred.py",
+        "start_line": 60,
+        "end_line": null
+      },
+      "finding": "U+0020 x114",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "                                                                                                                  alt_codon, \n                                                                                                                  context_length, \n                                                                                                                  tokenizer, \n                                                                                                                  mask_mutation=mask_mutation, \n                                                                                                                  use_alt=False)\n    \n    return {",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4d25d2398e2f492b818c54575201f4ffc762200e4d566aeb9a41040f04f803ec",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/data/preprocess/mutation_pred.py",
+          "start_line": 60,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-37065fe43fe142648456d8bd3715504a",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/data/preprocess/mutation_pred.py",
+        "start_line": 61,
+        "end_line": null
+      },
+      "finding": "U+0020 x114",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "                                                                                                                  context_length, \n                                                                                                                  tokenizer, \n                                                                                                                  mask_mutation=mask_mutation, \n                                                                                                                  use_alt=False)\n    \n    return {\n        MetadataFields.INPUT_IDS: np.asarray(input_sequence_toks, dtype=np.int64),",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4d25d2398e2f492b818c54575201f4ffc762200e4d566aeb9a41040f04f803ec",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/data/preprocess/mutation_pred.py",
+          "start_line": 61,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "AST10",
+      "finding_id": "finding-96e4aa24aaea4bb4a0d2ef284daaf818",
+      "category": "Dangerous Code Execution",
+      "pattern": "Insecure deserialization: torch.load() without weights_only=True",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/inference/encodon.py",
+        "start_line": 85,
+        "end_line": 85,
+        "start_column": 27,
+        "end_column": 74
+      },
+      "finding": "torch.load(self.model_path, map_location=\"cpu\")",
+      "explanation": "Untrusted data is passed to an insecure deserializer (pickle, marshal, dill, jsonpickle, joblib, yaml.load without a safe Loader, or torch.load without weights_only). These deserializers reconstruct arbitrary objects and invoke callables during loading, so deserializing attacker-controlled bytes is equivalent to arbitrary code execution.",
+      "remediation": "Never deserialize untrusted input with pickle/marshal/dill/jsonpickle/joblib. Use a data-only format such as JSON. For YAML use yaml.safe_load; for PyTorch use torch.load(..., weights_only=True); for numpy avoid allow_pickle=True. If a binary format is unavoidable, verify an HMAC/signature over the bytes before loading.",
+      "code_snippet": "            if dist.is_initialized():\n                broadcasted_objects = [None, None]\n                if dist.get_rank() == 0:\n                    ckpt = torch.load(self.model_path, map_location=\"cpu\")\n                    hparams = ckpt.get(\"hyper_parameters\")\n                    state_dict = ckpt.get(\"state_dict\")\n                    broadcasted_objects = [state_dict, hparams]",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "b6d32ab840a6e04efb9d896a45c97b3762694ce04c3e76e7847abb5b6c16a499",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/inference/encodon.py",
+          "start_line": 85,
+          "end_line": 85,
+          "start_column": 27,
+          "end_column": 74
+        }
+      ]
+    },
+    {
+      "id": "AST10",
+      "finding_id": "finding-1253c32591704c1c9f29823c7d5292c9",
+      "category": "Dangerous Code Execution",
+      "pattern": "Insecure deserialization: torch.load() without weights_only=True",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/inference/encodon.py",
+        "start_line": 92,
+        "end_line": 92,
+        "start_column": 23,
+        "end_column": 70
+      },
+      "finding": "torch.load(self.model_path, map_location=\"cpu\")",
+      "explanation": "Untrusted data is passed to an insecure deserializer (pickle, marshal, dill, jsonpickle, joblib, yaml.load without a safe Loader, or torch.load without weights_only). These deserializers reconstruct arbitrary objects and invoke callables during loading, so deserializing attacker-controlled bytes is equivalent to arbitrary code execution.",
+      "remediation": "Never deserialize untrusted input with pickle/marshal/dill/jsonpickle/joblib. Use a data-only format such as JSON. For YAML use yaml.safe_load; for PyTorch use torch.load(..., weights_only=True); for numpy avoid allow_pickle=True. If a binary format is unavoidable, verify an HMAC/signature over the bytes before loading.",
+      "code_snippet": "                dist.broadcast_object_list(broadcasted_objects, src=0)\n                state_dict, hparams = broadcasted_objects\n            else:\n                ckpt = torch.load(self.model_path, map_location=\"cpu\")\n                hparams = ckpt.get(\"hyper_parameters\")\n                state_dict = ckpt.get(\"state_dict\")\n        else:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "b6d32ab840a6e04efb9d896a45c97b3762694ce04c3e76e7847abb5b6c16a499",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/inference/encodon.py",
+          "start_line": 92,
+          "end_line": 92,
+          "start_column": 23,
+          "end_column": 70
+        }
+      ]
+    },
+    {
+      "id": "AST10",
+      "finding_id": "finding-6c7cd93f08c246d1a3ae9ca82187b5a1",
+      "category": "Dangerous Code Execution",
+      "pattern": "Insecure deserialization: torch.load() without weights_only=True",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/tasks.py",
+        "start_line": 58,
+        "end_line": 58,
+        "start_column": 21,
+        "end_column": 62
+      },
+      "finding": "torch.load(ckpt_path, map_location=\"cpu\")",
+      "explanation": "Untrusted data is passed to an insecure deserializer (pickle, marshal, dill, jsonpickle, joblib, yaml.load without a safe Loader, or torch.load without weights_only). These deserializers reconstruct arbitrary objects and invoke callables during loading, so deserializing attacker-controlled bytes is equivalent to arbitrary code execution.",
+      "remediation": "Never deserialize untrusted input with pickle/marshal/dill/jsonpickle/joblib. Use a data-only format such as JSON. For YAML use yaml.safe_load; for PyTorch use torch.load(..., weights_only=True); for numpy avoid allow_pickle=True. If a binary format is unavoidable, verify an HMAC/signature over the bytes before loading.",
+      "code_snippet": "        logger.log_hyperparams(config_dict)\n        \n    if os.path.exists(ckpt_path):\n        state_dict = torch.load(ckpt_path, map_location=\"cpu\")\n        model.configure_model(state_dict=state_dict.get(\"state_dict\"))\n    else:\n        model.configure_model()",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "b2cb3ef0c3f53674773723f0398361ab4ca33260d6d5ce46cca5398678d13c18",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/tasks.py",
+          "start_line": 58,
+          "end_line": 58,
+          "start_column": 21,
+          "end_column": 62
+        }
+      ]
+    },
+    {
+      "id": "AST10",
+      "finding_id": "finding-b12d5857ae1c4690882d5082917a5677",
+      "category": "Dangerous Code Execution",
+      "pattern": "Insecure deserialization: torch.load() without weights_only=True",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/tasks.py",
+        "start_line": 106,
+        "end_line": 106,
+        "start_column": 25,
+        "end_column": 77
+      },
+      "finding": "torch.load(pretrained_ckpt_path, map_location=\"cpu\")",
+      "explanation": "Untrusted data is passed to an insecure deserializer (pickle, marshal, dill, jsonpickle, joblib, yaml.load without a safe Loader, or torch.load without weights_only). These deserializers reconstruct arbitrary objects and invoke callables during loading, so deserializing attacker-controlled bytes is equivalent to arbitrary code execution.",
+      "remediation": "Never deserialize untrusted input with pickle/marshal/dill/jsonpickle/joblib. Use a data-only format such as JSON. For YAML use yaml.safe_load; for PyTorch use torch.load(..., weights_only=True); for numpy avoid allow_pickle=True. If a binary format is unavoidable, verify an HMAC/signature over the bytes before loading.",
+      "code_snippet": "            model.configure_model(state_dict=state_dict)\n            trainer_ckpt_path = None\n        else:\n            state_dict = torch.load(pretrained_ckpt_path, map_location=\"cpu\")\n            model.configure_model(state_dict=state_dict.get(\"state_dict\"))\n    else:\n        logging.info(f\"No pretrained checkpoint found at {pretrained_ckpt_path}, starting from scratch\")",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "392f4db248e698ef24fa565d3d2ec5484c3239fbbf78ab5773e85596ac43617f",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/tasks.py",
+          "start_line": 106,
+          "end_line": 106,
+          "start_column": 25,
+          "end_column": 77
+        }
+      ]
+    },
+    {
+      "id": "AST10",
+      "finding_id": "finding-0ec0325941d24479ba7b546ed56a5808",
+      "category": "Dangerous Code Execution",
+      "pattern": "Insecure deserialization: torch.load() without weights_only=True",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/tasks.py",
+        "start_line": 168,
+        "end_line": 168,
+        "start_column": 21,
+        "end_column": 68
+      },
+      "finding": "torch.load(model_ckpt_path, map_location=\"cpu\")",
+      "explanation": "Untrusted data is passed to an insecure deserializer (pickle, marshal, dill, jsonpickle, joblib, yaml.load without a safe Loader, or torch.load without weights_only). These deserializers reconstruct arbitrary objects and invoke callables during loading, so deserializing attacker-controlled bytes is equivalent to arbitrary code execution.",
+      "remediation": "Never deserialize untrusted input with pickle/marshal/dill/jsonpickle/joblib. Use a data-only format such as JSON. For YAML use yaml.safe_load; for PyTorch use torch.load(..., weights_only=True); for numpy avoid allow_pickle=True. If a binary format is unavoidable, verify an HMAC/signature over the bytes before loading.",
+      "code_snippet": "        and Path(model_ckpt_path).suffix.lower() == \".ckpt\"\n    ):\n        logging.info(f\"Loading dataset checkpoint from {model_ckpt_path}\")\n        checkpoint = torch.load(model_ckpt_path, map_location=\"cpu\")\n        datamodule_state = checkpoint.get(data.__class__.__qualname__)\n        if datamodule_state is not None:\n            data.load_state_dict(datamodule_state)",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "606ba5b4e955bebf31a5c5071ec2eb7e06f8fe8e893aa80ebb498e4663946e36",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/tasks.py",
+          "start_line": 168,
+          "end_line": 168,
+          "start_column": 21,
+          "end_column": 68
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-7678656421044303b08e9b127f901392",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/config.py",
+        "start_line": 71,
+        "end_line": 71,
+        "start_column": 24,
+        "end_column": 51
+      },
+      "finding": "getattr(module, class_name)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "\n    try:\n        module = importlib.import_module(module_path)\n        dataset_class = getattr(module, class_name)\n    except (ImportError, AttributeError, ValueError) as e:\n        raise ValueError(f\"Could not import dataset '{args.dataset_name}'. Please check the name.\") from e\n",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "61dd5b3c8727e48d517e6a6276f7fc02df70a2696db49265e74763e35bba90c4",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/config.py",
+          "start_line": 71,
+          "end_line": 71,
+          "start_column": 24,
+          "end_column": 51
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-775029042a3349f0a8a89a1b2d8375b4",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/models/encodon_pl.py",
+        "start_line": 246,
+        "end_line": 246,
+        "start_column": 31,
+        "end_column": 61
+      },
+      "finding": "getattr(self.model, head_name)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "                cross_attention_heads = ['cross_attention_input_proj', 'cross_attention_head']\n                for head_name in cross_attention_heads:\n                    if hasattr(self.model, head_name):\n                        head = getattr(self.model, head_name)\n                        head_trainable = any(param.requires_grad for param in head.parameters())\n                        if not head_trainable:\n                            for param in head.parameters():",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e2d3239a61a2b515d103009ab0665d5dd1d99881cbea38878e316a7313bebc20",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/models/encodon_pl.py",
+          "start_line": 246,
+          "end_line": 246,
+          "start_column": 31,
+          "end_column": 61
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-939fab25d39e46409d80553b4b900027",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/models/encodon_pl.py",
+        "start_line": 271,
+        "end_line": 271,
+        "start_column": 27,
+        "end_column": 57
+      },
+      "finding": "getattr(self.model, head_name)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "            for head_name in cross_attention_heads:\n                if hasattr(self.model, head_name):\n                    logger.info(f\"Randomly initializing {head_name} head.\")\n                    head = getattr(self.model, head_name)\n                    for module in head.modules():\n                        if isinstance(module, nn.Linear):\n                            gain = self.pretrained_config.initializer_range * math.sqrt(math.log(2 * self.pretrained_config.num_hidden_layers))",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e2d3239a61a2b515d103009ab0665d5dd1d99881cbea38878e316a7313bebc20",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/models/encodon_pl.py",
+          "start_line": 271,
+          "end_line": 271,
+          "start_column": 27,
+          "end_column": 57
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-1a3113d06af34e2ca4306c8c6c0a6255",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/models/utils.py",
+        "start_line": 42,
+        "end_line": 42,
+        "start_column": 14,
+        "end_column": 34
+      },
+      "finding": "getattr(config, key)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "    # - convert config object to dictionary\n    \n    config_dict = {\n        key: (getattr(config, key) if hasattr(config, key) else config[key])\n        for key in (config.keys() if isinstance(config, dict) else dir(config))\n        if not key.startswith('_') and not callable(getattr(config, key, None))\n    }",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "587fb2f67d0aa87202f8455277869eb1cec067f6fb9f3fce930b3f33f2685bcd",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/models/utils.py",
+          "start_line": 42,
+          "end_line": 42,
+          "start_column": 14,
+          "end_column": 34
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-de60b8d5c6394976b06f0ed82b1ce621",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/models/utils.py",
+        "start_line": 44,
+        "end_line": 44,
+        "start_column": 52,
+        "end_column": 78
+      },
+      "finding": "getattr(config, key, None)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "    config_dict = {\n        key: (getattr(config, key) if hasattr(config, key) else config[key])\n        for key in (config.keys() if isinstance(config, dict) else dir(config))\n        if not key.startswith('_') and not callable(getattr(config, key, None))\n    }\n\n    default_config = pretrained_config_class()",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6f3151b681bfc47e77f4d816d3add63f84895b0de187059073df91fd75ef1184",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/models/utils.py",
+          "start_line": 44,
+          "end_line": 44,
+          "start_column": 52,
+          "end_column": 78
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-3baa4536f37747ceab8ca2451b2fb15c",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/models/utils.py",
+        "start_line": 53,
+        "end_line": 53,
+        "start_column": 39,
+        "end_column": 67
+      },
+      "finding": "getattr(default_config, key)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "    # - ensure all required attributes are present in the config_dict\n    for key in default_config.to_dict().keys():\n        if key not in config_dict:\n            encodon_config_dict[key] = getattr(default_config, key)\n        else:\n            encodon_config_dict[key] = config_dict[key]\n",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "211c3eed45413a4fcdb0f38daa16736ebdb44c4e1784b62f60e449c9393fe6a0",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/models/utils.py",
+          "start_line": 53,
+          "end_line": 53,
+          "start_column": 39,
+          "end_column": 67
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-998234e4220c484b80af43c20c615e43",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/utils/nemorun_utils.py",
+        "start_line": 25,
+        "end_line": 25,
+        "start_column": 34,
+        "end_column": 49
+      },
+      "finding": "getattr(cfg, k)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "    if isinstance(cfg, dict):\n        return {k: config_to_dict(v) for k, v in cfg.items()}\n    if isinstance(cfg, fdl.Config):\n        return {k: config_to_dict(getattr(cfg, k)) for k in getattr(cfg, \"__arguments__\", {})}\n    if isinstance(cfg, fdl.Partial):\n        return {k: config_to_dict(getattr(cfg, k)) for k in getattr(cfg, \"__arguments__\", {})}\n    return cfg",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "047f67a7f048e44c0ab04ab3556cb12a7932201840a8a70b26b009655dc455e7",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/utils/nemorun_utils.py",
+          "start_line": 25,
+          "end_line": 25,
+          "start_column": 34,
+          "end_column": 49
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-4afcf2926e374de7bc3355426529831a",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "evals/files/codonfm_source.zip!/src/utils/nemorun_utils.py",
+        "start_line": 27,
+        "end_line": 27,
+        "start_column": 34,
+        "end_column": 49
+      },
+      "finding": "getattr(cfg, k)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "    if isinstance(cfg, fdl.Config):\n        return {k: config_to_dict(getattr(cfg, k)) for k in getattr(cfg, \"__arguments__\", {})}\n    if isinstance(cfg, fdl.Partial):\n        return {k: config_to_dict(getattr(cfg, k)) for k in getattr(cfg, \"__arguments__\", {})}\n    return cfg",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "047f67a7f048e44c0ab04ab3556cb12a7932201840a8a70b26b009655dc455e7",
+      "occurrences": [
+        {
+          "file": "evals/files/codonfm_source.zip!/src/utils/nemorun_utils.py",
+          "start_line": 27,
+          "end_line": 27,
+          "start_column": 34,
+          "end_column": 49
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 57,
+    "scanned_components": 55,
+    "coverage_percent": 96.5,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 55,
+    "partially_inspected_files": 2,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 49,
+        "end_line": 49,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 55,
+        "end_line": 55,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 56,
+        "end_line": 56,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 61,
+        "end_line": 61,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 132,
+        "end_line": 132,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 133,
+        "end_line": 133,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 134,
+        "end_line": 134,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 135,
+        "end_line": 135,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 137,
+        "end_line": 137,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "output_limit",
+        "message": "Inspection reached its configured output limit.",
+        "path": "evals/files/codonfm_source.zip!/requirements.txt",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_output_limit"
+        ]
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 43,
+        "completed": 43,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 43,
+        "completed": 43,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "completed",
+        "planned_work": 45,
+        "completed": 45,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 58,
+        "completed": 57,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 57,
+        "completed": 57,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [
+      {
+        "source_path": "SKILL.md",
+        "line": 33,
+        "column": 10,
+        "evidence": "[parser](../../src/runner.py) and [model configuration](../../src/config.py),",
+        "target_path": null,
+        "status": "rejected",
+        "disposition": "out_of_scope",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 33,
+        "column": 57,
+        "evidence": "[parser](../../src/runner.py) and [model configuration](../../src/config.py),",
+        "target_path": null,
+        "status": "rejected",
+        "disposition": "out_of_scope",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 49,
+        "column": 2,
+        "evidence": "`NV-CodonFM-Encodon-80M-v1.safetensors` and sibling `config.json`.",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 49,
+        "column": 54,
+        "evidence": "`NV-CodonFM-Encodon-80M-v1.safetensors` and sibling `config.json`.",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 55,
+        "column": 13,
+        "evidence": "1. Confirm `src/runner.py`, `src/data/mutation_dataset.py`, and",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 55,
+        "column": 30,
+        "evidence": "1. Confirm `src/runner.py`, `src/data/mutation_dataset.py`, and",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 56,
+        "column": 5,
+        "evidence": "`src/inference/encodon.py` exist.",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 61,
+        "column": 13,
+        "evidence": "sibling `config.json`. Input preparation can use a planned path.",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 132,
+        "column": 4,
+        "evidence": "- `ref_likelihoods_merged.npy`",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 133,
+        "column": 4,
+        "evidence": "- `alt_likelihoods_merged.npy`",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 134,
+        "column": 4,
+        "evidence": "- `likelihood_ratios_merged.npy`",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 135,
+        "column": 4,
+        "evidence": "- `ids_merged.npy`",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 137,
+        "column": 49,
+        "evidence": "Load the arrays with NumPy and align scores by `ids_merged.npy`. The reported",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      }
+    ],
+    "limitations": [
+      "Analyzer static_patterns_supply_chain status: degraded."
+    ],
+    "findings_before_filtering": 43,
+    "findings_after_filtering": 43,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

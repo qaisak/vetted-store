@@ -1,0 +1,2085 @@
+{
+  "skill": {
+    "name": "terrashark",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\LukasNiessen__terrashark\\terrashark-main",
+    "scanned_at": "2026-10-31T22:56:51.483373+00:00"
+  },
+  "risk_assessment": {
+    "score": 88,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": ".claude-plugin/marketplace.json",
+      "type": "json",
+      "lines": 15,
+      "executable": false,
+      "size_bytes": 371,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".claude/settings.local.json",
+      "type": "json",
+      "lines": 7,
+      "executable": false,
+      "size_bytes": 66,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/CODEOWNERS",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 16,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/FUNDING.yml",
+      "type": "yaml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 23,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "type": "markdown",
+      "lines": 46,
+      "executable": false,
+      "size_bytes": 1007,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "type": "yaml",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 346,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/deploy-docs.yml",
+      "type": "yaml",
+      "lines": 56,
+      "executable": false,
+      "size_bytes": 1167,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/stale.yml",
+      "type": "yaml",
+      "lines": 37,
+      "executable": false,
+      "size_bytes": 1445,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/validate.yml",
+      "type": "yaml",
+      "lines": 94,
+      "executable": false,
+      "size_bytes": 2950,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 27,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CHANGELOG.md",
+      "type": "markdown",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 18,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "type": "markdown",
+      "lines": 27,
+      "executable": false,
+      "size_bytes": 943,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "type": "markdown",
+      "lines": 67,
+      "executable": false,
+      "size_bytes": 1724,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE",
+      "type": "other",
+      "lines": 7,
+      "executable": false,
+      "size_bytes": 1102,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "PHILOSOPHY.md",
+      "type": "markdown",
+      "lines": 161,
+      "executable": false,
+      "size_bytes": 9811,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 388,
+      "executable": false,
+      "size_bytes": 23180,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "SKILL.md",
+      "type": "markdown",
+      "lines": 86,
+      "executable": false,
+      "size_bytes": 3371,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/logo.png",
+      "type": "other",
+      "lines": 5122,
+      "executable": false,
+      "size_bytes": 197908,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/.gitignore",
+      "type": "other",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 21,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/README.md",
+      "type": "markdown",
+      "lines": 59,
+      "executable": false,
+      "size_bytes": 3356,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/SUMMARY.md",
+      "type": "markdown",
+      "lines": 58,
+      "executable": false,
+      "size_bytes": 1763,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/advanced/comparison.md",
+      "type": "markdown",
+      "lines": 57,
+      "executable": false,
+      "size_bytes": 3668,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/advanced/token-efficiency.md",
+      "type": "markdown",
+      "lines": 80,
+      "executable": false,
+      "size_bytes": 3186,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/architecture/backend-state-safety.md",
+      "type": "markdown",
+      "lines": 87,
+      "executable": false,
+      "size_bytes": 4641,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/architecture/coding-standards.md",
+      "type": "markdown",
+      "lines": 105,
+      "executable": false,
+      "size_bytes": 3637,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/architecture/module-architecture.md",
+      "type": "markdown",
+      "lines": 91,
+      "executable": false,
+      "size_bytes": 3058,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/architecture/structure-and-state.md",
+      "type": "markdown",
+      "lines": 68,
+      "executable": false,
+      "size_bytes": 2197,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/book.json",
+      "type": "json",
+      "lines": 23,
+      "executable": false,
+      "size_bytes": 660,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/changelog.md",
+      "type": "markdown",
+      "lines": 20,
+      "executable": false,
+      "size_bytes": 837,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/contributing.md",
+      "type": "markdown",
+      "lines": 72,
+      "executable": false,
+      "size_bytes": 2172,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/core-concepts/failure-modes.md",
+      "type": "markdown",
+      "lines": 108,
+      "executable": false,
+      "size_bytes": 4970,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/core-concepts/philosophy.md",
+      "type": "markdown",
+      "lines": 123,
+      "executable": false,
+      "size_bytes": 6517,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/core-concepts/workflow.md",
+      "type": "markdown",
+      "lines": 106,
+      "executable": false,
+      "size_bytes": 5005,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/examples/bad-patterns.md",
+      "type": "markdown",
+      "lines": 107,
+      "executable": false,
+      "size_bytes": 2748,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/examples/do-dont-checklist.md",
+      "type": "markdown",
+      "lines": 75,
+      "executable": false,
+      "size_bytes": 3355,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/examples/good-patterns.md",
+      "type": "markdown",
+      "lines": 153,
+      "executable": false,
+      "size_bytes": 3611,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/examples/neutral-patterns.md",
+      "type": "markdown",
+      "lines": 83,
+      "executable": false,
+      "size_bytes": 1994,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/failure-modes/blast-radius.md",
+      "type": "markdown",
+      "lines": 85,
+      "executable": false,
+      "size_bytes": 2321,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/failure-modes/ci-drift.md",
+      "type": "markdown",
+      "lines": 157,
+      "executable": false,
+      "size_bytes": 4016,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/failure-modes/compliance-gates.md",
+      "type": "markdown",
+      "lines": 103,
+      "executable": false,
+      "size_bytes": 3511,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/failure-modes/identity-churn.md",
+      "type": "markdown",
+      "lines": 149,
+      "executable": false,
+      "size_bytes": 4134,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/failure-modes/secret-exposure.md",
+      "type": "markdown",
+      "lines": 94,
+      "executable": false,
+      "size_bytes": 2960,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/getting-started/installation.md",
+      "type": "markdown",
+      "lines": 145,
+      "executable": false,
+      "size_bytes": 4046,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/getting-started/quick-start.md",
+      "type": "markdown",
+      "lines": 69,
+      "executable": false,
+      "size_bytes": 2466,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/guides/ci-delivery.md",
+      "type": "markdown",
+      "lines": 211,
+      "executable": false,
+      "size_bytes": 4945,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/guides/migration-playbooks.md",
+      "type": "markdown",
+      "lines": 117,
+      "executable": false,
+      "size_bytes": 2787,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/guides/quick-ops.md",
+      "type": "markdown",
+      "lines": 150,
+      "executable": false,
+      "size_bytes": 3584,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/guides/security-governance.md",
+      "type": "markdown",
+      "lines": 64,
+      "executable": false,
+      "size_bytes": 2011,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/guides/testing.md",
+      "type": "markdown",
+      "lines": 152,
+      "executable": false,
+      "size_bytes": 3609,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/integrations/mcp-integration.md",
+      "type": "markdown",
+      "lines": 40,
+      "executable": false,
+      "size_bytes": 1466,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/package-lock.json",
+      "type": "json",
+      "lines": 2880,
+      "executable": false,
+      "size_bytes": 103708,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/package.json",
+      "type": "json",
+      "lines": 14,
+      "executable": false,
+      "size_bytes": 323,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/blast-radius.md",
+      "type": "markdown",
+      "lines": 77,
+      "executable": false,
+      "size_bytes": 1834,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/ci-delivery-patterns.md",
+      "type": "markdown",
+      "lines": 220,
+      "executable": false,
+      "size_bytes": 5084,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/ci-drift.md",
+      "type": "markdown",
+      "lines": 156,
+      "executable": false,
+      "size_bytes": 3649,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/coding-standards.md",
+      "type": "markdown",
+      "lines": 102,
+      "executable": false,
+      "size_bytes": 3600,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/compliance-gates.md",
+      "type": "markdown",
+      "lines": 107,
+      "executable": false,
+      "size_bytes": 3057,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/conditional/backend-state-safety.md",
+      "type": "markdown",
+      "lines": 89,
+      "executable": false,
+      "size_bytes": 4821,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/conditional/trusted-modules.md",
+      "type": "markdown",
+      "lines": 113,
+      "executable": false,
+      "size_bytes": 4878,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/do-dont-patterns.md",
+      "type": "markdown",
+      "lines": 111,
+      "executable": false,
+      "size_bytes": 3152,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/examples-bad.md",
+      "type": "markdown",
+      "lines": 120,
+      "executable": false,
+      "size_bytes": 2231,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/examples-good.md",
+      "type": "markdown",
+      "lines": 168,
+      "executable": false,
+      "size_bytes": 3230,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/examples-neutral.md",
+      "type": "markdown",
+      "lines": 93,
+      "executable": false,
+      "size_bytes": 1671,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/identity-churn.md",
+      "type": "markdown",
+      "lines": 148,
+      "executable": false,
+      "size_bytes": 3873,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/mcp-integration.md",
+      "type": "markdown",
+      "lines": 40,
+      "executable": false,
+      "size_bytes": 1401,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/migration-playbooks.md",
+      "type": "markdown",
+      "lines": 114,
+      "executable": false,
+      "size_bytes": 2609,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/module-architecture.md",
+      "type": "markdown",
+      "lines": 78,
+      "executable": false,
+      "size_bytes": 2572,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/quick-ops.md",
+      "type": "markdown",
+      "lines": 171,
+      "executable": false,
+      "size_bytes": 3948,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/secret-exposure.md",
+      "type": "markdown",
+      "lines": 92,
+      "executable": false,
+      "size_bytes": 2559,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/security-and-governance.md",
+      "type": "markdown",
+      "lines": 60,
+      "executable": false,
+      "size_bytes": 1710,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/structure-and-state.md",
+      "type": "markdown",
+      "lines": 64,
+      "executable": false,
+      "size_bytes": 1941,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/testing-matrix.md",
+      "type": "markdown",
+      "lines": 149,
+      "executable": false,
+      "size_bytes": 3523,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/token-balance-rationale.md",
+      "type": "markdown",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 713,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "E4",
+      "finding_id": "finding-0836b47a853d45ac8c9d240ac003726b",
+      "category": "Data Exfiltration",
+      "pattern": "Context Leakage",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "README.md",
+        "start_line": 196,
+        "end_line": null,
+        "start_column": 245
+      },
+      "finding": "capture context",
+      "explanation": "Code or instructions that leak agent conversation context to external services, potentially exposing sensitive user interactions.",
+      "remediation": "Remove any code that sends prompts, responses, or session data externally. Preserve user privacy; never exfiltrate conversation content.",
+      "code_snippet": "\nThe key difference is architectural. **terraform-skill** is a static reference manual: it dumps ~4,400 tokens into context on every activation, then loads additional reference files that can be over 1,000 lines each. It gives Claude information but never tells it _how to think_ about a problem. There's no diagnosis step, no risk assessment, and no structured output - Claude reads the reference and generates whatever it thinks fits.\n\n**TerraShark** takes the opposite approach. The core SKILL.md is an 86-line operational workflow that costs ~600 tokens on activation - **over 7x leaner**. Instead of front-loading a wall of text, it forces Claude through a diagnostic sequence: capture context \u2192 identify failure modes \u2192 load _only_ the relevant references \u2192 propose fixes with explicit risk controls \u2192 validate \u2192 deliver a structured output contract.\n\nThis matters for three reasons:\n",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "94785a4d676e814b6db2f31a9d1e3b9fff4cacf26d471aa542647c378eb9a1b0",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 196,
+          "end_line": null,
+          "start_column": 245
+        }
+      ]
+    },
+    {
+      "id": "E4",
+      "finding_id": "finding-df098cbfc2ec48b88923443d1dffdc62",
+      "category": "Data Exfiltration",
+      "pattern": "Context Leakage",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "docs/advanced/comparison.md",
+        "start_line": 31,
+        "end_line": null,
+        "start_column": 190
+      },
+      "finding": "capture context",
+      "explanation": "Code or instructions that leak agent conversation context to external services, potentially exposing sensitive user interactions.",
+      "remediation": "Remove any code that sends prompts, responses, or session data externally. Preserve user privacy; never exfiltrate conversation content.",
+      "code_snippet": "\n**Static reference approach** (terraform-skill and similar): Dumps thousands of tokens into context on every activation, then loads additional reference files that can be over 1,000 lines each. Gives the AI information but never tells it *how to think* about a problem. No diagnosis step, no risk assessment, no structured output.\n\n**Failure-mode workflow** (TerraShark): The core SKILL.md is an 86-line operational workflow costing ~600 tokens on activation \u2014 over 7x leaner. Forces the AI through a diagnostic sequence: capture context, identify failure modes, load only relevant references, propose fixes with explicit risk controls, validate, and deliver a structured output contract.\n\n## Why This Matters\n",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "94785a4d676e814b6db2f31a9d1e3b9fff4cacf26d471aa542647c378eb9a1b0",
+      "occurrences": [
+        {
+          "file": "docs/advanced/comparison.md",
+          "start_line": 31,
+          "end_line": null,
+          "start_column": 190
+        }
+      ]
+    },
+    {
+      "id": "E4",
+      "finding_id": "finding-e13f815b18f8436fb5b2dda7abaf6328",
+      "category": "Data Exfiltration",
+      "pattern": "Context Leakage",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "docs/core-concepts/workflow.md",
+        "start_line": 8,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "Capture Context",
+      "explanation": "Code or instructions that leak agent conversation context to external services, potentially exposing sensitive user interactions.",
+      "remediation": "Remove any code that sends prompts, responses, or session data externally. Preserve user privacy; never exfiltrate conversation content.",
+      "code_snippet": "## Overview\n\n```\nCapture Context \u2192 Diagnose Failure Modes \u2192 Load References \u2192 Propose Fix \u2192 Generate Artifacts \u2192 Validate \u2192 Output Contract\n```\n\n## Step 1: Capture Execution Context",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8e3be0962a669235bebd210278d21fd1be88589d10eff7e1934f9c5d3a224d6d",
+      "occurrences": [
+        {
+          "file": "docs/core-concepts/workflow.md",
+          "start_line": 8,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-c845797c33524bb587eb1b8c358f342a",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: brace-expansion==1.1.18 \u2014 3 advisory(ies): CVE-2026-102276 (brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack); CVE-2026-102277 (brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU den); CVE-2026-102278 (brace-expansion: DoS via uncontrolled recursion on nested brace groups causing s)",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "docs/package-lock.json",
+        "start_line": 328,
+        "end_line": null
+      },
+      "finding": "brace-expansion==1.1.18",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "639b642c27cb4c938ec9ee9130d7841f3530a296aaf92dc28aa64cf11e6db366",
+      "occurrences": [
+        {
+          "file": "docs/package-lock.json",
+          "start_line": 328,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-6eea859895eb4c1ab550fa0f120468bd",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: immutable==3.8.3 \u2014 2 advisory(ies): CVE-2026-59879 (Immutable.js `List` 32-bit trie overflow \u2192 unrecoverable DoS); CVE-2026-59880 (Immutable: Hash-collision algorithmic complexity denial of service in Immutable.)",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "docs/package-lock.json",
+        "start_line": 1445,
+        "end_line": null
+      },
+      "finding": "immutable==3.8.3",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8fa55ecba27e3dbfbdbc8b3abedf95add270ab0af51a03facfe62cb9cbdb8ffc",
+      "occurrences": [
+        {
+          "file": "docs/package-lock.json",
+          "start_line": 1445,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-43d019857e6b4573a388edf6506fe8cb",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: undici==7.29.0 \u2014 16 advisory(ies): CVE-2026-84947 (undici vulnerable to response truncation via oversized chunked responses in the ); CVE-2026-84933 (undici vulnerable to cross-user cookie disclosure via Set-Cookie caching in shar); CVE-2026-109383 (undici vulnerable to TLS certificate validation bypass via dropped tls options i) +13 more",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "docs/package-lock.json",
+        "start_line": 2588,
+        "end_line": null
+      },
+      "finding": "undici==7.29.0",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "391161581d0316072974adfb6b95d2fab1919c91d2e3bb58dd066a1c5b9263ab",
+      "occurrences": [
+        {
+          "file": "docs/package-lock.json",
+          "start_line": 2588,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-d59e2b44da5b44928ac59253716306ab",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "CODE_OF_CONDUCT.md",
+        "start_line": 18,
+        "end_line": null,
+        "start_column": 41
+      },
+      "finding": "without consent",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "\n- Harassment, insults, or derogatory comments\n- Trolling or deliberately inflammatory remarks\n- Publishing others' private information without consent\n- Any conduct that would be considered inappropriate in a professional setting\n\n## Scope",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8f513068f50cde8c1bd5e878987a91aa2876dd293703f25117ca09675437e4d5",
+      "occurrences": [
+        {
+          "file": "CODE_OF_CONDUCT.md",
+          "start_line": 18,
+          "end_line": null,
+          "start_column": 41
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-d3c4bc6380ff4a34a96383e75bf6c9e2",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "docs/failure-modes/ci-drift.md",
+        "start_line": 83,
+        "end_line": null,
+        "start_column": 30
+      },
+      "finding": "auto-approve",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "        with:\n          name: reviewed-plan\n      - run: terraform init\n      - run: terraform apply -auto-approve plan.bin\n```\n\n**Notes:**",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d136f35fbcfa4c6db41b45ba9d17d36e2634ea52685668d0ec094a066e0ff6b8",
+      "occurrences": [
+        {
+          "file": "docs/failure-modes/ci-drift.md",
+          "start_line": 83,
+          "end_line": null,
+          "start_column": 30
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-cd421d279bd644c99d361097e982dbcb",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "docs/failure-modes/ci-drift.md",
+        "start_line": 138,
+        "end_line": null,
+        "start_column": 23
+      },
+      "finding": "auto-approve",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "  allow_failure: false\n  script:\n    - terraform init\n    - terraform apply -auto-approve plan.bin\n  dependencies:\n    - plan\n```",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d136f35fbcfa4c6db41b45ba9d17d36e2634ea52685668d0ec094a066e0ff6b8",
+      "occurrences": [
+        {
+          "file": "docs/failure-modes/ci-drift.md",
+          "start_line": 138,
+          "end_line": null,
+          "start_column": 23
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-fc78925c10204a87a9dacec9c2df0b40",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "docs/guides/ci-delivery.md",
+        "start_line": 91,
+        "end_line": null,
+        "start_column": 30
+      },
+      "finding": "auto-approve",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "      - uses: hashicorp/setup-terraform@v3\n      - run: terraform init\n      - run: terraform plan -out=plan.bin\n      - run: terraform apply -auto-approve plan.bin\n```\n\n**Notes:**",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d136f35fbcfa4c6db41b45ba9d17d36e2634ea52685668d0ec094a066e0ff6b8",
+      "occurrences": [
+        {
+          "file": "docs/guides/ci-delivery.md",
+          "start_line": 91,
+          "end_line": null,
+          "start_column": 30
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-e77178d04d6e42f6a3eff885c6efc07e",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "docs/guides/ci-delivery.md",
+        "start_line": 145,
+        "end_line": null,
+        "start_column": 23
+      },
+      "finding": "auto-approve",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "  allow_failure: false\n  script:\n    - terraform init\n    - terraform apply -auto-approve plan.bin\n\nverify:\n  stage: verify",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d136f35fbcfa4c6db41b45ba9d17d36e2634ea52685668d0ec094a066e0ff6b8",
+      "occurrences": [
+        {
+          "file": "docs/guides/ci-delivery.md",
+          "start_line": 145,
+          "end_line": null,
+          "start_column": 23
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-0a49863785564b90a171f24eb62fc7b6",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "references/ci-delivery-patterns.md",
+        "start_line": 89,
+        "end_line": null,
+        "start_column": 30
+      },
+      "finding": "auto-approve",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "      - uses: hashicorp/setup-terraform@v3\n      - run: terraform init\n      - run: terraform plan -out=plan.bin\n      - run: terraform apply -auto-approve plan.bin\n```\n\nNotes:",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d136f35fbcfa4c6db41b45ba9d17d36e2634ea52685668d0ec094a066e0ff6b8",
+      "occurrences": [
+        {
+          "file": "references/ci-delivery-patterns.md",
+          "start_line": 89,
+          "end_line": null,
+          "start_column": 30
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-db010ee1319245bf84beccb0d971e707",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "references/ci-delivery-patterns.md",
+        "start_line": 143,
+        "end_line": null,
+        "start_column": 23
+      },
+      "finding": "auto-approve",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "  allow_failure: false\n  script:\n    - terraform init\n    - terraform apply -auto-approve plan.bin\n\nverify:\n  stage: verify",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d136f35fbcfa4c6db41b45ba9d17d36e2634ea52685668d0ec094a066e0ff6b8",
+      "occurrences": [
+        {
+          "file": "references/ci-delivery-patterns.md",
+          "start_line": 143,
+          "end_line": null,
+          "start_column": 23
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-38c315dfeb2c470ab1371e4c5c5dbaf4",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "references/ci-drift.md",
+        "start_line": 83,
+        "end_line": null,
+        "start_column": 30
+      },
+      "finding": "auto-approve",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "        with:\n          name: reviewed-plan\n      - run: terraform init\n      - run: terraform apply -auto-approve plan.bin\n```\n\nNotes:",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d136f35fbcfa4c6db41b45ba9d17d36e2634ea52685668d0ec094a066e0ff6b8",
+      "occurrences": [
+        {
+          "file": "references/ci-drift.md",
+          "start_line": 83,
+          "end_line": null,
+          "start_column": 30
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-a967f497ad5247d7b890037a414fbeab",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "references/ci-drift.md",
+        "start_line": 138,
+        "end_line": null,
+        "start_column": 23
+      },
+      "finding": "auto-approve",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "  allow_failure: false\n  script:\n    - terraform init\n    - terraform apply -auto-approve plan.bin\n  dependencies:\n    - plan\n```",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d136f35fbcfa4c6db41b45ba9d17d36e2634ea52685668d0ec094a066e0ff6b8",
+      "occurrences": [
+        {
+          "file": "references/ci-drift.md",
+          "start_line": 138,
+          "end_line": null,
+          "start_column": 23
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-dc54b79d6c164bce9ffbd69e74940d68",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: minimatch==3.1.5 \u2014 1 advisory(ies): CVE-2026-118764 (minimatch has potential denial of service via globparts amplification)",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "docs/package-lock.json",
+        "start_line": 1890,
+        "end_line": null
+      },
+      "finding": "minimatch==3.1.5",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "65d224f418a42d7f4a94609efd9e6118a45fafd8df514b0a32b0f583fcfd2db5",
+      "occurrences": [
+        {
+          "file": "docs/package-lock.json",
+          "start_line": 1890,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-4023b1de68014ca4b381a6fa23e0ac11",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: qs==6.15.2 \u2014 3 advisory(ies): CVE-2026-82417 (qs: Denial of Service via Attacker Controlled isBuffer); CVE-2026-110816 (qs : qs.stringify with arrayFormat 'comma' throws an uncaught TypeError on array); CVE-2026-82562 (qs array-limit bypass via bracket-key comma parsing)",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "docs/package-lock.json",
+        "start_line": 2154,
+        "end_line": null
+      },
+      "finding": "qs==6.15.2",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "cba01c6ebd944d63a56a1975e5d1d9b6ddd2adbb19fce08cc2ed5d02c3cc8e9f",
+      "occurrences": [
+        {
+          "file": "docs/package-lock.json",
+          "start_line": 2154,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "EA3",
+      "finding_id": "finding-1d85081de8484b108b1a8ca864942d74",
+      "category": "Excessive Agency",
+      "pattern": "Scope Creep",
+      "severity": "LOW",
+      "confidence": 0.7,
+      "location": {
+        "file": "LICENSE",
+        "start_line": 7,
+        "end_line": null,
+        "start_column": 98
+      },
+      "finding": "NOT LIMITED TO",
+      "explanation": "Skill's behavior or capabilities extend beyond its stated purpose. Scope creep allows an agent to perform actions unrelated to its documented functionality, increasing the attack surface.",
+      "remediation": "Limit the skill's scope to its documented purpose. Remove instructions that enable the agent to perform actions outside its stated functionality.",
+      "code_snippet": "\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e89530c367266aa328ed88bf9475086c891da0ff38badf80bf35bae6b13345e0",
+      "occurrences": [
+        {
+          "file": "LICENSE",
+          "start_line": 7,
+          "end_line": null,
+          "start_column": 98
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-74f1c50fc3da49849a4f3633a1f4558a",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "docs/package.json",
+        "start_line": 11,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"honkit\": \"^6.2.2\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"serve\": \"honkit serve\"\n  },\n  \"devDependencies\": {\n    \"honkit\": \"^6.2.2\",\n    \"gitbook-plugin-search-pro\": \"^2.0.2\"\n  }\n}",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6cd3bc3249acb5a5064b0aedaef04fc0996fe610fca8b7c604f297a54a172401",
+      "occurrences": [
+        {
+          "file": "docs/package.json",
+          "start_line": 11,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-2e1c66747d82489ba2a9044bf1fdde9c",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "docs/package.json",
+        "start_line": 12,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"gitbook-plugin-search-pro\": \"^2.0.2\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  },\n  \"devDependencies\": {\n    \"honkit\": \"^6.2.2\",\n    \"gitbook-plugin-search-pro\": \"^2.0.2\"\n  }\n}",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "597ebd807a3108112cd646f8c3b21134dd892a9fb692f388d05bc0830fa56d05",
+      "occurrences": [
+        {
+          "file": "docs/package.json",
+          "start_line": 12,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": false,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 72,
+    "scanned_components": 71,
+    "coverage_percent": 98.6,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 71,
+    "partially_inspected_files": 1,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "docs/package-lock.json",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "output_limit",
+        "message": "Inspection reached its configured output limit.",
+        "path": "docs/package-lock.json",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_output_limit"
+        ]
+      }
+    ],
+    "scope_exclusions": [
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "assets/logo.png",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 72,
+        "completed": 72,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 72,
+        "completed": 72,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 74,
+        "completed": 72,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [
+      {
+        "source_path": "SKILL.md",
+        "line": 32,
+        "column": 4,
+        "evidence": "- `references/identity-churn.md`",
+        "target_path": "references/identity-churn.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 33,
+        "column": 4,
+        "evidence": "- `references/secret-exposure.md`",
+        "target_path": "references/secret-exposure.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 34,
+        "column": 4,
+        "evidence": "- `references/blast-radius.md`",
+        "target_path": "references/blast-radius.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 35,
+        "column": 4,
+        "evidence": "- `references/ci-drift.md`",
+        "target_path": "references/ci-drift.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 36,
+        "column": 4,
+        "evidence": "- `references/compliance-gates.md`",
+        "target_path": "references/compliance-gates.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 39,
+        "column": 4,
+        "evidence": "- `references/testing-matrix.md`",
+        "target_path": "references/testing-matrix.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 40,
+        "column": 4,
+        "evidence": "- `references/quick-ops.md`",
+        "target_path": "references/quick-ops.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 41,
+        "column": 4,
+        "evidence": "- `references/examples-good.md`",
+        "target_path": "references/examples-good.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 42,
+        "column": 4,
+        "evidence": "- `references/examples-bad.md`",
+        "target_path": "references/examples-bad.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 43,
+        "column": 4,
+        "evidence": "- `references/examples-neutral.md`",
+        "target_path": "references/examples-neutral.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 44,
+        "column": 4,
+        "evidence": "- `references/coding-standards.md`",
+        "target_path": "references/coding-standards.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 45,
+        "column": 4,
+        "evidence": "- `references/module-architecture.md`",
+        "target_path": "references/module-architecture.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 46,
+        "column": 4,
+        "evidence": "- `references/ci-delivery-patterns.md`",
+        "target_path": "references/ci-delivery-patterns.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 47,
+        "column": 4,
+        "evidence": "- `references/security-and-governance.md`",
+        "target_path": "references/security-and-governance.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 48,
+        "column": 4,
+        "evidence": "- `references/do-dont-patterns.md`",
+        "target_path": "references/do-dont-patterns.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 49,
+        "column": 4,
+        "evidence": "- `references/mcp-integration.md`",
+        "target_path": "references/mcp-integration.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 52,
+        "column": 4,
+        "evidence": "- `references/conditional/backend-state-safety.md` (backend is `s3`, `azurerm`, `gcs`, `remote`, `cloud`, `pg`, `consul`, or `local`, or task mentions backend m",
+        "target_path": "references/conditional/backend-state-safety.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 53,
+        "column": 4,
+        "evidence": "- `references/conditional/trusted-modules.md` (provider is `aws`, `azurerm`, `google`, `oci`, or `ibm`)",
+        "target_path": "references/conditional/trusted-modules.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 72,
+        "column": 159,
+        "evidence": "not asked for raw HCL, default to that module with an exact `version` pin (see `references/conditional/trusted-modules.md`).",
+        "target_path": "references/conditional/trusted-modules.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      }
+    ],
+    "limitations": [
+      "Analyzer static_patterns_agent_snooping status: degraded.",
+      "Analyzer static_patterns_anti_refusal status: degraded.",
+      "Analyzer static_patterns_deserialization status: degraded.",
+      "Analyzer static_patterns_excessive_agency status: degraded.",
+      "Analyzer static_patterns_harmful_content status: degraded.",
+      "Analyzer static_patterns_memory_poisoning status: degraded.",
+      "Analyzer static_patterns_privilege_escalation status: degraded.",
+      "Analyzer static_patterns_prompt_injection status: degraded.",
+      "Analyzer static_patterns_rogue_agent status: degraded.",
+      "Analyzer static_patterns_ssrf status: degraded.",
+      "Analyzer static_patterns_supply_chain status: degraded.",
+      "Analyzer static_patterns_system_prompt_leakage status: degraded.",
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 20,
+    "findings_after_filtering": 20,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

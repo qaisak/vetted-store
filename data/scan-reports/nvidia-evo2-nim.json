@@ -1,0 +1,1559 @@
+{
+  "skill": {
+    "name": "evo2-nim",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\NVIDIA__skills\\skills-main\\skills\\bionemo-evo2-nim",
+    "scanned_at": "2026-10-31T21:51:10.626071+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "CRITICAL"
+  },
+  "components": [
+    {
+      "path": "BENCHMARK.md",
+      "type": "markdown",
+      "lines": 119,
+      "executable": false,
+      "size_bytes": 7041,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "SKILL.md",
+      "type": "markdown",
+      "lines": 223,
+      "executable": false,
+      "size_bytes": 9695,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "config/skillspector-baseline.yml",
+      "type": "yaml",
+      "lines": 71,
+      "executable": false,
+      "size_bytes": 4010,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/config.yml",
+      "type": "yaml",
+      "lines": 9,
+      "executable": false,
+      "size_bytes": 117,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/evals.json",
+      "type": "json",
+      "lines": 51,
+      "executable": false,
+      "size_bytes": 5220,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/trigger_evals.json",
+      "type": "json",
+      "lines": 22,
+      "executable": false,
+      "size_bytes": 2002,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/api.md",
+      "type": "markdown",
+      "lines": 237,
+      "executable": false,
+      "size_bytes": 9326,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/examples.md",
+      "type": "markdown",
+      "lines": 55,
+      "executable": false,
+      "size_bytes": 1317,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/parameters.md",
+      "type": "markdown",
+      "lines": 32,
+      "executable": false,
+      "size_bytes": 1392,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/science.md",
+      "type": "markdown",
+      "lines": 32,
+      "executable": false,
+      "size_bytes": 1387,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/validation.md",
+      "type": "markdown",
+      "lines": 38,
+      "executable": false,
+      "size_bytes": 1308,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/generate.py",
+      "type": "python",
+      "lines": 177,
+      "executable": true,
+      "size_bytes": 8416,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skill-card.md",
+      "type": "markdown",
+      "lines": 86,
+      "executable": false,
+      "size_bytes": 4087,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skill.oms.sig",
+      "type": "oms_signature",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 6681,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "TT3",
+      "finding_id": "finding-1e71892714564aa5b8f8ee8807d73104",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'url' from os.getenv (line 97, credential/environment) \u2192 requests.post (network output)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "scripts/generate.py",
+        "start_line": 123,
+        "end_line": 123,
+        "start_column": 15,
+        "end_column": 115
+      },
+      "finding": "requests.post(url, headers=headers, json=payload, timeout=(10, args.timeout), allow_redirects=False)",
+      "explanation": "Credentials or environment variables flow to a network sink. This is a high-confidence indicator of credential exfiltration.",
+      "remediation": "Never send credentials or environment variables over the network. Use secure credential stores and avoid transmitting secrets in request bodies or URLs.",
+      "code_snippet": "        \"authentication\": \"Authorization: Bearer from NGC_API_KEY\" if mode == \"hosted\" else \"none\",\n    }), flush=True)\n    start = time.monotonic()\n    response = requests.post(url, headers=headers, json=payload, timeout=(10, args.timeout), allow_redirects=False)\n    wall_ms = round((time.monotonic() - start) * 1000)\n    # Keep the exact body even when HTTP status, JSON parsing, or validation fails.\n    paths[\"raw_response\"].write_bytes(response.content)",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "db0ec3d96141959880fadbdd837b391177d7f12f647813b4640146d42a326888",
+      "occurrences": [
+        {
+          "file": "scripts/generate.py",
+          "start_line": 123,
+          "end_line": 123,
+          "start_column": 15,
+          "end_column": 115
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-27328431944c4e5ca5411f1efded252e",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 125,
+        "end_line": null,
+        "start_column": 5
+      },
+      "finding": ".env ",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n```bash\nset -a\n[ -f .env ] && . ./.env\nset +a\n\nif [ -z \"${NGC_API_KEY:-}\" ] && [ -n \"${NVIDIA_API_KEY:-}\" ]; then",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "66ef81c27c03406fd9935e5fc86fc4126d7150c15b8d076fdc528d05cea7c7bf",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 125,
+          "end_line": null,
+          "start_column": 5
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-48a48b543fb546ddac3962b9f18619e1",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 125,
+        "end_line": null,
+        "start_column": 19
+      },
+      "finding": ".env\n",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n```bash\nset -a\n[ -f .env ] && . ./.env\nset +a\n\nif [ -z \"${NGC_API_KEY:-}\" ] && [ -n \"${NVIDIA_API_KEY:-}\" ]; then",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "66ef81c27c03406fd9935e5fc86fc4126d7150c15b8d076fdc528d05cea7c7bf",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 125,
+          "end_line": null,
+          "start_column": 19
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-7c2277d4f39b4924ae6bc96767430520",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "config/skillspector-baseline.yml",
+        "start_line": 34,
+        "end_line": null,
+        "start_column": 54
+      },
+      "finding": ".env ",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  - id: \"PE3\"\n    path: \"*evals/evals.json\"\n    reason: >-\n      Reviewed 2026-09-29. The finding is the literal .env filename in a\n      deferred local-Docker evaluation assertion. It describes the same\n      user-owned repo-root dotenv setup already reviewed in SKILL.md and\n      references/api.md; this JSON is test data and does not load credentials.",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "66ef81c27c03406fd9935e5fc86fc4126d7150c15b8d076fdc528d05cea7c7bf",
+      "occurrences": [
+        {
+          "file": "config/skillspector-baseline.yml",
+          "start_line": 34,
+          "end_line": null,
+          "start_column": 54
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-7edbc3143d9243adb29dd28204e75ae0",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "config/skillspector-baseline.yml",
+        "start_line": 45,
+        "end_line": null,
+        "start_column": 41
+      },
+      "finding": ".env ",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    reason: >-\n      Reviewed false positive (BioNeMo, omosafi@nvidia.com, 2026-08-12).\n      PE3 fires on the literal `.env` token in this NIM skill's documented\n      NGC_API_KEY loading snippet (`[ -f .env ] && . ./.env`), which reads the\n      user's own repo-root dotenv to obtain their NGC API key for\n      `docker login nvcr.io`. This is first-party, user-facing setup guidance for\n      the user's own credential file \u2014 not credential theft. No SSH keys, cloud",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "66ef81c27c03406fd9935e5fc86fc4126d7150c15b8d076fdc528d05cea7c7bf",
+      "occurrences": [
+        {
+          "file": "config/skillspector-baseline.yml",
+          "start_line": 45,
+          "end_line": null,
+          "start_column": 41
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-fa170d30e9c64b1cb4c633d0780144fc",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "config/skillspector-baseline.yml",
+        "start_line": 55,
+        "end_line": null,
+        "start_column": 41
+      },
+      "finding": ".env ",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    reason: >-\n      Reviewed false positive (BioNeMo, omosafi@nvidia.com, 2026-08-12).\n      PE3 fires on the literal `.env` token in this NIM skill's documented\n      NGC_API_KEY loading snippet (`[ -f .env ] && . ./.env`), which reads the\n      user's own repo-root dotenv to obtain their NGC API key for\n      `docker login nvcr.io`. This is first-party, user-facing setup guidance for\n      the user's own credential file \u2014 not credential theft. No SSH keys, cloud",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "66ef81c27c03406fd9935e5fc86fc4126d7150c15b8d076fdc528d05cea7c7bf",
+      "occurrences": [
+        {
+          "file": "config/skillspector-baseline.yml",
+          "start_line": 55,
+          "end_line": null,
+          "start_column": 41
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-eda9ea2c001c4873931df62b2381975d",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "references/api.md",
+        "start_line": 165,
+        "end_line": null,
+        "start_column": 5
+      },
+      "finding": ".env ",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n```bash\nset -a\n[ -f .env ] && . ./.env\nset +a\n\nif [ -z \"${NGC_API_KEY:-}\" ] && [ -n \"${NVIDIA_API_KEY:-}\" ]; then",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "66ef81c27c03406fd9935e5fc86fc4126d7150c15b8d076fdc528d05cea7c7bf",
+      "occurrences": [
+        {
+          "file": "references/api.md",
+          "start_line": 165,
+          "end_line": null,
+          "start_column": 5
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-d40ba2cacd0449d7ac64d5c3883638cb",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "references/api.md",
+        "start_line": 165,
+        "end_line": null,
+        "start_column": 19
+      },
+      "finding": ".env\n",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n```bash\nset -a\n[ -f .env ] && . ./.env\nset +a\n\nif [ -z \"${NGC_API_KEY:-}\" ] && [ -n \"${NVIDIA_API_KEY:-}\" ]; then",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "66ef81c27c03406fd9935e5fc86fc4126d7150c15b8d076fdc528d05cea7c7bf",
+      "occurrences": [
+        {
+          "file": "references/api.md",
+          "start_line": 165,
+          "end_line": null,
+          "start_column": 19
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-2bf27416d6d840cdac2dfeaffd676425",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "evals/evals.json",
+        "start_line": 28,
+        "end_line": null,
+        "start_column": 138
+      },
+      "finding": ".env'",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "      \"expected_output\": \"Docker startup and health-check commands using the Evo2 image, repo env contract, FP8-capable GPU guidance, optional NIM_VARIANT, local no-auth inference, and an EVO2_NIM_URL-aware generation request with a localhost fallback.\",\n      \"files\": [],\n      \"assertions\": [\n        \"[env-contract] Uses repo env contract including .env, NGC_API_KEY/NVIDIA_API_KEY fallback, and LOCAL_NIM_CACHE: Output mentions '.env', 'NGC_API_KEY', 'NVIDIA_API_KEY', and 'LOCAL_NIM_CACHE'\",\n        \"[docker-image] Uses the correct Evo2 Docker image: Output contains 'nvcr.io/nim/arc/evo2:2'\",\n        \"[cache-mount] Mounts local cache to the documented container cache target: Output contains '/opt/nim/.cache' and 'LOCAL_NIM_CACHE'\",\n        \"[variant-gpu-guidance] Documents optional NIM_VARIANT=7b, GPU selection, FP8-compatible hardware, and 40B memory requirements: Output contains 'NIM_VARIANT', 'NIM_TEST_GPUS', 'FP8', 40B guidance for 2x H100 80GB or 1x H200 141GB, and 7B fallback gu",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1d7505be6268307507c320128a1d61ae0b567925073d352885b24399720f99c3",
+      "occurrences": [
+        {
+          "file": "evals/evals.json",
+          "start_line": 28,
+          "end_line": null,
+          "start_column": 138
+        }
+      ]
+    },
+    {
+      "id": "LP1",
+      "finding_id": "finding-d2bfa95abcc9420e9172e6d99aeb56b0",
+      "category": "MCP Least Privilege",
+      "pattern": "Code capability 'env' detected in scripts/generate.py but not covered by declared permissions.",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "scripts/generate.py",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "Code capability 'env' detected in scripts/generate.py but not covered by declared permissions.",
+      "explanation": "The skill uses 'env' capability that is not covered by the declared 'allowed-tools' preapproval. Review the host runtime's actual enforcement policy; runtime permissions are unknown unless separately verified, and this declaration alone does not establish a permission ceiling.",
+      "remediation": "Review whether the 'env' capability is required and whether the host runtime policy permits it; runtime permissions are unknown unless separately verified. Remove code that does not need the capability; do not broaden 'allowed-tools' preapproval solely to silence this finding.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI02"
+      ],
+      "evidence": {},
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "scripts/generate.py",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "LP1",
+      "finding_id": "finding-61176272039a48479e18c2c52eb37b3f",
+      "category": "MCP Least Privilege",
+      "pattern": "Code capability 'network' detected in scripts/generate.py but not covered by declared permissions.",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "scripts/generate.py",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "Code capability 'network' detected in scripts/generate.py but not covered by declared permissions.",
+      "explanation": "The skill uses 'network' capability that is not covered by the declared 'allowed-tools' preapproval. Review the host runtime's actual enforcement policy; runtime permissions are unknown unless separately verified, and this declaration alone does not establish a permission ceiling.",
+      "remediation": "Review whether the 'network' capability is required and whether the host runtime policy permits it; runtime permissions are unknown unless separately verified. Remove code that does not need the capability; do not broaden 'allowed-tools' preapproval solely to silence this finding.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI02"
+      ],
+      "evidence": {},
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "scripts/generate.py",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "AS3",
+      "finding_id": "finding-edee1d324ac6444a91ab343f1ba62792",
+      "category": "Agent Snooping",
+      "pattern": "Skill Enumeration",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "BENCHMARK.md",
+        "start_line": 76,
+        "end_line": null,
+        "start_column": 111
+      },
+      "finding": "skills/evo2-nim/SKILL.md",
+      "explanation": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills.",
+      "remediation": "Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "code_snippet": "<details>\n<summary>Show detailed findings and successful checks</summary>\n\n- **MEDIUM** QUALITY/quality_correctness: No documented scripts in table format (`skills/bionemo-agent-toolkit/skills/evo2-nim/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: Instructions don't mention 'run_script' (`skills/bionemo-agent-toolkit/skills/evo2-nim/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: SKILL_SPEC recommended field missing: 'metadata.author' (`skills/bionemo-agent-toolkit/skills/evo2-nim/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: SKILL_SPEC recommended field missing: 'metadata.tags' (`skills/bionemo-agent-toolkit/skills/evo2-nim/SKILL.md`)",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "13db10252690592aaf8d5cd5e2a9609ec4ed2323c3eb81d0f7fae95019503a45",
+      "occurrences": [
+        {
+          "file": "BENCHMARK.md",
+          "start_line": 76,
+          "end_line": null,
+          "start_column": 111
+        }
+      ]
+    },
+    {
+      "id": "AS3",
+      "finding_id": "finding-5a5a1e654b874dea9f97c05c1565785a",
+      "category": "Agent Snooping",
+      "pattern": "Skill Enumeration",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "BENCHMARK.md",
+        "start_line": 77,
+        "end_line": null,
+        "start_column": 113
+      },
+      "finding": "skills/evo2-nim/SKILL.md",
+      "explanation": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills.",
+      "remediation": "Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "code_snippet": "<summary>Show detailed findings and successful checks</summary>\n\n- **MEDIUM** QUALITY/quality_correctness: No documented scripts in table format (`skills/bionemo-agent-toolkit/skills/evo2-nim/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: Instructions don't mention 'run_script' (`skills/bionemo-agent-toolkit/skills/evo2-nim/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: SKILL_SPEC recommended field missing: 'metadata.author' (`skills/bionemo-agent-toolkit/skills/evo2-nim/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: SKILL_SPEC recommended field missing: 'metadata.tags' (`skills/bionemo-agent-toolkit/skills/evo2-nim/SKILL.md`)\n- **MEDIUM** SCHEMA/folder_hierarchy: Unexpected nesting depth for general skill (`skills/bionemo-agent-toolkit/skills/evo2-nim`)",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "13db10252690592aaf8d5cd5e2a9609ec4ed2323c3eb81d0f7fae95019503a45",
+      "occurrences": [
+        {
+          "file": "BENCHMARK.md",
+          "start_line": 77,
+          "end_line": null,
+          "start_column": 113
+        }
+      ]
+    },
+    {
+      "id": "AS3",
+      "finding_id": "finding-a27c62a07ecf49ea9e364c1977002525",
+      "category": "Agent Snooping",
+      "pattern": "Skill Enumeration",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "BENCHMARK.md",
+        "start_line": 78,
+        "end_line": null,
+        "start_column": 129
+      },
+      "finding": "skills/evo2-nim/SKILL.md",
+      "explanation": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills.",
+      "remediation": "Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "code_snippet": "\n- **MEDIUM** QUALITY/quality_correctness: No documented scripts in table format (`skills/bionemo-agent-toolkit/skills/evo2-nim/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: Instructions don't mention 'run_script' (`skills/bionemo-agent-toolkit/skills/evo2-nim/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: SKILL_SPEC recommended field missing: 'metadata.author' (`skills/bionemo-agent-toolkit/skills/evo2-nim/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: SKILL_SPEC recommended field missing: 'metadata.tags' (`skills/bionemo-agent-toolkit/skills/evo2-nim/SKILL.md`)\n- **MEDIUM** SCHEMA/folder_hierarchy: Unexpected nesting depth for general skill (`skills/bionemo-agent-toolkit/skills/evo2-nim`)\n- 21 additional finding(s) are available in the full evaluation artifacts.",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "13db10252690592aaf8d5cd5e2a9609ec4ed2323c3eb81d0f7fae95019503a45",
+      "occurrences": [
+        {
+          "file": "BENCHMARK.md",
+          "start_line": 78,
+          "end_line": null,
+          "start_column": 129
+        }
+      ]
+    },
+    {
+      "id": "AS3",
+      "finding_id": "finding-bfdb107da477446cbf4cd4d9a3efdcfb",
+      "category": "Agent Snooping",
+      "pattern": "Skill Enumeration",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "BENCHMARK.md",
+        "start_line": 79,
+        "end_line": null,
+        "start_column": 127
+      },
+      "finding": "skills/evo2-nim/SKILL.md",
+      "explanation": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills.",
+      "remediation": "Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "code_snippet": "- **MEDIUM** QUALITY/quality_correctness: No documented scripts in table format (`skills/bionemo-agent-toolkit/skills/evo2-nim/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: Instructions don't mention 'run_script' (`skills/bionemo-agent-toolkit/skills/evo2-nim/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: SKILL_SPEC recommended field missing: 'metadata.author' (`skills/bionemo-agent-toolkit/skills/evo2-nim/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: SKILL_SPEC recommended field missing: 'metadata.tags' (`skills/bionemo-agent-toolkit/skills/evo2-nim/SKILL.md`)\n- **MEDIUM** SCHEMA/folder_hierarchy: Unexpected nesting depth for general skill (`skills/bionemo-agent-toolkit/skills/evo2-nim`)\n- 21 additional finding(s) are available in the full evaluation artifacts.\n",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "13db10252690592aaf8d5cd5e2a9609ec4ed2323c3eb81d0f7fae95019503a45",
+      "occurrences": [
+        {
+          "file": "BENCHMARK.md",
+          "start_line": 79,
+          "end_line": null,
+          "start_column": 127
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-c5136f12cecb45d8b08f57a60643e299",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker run\n\n#'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 139,
+        "end_line": null
+      },
+      "finding": "docker run\n\n#",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "be1cd27d35b16a6a8cd2bc05c260236cb3a0826299e0ea91b63725dddaab89b6",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 139,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-10cfd7e6bdc6412e8e776adfecf3da6b",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker run\n\n#'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "references/api.md",
+        "start_line": 179,
+        "end_line": null
+      },
+      "finding": "docker run\n\n#",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "be1cd27d35b16a6a8cd2bc05c260236cb3a0826299e0ea91b63725dddaab89b6",
+      "occurrences": [
+        {
+          "file": "references/api.md",
+          "start_line": 179,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-45a27d4ff16b4255b3ed5d480c3db95c",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker run --rm'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 142,
+        "end_line": null
+      },
+      "finding": "docker run --rm",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "efc156300614fe5ffcf05d4db3303fe76bb02fad1f9d185be59396ae5dfd036c",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 142,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-f3f3f7642fe44cfcb40c8298f6b28ef1",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker run --rm'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "references/api.md",
+        "start_line": 182,
+        "end_line": null
+      },
+      "finding": "docker run --rm",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "efc156300614fe5ffcf05d4db3303fe76bb02fad1f9d185be59396ae5dfd036c",
+      "occurrences": [
+        {
+          "file": "references/api.md",
+          "start_line": 182,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-0bdda5ac0a04448290ebb9d3d07203c8",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 186,
+        "end_line": null,
+        "start_column": 11
+      },
+      "finding": "requests.post(\n    f\"{nim_url}/biology/arc/evo2/forward\",\n    headers={\"Content-Type\": \"application/json\"},\n    json=",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    \"sequence\": sequence,\n    \"output_layers\": [\"output_layer\", \"decoder.layers.3.self_attention\"],\n}\nresponse = requests.post(\n    f\"{nim_url}/biology/arc/evo2/forward\",\n    headers={\"Content-Type\": \"application/json\"},\n    json=payload,",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "2b2ae0963e37b8d3060478793dcb25067ba5572f27eff7b43315bfc8cff9c15f",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 186,
+          "end_line": null,
+          "start_column": 11
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-4ab8b6f55f784287b9a3b2e1f3b422a3",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "references/api.md",
+        "start_line": 58,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "curl -sS -X POST \\\n  https://health.api.nvidia.com/v1/biology/arc/evo2-40b/generate \\\n  -H \"Authorization: Bearer $NGC_API_KEY\" \\\n  -H \"Content-Type: application/json\" \\\n  -d '{\"sequence\":\"ACTGACTGACT",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "Hosted curl:\n\n```bash\ncurl -sS -X POST \\\n  https://health.api.nvidia.com/v1/biology/arc/evo2-40b/generate \\\n  -H \"Authorization: Bearer $NGC_API_KEY\" \\\n  -H \"Content-Type: application/json\" \\",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "635c794c7e4f6159a326cb022df6cecf5b6093c7a7ed69fc7cf5280552bc5a48",
+      "occurrences": [
+        {
+          "file": "references/api.md",
+          "start_line": 58,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-4bf7d112581a4c7690e06e80e61a9e30",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'Docker run reference'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "references/api.md",
+        "start_line": 161,
+        "end_line": null
+      },
+      "finding": "Docker run reference",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "622140bf2d1b80bff1bd490789afc6f6d6c00a388fccb55ea847984b3e600e13",
+      "occurrences": [
+        {
+          "file": "references/api.md",
+          "start_line": 161,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-a14fca132de34b7198ca5a2d211681e9",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.7999999999999999,
+      "location": {
+        "file": "scripts/generate.py",
+        "start_line": 123,
+        "end_line": null,
+        "start_column": 15
+      },
+      "finding": "requests.post(url, headers=headers, json=",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "        \"authentication\": \"Authorization: Bearer from NGC_API_KEY\" if mode == \"hosted\" else \"none\",\n    }), flush=True)\n    start = time.monotonic()\n    response = requests.post(url, headers=headers, json=payload, timeout=(10, args.timeout), allow_redirects=False)\n    wall_ms = round((time.monotonic() - start) * 1000)\n    # Keep the exact body even when HTTP status, JSON parsing, or validation fails.\n    paths[\"raw_response\"].write_bytes(response.content)",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "503fd659864515395eb2de851d7573857586fa8d087daad3bb6c4e81e58825b1",
+      "occurrences": [
+        {
+          "file": "scripts/generate.py",
+          "start_line": 123,
+          "end_line": null,
+          "start_column": 15
+        }
+      ]
+    },
+    {
+      "id": "TT2",
+      "finding_id": "finding-a256af7bbd3f4a2a8d4840d89c186b6c",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'payload' from requests.post (line 99, network input) \u2192 requests.post (network output)",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "scripts/generate.py",
+        "start_line": 123,
+        "end_line": 123,
+        "start_column": 15,
+        "end_column": 115
+      },
+      "finding": "requests.post(url, headers=headers, json=payload, timeout=(10, args.timeout), allow_redirects=False)",
+      "explanation": "Data from a source is assigned to a variable that is later passed to a sink, creating a variable-mediated taint flow.",
+      "remediation": "Validate tainted variables before passing them to sinks. Use allowlists, type checks, or sanitization functions on data from external sources.",
+      "code_snippet": "        \"authentication\": \"Authorization: Bearer from NGC_API_KEY\" if mode == \"hosted\" else \"none\",\n    }), flush=True)\n    start = time.monotonic()\n    response = requests.post(url, headers=headers, json=payload, timeout=(10, args.timeout), allow_redirects=False)\n    wall_ms = round((time.monotonic() - start) * 1000)\n    # Keep the exact body even when HTTP status, JSON parsing, or validation fails.\n    paths[\"raw_response\"].write_bytes(response.content)",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1d7a4a044522c9c75df6fea85baff7a05a260715fef7eb139175e479b6381c4a",
+      "occurrences": [
+        {
+          "file": "scripts/generate.py",
+          "start_line": 123,
+          "end_line": 123,
+          "start_column": 15,
+          "end_column": 115
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 14,
+    "scanned_components": 14,
+    "coverage_percent": 100.0,
+    "is_complete": true,
+    "status": "complete_with_caveats",
+    "execution_successful": true,
+    "fully_inspected_files": 14,
+    "partially_inspected_files": 0,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 90,
+        "end_line": 90,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 91,
+        "end_line": 91,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 92,
+        "end_line": 92,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 125,
+        "end_line": 125,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 194,
+        "end_line": 194,
+        "fatal": false
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 14,
+        "completed": 14,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [
+      {
+        "source_path": "SKILL.md",
+        "line": 15,
+        "column": 4,
+        "evidence": "- `references/api.md`: exact schemas, layer names, Docker flags, hardware notes.",
+        "target_path": "references/api.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 16,
+        "column": 4,
+        "evidence": "- `references/science.md`: genomic use cases, limits, and interpretation.",
+        "target_path": "references/science.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 17,
+        "column": 4,
+        "evidence": "- `references/parameters.md`: generation/forward parameter effects.",
+        "target_path": "references/parameters.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 18,
+        "column": 4,
+        "evidence": "- `references/validation.md`: DNA, probability, timing, and tensor checks.",
+        "target_path": "references/validation.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 19,
+        "column": 4,
+        "evidence": "- `references/examples.md`: compact hosted/local request patterns.",
+        "target_path": "references/examples.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 23,
+        "column": 22,
+        "evidence": "For generation, use `scripts/generate.py` to execute the request, validate the",
+        "target_path": "scripts/generate.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 77,
+        "column": 8,
+        "evidence": "python scripts/generate.py \\",
+        "target_path": "scripts/generate.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 90,
+        "column": 19,
+        "evidence": "The client saves `request.json`, the actual `response.json`, `generated.fasta`,",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 90,
+        "column": 46,
+        "evidence": "The client saves `request.json`, the actual `response.json`, `generated.fasta`,",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 90,
+        "column": 63,
+        "evidence": "The client saves `request.json`, the actual `response.json`, `generated.fasta`,",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 91,
+        "column": 6,
+        "evidence": "and `metrics.json` in the chosen output directory. It also saves the exact",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 92,
+        "column": 19,
+        "evidence": "response body in `response.raw` before checking HTTP status or parsing JSON,",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 105,
+        "column": 23,
+        "evidence": "responses large. See `references/api.md` for custom payloads.",
+        "target_path": "references/api.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 125,
+        "column": 18,
+        "evidence": "[ -f .env ] && . ./.env",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 194,
+        "column": 12,
+        "evidence": "with open(\"evo2_forward_outputs.npz\", \"wb\") as handle:",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 208,
+        "column": 26,
+        "evidence": "For deeper checks, read `references/validation.md`.",
+        "target_path": "references/validation.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      }
+    ],
+    "limitations": [],
+    "findings_before_filtering": 24,
+    "findings_after_filtering": 24,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

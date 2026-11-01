@@ -1,0 +1,1300 @@
+{
+  "skill": {
+    "name": "hf-cloud-sagemaker-production-defaults",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\huggingface__skills\\skills-main\\skills\\hf-cloud-sagemaker-production-defaults",
+    "scanned_at": "2026-10-31T21:52:26.591818+00:00"
+  },
+  "risk_assessment": {
+    "score": 44,
+    "severity": "MEDIUM",
+    "recommendation": "CAUTION",
+    "max_issue_severity": "MEDIUM"
+  },
+  "components": [
+    {
+      "path": "SKILL.md",
+      "type": "markdown",
+      "lines": 419,
+      "executable": false,
+      "size_bytes": 27636,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/deployment-template.md",
+      "type": "markdown",
+      "lines": 59,
+      "executable": false,
+      "size_bytes": 3664,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/_common.py",
+      "type": "python",
+      "lines": 148,
+      "executable": true,
+      "size_bytes": 4874,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/deploy.py",
+      "type": "python",
+      "lines": 327,
+      "executable": true,
+      "size_bytes": 12991,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/deploy_async.py",
+      "type": "python",
+      "lines": 434,
+      "executable": true,
+      "size_bytes": 18522,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/deploy_ic.py",
+      "type": "python",
+      "lines": 506,
+      "executable": true,
+      "size_bytes": 20700,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/invoke_endpoint.py",
+      "type": "python",
+      "lines": 180,
+      "executable": true,
+      "size_bytes": 6509,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/teardown.py",
+      "type": "python",
+      "lines": 246,
+      "executable": true,
+      "size_bytes": 9461,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "LP3",
+      "finding_id": "finding-922236bbc36448b294619843ed5fa889",
+      "category": "MCP Least Privilege",
+      "pattern": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: env, file_read, network, shell.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: env, file_read, network, shell.",
+      "explanation": "Without declared permissions the skill's intent is opaque and cannot be validated.",
+      "remediation": "Clarify the skill's intended tool scope and review how the host runtime enforces it; runtime permissions are unknown unless separately verified. For Claude Code / Agent Skills SKILL.md, 'allowed-tools' records preapproved tools, not a permission ceiling; add a tool only when it is independently approved as necessary, not to silence this finding. For MCP server manifests, use a 'permissions' list naming the required capabilities.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI02"
+      ],
+      "evidence": {},
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "E5",
+      "finding_id": "finding-a87cc51b6ca64b20a579babf8db051b6",
+      "category": "Data Exfiltration",
+      "pattern": "Cloud Storage Exfiltration",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 336,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "aws s3 cp",
+      "explanation": "Data is uploaded to cloud storage (S3 / GCS / Azure Blob). This may be a legitimate backup or exfiltration to an external bucket. Manual review is recommended.",
+      "remediation": "Verify the destination bucket is trusted and owned by you. Never upload credentials, secrets, or workspace contents to external or unverified cloud storage.",
+      "code_snippet": "\n```bash\n# Upload your input first\naws s3 cp input.json s3://amzn-s3-demo-input/job1/input.json\n\n# Invoke\naws sagemaker-runtime invoke-endpoint-async \\",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d55da22be857031a0bd9ba65f11331ef42189565e31759d83c94f60ed1d1a02d",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 336,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "E5",
+      "finding_id": "finding-3a54fa70d19645dd9a0bfa527ba8f7cb",
+      "category": "Data Exfiltration",
+      "pattern": "Cloud Storage Exfiltration",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 346,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "aws s3 cp",
+      "explanation": "Data is uploaded to cloud storage (S3 / GCS / Azure Blob). This may be a legitimate backup or exfiltration to an external bucket. Manual review is recommended.",
+      "remediation": "Verify the destination bucket is trusted and owned by you. Never upload credentials, secrets, or workspace contents to external or unverified cloud storage.",
+      "code_snippet": "    --region <region>\n\n# Poll for the result at your output URI\naws s3 cp s3://amzn-s3-demo-async-output/async-output/<inference-id>.out result.json\n```\n\nThe same UTF-8 BOM caveat applies to the `input.json` you upload (see \"The UTF-8 BOM gotcha\" above) \u2014 if you build it on Windows, write it as BOM-free UTF-8 or the container's JSON parser will reject it.",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d55da22be857031a0bd9ba65f11331ef42189565e31759d83c94f60ed1d1a02d",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 346,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-2f706179fa3e4632b5880038b2926d99",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/invoke_endpoint.py",
+        "start_line": 67,
+        "end_line": 69,
+        "start_column": 11,
+        "end_column": 5
+      },
+      "finding": "subprocess.run(\n        [aws_bin(), \"configure\", \"get\", \"region\"], capture_output=True, text=True\n    )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    for var in (\"AWS_REGION\", \"AWS_DEFAULT_REGION\"):\n        if os.environ.get(var):\n            return os.environ[var]\n    proc = subprocess.run(\n        [aws_bin(), \"configure\", \"get\", \"region\"], capture_output=True, text=True\n    )\n    return proc.stdout.strip() if proc.returncode == 0 else \"\"",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e09b75c0b144b95d030a49196694aa4e4aaf3ee089878fb23c52e221aa0515ae",
+      "occurrences": [
+        {
+          "file": "scripts/invoke_endpoint.py",
+          "start_line": 67,
+          "end_line": 69,
+          "start_column": 11,
+          "end_column": 5
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-5b746f2f35b74f63948fa5eaf9ec9ffc",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/invoke_endpoint.py",
+        "start_line": 148,
+        "end_line": 148,
+        "start_column": 19,
+        "end_column": 70
+      },
+      "finding": "subprocess.run(cmd, capture_output=True, text=True)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        attempt = 0\n        while True:\n            attempt += 1\n            proc = subprocess.run(cmd, capture_output=True, text=True)\n            if proc.returncode == 0:\n                break\n",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e55aac9e108cbbef10353ab0cd0c5c768c57c57e907c37b506cfe011b5574c4c",
+      "occurrences": [
+        {
+          "file": "scripts/invoke_endpoint.py",
+          "start_line": 148,
+          "end_line": 148,
+          "start_column": 19,
+          "end_column": 70
+        }
+      ]
+    },
+    {
+      "id": "TT2",
+      "finding_id": "finding-fd8c8a354b634312a9c3420df913b91f",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'cmd' from os.environ (line 132, credential/environment) \u2192 subprocess.run (code execution)",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "scripts/invoke_endpoint.py",
+        "start_line": 148,
+        "end_line": 148,
+        "start_column": 19,
+        "end_column": 70
+      },
+      "finding": "subprocess.run(cmd, capture_output=True, text=True)",
+      "explanation": "Data from a source is assigned to a variable that is later passed to a sink, creating a variable-mediated taint flow.",
+      "remediation": "Validate tainted variables before passing them to sinks. Use allowlists, type checks, or sanitization functions on data from external sources.",
+      "code_snippet": "        attempt = 0\n        while True:\n            attempt += 1\n            proc = subprocess.run(cmd, capture_output=True, text=True)\n            if proc.returncode == 0:\n                break\n",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8f6ea3fdd1b5f75d76617e2cdde6a33ae662f6c8cc9f907ceefaea85ba669ed6",
+      "occurrences": [
+        {
+          "file": "scripts/invoke_endpoint.py",
+          "start_line": 148,
+          "end_line": 148,
+          "start_column": 19,
+          "end_column": 70
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-f3c23516edc646ad8ba4865a2bf58ead",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/teardown.py",
+        "start_line": 49,
+        "end_line": 49,
+        "start_column": 11,
+        "end_column": 77
+      },
+      "finding": "subprocess.run([aws_bin(), *args], capture_output=True, text=True)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "\n\ndef run_aws(args: list[str]) -> subprocess.CompletedProcess:\n    return subprocess.run([aws_bin(), *args], capture_output=True, text=True)\n\n\ndef json_out(proc: subprocess.CompletedProcess, default):",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "af88fac59dc1763b0bfd0f7bc87d42742ac0a867955667ee5a1526656fee17b8",
+      "occurrences": [
+        {
+          "file": "scripts/teardown.py",
+          "start_line": 49,
+          "end_line": 49,
+          "start_column": 11,
+          "end_column": 77
+        }
+      ]
+    },
+    {
+      "id": "TT2",
+      "finding_id": "finding-1b181c74b5d94e8391ba4c81f1ea3441",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'args' from os.environ (line 182, credential/environment) \u2192 subprocess.run (code execution)",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "scripts/teardown.py",
+        "start_line": 49,
+        "end_line": 49,
+        "start_column": 11,
+        "end_column": 77
+      },
+      "finding": "subprocess.run([aws_bin(), *args], capture_output=True, text=True)",
+      "explanation": "Data from a source is assigned to a variable that is later passed to a sink, creating a variable-mediated taint flow.",
+      "remediation": "Validate tainted variables before passing them to sinks. Use allowlists, type checks, or sanitization functions on data from external sources.",
+      "code_snippet": "\n\ndef run_aws(args: list[str]) -> subprocess.CompletedProcess:\n    return subprocess.run([aws_bin(), *args], capture_output=True, text=True)\n\n\ndef json_out(proc: subprocess.CompletedProcess, default):",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "76970e40704f57adecb6debc08fad3145d56a1a390d4f5e4a8d0e5139b518a78",
+      "occurrences": [
+        {
+          "file": "scripts/teardown.py",
+          "start_line": 49,
+          "end_line": 49,
+          "start_column": 11,
+          "end_column": 77
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 8,
+    "scanned_components": 7,
+    "coverage_percent": 87.5,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 7,
+    "partially_inspected_files": 1,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "SKILL.md",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 32,
+        "end_line": 32,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 58,
+        "end_line": 58,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 69,
+        "end_line": 69,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 137,
+        "end_line": 137,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 212,
+        "end_line": 212,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 219,
+        "end_line": 219,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 225,
+        "end_line": 225,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 246,
+        "end_line": 246,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 349,
+        "end_line": 349,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 413,
+        "end_line": 413,
+        "fatal": false
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 6,
+        "completed": 6,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 6,
+        "completed": 6,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 8,
+        "completed": 7,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [
+      {
+        "source_path": "SKILL.md",
+        "line": 22,
+        "column": 37,
+        "evidence": "An inference-component deployment (`deploy_ic.py`) creates the same set with two changes: the endpoint config carries the execution role and `ManagedInstanceSca",
+        "target_path": "scripts/deploy_ic.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 28,
+        "column": 28,
+        "evidence": "Defaults and reasoning in `references/deployment-template.md`.",
+        "target_path": "references/deployment-template.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 32,
+        "column": 91,
+        "evidence": "-generation LLM (vLLM), first package the pinned model snapshot as a SageMaker `model.tar.gz` artifact and upload it to an account-controlled S3 bucket. SageMak",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 35,
+        "column": 8,
+        "evidence": "python scripts/deploy.py \\",
+        "target_path": "scripts/deploy.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 52,
+        "column": 8,
+        "evidence": "python scripts/deploy.py \\",
+        "target_path": "scripts/deploy.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 58,
+        "column": 23,
+        "evidence": "--env HF_MODEL_ID=BAAI/bge-large-en-v1.5",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 69,
+        "column": 55,
+        "evidence": "| `--role-arn` | `hf-cloud-sagemaker-iam-preflight` (`check_role.py`) |",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 79,
+        "column": 410,
+        "evidence": "TE_CODE=false` unless the specific architecture requires reviewed custom code. `deploy.py` waits 30 minutes.",
+        "target_path": "scripts/deploy.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 86,
+        "column": 18,
+        "evidence": "- Real-time: `invoke_endpoint.py` (below) with a minimal payload; require an HTTP 200 with a sane body.",
+        "target_path": "scripts/invoke_endpoint.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 97,
+        "column": 107,
+        "evidence": "ments log to `/aws/sagemaker/InferenceComponents/<component-name>` instead. `deploy_ic.py` scans that group automatically while it waits.",
+        "target_path": "scripts/deploy_ic.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 109,
+        "column": 9,
+        "evidence": "python3 scripts/invoke_endpoint.py \\",
+        "target_path": "scripts/invoke_endpoint.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 133,
+        "column": 107,
+        "evidence": "ndpoint-health, or image problem \u2014 only the file encoding of the request body. `invoke_endpoint.py` avoids it entirely (it even strips a BOM from a `--payload-f",
+        "target_path": "scripts/invoke_endpoint.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 137,
+        "column": 47,
+        "evidence": "[System.IO.File]::WriteAllText((Resolve-Path \"payload.json\"), $json, [System.Text.UTF8Encoding]::new($false))",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 147,
+        "column": 122,
+        "evidence": "h `Unexpected UTF-8 BOM`, rewrite the payload as BOM-free UTF-8 (or re-run via `invoke_endpoint.py`) and retry once before treating the endpoint or model as bro",
+        "target_path": "scripts/invoke_endpoint.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 170,
+        "column": 77,
+        "evidence": "The agent reads the image URI from AWS's [Deep Learning Containers catalog](https://aws.github.io/deep-learning-containers/reference/available_images/) \u2014 pick t",
+        "target_path": null,
+        "status": "rejected",
+        "disposition": "out_of_scope",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 188,
+        "column": 122,
+        "evidence": "es only when it hosts **inference components**. The variant-scoped target that `deploy.py` registers cannot go below one instance. `deploy_ic.py` builds the com",
+        "target_path": "scripts/deploy.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 188,
+        "column": 174,
+        "evidence": "variant-scoped target that `deploy.py` registers cannot go below one instance. `deploy_ic.py` builds the component-based shape instead.",
+        "target_path": "scripts/deploy_ic.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 193,
+        "column": 8,
+        "evidence": "python scripts/deploy_ic.py \\",
+        "target_path": "scripts/deploy_ic.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 209,
+        "column": 25,
+        "evidence": "| Piece | Model-based (`deploy.py`) | Component-based (`deploy_ic.py`) |",
+        "target_path": "scripts/deploy.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 209,
+        "column": 57,
+        "evidence": "| Piece | Model-based (`deploy.py`) | Component-based (`deploy_ic.py`) |",
+        "target_path": "scripts/deploy_ic.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 212,
+        "column": 57,
+        "evidence": "| Model reference | `ProductionVariants[].ModelName` | `InferenceComponent.Specification.ModelName`; the variant has no `ModelName` |",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 219,
+        "column": 123,
+        "evidence": "`InferenceAmiVersion` still belongs on the variant, and it coexists with `ManagedInstanceScaling` (verified on `cu130` + `ml.g5.xlarge`).",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 221,
+        "column": 231,
+        "evidence": "y or its alarm and the endpoint scales to zero once, then never answers again. `deploy_ic.py` wires all four.",
+        "target_path": "scripts/deploy_ic.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 225,
+        "column": 2,
+        "evidence": "`Qwen/Qwen3-0.6B` from the Hub, `ml.g5.xlarge`, `us-east-1`, July 2026:",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 225,
+        "column": 34,
+        "evidence": "`Qwen/Qwen3-0.6B` from the Hub, `ml.g5.xlarge`, `us-east-1`, July 2026:",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 246,
+        "column": 67,
+        "evidence": "The schedulable pool is far smaller than the instance memory. On `ml.g5.xlarge` (16 GiB) the scheduler **accepts 1024 MB and rejects 4096 MB**. Over-asking give",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 262,
+        "column": 9,
+        "evidence": "python3 scripts/invoke_endpoint.py \\",
+        "target_path": "scripts/invoke_endpoint.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 273,
+        "column": 2,
+        "evidence": "`teardown.py` handles both shapes, but the order is load-bearing:",
+        "target_path": "scripts/teardown.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 289,
+        "column": 132,
+        "evidence": " or workloads that are bursty/sparse enough to benefit from scale-to-zero, use `deploy_async.py` instead of `deploy.py`. Async supports `MinCapacity=0` on the v",
+        "target_path": "scripts/deploy_async.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 289,
+        "column": 161,
+        "evidence": "/sparse enough to benefit from scale-to-zero, use `deploy_async.py` instead of `deploy.py`. Async supports `MinCapacity=0` on the variant itself. Real-time endp",
+        "target_path": "scripts/deploy.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 292,
+        "column": 8,
+        "evidence": "python scripts/deploy_async.py \\",
+        "target_path": "scripts/deploy_async.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 302,
+        "column": 23,
+        "evidence": "Required extras over `deploy.py`:",
+        "target_path": "scripts/deploy.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 349,
+        "column": 43,
+        "evidence": "The same UTF-8 BOM caveat applies to the `input.json` you upload (see \"The UTF-8 BOM gotcha\" above) \u2014 if you build it on Windows, write it as BOM-free UTF-8 or ",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 351,
+        "column": 48,
+        "evidence": "Teardown works the same as real-time: `python3 scripts/teardown.py <endpoint-name>` (the teardown script discovers policies and alarms by name prefix, so it han",
+        "target_path": "scripts/teardown.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "inline_command"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 383,
+        "column": 9,
+        "evidence": "python3 scripts/teardown.py <endpoint-name> <region> # macOS / Linux",
+        "target_path": "scripts/teardown.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 411,
+        "column": 385,
+        "evidence": "name>` and look for `exited: app`, `not expected`, or `api_server.py: error:`. `deploy_ic.py` does this scan on every poll and aborts in about a minute.",
+        "target_path": "scripts/deploy_ic.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 413,
+        "column": 246,
+        "evidence": " much smaller than the instance memory. Lower `--min-memory-mb` (1024 works on `ml.g5.xlarge`; 4096 is rejected there). Do not add instances: the message appear",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 415,
+        "column": 143,
+        "evidence": "CREATE_IN_PROGRESS` / `UPDATE_RC_IN_PROGRESS`** \u2014 normal, not an error. Retry; `teardown.py` retries for 15 min. `UPDATE_RC_IN_PROGRESS` means a scaling action ",
+        "target_path": "scripts/teardown.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 417,
+        "column": 184,
+        "evidence": "Service`. They block reuse of the name. Delete components first, which is what `teardown.py` does.",
+        "target_path": "scripts/teardown.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      }
+    ],
+    "limitations": [
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 8,
+    "findings_after_filtering": 8,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

@@ -1,0 +1,1097 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\modelcontextprotocol__servers\\servers-main\\src\\git",
+    "scanned_at": "2026-10-31T21:53:26.235366+00:00"
+  },
+  "risk_assessment": {
+    "score": 70,
+    "severity": "HIGH",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 6,
+      "executable": false,
+      "size_bytes": 103,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".python-version",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 5,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Dockerfile",
+      "type": "other",
+      "lines": 42,
+      "executable": false,
+      "size_bytes": 1323,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE",
+      "type": "other",
+      "lines": 7,
+      "executable": false,
+      "size_bytes": 1059,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 384,
+      "executable": false,
+      "size_bytes": 15297,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "pyproject.toml",
+      "type": "toml",
+      "lines": 58,
+      "executable": false,
+      "size_bytes": 1530,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/mcp_server_git/__init__.py",
+      "type": "python",
+      "lines": 28,
+      "executable": true,
+      "size_bytes": 769,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/mcp_server_git/__main__.py",
+      "type": "python",
+      "lines": 5,
+      "executable": true,
+      "size_bytes": 55,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/mcp_server_git/py.typed",
+      "type": "other",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 0,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/mcp_server_git/server.py",
+      "type": "python",
+      "lines": 846,
+      "executable": true,
+      "size_bytes": 32737,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/conftest.py",
+      "type": "python",
+      "lines": 151,
+      "executable": true,
+      "size_bytes": 5198,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/snapshots/list_tools.json",
+      "type": "json",
+      "lines": 406,
+      "executable": false,
+      "size_bytes": 10539,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_entrypoints.py",
+      "type": "python",
+      "lines": 209,
+      "executable": true,
+      "size_bytes": 6937,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_eras.py",
+      "type": "python",
+      "lines": 227,
+      "executable": true,
+      "size_bytes": 8886,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_protocol.py",
+      "type": "python",
+      "lines": 1489,
+      "executable": true,
+      "size_bytes": 54995,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_server.py",
+      "type": "python",
+      "lines": 1023,
+      "executable": true,
+      "size_bytes": 37533,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "uv.lock",
+      "type": "other",
+      "lines": 1134,
+      "executable": false,
+      "size_bytes": 208584,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "PE3",
+      "finding_id": "finding-b081bf524252423c886202d7d081ab9b",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "src/mcp_server_git/server.py",
+        "start_line": 214,
+        "end_line": null,
+        "start_column": 61
+      },
+      "finding": "/etc/passwd",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "        repo.git.add(\".\")\n    else:\n        # Defense in depth: validate each path resolves within the repository\n        # working tree to prevent path traversal (e.g. '../../etc/passwd' or an\n        # absolute path) from staging files outside repository boundaries.\n        repo_root = Path(repo.working_dir).resolve()\n        for f in files:",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac75eea6ed115d0252fb13bbb10e9c4421764d5a7612787edcde6a78569d8f88",
+      "occurrences": [
+        {
+          "file": "src/mcp_server_git/server.py",
+          "start_line": 214,
+          "end_line": null,
+          "start_column": 61
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-403cbccca36b41e399fb9903213a84d6",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx installations'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 293,
+        "end_line": null
+      },
+      "finding": "uvx installations",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e8560df11414203a4dbfdb3b863a1e571f7e7bd9719ea32ac1dcbdb3e0954356",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 293,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-a457473bfbf84eb9b8d7357177505db6",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx @modelcontextprotocol/inspector'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 296,
+        "end_line": null
+      },
+      "finding": "npx @modelcontextprotocol/inspector",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fa23549bff69cf1d0cc91c3c6865ab824c05e1e659d5db3cb893ae75f3af5fd4",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 296,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-54f56a82acc44790b435c242812dbfab",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx @modelcontextprotocol/inspector'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 303,
+        "end_line": null
+      },
+      "finding": "npx @modelcontextprotocol/inspector",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fa23549bff69cf1d0cc91c3c6865ab824c05e1e659d5db3cb893ae75f3af5fd4",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 303,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-6724350786df4af594e275560e09802a",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx mcp-server-git'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 296,
+        "end_line": null
+      },
+      "finding": "uvx mcp-server-git",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5e0960fea5954d8ae8775fe7109e6b9d905ddf3afa5a7147374041687f5f4a11",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 296,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "EA1",
+      "finding_id": "finding-87ee03dfda9d44d0bb9ea32d401d89ed",
+      "category": "Excessive Agency",
+      "pattern": "Unrestricted Tool Access",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "src/mcp_server_git/server.py",
+        "start_line": 4,
+        "end_line": null,
+        "start_column": 53
+      },
+      "finding": "use every tool",
+      "explanation": "Skill grants unrestricted tool access without appropriate constraints. An agent with unfettered tool access can perform arbitrary actions including file modification, network requests, and code execution.",
+      "remediation": "Restrict tool access to only the tools required for the skill's stated purpose. Use an explicit allowlist rather than granting blanket access.",
+      "code_snippet": "# The git MCP server: tools that read and change a Git repository through\n# GitPython. Repository confinement (`--repository`, `validate_repo_path` on the\n# path given, `validate_opened_repo` on the directories git then uses) and the\n# flag-injection guards live beside the handlers because every tool call must\n# pass them before any git command runs.\n#\n# Built on the MCP Python SDK's high-level `MCPServer` (#5174), the API these",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "bcc07bbe68ac8ab1f51a914184d3afe99af56ff9fed5a9007ad274bbc5f50b87",
+      "occurrences": [
+        {
+          "file": "src/mcp_server_git/server.py",
+          "start_line": 4,
+          "end_line": null,
+          "start_column": 53
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-6c4ae0774f124cb09353eb07b1f9b716",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "src/mcp_server_git/server.py",
+        "start_line": 514,
+        "end_line": null,
+        "start_column": 25
+      },
+      "finding": "auto delete",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "        case _:\n            raise ValueError(f\"Invalid branch type: {branch_type}\")\n\n    # None value will be auto deleted by GitPython\n    branch_info = repo.git.branch(b_type, *contains_sha, *not_contains_sha)\n\n    return branch_info",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5e5441ec4a1c78cd43388667c7a84ce7d53e95aff4a98115a2259353606ba20f",
+      "occurrences": [
+        {
+          "file": "src/mcp_server_git/server.py",
+          "start_line": 514,
+          "end_line": null,
+          "start_column": 25
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-a0ac706657aa4aada3a86fd0a67c0660",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "tests/test_entrypoints.py",
+        "start_line": 198,
+        "end_line": 204,
+        "start_column": 11,
+        "end_column": 5
+      },
+      "finding": "subprocess.run(\n        [script, \"--repository\", str(missing)],\n        stdin=subprocess.DEVNULL,\n        capture_output=True,\n        text=True,\n        timeout=60,\n    )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    script = shutil.which(\"mcp-server-git\", path=str(Path(sys.executable).parent))\n    assert script is not None\n    missing = tmp_path / \"missing\"\n    proc = subprocess.run(\n        [script, \"--repository\", str(missing)],\n        stdin=subprocess.DEVNULL,\n        capture_output=True,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5f5f998a726b4368d0f527ddd4de56a88ee9c841eced35aac5c0d496ddee9f0e",
+      "occurrences": [
+        {
+          "file": "tests/test_entrypoints.py",
+          "start_line": 198,
+          "end_line": 204,
+          "start_column": 11,
+          "end_column": 5
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-ae63a6a77f354f60a9a49e3c2fd79e3c",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "Dockerfile",
+        "start_line": 26,
+        "end_line": null,
+        "start_column": 56
+      },
+      "finding": "rm -rf /",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "\nFROM python:3.12-slim-bookworm\n\nRUN apt-get update && apt-get install -y git git-lfs && rm -rf /var/lib/apt/lists/* \\\n    && git lfs install --system\n\nWORKDIR /app",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f3ff4d6cfbe1b7f6b23dd4d1379edae984c14738c5f5b14db40e215beb673f08",
+      "occurrences": [
+        {
+          "file": "Dockerfile",
+          "start_line": 26,
+          "end_line": null,
+          "start_column": 56
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-88f6a621c5f94f339ee2061b519f2626",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "Dockerfile",
+        "start_line": 26,
+        "end_line": null,
+        "start_column": 56
+      },
+      "finding": "rm -rf /var/lib/apt/lists/*",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "\nFROM python:3.12-slim-bookworm\n\nRUN apt-get update && apt-get install -y git git-lfs && rm -rf /var/lib/apt/lists/* \\\n    && git lfs install --system\n\nWORKDIR /app",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "95e9afa11fed54a53f28b6f446bbc3a2db2288e67b4d456b256a99ab81fe73f6",
+      "occurrences": [
+        {
+          "file": "Dockerfile",
+          "start_line": 26,
+          "end_line": null,
+          "start_column": 56
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-7e08246fcc3b42eb9b814089c1b2da7b",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "Dockerfile",
+        "start_line": 26,
+        "end_line": null,
+        "start_column": 56
+      },
+      "finding": "rm -rf /var/lib/apt/lists/* \\\n    ",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "\nFROM python:3.12-slim-bookworm\n\nRUN apt-get update && apt-get install -y git git-lfs && rm -rf /var/lib/apt/lists/* \\\n    && git lfs install --system\n\nWORKDIR /app",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e3473cc2614951c8f828b2a04533225d0da6f64ff3d61f9d47a789db1b225537",
+      "occurrences": [
+        {
+          "file": "Dockerfile",
+          "start_line": 26,
+          "end_line": null,
+          "start_column": 56
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-0fa6695a11a641adbbe9616d2c1e7d38",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "Dockerfile",
+        "start_line": 26,
+        "end_line": null,
+        "start_column": 53
+      },
+      "finding": "&& rm -",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "\nFROM python:3.12-slim-bookworm\n\nRUN apt-get update && apt-get install -y git git-lfs && rm -rf /var/lib/apt/lists/* \\\n    && git lfs install --system\n\nWORKDIR /app",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "da42bed49ba667f4edac8a3628fa28e5cc6bbc20fc757fb7d1ddbddd9a531ec0",
+      "occurrences": [
+        {
+          "file": "Dockerfile",
+          "start_line": 26,
+          "end_line": null,
+          "start_column": 53
+        }
+      ]
+    },
+    {
+      "id": "EA3",
+      "finding_id": "finding-732adb02baec491bae94e9d7ed4b5b87",
+      "category": "Excessive Agency",
+      "pattern": "Scope Creep",
+      "severity": "LOW",
+      "confidence": 0.7,
+      "location": {
+        "file": "LICENSE",
+        "start_line": 7,
+        "end_line": null,
+        "start_column": 98
+      },
+      "finding": "NOT LIMITED TO",
+      "explanation": "Skill's behavior or capabilities extend beyond its stated purpose. Scope creep allows an agent to perform actions unrelated to its documented functionality, increasing the attack surface.",
+      "remediation": "Limit the skill's scope to its documented purpose. Remove instructions that enable the agent to perform actions outside its stated functionality.",
+      "code_snippet": "\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e89530c367266aa328ed88bf9475086c891da0ff38badf80bf35bae6b13345e0",
+      "occurrences": [
+        {
+          "file": "LICENSE",
+          "start_line": 7,
+          "end_line": null,
+          "start_column": 98
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-42647c468f1447478c35e48f3c5eae39",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server dependency without pinned version: 'pip install mcp-server-git'.",
+      "severity": "LOW",
+      "confidence": 0.6,
+      "location": {
+        "file": "README.md",
+        "start_line": 126,
+        "end_line": null
+      },
+      "finding": "pip install mcp-server-git",
+      "explanation": "pip install without ==version installs the latest release, which could include malicious changes.",
+      "remediation": "Pin the version: pip install package==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "03dd7ddd7b4dc1b36f2ebd1cc5cee4de62f2f1c44ef8aa63369dcf79736bf59e",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 126,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-a0aa51820f4f4b18ae34cd4a3185face",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "src/mcp_server_git/server.py",
+        "start_line": 100,
+        "end_line": 100,
+        "start_column": 13,
+        "end_column": 65
+      },
+      "finding": "getattr(repo.git(c=\"core.quotepath=false\"), command)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "    That call sets the option on the shared `repo.git` until its next command\n    runs, which is the one made here.\n    \"\"\"\n    output = getattr(repo.git(c=\"core.quotepath=false\"), command)(\n        *args, stdout_as_string=False\n    )\n    return output.decode(\"utf-8\", errors=\"replace\")",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16e9704f97dbb258a0e6235abdda65c90a8430586b42627edc900360f93a6f14",
+      "occurrences": [
+        {
+          "file": "src/mcp_server_git/server.py",
+          "start_line": 100,
+          "end_line": 100,
+          "start_column": 13,
+          "end_column": 65
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 17,
+    "scanned_components": 17,
+    "coverage_percent": 100.0,
+    "is_complete": true,
+    "status": "complete",
+    "execution_successful": true,
+    "fully_inspected_files": 17,
+    "partially_inspected_files": 0,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 17,
+        "completed": 17,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [],
+    "findings_before_filtering": 15,
+    "findings_after_filtering": 15,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

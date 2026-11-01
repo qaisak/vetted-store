@@ -1,0 +1,1403 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\modelcontextprotocol__servers\\servers-main\\src\\sequentialthinking",
+    "scanned_at": "2026-10-31T21:53:37.904392+00:00"
+  },
+  "risk_assessment": {
+    "score": 29,
+    "severity": "MEDIUM",
+    "recommendation": "CAUTION",
+    "max_issue_severity": "MEDIUM"
+  },
+  "components": [
+    {
+      "path": "CHANGELOG.md",
+      "type": "markdown",
+      "lines": 33,
+      "executable": false,
+      "size_bytes": 5249,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Dockerfile",
+      "type": "other",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 567,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 227,
+      "executable": false,
+      "size_bytes": 7836,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/entry-point.test.ts",
+      "type": "typescript",
+      "lines": 108,
+      "executable": true,
+      "size_bytes": 3645,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/eras.test.ts",
+      "type": "typescript",
+      "lines": 193,
+      "executable": true,
+      "size_bytes": 6811,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/helpers.ts",
+      "type": "typescript",
+      "lines": 115,
+      "executable": true,
+      "size_bytes": 3717,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/input-schema.test.ts",
+      "type": "typescript",
+      "lines": 180,
+      "executable": true,
+      "size_bytes": 5935,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/server-version.test.ts",
+      "type": "typescript",
+      "lines": 71,
+      "executable": true,
+      "size_bytes": 2579,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/stdio-smoke.test.ts",
+      "type": "typescript",
+      "lines": 83,
+      "executable": true,
+      "size_bytes": 2776,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/thinking.test.ts",
+      "type": "typescript",
+      "lines": 395,
+      "executable": true,
+      "size_bytes": 11821,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/thought-logging.test.ts",
+      "type": "typescript",
+      "lines": 193,
+      "executable": true,
+      "size_bytes": 6874,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/tools-list.test.ts",
+      "type": "typescript",
+      "lines": 186,
+      "executable": true,
+      "size_bytes": 6544,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "index.ts",
+      "type": "typescript",
+      "lines": 229,
+      "executable": true,
+      "size_bytes": 8763,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "lib.ts",
+      "type": "typescript",
+      "lines": 149,
+      "executable": true,
+      "size_bytes": 4514,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "package.json",
+      "type": "json",
+      "lines": 51,
+      "executable": false,
+      "size_bytes": 1707,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tsconfig.json",
+      "type": "json",
+      "lines": 15,
+      "executable": false,
+      "size_bytes": 232,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tsconfig.test.json",
+      "type": "json",
+      "lines": 13,
+      "executable": false,
+      "size_bytes": 546,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "version.ts",
+      "type": "typescript",
+      "lines": 33,
+      "executable": true,
+      "size_bytes": 1002,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "vitest.config.ts",
+      "type": "typescript",
+      "lines": 24,
+      "executable": true,
+      "size_bytes": 656,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "RP1",
+      "finding_id": "finding-5b70f6ecacff43498f8ebe6a338dd6ff",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'NPX in'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 141,
+        "end_line": null
+      },
+      "finding": "NPX in",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "912f4c689d3daeb48d8952a7661ea14324a688321562509810a01ac24e5cb3a4",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 141,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-6bc7ef65f4c14d3a802246a1c1f6fd4a",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'NPX installation'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 155,
+        "end_line": null
+      },
+      "finding": "NPX installation",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8a1514688e9967bdbf59502bd6dbcbcbd00efbddf32dd3389c7021fe381c624b",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 155,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-ddc1818c15be4aabbc778cee3573216b",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx -y @modelcontextprotocol/server-sequential-thinking'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 214,
+        "end_line": null
+      },
+      "finding": "npx -y @modelcontextprotocol/server-sequential-thinking",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "028d23f3898cccf8f60105efd93fb027c6173130a650c91b2d2dd83f8bfab950",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 214,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-ce6c41cc10f34cc287229cda501525ed",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx and'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/entry-point.test.ts",
+        "start_line": 93,
+        "end_line": null
+      },
+      "finding": "npx and",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "58f02ed0ddfca2c53fe736a25897d8dd12f84601caa28f34dcf4bddbe670f4e1",
+      "occurrences": [
+        {
+          "file": "__tests__/entry-point.test.ts",
+          "start_line": 93,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-37519b39b38c4a00a36578277014a857",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx runs'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/stdio-smoke.test.ts",
+        "start_line": 2,
+        "end_line": null
+      },
+      "finding": "npx runs",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0b289aadf82f4c0cc48b11fcda52e89cecbd9cea7a7016ac63057c2026a5d8a1",
+      "occurrences": [
+        {
+          "file": "__tests__/stdio-smoke.test.ts",
+          "start_line": 2,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-e17dca4696164207b7f9426992abadbe",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx does'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/stdio-smoke.test.ts",
+        "start_line": 78,
+        "end_line": null
+      },
+      "finding": "npx does",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "da6288fe15fb1930327341bd4b292563ef8b0ebc168cd99c79c1f170f91ab51f",
+      "occurrences": [
+        {
+          "file": "__tests__/stdio-smoke.test.ts",
+          "start_line": 78,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-4b5db6415ba54d219e7a20b6e40cb01a",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "__tests__/tools-list.test.ts",
+        "start_line": 169,
+        "end_line": null,
+        "start_column": 13
+      },
+      "finding": "without asking",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "\n  it(\"offers no prompts or resources\", async () => {\n    // Raw requests: SDK v2's listPrompts() and listResources() answer empty\n    // lists without asking a server that does not advertise them.\n    await expect(\n      conn.client.request({ method: \"prompts/list\", params: {} }),\n    ).rejects.toThrow(/Method not found/);",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8dc77d3dce9ba1f2672e813265a1b1a0c8594866ef38a4e978bf4f4451795465",
+      "occurrences": [
+        {
+          "file": "__tests__/tools-list.test.ts",
+          "start_line": 169,
+          "end_line": null,
+          "start_column": 13
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-d4a486f6f87e4f95bf324d7d389370a2",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 37,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@modelcontextprotocol/server\": \"^2.3.1\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"validate\": \"npm run format:check && npm run lint && npm run typecheck && npm run build && npm run test\"\n  },\n  \"dependencies\": {\n    \"@modelcontextprotocol/server\": \"^2.3.1\",\n    \"chalk\": \"^5.3.0\",\n    \"yargs\": \"^17.7.2\",\n    \"zod\": \"^4.2.0\"",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5189fa7d2b107554b2a5e02e74314de961f45d381e89127188fda07f09d7f29d",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 37,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-470255fcd0734a3cb12c60b43c0e2f30",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: @modelcontextprotocol/server has 4 known advisory(ies) (CVE-2026-111768 (MCP TypeScript SDK: One HTTP request within the default size limit could exhaust); GHSA-f897-62hf-6gxq (MCP TypeScript SDK: HTTP server transports and handlers did not limit request bo); CVE-2026-111770 (MCP  TypeScript server SDK: Shared transport or server instances delivered one H) +1 more), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 37,
+        "end_line": null
+      },
+      "finding": "@modelcontextprotocol/server",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c6d63dd7d6c992fb6bb0069b92ee681286d432d804c4aa287d03221af66311f9",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 37,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-8fdc62deb61e4350b5e1327b1ea07f1e",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 38,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"chalk\": \"^5.3.0\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  },\n  \"dependencies\": {\n    \"@modelcontextprotocol/server\": \"^2.3.1\",\n    \"chalk\": \"^5.3.0\",\n    \"yargs\": \"^17.7.2\",\n    \"zod\": \"^4.2.0\"\n  },",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3a97a5f2687039e83744ec77c51f6304f457bc45dbee3b8ff2bcd94e924d11c8",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 38,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-7737ee44a10844a08527b8c276b11cbb",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: chalk has 1 known advisory(ies) (MAL-2025-46969 (Malicious code in chalk (npm))), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 38,
+        "end_line": null
+      },
+      "finding": "chalk",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e63506772673a30c79883bb1df9da7c0b64051b62b2e93ea8fc3c39ee60639a4",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 38,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-bed06ddfb7204c47996b2504e2062537",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 39,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"yargs\": \"^17.7.2\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  \"dependencies\": {\n    \"@modelcontextprotocol/server\": \"^2.3.1\",\n    \"chalk\": \"^5.3.0\",\n    \"yargs\": \"^17.7.2\",\n    \"zod\": \"^4.2.0\"\n  },\n  \"devDependencies\": {",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "11bd8a11e7b347c1ef903237f8c55ef4473d0ba67928ddb2c53043326e05450d",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 39,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-ff966b5db76e4e53bdac6636ec359169",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 40,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"zod\": \"^4.2.0\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@modelcontextprotocol/server\": \"^2.3.1\",\n    \"chalk\": \"^5.3.0\",\n    \"yargs\": \"^17.7.2\",\n    \"zod\": \"^4.2.0\"\n  },\n  \"devDependencies\": {\n    \"@modelcontextprotocol/client\": \"^2.3.1\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f8b873524f2c06b004d9cbc7095268b33792690b148a8a0baaa76df85c737c12",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 40,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-418cdf46b953491d975ecb7a37ae712f",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: zod has 2 known advisory(ies) (CVE-2023-4316 (Zod denial of service vulnerability); CVE-2023-54404 (Zod can exhaust memory while validating oversized constrained collections)), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 40,
+        "end_line": null
+      },
+      "finding": "zod",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7c38c1841a95c57526af54b7df1d6dc7f78729f0090449106d9431f1e0e8c9ee",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 40,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-3e36ed040c5a4a4187376e5e52d93b4f",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 43,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@modelcontextprotocol/client\": \"^2.3.1\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"zod\": \"^4.2.0\"\n  },\n  \"devDependencies\": {\n    \"@modelcontextprotocol/client\": \"^2.3.1\",\n    \"@types/node\": \"^24\",\n    \"@types/yargs\": \"^17.0.32\",\n    \"@vitest/coverage-v8\": \"^4.1.12\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0cb0ec42c38b56ef450584dcd4ea532e7d3db49daa2c4021079b7d4b733f2c01",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 43,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-382ba890707a47aa9ea6cabe74bba3a6",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: @modelcontextprotocol/client has 2 known advisory(ies) (CVE-2026-111769 (MCP TypeScript client SDK: HTTP client transports and OAuth requests followed cr); CVE-2026-104850 (MCP TypeScript SDK: OAuth client could send credentials to an authorization serv)), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 43,
+        "end_line": null
+      },
+      "finding": "@modelcontextprotocol/client",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ece8551e2b8a5fbd1b1fc7a55d127378414b84fdf8e59294928cccd8bb55b679",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 43,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-d8e58517d45043029d2ccc7f9e5ee72c",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 44,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@types/node\": \"^24\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  },\n  \"devDependencies\": {\n    \"@modelcontextprotocol/client\": \"^2.3.1\",\n    \"@types/node\": \"^24\",\n    \"@types/yargs\": \"^17.0.32\",\n    \"@vitest/coverage-v8\": \"^4.1.12\",\n    \"shx\": \"^0.4.0\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "589892dd33d770db270826e0427f55fc07151dde9cefda309c6e1c1dc8eebca5",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 44,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-d4ed8e33a0194f7a86397875169e7f43",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 45,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@types/yargs\": \"^17.0.32\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  \"devDependencies\": {\n    \"@modelcontextprotocol/client\": \"^2.3.1\",\n    \"@types/node\": \"^24\",\n    \"@types/yargs\": \"^17.0.32\",\n    \"@vitest/coverage-v8\": \"^4.1.12\",\n    \"shx\": \"^0.4.0\",\n    \"typescript\": \"^5.8.2\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "491c2177df050eed35233e06db592f9220afc919d3f78c67073512fb5c2f3514",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 45,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-583bcc35c390473cad76f06c4f6c0bde",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 46,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@vitest/coverage-v8\": \"^4.1.12\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@modelcontextprotocol/client\": \"^2.3.1\",\n    \"@types/node\": \"^24\",\n    \"@types/yargs\": \"^17.0.32\",\n    \"@vitest/coverage-v8\": \"^4.1.12\",\n    \"shx\": \"^0.4.0\",\n    \"typescript\": \"^5.8.2\",\n    \"vitest\": \"^4.1.12\"",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "bc7e5ed3c60fcb0a564f3e506de1ecc0e88ad4a95237fd3c9b8a37e8b9b1df2f",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 46,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-a91f6298c60f4eb89f63d55dce142657",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 47,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"shx\": \"^0.4.0\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@types/node\": \"^24\",\n    \"@types/yargs\": \"^17.0.32\",\n    \"@vitest/coverage-v8\": \"^4.1.12\",\n    \"shx\": \"^0.4.0\",\n    \"typescript\": \"^5.8.2\",\n    \"vitest\": \"^4.1.12\"\n  }",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "699fdf78c83e79d52b6411630da5fcda40de2d3ba10155960a6143a1ad7b845d",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 47,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-378639e68d704b56a6722326a4f81c35",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 48,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"typescript\": \"^5.8.2\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@types/yargs\": \"^17.0.32\",\n    \"@vitest/coverage-v8\": \"^4.1.12\",\n    \"shx\": \"^0.4.0\",\n    \"typescript\": \"^5.8.2\",\n    \"vitest\": \"^4.1.12\"\n  }\n}",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8bda8e6a1198e24bd9575a20b21c05af3ddbcc4fb7e0c71d8df16ba172d374a9",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 48,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-449fb8b149664a159afce9488e819943",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 49,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"vitest\": \"^4.1.12\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@vitest/coverage-v8\": \"^4.1.12\",\n    \"shx\": \"^0.4.0\",\n    \"typescript\": \"^5.8.2\",\n    \"vitest\": \"^4.1.12\"\n  }\n}",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "843550759a0bd10cea6dcee3c2c2a6374722e05f3d18b56853b9831cb321d948",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 49,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-e5f6f91269c349c385c815b9812ba785",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: vitest has 3 known advisory(ies) (CVE-2026-47429 (When Vitest UI server is listening, arbitrary file can be read and executed); CVE-2026-84373 (Vitest: Path Traversal / Arbitrary File Read via @vitest/mocker Redirect Mock); CVE-2025-24964 (Vitest allows Remote Code Execution when accessing a malicious website while Vit)), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 49,
+        "end_line": null
+      },
+      "finding": "vitest",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3c1b4c6dbc6846233d1e866fad9d544a94e03de81ee683726814430a4684f742",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 49,
+          "end_line": null
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 19,
+    "scanned_components": 16,
+    "coverage_percent": 84.2,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 16,
+    "partially_inspected_files": 3,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/thinking.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/thought-logging.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "lib.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 19,
+        "completed": 16,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 19,
+        "completed": 19,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 24,
+    "findings_after_filtering": 24,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

@@ -1,0 +1,3309 @@
+{
+  "skill": {
+    "name": "netlify-deploy",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\openai__skills\\skills-main\\skills\\.curated\\netlify-deploy",
+    "scanned_at": "2026-10-31T21:48:34.393906+00:00"
+  },
+  "risk_assessment": {
+    "score": 40,
+    "severity": "MEDIUM",
+    "recommendation": "CAUTION",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": "LICENSE.txt",
+      "type": "text",
+      "lines": 201,
+      "executable": false,
+      "size_bytes": 10776,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "SKILL.md",
+      "type": "markdown",
+      "lines": 247,
+      "executable": false,
+      "size_bytes": 7011,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "agents/openai.yaml",
+      "type": "yaml",
+      "lines": 6,
+      "executable": false,
+      "size_bytes": 318,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/netlify-small.svg",
+      "type": "other",
+      "lines": 11,
+      "executable": true,
+      "size_bytes": 1291,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/netlify.png",
+      "type": "other",
+      "lines": 36,
+      "executable": false,
+      "size_bytes": 933,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/cli-commands.md",
+      "type": "markdown",
+      "lines": 162,
+      "executable": false,
+      "size_bytes": 2652,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/deployment-patterns.md",
+      "type": "markdown",
+      "lines": 303,
+      "executable": false,
+      "size_bytes": 6702,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/netlify-toml.md",
+      "type": "markdown",
+      "lines": 259,
+      "executable": false,
+      "size_bytes": 3972,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "PE3",
+      "finding_id": "finding-846dcf43a4f7446ba022318ba8c9adca",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 95,
+        "end_line": null,
+        "start_column": 23
+      },
+      "finding": ".env\n",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "npx netlify env:get KEY\n\n# Import env vars from file\nnpx netlify env:import .env\n```\n\n## Build",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "66ef81c27c03406fd9935e5fc86fc4126d7150c15b8d076fdc528d05cea7c7bf",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 95,
+          "end_line": null,
+          "start_column": 23
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-d8c0c92d76344735b1dc347e1cb5f3b1",
+      "category": "MCP Rug Pull",
+      "pattern": "Manifest references MCP server without version pin: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "MCP server references in the skill manifest without version pinning are a rug-pull risk.",
+      "remediation": "Always pin MCP server versions in manifest references.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-e8904194592f48b3bde318ca4f42ccac",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 3,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 3,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-0ed7a33858534485bb7c753da281ef4a",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 30,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 30,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-c6d28e335fb04db3bf0c34d2f7857bd3",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 31,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 31,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-cb32dda31f6b41238a9c1289100752c1",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 45,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 45,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-6f820ce9db4a40148d5644ecfac87a26",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 55,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 55,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-bbbd99cb6d0a4b46a391ba3e0117b125",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 90,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 90,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-37c4d5de6edd468d9d183c3fed2213c5",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 97,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 97,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-372739e45cda4dacbf92096c05650769",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 125,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 125,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-5f48a119c53146f88e80b2c2d37b2330",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 133,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 133,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-52270b2b47da43ecac6cd7c36ee5d178",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 169,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 169,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-50954831f0ab4065acbd95e1c01062e0",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 172,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 172,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-895737f25b014eceb9c22ab6d2a36bec",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 177,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 177,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-f1ad5879c4974630a88ba4f61e6a8536",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 180,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 180,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-71c4ad35fbc84f89a43eb924da0ac1ed",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 186,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 186,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-72d4b2410b6d4daaa2477d4fbf1898aa",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 189,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 189,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-ea3c5504461a4c098292ff48e064e7da",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 197,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 197,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-ec8410e1d7ea4e36aaf663f8ffa6ba49",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 200,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 200,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-e59a98644bbd41fa9b139aee68b0f9c1",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 9,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 9,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-18e83e28a16d42f6ad4a1aa121b58097",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 12,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 12,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-68cd02c1f5ad422dbcc2b06ca0be9ad1",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 15,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 15,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-98d8daecad6747d28397cada0dd257d9",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 22,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 22,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-38e8ee63d34f4946a14b2babcc5ebc6b",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 25,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 25,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-24386558a06d46969585a9d96b885296",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 28,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 28,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-963497f609b74a98b44535edcbd4c6be",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 31,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 31,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-4df4015e417b4d55a7f18afaefcb5e9e",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 34,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 34,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-c0c3cfc1b7c84c3691facd42e27b288e",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 37,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 37,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-6b7bff6baa7a47e3a3e85a886499a0ef",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 40,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 40,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-78c5c62a27eb4d29a1846da06295eef1",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 47,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 47,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-284e705d38534c9a8eeabf9b629512ac",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 50,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 50,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-7c55f6b980ae47bf89efb9dbfe4bfc14",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 53,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 53,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-ccaff6e317774d438217fdc83bcc5bd4",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 56,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 56,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-f462eecc2d0147ce8702c35c7d526f42",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 59,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 59,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-f902641ededf4b42b23bddff9c148b9c",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 66,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 66,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-9366c3413c5a41fd9c3cccb1b6d6642e",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 69,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 69,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-953cd4e66bfe41f3ae36d136f20d4883",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 76,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 76,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-2a5fe2d27dd041b2bb1fe54e29323aba",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 79,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 79,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-4fbd98b4d287454793776a18acee1260",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 86,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 86,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-00ec667f038a41d09d9af1af271c4278",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 89,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 89,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-816e853c34c94e54ba5ee3051d9ad965",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 92,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 92,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-527293a3452447a090e77107a01dfb5f",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 95,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 95,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-117ae7983502414388f1c4b83e6480fb",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 102,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 102,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-0a0fae901e4a438288d88f50990a20dd",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 105,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 105,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-dacb22d38e6e48688c2889977bc96381",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 112,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 112,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-3e4cb17ad67a4a16b836986bccfdecb4",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 115,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 115,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-0fa1b81a908040d39bb41ccf5cb5d7f7",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 118,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 118,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-8e8fb85aec61406d8cafae013b0395c8",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 125,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 125,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-f8a5ccd428b243c78f676347f442a357",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 128,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 128,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-c7f1d006af4145a4ba212dc45c69dc5b",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 135,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 135,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-56d2c79395c84ee98ad260df0ae2d9f7",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 138,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 138,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-e3eea26a6e8b44a6b0b38b607c4a041c",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 141,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 141,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-dec32059ba4d4cc687d740f4bd125d96",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 26,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 26,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-587d5732af084a9aa7fa635f68a04418",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 27,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 27,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-13a97bb0295e4a85919e2064c40f1291",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 28,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 28,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-c53608aa98fd4d1bb30e434a3970438b",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 32,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 32,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-d07d79f444f9485d9aae4ff6d8615c46",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 36,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 36,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-cde9522d1c244b818206ae29ab755f93",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 39,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 39,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-3da1d9d4dc624d9f8357ff5de9b24dca",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 42,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 42,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-b90b7df79a0f471a8db76b5a57c11d8f",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 46,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 46,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-5a74f702849d4155a5f4e42306426d72",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 54,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 54,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-e0c124eea31a490094032b6c15da3107",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 57,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 57,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-407fc2ffc92a46bdb10a7a385769f119",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 66,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 66,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-43750e807f8e4ae99043eb396f946a56",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 75,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 75,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-1993834817e941e1b3c1ee459474b7e8",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 77,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 77,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-931a8f431f474f7a9329a548572aca22",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 79,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 79,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-4a1d42639f104fd8bbdf70664fbc928a",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 85,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 85,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-23940ac227044f41bde580051ba30ce2",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 89,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 89,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-ce1b6104aaae4aad8243b9e60d3f5fd1",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 98,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 98,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-5f262eb5edf44b2995a01f5110375ade",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 111,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 111,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-21a8443f0be64985b2798049bbf3ce7e",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 123,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 123,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-04b606290e624441bc6195adf94044ae",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 139,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 139,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-f44ef134275c4723a57c5996de3e0e07",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 149,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 149,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-2b430565b6a24875a0d9a3e6809c7b3f",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 150,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 150,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-8b90495a6604400fbd0e14949370a5d8",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 153,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 153,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-8fd9eb96c02f4564929a662ad4879e98",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 160,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 160,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-a2fd7562ceca406882aee6e6de4115c6",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 163,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 163,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-7ca6aaea09774c52b57ecf94d1d23ce3",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 175,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 175,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-0a348c668e3c40af981cf7f784f4375d",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 179,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 179,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-df031ce3e37f40a1b87b40994bbd8731",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 212,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 212,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-eefdca8970654e6d8090e804d6d44ce2",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 223,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 223,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-634a96435d9c4d2b8ce41fa39618fadc",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 231,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 231,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-67db34040ec64da98567af8da5fef294",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 261,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 261,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-4ab04b46f677468eb3436ef938280dd3",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 262,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 262,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-1cf6261c7aa94cdb98eace9a294523b0",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 272,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 272,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-30793526c1a4404f86140d1b7fb5bd0d",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/deployment-patterns.md",
+        "start_line": 275,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/deployment-patterns.md",
+          "start_line": 275,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-433d721803694b3ab269df26f0a143e8",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx netlify'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/netlify-toml.md",
+        "start_line": 253,
+        "end_line": null
+      },
+      "finding": "npx netlify",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e45ea06e616830e40cda7204281116873d6bf5fad09a8befa0ff99de2a7f419",
+      "occurrences": [
+        {
+          "file": "references/netlify-toml.md",
+          "start_line": 253,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-cd8ae75720ac4def8ee4360b8c1882da",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "references/cli-commands.md",
+        "start_line": 157,
+        "end_line": null,
+        "start_column": 14
+      },
+      "finding": "Skip confirmation",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "- `--json` - Output as JSON\n- `--silent` - Suppress output\n- `--debug` - Show debug information\n- `--force` - Skip confirmation prompts\n\n## Resources\n",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f2585ed1a9f8ffe69bade4f4a85869690c663180a11cc20f5d4a1c41371c139d",
+      "occurrences": [
+        {
+          "file": "references/cli-commands.md",
+          "start_line": 157,
+          "end_line": null,
+          "start_column": 14
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-71a07c41bfe945b19c0b73d6de3391e2",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/netlify-toml.md",
+        "start_line": 100,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "https://api.example.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "\n[[redirects]]\n  from = \"/api/*\"\n  to = \"https://api.example.com/:splat\"\n  status = 200\n\n# SPA fallback (for client-side routing)",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "88f1946300c8ae45d5ea7e81f2b6d4309a13082e928b6f7d1215d273945a1431",
+      "occurrences": [
+        {
+          "file": "references/netlify-toml.md",
+          "start_line": 100,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 7,
+    "scanned_components": 7,
+    "coverage_percent": 100.0,
+    "is_complete": true,
+    "status": "complete_with_caveats",
+    "execution_successful": true,
+    "fully_inspected_files": 7,
+    "partially_inspected_files": 0,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 154,
+        "end_line": 154,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 163,
+        "end_line": 163,
+        "fatal": false
+      }
+    ],
+    "scope_exclusions": [
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "assets/netlify.png",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [
+      {
+        "source_path": "SKILL.md",
+        "line": 154,
+        "column": 7,
+        "evidence": "If a `netlify.toml` file exists, the CLI uses it automatically. If not, the CLI will prompt for:",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 163,
+        "column": 41,
+        "evidence": "The skill should detect framework from `package.json` if possible and suggest appropriate settings.",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 245,
+        "column": 18,
+        "evidence": "- [CLI commands](references/cli-commands.md)",
+        "target_path": "references/cli-commands.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 246,
+        "column": 25,
+        "evidence": "- [Deployment patterns](references/deployment-patterns.md)",
+        "target_path": "references/deployment-patterns.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 247,
+        "column": 24,
+        "evidence": "- [netlify.toml guide](references/netlify-toml.md)",
+        "target_path": "references/netlify-toml.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "markdown_link"
+      }
+    ],
+    "limitations": [],
+    "findings_before_filtering": 90,
+    "findings_after_filtering": 90,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

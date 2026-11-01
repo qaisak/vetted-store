@@ -1,0 +1,1595 @@
+{
+  "skill": {
+    "name": "complexa-sweep",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\NVIDIA__skills\\skills-main\\skills\\bionemo-complexa-sweep",
+    "scanned_at": "2026-10-31T21:51:03.591429+00:00"
+  },
+  "risk_assessment": {
+    "score": 42,
+    "severity": "MEDIUM",
+    "recommendation": "CAUTION",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": "BENCHMARK.md",
+      "type": "markdown",
+      "lines": 131,
+      "executable": false,
+      "size_bytes": 8126,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "SKILL.md",
+      "type": "markdown",
+      "lines": 295,
+      "executable": false,
+      "size_bytes": 16943,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "config/skillspector-baseline.yml",
+      "type": "yaml",
+      "lines": 28,
+      "executable": false,
+      "size_bytes": 1241,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/evals.json",
+      "type": "json",
+      "lines": 119,
+      "executable": false,
+      "size_bytes": 35736,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/files/launch_review/launch.sh",
+      "type": "shell",
+      "lines": 17,
+      "executable": true,
+      "size_bytes": 586,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/files/launch_review/sweeper.yaml",
+      "type": "yaml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 89,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/files/pareto_results.csv",
+      "type": "other",
+      "lines": 7,
+      "executable": false,
+      "size_bytes": 84,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/files/project/SNAPSHOT.md",
+      "type": "markdown",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 1032,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/files/project/configs/pipeline/binder/binder_generate.yaml",
+      "type": "yaml",
+      "lines": 240,
+      "executable": false,
+      "size_bytes": 9224,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/files/project/configs/pipeline/model_sampling.yaml",
+      "type": "yaml",
+      "lines": 60,
+      "executable": false,
+      "size_bytes": 1461,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/files/project/configs/search_binder_local_pipeline.yaml",
+      "type": "yaml",
+      "lines": 39,
+      "executable": false,
+      "size_bytes": 1541,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/files/project/configs/sweeps/example.yaml",
+      "type": "yaml",
+      "lines": 35,
+      "executable": false,
+      "size_bytes": 1148,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/files/project/script_utils/generate_inference_configs.py",
+      "type": "python",
+      "lines": 456,
+      "executable": true,
+      "size_bytes": 15448,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/files/project/source_manifest.json",
+      "type": "json",
+      "lines": 14,
+      "executable": false,
+      "size_bytes": 670,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/files/summary_review.csv",
+      "type": "other",
+      "lines": 10,
+      "executable": false,
+      "size_bytes": 297,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "evals/files/sweep_results.csv",
+      "type": "other",
+      "lines": 10,
+      "executable": false,
+      "size_bytes": 322,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/CONFIGURATION_GUIDE.md",
+      "type": "markdown",
+      "lines": 1068,
+      "executable": false,
+      "size_bytes": 35579,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/EVALUATION_METRICS.md",
+      "type": "markdown",
+      "lines": 1400,
+      "executable": false,
+      "size_bytes": 57278,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/INFERENCE.md",
+      "type": "markdown",
+      "lines": 490,
+      "executable": false,
+      "size_bytes": 15234,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/SEARCH_METADATA.md",
+      "type": "markdown",
+      "lines": 276,
+      "executable": false,
+      "size_bytes": 7933,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/SWEEP.md",
+      "type": "markdown",
+      "lines": 303,
+      "executable": false,
+      "size_bytes": 10819,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/hardware.md",
+      "type": "markdown",
+      "lines": 84,
+      "executable": false,
+      "size_bytes": 4946,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/sweep_axes.md",
+      "type": "markdown",
+      "lines": 174,
+      "executable": false,
+      "size_bytes": 12023,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/preflight.sh",
+      "type": "shell",
+      "lines": 208,
+      "executable": true,
+      "size_bytes": 8621,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/write_manifest.py",
+      "type": "python",
+      "lines": 254,
+      "executable": true,
+      "size_bytes": 9825,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skill-card.md",
+      "type": "markdown",
+      "lines": 85,
+      "executable": false,
+      "size_bytes": 4668,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skill.oms.sig",
+      "type": "oms_signature",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 10117,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "PE3",
+      "finding_id": "finding-c5df746a69794a6bbbcb1184a733dbc1",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "scripts/preflight.sh",
+        "start_line": 34,
+        "end_line": null,
+        "start_column": 15
+      },
+      "finding": ".env\"",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n# Parse the repository dotenv as data and dump only the allowlisted variables as\n# KEY<TAB>VALUE. Never source it: dotenv files are configuration, not shell code.\nENV_FILE=\"$PWD/.env\"; ENV_LOADED=false\ndeclare -A V=()\nif [[ -f \"$ENV_FILE\" ]]; then\n    ENV_LOADED=true",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "933e7e6dda63d615cb9ac0846682521855cd79c351e84f3fa87d934c18b752db",
+      "occurrences": [
+        {
+          "file": "scripts/preflight.sh",
+          "start_line": 34,
+          "end_line": null,
+          "start_column": 15
+        }
+      ]
+    },
+    {
+      "id": "AS3",
+      "finding_id": "finding-e23b709e017a4cc999f95ba6ccf80da3",
+      "category": "Agent Snooping",
+      "pattern": "Skill Enumeration",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "BENCHMARK.md",
+        "start_line": 89,
+        "end_line": null,
+        "start_column": 82
+      },
+      "finding": "skills/complexa-sweep/SKILL.md",
+      "explanation": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills.",
+      "remediation": "Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "code_snippet": "<summary>Show detailed findings and successful checks</summary>\n\n- **CRITICAL** CONTENT_DEDUP/llm_cluster_member_limit: A Tier 2 cluster exceeds the LLM member limit. (`skills/complexa-sweep`)\n- **MEDIUM** QUALITY/quality_correctness: No documented scripts in table format (`skills/complexa-sweep/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: Instructions don't mention 'run_script' (`skills/complexa-sweep/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: SKILL_SPEC recommended field missing: 'metadata.tags' (`skills/complexa-sweep/SKILL.md`)\n- **MEDIUM** QUALITY/quality_efficiency: Instructions lack clear action verbs (`skills/complexa-sweep/SKILL.md`)",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "704ee1501a345bed646bfe537c3d55c11a1f388cfbd527e772cd7c87a3110b20",
+      "occurrences": [
+        {
+          "file": "BENCHMARK.md",
+          "start_line": 89,
+          "end_line": null,
+          "start_column": 82
+        }
+      ]
+    },
+    {
+      "id": "AS3",
+      "finding_id": "finding-45a13e31d4f84d189975402ac52bb780",
+      "category": "Agent Snooping",
+      "pattern": "Skill Enumeration",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "BENCHMARK.md",
+        "start_line": 90,
+        "end_line": null,
+        "start_column": 84
+      },
+      "finding": "skills/complexa-sweep/SKILL.md",
+      "explanation": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills.",
+      "remediation": "Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "code_snippet": "\n- **CRITICAL** CONTENT_DEDUP/llm_cluster_member_limit: A Tier 2 cluster exceeds the LLM member limit. (`skills/complexa-sweep`)\n- **MEDIUM** QUALITY/quality_correctness: No documented scripts in table format (`skills/complexa-sweep/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: Instructions don't mention 'run_script' (`skills/complexa-sweep/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: SKILL_SPEC recommended field missing: 'metadata.tags' (`skills/complexa-sweep/SKILL.md`)\n- **MEDIUM** QUALITY/quality_efficiency: Instructions lack clear action verbs (`skills/complexa-sweep/SKILL.md`)\n- 22 additional finding(s) are available in the full evaluation artifacts.",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "704ee1501a345bed646bfe537c3d55c11a1f388cfbd527e772cd7c87a3110b20",
+      "occurrences": [
+        {
+          "file": "BENCHMARK.md",
+          "start_line": 90,
+          "end_line": null,
+          "start_column": 84
+        }
+      ]
+    },
+    {
+      "id": "AS3",
+      "finding_id": "finding-9474cc75e3524a93ad1fed6ee604f78b",
+      "category": "Agent Snooping",
+      "pattern": "Skill Enumeration",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "BENCHMARK.md",
+        "start_line": 91,
+        "end_line": null,
+        "start_column": 98
+      },
+      "finding": "skills/complexa-sweep/SKILL.md",
+      "explanation": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills.",
+      "remediation": "Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "code_snippet": "- **CRITICAL** CONTENT_DEDUP/llm_cluster_member_limit: A Tier 2 cluster exceeds the LLM member limit. (`skills/complexa-sweep`)\n- **MEDIUM** QUALITY/quality_correctness: No documented scripts in table format (`skills/complexa-sweep/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: Instructions don't mention 'run_script' (`skills/complexa-sweep/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: SKILL_SPEC recommended field missing: 'metadata.tags' (`skills/complexa-sweep/SKILL.md`)\n- **MEDIUM** QUALITY/quality_efficiency: Instructions lack clear action verbs (`skills/complexa-sweep/SKILL.md`)\n- 22 additional finding(s) are available in the full evaluation artifacts.\n",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "704ee1501a345bed646bfe537c3d55c11a1f388cfbd527e772cd7c87a3110b20",
+      "occurrences": [
+        {
+          "file": "BENCHMARK.md",
+          "start_line": 91,
+          "end_line": null,
+          "start_column": 98
+        }
+      ]
+    },
+    {
+      "id": "AS3",
+      "finding_id": "finding-27379ad2b2ae4dd7b080b54f17371402",
+      "category": "Agent Snooping",
+      "pattern": "Skill Enumeration",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "BENCHMARK.md",
+        "start_line": 92,
+        "end_line": null,
+        "start_column": 80
+      },
+      "finding": "skills/complexa-sweep/SKILL.md",
+      "explanation": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills.",
+      "remediation": "Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "code_snippet": "- **MEDIUM** QUALITY/quality_correctness: No documented scripts in table format (`skills/complexa-sweep/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: Instructions don't mention 'run_script' (`skills/complexa-sweep/SKILL.md`)\n- **MEDIUM** QUALITY/quality_correctness: SKILL_SPEC recommended field missing: 'metadata.tags' (`skills/complexa-sweep/SKILL.md`)\n- **MEDIUM** QUALITY/quality_efficiency: Instructions lack clear action verbs (`skills/complexa-sweep/SKILL.md`)\n- 22 additional finding(s) are available in the full evaluation artifacts.\n\n</details>",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "704ee1501a345bed646bfe537c3d55c11a1f388cfbd527e772cd7c87a3110b20",
+      "occurrences": [
+        {
+          "file": "BENCHMARK.md",
+          "start_line": 92,
+          "end_line": null,
+          "start_column": 80
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-93c12c71c4c049439178ac2e4f9d542b",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/write_manifest.py",
+        "start_line": 98,
+        "end_line": 101,
+        "start_column": 14,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            [\"git\", \"-C\", str(repo_root), \"rev-parse\", \"HEAD\"],\n            capture_output=True, text=True, timeout=GIT_TIMEOUT_SECONDS, check=False,\n        )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    if repo_root is None:\n        return \"unknown\"\n    try:\n        res = subprocess.run(\n            [\"git\", \"-C\", str(repo_root), \"rev-parse\", \"HEAD\"],\n            capture_output=True, text=True, timeout=GIT_TIMEOUT_SECONDS, check=False,\n        )",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6ea9ccf0c4bc153917b3a23fba86d43f54762c4f73aff6e650b4cb5093dd953c",
+      "occurrences": [
+        {
+          "file": "scripts/write_manifest.py",
+          "start_line": 98,
+          "end_line": 101,
+          "start_column": 14,
+          "end_column": 9
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 27,
+    "scanned_components": 27,
+    "coverage_percent": 100.0,
+    "is_complete": true,
+    "status": "complete_with_caveats",
+    "execution_successful": true,
+    "fully_inspected_files": 27,
+    "partially_inspected_files": 0,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 12,
+        "end_line": 12,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 14,
+        "end_line": 14,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 43,
+        "end_line": 43,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 87,
+        "end_line": 87,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 88,
+        "end_line": 88,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 89,
+        "end_line": 89,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 90,
+        "end_line": 90,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 100,
+        "end_line": 100,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 116,
+        "end_line": 116,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 133,
+        "end_line": 133,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 135,
+        "end_line": 135,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 164,
+        "end_line": 164,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 166,
+        "end_line": 166,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 200,
+        "end_line": 200,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 203,
+        "end_line": 203,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 204,
+        "end_line": 204,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 218,
+        "end_line": 218,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 243,
+        "end_line": 243,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 255,
+        "end_line": 255,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 256,
+        "end_line": 256,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 258,
+        "end_line": 258,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 261,
+        "end_line": 261,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 269,
+        "end_line": 269,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 271,
+        "end_line": 271,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 272,
+        "end_line": 272,
+        "fatal": false
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 27,
+        "completed": 27,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [
+      {
+        "source_path": "SKILL.md",
+        "line": 12,
+        "column": 172,
+        "evidence": "hor a sweeper YAML in `configs/sweeps/`, expand it to N inference configs with `script_utils/generate_inference_configs.py`, loop `complexa design` over those c",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 14,
+        "column": 108,
+        "evidence": "exa design` CLI does **NOT** accept `--sweeper` directly. Sweeps are driven by `script_utils/generate_inference_configs.py`, which writes one `configs/inference",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 21,
+        "column": 17,
+        "evidence": "[sweep_axes.md](references/sweep_axes.md), then check the matching keys in the",
+        "target_path": "references/sweep_axes.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 43,
+        "column": 7,
+        "evidence": "Read `./complexa_setup/preflight.json`. A sweep multiplies GPU time by the number",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 87,
+        "column": 4,
+        "evidence": "| `configs/sweeps/beam_width.yaml` | `generation.search.beam_search.beam_width` | 1, 2, 4, 8 | 4 |",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 88,
+        "column": 4,
+        "evidence": "| `configs/sweeps/bb_ca_temperature.yaml` | `generation.model.bb_ca.simulation_step_params.sc_scale_noise` | 0.1, 0.4 | 2 |",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 89,
+        "column": 4,
+        "evidence": "| `configs/sweeps/search_replicas.yaml` | `generation.search.best_of_n.replicas` | 1, 4, 16, 64 | 4 |",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 89,
+        "column": 44,
+        "evidence": "| `configs/sweeps/search_replicas.yaml` | `generation.search.best_of_n.replicas` | 1, 4, 16, 64 | 4 |",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 90,
+        "column": 4,
+        "evidence": "| `configs/sweeps/example.yaml` | beam_width \u00d7 nsteps | (2,4) \u00d7 (200,400) | 4 |",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 100,
+        "column": 39,
+        "evidence": "Minimal multi-axis example (saved to `configs/sweeps/my_sweep.yaml`):",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 116,
+        "column": 14,
+        "evidence": "Rules (from `script_utils/generate_inference_configs.py:load_sweeper_file`):",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 126,
+        "column": 32,
+        "evidence": "See [references/sweep_axes.md](references/sweep_axes.md) for the full catalogue of swept keys (typical ranges, cost multipliers, what improves/regresses).",
+        "target_path": "references/sweep_axes.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 126,
+        "column": 6,
+        "evidence": "See [references/sweep_axes.md](references/sweep_axes.md) for the full catalogue of swept keys (typical ranges, cost multipliers, what improves/regresses).",
+        "target_path": "references/sweep_axes.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 133,
+        "column": 8,
+        "evidence": "python script_utils/generate_inference_configs.py \\",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 135,
+        "column": 15,
+        "evidence": "--sweeper configs/sweeps/my_sweep.yaml \\",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 164,
+        "column": 8,
+        "evidence": "python script_utils/generate_inference_configs.py \\",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 166,
+        "column": 15,
+        "evidence": "--sweeper configs/sweeps/my_sweep.yaml \\",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 200,
+        "column": 38,
+        "evidence": "Each swept config writes to its own `./inference/inf_{idx}_{run_name}/` directory; the analyze step writes `./evaluation_results/eval_{idx}_{run_name}/results_*",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 200,
+        "column": 109,
+        "evidence": "its own `./inference/inf_{idx}_{run_name}/` directory; the analyze step writes `./evaluation_results/eval_{idx}_{run_name}/results_*.csv`. After the sweep finis",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 203,
+        "column": 7,
+        "evidence": "ls -d ./inference/inf_*_my_sweep/",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 204,
+        "column": 4,
+        "evidence": "ls ./evaluation_results/eval_*_my_sweep/results_*.csv",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 213,
+        "column": 25,
+        "evidence": "[EVALUATION_METRICS.md](references/EVALUATION_METRICS.md). PAE may be normalized",
+        "target_path": "references/EVALUATION_METRICS.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 218,
+        "column": 7,
+        "evidence": "Emit `sweep_summary.csv` to the run directory. One row per config:",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 243,
+        "column": 25,
+        "evidence": "Save the full table to `sweep_summary.csv`, then reopen the saved results and",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 255,
+        "column": 18,
+        "evidence": "--output-dir ./evaluation_results/eval_${BEST_ID}_my_sweep \\",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 256,
+        "column": 23,
+        "evidence": "--command \"python script_utils/generate_inference_configs.py --config_name search_binder_local_pipeline --sweeper configs/sweeps/my_sweep.yaml --override genera",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 256,
+        "column": 119,
+        "evidence": "e_inference_configs.py --config_name search_binder_local_pipeline --sweeper configs/sweeps/my_sweep.yaml --override generation.task_name=22_DerF21 --run_name my",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 258,
+        "column": 11,
+        "evidence": "--out ./sweep_runs/my_sweep/sweep_manifest.json",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 261,
+        "column": 42,
+        "evidence": "Alongside the manifest, save the ranked `sweep_summary.csv` from Step 6 to `./sweep_runs/my_sweep/sweep_summary.csv` and surface both paths to the user.",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 261,
+        "column": 77,
+        "evidence": "Alongside the manifest, save the ranked `sweep_summary.csv` from Step 6 to `./sweep_runs/my_sweep/sweep_summary.csv` and surface both paths to the user.",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 267,
+        "column": 57,
+        "evidence": "| Quality not good enough | `beam_width \u00d7 nsteps` (use `example.yaml` as a starting point) | Both raise compute \u2192 quality; find the cheapest combination that la",
+        "target_path": "evals/files/project/configs/sweeps/example.yaml",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 269,
+        "column": 104,
+        "evidence": "iversity | `generation.model.bb_ca.simulation_step_params.sc_scale_noise` (use `bb_ca_temperature.yaml`) | Higher noise \u2192 more diverse backbones. |",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 271,
+        "column": 43,
+        "evidence": "| Broaden the best-of-N candidate pool | `search_replicas.yaml` (`best_of_n.replicas`) | More candidates per search; use separate seeds/runs to measure repeatab",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 271,
+        "column": 67,
+        "evidence": "| Broaden the best-of-N candidate pool | `search_replicas.yaml` (`best_of_n.replicas`) | More candidates per search; use separate seeds/runs to measure repeatab",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 272,
+        "column": 26,
+        "evidence": "| Algorithm shoot-out | `generation.search.algorithm` over `[single-pass, best-of-n, beam-search, fk-steering]` | Compare search regimes; pin everything else. |",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 278,
+        "column": 37,
+        "evidence": "Refer to [`references/hardware.md`](references/hardware.md) for the per-run baseline + VRAM minima.",
+        "target_path": "references/hardware.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 278,
+        "column": 12,
+        "evidence": "Refer to [`references/hardware.md`](references/hardware.md) for the per-run baseline + VRAM minima.",
+        "target_path": "references/hardware.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 284,
+        "column": 34,
+        "evidence": "| `Sweeper file not found` from `generate_inference_configs.py` | Path resolved from wrong CWD | Use a path relative to the repo root; or pass an absolute path.",
+        "target_path": "evals/files/project/script_utils/generate_inference_configs.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 287,
+        "column": 117,
+        "evidence": "er` | Confusion between entrypoints | The CLI does not accept `--sweeper`. Use `generate_inference_configs.py` first, then loop `complexa design` over the gener",
+        "target_path": "evals/files/project/script_utils/generate_inference_configs.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 293,
+        "column": 103,
+        "evidence": "For per-axis reference (typical ranges, cost, what gets better/worse), see [references/sweep_axes.md](references/sweep_axes.md).",
+        "target_path": "references/sweep_axes.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 293,
+        "column": 77,
+        "evidence": "For per-axis reference (typical ranges, cost, what gets better/worse), see [references/sweep_axes.md](references/sweep_axes.md).",
+        "target_path": "references/sweep_axes.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 295,
+        "column": 107,
+        "evidence": "For the user-facing sweep system overview (config generation, output layout), see [`references/SWEEP.md`](references/SWEEP.md).",
+        "target_path": "references/SWEEP.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 295,
+        "column": 85,
+        "evidence": "For the user-facing sweep system overview (config generation, output layout), see [`references/SWEEP.md`](references/SWEEP.md).",
+        "target_path": "references/SWEEP.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      }
+    ],
+    "limitations": [],
+    "findings_before_filtering": 6,
+    "findings_after_filtering": 6,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

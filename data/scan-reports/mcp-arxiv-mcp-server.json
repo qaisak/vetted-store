@@ -1,0 +1,4200 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\blazickjp__arxiv-mcp-server\\arxiv-mcp-server-main",
+    "scanned_at": "2026-10-31T23:00:00.044739+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": ".agents/plugins/marketplace.json",
+      "type": "json",
+      "lines": 16,
+      "executable": false,
+      "size_bytes": 249,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".claude-plugin/marketplace.json",
+      "type": "json",
+      "lines": 16,
+      "executable": false,
+      "size_bytes": 435,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".claude-plugin/plugin.json",
+      "type": "json",
+      "lines": 14,
+      "executable": false,
+      "size_bytes": 517,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".codex-mcp.json",
+      "type": "json",
+      "lines": 6,
+      "executable": false,
+      "size_bytes": 76,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "type": "json",
+      "lines": 29,
+      "executable": false,
+      "size_bytes": 1302,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".dockerignore",
+      "type": "other",
+      "lines": 23,
+      "executable": false,
+      "size_bytes": 235,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/FUNDING.yml",
+      "type": "yaml",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 143,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/build-mcpb.yml",
+      "type": "yaml",
+      "lines": 97,
+      "executable": false,
+      "size_bytes": 3127,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/lint.yml",
+      "type": "yaml",
+      "lines": 31,
+      "executable": false,
+      "size_bytes": 564,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/publish.yml",
+      "type": "yaml",
+      "lines": 80,
+      "executable": false,
+      "size_bytes": 2202,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/tests.yml",
+      "type": "yaml",
+      "lines": 77,
+      "executable": false,
+      "size_bytes": 2006,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 52,
+      "executable": false,
+      "size_bytes": 496,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".mcp.json",
+      "type": "json",
+      "lines": 9,
+      "executable": false,
+      "size_bytes": 129,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".pre-commit-config.yaml",
+      "type": "yaml",
+      "lines": 6,
+      "executable": false,
+      "size_bytes": 128,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".python-version",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 5,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CHANGELOG.md",
+      "type": "markdown",
+      "lines": 96,
+      "executable": false,
+      "size_bytes": 5347,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CLAUDE.md",
+      "type": "markdown",
+      "lines": 96,
+      "executable": false,
+      "size_bytes": 3629,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "type": "markdown",
+      "lines": 69,
+      "executable": false,
+      "size_bytes": 2085,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Dockerfile",
+      "type": "other",
+      "lines": 35,
+      "executable": false,
+      "size_bytes": 1150,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE",
+      "type": "other",
+      "lines": 201,
+      "executable": false,
+      "size_bytes": 11344,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "POWER.md",
+      "type": "markdown",
+      "lines": 37,
+      "executable": false,
+      "size_bytes": 1790,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 522,
+      "executable": false,
+      "size_bytes": 24095,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "SECURITY.md",
+      "type": "markdown",
+      "lines": 43,
+      "executable": false,
+      "size_bytes": 2300,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "manifest.json",
+      "type": "json",
+      "lines": 60,
+      "executable": false,
+      "size_bytes": 1560,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "mcp.json",
+      "type": "json",
+      "lines": 8,
+      "executable": false,
+      "size_bytes": 106,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "pyproject.toml",
+      "type": "toml",
+      "lines": 105,
+      "executable": false,
+      "size_bytes": 2528,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/build-mcpb.sh",
+      "type": "shell",
+      "lines": 179,
+      "executable": true,
+      "size_bytes": 5760,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/smoke_installed_wheel.py",
+      "type": "python",
+      "lines": 262,
+      "executable": true,
+      "size_bytes": 8948,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/smoke_mcpb.py",
+      "type": "python",
+      "lines": 124,
+      "executable": true,
+      "size_bytes": 4351,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "server.json",
+      "type": "json",
+      "lines": 41,
+      "executable": false,
+      "size_bytes": 1256,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/arxiv-mcp-server/SKILL.md",
+      "type": "markdown",
+      "lines": 26,
+      "executable": false,
+      "size_bytes": 1412,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/__init__.py",
+      "type": "python",
+      "lines": 14,
+      "executable": true,
+      "size_bytes": 197,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/__main__.py",
+      "type": "python",
+      "lines": 6,
+      "executable": true,
+      "size_bytes": 116,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/arxiv_api.py",
+      "type": "python",
+      "lines": 766,
+      "executable": true,
+      "size_bytes": 32778,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/config.py",
+      "type": "python",
+      "lines": 253,
+      "executable": true,
+      "size_bytes": 9224,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/prompts/__init__.py",
+      "type": "python",
+      "lines": 5,
+      "executable": true,
+      "size_bytes": 148,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/prompts/compare_papers_prompt.py",
+      "type": "python",
+      "lines": 14,
+      "executable": true,
+      "size_bytes": 529,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/prompts/deep_research_analysis_prompt.py",
+      "type": "python",
+      "lines": 84,
+      "executable": true,
+      "size_bytes": 3945,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/prompts/handlers.py",
+      "type": "python",
+      "lines": 141,
+      "executable": true,
+      "size_bytes": 6216,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/prompts/literature_review_prompt.py",
+      "type": "python",
+      "lines": 15,
+      "executable": true,
+      "size_bytes": 493,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/prompts/prompt_manager.py",
+      "type": "python",
+      "lines": 31,
+      "executable": true,
+      "size_bytes": 791,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/prompts/prompts.py",
+      "type": "python",
+      "lines": 117,
+      "executable": true,
+      "size_bytes": 3922,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/prompts/summarize_paper_prompt.py",
+      "type": "python",
+      "lines": 14,
+      "executable": true,
+      "size_bytes": 473,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/resources/__init__.py",
+      "type": "python",
+      "lines": 14,
+      "executable": true,
+      "size_bytes": 354,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/resources/papers.py",
+      "type": "python",
+      "lines": 112,
+      "executable": true,
+      "size_bytes": 4079,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/server.py",
+      "type": "python",
+      "lines": 289,
+      "executable": true,
+      "size_bytes": 9567,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/tools/__init__.py",
+      "type": "python",
+      "lines": 82,
+      "executable": true,
+      "size_bytes": 2246,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/tools/alerts.py",
+      "type": "python",
+      "lines": 505,
+      "executable": true,
+      "size_bytes": 18597,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/tools/arxiv_ids.py",
+      "type": "python",
+      "lines": 110,
+      "executable": true,
+      "size_bytes": 3711,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/tools/citation_graph.py",
+      "type": "python",
+      "lines": 576,
+      "executable": true,
+      "size_bytes": 21905,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/tools/content.py",
+      "type": "python",
+      "lines": 129,
+      "executable": true,
+      "size_bytes": 5159,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/tools/download.py",
+      "type": "python",
+      "lines": 1981,
+      "executable": true,
+      "size_bytes": 76616,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/tools/export_citations.py",
+      "type": "python",
+      "lines": 350,
+      "executable": true,
+      "size_bytes": 13306,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/tools/get_abstract.py",
+      "type": "python",
+      "lines": 190,
+      "executable": true,
+      "size_bytes": 6250,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/tools/latex.py",
+      "type": "python",
+      "lines": 584,
+      "executable": true,
+      "size_bytes": 20142,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/tools/latex_archive.py",
+      "type": "python",
+      "lines": 354,
+      "executable": true,
+      "size_bytes": 14874,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/tools/latex_flatten.py",
+      "type": "python",
+      "lines": 443,
+      "executable": true,
+      "size_bytes": 15265,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/tools/list_papers.py",
+      "type": "python",
+      "lines": 346,
+      "executable": true,
+      "size_bytes": 11692,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/tools/paper_outline.py",
+      "type": "python",
+      "lines": 1428,
+      "executable": true,
+      "size_bytes": 52913,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/tools/read_paper.py",
+      "type": "python",
+      "lines": 167,
+      "executable": true,
+      "size_bytes": 5672,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/tools/search.py",
+      "type": "python",
+      "lines": 750,
+      "executable": true,
+      "size_bytes": 25953,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/arxiv_mcp_server/tools/semantic_search.py",
+      "type": "python",
+      "lines": 453,
+      "executable": true,
+      "size_bytes": 15026,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test_mutations.sh",
+      "type": "shell",
+      "lines": 91,
+      "executable": true,
+      "size_bytes": 3001,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/__init__.py",
+      "type": "python",
+      "lines": 1,
+      "executable": true,
+      "size_bytes": 34,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/conftest.py",
+      "type": "python",
+      "lines": 76,
+      "executable": true,
+      "size_bytes": 2138,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/__init__.py",
+      "type": "python",
+      "lines": 1,
+      "executable": true,
+      "size_bytes": 48,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/paper_outlines.py",
+      "type": "python",
+      "lines": 371,
+      "executable": true,
+      "size_bytes": 5321,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/prompts/conftest.py",
+      "type": "python",
+      "lines": 62,
+      "executable": true,
+      "size_bytes": 1366,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/prompts/test_prompt_integration.py",
+      "type": "python",
+      "lines": 49,
+      "executable": true,
+      "size_bytes": 1661,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/prompts/test_prompts.py",
+      "type": "python",
+      "lines": 149,
+      "executable": true,
+      "size_bytes": 4735,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/repro/repro_406.py",
+      "type": "python",
+      "lines": 196,
+      "executable": true,
+      "size_bytes": 7298,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/repro/repro_hidden_fp_stall.py",
+      "type": "python",
+      "lines": 119,
+      "executable": true,
+      "size_bytes": 3751,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_arxiv_api.py",
+      "type": "python",
+      "lines": 114,
+      "executable": true,
+      "size_bytes": 2773,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_blocker_fixes.py",
+      "type": "python",
+      "lines": 588,
+      "executable": true,
+      "size_bytes": 24796,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_config.py",
+      "type": "python",
+      "lines": 310,
+      "executable": true,
+      "size_bytes": 11710,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_import_boundaries.py",
+      "type": "python",
+      "lines": 30,
+      "executable": true,
+      "size_bytes": 876,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_installed_wheel_smoke.py",
+      "type": "python",
+      "lines": 66,
+      "executable": true,
+      "size_bytes": 2297,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_mcp_bound_content_defaults.py",
+      "type": "python",
+      "lines": 78,
+      "executable": true,
+      "size_bytes": 3093,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_mcp_tool_error_semantics.py",
+      "type": "python",
+      "lines": 40,
+      "executable": true,
+      "size_bytes": 1156,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_mcpb_smoke.py",
+      "type": "python",
+      "lines": 64,
+      "executable": true,
+      "size_bytes": 2036,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_rate_limiter_checks.py",
+      "type": "python",
+      "lines": 118,
+      "executable": true,
+      "size_bytes": 4387,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_release_metadata.py",
+      "type": "python",
+      "lines": 219,
+      "executable": true,
+      "size_bytes": 8359,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_retry_infrastructure.py",
+      "type": "python",
+      "lines": 389,
+      "executable": true,
+      "size_bytes": 15322,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_tool_schemas.py",
+      "type": "python",
+      "lines": 157,
+      "executable": true,
+      "size_bytes": 5481,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_transport.py",
+      "type": "python",
+      "lines": 156,
+      "executable": true,
+      "size_bytes": 6205,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_alerts.py",
+      "type": "python",
+      "lines": 859,
+      "executable": true,
+      "size_bytes": 32674,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_arxiv_ids.py",
+      "type": "python",
+      "lines": 115,
+      "executable": true,
+      "size_bytes": 3615,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_citation_graph.py",
+      "type": "python",
+      "lines": 914,
+      "executable": true,
+      "size_bytes": 35665,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_content.py",
+      "type": "python",
+      "lines": 220,
+      "executable": true,
+      "size_bytes": 8617,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_download.py",
+      "type": "python",
+      "lines": 1209,
+      "executable": true,
+      "size_bytes": 44754,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_download_footnotemark.py",
+      "type": "python",
+      "lines": 66,
+      "executable": true,
+      "size_bytes": 2890,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_download_force.py",
+      "type": "python",
+      "lines": 195,
+      "executable": true,
+      "size_bytes": 6748,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_download_html.py",
+      "type": "python",
+      "lines": 480,
+      "executable": true,
+      "size_bytes": 17503,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_download_html_frontmatter.py",
+      "type": "python",
+      "lines": 124,
+      "executable": true,
+      "size_bytes": 4879,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_download_html_switch_noise.py",
+      "type": "python",
+      "lines": 119,
+      "executable": true,
+      "size_bytes": 4625,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_download_html_title.py",
+      "type": "python",
+      "lines": 89,
+      "executable": true,
+      "size_bytes": 3396,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_download_icml_style.py",
+      "type": "python",
+      "lines": 88,
+      "executable": true,
+      "size_bytes": 3706,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_download_sidecar.py",
+      "type": "python",
+      "lines": 159,
+      "executable": true,
+      "size_bytes": 5648,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_export_citations.py",
+      "type": "python",
+      "lines": 686,
+      "executable": true,
+      "size_bytes": 24207,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_get_abstract.py",
+      "type": "python",
+      "lines": 601,
+      "executable": true,
+      "size_bytes": 20929,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_latex.py",
+      "type": "python",
+      "lines": 747,
+      "executable": true,
+      "size_bytes": 24214,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_legacy_id_storage.py",
+      "type": "python",
+      "lines": 182,
+      "executable": true,
+      "size_bytes": 6217,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_list_papers.py",
+      "type": "python",
+      "lines": 129,
+      "executable": true,
+      "size_bytes": 4256,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_metadata_deadline.py",
+      "type": "python",
+      "lines": 530,
+      "executable": true,
+      "size_bytes": 20367,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_metadata_deadline_integration.py",
+      "type": "python",
+      "lines": 516,
+      "executable": true,
+      "size_bytes": 19568,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_no_version_downgrade.py",
+      "type": "python",
+      "lines": 318,
+      "executable": true,
+      "size_bytes": 11665,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_paper_id_normalize.py",
+      "type": "python",
+      "lines": 247,
+      "executable": true,
+      "size_bytes": 8377,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_paper_outline.py",
+      "type": "python",
+      "lines": 3052,
+      "executable": true,
+      "size_bytes": 81126,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_parser_review_fixes.py",
+      "type": "python",
+      "lines": 117,
+      "executable": true,
+      "size_bytes": 4297,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_read_paper.py",
+      "type": "python",
+      "lines": 306,
+      "executable": true,
+      "size_bytes": 10811,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_search.py",
+      "type": "python",
+      "lines": 1349,
+      "executable": true,
+      "size_bytes": 50202,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_semantic_dependency.py",
+      "type": "python",
+      "lines": 22,
+      "executable": true,
+      "size_bytes": 718,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_semantic_search.py",
+      "type": "python",
+      "lines": 148,
+      "executable": true,
+      "size_bytes": 4924,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tools/test_versioned_storage_keys.py",
+      "type": "python",
+      "lines": 202,
+      "executable": true,
+      "size_bytes": 7242,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "uv.lock",
+      "type": "other",
+      "lines": 2990,
+      "executable": false,
+      "size_bytes": 604763,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "E2",
+      "finding_id": "finding-c444513ef5514e41bc4790ba6397d8a7",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "src/arxiv_mcp_server/config.py",
+        "start_line": 188,
+        "end_line": 188,
+        "start_column": 42
+      },
+      "finding": "os.environ.keys()",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "        # Check if ARXIV_REQUEST_TIMEOUT was explicitly set (case-insensitive)\n        import os\n\n        env_keys = {k.upper(): k for k in os.environ.keys()}\n\n        if \"ARXIV_REQUEST_TIMEOUT\" in env_keys:\n            return self.ARXIV_REQUEST_TIMEOUT",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "237a984daaaded5226c74b5f70a853b1279143c5267e91e216cd86be7def135e",
+      "occurrences": [
+        {
+          "file": "src/arxiv_mcp_server/config.py",
+          "start_line": 188,
+          "end_line": 188,
+          "start_column": 42
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-8a93057a93aa4c1d9860ff60b0e348e0",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "tests/repro/repro_406.py",
+        "start_line": 117,
+        "end_line": 117,
+        "start_column": 10
+      },
+      "finding": "dict(os.environ)",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "    from mcp import ClientSession, StdioServerParameters\n    from mcp.client.stdio import stdio_client\n\n    env = dict(os.environ)\n    env.update(\n        {\n            \"HOME\": directory,",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "585dfe66dcf8dd59e27929295d3eb32cf81458b5bd468cd9bf20325fec8ad8d4",
+      "occurrences": [
+        {
+          "file": "tests/repro/repro_406.py",
+          "start_line": 117,
+          "end_line": 117,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-b1959ed3f949464d828d4dccc4fd56f9",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "tests/test_config.py",
+        "start_line": 263,
+        "end_line": 263,
+        "start_column": 14
+      },
+      "finding": "os.environ.copy()",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "    # Test 2: Only REQUEST_TIMEOUT set (fallback)\n    with patch.dict(os.environ, {\"REQUEST_TIMEOUT\": \"25\"}, clear=False):\n        # Clear ARXIV_REQUEST_TIMEOUT from env if present\n        env = os.environ.copy()\n        if \"ARXIV_REQUEST_TIMEOUT\" in env:\n            del env[\"ARXIV_REQUEST_TIMEOUT\"]\n        with patch.dict(os.environ, env, clear=True):",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "23b3d476caf63d859a2a3bade37548b7986b00b138b45df1b6a49782c4e2984b",
+      "occurrences": [
+        {
+          "file": "tests/test_config.py",
+          "start_line": 263,
+          "end_line": 263,
+          "start_column": 14
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-aff5eb37c35842569598a81cb163ac99",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "tests/test_config.py",
+        "start_line": 271,
+        "end_line": 271,
+        "start_column": 10
+      },
+      "finding": "os.environ.copy()",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "            assert settings.get_request_timeout() == 25\n\n    # Test 3: Neither set (use ARXIV_REQUEST_TIMEOUT default of 30)\n    env = os.environ.copy()\n    if \"ARXIV_REQUEST_TIMEOUT\" in env:\n        del env[\"ARXIV_REQUEST_TIMEOUT\"]\n    if \"REQUEST_TIMEOUT\" in env:",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "23b3d476caf63d859a2a3bade37548b7986b00b138b45df1b6a49782c4e2984b",
+      "occurrences": [
+        {
+          "file": "tests/test_config.py",
+          "start_line": 271,
+          "end_line": 271,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-61f8acb3c61a48d793808e3fbb864a12",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "tests/test_config.py",
+        "start_line": 293,
+        "end_line": 293,
+        "start_column": 10
+      },
+      "finding": "os.environ.copy()",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "        assert settings.get_request_timeout() == 12\n\n    # Test lowercase request_timeout fallback\n    env = os.environ.copy()\n    for key in list(env.keys()):\n        if key.upper() in (\"ARXIV_REQUEST_TIMEOUT\", \"REQUEST_TIMEOUT\"):\n            del env[key]",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "23b3d476caf63d859a2a3bade37548b7986b00b138b45df1b6a49782c4e2984b",
+      "occurrences": [
+        {
+          "file": "tests/test_config.py",
+          "start_line": 293,
+          "end_line": 293,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-fe24aecb4c27439a9fe2bd8c970d1b99",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "tests/test_config.py",
+        "start_line": 303,
+        "end_line": 303,
+        "start_column": 10
+      },
+      "finding": "os.environ.copy()",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "        assert settings.get_request_timeout() == 18\n\n    # Test mixed case\n    env = os.environ.copy()\n    for key in list(env.keys()):\n        if key.upper() in (\"ARXIV_REQUEST_TIMEOUT\", \"REQUEST_TIMEOUT\"):\n            del env[key]",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "23b3d476caf63d859a2a3bade37548b7986b00b138b45df1b6a49782c4e2984b",
+      "occurrences": [
+        {
+          "file": "tests/test_config.py",
+          "start_line": 303,
+          "end_line": 303,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-149dd4fed7e145a1bbcf5b94eec5187c",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "tests/test_rate_limiter_checks.py",
+        "start_line": 94,
+        "end_line": 94,
+        "start_column": 10
+      },
+      "finding": "os.environ.copy()",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "    from arxiv_mcp_server.config import Settings\n\n    # Test with 0\n    env = os.environ.copy()\n    if \"ARXIV_REQUEST_TIMEOUT\" in env:\n        del env[\"ARXIV_REQUEST_TIMEOUT\"]\n    env[\"REQUEST_TIMEOUT\"] = \"0\"",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "23b3d476caf63d859a2a3bade37548b7986b00b138b45df1b6a49782c4e2984b",
+      "occurrences": [
+        {
+          "file": "tests/test_rate_limiter_checks.py",
+          "start_line": 94,
+          "end_line": 94,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-192e150de25e4892a947023a83f32dcb",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "tests/test_rate_limiter_checks.py",
+        "start_line": 103,
+        "end_line": 103,
+        "start_column": 10
+      },
+      "finding": "os.environ.copy()",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "        assert settings.get_request_timeout() == 30\n\n    # Test with -1\n    env = os.environ.copy()\n    if \"ARXIV_REQUEST_TIMEOUT\" in env:\n        del env[\"ARXIV_REQUEST_TIMEOUT\"]\n    env[\"REQUEST_TIMEOUT\"] = \"-1\"",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "23b3d476caf63d859a2a3bade37548b7986b00b138b45df1b6a49782c4e2984b",
+      "occurrences": [
+        {
+          "file": "tests/test_rate_limiter_checks.py",
+          "start_line": 103,
+          "end_line": 103,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-f7ac8aa83fe74c6d987d8d89100410ae",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "tests/test_rate_limiter_checks.py",
+        "start_line": 112,
+        "end_line": 112,
+        "start_column": 10
+      },
+      "finding": "os.environ.copy()",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "        assert settings.get_request_timeout() == 30\n\n    # Test lowercase\n    env = os.environ.copy()\n    if \"ARXIV_REQUEST_TIMEOUT\" in env:\n        del env[\"ARXIV_REQUEST_TIMEOUT\"]\n    env[\"request_timeout\"] = \"-5\"",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "23b3d476caf63d859a2a3bade37548b7986b00b138b45df1b6a49782c4e2984b",
+      "occurrences": [
+        {
+          "file": "tests/test_rate_limiter_checks.py",
+          "start_line": 112,
+          "end_line": 112,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-a8118714b2d04d3782b9a0fcf5f489c7",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker run --rm'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": ".github/workflows/tests.yml",
+        "start_line": 76,
+        "end_line": null
+      },
+      "finding": "docker run --rm",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "efc156300614fe5ffcf05d4db3303fe76bb02fad1f9d185be59396ae5dfd036c",
+      "occurrences": [
+        {
+          "file": ".github/workflows/tests.yml",
+          "start_line": 76,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-6b2e73107d894db4a08e6e6d96422754",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "README.md",
+        "start_line": 14,
+        "end_line": null,
+        "start_column": 222
+      },
+      "finding": "autoApprove",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "ect/mcp/install?name=arxiv-mcp-server&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22arxiv-mcp-server%22%5D%7D)\n[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=arxiv-mcp-server&config=eyJ0eXBlIjoic3RkaW8iLCJjb21tYW5kIjoidXZ4IiwiYXJncyI6WyJhcnhpdi1tY3Atc2VydmVyIl19)\n[![Add to Kiro](https://kiro.dev/images/add-to-kiro.svg)](https://kiro.dev/launch/mcp/add?name=arxiv-mcp-server&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22arxiv-mcp-server%22%5D%2C%22disabled%22%3Afalse%2C%22autoApprove%22%3A%5B%5D%7D)\n[![Claude Code](https://img.shields.io/badge/Claude_Code-Install-D97757?style=flat-square&logo=anthropic&logoColor=white%29%5D%28)\n[![OpenAI Codex](https://img.shields.io/badge/OpenAI_Codex-Install-000000?style=flat-square&logo=openai&logoColor=white%29%5D%28)\n[![Hermes Agent](https://img.shields.io/badge/Hermes_Agent-Install-6C5CE7?style=flat-square%29%5D%28)",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "abd52bad0b9e5ede20e53845e54869fab17f717bfbf2b3a666543424e4c169b6",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 14,
+          "end_line": null,
+          "start_column": 222
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-89f236fe2f964804aa5b0a1fad7ce4da",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "README.md",
+        "start_line": 107,
+        "end_line": null,
+        "start_column": 222
+      },
+      "finding": "autoApprove",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "\n[![Install in VS Code](https://img.shields.io/badge/Install_in-VS_Code-0098FF?style=flat-square&logo=visualstudiocode&logoColor=white%29%5D%28https%3A%2F%2Fvscode.dev%2Fredirect%2Fmcp%2Finstall%3Fname%3Darxiv-mcp-server&config=%7B%22type%22%3A%22stdio%22%2C%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22arxiv-mcp-server%22%5D%7D)\n[![Install MCP Server](https://cursor.com/deeplink/mcp-install-dark.svg)](https://cursor.com/en/install-mcp?name=arxiv-mcp-server&config=eyJ0eXBlIjoic3RkaW8iLCJjb21tYW5kIjoidXZ4IiwiYXJncyI6WyJhcnhpdi1tY3Atc2VydmVyIl19)\n[![Add to Kiro](https://kiro.dev/images/add-to-kiro.svg)](https://kiro.dev/launch/mcp/add?name=arxiv-mcp-server&config=%7B%22command%22%3A%22uvx%22%2C%22args%22%3A%5B%22arxiv-mcp-server%22%5D%2C%22disabled%22%3Afalse%2C%22autoApprove%22%3A%5B%5D%7D)\n\nFor the richer Kiro Power integration, open the **Powers** panel, choose **Add Custom Power \u2192 Import power from GitHub**, and enter:\n",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "abd52bad0b9e5ede20e53845e54869fab17f717bfbf2b3a666543424e4c169b6",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 107,
+          "end_line": null,
+          "start_column": 222
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-4f31fb0dcca745a6aeece06bf80ae38b",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "tests/test_release_metadata.py",
+        "start_line": 157,
+        "end_line": null,
+        "start_column": 9
+      },
+      "finding": "autoApprove",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "        \"command\": \"uvx\",\n        \"args\": [\"arxiv-mcp-server\"],\n        \"disabled\": False,\n        \"autoApprove\": [],\n    }\n\n    vscode_url = re.search(",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "abd52bad0b9e5ede20e53845e54869fab17f717bfbf2b3a666543424e4c169b6",
+      "occurrences": [
+        {
+          "file": "tests/test_release_metadata.py",
+          "start_line": 157,
+          "end_line": null,
+          "start_column": 9
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-b9f01c7835aa4d1eaad08061f74c3280",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx arxiv-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 23,
+        "end_line": null
+      },
+      "finding": "uvx arxiv-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "50e6f041ec8cf036255d9c444bc1adae8dc48c5f82552bf836d0abcbd2022f60",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 23,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-cb2c46cce32c49f8a6c342c5a41c7104",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx arxiv-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 26,
+        "end_line": null
+      },
+      "finding": "uvx arxiv-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "50e6f041ec8cf036255d9c444bc1adae8dc48c5f82552bf836d0abcbd2022f60",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 26,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-989b990c48a84a0387a704e32744a4ee",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx arxiv-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 63,
+        "end_line": null
+      },
+      "finding": "uvx arxiv-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "50e6f041ec8cf036255d9c444bc1adae8dc48c5f82552bf836d0abcbd2022f60",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 63,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-2cc4d7e2e81d425b96aa433430ec2c0c",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx arxiv-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 80,
+        "end_line": null
+      },
+      "finding": "uvx arxiv-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "50e6f041ec8cf036255d9c444bc1adae8dc48c5f82552bf836d0abcbd2022f60",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 80,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-e68403ca13444448ad77a8017a348871",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx arxiv-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 139,
+        "end_line": null
+      },
+      "finding": "uvx arxiv-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "50e6f041ec8cf036255d9c444bc1adae8dc48c5f82552bf836d0abcbd2022f60",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 139,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-f54a67ada2bb43108fdc1379d7854bed",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx arxiv-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 146,
+        "end_line": null
+      },
+      "finding": "uvx arxiv-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "50e6f041ec8cf036255d9c444bc1adae8dc48c5f82552bf836d0abcbd2022f60",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 146,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-a3ec7e2a77064a8f8ceda9950bd86a3a",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx arxiv-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 426,
+        "end_line": null
+      },
+      "finding": "uvx arxiv-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "50e6f041ec8cf036255d9c444bc1adae8dc48c5f82552bf836d0abcbd2022f60",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 426,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-4f0f812978014be6830d2417806c79ff",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx arxiv-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 435,
+        "end_line": null
+      },
+      "finding": "uvx arxiv-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "50e6f041ec8cf036255d9c444bc1adae8dc48c5f82552bf836d0abcbd2022f60",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 435,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-c6395fe35050483a8e9f9811f3ee620a",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx arxiv-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "skills/arxiv-mcp-server/SKILL.md",
+        "start_line": 22,
+        "end_line": null
+      },
+      "finding": "uvx arxiv-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "50e6f041ec8cf036255d9c444bc1adae8dc48c5f82552bf836d0abcbd2022f60",
+      "occurrences": [
+        {
+          "file": "skills/arxiv-mcp-server/SKILL.md",
+          "start_line": 22,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-0ac245d89f0f4325ad31136088104867",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx arxiv-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "tests/test_release_metadata.py",
+        "start_line": 125,
+        "end_line": null
+      },
+      "finding": "uvx arxiv-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "50e6f041ec8cf036255d9c444bc1adae8dc48c5f82552bf836d0abcbd2022f60",
+      "occurrences": [
+        {
+          "file": "tests/test_release_metadata.py",
+          "start_line": 125,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-ac5ad897906e4f488f0c449195ab31f9",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx arxiv-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 45,
+        "end_line": null
+      },
+      "finding": "npx arxiv-mcp-server",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ed1cfe42ba7458475cc02831e05ef7e30e91ecb6bb35e54a1750ff1430a71929",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 45,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-cc576b1af7704531bcbeab5bb341f123",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx --args arxiv-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 99,
+        "end_line": null
+      },
+      "finding": "uvx --args arxiv-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d54a2730a8dfa25dba486f593c854c709adf91b8db650b5dc28791d259509084",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 99,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-ad2ee530e1ec466897460da2709e3ba9",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx --args arxiv-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "tests/test_release_metadata.py",
+        "start_line": 126,
+        "end_line": null
+      },
+      "finding": "uvx --args arxiv-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d54a2730a8dfa25dba486f593c854c709adf91b8db650b5dc28791d259509084",
+      "occurrences": [
+        {
+          "file": "tests/test_release_metadata.py",
+          "start_line": 126,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "AS3",
+      "finding_id": "finding-3bfe547e3e7b4eccb44c48531a0a63ae",
+      "category": "Agent Snooping",
+      "pattern": "Skill Enumeration",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "README.md",
+        "start_line": 140,
+        "end_line": null,
+        "start_column": 30
+      },
+      "finding": "skills/arxiv-mcp-server/SKILL.md",
+      "explanation": "Skill enumerates or reads other installed skills. Access to other skills' SKILL.md files or the skills directory reveals prompt instructions, capabilities, and secrets that should be invisible to peer skills.",
+      "remediation": "Remove all code or instructions that list or read other skills' files or directories. Skills should operate independently; cross-skill access is a privilege escalation.",
+      "code_snippet": "| OpenAI Codex / ChatGPT Work | `.codex-plugin/plugin.json` | `.agents/plugins/marketplace.json` |\n| Kiro Power | `POWER.md` | `mcp.json` |\n| Shared MCP launch | `.mcp.json` for Claude and repository-local clients; `.codex-mcp.json` for Codex plugins | `uvx arxiv-mcp-server` |\n| Shared research workflow | `skills/arxiv-mcp-server/SKILL.md` | Installed with either plugin |\n\n</details>\n",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3ee25556517c36c93aefdf0c0ded5f35fc901a4e65d96f61c9f9cbc6080237dc",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 140,
+          "end_line": null,
+          "start_column": 30
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-f37ad337bfef4579910af3e65e98f1d7",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx is'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/build-mcpb.sh",
+        "start_line": 159,
+        "end_line": null
+      },
+      "finding": "npx is",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "26790e7b1fb893d5f629b6f37d55e6a291bd75d2c63742e22ff50da90b50eedb",
+      "occurrences": [
+        {
+          "file": "scripts/build-mcpb.sh",
+          "start_line": 159,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-c0789bee08d54f8db8abd83a37569ba4",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/smoke_installed_wheel.py",
+        "start_line": 190,
+        "end_line": 195,
+        "start_column": 8,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            [\"uv\", \"venv\", \"--python\", sys.executable, str(venv_dir)],\n            check=True,\n            env=env,\n            cwd=temp_dir,\n        )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        storage_dir.mkdir()\n        env = clean_subprocess_env(home_dir)\n\n        subprocess.run(\n            [\"uv\", \"venv\", \"--python\", sys.executable, str(venv_dir)],\n            check=True,\n            env=env,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7a3f08915386ae127e66baf500da5bed716cc839e7fef2ec60409f4ff9734a3e",
+      "occurrences": [
+        {
+          "file": "scripts/smoke_installed_wheel.py",
+          "start_line": 190,
+          "end_line": 195,
+          "start_column": 8,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-f3c846ceb5e44cf7b7fe473f4b27d039",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/smoke_installed_wheel.py",
+        "start_line": 197,
+        "end_line": 202,
+        "start_column": 8,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            [\"uv\", \"pip\", \"install\", \"--python\", str(python), str(wheel)],\n            check=True,\n            env=env,\n            cwd=temp_dir,\n        )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "            cwd=temp_dir,\n        )\n        python = venv_python(venv_dir)\n        subprocess.run(\n            [\"uv\", \"pip\", \"install\", \"--python\", str(python), str(wheel)],\n            check=True,\n            env=env,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0e5f4b543325dcba4fdde605bc92f8549b875dce49175e8651cb7b2c7ee3854a",
+      "occurrences": [
+        {
+          "file": "scripts/smoke_installed_wheel.py",
+          "start_line": 197,
+          "end_line": 202,
+          "start_column": 8,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-75ed8026511b41d3a87bd28a5567821d",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/smoke_installed_wheel.py",
+        "start_line": 203,
+        "end_line": 213,
+        "start_column": 28,
+        "end_column": 9
+      },
+      "finding": "subprocess.check_output(\n            [\n                str(python),\n                \"-c\",\n                \"import importlib.metadata; \"\n                \"print(importlib.metadata.version('arxiv-mcp-ser",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "            env=env,\n            cwd=temp_dir,\n        )\n        installed_version = subprocess.check_output(\n            [\n                str(python),\n                \"-c\",",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "99d7e8151a15dcd4940c0ce06e7fee5743a1784068f5b510fe39d5545ee53740",
+      "occurrences": [
+        {
+          "file": "scripts/smoke_installed_wheel.py",
+          "start_line": 203,
+          "end_line": 213,
+          "start_column": 28,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-c40d6a06315346cd9a1fa850c4053dc3",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/arxiv_mcp_server/tools/alerts.py",
+        "start_line": 115,
+        "end_line": null,
+        "start_column": 38
+      },
+      "finding": "without checking",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "    name=\"list_watches\",\n    annotations=ToolAnnotations(readOnlyHint=True, openWorldHint=False),\n    description=(\n        \"List all saved topic watches without checking for new papers. \"\n        \"Returns each watch's topic, categories, last_checked timestamp, and other stored fields. \"\n        \"Does not update last_checked \u2014 use this to inspect what is saved. \"\n        \"Use unwatch_topic to remove a watch, or check_alerts to poll for new papers.\"",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9341b6f34d6af9081a0d6673f4217b7307d273da9f43357efd9029e15c5da76c",
+      "occurrences": [
+        {
+          "file": "src/arxiv_mcp_server/tools/alerts.py",
+          "start_line": 115,
+          "end_line": null,
+          "start_column": 38
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-1ccc71f06134444d93172c641a4a4722",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "src/arxiv_mcp_server/tools/citation_graph.py",
+        "start_line": 29,
+        "end_line": null,
+        "start_column": 28
+      },
+      "finding": "https://api.semanticscholar.org/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "logger = logging.getLogger(\"arxiv-mcp-server\")\nsettings = Settings()\n\nSEMANTIC_SCHOLAR_API_URL = \"https://api.semanticscholar.org/graph/v1\"\nDEFAULT_MAX_CITATIONS = 50\nMAX_CITATIONS_CAP = 200\n# Request paper metadata plus up to limit citations/references in one call.",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "28a730c612683642ad2da1e285c84fc44a86c8ba8b39befce231ed47aae91211",
+      "occurrences": [
+        {
+          "file": "src/arxiv_mcp_server/tools/citation_graph.py",
+          "start_line": 29,
+          "end_line": null,
+          "start_column": 28
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-795f4eeeae5e4216a87337453c0c48a4",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "tests/tools/test_citation_graph.py",
+        "start_line": 149,
+        "end_line": null,
+        "start_column": 10
+      },
+      "finding": "https://api.semanticscholar.org/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    mock_response.status_code = 500\n    mock_response.raise_for_status.side_effect = httpx.HTTPStatusError(\n        \"Client error '500 Internal Server Error' for url \"\n        \"'https://api.semanticscholar.org/graph/v1/paper/ARXIV:2401.12345'\",\n        request=MagicMock(),\n        response=mock_response,\n    )",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "28a730c612683642ad2da1e285c84fc44a86c8ba8b39befce231ed47aae91211",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_citation_graph.py",
+          "start_line": 149,
+          "end_line": null,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-dbed4a0278a94604bba8f73bcc4fe4e9",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "tests/tools/test_citation_graph.py",
+        "start_line": 483,
+        "end_line": null,
+        "start_column": 10
+      },
+      "finding": "https://api.semanticscholar.org/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    mock_response.status_code = 404\n    mock_response.raise_for_status.side_effect = httpx.HTTPStatusError(\n        \"Client error '404 Not Found' for url \"\n        \"'https://api.semanticscholar.org/graph/v1/paper/ARXIV:1706.03762v1'\",\n        request=MagicMock(),\n        response=mock_response,\n    )",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "28a730c612683642ad2da1e285c84fc44a86c8ba8b39befce231ed47aae91211",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_citation_graph.py",
+          "start_line": 483,
+          "end_line": null,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-6f75cb5fc8ff4991a9a89e8536d4e25a",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/arxiv_mcp_server/tools/download.py",
+        "start_line": 1183,
+        "end_line": null,
+        "start_column": 17
+      },
+      "finding": "timeout = None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "                )\n                return None\n        else:\n            gate_timeout = None\n\n        # Acquire the rate limiter gate and send the request.\n        # The gate is released after headers arrive, before body read.",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1bfffcad3cc52e1c1c892c27692b5d0d64b95983ef1ee65d42c390f162cacf50",
+      "occurrences": [
+        {
+          "file": "src/arxiv_mcp_server/tools/download.py",
+          "start_line": 1183,
+          "end_line": null,
+          "start_column": 17
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-1187f27627904729989563e458a6a363",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline.py",
+        "start_line": 38,
+        "end_line": null,
+        "start_column": 19
+      },
+      "finding": "timeout = None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "        self.raw._fp.fp = Mock()\n        self.raw._fp.fp.raw = Mock()\n        self._sock = Mock()\n        self._sock_timeout = None\n        self.raw._fp.fp.raw._sock = self._sock\n\n        # Mock settimeout to track timeout value",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1bfffcad3cc52e1c1c892c27692b5d0d64b95983ef1ee65d42c390f162cacf50",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline.py",
+          "start_line": 38,
+          "end_line": null,
+          "start_column": 19
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-a3af12342ad44c6d874f92cc9aa33056",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/arxiv_mcp_server/tools/download.py",
+        "start_line": 1286,
+        "end_line": 1286,
+        "start_column": 32,
+        "end_column": 48
+      },
+      "finding": "__import__(\"os\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "                watchdog_delay = max(0.0, remaining - 0.8)\n\n                # Injectable test flag: skip watchdog for testing\n                skip_watchdog = __import__(\"os\").environ.get(\n                    \"_ARXIV_MCP_TEST_SKIP_WATCHDOG\"\n                )\n                if not skip_watchdog:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6fa3597a0939c7030a5f8bbd4cb225267e0bf44dd5292966f47cc38bf7905547",
+      "occurrences": [
+        {
+          "file": "src/arxiv_mcp_server/tools/download.py",
+          "start_line": 1286,
+          "end_line": 1286,
+          "start_column": 32,
+          "end_column": 48
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-b2cc22d63008429c99f8dbceb1015c5c",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/arxiv_mcp_server/tools/download.py",
+        "start_line": 1320,
+        "end_line": 1320,
+        "start_column": 35,
+        "end_column": 51
+      },
+      "finding": "__import__(\"os\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "            chunks = []\n\n            # Use thread-based backstop when socket is unreachable, or on Windows when watchdog is active\n            skip_thread_backstop = __import__(\"os\").environ.get(\n                \"_ARXIV_MCP_TEST_SKIP_THREAD_BACKSTOP\"\n            )\n            skip_watchdog = __import__(\"os\").environ.get(",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6fa3597a0939c7030a5f8bbd4cb225267e0bf44dd5292966f47cc38bf7905547",
+      "occurrences": [
+        {
+          "file": "src/arxiv_mcp_server/tools/download.py",
+          "start_line": 1320,
+          "end_line": 1320,
+          "start_column": 35,
+          "end_column": 51
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-2411a3c1a41245d082669d3f2d64f0e9",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/arxiv_mcp_server/tools/download.py",
+        "start_line": 1323,
+        "end_line": 1323,
+        "start_column": 28,
+        "end_column": 44
+      },
+      "finding": "__import__(\"os\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "            skip_thread_backstop = __import__(\"os\").environ.get(\n                \"_ARXIV_MCP_TEST_SKIP_THREAD_BACKSTOP\"\n            )\n            skip_watchdog = __import__(\"os\").environ.get(\n                \"_ARXIV_MCP_TEST_SKIP_WATCHDOG\"\n            )\n            import platform",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6fa3597a0939c7030a5f8bbd4cb225267e0bf44dd5292966f47cc38bf7905547",
+      "occurrences": [
+        {
+          "file": "src/arxiv_mcp_server/tools/download.py",
+          "start_line": 1323,
+          "end_line": 1323,
+          "start_column": 28,
+          "end_column": 44
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-94fe46611ec34fd694b7f028d0b24bc9",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/arxiv_mcp_server/tools/download.py",
+        "start_line": 1341,
+        "end_line": 1341,
+        "start_column": 37,
+        "end_column": 53
+      },
+      "finding": "__import__(\"os\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "                # Hard backstop: run streaming read in daemon thread, abandon at deadline\n                result_container = {\"chunks\": None, \"error\": None}\n\n                skip_perbyte_check = __import__(\"os\").environ.get(\n                    \"_ARXIV_MCP_TEST_SKIP_PERBYTE_CHECK\"\n                )\n",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6fa3597a0939c7030a5f8bbd4cb225267e0bf44dd5292966f47cc38bf7905547",
+      "occurrences": [
+        {
+          "file": "src/arxiv_mcp_server/tools/download.py",
+          "start_line": 1341,
+          "end_line": 1341,
+          "start_column": 37,
+          "end_column": 53
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-2a408b65babb41a9983bd4f90e4b76f8",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/arxiv_mcp_server/tools/download.py",
+        "start_line": 1406,
+        "end_line": 1406,
+        "start_column": 42,
+        "end_column": 58
+      },
+      "finding": "__import__(\"os\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "                try:\n                    read_timeout = float(settings.get_request_timeout())\n                    # Injectable test flags\n                    skip_socket_timeout = __import__(\"os\").environ.get(\n                        \"_ARXIV_MCP_TEST_SKIP_SOCKET_TIMEOUT\"\n                    )\n                    skip_perbyte_check = __import__(\"os\").environ.get(",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6fa3597a0939c7030a5f8bbd4cb225267e0bf44dd5292966f47cc38bf7905547",
+      "occurrences": [
+        {
+          "file": "src/arxiv_mcp_server/tools/download.py",
+          "start_line": 1406,
+          "end_line": 1406,
+          "start_column": 42,
+          "end_column": 58
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-36e9ccb32ce543fea0583542f3eb1b73",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/arxiv_mcp_server/tools/download.py",
+        "start_line": 1409,
+        "end_line": 1409,
+        "start_column": 41,
+        "end_column": 57
+      },
+      "finding": "__import__(\"os\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "                    skip_socket_timeout = __import__(\"os\").environ.get(\n                        \"_ARXIV_MCP_TEST_SKIP_SOCKET_TIMEOUT\"\n                    )\n                    skip_perbyte_check = __import__(\"os\").environ.get(\n                        \"_ARXIV_MCP_TEST_SKIP_PERBYTE_CHECK\"\n                    )\n",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6fa3597a0939c7030a5f8bbd4cb225267e0bf44dd5292966f47cc38bf7905547",
+      "occurrences": [
+        {
+          "file": "src/arxiv_mcp_server/tools/download.py",
+          "start_line": 1409,
+          "end_line": 1409,
+          "start_column": 41,
+          "end_column": 57
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-d36e07249ae84d98981ce6aac4798661",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/arxiv_mcp_server/tools/download.py",
+        "start_line": 1453,
+        "end_line": 1453,
+        "start_column": 20,
+        "end_column": 40
+      },
+      "finding": "__import__(\"socket\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "                        if chunk:\n                            chunks.append(chunk)\n                except (\n                    __import__(\"socket\").timeout,\n                    __import__(\"requests\").exceptions.ReadTimeout,\n                    __import__(\"requests\").exceptions.ConnectionError,\n                ):",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3e2d8bc62a46a6c510e6699633331894ae8c1f5e56501ff433a76dce6fc57ddb",
+      "occurrences": [
+        {
+          "file": "src/arxiv_mcp_server/tools/download.py",
+          "start_line": 1453,
+          "end_line": 1453,
+          "start_column": 20,
+          "end_column": 40
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-1a236e61a37e4163915d362a9abed181",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/arxiv_mcp_server/tools/download.py",
+        "start_line": 1454,
+        "end_line": 1454,
+        "start_column": 20,
+        "end_column": 42
+      },
+      "finding": "__import__(\"requests\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "                            chunks.append(chunk)\n                except (\n                    __import__(\"socket\").timeout,\n                    __import__(\"requests\").exceptions.ReadTimeout,\n                    __import__(\"requests\").exceptions.ConnectionError,\n                ):\n                    logger.info(",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "71b68f5767b65e302b84d1afbae92608fabbded0af8aceb1ac2330d6fa144883",
+      "occurrences": [
+        {
+          "file": "src/arxiv_mcp_server/tools/download.py",
+          "start_line": 1454,
+          "end_line": 1454,
+          "start_column": 20,
+          "end_column": 42
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-c5f83869678c464a904aa072816297a9",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/arxiv_mcp_server/tools/download.py",
+        "start_line": 1455,
+        "end_line": 1455,
+        "start_column": 20,
+        "end_column": 42
+      },
+      "finding": "__import__(\"requests\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "                except (\n                    __import__(\"socket\").timeout,\n                    __import__(\"requests\").exceptions.ReadTimeout,\n                    __import__(\"requests\").exceptions.ConnectionError,\n                ):\n                    logger.info(\n                        f\"Metadata lookup timed out (socket timeout) for {paper_id}\"",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "71b68f5767b65e302b84d1afbae92608fabbded0af8aceb1ac2330d6fa144883",
+      "occurrences": [
+        {
+          "file": "src/arxiv_mcp_server/tools/download.py",
+          "start_line": 1455,
+          "end_line": 1455,
+          "start_column": 20,
+          "end_column": 42
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-803dec1dff74418aad183b607c4e9aa1",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/repro/repro_hidden_fp_stall.py",
+        "start_line": 57,
+        "end_line": 57,
+        "start_column": 19,
+        "end_column": 41
+      },
+      "finding": "__import__(\"requests\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "    start = time.monotonic()\n    deadline = start + deadline_seconds\n\n    original_get = __import__(\"requests\").get\n\n    def patched_get(url, **kwargs):\n        if \"export.arxiv.org\" in url:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "71b68f5767b65e302b84d1afbae92608fabbded0af8aceb1ac2330d6fa144883",
+      "occurrences": [
+        {
+          "file": "tests/repro/repro_hidden_fp_stall.py",
+          "start_line": 57,
+          "end_line": 57,
+          "start_column": 19,
+          "end_column": 41
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-0d2a9506252847a8bf43ba1251623620",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline_integration.py",
+        "start_line": 162,
+        "end_line": 162,
+        "start_column": 19,
+        "end_column": 41
+      },
+      "finding": "__import__(\"requests\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "    start = time.monotonic()\n    deadline = start + 3.0\n\n    original_get = __import__(\"requests\").get\n\n    def patched_get(url, **kwargs):\n        if \"export.arxiv.org\" in url:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "71b68f5767b65e302b84d1afbae92608fabbded0af8aceb1ac2330d6fa144883",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline_integration.py",
+          "start_line": 162,
+          "end_line": 162,
+          "start_column": 19,
+          "end_column": 41
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-5a4f8155a407401cbee1ae250a1b0a4d",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline_integration.py",
+        "start_line": 195,
+        "end_line": 195,
+        "start_column": 19,
+        "end_column": 41
+      },
+      "finding": "__import__(\"requests\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "    start = time.monotonic()\n    deadline = start + 4.0\n\n    original_get = __import__(\"requests\").get\n\n    def patched_get(url, **kwargs):\n        if \"export.arxiv.org\" in url:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "71b68f5767b65e302b84d1afbae92608fabbded0af8aceb1ac2330d6fa144883",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline_integration.py",
+          "start_line": 195,
+          "end_line": 195,
+          "start_column": 19,
+          "end_column": 41
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-509eb503d2bb4f8fb73eccb7446364e4",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline_integration.py",
+        "start_line": 228,
+        "end_line": 228,
+        "start_column": 19,
+        "end_column": 41
+      },
+      "finding": "__import__(\"requests\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "    start = time.monotonic()\n    deadline = start + 3.0\n\n    original_get = __import__(\"requests\").get\n\n    def patched_get(url, **kwargs):\n        if \"export.arxiv.org\" in url:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "71b68f5767b65e302b84d1afbae92608fabbded0af8aceb1ac2330d6fa144883",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline_integration.py",
+          "start_line": 228,
+          "end_line": 228,
+          "start_column": 19,
+          "end_column": 41
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-4d7e3fc4e3ff46e99f5e45230363d722",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline_integration.py",
+        "start_line": 261,
+        "end_line": 261,
+        "start_column": 19,
+        "end_column": 41
+      },
+      "finding": "__import__(\"requests\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "    start = time.monotonic()\n    deadline = start + 4.0\n\n    original_get = __import__(\"requests\").get\n\n    def patched_get(url, **kwargs):\n        if \"export.arxiv.org\" in url:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "71b68f5767b65e302b84d1afbae92608fabbded0af8aceb1ac2330d6fa144883",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline_integration.py",
+          "start_line": 261,
+          "end_line": 261,
+          "start_column": 19,
+          "end_column": 41
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-5378237ca5764d17bcbb77d009c7a812",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline_integration.py",
+        "start_line": 314,
+        "end_line": 314,
+        "start_column": 19,
+        "end_column": 41
+      },
+      "finding": "__import__(\"requests\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "    start = time.monotonic()\n    deadline = start + 3.0\n\n    original_get = __import__(\"requests\").get\n\n    def patched_get(url, **kwargs):\n        if \"export.arxiv.org\" in url:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "71b68f5767b65e302b84d1afbae92608fabbded0af8aceb1ac2330d6fa144883",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline_integration.py",
+          "start_line": 314,
+          "end_line": 314,
+          "start_column": 19,
+          "end_column": 41
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-422c6007d4eb480da24672b7cce387be",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline_integration.py",
+        "start_line": 364,
+        "end_line": 364,
+        "start_column": 19,
+        "end_column": 41
+      },
+      "finding": "__import__(\"requests\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "    start = time.monotonic()\n    deadline = start + 4.0\n\n    original_get = __import__(\"requests\").get\n\n    def patched_get(url, **kwargs):\n        if \"export.arxiv.org\" in url:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "71b68f5767b65e302b84d1afbae92608fabbded0af8aceb1ac2330d6fa144883",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline_integration.py",
+          "start_line": 364,
+          "end_line": 364,
+          "start_column": 19,
+          "end_column": 41
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-9f0237a26a3c4a94b17a75fcc56d62a3",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline_integration.py",
+        "start_line": 413,
+        "end_line": 413,
+        "start_column": 19,
+        "end_column": 41
+      },
+      "finding": "__import__(\"requests\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "    start = time.monotonic()\n    deadline = start + 3.0\n\n    original_get = __import__(\"requests\").get\n\n    def patched_get(url, **kwargs):\n        if \"export.arxiv.org\" in url:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "71b68f5767b65e302b84d1afbae92608fabbded0af8aceb1ac2330d6fa144883",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline_integration.py",
+          "start_line": 413,
+          "end_line": 413,
+          "start_column": 19,
+          "end_column": 41
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-bd2b36a56a4c4215a67b1c9e78b13b25",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline_integration.py",
+        "start_line": 461,
+        "end_line": 461,
+        "start_column": 19,
+        "end_column": 41
+      },
+      "finding": "__import__(\"requests\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "    start = time.monotonic()\n    deadline = start + 3.0\n\n    original_get = __import__(\"requests\").get\n\n    def patched_get(url, **kwargs):\n        if \"export.arxiv.org\" in url:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "71b68f5767b65e302b84d1afbae92608fabbded0af8aceb1ac2330d6fa144883",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline_integration.py",
+          "start_line": 461,
+          "end_line": 461,
+          "start_column": 19,
+          "end_column": 41
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-43e2f372e92c4d0397e28e2172b7ba9a",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline_integration.py",
+        "start_line": 494,
+        "end_line": 494,
+        "start_column": 19,
+        "end_column": 41
+      },
+      "finding": "__import__(\"requests\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "    start = time.monotonic()\n    deadline = start + 3.0\n\n    original_get = __import__(\"requests\").get\n\n    def patched_get(url, **kwargs):\n        if \"export.arxiv.org\" in url:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "71b68f5767b65e302b84d1afbae92608fabbded0af8aceb1ac2330d6fa144883",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline_integration.py",
+          "start_line": 494,
+          "end_line": 494,
+          "start_column": 19,
+          "end_column": 41
+        }
+      ]
+    },
+    {
+      "id": "P7",
+      "finding_id": "finding-b07ed40cd8d142a5a3c876cf71407f1e",
+      "category": "System Prompt Leakage",
+      "pattern": "Indirect Prompt Extraction",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/prompts/test_prompt_integration.py",
+        "start_line": 47,
+        "end_line": null,
+        "start_column": 44
+      },
+      "finding": "summarize prompt",
+      "explanation": "Skill contains patterns that could indirectly extract system prompts through rephrasing, translation, summarization, or side-channel techniques.",
+      "remediation": "Guard against indirect extraction by refusing to summarize, translate, or rephrase system instructions. Add explicit anti-extraction clauses.",
+      "code_snippet": "\n@pytest.mark.asyncio\nasync def test_server_get_summarize_prompt():\n    \"\"\"Test server get_prompt endpoint with summarize prompt.\"\"\"\n    result = await get_prompt(\"summarize_paper\", {\"paper_id\": \"2401.00123\"})\n    assert \"Summarize paper 2401.00123.\" in result.messages[0].content.text",
+      "intent": null,
+      "tags": [
+        "System Prompt Leakage"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a2509a3624316c97706e95c1bfaf05f8607f77f97fcdad72b427608d76905664",
+      "occurrences": [
+        {
+          "file": "tests/prompts/test_prompt_integration.py",
+          "start_line": 47,
+          "end_line": null,
+          "start_column": 44
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-988e22f7a6da4e0a8bf55b4305844550",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_arxiv_api.py",
+        "start_line": 109,
+        "end_line": null,
+        "start_column": 36
+      },
+      "finding": "timeout=0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "\n    # Attempt to run operation with a short timeout\n    with pytest.raises(GateTimeout):\n        limiter.run_sync(operation, timeout=0.05)\n\n    holder.join()\n",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e44269027db0b77c3f387ffaac96e37ae94b288abcfe941168fb22e5c43c7b09",
+      "occurrences": [
+        {
+          "file": "tests/test_arxiv_api.py",
+          "start_line": 109,
+          "end_line": null,
+          "start_column": 36
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-30851cff2a064364bd436ecca80b6701",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "tests/test_import_boundaries.py",
+        "start_line": 16,
+        "end_line": 21,
+        "start_column": 13,
+        "end_column": 5
+      },
+      "finding": "subprocess.run(\n        [sys.executable, \"-c\", script],\n        check=True,\n        capture_output=True,\n        text=True,\n    )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        \"import json, sys\\n\"\n        f\"print(json.dumps(sorted(set(sys.modules) & {HEAVY_MODULES!r})))\\n\"\n    )\n    result = subprocess.run(\n        [sys.executable, \"-c\", script],\n        check=True,\n        capture_output=True,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "113da125e44a62f07f54675531cfac4152e0edc059e9661239dc475b399d3637",
+      "occurrences": [
+        {
+          "file": "tests/test_import_boundaries.py",
+          "start_line": 16,
+          "end_line": 21,
+          "start_column": 13,
+          "end_column": 5
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-6537942059b445e580d76190070a9208",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "tests/tools/test_download.py",
+        "start_line": 261,
+        "end_line": null,
+        "start_column": 24
+      },
+      "finding": "MAX_RETRIES = 0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    test_settings.ARXIV_MAX_TOTAL_TIME = 2\n    test_settings.ARXIV_REQUEST_TIMEOUT = 1\n    test_settings.ARXIV_CONNECT_TIMEOUT = 10\n    test_settings.ARXIV_MAX_RETRIES = 0\n    test_settings.get_request_timeout = lambda: 1\n    mocker.patch.object(download_module, \"settings\", test_settings)\n",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "293f82d99e1e86eea02e5391e8427f2c599af8579f3717d6f7883ef9a58dd7d2",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_download.py",
+          "start_line": 261,
+          "end_line": null,
+          "start_column": 24
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-a12ecebc806848f39b6bbe07dc54e085",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "tests/tools/test_download.py",
+        "start_line": 345,
+        "end_line": null,
+        "start_column": 24
+      },
+      "finding": "MAX_RETRIES = 0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    test_settings.ARXIV_MAX_TOTAL_TIME = 3\n    test_settings.ARXIV_REQUEST_TIMEOUT = 1\n    test_settings.ARXIV_CONNECT_TIMEOUT = 10\n    test_settings.ARXIV_MAX_RETRIES = 0\n    test_settings.get_request_timeout = lambda: 1\n    mocker.patch.object(download_module, \"settings\", test_settings)\n",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "293f82d99e1e86eea02e5391e8427f2c599af8579f3717d6f7883ef9a58dd7d2",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_download.py",
+          "start_line": 345,
+          "end_line": null,
+          "start_column": 24
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-72b7e860ef1a44e9a2dbc5ec3ab04b31",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline.py",
+        "start_line": 101,
+        "end_line": null,
+        "start_column": 51
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "                \"arxiv_mcp_server.tools.download.ARXIV_RATE_LIMITER\"\n            ) as mock_limiter:\n                # Advance clock 3s for gate wait\n                def run_sync_with_delay(operation, timeout=None):\n                    clock.advance(3.0)\n                    return operation()\n",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline.py",
+          "start_line": 101,
+          "end_line": null,
+          "start_column": 51
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-57ddfc90e53a4ba1ae5c020e57f64192",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline.py",
+        "start_line": 131,
+        "end_line": null,
+        "start_column": 63
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "            with patch(\n                \"arxiv_mcp_server.tools.download.ARXIV_RATE_LIMITER\"\n            ) as mock_limiter:\n                mock_limiter.run_sync.side_effect = lambda op, timeout=None: op()\n                mock_limiter.seconds_until_next_slot.return_value = 0.0\n\n                fake_response = FakeResponse([], clock, status_code=406)",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline.py",
+          "start_line": 131,
+          "end_line": null,
+          "start_column": 63
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-49ffb801dae74a12bf6a217819314f60",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline.py",
+        "start_line": 171,
+        "end_line": null,
+        "start_column": 63
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "            with patch(\n                \"arxiv_mcp_server.tools.download.ARXIV_RATE_LIMITER\"\n            ) as mock_limiter:\n                mock_limiter.run_sync.side_effect = lambda op, timeout=None: op()\n                mock_limiter.seconds_until_next_slot.return_value = 0.0\n\n                fake_response = FakeResponse([feed_xml], clock, status_code=200)",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline.py",
+          "start_line": 171,
+          "end_line": null,
+          "start_column": 63
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-d2876fb515344485a3d491b6ad873806",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline.py",
+        "start_line": 200,
+        "end_line": null,
+        "start_column": 55
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "                \"arxiv_mcp_server.tools.download.ARXIV_RATE_LIMITER\"\n            ) as mock_limiter:\n                # Simulate gate wait consuming most of budget\n                def run_sync_with_long_wait(operation, timeout=None):\n                    clock.advance(6.5)  # Leave only 0.5s\n                    return operation()\n",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline.py",
+          "start_line": 200,
+          "end_line": null,
+          "start_column": 55
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-cc57173ddbb242a991e7c285cbad3171",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline.py",
+        "start_line": 224,
+        "end_line": null,
+        "start_column": 63
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "            with patch(\n                \"arxiv_mcp_server.tools.download.ARXIV_RATE_LIMITER\"\n            ) as mock_limiter:\n                mock_limiter.run_sync.side_effect = lambda op, timeout=None: op()\n                mock_limiter.seconds_until_next_slot.return_value = 0.0\n\n                mock_get.side_effect = requests.exceptions.ConnectTimeout(\"Timeout\")",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline.py",
+          "start_line": 224,
+          "end_line": null,
+          "start_column": 63
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-ef927d7afd904c08b66571bc6bfcdf68",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline.py",
+        "start_line": 255,
+        "end_line": null,
+        "start_column": 51
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "                \"arxiv_mcp_server.tools.download.ARXIV_RATE_LIMITER\"\n            ) as mock_limiter:\n                # Advance 3s for gate wait\n                def run_sync_with_delay(operation, timeout=None):\n                    clock.advance(3.0)\n                    return operation()\n",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline.py",
+          "start_line": 255,
+          "end_line": null,
+          "start_column": 51
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-51aa605736d04a8a99d73c9de8596dc6",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline.py",
+        "start_line": 302,
+        "end_line": null,
+        "start_column": 63
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "            with patch(\n                \"arxiv_mcp_server.tools.download.ARXIV_RATE_LIMITER\"\n            ) as mock_limiter:\n                mock_limiter.run_sync.side_effect = lambda op, timeout=None: op()\n                mock_limiter.seconds_until_next_slot.return_value = 0.0\n\n                fake_response = FakeResponse([feed_xml], clock, status_code=200)",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline.py",
+          "start_line": 302,
+          "end_line": null,
+          "start_column": 63
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-db3ffd6606a84b2aa419c8c298718c1c",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline.py",
+        "start_line": 342,
+        "end_line": null,
+        "start_column": 63
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "            with patch(\n                \"arxiv_mcp_server.tools.download.ARXIV_RATE_LIMITER\"\n            ) as mock_limiter:\n                mock_limiter.run_sync.side_effect = lambda op, timeout=None: op()\n                mock_limiter.seconds_until_next_slot.return_value = 0.0\n\n                fake_response = FakeResponse([feed_xml], clock, status_code=200)",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline.py",
+          "start_line": 342,
+          "end_line": null,
+          "start_column": 63
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-2574cb806d3b4db2be01c5fe73d463b2",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline.py",
+        "start_line": 381,
+        "end_line": null,
+        "start_column": 63
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "            with patch(\n                \"arxiv_mcp_server.tools.download.ARXIV_RATE_LIMITER\"\n            ) as mock_limiter:\n                mock_limiter.run_sync.side_effect = lambda op, timeout=None: op()\n                mock_limiter.seconds_until_next_slot.return_value = 0.0\n\n                fake_response = FakeResponse([feed_xml], clock, status_code=200)",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline.py",
+          "start_line": 381,
+          "end_line": null,
+          "start_column": 63
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-fcd4caeea7354c4d8e0bb665d952399e",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline.py",
+        "start_line": 416,
+        "end_line": null,
+        "start_column": 63
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "            with patch(\n                \"arxiv_mcp_server.tools.download.ARXIV_RATE_LIMITER\"\n            ) as mock_limiter:\n                mock_limiter.run_sync.side_effect = lambda op, timeout=None: op()\n                mock_limiter.seconds_until_next_slot.return_value = 0.0\n\n                fake_response = FakeResponse([feed_xml], clock, status_code=200)",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline.py",
+          "start_line": 416,
+          "end_line": null,
+          "start_column": 63
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-7786947c696043eaac9923bd056a4244",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline.py",
+        "start_line": 467,
+        "end_line": null,
+        "start_column": 63
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "            with patch(\n                \"arxiv_mcp_server.tools.download.ARXIV_RATE_LIMITER\"\n            ) as mock_limiter:\n                mock_limiter.run_sync.side_effect = lambda op, timeout=None: op()\n                mock_limiter.seconds_until_next_slot.return_value = 0.0\n\n                # Use a real threading.Timer for the watchdog",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline.py",
+          "start_line": 467,
+          "end_line": null,
+          "start_column": 63
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-a518b11d0be54d168d55f97d9161e5be",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline.py",
+        "start_line": 507,
+        "end_line": null,
+        "start_column": 53
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "                \"arxiv_mcp_server.tools.download.ARXIV_RATE_LIMITER\"\n            ) as mock_limiter:\n                # Simulate gate timeout - raise GateTimeout without calling operation\n                def run_sync_with_timeout(operation, timeout=None):\n                    if timeout is not None:\n                        # Gate acquisition times out\n                        from arxiv_mcp_server.arxiv_api import GateTimeout",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline.py",
+          "start_line": 507,
+          "end_line": null,
+          "start_column": 53
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-c9ac8ff8aeef42a3899463168e811564",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_no_version_downgrade.py",
+        "start_line": 179,
+        "end_line": null,
+        "start_column": 51
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "\n    mocker.patch(\"requests.get\", side_effect=mock_get_with_feed)\n    mock_limiter = mocker.patch.object(download_module, \"ARXIV_RATE_LIMITER\")\n    mock_limiter.run_sync.side_effect = lambda op, timeout=None: op()\n    mock_limiter.seconds_until_next_slot.return_value = 0.0\n    mocker.patch(\"time.monotonic\", return_value=1000.0)\n",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_no_version_downgrade.py",
+          "start_line": 179,
+          "end_line": null,
+          "start_column": 51
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-d6b83b961c424b82993109c8d8043f36",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/tools/test_metadata_deadline.py",
+        "start_line": 472,
+        "end_line": 472,
+        "start_column": 45,
+        "end_column": 68
+      },
+      "finding": "__import__(\"threading\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "\n                # Use a real threading.Timer for the watchdog\n                with patch(\n                    \"threading.Timer\", wraps=__import__(\"threading\").Timer\n                ) as mock_timer:\n                    mock_get.return_value = fake_response\n",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f2a38c37f7ca0f7320fda7ef2103c6e24fc453351d10d69d8d95d8d1eda8236b",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_metadata_deadline.py",
+          "start_line": 472,
+          "end_line": 472,
+          "start_column": 45,
+          "end_column": 68
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-e367d850c1a0434a838d36be3e51f33b",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx users'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "tests/tools/test_semantic_search.py",
+        "start_line": 14,
+        "end_line": null
+      },
+      "finding": "uvx users",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0fd6fa616a33b7ec577cdf05eedca48a058b5a6d8f57c211cd2f132fd2e44eb7",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_semantic_search.py",
+          "start_line": 14,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-02af9226a7b64ee18757ad9ffdbc2521",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (15 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "pyproject.toml",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "pyproject.toml",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-f66465be6ca248e39d9c422074a2ad7a",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server dependency without pinned version: 'pip install arxiv-mcp-server'.",
+      "severity": "LOW",
+      "confidence": 0.6,
+      "location": {
+        "file": "src/arxiv_mcp_server/tools/download.py",
+        "start_line": 1041,
+        "end_line": null
+      },
+      "finding": "pip install arxiv-mcp-server",
+      "explanation": "pip install without ==version installs the latest release, which could include malicious changes.",
+      "remediation": "Pin the version: pip install package==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9d7366b339647e9dbd4932e5c887c0085addde918415af5fa69a10deac439b0d",
+      "occurrences": [
+        {
+          "file": "src/arxiv_mcp_server/tools/download.py",
+          "start_line": 1041,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-e5816d7881d04b08908a7620f436b6bb",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server dependency without pinned version: 'pip install arxiv-mcp-server'.",
+      "severity": "LOW",
+      "confidence": 0.6,
+      "location": {
+        "file": "src/arxiv_mcp_server/tools/download.py",
+        "start_line": 1783,
+        "end_line": null
+      },
+      "finding": "pip install arxiv-mcp-server",
+      "explanation": "pip install without ==version installs the latest release, which could include malicious changes.",
+      "remediation": "Pin the version: pip install package==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9d7366b339647e9dbd4932e5c887c0085addde918415af5fa69a10deac439b0d",
+      "occurrences": [
+        {
+          "file": "src/arxiv_mcp_server/tools/download.py",
+          "start_line": 1783,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-9094d287b90c4eda9167bb43af6d4106",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server dependency without pinned version: 'pip install arxiv-mcp-server'.",
+      "severity": "LOW",
+      "confidence": 0.6,
+      "location": {
+        "file": "tests/tools/test_download_html.py",
+        "start_line": 427,
+        "end_line": null
+      },
+      "finding": "pip install arxiv-mcp-server",
+      "explanation": "pip install without ==version installs the latest release, which could include malicious changes.",
+      "remediation": "Pin the version: pip install package==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9d7366b339647e9dbd4932e5c887c0085addde918415af5fa69a10deac439b0d",
+      "occurrences": [
+        {
+          "file": "tests/tools/test_download_html.py",
+          "start_line": 427,
+          "end_line": null
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 115,
+    "scanned_components": 113,
+    "coverage_percent": 98.3,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 113,
+    "partially_inspected_files": 2,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "runtime_limit",
+        "message": "Inspection reached its configured runtime limit.",
+        "path": "pyproject.toml",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_runtime_limit"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "runtime_limit",
+        "message": "Inspection reached its configured runtime limit.",
+        "path": "uv.lock",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_runtime_limit"
+        ]
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 117,
+        "completed": 115,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 115,
+        "completed": 115,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_supply_chain status: degraded."
+    ],
+    "findings_before_filtering": 80,
+    "findings_after_filtering": 80,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

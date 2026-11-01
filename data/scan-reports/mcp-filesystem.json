@@ -1,0 +1,2837 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\modelcontextprotocol__servers\\servers-main\\src\\filesystem",
+    "scanned_at": "2026-10-31T21:53:40.602539+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": "CHANGELOG.md",
+      "type": "markdown",
+      "lines": 75,
+      "executable": false,
+      "size_bytes": 16013,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Dockerfile",
+      "type": "other",
+      "lines": 25,
+      "executable": false,
+      "size_bytes": 564,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 426,
+      "executable": false,
+      "size_bytes": 20494,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/bin-smoke.test.ts",
+      "type": "typescript",
+      "lines": 54,
+      "executable": true,
+      "size_bytes": 2045,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/bounded-walk.test.ts",
+      "type": "typescript",
+      "lines": 265,
+      "executable": true,
+      "size_bytes": 9743,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/eras.test.ts",
+      "type": "typescript",
+      "lines": 192,
+      "executable": true,
+      "size_bytes": 6848,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/helpers.ts",
+      "type": "typescript",
+      "lines": 97,
+      "executable": true,
+      "size_bytes": 3227,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/lib.test.ts",
+      "type": "typescript",
+      "lines": 1213,
+      "executable": true,
+      "size_bytes": 41800,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/path-utils.test.ts",
+      "type": "typescript",
+      "lines": 456,
+      "executable": true,
+      "size_bytes": 16172,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/path-validation.test.ts",
+      "type": "typescript",
+      "lines": 1370,
+      "executable": true,
+      "size_bytes": 47584,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/pinned-directory.test.ts",
+      "type": "typescript",
+      "lines": 962,
+      "executable": true,
+      "size_bytes": 35579,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/roots-utils.test.ts",
+      "type": "typescript",
+      "lines": 141,
+      "executable": true,
+      "size_bytes": 5433,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/server-paths.test.ts",
+      "type": "typescript",
+      "lines": 580,
+      "executable": true,
+      "size_bytes": 21765,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/server-roots.test.ts",
+      "type": "typescript",
+      "lines": 887,
+      "executable": true,
+      "size_bytes": 31333,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/server-tools.test.ts",
+      "type": "typescript",
+      "lines": 2100,
+      "executable": true,
+      "size_bytes": 75847,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/stdio.test.ts",
+      "type": "typescript",
+      "lines": 277,
+      "executable": true,
+      "size_bytes": 9985,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/version.test.ts",
+      "type": "typescript",
+      "lines": 43,
+      "executable": true,
+      "size_bytes": 1497,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__tests__/win32.test.ts",
+      "type": "typescript",
+      "lines": 143,
+      "executable": true,
+      "size_bytes": 4632,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "index.ts",
+      "type": "typescript",
+      "lines": 165,
+      "executable": true,
+      "size_bytes": 6349,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "lib.ts",
+      "type": "typescript",
+      "lines": 982,
+      "executable": true,
+      "size_bytes": 34902,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "package.json",
+      "type": "json",
+      "lines": 53,
+      "executable": false,
+      "size_bytes": 1715,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "path-utils.ts",
+      "type": "typescript",
+      "lines": 166,
+      "executable": true,
+      "size_bytes": 6196,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "path-validation.ts",
+      "type": "typescript",
+      "lines": 106,
+      "executable": true,
+      "size_bytes": 3708,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "pinned-directory.ts",
+      "type": "typescript",
+      "lines": 595,
+      "executable": true,
+      "size_bytes": 20247,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "roots-utils.ts",
+      "type": "typescript",
+      "lines": 114,
+      "executable": true,
+      "size_bytes": 3763,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "server.ts",
+      "type": "typescript",
+      "lines": 934,
+      "executable": true,
+      "size_bytes": 35730,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tsconfig.json",
+      "type": "json",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 314,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tsconfig.test.json",
+      "type": "json",
+      "lines": 13,
+      "executable": false,
+      "size_bytes": 546,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "version.ts",
+      "type": "typescript",
+      "lines": 39,
+      "executable": true,
+      "size_bytes": 1378,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "vitest.config.ts",
+      "type": "typescript",
+      "lines": 26,
+      "executable": true,
+      "size_bytes": 825,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "PE3",
+      "finding_id": "finding-759cef0cd3c9496cb5d3a62832a70828",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/eras.test.ts",
+        "start_line": 39,
+        "end_line": null,
+        "start_column": 39
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  quietStderr();\n  allowed = await fs.realpath(await makeTempDir(\"mcp-fs-era-allowed-\"));\n  other = await fs.realpath(await makeTempDir(\"mcp-fs-era-other-\"));\n  await fs.writeFile(path.join(other, \"secret.txt\"), \"secret\");\n  closers = [];\n});\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/eras.test.ts",
+          "start_line": 39,
+          "end_line": null,
+          "start_column": 39
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-79a7a2507ee9401fbe32bdaf9d315141",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/eras.test.ts",
+        "start_line": 95,
+        "end_line": null,
+        "start_column": 43
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    expect(await listAllowed(client)).toBe(`Allowed directories:\\n${allowed}`);\n    const read = (await client.callTool({\n      name: \"read_text_file\",\n      arguments: { path: path.join(other, \"secret.txt\") },\n    })) as CallToolResult;\n    expect(read.isError).toBe(true);\n    expect((read.content[0] as { text: string }).text).toContain(",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/eras.test.ts",
+          "start_line": 95,
+          "end_line": null,
+          "start_column": 43
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-40832fd62d48444393097e0ec9360e3b",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/path-validation.test.ts",
+        "start_line": 1304,
+        "end_line": null,
+        "start_column": 50
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n      const allowed = [allowedDir];\n      const legitFile = path.join(allowedDir, \"readable.txt\");\n      const secretFile = path.join(forbiddenDir, \"secret.txt\");\n\n      // Create legitimate file\n      await fs.writeFile(legitFile, \"PUBLIC CONTENT\", \"utf-8\");",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/path-validation.test.ts",
+          "start_line": 1304,
+          "end_line": null,
+          "start_column": 50
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-63c359bcd63745d998c776fd1f620f57",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-paths.test.ts",
+        "start_line": 68,
+        "end_line": null,
+        "start_column": 41
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  quietStderr();\n  dir = await makeTempDir(\"mcp-fs-paths-\");\n  outside = await makeTempDir(\"mcp-fs-outside-\");\n  await fs.writeFile(path.join(outside, \"secret.txt\"), \"secret\");\n  conn = await connect([dir]);\n  client = conn.client;\n});",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-paths.test.ts",
+          "start_line": 68,
+          "end_line": null,
+          "start_column": 41
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-2a541026227648a1b9056a7fb4e7dc60",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-paths.test.ts",
+        "start_line": 82,
+        "end_line": null,
+        "start_column": 39
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\ndescribe(\"the allow-list boundary\", () => {\n  it(\"refuses an absolute path outside, naming the allowed directories\", async () => {\n    const target = path.join(outside, \"secret.txt\");\n    const result = await read(target);\n    expect(result.isError).toBe(true);\n    expect(textOf(result)).toBe(",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-paths.test.ts",
+          "start_line": 82,
+          "end_line": null,
+          "start_column": 39
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-1631675a91f548f29168e40490766cc4",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-paths.test.ts",
+        "start_line": 92,
+        "end_line": null,
+        "start_column": 52
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n  it(\"refuses .. traversal out of the allowed directory\", async () => {\n    const result = await read(\n      path.join(dir, \"..\", path.basename(outside), \"secret.txt\"),\n    );\n    expect(textOf(result)).toMatch(/^Access denied - path outside/);\n  });",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-paths.test.ts",
+          "start_line": 92,
+          "end_line": null,
+          "start_column": 52
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-f264d6e5691647ceaa85c66899f18479",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-paths.test.ts",
+        "start_line": 247,
+        "end_line": null,
+        "start_column": 41
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n  it(\"refuses a symlink whose target is outside\", async () => {\n    const link = path.join(dir, \"escape.txt\");\n    await fs.symlink(path.join(outside, \"secret.txt\"), link);\n    const result = await read(link);\n    expect(textOf(result)).toBe(\n      `Access denied - symlink target outside allowed directories: ${path.join(outside, \"secret.txt\")} not in ${dir}`,",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-paths.test.ts",
+          "start_line": 247,
+          "end_line": null,
+          "start_column": 41
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-e7b05f94438b4f1fa114ed57d4f59a12",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-paths.test.ts",
+        "start_line": 250,
+        "end_line": null,
+        "start_column": 89
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    await fs.symlink(path.join(outside, \"secret.txt\"), link);\n    const result = await read(link);\n    expect(textOf(result)).toBe(\n      `Access denied - symlink target outside allowed directories: ${path.join(outside, \"secret.txt\")} not in ${dir}`,\n    );\n  });\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-paths.test.ts",
+          "start_line": 250,
+          "end_line": null,
+          "start_column": 89
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-cb5250f502724c26871d733840ba83a0",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-paths.test.ts",
+        "start_line": 262,
+        "end_line": null,
+        "start_column": 48
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    expect(textOf(result)).toBe(\n      `Access denied - symlink target outside allowed directories: ${outside} not in ${dir}`,\n    );\n    expect(await fs.readdir(outside)).toEqual([\"secret.txt\"]);\n  });\n\n  describe.skipIf(!caseInsensitive)(",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-paths.test.ts",
+          "start_line": 262,
+          "end_line": null,
+          "start_column": 48
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-dbb048d96e6248a6adcf60e4ced1d953",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-paths.test.ts",
+        "start_line": 277,
+        "end_line": null,
+        "start_column": 52
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "          path: path.join(dir, \"LINK\", \"a\"),\n        });\n        expect(textOf(result)).toBe(refusal());\n        expect(await fs.readdir(outside)).toEqual([\"secret.txt\"]);\n      });\n\n      it(\"refuses write_file when only an ancestor of the symlink is respelled\", async () => {",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-paths.test.ts",
+          "start_line": 277,
+          "end_line": null,
+          "start_column": 52
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-369cba0c8fa34520835d0ff8a5d9c263",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-paths.test.ts",
+        "start_line": 288,
+        "end_line": null,
+        "start_column": 52
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "          content: \"x\",\n        });\n        expect(textOf(result)).toBe(refusal());\n        expect(await fs.readdir(outside)).toEqual([\"secret.txt\"]);\n      });\n\n      it(\"refuses a move_file destination under a symlink that leaves\", async () => {",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-paths.test.ts",
+          "start_line": 288,
+          "end_line": null,
+          "start_column": 52
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-c910c86659e946d3adfdfe78528954c5",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-paths.test.ts",
+        "start_line": 299,
+        "end_line": null,
+        "start_column": 52
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "          destination: path.join(dir, \"lInK\", \"moved.txt\"),\n        });\n        expect(textOf(result)).toBe(refusal());\n        expect(await fs.readdir(outside)).toEqual([\"secret.txt\"]);\n        expect(await fs.readFile(path.join(dir, \"note.txt\"), \"utf8\")).toBe(\n          \"note\",\n        );",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-paths.test.ts",
+          "start_line": 299,
+          "end_line": null,
+          "start_column": 52
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-c949fe66027a4c3987c1baa0889fd6dd",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-paths.test.ts",
+        "start_line": 559,
+        "end_line": null,
+        "start_column": 45
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    async () => {\n      const sibling = path.join(dir, \"casetest\");\n      await fs.mkdir(sibling);\n      await fs.writeFile(path.join(sibling, \"secret.txt\"), \"secret\");\n      const result = await call(scoped.client, \"read_text_file\", {\n        path: path.join(sibling, \"secret.txt\"),\n      });",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-paths.test.ts",
+          "start_line": 559,
+          "end_line": null,
+          "start_column": 45
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-08c2090ba76c43edaf16f2e671265c1e",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-paths.test.ts",
+        "start_line": 561,
+        "end_line": null,
+        "start_column": 34
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "      await fs.mkdir(sibling);\n      await fs.writeFile(path.join(sibling, \"secret.txt\"), \"secret\");\n      const result = await call(scoped.client, \"read_text_file\", {\n        path: path.join(sibling, \"secret.txt\"),\n      });\n      expect(textOf(result)).toMatch(/^Access denied - path outside/);\n    },",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-paths.test.ts",
+          "start_line": 561,
+          "end_line": null,
+          "start_column": 34
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-b99e3ffa6506400a81cb1c22c6fc162c",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-paths.test.ts",
+        "start_line": 575,
+        "end_line": null,
+        "start_column": 9
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "        \"..\",\n        \"..\",\n        path.basename(outside),\n        \"secret.txt\",\n      ),\n    });\n    expect(textOf(result)).toMatch(/^Access denied - path outside/);",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-paths.test.ts",
+          "start_line": 575,
+          "end_line": null,
+          "start_column": 9
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-2bdef5e5e7b64831ab83a5b47d10711e",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-roots.test.ts",
+        "start_line": 117,
+        "end_line": null,
+        "start_column": 38
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  it(\"refuse a symlink inside a symlinked root that points outside it (#5183)\", async () => {\n    const link = path.join(cliDir, \"link-to-root\");\n    await fs.symlink(rootDir, link);\n    const secret = path.join(cliDir, \"secret.txt\");\n    await fs.writeFile(secret, \"outside the root\");\n    await fs.symlink(secret, path.join(rootDir, \"escape.txt\"));\n    const { client } = await connectTracked([], {",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-roots.test.ts",
+          "start_line": 117,
+          "end_line": null,
+          "start_column": 38
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-b764a371d01b441394bca4e300a94e3f",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-roots.test.ts",
+        "start_line": 176,
+        "end_line": null,
+        "start_column": 45
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "      await fs.symlink(rootDir, link);\n      const sibling = path.join(cliDir, \"alias\");\n      await fs.mkdir(sibling);\n      await fs.writeFile(path.join(sibling, \"secret.txt\"), \"not in the root\");\n      const { client } = await connectTracked([], {\n        capabilities: ROOTS,\n        listRoots: () => [rootOf(link)],",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-roots.test.ts",
+          "start_line": 176,
+          "end_line": null,
+          "start_column": 45
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-77643072a37d4be4b7dc1e82ed93e79f",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-roots.test.ts",
+        "start_line": 185,
+        "end_line": null,
+        "start_column": 34
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "        expect(await allowedDirectoriesOf(client)).toEqual([link, rootDir]),\n      );\n      const result = await call(client, \"read_text_file\", {\n        path: path.join(sibling, \"secret.txt\"),\n      });\n      expect(textOf(result)).toMatch(/^Access denied/);\n    },",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-roots.test.ts",
+          "start_line": 185,
+          "end_line": null,
+          "start_column": 34
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-8c1edd17a8f14c828a5b40f2ad87ca55",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-tools.test.ts",
+        "start_line": 724,
+        "end_line": null,
+        "start_column": 43
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "      async () => {\n        const file = path.join(dir, \"victim.txt\");\n        const outside = await makeTempDir(\"mcp-fs-outside-\");\n        const secret = path.join(outside, \"secret.txt\");\n        await fs.writeFile(file, \"original\");\n        await fs.writeFile(secret, \"SECRET\");\n        try {",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-tools.test.ts",
+          "start_line": 724,
+          "end_line": null,
+          "start_column": 43
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-de2393d7315b4ac39a4ed58ab4619b02",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/server-tools.test.ts",
+        "start_line": 2014,
+        "end_line": null,
+        "start_column": 45
+      },
+      "finding": "secret.txt",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  it(\"silently skips a symlink that leaves the allowed directories\", async () => {\n    const outside = await makeTempDir(\"mcp-fs-outside-\");\n    try {\n      await fs.writeFile(path.join(outside, \"secret.txt\"), \"\");\n      await fs.symlink(outside, path.join(dir, \"escape\"));\n      expect(await search({ pattern: \"**/*\" })).not.toContain(\n        path.join(dir, \"escape\"),",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "337762cc34d103c6b1b8e3aff6d24aaf85637a1d962804309c0b9ef091a55a01",
+      "occurrences": [
+        {
+          "file": "__tests__/server-tools.test.ts",
+          "start_line": 2014,
+          "end_line": null,
+          "start_column": 45
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-855ff2a3ab64455b87b68c06bf2e9874",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/lib.test.ts",
+        "start_line": 319,
+        "end_line": null,
+        "start_column": 15
+      },
+      "finding": "/etc/passwd",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "        const testPath =\n          process.platform === \"win32\"\n            ? \"C:\\\\Windows\\\\System32\\\\file.txt\"\n            : \"/etc/passwd\";\n        await expect(validatePath(testPath, allowedDirs)).rejects.toThrow(\n          \"Access denied - path outside allowed directories\",\n        );",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac75eea6ed115d0252fb13bbb10e9c4421764d5a7612787edcde6a78569d8f88",
+      "occurrences": [
+        {
+          "file": "__tests__/lib.test.ts",
+          "start_line": 319,
+          "end_line": null,
+          "start_column": 15
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-39f41bd311324f3db3c744b84171920e",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/path-validation.test.ts",
+        "start_line": 105,
+        "end_line": null,
+        "start_column": 43
+      },
+      "finding": "/etc/passwd",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    expect(isPathWithinAllowedDirectories(\"/home/user/other\", allowed)).toBe(\n      false,\n    );\n    expect(isPathWithinAllowedDirectories(\"/etc/passwd\", allowed)).toBe(false);\n    expect(isPathWithinAllowedDirectories(\"/home/user\", allowed)).toBe(false);\n    expect(isPathWithinAllowedDirectories(\"/\", allowed)).toBe(false);\n  });",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac75eea6ed115d0252fb13bbb10e9c4421764d5a7612787edcde6a78569d8f88",
+      "occurrences": [
+        {
+          "file": "__tests__/path-validation.test.ts",
+          "start_line": 105,
+          "end_line": null,
+          "start_column": 43
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-91dfee1b1429406d927972b8194fb194",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/path-validation.test.ts",
+        "start_line": 365,
+        "end_line": null,
+        "start_column": 45
+      },
+      "finding": "/etc/passwd",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "      // Everything is allowed under root (dangerous configuration)\n      expect(isPathWithinAllowedDirectories(\"/\", allowed)).toBe(true);\n      expect(isPathWithinAllowedDirectories(\"/any/path\", allowed)).toBe(true);\n      expect(isPathWithinAllowedDirectories(\"/etc/passwd\", allowed)).toBe(true);\n      expect(isPathWithinAllowedDirectories(\"/home/user/secret\", allowed)).toBe(\n        true,\n      );",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac75eea6ed115d0252fb13bbb10e9c4421764d5a7612787edcde6a78569d8f88",
+      "occurrences": [
+        {
+          "file": "__tests__/path-validation.test.ts",
+          "start_line": 365,
+          "end_line": null,
+          "start_column": 45
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-6f22e1e5e67748cbb9204b93d9748fe1",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/path-validation.test.ts",
+        "start_line": 423,
+        "end_line": null,
+        "start_column": 38
+      },
+      "finding": "/etc/passwd",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "      // Basic traversal attempts\n      expect(\n        isPathWithinAllowedDirectories(\n          \"/home/user/project/../../../etc/passwd\",\n          allowed,\n        ),\n      ).toBe(false);",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac75eea6ed115d0252fb13bbb10e9c4421764d5a7612787edcde6a78569d8f88",
+      "occurrences": [
+        {
+          "file": "__tests__/path-validation.test.ts",
+          "start_line": 423,
+          "end_line": null,
+          "start_column": 38
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-027772a4b9ad45a29efaad6471796410",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/path-validation.test.ts",
+        "start_line": 507,
+        "end_line": null,
+        "start_column": 33
+      },
+      "finding": "/etc/passwd",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n      expect(\n        isPathWithinAllowedDirectories(\n          \"/home/user/project\\x00/etc/passwd\",\n          allowed,\n        ),\n      ).toBe(false);",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac75eea6ed115d0252fb13bbb10e9c4421764d5a7612787edcde6a78569d8f88",
+      "occurrences": [
+        {
+          "file": "__tests__/path-validation.test.ts",
+          "start_line": 507,
+          "end_line": null,
+          "start_column": 33
+        }
+      ]
+    },
+    {
+      "id": "P1",
+      "finding_id": "finding-b780fcecc8854033be8d8f1e299b4c33",
+      "category": "Prompt Injection",
+      "pattern": "Instruction Override",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/path-validation.test.ts",
+        "start_line": 47,
+        "end_line": 47,
+        "start_column": 24,
+        "end_column": 45
+      },
+      "finding": "enable Developer Mode",
+      "explanation": "This pattern attempts to override system instructions or ignore safety constraints. Without LLM analysis, manual review is recommended.",
+      "remediation": "Remove or rewrite any text that instructs the agent to ignore prompts, override safety rules, or trust unverified content. Ensure skill content cannot be injected to alter agent behavior.",
+      "code_snippet": "        \"\\n\u26a0\ufe0f  Symlink tests will be skipped - symlink creation not supported in this environment\",\n      );\n      console.log(\n        \"   On Windows, enable Developer Mode or run as Administrator to enable symlink tests\",\n      );\n    }\n  }",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "66df3aa21ea20662698fc8ca52e0870a9cc579d91aa1871b33118f5d06737048",
+      "occurrences": [
+        {
+          "file": "__tests__/path-validation.test.ts",
+          "start_line": 47,
+          "end_line": 47,
+          "start_column": 24,
+          "end_column": 45
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-8adf2803e0e746d09b139580e2e339e1",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/server-tools.test.ts",
+        "start_line": 1238,
+        "end_line": null,
+        "start_column": 39
+      },
+      "finding": ".env\"",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    await fs.mkdir(path.join(dir, \"nested\", \"node_modules\"), {\n      recursive: true,\n    });\n    await fs.writeFile(path.join(dir, \".env\"), \"\");\n    await fs.writeFile(path.join(dir, \".env.local\"), \"\");\n    await fs.writeFile(path.join(dir, \"src\", \"index.js\"), \"\");\n    await fs.writeFile(path.join(dir, \"package.json\"), \"{}\");",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "933e7e6dda63d615cb9ac0846682521855cd79c351e84f3fa87d934c18b752db",
+      "occurrences": [
+        {
+          "file": "__tests__/server-tools.test.ts",
+          "start_line": 1238,
+          "end_line": null,
+          "start_column": 39
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-6a238b4e2ec943779cba768a13da320d",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/server-tools.test.ts",
+        "start_line": 1265,
+        "end_line": null,
+        "start_column": 15
+      },
+      "finding": ".env\"",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "      '[\\n  {\\n    \"name\": \"index.js\",\\n    \"type\": \"file\"\\n  }\\n]',\n    );\n    expect(await tree()).toEqual([\n      { name: \".env\", type: \"file\" },\n      { name: \".env.local\", type: \"file\" },\n      { name: \".git\", type: \"directory\", children: [] },\n      {",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "933e7e6dda63d615cb9ac0846682521855cd79c351e84f3fa87d934c18b752db",
+      "occurrences": [
+        {
+          "file": "__tests__/server-tools.test.ts",
+          "start_line": 1265,
+          "end_line": null,
+          "start_column": 15
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-aab3f8ba18904885a7cc69c27315109b",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/server-tools.test.ts",
+        "start_line": 1294,
+        "end_line": null,
+        "start_column": 48
+      },
+      "finding": ".env\"",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  });\n\n  it(\"excludes a bare name at any depth, and not its prefix matches\", async () => {\n    const names = (await tree([\"node_modules\", \".env\"])).map((e) => e.name);\n    expect(names).toEqual([\n      \".env.local\",\n      \".git\",",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "933e7e6dda63d615cb9ac0846682521855cd79c351e84f3fa87d934c18b752db",
+      "occurrences": [
+        {
+          "file": "__tests__/server-tools.test.ts",
+          "start_line": 1294,
+          "end_line": null,
+          "start_column": 48
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-90c3c8774b914a66af22f9b3fc2eac21",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/server-tools.test.ts",
+        "start_line": 1309,
+        "end_line": null,
+        "start_column": 33
+      },
+      "finding": ".env\"",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  });\n\n  it(\"matches a glob pattern against the relative path only\", async () => {\n    const names = (await tree([\"*.env\"])).map((e) => e.name);\n    expect(names).not.toContain(\".env\");\n    expect(names).toContain(\".env.local\");\n    const deep = await tree([\"*.js\"]);",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "933e7e6dda63d615cb9ac0846682521855cd79c351e84f3fa87d934c18b752db",
+      "occurrences": [
+        {
+          "file": "__tests__/server-tools.test.ts",
+          "start_line": 1309,
+          "end_line": null,
+          "start_column": 33
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-7be3719330d44d7bb4012975fc3a78b7",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/server-tools.test.ts",
+        "start_line": 1310,
+        "end_line": null,
+        "start_column": 33
+      },
+      "finding": ".env\"",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n  it(\"matches a glob pattern against the relative path only\", async () => {\n    const names = (await tree([\"*.env\"])).map((e) => e.name);\n    expect(names).not.toContain(\".env\");\n    expect(names).toContain(\".env.local\");\n    const deep = await tree([\"*.js\"]);\n    // \"*.js\" does not cross a separator, so nested files stay.",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "933e7e6dda63d615cb9ac0846682521855cd79c351e84f3fa87d934c18b752db",
+      "occurrences": [
+        {
+          "file": "__tests__/server-tools.test.ts",
+          "start_line": 1310,
+          "end_line": null,
+          "start_column": 33
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-11b60f798fa544e393b2fd54c453fa16",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/server-tools.test.ts",
+        "start_line": 1239,
+        "end_line": null,
+        "start_column": 39
+      },
+      "finding": ".env.local\"",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "      recursive: true,\n    });\n    await fs.writeFile(path.join(dir, \".env\"), \"\");\n    await fs.writeFile(path.join(dir, \".env.local\"), \"\");\n    await fs.writeFile(path.join(dir, \"src\", \"index.js\"), \"\");\n    await fs.writeFile(path.join(dir, \"package.json\"), \"{}\");\n    await fs.writeFile(path.join(dir, \"node_modules\", \"m.js\"), \"\");",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0d3b7ca23095b9db91601950562cb7c562f58bb1206a8acebbb7f94145faac47",
+      "occurrences": [
+        {
+          "file": "__tests__/server-tools.test.ts",
+          "start_line": 1239,
+          "end_line": null,
+          "start_column": 39
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-b6e6cd24c96c47cdb2258d6ce3f256e6",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/server-tools.test.ts",
+        "start_line": 1266,
+        "end_line": null,
+        "start_column": 15
+      },
+      "finding": ".env.local\"",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    );\n    expect(await tree()).toEqual([\n      { name: \".env\", type: \"file\" },\n      { name: \".env.local\", type: \"file\" },\n      { name: \".git\", type: \"directory\", children: [] },\n      {\n        name: \"nested\",",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0d3b7ca23095b9db91601950562cb7c562f58bb1206a8acebbb7f94145faac47",
+      "occurrences": [
+        {
+          "file": "__tests__/server-tools.test.ts",
+          "start_line": 1266,
+          "end_line": null,
+          "start_column": 15
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-08bef3c57fb2425f89450ad59ca6a524",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/server-tools.test.ts",
+        "start_line": 1296,
+        "end_line": null,
+        "start_column": 7
+      },
+      "finding": ".env.local\"",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  it(\"excludes a bare name at any depth, and not its prefix matches\", async () => {\n    const names = (await tree([\"node_modules\", \".env\"])).map((e) => e.name);\n    expect(names).toEqual([\n      \".env.local\",\n      \".git\",\n      \"nested\",\n      \"package.json\",",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0d3b7ca23095b9db91601950562cb7c562f58bb1206a8acebbb7f94145faac47",
+      "occurrences": [
+        {
+          "file": "__tests__/server-tools.test.ts",
+          "start_line": 1296,
+          "end_line": null,
+          "start_column": 7
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-20ac17ec591c490da70c384276d3f90b",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "__tests__/server-tools.test.ts",
+        "start_line": 1311,
+        "end_line": null,
+        "start_column": 29
+      },
+      "finding": ".env.local\"",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  it(\"matches a glob pattern against the relative path only\", async () => {\n    const names = (await tree([\"*.env\"])).map((e) => e.name);\n    expect(names).not.toContain(\".env\");\n    expect(names).toContain(\".env.local\");\n    const deep = await tree([\"*.js\"]);\n    // \"*.js\" does not cross a separator, so nested files stay.\n    expect(deep.find((e) => e.name === \"src\")?.children).toEqual([",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0d3b7ca23095b9db91601950562cb7c562f58bb1206a8acebbb7f94145faac47",
+      "occurrences": [
+        {
+          "file": "__tests__/server-tools.test.ts",
+          "start_line": 1311,
+          "end_line": null,
+          "start_column": 29
+        }
+      ]
+    },
+    {
+      "id": "AR2",
+      "finding_id": "finding-681812b188634abc9cb13664b4770d5b",
+      "category": "Anti-Refusal",
+      "pattern": "Anti-Refusal Statement",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "server.ts",
+        "start_line": 440,
+        "end_line": 440,
+        "start_column": 62,
+        "end_column": 77
+      },
+      "finding": "without warning",
+      "explanation": "Skill instructs the agent to omit warnings, disclaimers, or ethical commentary. Stripping safety caveats hides risk from the user and is a common jailbreak preamble.",
+      "remediation": "Remove instructions that suppress warnings, disclaimers, or ethical commentary. Let the agent surface safety-relevant caveats to the user.",
+      "code_snippet": "      title: \"Write File\",\n      description:\n        \"Create a new file or completely overwrite an existing file with new content. \" +\n        \"Use with caution as it will overwrite existing files without warning. \" +\n        \"Handles text content with proper encoding. Only works within allowed directories.\",\n      inputSchema: jsonSchema2020(WriteFileArgsSchema.shape),\n      outputSchema: jsonSchema2020({ content: z.string() }),",
+      "intent": null,
+      "tags": [
+        "Anti-Refusal"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e1c52694e854c5bd049e3a3ae66f3efcfe098f61a8ee160655ad3b90035f67fd",
+      "occurrences": [
+        {
+          "file": "server.ts",
+          "start_line": 440,
+          "end_line": 440,
+          "start_column": 62,
+          "end_column": 77
+        }
+      ]
+    },
+    {
+      "id": "RA1",
+      "finding_id": "finding-224597052eb846eaae1b0efa9fd5cbb7",
+      "category": "Rogue Agent",
+      "pattern": "Self-Modification",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "server.ts",
+        "start_line": 440,
+        "end_line": null,
+        "start_column": 37
+      },
+      "finding": "overwrite existing file",
+      "explanation": "Skill modifies its own code, configuration, or behavior at runtime. Self-modification enables an agent to escalate privileges, disable safety constraints, or install persistent backdoors.",
+      "remediation": "Prevent the skill from modifying its own code, SKILL.md, or configuration files. Treat skill files as read-only at runtime.",
+      "code_snippet": "      title: \"Write File\",\n      description:\n        \"Create a new file or completely overwrite an existing file with new content. \" +\n        \"Use with caution as it will overwrite existing files without warning. \" +\n        \"Handles text content with proper encoding. Only works within allowed directories.\",\n      inputSchema: jsonSchema2020(WriteFileArgsSchema.shape),\n      outputSchema: jsonSchema2020({ content: z.string() }),",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7ba2b849c5dcccbb8994b775fe53f63f181b047f3264e45ac1a3bc5a39f8710e",
+      "occurrences": [
+        {
+          "file": "server.ts",
+          "start_line": 440,
+          "end_line": null,
+          "start_column": 37
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-2269598ee9624a9686b35b4a1b603f63",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'NPX in'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 343,
+        "end_line": null
+      },
+      "finding": "NPX in",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "912f4c689d3daeb48d8952a7661ea14324a688321562509810a01ac24e5cb3a4",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 343,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-45a6454ac9e441e2aee84200c16e9f7c",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx @modelcontextprotocol/server-filesystem'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "__tests__/path-utils.test.ts",
+        "start_line": 383,
+        "end_line": null
+      },
+      "finding": "npx @modelcontextprotocol/server-filesystem",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "273e4242a61f90fbad13a63b58d95990182def65d26c46f5ff7cab17f30d6dd3",
+      "occurrences": [
+        {
+          "file": "__tests__/path-utils.test.ts",
+          "start_line": 383,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-65acd8db1d5641ab9d31a97564a309ea",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 37,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@modelcontextprotocol/server\": \"^2.3.1\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"validate\": \"npm run format:check && npm run lint && npm run typecheck && npm run build && npm run test\"\n  },\n  \"dependencies\": {\n    \"@modelcontextprotocol/server\": \"^2.3.1\",\n    \"diff\": \"^8.0.3\",\n    \"glob\": \"^13.0.6\",\n    \"minimatch\": \"^10.0.1\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5189fa7d2b107554b2a5e02e74314de961f45d381e89127188fda07f09d7f29d",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 37,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-f470dc9aa52342efbd1e254b4dd81d14",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: @modelcontextprotocol/server has 4 known advisory(ies) (CVE-2026-111768 (MCP TypeScript SDK: One HTTP request within the default size limit could exhaust); GHSA-f897-62hf-6gxq (MCP TypeScript SDK: HTTP server transports and handlers did not limit request bo); CVE-2026-111770 (MCP  TypeScript server SDK: Shared transport or server instances delivered one H) +1 more), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 37,
+        "end_line": null
+      },
+      "finding": "@modelcontextprotocol/server",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c6d63dd7d6c992fb6bb0069b92ee681286d432d804c4aa287d03221af66311f9",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 37,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-1a406231c14649b69e004c7e97e8f511",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 38,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"diff\": \"^8.0.3\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  },\n  \"dependencies\": {\n    \"@modelcontextprotocol/server\": \"^2.3.1\",\n    \"diff\": \"^8.0.3\",\n    \"glob\": \"^13.0.6\",\n    \"minimatch\": \"^10.0.1\",\n    \"zod\": \"^4.2.0\"",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7ce142e012eb4210c18b446a6ddd470e63361deccf24a5bcdeba991430c6affe",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 38,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-7495884005124aa18ab19c78797daef6",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: diff has 2 known advisory(ies) (CVE-2026-24001 (jsdiff has a Denial of Service vulnerability in parsePatch and applyPatch); GHSA-h6ch-v84p-w6p9 (Regular Expression Denial of Service (ReDoS))), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 38,
+        "end_line": null
+      },
+      "finding": "diff",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "40e967bcb01848a9496a5885fca5c2a8bcb59dcb2d0d38d61c17075dce553506",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 38,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-f50bfeb47a9f45e0b2fae8150c0ed69d",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 39,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"glob\": \"^13.0.6\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  \"dependencies\": {\n    \"@modelcontextprotocol/server\": \"^2.3.1\",\n    \"diff\": \"^8.0.3\",\n    \"glob\": \"^13.0.6\",\n    \"minimatch\": \"^10.0.1\",\n    \"zod\": \"^4.2.0\"\n  },",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "130bbfd20158feb0509c75da599dc307c538b3a87cc9ebccf2c4fc4f3717b9b3",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 39,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-acb34d95b6f74ec68c94dc437af857ae",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: glob has 2 known advisory(ies) (CVE-2026-118773 (Glob: AbortSignal cancellation bypass allows post-timeout filesystem traversal); CVE-2025-64756 (glob CLI: Command injection via -c/--cmd executes matches with shell:true)), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 39,
+        "end_line": null
+      },
+      "finding": "glob",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a066d7d325e22f5bee572b0a8c68ae001fc758a21e548eecd4b3aff60c8107c0",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 39,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-9721d0bc54bd452e98620b0aa3ced54e",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 40,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"minimatch\": \"^10.0.1\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@modelcontextprotocol/server\": \"^2.3.1\",\n    \"diff\": \"^8.0.3\",\n    \"glob\": \"^13.0.6\",\n    \"minimatch\": \"^10.0.1\",\n    \"zod\": \"^4.2.0\"\n  },\n  \"devDependencies\": {",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c5fa5f74315afcd5e9fe3603b56544bcaf80a552b45cfa01fc70f7e3284eacf5",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 40,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-632730c373ab40d5b38e788f19fc624b",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: minimatch has 6 known advisory(ies) (CVE-2026-27904 (minimatch ReDoS: nested *() extglobs generate catastrophically backtracking regu); CVE-2026-26996 (minimatch has a ReDoS via repeated wildcards with non-matching literal in patter); CVE-2026-27903 (minimatch has ReDoS: matchOne() combinatorial backtracking via multiple non-adja) +3 more), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 40,
+        "end_line": null
+      },
+      "finding": "minimatch",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6cb91e6bd26ddd8b4f33ba09649f27a57201837444ff89683a1ece1693a13d93",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 40,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-614d0ff5c248420dbcce765b238761e1",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 41,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"zod\": \"^4.2.0\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"diff\": \"^8.0.3\",\n    \"glob\": \"^13.0.6\",\n    \"minimatch\": \"^10.0.1\",\n    \"zod\": \"^4.2.0\"\n  },\n  \"devDependencies\": {\n    \"@modelcontextprotocol/client\": \"^2.3.1\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f8b873524f2c06b004d9cbc7095268b33792690b148a8a0baaa76df85c737c12",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 41,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-e886f295358a4070af228c7e06589428",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: zod has 2 known advisory(ies) (CVE-2023-4316 (Zod denial of service vulnerability); CVE-2023-54404 (Zod can exhaust memory while validating oversized constrained collections)), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 41,
+        "end_line": null
+      },
+      "finding": "zod",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7c38c1841a95c57526af54b7df1d6dc7f78729f0090449106d9431f1e0e8c9ee",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 41,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-4fafc1e43a0344129a2386a5fd94009e",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 44,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@modelcontextprotocol/client\": \"^2.3.1\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"zod\": \"^4.2.0\"\n  },\n  \"devDependencies\": {\n    \"@modelcontextprotocol/client\": \"^2.3.1\",\n    \"@types/diff\": \"^5.0.9\",\n    \"@types/minimatch\": \"^5.1.2\",\n    \"@types/node\": \"^24\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0cb0ec42c38b56ef450584dcd4ea532e7d3db49daa2c4021079b7d4b733f2c01",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 44,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-3800b19178fb409384d848727c957cef",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: @modelcontextprotocol/client has 2 known advisory(ies) (CVE-2026-111769 (MCP TypeScript client SDK: HTTP client transports and OAuth requests followed cr); CVE-2026-104850 (MCP TypeScript SDK: OAuth client could send credentials to an authorization serv)), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 44,
+        "end_line": null
+      },
+      "finding": "@modelcontextprotocol/client",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ece8551e2b8a5fbd1b1fc7a55d127378414b84fdf8e59294928cccd8bb55b679",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 44,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-0db8464feda340a5b1b05cee503eb089",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 45,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@types/diff\": \"^5.0.9\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  },\n  \"devDependencies\": {\n    \"@modelcontextprotocol/client\": \"^2.3.1\",\n    \"@types/diff\": \"^5.0.9\",\n    \"@types/minimatch\": \"^5.1.2\",\n    \"@types/node\": \"^24\",\n    \"@vitest/coverage-v8\": \"^4.1.12\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3639b1180ef52587602f6a83a13e894ab02b736f61f5b35336e45aa23f31cc2f",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 45,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-ae65f29036984c98b2b0d6cd065a45d1",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 46,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@types/minimatch\": \"^5.1.2\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  \"devDependencies\": {\n    \"@modelcontextprotocol/client\": \"^2.3.1\",\n    \"@types/diff\": \"^5.0.9\",\n    \"@types/minimatch\": \"^5.1.2\",\n    \"@types/node\": \"^24\",\n    \"@vitest/coverage-v8\": \"^4.1.12\",\n    \"shx\": \"^0.4.0\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ff4f82071709f8f5fa9c57222691a0c7ebf6b50eb19bf898739879bcba7c17f7",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 46,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-461d4bc4169f4975a27eaa72fdf7cde4",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 47,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@types/node\": \"^24\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@modelcontextprotocol/client\": \"^2.3.1\",\n    \"@types/diff\": \"^5.0.9\",\n    \"@types/minimatch\": \"^5.1.2\",\n    \"@types/node\": \"^24\",\n    \"@vitest/coverage-v8\": \"^4.1.12\",\n    \"shx\": \"^0.4.0\",\n    \"typescript\": \"^5.8.2\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "589892dd33d770db270826e0427f55fc07151dde9cefda309c6e1c1dc8eebca5",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 47,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-6500f8bb5ef34de8941ec4b249759df5",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 48,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@vitest/coverage-v8\": \"^4.1.12\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@types/diff\": \"^5.0.9\",\n    \"@types/minimatch\": \"^5.1.2\",\n    \"@types/node\": \"^24\",\n    \"@vitest/coverage-v8\": \"^4.1.12\",\n    \"shx\": \"^0.4.0\",\n    \"typescript\": \"^5.8.2\",\n    \"vitest\": \"^4.1.12\"",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "bc7e5ed3c60fcb0a564f3e506de1ecc0e88ad4a95237fd3c9b8a37e8b9b1df2f",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 48,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-2355a64b1c3c47b7a200be7165d92640",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 49,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"shx\": \"^0.4.0\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@types/minimatch\": \"^5.1.2\",\n    \"@types/node\": \"^24\",\n    \"@vitest/coverage-v8\": \"^4.1.12\",\n    \"shx\": \"^0.4.0\",\n    \"typescript\": \"^5.8.2\",\n    \"vitest\": \"^4.1.12\"\n  }",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "699fdf78c83e79d52b6411630da5fcda40de2d3ba10155960a6143a1ad7b845d",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 49,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-306ec6f8a24841b2be8f870dc03a9fc2",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 50,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"typescript\": \"^5.8.2\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@types/node\": \"^24\",\n    \"@vitest/coverage-v8\": \"^4.1.12\",\n    \"shx\": \"^0.4.0\",\n    \"typescript\": \"^5.8.2\",\n    \"vitest\": \"^4.1.12\"\n  }\n}",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8bda8e6a1198e24bd9575a20b21c05af3ddbcc4fb7e0c71d8df16ba172d374a9",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 50,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-6ed4b7b3aca340b091c33c93ec16f890",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 51,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"vitest\": \"^4.1.12\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@vitest/coverage-v8\": \"^4.1.12\",\n    \"shx\": \"^0.4.0\",\n    \"typescript\": \"^5.8.2\",\n    \"vitest\": \"^4.1.12\"\n  }\n}",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "843550759a0bd10cea6dcee3c2c2a6374722e05f3d18b56853b9831cb321d948",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 51,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-7ae850361f0a454ea64d7e87421b4c34",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: vitest has 3 known advisory(ies) (CVE-2026-47429 (When Vitest UI server is listening, arbitrary file can be read and executed); CVE-2026-84373 (Vitest: Path Traversal / Arbitrary File Read via @vitest/mocker Redirect Mock); CVE-2025-24964 (Vitest allows Remote Code Execution when accessing a malicious website while Vit)), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 51,
+        "end_line": null
+      },
+      "finding": "vitest",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3c1b4c6dbc6846233d1e866fad9d544a94e03de81ee683726814430a4684f742",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 51,
+          "end_line": null
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 30,
+    "scanned_components": 19,
+    "coverage_percent": 63.3,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 19,
+    "partially_inspected_files": 11,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/eras.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/lib.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/path-validation.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "__tests__/pinned-directory.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/pinned-directory.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/roots-utils.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/server-paths.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "__tests__/server-roots.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/server-roots.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "__tests__/server-tools.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "lib.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "path-utils.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "server.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 30,
+        "completed": 30,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 30,
+        "completed": 30,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "degraded",
+        "planned_work": 30,
+        "completed": 28,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "degraded",
+        "planned_work": 30,
+        "completed": 28,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 30,
+        "completed": 30,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "degraded",
+        "planned_work": 30,
+        "completed": 28,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "degraded",
+        "planned_work": 30,
+        "completed": 28,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "degraded",
+        "planned_work": 30,
+        "completed": 28,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "degraded",
+        "planned_work": 30,
+        "completed": 28,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 30,
+        "completed": 30,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "degraded",
+        "planned_work": 30,
+        "completed": 28,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "degraded",
+        "planned_work": 30,
+        "completed": 28,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "degraded",
+        "planned_work": 30,
+        "completed": 28,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "degraded",
+        "planned_work": 30,
+        "completed": 28,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 30,
+        "completed": 28,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "degraded",
+        "planned_work": 30,
+        "completed": 28,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 30,
+        "completed": 19,
+        "partial": 11,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 30,
+        "completed": 30,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_agent_snooping status: degraded.",
+      "Analyzer static_patterns_anti_refusal status: degraded.",
+      "Analyzer static_patterns_deserialization status: degraded.",
+      "Analyzer static_patterns_excessive_agency status: degraded.",
+      "Analyzer static_patterns_harmful_content status: degraded.",
+      "Analyzer static_patterns_memory_poisoning status: degraded.",
+      "Analyzer static_patterns_privilege_escalation status: degraded.",
+      "Analyzer static_patterns_prompt_injection status: degraded.",
+      "Analyzer static_patterns_rogue_agent status: degraded.",
+      "Analyzer static_patterns_ssrf status: degraded.",
+      "Analyzer static_patterns_supply_chain status: degraded.",
+      "Analyzer static_patterns_system_prompt_leakage status: degraded.",
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 60,
+    "findings_after_filtering": 60,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

@@ -1,0 +1,1003 @@
+{
+  "skill": {
+    "name": "hf-cloud-python-env-setup",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\huggingface__skills\\skills-main\\skills\\hf-cloud-python-env-setup",
+    "scanned_at": "2026-10-31T21:52:10.149305+00:00"
+  },
+  "risk_assessment": {
+    "score": 36,
+    "severity": "MEDIUM",
+    "recommendation": "CAUTION",
+    "max_issue_severity": "MEDIUM"
+  },
+  "components": [
+    {
+      "path": "SKILL.md",
+      "type": "markdown",
+      "lines": 90,
+      "executable": false,
+      "size_bytes": 6723,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "requirements.txt",
+      "type": "text",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 796,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/check_versions.py",
+      "type": "python",
+      "lines": 29,
+      "executable": true,
+      "size_bytes": 740,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/setup_env.py",
+      "type": "python",
+      "lines": 143,
+      "executable": true,
+      "size_bytes": 5035,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "LP3",
+      "finding_id": "finding-fdc02cb375c24caca2d993bbbcd10538",
+      "category": "MCP Least Privilege",
+      "pattern": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: shell.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: shell.",
+      "explanation": "Without declared permissions the skill's intent is opaque and cannot be validated.",
+      "remediation": "Clarify the skill's intended tool scope and review how the host runtime enforces it; runtime permissions are unknown unless separately verified. For Claude Code / Agent Skills SKILL.md, 'allowed-tools' records preapproved tools, not a permission ceiling; add a tool only when it is independently approved as necessary, not to silence this finding. For MCP server manifests, use a 'permissions' list naming the required capabilities.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI02"
+      ],
+      "evidence": {},
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "TR2",
+      "finding_id": "finding-9c32afe8d14e4261a74234b185fbb858",
+      "category": "Trigger Abuse",
+      "pattern": "Shadow Command Trigger",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": null,
+      "explanation": "Shadow Command Trigger: description clause 'Use this skill whenever Python code will be executed for a SageMaker deployment, training job, or any AWS automation \u2014 including when about to run `pip install`, when about to invoke `boto3`, when creating or activating a virtualenv, or when the user asks to \"set up the environment\"' conflicts with built-in command 'set'",
+      "remediation": "Choose triggers that do not conflict with built-in commands or other skills. Prefix with a unique namespace if necessary.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Trigger Abuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3f6e596bd1063651108a4cbe030fa01443b03615790020299107226b2d40354e",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-4a4d648b021946079a283642a322950d",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/setup_env.py",
+        "start_line": 53,
+        "end_line": 57,
+        "start_column": 11,
+        "end_column": 5
+      },
+      "finding": "subprocess.run(\n        [str(python_path), \"-c\",\n         \"import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')\"],\n        capture_output=True, text=True,\n    )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "def interpreter_version(python_path: Path) -> str | None:\n    if not python_path.exists():\n        return None\n    proc = subprocess.run(\n        [str(python_path), \"-c\",\n         \"import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')\"],\n        capture_output=True, text=True,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "2a73d47da72d807460c8b10df4e7d988e5b9f99c866d96822fa2c7d7dbde7ac1",
+      "occurrences": [
+        {
+          "file": "scripts/setup_env.py",
+          "start_line": 53,
+          "end_line": 57,
+          "start_column": 11,
+          "end_column": 5
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-ab17ef4e6f4a4669b5463e6bff1eff05",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/setup_env.py",
+        "start_line": 68,
+        "end_line": 68,
+        "start_column": 16,
+        "end_column": 98
+      },
+      "finding": "subprocess.run([\"py\", f\"-{version}\", \"--version\"], capture_output=True, text=True)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    if candidate:\n        return candidate\n    if IS_WINDOWS and shutil.which(\"py\"):\n        probe = subprocess.run([\"py\", f\"-{version}\", \"--version\"], capture_output=True, text=True)\n        if probe.returncode == 0:\n            return f\"py -{version}\"  # sentinel; expanded by caller\n    return None",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "78ec22c546f3b9687e1b9e28bcba5b5d0c1120159488a7ae057c4a8505dd70c8",
+      "occurrences": [
+        {
+          "file": "scripts/setup_env.py",
+          "start_line": 68,
+          "end_line": 68,
+          "start_column": 16,
+          "end_column": 98
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-9b10a2bd00fd477983305dad1c6074c2",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/setup_env.py",
+        "start_line": 103,
+        "end_line": 103,
+        "start_column": 15,
+        "end_column": 86
+      },
+      "finding": "subprocess.run([uv, \"venv\", \"--python\", python_version, str(venv_dir)])",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "\n        if installer == \"uv\":\n            uv = shutil.which(\"uv\")\n            if subprocess.run([uv, \"venv\", \"--python\", python_version, str(venv_dir)]).returncode != 0:\n                log(\"ERROR: `uv venv` failed.\")\n                return 1\n        else:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c01e6c1bb8a32c70d02943660a97fe190d0ce3902ea5bacd77ee5e97b92e164f",
+      "occurrences": [
+        {
+          "file": "scripts/setup_env.py",
+          "start_line": 103,
+          "end_line": 103,
+          "start_column": 15,
+          "end_column": 86
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-60518011d5b34c73ab6e7f1bbb06b1ad",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/setup_env.py",
+        "start_line": 113,
+        "end_line": 113,
+        "start_column": 15,
+        "end_column": 71
+      },
+      "finding": "subprocess.run([*base_cmd, \"-m\", \"venv\", str(venv_dir)])",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "                log(\"Install via pyenv/asdf/brew/system package manager, the Windows installer, or install uv.\")\n                return 1\n            base_cmd = base.split() if base.startswith(\"py \") else [base]\n            if subprocess.run([*base_cmd, \"-m\", \"venv\", str(venv_dir)]).returncode != 0:\n                log(\"ERROR: `python -m venv` failed.\")\n                return 1\n        log(f\"Created env at {venv_dir}\")",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "32c08daba9f58b77c7590f70983e9f60fb6b3a005d7337841a385f98efa11197",
+      "occurrences": [
+        {
+          "file": "scripts/setup_env.py",
+          "start_line": 113,
+          "end_line": 113,
+          "start_column": 15,
+          "end_column": 71
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-6c6c84646d7847f18175267bb9fb029c",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/setup_env.py",
+        "start_line": 126,
+        "end_line": 128,
+        "start_column": 13,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            [uv, \"pip\", \"install\", \"--python\", str(py), \"--upgrade\", \"-r\", str(requirements)]\n        )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    log(f\"Installing from {requirements}\")\n    if installer == \"uv\":\n        uv = shutil.which(\"uv\")\n        rc = subprocess.run(\n            [uv, \"pip\", \"install\", \"--python\", str(py), \"--upgrade\", \"-r\", str(requirements)]\n        ).returncode\n    else:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "2fc58d904fff1df2f11e33b84596ac5ce51e7700d95d0d0868c53d271f3d0adc",
+      "occurrences": [
+        {
+          "file": "scripts/setup_env.py",
+          "start_line": 126,
+          "end_line": 128,
+          "start_column": 13,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-fee014405e9140b5b8623fc66dd18b7e",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/setup_env.py",
+        "start_line": 130,
+        "end_line": 130,
+        "start_column": 8,
+        "end_column": 77
+      },
+      "finding": "subprocess.run([str(py), \"-m\", \"pip\", \"install\", \"--upgrade\", \"pip\"])",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "            [uv, \"pip\", \"install\", \"--python\", str(py), \"--upgrade\", \"-r\", str(requirements)]\n        ).returncode\n    else:\n        subprocess.run([str(py), \"-m\", \"pip\", \"install\", \"--upgrade\", \"pip\"])\n        rc = subprocess.run(\n            [str(py), \"-m\", \"pip\", \"install\", \"--upgrade\", \"-r\", str(requirements)]\n        ).returncode",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "38b1b9528f3b6d3e0ac3ee63b8fd430a7ead0c0199bb0b995aae0aeda115d635",
+      "occurrences": [
+        {
+          "file": "scripts/setup_env.py",
+          "start_line": 130,
+          "end_line": 130,
+          "start_column": 8,
+          "end_column": 77
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-23af90ff44834d4b8b7ec7fdcfc96da6",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/setup_env.py",
+        "start_line": 131,
+        "end_line": 133,
+        "start_column": 13,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            [str(py), \"-m\", \"pip\", \"install\", \"--upgrade\", \"-r\", str(requirements)]\n        )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        ).returncode\n    else:\n        subprocess.run([str(py), \"-m\", \"pip\", \"install\", \"--upgrade\", \"pip\"])\n        rc = subprocess.run(\n            [str(py), \"-m\", \"pip\", \"install\", \"--upgrade\", \"-r\", str(requirements)]\n        ).returncode\n    if rc != 0:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ab5dad88c1868c16abc8292a83720155caebc6de1585ee8d5ae345cc3cdc6bc4",
+      "occurrences": [
+        {
+          "file": "scripts/setup_env.py",
+          "start_line": 131,
+          "end_line": 133,
+          "start_column": 13,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-9ba50f62a24e465aaefa17b2f316bb1c",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.6,
+      "location": {
+        "file": "requirements.txt",
+        "start_line": 16,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "boto3",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "# for tokenizer validation) to a deployment-specific requirements file alongside\n# this one. Do not pin versions here unless you have a documented reason.\n\nboto3\nawscli",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "308ad55a4f8750ef16aa527468e5ad70c7d18828cd474cfd93906dde6950cd56",
+      "occurrences": [
+        {
+          "file": "requirements.txt",
+          "start_line": 16,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-e953515380f64695a3b6bbbc2948f885",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.6,
+      "location": {
+        "file": "requirements.txt",
+        "start_line": 17,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "awscli\n",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "# this one. Do not pin versions here unless you have a documented reason.\n\nboto3\nawscli",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "593a635b4219ae591656e3f37e788b66c9bd055f8c3794583295036f487d5ea8",
+      "occurrences": [
+        {
+          "file": "requirements.txt",
+          "start_line": 17,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-04c85442cc3b403daf181d2cf98c1bd3",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: awscli has 5 known advisory(ies) (GHSA-747p-wmpv-9c78 (AWS CLI: cli_history database does not restrict file permissions on Unix systems); CVE-2026-18654 (AWS CLI: Disabled SSH host key verification in Amazon AWS CLI EMR helper command); CVE-2026-13769 (AWS CLI: Overly permissive File Permissions) +2 more), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "requirements.txt",
+        "start_line": 17,
+        "end_line": null
+      },
+      "finding": "awscli",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "55ef245faddb20bd789836c3cf6ad8b353a1d7f05a777de952175fdf25a44ec4",
+      "occurrences": [
+        {
+          "file": "requirements.txt",
+          "start_line": 17,
+          "end_line": null
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 4,
+    "scanned_components": 4,
+    "coverage_percent": 100.0,
+    "is_complete": true,
+    "status": "complete_with_caveats",
+    "execution_successful": true,
+    "fully_inspected_files": 4,
+    "partially_inspected_files": 0,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 20,
+        "end_line": 20,
+        "fatal": false
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [
+      {
+        "source_path": "SKILL.md",
+        "line": 20,
+        "column": 30,
+        "evidence": "The bundled deploy scripts (`deploy.py`, `deploy_async.py`, `teardown.py`) use `boto3` directly and read image URIs from [AWS's published Deep Learning Containe",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 20,
+        "column": 43,
+        "evidence": "The bundled deploy scripts (`deploy.py`, `deploy_async.py`, `teardown.py`) use `boto3` directly and read image URIs from [AWS's published Deep Learning Containe",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 20,
+        "column": 62,
+        "evidence": "The bundled deploy scripts (`deploy.py`, `deploy_async.py`, `teardown.py`) use `boto3` directly and read image URIs from [AWS's published Deep Learning Containe",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 20,
+        "column": 173,
+        "evidence": "tly and read image URIs from [AWS's published Deep Learning Containers catalog](https://aws.github.io/deep-learning-containers/reference/available_images/). Tha",
+        "target_path": null,
+        "status": "rejected",
+        "disposition": "out_of_scope",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 22,
+        "column": 119,
+        "evidence": "to use when the user prefers it or their project already does. Since [PR #5960](https://github.com/aws/sagemaker-python-sdk/pull/5960) (June 2026), `ModelBuilde",
+        "target_path": null,
+        "status": "rejected",
+        "disposition": "out_of_scope",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 36,
+        "column": 9,
+        "evidence": "python3 scripts/setup_env.py # macOS / Linux",
+        "target_path": "scripts/setup_env.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 37,
+        "column": 9,
+        "evidence": "python scripts/setup_env.py # Windows (PowerShell / cmd)",
+        "target_path": "scripts/setup_env.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 40,
+        "column": 246,
+        "evidence": "y .venv 3.11`), refuses unsupported Python versions, installs from the bundled `requirements.txt`, and is idempotent. It also prints the correct interpreter pat",
+        "target_path": "requirements.txt",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 66,
+        "column": 18,
+        "evidence": ".venv/bin/python scripts/check_versions.py",
+        "target_path": "scripts/check_versions.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 73,
+        "column": 10,
+        "evidence": "Default `requirements.txt` covers SageMaker orchestration. Some deployments need extras (`huggingface_hub` for model inspection, `transformers` for tokenizer va",
+        "target_path": "requirements.txt",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 90,
+        "column": 79,
+        "evidence": "The bundled scripts don't use the SDK \u2014 they only need `boto3`/`awscli` from `requirements.txt`. Installing `sagemaker` alongside is harmless, but it doesn't re",
+        "target_path": "requirements.txt",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      }
+    ],
+    "limitations": [],
+    "findings_before_filtering": 12,
+    "findings_after_filtering": 12,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

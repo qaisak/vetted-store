@@ -1,0 +1,2069 @@
+{
+  "skill": {
+    "name": "security-best-practices",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\openai__skills\\skills-main\\skills\\.curated\\security-best-practices",
+    "scanned_at": "2026-10-31T21:50:18.635547+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": "LICENSE.txt",
+      "type": "text",
+      "lines": 201,
+      "executable": false,
+      "size_bytes": 10776,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "SKILL.md",
+      "type": "markdown",
+      "lines": 86,
+      "executable": false,
+      "size_bytes": 8612,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "agents/openai.yaml",
+      "type": "yaml",
+      "lines": 4,
+      "executable": false,
+      "size_bytes": 237,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/golang-general-backend-security.md",
+      "type": "markdown",
+      "lines": 826,
+      "executable": false,
+      "size_bytes": 38659,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/javascript-express-web-server-security.md",
+      "type": "markdown",
+      "lines": 1158,
+      "executable": false,
+      "size_bytes": 49357,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/javascript-general-web-frontend-security.md",
+      "type": "markdown",
+      "lines": 747,
+      "executable": false,
+      "size_bytes": 38638,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/javascript-jquery-web-frontend-security.md",
+      "type": "markdown",
+      "lines": 678,
+      "executable": false,
+      "size_bytes": 33581,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/javascript-typescript-nextjs-web-server-security.md",
+      "type": "markdown",
+      "lines": 1144,
+      "executable": false,
+      "size_bytes": 43423,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/javascript-typescript-react-web-frontend-security.md",
+      "type": "markdown",
+      "lines": 990,
+      "executable": false,
+      "size_bytes": 41686,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/javascript-typescript-vue-web-frontend-security.md",
+      "type": "markdown",
+      "lines": 791,
+      "executable": false,
+      "size_bytes": 31445,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/python-django-web-server-security.md",
+      "type": "markdown",
+      "lines": 882,
+      "executable": false,
+      "size_bytes": 38661,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/python-fastapi-web-server-security.md",
+      "type": "markdown",
+      "lines": 1036,
+      "executable": false,
+      "size_bytes": 44926,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/python-flask-web-server-security.md",
+      "type": "markdown",
+      "lines": 705,
+      "executable": false,
+      "size_bytes": 31748,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "AR2",
+      "finding_id": "finding-24a988ca8a6a44489e6fb112132a2644",
+      "category": "Anti-Refusal",
+      "pattern": "Anti-Refusal Statement",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "references/golang-general-backend-security.md",
+        "start_line": 17,
+        "end_line": 17,
+        "start_column": 92,
+        "end_column": 107
+      },
+      "finding": "without warning",
+      "explanation": "Skill instructs the agent to omit warnings, disclaimers, or ethical commentary. Stripping safety caveats hides risk from the user and is a common jailbreak preamble.",
+      "remediation": "Remove instructions that suppress warnings, disclaimers, or ethical commentary. Let the agent surface safety-relevant caveats to the user.",
+      "code_snippet": "- MUST keep fixes minimal, correct, and production-safe; avoid introducing breaking changes without warning (especially around auth/session flows, and proxies).",
+      "intent": null,
+      "tags": [
+        "Anti-Refusal",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e1c52694e854c5bd049e3a3ae66f3efcfe098f61a8ee160655ad3b90035f67fd",
+      "occurrences": [
+        {
+          "file": "references/golang-general-backend-security.md",
+          "start_line": 17,
+          "end_line": 17,
+          "start_column": 92,
+          "end_column": 107
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-45d9af00f2c94abfa54e6320f78dfbca",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/javascript-express-web-server-security.md",
+        "start_line": 342,
+        "end_line": null,
+        "start_column": 34
+      },
+      "finding": "access tokens",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n* `app.use(session({ store: new MemoryStore(), ... }))` or missing store (defaults to MemoryStore).\n* Hard-coded for example: `secret: 'keyboard cat'` / `secret: 's3Cur3'` in repo.\n* Using `cookie-session` to store access tokens, refresh tokens, or PII.\n\nDetection hints:\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5059bb7b75e9337932d45472816371182dc6083e9db6060d8b737da812751493",
+      "occurrences": [
+        {
+          "file": "references/javascript-express-web-server-security.md",
+          "start_line": 342,
+          "end_line": null,
+          "start_column": 34
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-cec44450f40e44bf887122637a385b4e",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/python-flask-web-server-security.md",
+        "start_line": 224,
+        "end_line": null,
+        "start_column": 30
+      },
+      "finding": "access tokens",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "Insecure patterns:\n- Extremely long or unlimited lifetimes for privileged sessions.\n- No session clearing on login.\n- Storing secrets (passwords, access tokens, PII) directly in `session[...]` when using default cookie sessions.\n\nDetection hints:\n- Search for `PERMANENT_SESSION_LIFETIME`, `session.permanent`, `session[...] =`.",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5059bb7b75e9337932d45472816371182dc6083e9db6060d8b737da812751493",
+      "occurrences": [
+        {
+          "file": "references/python-flask-web-server-security.md",
+          "start_line": 224,
+          "end_line": null,
+          "start_column": 30
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-82ea35c7609c4b9eaa188584b6148f9b",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/javascript-typescript-nextjs-web-server-security.md",
+        "start_line": 418,
+        "end_line": null,
+        "start_column": 10
+      },
+      "finding": "access tokens",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n* Long-lived admin sessions with no rotation.\n* \u201cRemember me forever\u201d for privileged roles without additional risk controls.\n* Storing access tokens/refresh tokens in non-HttpOnly cookies or localStorage.\n\nDetection hints:\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5059bb7b75e9337932d45472816371182dc6083e9db6060d8b737da812751493",
+      "occurrences": [
+        {
+          "file": "references/javascript-typescript-nextjs-web-server-security.md",
+          "start_line": 418,
+          "end_line": null,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-6c34be59ea9c45eebb38ad3264ddba74",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/python-fastapi-web-server-security.md",
+        "start_line": 241,
+        "end_line": null,
+        "start_column": 13
+      },
+      "finding": "access tokens",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "Insecure patterns:\n\n* `?token=...`, `?api_key=...`, `?auth=...` used for primary auth.\n* Long-lived access tokens embedded in URLs (leak via logs, referrers, caches).\n\nDetection hints:\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5059bb7b75e9337932d45472816371182dc6083e9db6060d8b737da812751493",
+      "occurrences": [
+        {
+          "file": "references/python-fastapi-web-server-security.md",
+          "start_line": 241,
+          "end_line": null,
+          "start_column": 13
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-21f477c0d7b641c6a01f85b686531f92",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/python-fastapi-web-server-security.md",
+        "start_line": 373,
+        "end_line": null,
+        "start_column": 10
+      },
+      "finding": "access tokens",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\nInsecure patterns:\n\n* Storing access tokens, refresh tokens, or PII directly in cookie session payloads.\n* Treating \u201csigned cookies\u201d as confidential storage.\n\nDetection hints:",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5059bb7b75e9337932d45472816371182dc6083e9db6060d8b737da812751493",
+      "occurrences": [
+        {
+          "file": "references/python-fastapi-web-server-security.md",
+          "start_line": 373,
+          "end_line": null,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "OH1",
+      "finding_id": "finding-a7b3122a60f64f99942454a5b7651b90",
+      "category": "Output Handling",
+      "pattern": "Unvalidated Output Injection",
+      "severity": "HIGH",
+      "confidence": 0.65,
+      "location": {
+        "file": "references/javascript-typescript-nextjs-web-server-security.md",
+        "start_line": 540,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "dangerouslySetInnerHTML={",
+      "explanation": "Model output is used without validation or sanitization. Unvalidated output injected into downstream contexts (SQL, shell, HTML) enables injection attacks and arbitrary code execution.",
+      "remediation": "Validate and sanitize all model output before using it in downstream contexts. Use parameterized queries for SQL, shell quoting for commands, and HTML encoding for web output.",
+      "code_snippet": "\nInsecure patterns:\n\n* `<div dangerouslySetInnerHTML={{ __html: userContent }} />` with no sanitizer.\n* Markdown renderers configured to allow raw HTML with no sanitizer.\n* Returning user content with `Content-Type: text/html` from a Route Handler.\n",
+      "intent": null,
+      "tags": [
+        "Output Handling"
+      ],
+      "evidence": {},
+      "match_fingerprint": "152a270c69e5f498026be5430f75d09c53e612d4c86635345fe7e35d93b38ee0",
+      "occurrences": [
+        {
+          "file": "references/javascript-typescript-nextjs-web-server-security.md",
+          "start_line": 540,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    },
+    {
+      "id": "OH1",
+      "finding_id": "finding-595c3702aab44752abb350937f77be6a",
+      "category": "Output Handling",
+      "pattern": "Unvalidated Output Injection",
+      "severity": "HIGH",
+      "confidence": 0.65,
+      "location": {
+        "file": "references/javascript-typescript-react-web-frontend-security.md",
+        "start_line": 185,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "dangerouslySetInnerHTML={",
+      "explanation": "Model output is used without validation or sanitization. Unvalidated output injected into downstream contexts (SQL, shell, HTML) enables injection attacks and arbitrary code execution.",
+      "remediation": "Validate and sanitize all model output before using it in downstream contexts. Use parameterized queries for SQL, shell quoting for commands, and HTML encoding for web output.",
+      "code_snippet": "\nInsecure patterns:\n\n* `<div dangerouslySetInnerHTML={{ __html: userHtml }} />` where `userHtml` is from API/URL/storage.\n* \u201cSanitization\u201d done with regexes, ad-hoc stripping, or incomplete allowlists.\n\nDetection hints:",
+      "intent": null,
+      "tags": [
+        "Output Handling"
+      ],
+      "evidence": {},
+      "match_fingerprint": "152a270c69e5f498026be5430f75d09c53e612d4c86635345fe7e35d93b38ee0",
+      "occurrences": [
+        {
+          "file": "references/javascript-typescript-react-web-frontend-security.md",
+          "start_line": 185,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    },
+    {
+      "id": "YR2",
+      "finding_id": "finding-3baa28ebbb18467b96f18e28f2ec6618",
+      "category": "YARA Match",
+      "pattern": "YARA rule 'python_webshell': Python webshell \u2014 exec/eval/os.popen on request input [webshells]",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "references/python-django-web-server-security.md",
+        "start_line": 505,
+        "end_line": null
+      },
+      "finding": "os.system(request.",
+      "explanation": "YARA rule matched a known webshell pattern (PHP, Python, JSP, or ASPX webshell).",
+      "remediation": "Remove the webshell code immediately. Webshells provide unauthorized remote command execution. Audit the skill for additional backdoors or persistence mechanisms.",
+      "code_snippet": "igh (depends on exposure)\n\nRequired:\n\n* MUST avoid executing system commands with attacker-influenced input.\n* If subprocess is necessary:\n\n  * MUST pass args as a list (not a shell string).\n  * MUST NOT use `shell=True` with attacker-influenced content.\n  * SHOULD use strict allowlists for variable components.\n* SHOULD prefer pure-Python libraries instead of shelling out.\n\nInsecure patterns:\n\n* `os.system(request.GET[\"cmd\"])`\n* `subprocess.run(f\"convert {path}\", shell=True)` where `path` is user-controlled.\n\nDetection hints:\n\n* Search `os.system`, `subprocess`, `Popen`, `shell=True`.\n* Trace request/DB inputs into those calls.\n\nFix:\n\n* Replace with library APIs; if unavoidable, hard-code executable and allowlist validated parameters.\n\n---\n\n### DJANGO-UPLOAD-001: File uploads must be validated, stored safely, and served safely\n\nSeverity: High\n\nRequired:\n\n* MUST treat all user uploads as untrusted. Django explicitly warns \u201cMedia files are uploaded by your users. They\u2019re untrusted!\ufffd",
+      "intent": null,
+      "tags": [
+        "YARA Match"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0ede736e7ea845209033edd1a3971d059587b15dbbbe7d9f72b04e2ad08bcb3c",
+      "occurrences": [
+        {
+          "file": "references/python-django-web-server-security.md",
+          "start_line": 505,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-23ae70108bf14f18918ab67b71cf0331",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "references/python-django-web-server-security.md",
+        "start_line": 506,
+        "end_line": null,
+        "start_column": 3
+      },
+      "finding": "subprocess.run(f\"convert {path}\", shell=True",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "---\n\n### DJANGO-CMD-001: Prevent OS command injection\n\nSeverity: Critical to High (depends on exposure)\n\nRequired:\n\n* MUST avoid executing system commands with attacker-influenced input.\n* If subprocess is necessary:\n\n  * MUST pass args as a list (not a shell string).\n  * MUST NOT use `shell=True` with attacker-influenced content.\n  * SHOULD use strict allowlists for variable components.\n* SHOULD prefer pure-Python libraries instead of shelling out.\n\nInsecure patterns:\n\n* `os.system(request.GET[\"cmd\"])`\n* `subprocess.run(f\"convert {path}\", shell=True)` where `path` is user-controlled.\n\nDetection hints:\n\n* Search `os.system`, `subprocess`, `Popen`, `shell=True`.\n* Trace request/DB inputs into those calls.\n\nFix:\n\n* Replace with library APIs; if unavoidable, hard-code executable and allowlist validated parameters.\n\n---\n\n### DJANGO-UPLOAD-001: File uploads must be validated, stored safely, and served safely\n\nSeverity: High\n\nRequired:\n\n* MUST treat all user uploads as untrusted. Django explicitly warns \u201cMedia file",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7be79e3e1343884f59c9c42c2edf42ac2ae92d3a6c3e7e2dc00165d87d851312",
+      "occurrences": [
+        {
+          "file": "references/python-django-web-server-security.md",
+          "start_line": 506,
+          "end_line": null,
+          "start_column": 3
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-1af1d0eca0424c5daae9025ce6e92d15",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "references/python-fastapi-web-server-security.md",
+        "start_line": 786,
+        "end_line": null,
+        "start_column": 3
+      },
+      "finding": "subprocess.run(f\"cmd {user}\", shell=True",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "before querying. ([OWASP Cheat Sheet Series][21])\n\n---\n\n### FASTAPI-INJECT-002: Prevent OS command injection\n\nSeverity: Critical to High (depends on exposure)\n\nRequired:\n\n* MUST avoid executing shell commands with untrusted input.\n* If subprocess is necessary:\n\n  * MUST pass args as a list (not a string)\n  * MUST NOT use `shell=True` with attacker-influenced strings\n  * SHOULD use strict allowlists for any variable component ([OWASP Cheat Sheet Series][22])\n\nInsecure patterns:\n\n* `os.system(user_input)`\n* `subprocess.run(f\"cmd {user}\", shell=True)`\n* Passing user strings into `bash -c`, `sh -c`, PowerShell, etc.\n\nDetection hints:\n\n* Search for `os.system`, `subprocess`, `Popen`, `shell=True`.\n* Trace data from request/DB into these calls.\n\nFix:\n\n* Use library APIs instead of shell commands.\n* If unavoidable, hard-code the command and allowlist validated parameters; use `--` separator where supported. ([OWASP Cheat Sheet Series][22])\n\n---\n\n### FASTAPI-SSRF-001: Prevent server-side request forgery (SSRF) in out",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a04c7a14c0ca9bcbff39c2cf3c8c0520507354adb2c6afcb1be0b3b694b0edf2",
+      "occurrences": [
+        {
+          "file": "references/python-fastapi-web-server-security.md",
+          "start_line": 786,
+          "end_line": null,
+          "start_column": 3
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-02df81d13afa4ee0930489537b3d80c7",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "references/python-flask-web-server-security.md",
+        "start_line": 507,
+        "end_line": null,
+        "start_column": 3
+      },
+      "finding": "subprocess.run(f\"cmd {user}\", shell=True",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "ecessary:\n  - MUST pass args as a list (not a string)\n  - MUST NOT use `shell=True` with attacker-influenced strings\n  - SHOULD use strict allowlists for any variable component\n- If possible, use pure python or a python library rather than using a subprocess or system command\n- Do not assume that arguments to commands will be inherently safe even in `shell=False`. Commands may incorrectly process these arguments as command line flags or other trusted values.\n\nInsecure patterns:\n- `os.system(user_input)`\n- `subprocess.run(f\"cmd {user}\", shell=True)`\n- Passing user strings into `bash -c`, `sh -c`, PowerShell, etc.\n\nDetection hints:\n- Search for `os.system`, `subprocess`, `Popen`, `shell=True`.\n- Trace data from request/DB into these calls.\n\nFix:\n- Use library APIs instead of shell commands.\n- If unavoidable, hard-code the command and allowlist validated parameters. If supported by the subcommand, try to keep user values after `--` to prevent them being processed as command line flags.\n\n---\n\n### FLASK-SSRF-001: ",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a04c7a14c0ca9bcbff39c2cf3c8c0520507354adb2c6afcb1be0b3b694b0edf2",
+      "occurrences": [
+        {
+          "file": "references/python-flask-web-server-security.md",
+          "start_line": 507,
+          "end_line": null,
+          "start_column": 3
+        }
+      ]
+    },
+    {
+      "id": "P1",
+      "finding_id": "finding-e125e26545b54e88bdda54c235e78aa8",
+      "category": "Prompt Injection",
+      "pattern": "Instruction Override",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/python-flask-web-server-security.md",
+        "start_line": 134,
+        "end_line": 134,
+        "start_column": 11,
+        "end_column": 28
+      },
+      "finding": "enable debug mode",
+      "explanation": "This pattern attempts to override system instructions or ignore safety constraints. Without LLM analysis, manual review is recommended.",
+      "remediation": "Remove or rewrite any text that instructs the agent to ignore prompts, override safety rules, or trust unverified content. Ensure skill content cannot be injected to alter agent behavior.",
+      "code_snippet": "Severity: Critical\n\nRequired:\n- MUST NOT enable debug mode in production.\n- MUST treat the interactive debugger as equivalent to remote code execution if exposed.\n\nInsecure patterns:",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "abb96e6d2905a0c803f37dc97ccb0a2a15d11c91e517462d698c56a459802aef",
+      "occurrences": [
+        {
+          "file": "references/python-flask-web-server-security.md",
+          "start_line": 134,
+          "end_line": 134,
+          "start_column": 11,
+          "end_column": 28
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-78757bb5714b46c5a727430da6a903a2",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "references/golang-general-backend-security.md",
+        "start_line": 154,
+        "end_line": null,
+        "start_column": 58
+      },
+      "finding": "disable verification",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "\nInsecure patterns:\n- `GOSUMDB=off` in CI or production build environments for public modules.\n- `GONOSUMDB=*` or overly broad patterns that effectively disable verification.\n- `GOINSECURE=*` or broad `GOINSECURE` patterns for public modules.\n- `GOPROXY=direct` everywhere without a clear policy.\n",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c965b97a293cd08fda18fd08cbcdc4f12bc23abee2a3fed1ec06b78323b9a02e",
+      "occurrences": [
+        {
+          "file": "references/golang-general-backend-security.md",
+          "start_line": 154,
+          "end_line": null,
+          "start_column": 58
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-38e4f9afc0d944f2a6bc4f9ddf674682",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "references/golang-general-backend-security.md",
+        "start_line": 471,
+        "end_line": null,
+        "start_column": 46
+      },
+      "finding": "without checking",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "\nInsecure patterns:\n- `http.ServeFile(w, r, r.URL.Query().Get(\"path\"))`\n- `os.Open(filepath.Join(baseDir, userPath))` without checking that the result stays under `baseDir`\n- `http.FileServer(http.Dir(\".\"))` serving the project root or user-writable directories\n\nDetection hints:",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9341b6f34d6af9081a0d6673f4217b7307d273da9f43357efd9029e15c5da76c",
+      "occurrences": [
+        {
+          "file": "references/golang-general-backend-security.md",
+          "start_line": 471,
+          "end_line": null,
+          "start_column": 46
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-b8c719c024a6460ba381702c11a79471",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "references/python-django-web-server-security.md",
+        "start_line": 719,
+        "end_line": null,
+        "start_column": 61
+      },
+      "finding": "without checking",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "Detection hints:\n\n* Enumerate views that modify state; ensure they validate ownership/permission.\n* Look for use of only `is_authenticated` or only `is_staff` without checking object-level access.\n\nFix:\n",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9341b6f34d6af9081a0d6673f4217b7307d273da9f43357efd9029e15c5da76c",
+      "occurrences": [
+        {
+          "file": "references/python-django-web-server-security.md",
+          "start_line": 719,
+          "end_line": null,
+          "start_column": 61
+        }
+      ]
+    },
+    {
+      "id": "OH3",
+      "finding_id": "finding-16fcdefdf9174828b594849b9a35e607",
+      "category": "Output Handling",
+      "pattern": "Unbounded Output",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "references/golang-general-backend-security.md",
+        "start_line": 758,
+        "end_line": null,
+        "start_column": 50
+      },
+      "finding": "without size cap",
+      "explanation": "Output size or generation rate is not bounded. Unbounded output enables denial-of-service through resource exhaustion, log flooding, or context-window stuffing.",
+      "remediation": "Set explicit limits on output length, generation count, and rate. Use max_tokens and truncation to prevent unbounded output.",
+      "code_snippet": "- `ReadHeaderTimeout: 0`, `ReadTimeout: 0`, `WriteTimeout: 0`, `IdleTimeout: 0`, missing `MaxHeaderBytes`\n\nBody parsing / DoS:\n- `io.ReadAll(r.Body)`, `json.NewDecoder(r.Body)` without size cap\n- `ParseMultipartForm`, `FormFile`, `multipart.NewReader` without explicit limits\n- Missing `http.MaxBytesReader`\n",
+      "intent": null,
+      "tags": [
+        "Output Handling"
+      ],
+      "evidence": {},
+      "match_fingerprint": "693d6af2568ad7563007722e71d164359366568522eae4ecb095f3aa242b270b",
+      "occurrences": [
+        {
+          "file": "references/golang-general-backend-security.md",
+          "start_line": 758,
+          "end_line": null,
+          "start_column": 50
+        }
+      ]
+    },
+    {
+      "id": "EA1",
+      "finding_id": "finding-f1e0c73bbe2e440dbd50337aa86358af",
+      "category": "Excessive Agency",
+      "pattern": "Unrestricted Tool Access",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "references/javascript-general-web-frontend-security.md",
+        "start_line": 543,
+        "end_line": null,
+        "start_column": 81
+      },
+      "finding": "execute arbitrary code",
+      "explanation": "Skill grants unrestricted tool access without appropriate constraints. An agent with unfettered tool access can perform arbitrary actions including file modification, network requests, and code execution.",
+      "remediation": "Restrict tool access to only the tools required for the skill's stated purpose. Use an explicit allowlist rather than granting blanket access.",
+      "code_snippet": "\nRequired:\n\n* MUST treat third-party JS as equivalent to first-party JS in privilege (it can execute arbitrary code in your origin and access DOM data). ([OWASP Cheat Sheet Series][7])\n* SHOULD minimize third-party scripts and prefer:\n\n  * self-hosting / script mirroring,",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "bd2dc2dc849f8a256d1fa8549a57b86bd4ac8644140b6892116b8b7622ddcc56",
+      "occurrences": [
+        {
+          "file": "references/javascript-general-web-frontend-security.md",
+          "start_line": 543,
+          "end_line": null,
+          "start_column": 81
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-568d19266406400dbc5e1c333e27f7c1",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 615,
+        "end_line": null,
+        "start_column": 26
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "\n* jQuery 4.0.0 release notes (Trusted Types/CSP changes; version info): `https://blog.jquery.com/2026/01/17/jquery-4-0-0/`. ([blog.jquery.com][7])\n* Download jQuery (latest version info; CDN + SRI guidance): `https://jquery.com/download/`. ([jquery.com][8])\n* jQuery API: `.html()`: `https://api.jquery.com/html/`. ([jQuery API][21])\n* jQuery API: `.text()`: `https://api.jquery.com/text/`. ([jQuery API][14])\n* jQuery API: `.append()`: `https://api.jquery.com/append/`. ([jQuery API][22])\n* jQuery API: `.load()` (script execution behavior): `https://api.jquery.com/load/`. ([jQuery API][3])",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 615,
+          "end_line": null,
+          "start_column": 26
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-ba8f395ead5c4cd6a2661f06ff5d0454",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 616,
+        "end_line": null,
+        "start_column": 26
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "* jQuery 4.0.0 release notes (Trusted Types/CSP changes; version info): `https://blog.jquery.com/2026/01/17/jquery-4-0-0/`. ([blog.jquery.com][7])\n* Download jQuery (latest version info; CDN + SRI guidance): `https://jquery.com/download/`. ([jquery.com][8])\n* jQuery API: `.html()`: `https://api.jquery.com/html/`. ([jQuery API][21])\n* jQuery API: `.text()`: `https://api.jquery.com/text/`. ([jQuery API][14])\n* jQuery API: `.append()`: `https://api.jquery.com/append/`. ([jQuery API][22])\n* jQuery API: `.load()` (script execution behavior): `https://api.jquery.com/load/`. ([jQuery API][3])\n* jQuery API: `jQuery.parseHTML(\u2026, keepScripts)`: `https://api.jquery.com/jQuery.parseHTML/`. ([jQuery API][2])",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 616,
+          "end_line": null,
+          "start_column": 26
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-ae5446712a6b4bada964f31426409d02",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 617,
+        "end_line": null,
+        "start_column": 28
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "* Download jQuery (latest version info; CDN + SRI guidance): `https://jquery.com/download/`. ([jquery.com][8])\n* jQuery API: `.html()`: `https://api.jquery.com/html/`. ([jQuery API][21])\n* jQuery API: `.text()`: `https://api.jquery.com/text/`. ([jQuery API][14])\n* jQuery API: `.append()`: `https://api.jquery.com/append/`. ([jQuery API][22])\n* jQuery API: `.load()` (script execution behavior): `https://api.jquery.com/load/`. ([jQuery API][3])\n* jQuery API: `jQuery.parseHTML(\u2026, keepScripts)`: `https://api.jquery.com/jQuery.parseHTML/`. ([jQuery API][2])\n* jQuery API: `$.ajax()` (`jsonp: false` security note): `https://api.jquery.com/jQuery.ajax/`. ([jQuery API][5])",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 617,
+          "end_line": null,
+          "start_column": 28
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-9c75e950943f49a1ba84fa8024f27875",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 618,
+        "end_line": null,
+        "start_column": 54
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "* jQuery API: `.html()`: `https://api.jquery.com/html/`. ([jQuery API][21])\n* jQuery API: `.text()`: `https://api.jquery.com/text/`. ([jQuery API][14])\n* jQuery API: `.append()`: `https://api.jquery.com/append/`. ([jQuery API][22])\n* jQuery API: `.load()` (script execution behavior): `https://api.jquery.com/load/`. ([jQuery API][3])\n* jQuery API: `jQuery.parseHTML(\u2026, keepScripts)`: `https://api.jquery.com/jQuery.parseHTML/`. ([jQuery API][2])\n* jQuery API: `$.ajax()` (`jsonp: false` security note): `https://api.jquery.com/jQuery.ajax/`. ([jQuery API][5])\n* jQuery API: `$.getScript()` (executes script): `https://api.jquery.com/jQuery.getScript/`. ([jQuery API][4])",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 618,
+          "end_line": null,
+          "start_column": 54
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-e57fda0dd7e34f2a973992c302ddf9bc",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 619,
+        "end_line": null,
+        "start_column": 51
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "* jQuery API: `.text()`: `https://api.jquery.com/text/`. ([jQuery API][14])\n* jQuery API: `.append()`: `https://api.jquery.com/append/`. ([jQuery API][22])\n* jQuery API: `.load()` (script execution behavior): `https://api.jquery.com/load/`. ([jQuery API][3])\n* jQuery API: `jQuery.parseHTML(\u2026, keepScripts)`: `https://api.jquery.com/jQuery.parseHTML/`. ([jQuery API][2])\n* jQuery API: `$.ajax()` (`jsonp: false` security note): `https://api.jquery.com/jQuery.ajax/`. ([jQuery API][5])\n* jQuery API: `$.getScript()` (executes script): `https://api.jquery.com/jQuery.getScript/`. ([jQuery API][4])\n* jQuery API: `jQuery.escapeSelector()`: `https://api.jquery.com/jQuery.escapeSelector/`. ([jQuery API][20])",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 619,
+          "end_line": null,
+          "start_column": 51
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-900f595c1f46417f84d2c57077004dbd",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 620,
+        "end_line": null,
+        "start_column": 58
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "* jQuery API: `.append()`: `https://api.jquery.com/append/`. ([jQuery API][22])\n* jQuery API: `.load()` (script execution behavior): `https://api.jquery.com/load/`. ([jQuery API][3])\n* jQuery API: `jQuery.parseHTML(\u2026, keepScripts)`: `https://api.jquery.com/jQuery.parseHTML/`. ([jQuery API][2])\n* jQuery API: `$.ajax()` (`jsonp: false` security note): `https://api.jquery.com/jQuery.ajax/`. ([jQuery API][5])\n* jQuery API: `$.getScript()` (executes script): `https://api.jquery.com/jQuery.getScript/`. ([jQuery API][4])\n* jQuery API: `jQuery.escapeSelector()`: `https://api.jquery.com/jQuery.escapeSelector/`. ([jQuery API][20])\n",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 620,
+          "end_line": null,
+          "start_column": 58
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-057f0e6e68614789b78a165b78fb44dd",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 621,
+        "end_line": null,
+        "start_column": 50
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "* jQuery API: `.load()` (script execution behavior): `https://api.jquery.com/load/`. ([jQuery API][3])\n* jQuery API: `jQuery.parseHTML(\u2026, keepScripts)`: `https://api.jquery.com/jQuery.parseHTML/`. ([jQuery API][2])\n* jQuery API: `$.ajax()` (`jsonp: false` security note): `https://api.jquery.com/jQuery.ajax/`. ([jQuery API][5])\n* jQuery API: `$.getScript()` (executes script): `https://api.jquery.com/jQuery.getScript/`. ([jQuery API][4])\n* jQuery API: `jQuery.escapeSelector()`: `https://api.jquery.com/jQuery.escapeSelector/`. ([jQuery API][20])\n\njQuery vulnerabilities / advisories:",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 621,
+          "end_line": null,
+          "start_column": 50
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-f50a2655aaeb4fa29b9c81527156e775",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 622,
+        "end_line": null,
+        "start_column": 42
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "* jQuery API: `jQuery.parseHTML(\u2026, keepScripts)`: `https://api.jquery.com/jQuery.parseHTML/`. ([jQuery API][2])\n* jQuery API: `$.ajax()` (`jsonp: false` security note): `https://api.jquery.com/jQuery.ajax/`. ([jQuery API][5])\n* jQuery API: `$.getScript()` (executes script): `https://api.jquery.com/jQuery.getScript/`. ([jQuery API][4])\n* jQuery API: `jQuery.escapeSelector()`: `https://api.jquery.com/jQuery.escapeSelector/`. ([jQuery API][20])\n\njQuery vulnerabilities / advisories:\n",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 622,
+          "end_line": null,
+          "start_column": 42
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-873523b446654efa9e6c877db3fc91dd",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 651,
+        "end_line": null,
+        "start_column": 5
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "* DOMPurify project documentation: `https://github.com/cure53/DOMPurify`. ([GitHub][17])\n\n[1]: https://nvd.nist.gov/vuln/detail/cve-2020-11022?utm_source=chatgpt.com \"CVE-2020-11022 Detail - NVD\"\n[2]: https://api.jquery.com/jQuery.parseHTML/?utm_source=chatgpt.com \"jQuery.parseHTML()\"\n[3]: https://api.jquery.com/load/?utm_source=chatgpt.com \".load() | jQuery API Documentation\"\n[4]: https://api.jquery.com/jQuery.getScript/?utm_source=chatgpt.com \"jQuery.getScript()\"\n[5]: https://api.jquery.com/jQuery.ajax/?utm_source=chatgpt.com \"jQuery.ajax()\"",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 651,
+          "end_line": null,
+          "start_column": 5
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-5d454bf5e746470f96bd5d22acdde3de",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 652,
+        "end_line": null,
+        "start_column": 5
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "\n[1]: https://nvd.nist.gov/vuln/detail/cve-2020-11022?utm_source=chatgpt.com \"CVE-2020-11022 Detail - NVD\"\n[2]: https://api.jquery.com/jQuery.parseHTML/?utm_source=chatgpt.com \"jQuery.parseHTML()\"\n[3]: https://api.jquery.com/load/?utm_source=chatgpt.com \".load() | jQuery API Documentation\"\n[4]: https://api.jquery.com/jQuery.getScript/?utm_source=chatgpt.com \"jQuery.getScript()\"\n[5]: https://api.jquery.com/jQuery.ajax/?utm_source=chatgpt.com \"jQuery.ajax()\"\n[6]: https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/javascript?utm_source=chatgpt.com \"javascript: URLs - URIs - MDN Web Docs\"",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 652,
+          "end_line": null,
+          "start_column": 5
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-9e33892ff250401bbfdbc73100ace657",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 653,
+        "end_line": null,
+        "start_column": 5
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "[1]: https://nvd.nist.gov/vuln/detail/cve-2020-11022?utm_source=chatgpt.com \"CVE-2020-11022 Detail - NVD\"\n[2]: https://api.jquery.com/jQuery.parseHTML/?utm_source=chatgpt.com \"jQuery.parseHTML()\"\n[3]: https://api.jquery.com/load/?utm_source=chatgpt.com \".load() | jQuery API Documentation\"\n[4]: https://api.jquery.com/jQuery.getScript/?utm_source=chatgpt.com \"jQuery.getScript()\"\n[5]: https://api.jquery.com/jQuery.ajax/?utm_source=chatgpt.com \"jQuery.ajax()\"\n[6]: https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/javascript?utm_source=chatgpt.com \"javascript: URLs - URIs - MDN Web Docs\"\n[7]: https://blog.jquery.com/2026/01/17/jquery-4-0-0/ \"jQuery 4.0.0 | Official jQuery Blog\"",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 653,
+          "end_line": null,
+          "start_column": 5
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-667e8ce9363e4ae3a630214d47668dcd",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 654,
+        "end_line": null,
+        "start_column": 5
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "[2]: https://api.jquery.com/jQuery.parseHTML/?utm_source=chatgpt.com \"jQuery.parseHTML()\"\n[3]: https://api.jquery.com/load/?utm_source=chatgpt.com \".load() | jQuery API Documentation\"\n[4]: https://api.jquery.com/jQuery.getScript/?utm_source=chatgpt.com \"jQuery.getScript()\"\n[5]: https://api.jquery.com/jQuery.ajax/?utm_source=chatgpt.com \"jQuery.ajax()\"\n[6]: https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/javascript?utm_source=chatgpt.com \"javascript: URLs - URIs - MDN Web Docs\"\n[7]: https://blog.jquery.com/2026/01/17/jquery-4-0-0/ \"jQuery 4.0.0 | Official jQuery Blog\"\n[8]: https://jquery.com/download/ \"Download jQuery | jQuery\"",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 654,
+          "end_line": null,
+          "start_column": 5
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-9206d6cf24154cc18c8743abc291261b",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 663,
+        "end_line": null,
+        "start_column": 6
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "[11]: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Security-Policy/require-trusted-types-for?utm_source=chatgpt.com \"Content-Security-Policy: require-trusted-types-for directive\"\n[12]: https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html?utm_source=chatgpt.com \"HTTP Security Response Headers Cheat Sheet\"\n[13]: https://nvd.nist.gov/vuln/detail/cve-2019-11358?utm_source=chatgpt.com \"CVE-2019-11358 Detail - NVD\"\n[14]: https://api.jquery.com/text/?utm_source=chatgpt.com \".text() | jQuery API Documentation\"\n[15]: https://api.jquery.com/val/?utm_source=chatgpt.com \".val() | jQuery API Documentation\"\n[16]: https://github.com/jquery/jquery/security/advisories/GHSA-gxr4-xjj5-5px2 \"Potential XSS vulnerability in jQuery.htmlPrefilter and related methods \u00b7 Advisory \u00b7 jquery/jquery \u00b7 GitHub\"\n[17]: https://github.com/cure53/DOMPurify?utm_source=chatgpt.com \"DOMPurify - a DOM-only, super-fast, uber-tolerant XSS ...\"",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 663,
+          "end_line": null,
+          "start_column": 6
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-96e35f985fca4f0fac3dbac2239f39ec",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 664,
+        "end_line": null,
+        "start_column": 6
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "[12]: https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Headers_Cheat_Sheet.html?utm_source=chatgpt.com \"HTTP Security Response Headers Cheat Sheet\"\n[13]: https://nvd.nist.gov/vuln/detail/cve-2019-11358?utm_source=chatgpt.com \"CVE-2019-11358 Detail - NVD\"\n[14]: https://api.jquery.com/text/?utm_source=chatgpt.com \".text() | jQuery API Documentation\"\n[15]: https://api.jquery.com/val/?utm_source=chatgpt.com \".val() | jQuery API Documentation\"\n[16]: https://github.com/jquery/jquery/security/advisories/GHSA-gxr4-xjj5-5px2 \"Potential XSS vulnerability in jQuery.htmlPrefilter and related methods \u00b7 Advisory \u00b7 jquery/jquery \u00b7 GitHub\"\n[17]: https://github.com/cure53/DOMPurify?utm_source=chatgpt.com \"DOMPurify - a DOM-only, super-fast, uber-tolerant XSS ...\"\n[18]: https://developer.mozilla.org/en-US/docs/Web/API/HTML_Sanitizer_API?utm_source=chatgpt.com \"HTML Sanitizer API - MDN Web Docs\"",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 664,
+          "end_line": null,
+          "start_column": 6
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-7b1a5fd27b7743b88bbed186f1926c34",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 669,
+        "end_line": null,
+        "start_column": 6
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "[17]: https://github.com/cure53/DOMPurify?utm_source=chatgpt.com \"DOMPurify - a DOM-only, super-fast, uber-tolerant XSS ...\"\n[18]: https://developer.mozilla.org/en-US/docs/Web/API/HTML_Sanitizer_API?utm_source=chatgpt.com \"HTML Sanitizer API - MDN Web Docs\"\n[19]: https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html?utm_source=chatgpt.com \"Cross-Site Request Forgery Prevention Cheat Sheet\"\n[20]: https://api.jquery.com/jQuery.escapeSelector/?utm_source=chatgpt.com \"jQuery.escapeSelector()\"\n[21]: https://api.jquery.com/html/?utm_source=chatgpt.com \".html() | jQuery API Documentation\"\n[22]: https://api.jquery.com/append/?utm_source=chatgpt.com \".append() | jQuery API Documentation\"\n[23]: https://nvd.nist.gov/vuln/detail/cve-2020-11023?utm_source=chatgpt.com \"CVE-2020-11023 Detail - NVD\"",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 669,
+          "end_line": null,
+          "start_column": 6
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-ef5dadbd37de4af6a38597cbb83f4240",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 670,
+        "end_line": null,
+        "start_column": 6
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "[18]: https://developer.mozilla.org/en-US/docs/Web/API/HTML_Sanitizer_API?utm_source=chatgpt.com \"HTML Sanitizer API - MDN Web Docs\"\n[19]: https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html?utm_source=chatgpt.com \"Cross-Site Request Forgery Prevention Cheat Sheet\"\n[20]: https://api.jquery.com/jQuery.escapeSelector/?utm_source=chatgpt.com \"jQuery.escapeSelector()\"\n[21]: https://api.jquery.com/html/?utm_source=chatgpt.com \".html() | jQuery API Documentation\"\n[22]: https://api.jquery.com/append/?utm_source=chatgpt.com \".append() | jQuery API Documentation\"\n[23]: https://nvd.nist.gov/vuln/detail/cve-2020-11023?utm_source=chatgpt.com \"CVE-2020-11023 Detail - NVD\"\n[24]: https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html?utm_source=chatgpt.com \"Cross Site Scripting Prevention - OWASP Cheat Sheet Series\"",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 670,
+          "end_line": null,
+          "start_column": 6
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-5ecea5c13abe4ca5acdadaee13435801",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": 671,
+        "end_line": null,
+        "start_column": 6
+      },
+      "finding": "https://api.jquery.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "[19]: https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html?utm_source=chatgpt.com \"Cross-Site Request Forgery Prevention Cheat Sheet\"\n[20]: https://api.jquery.com/jQuery.escapeSelector/?utm_source=chatgpt.com \"jQuery.escapeSelector()\"\n[21]: https://api.jquery.com/html/?utm_source=chatgpt.com \".html() | jQuery API Documentation\"\n[22]: https://api.jquery.com/append/?utm_source=chatgpt.com \".append() | jQuery API Documentation\"\n[23]: https://nvd.nist.gov/vuln/detail/cve-2020-11023?utm_source=chatgpt.com \"CVE-2020-11023 Detail - NVD\"\n[24]: https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html?utm_source=chatgpt.com \"Cross Site Scripting Prevention - OWASP Cheat Sheet Series\"\n[25]: https://cheatsheetseries.owasp.org/cheatsheets/DOM_based_XSS_Prevention_Cheat_Sheet.html?utm_source=chatgpt.com \"DOM based XSS Prevention Cheat Sheet\"",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64b3bfa23dd3d3c9ae9d0f6039bd24bdb91c0944a698819b3f24d7d2aab87b81",
+      "occurrences": [
+        {
+          "file": "references/javascript-jquery-web-frontend-security.md",
+          "start_line": 671,
+          "end_line": null,
+          "start_column": 6
+        }
+      ]
+    },
+    {
+      "id": "TM3",
+      "finding_id": "finding-b1e62f8adc974db89183a3bf0b849819",
+      "category": "Tool Misuse",
+      "pattern": "Unsafe Defaults",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "references/javascript-typescript-nextjs-web-server-security.md",
+        "start_line": 159,
+        "end_line": null,
+        "start_column": 3
+      },
+      "finding": "NODE_ENV=development",
+      "explanation": "Tool defaults are unsafe or overly permissive (e.g. disabled TLS verification, no authentication, world-writable permissions). Unsafe defaults widen the attack surface.",
+      "remediation": "Override unsafe defaults with secure settings (verify=True, auth required, restrictive permissions). Review and harden all tool configurations.",
+      "code_snippet": "Insecure patterns:\n\n* `next dev` in Docker `CMD`, Procfile, platform start command.\n* `NODE_ENV=development` in production environment config.\n* Debug/dev-only endpoints or flags exposed publicly.\n\nDetection hints:",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7e441fa37b20638d1694da82cbfa4fc61321782f3775b658b0da844635d8f6f4",
+      "occurrences": [
+        {
+          "file": "references/javascript-typescript-nextjs-web-server-security.md",
+          "start_line": 159,
+          "end_line": null,
+          "start_column": 3
+        }
+      ]
+    },
+    {
+      "id": "TM3",
+      "finding_id": "finding-c9f1df07dcc0429eb68c3564b0a44f33",
+      "category": "Tool Misuse",
+      "pattern": "Unsafe Defaults",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "references/javascript-typescript-nextjs-web-server-security.md",
+        "start_line": 165,
+        "end_line": null,
+        "start_column": 20
+      },
+      "finding": "NODE_ENV=development",
+      "explanation": "Tool defaults are unsafe or overly permissive (e.g. disabled TLS verification, no authentication, world-writable permissions). Unsafe defaults widen the attack surface.",
+      "remediation": "Override unsafe defaults with secure settings (verify=True, auth required, restrictive permissions). Review and harden all tool configurations.",
+      "code_snippet": "Detection hints:\n\n* Search `package.json` scripts and deployment manifests for `next dev`.\n* Search infra for `NODE_ENV=development` or missing `NODE_ENV`.\n* Check Kubernetes/PM2/systemd entrypoints for `next dev`.\n\nFix:",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7e441fa37b20638d1694da82cbfa4fc61321782f3775b658b0da844635d8f6f4",
+      "occurrences": [
+        {
+          "file": "references/javascript-typescript-nextjs-web-server-security.md",
+          "start_line": 165,
+          "end_line": null,
+          "start_column": 20
+        }
+      ]
+    },
+    {
+      "id": "TM3",
+      "finding_id": "finding-808175887b6e44749fbee37743e4961c",
+      "category": "Tool Misuse",
+      "pattern": "Unsafe Defaults",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "references/javascript-typescript-nextjs-web-server-security.md",
+        "start_line": 1055,
+        "end_line": null,
+        "start_column": 17
+      },
+      "finding": "NODE_ENV=development",
+      "explanation": "Tool defaults are unsafe or overly permissive (e.g. disabled TLS verification, no authentication, world-writable permissions). Unsafe defaults widen the attack surface.",
+      "remediation": "Override unsafe defaults with secure settings (verify=True, auth required, restrictive permissions). Review and harden all tool configurations.",
+      "code_snippet": "\n* Production misconfig:\n\n  * `next dev`, `NODE_ENV=development`, dev-only start commands ([Next.js][7])\n* Secrets exposure:\n\n  * `.env` committed, `NEXT_PUBLIC_` on sensitive variables ([Next.js][7])",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7e441fa37b20638d1694da82cbfa4fc61321782f3775b658b0da844635d8f6f4",
+      "occurrences": [
+        {
+          "file": "references/javascript-typescript-nextjs-web-server-security.md",
+          "start_line": 1055,
+          "end_line": null,
+          "start_column": 17
+        }
+      ]
+    },
+    {
+      "id": "TM3",
+      "finding_id": "finding-fdfe768359444afdb0822a17fa285555",
+      "category": "Tool Misuse",
+      "pattern": "Unsafe Defaults",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "references/python-flask-web-server-security.md",
+        "start_line": 118,
+        "end_line": null,
+        "start_column": 65
+      },
+      "finding": "FLASK_ENV=development",
+      "explanation": "Tool defaults are unsafe or overly permissive (e.g. disabled TLS verification, no authentication, world-writable permissions). Unsafe defaults widen the attack surface.",
+      "remediation": "Override unsafe defaults with secure settings (verify=True, auth required, restrictive permissions). Review and harden all tool configurations.",
+      "code_snippet": "- Deployment docs/scripts that use `flask run` in production.\n\nDetection hints:\n- Search for `app.run(`, `flask run`, `--debug`, `FLASK_DEBUG`, `FLASK_ENV=development`.\n- Check Docker CMD/ENTRYPOINT, Procfile, systemd units, shell scripts.\n\nFix:",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8f70fa5adf66abbde1b5ef8b52a28a57cf66f53cbea58c2ee889a939a358da40",
+      "occurrences": [
+        {
+          "file": "references/python-flask-web-server-security.md",
+          "start_line": 118,
+          "end_line": null,
+          "start_column": 65
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-09a04e77985f45a692df4028a5783e84",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "references/python-flask-web-server-security.md",
+        "start_line": 361,
+        "end_line": null,
+        "start_column": 2
+      },
+      "finding": "Unlimited request",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "- MUST enforce additional limits at the reverse proxy / WSGI / platform level where possible.\n\nInsecure patterns:\n- Unlimited request body sizes when handling uploads or user content.\n- Accepting arbitrarily large multipart forms or many fields.\n\nDetection hints:",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ce602a0881b36759ef7dca3fc3d667f470bb8730d3d23fa1aa276338ce40f7e9",
+      "occurrences": [
+        {
+          "file": "references/python-flask-web-server-security.md",
+          "start_line": 361,
+          "end_line": null,
+          "start_column": 2
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": false,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 13,
+    "scanned_components": 7,
+    "coverage_percent": 53.8,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 7,
+    "partially_inspected_files": 6,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 46,
+        "end_line": 46,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "references/golang-general-backend-security.md",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "references/javascript-express-web-server-security.md",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "references/javascript-express-web-server-security.md",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "references/javascript-jquery-web-frontend-security.md",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "references/javascript-typescript-nextjs-web-server-security.md",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "references/javascript-typescript-nextjs-web-server-security.md",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "references/javascript-typescript-vue-web-frontend-security.md",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "references/python-flask-web-server-security.md",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 13,
+        "completed": 13,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 13,
+        "completed": 13,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "degraded",
+        "planned_work": 13,
+        "completed": 9,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "degraded",
+        "planned_work": 13,
+        "completed": 9,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 13,
+        "completed": 13,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "degraded",
+        "planned_work": 13,
+        "completed": 9,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "degraded",
+        "planned_work": 13,
+        "completed": 9,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "degraded",
+        "planned_work": 13,
+        "completed": 9,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "degraded",
+        "planned_work": 13,
+        "completed": 9,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 13,
+        "completed": 13,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "degraded",
+        "planned_work": 13,
+        "completed": 9,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "degraded",
+        "planned_work": 13,
+        "completed": 9,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "degraded",
+        "planned_work": 13,
+        "completed": 9,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "degraded",
+        "planned_work": 13,
+        "completed": 9,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 13,
+        "completed": 9,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "degraded",
+        "planned_work": 13,
+        "completed": 9,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 13,
+        "completed": 7,
+        "partial": 6,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 13,
+        "completed": 13,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [
+      {
+        "source_path": "SKILL.md",
+        "line": 22,
+        "column": 145,
+        "evidence": "ntend and backend, but the frontend framework is not specified, also check out `javascript-general-web-frontend-security.md`. It is important that you understan",
+        "target_path": "references/javascript-general-web-frontend-security.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 46,
+        "column": 77,
+        "evidence": "When producing a report, you should write the report as a markdown file in `security_best_practices_report.md` or some other location if provided by the user. Y",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      }
+    ],
+    "limitations": [
+      "Analyzer static_patterns_agent_snooping status: degraded.",
+      "Analyzer static_patterns_anti_refusal status: degraded.",
+      "Analyzer static_patterns_deserialization status: degraded.",
+      "Analyzer static_patterns_excessive_agency status: degraded.",
+      "Analyzer static_patterns_harmful_content status: degraded.",
+      "Analyzer static_patterns_memory_poisoning status: degraded.",
+      "Analyzer static_patterns_privilege_escalation status: degraded.",
+      "Analyzer static_patterns_prompt_injection status: degraded.",
+      "Analyzer static_patterns_rogue_agent status: degraded.",
+      "Analyzer static_patterns_ssrf status: degraded.",
+      "Analyzer static_patterns_supply_chain status: degraded.",
+      "Analyzer static_patterns_system_prompt_leakage status: degraded.",
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 40,
+    "findings_after_filtering": 40,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

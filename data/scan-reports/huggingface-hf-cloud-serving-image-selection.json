@@ -1,0 +1,1149 @@
+{
+  "skill": {
+    "name": "hf-cloud-serving-image-selection",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\huggingface__skills\\skills-main\\skills\\hf-cloud-serving-image-selection",
+    "scanned_at": "2026-10-31T21:52:21.936688+00:00"
+  },
+  "risk_assessment": {
+    "score": 52,
+    "severity": "HIGH",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "MEDIUM"
+  },
+  "components": [
+    {
+      "path": "SKILL.md",
+      "type": "markdown",
+      "lines": 220,
+      "executable": false,
+      "size_bytes": 18539,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/model-to-image.md",
+      "type": "markdown",
+      "lines": 111,
+      "executable": false,
+      "size_bytes": 10826,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/mirror_image.py",
+      "type": "python",
+      "lines": 145,
+      "executable": true,
+      "size_bytes": 4803,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "LP3",
+      "finding_id": "finding-2b8a6dfae2b747218ef2dae6953c7c50",
+      "category": "MCP Least Privilege",
+      "pattern": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: env, shell.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: env, shell.",
+      "explanation": "Without declared permissions the skill's intent is opaque and cannot be validated.",
+      "remediation": "Clarify the skill's intended tool scope and review how the host runtime enforces it; runtime permissions are unknown unless separately verified. For Claude Code / Agent Skills SKILL.md, 'allowed-tools' records preapproved tools, not a permission ceiling; add a tool only when it is independently approved as necessary, not to silence this finding. For MCP server manifests, use a 'permissions' list naming the required capabilities.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI02"
+      ],
+      "evidence": {},
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-ca9c8c515a2a41f4a6d5c4c48383f755",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 189,
+        "end_line": null,
+        "start_column": 11
+      },
+      "finding": "https://api.github.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "\n1. **The catalog's source data on GitHub** \u2014 the page is generated from one YAML file per version, listing exact tags, CUDA, and Python versions. List a family's files, then fetch the newest:\n   ```bash\n   curl -s https://api.github.com/repos/aws/deep-learning-containers/contents/docs/src/data/huggingface-vllm\n   curl -s https://raw.githubusercontent.com/aws/deep-learning-containers/main/docs/src/data/huggingface-vllm/0.21.0-gpu-sagemaker.yml\n   ```\n   Directory names match ECR repos (`huggingface-vllm`, `huggingface-vllm-omni`, `huggingface-tei`, `vllm`, `djl-inference`, ...).",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "061abab0022b7a79cdf98b2721e4ad6d47cd4ad12584ecf052130ef51f05d966",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 189,
+          "end_line": null,
+          "start_column": 11
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-84b9e5e7151542a09cfb312cfb0a2294",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/mirror_image.py",
+        "start_line": 40,
+        "end_line": 40,
+        "start_column": 11,
+        "end_column": 73
+      },
+      "finding": "subprocess.run(args, capture_output=True, text=True, **kwargs)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "\n\ndef run(args: list[str], **kwargs) -> subprocess.CompletedProcess:\n    return subprocess.run(args, capture_output=True, text=True, **kwargs)\n\n\ndef resolve_region() -> str:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "b5626bfd135dc883575440c532d11de25b56c56e16d364fca1927184805d78e1",
+      "occurrences": [
+        {
+          "file": "scripts/mirror_image.py",
+          "start_line": 40,
+          "end_line": 40,
+          "start_column": 11,
+          "end_column": 73
+        }
+      ]
+    },
+    {
+      "id": "TT2",
+      "finding_id": "finding-e4e52d921b734e22a44fdde21934c4ef",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'args' from os.environ (line 124, credential/environment) \u2192 subprocess.run (code execution)",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "scripts/mirror_image.py",
+        "start_line": 40,
+        "end_line": 40,
+        "start_column": 11,
+        "end_column": 73
+      },
+      "finding": "subprocess.run(args, capture_output=True, text=True, **kwargs)",
+      "explanation": "Data from a source is assigned to a variable that is later passed to a sink, creating a variable-mediated taint flow.",
+      "remediation": "Validate tainted variables before passing them to sinks. Use allowlists, type checks, or sanitization functions on data from external sources.",
+      "code_snippet": "\n\ndef run(args: list[str], **kwargs) -> subprocess.CompletedProcess:\n    return subprocess.run(args, capture_output=True, text=True, **kwargs)\n\n\ndef resolve_region() -> str:",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "43f8c5e1d3b0bf9269d0456d014c7215fa3e649136850fb1f123e3e95449cf28",
+      "occurrences": [
+        {
+          "file": "scripts/mirror_image.py",
+          "start_line": 40,
+          "end_line": 40,
+          "start_column": 11,
+          "end_column": 73
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-e7d975770af441768ba6cf33f131c691",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/mirror_image.py",
+        "start_line": 113,
+        "end_line": 116,
+        "start_column": 16,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            [docker, \"login\", \"--username\", \"AWS\", \"--password-stdin\", registry_host],\n            input=password, capture_output=True, text=True,\n        )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "\n    # Auth. ECR Public auth always uses us-east-1.\n    def docker_login(password: str, registry_host: str) -> bool:\n        login = subprocess.run(\n            [docker, \"login\", \"--username\", \"AWS\", \"--password-stdin\", registry_host],\n            input=password, capture_output=True, text=True,\n        )",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0969e40f88532b9cb89530fcd4befce4614a4a08c5b0bb1ab353bc1b9a9a71c6",
+      "occurrences": [
+        {
+          "file": "scripts/mirror_image.py",
+          "start_line": 113,
+          "end_line": 116,
+          "start_column": 16,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "TT2",
+      "finding_id": "finding-1bcb0ae5202d42b7acb0f38ca205dccc",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'registry_host' from os.environ (line 125, credential/environment) \u2192 subprocess.run (code execution)",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "scripts/mirror_image.py",
+        "start_line": 113,
+        "end_line": 116,
+        "start_column": 16,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            [docker, \"login\", \"--username\", \"AWS\", \"--password-stdin\", registry_host],\n            input=password, capture_output=True, text=True,\n        )",
+      "explanation": "Data from a source is assigned to a variable that is later passed to a sink, creating a variable-mediated taint flow.",
+      "remediation": "Validate tainted variables before passing them to sinks. Use allowlists, type checks, or sanitization functions on data from external sources.",
+      "code_snippet": "\n    # Auth. ECR Public auth always uses us-east-1.\n    def docker_login(password: str, registry_host: str) -> bool:\n        login = subprocess.run(\n            [docker, \"login\", \"--username\", \"AWS\", \"--password-stdin\", registry_host],\n            input=password, capture_output=True, text=True,\n        )",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "b3d884788a561e853fb7396c2b38ec5dcfcdd7a356f79c130e2744128422098b",
+      "occurrences": [
+        {
+          "file": "scripts/mirror_image.py",
+          "start_line": 113,
+          "end_line": 116,
+          "start_column": 16,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-c896277a94894ca7b6c6914d9a530704",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/mirror_image.py",
+        "start_line": 130,
+        "end_line": 130,
+        "start_column": 7,
+        "end_column": 51
+      },
+      "finding": "subprocess.run([docker, \"pull\", public_uri])",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        return 1\n\n    log(f\"Pulling {public_uri} (may take several minutes)...\")\n    if subprocess.run([docker, \"pull\", public_uri]).returncode != 0:\n        log(\"ERROR: docker pull failed\")\n        return 1\n    subprocess.run([docker, \"tag\", public_uri, private_uri])",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "dd23bbcd219e735ecacc246de805f28c726271d200de35d0dfff4e0edc48064e",
+      "occurrences": [
+        {
+          "file": "scripts/mirror_image.py",
+          "start_line": 130,
+          "end_line": 130,
+          "start_column": 7,
+          "end_column": 51
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-2e728b8769f14c158ad33c152977162a",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker pull failed\")'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "scripts/mirror_image.py",
+        "start_line": 131,
+        "end_line": null
+      },
+      "finding": "docker pull failed\")",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "2bb2b4d42cbdc1376f7f9d9196700dc308b6d1cfee51f1b2e92f4ae520f14b45",
+      "occurrences": [
+        {
+          "file": "scripts/mirror_image.py",
+          "start_line": 131,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-afd58ecc13d04418919ec900b98eea39",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/mirror_image.py",
+        "start_line": 133,
+        "end_line": 133,
+        "start_column": 4,
+        "end_column": 60
+      },
+      "finding": "subprocess.run([docker, \"tag\", public_uri, private_uri])",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    if subprocess.run([docker, \"pull\", public_uri]).returncode != 0:\n        log(\"ERROR: docker pull failed\")\n        return 1\n    subprocess.run([docker, \"tag\", public_uri, private_uri])\n    log(\"Pushing to private ECR...\")\n    if subprocess.run([docker, \"push\", private_uri]).returncode != 0:\n        log(\"ERROR: docker push failed\")",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "b43dffc24a842c320a415466f9e8aeebb2eea9a5833959c08be919e9d2025bc3",
+      "occurrences": [
+        {
+          "file": "scripts/mirror_image.py",
+          "start_line": 133,
+          "end_line": 133,
+          "start_column": 4,
+          "end_column": 60
+        }
+      ]
+    },
+    {
+      "id": "TT2",
+      "finding_id": "finding-4deb4cc90a844cfbb0ae6b18eaa3bc82",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'private_uri' from os.environ (line 87, credential/environment) \u2192 subprocess.run (code execution)",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "scripts/mirror_image.py",
+        "start_line": 133,
+        "end_line": 133,
+        "start_column": 4,
+        "end_column": 60
+      },
+      "finding": "subprocess.run([docker, \"tag\", public_uri, private_uri])",
+      "explanation": "Data from a source is assigned to a variable that is later passed to a sink, creating a variable-mediated taint flow.",
+      "remediation": "Validate tainted variables before passing them to sinks. Use allowlists, type checks, or sanitization functions on data from external sources.",
+      "code_snippet": "    if subprocess.run([docker, \"pull\", public_uri]).returncode != 0:\n        log(\"ERROR: docker pull failed\")\n        return 1\n    subprocess.run([docker, \"tag\", public_uri, private_uri])\n    log(\"Pushing to private ECR...\")\n    if subprocess.run([docker, \"push\", private_uri]).returncode != 0:\n        log(\"ERROR: docker push failed\")",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0d31ef80a4d0ad4339b69b1d9b6e27ba000a6baafa687cd400e57ddfb7e3a38a",
+      "occurrences": [
+        {
+          "file": "scripts/mirror_image.py",
+          "start_line": 133,
+          "end_line": 133,
+          "start_column": 4,
+          "end_column": 60
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-83979792c16946a39030b094760d6b09",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/mirror_image.py",
+        "start_line": 135,
+        "end_line": 135,
+        "start_column": 7,
+        "end_column": 52
+      },
+      "finding": "subprocess.run([docker, \"push\", private_uri])",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        return 1\n    subprocess.run([docker, \"tag\", public_uri, private_uri])\n    log(\"Pushing to private ECR...\")\n    if subprocess.run([docker, \"push\", private_uri]).returncode != 0:\n        log(\"ERROR: docker push failed\")\n        return 1\n",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fb7a7bfec9c505ff5044f14eccfd18578b52480e03186f9ebbe5bf51f5924561",
+      "occurrences": [
+        {
+          "file": "scripts/mirror_image.py",
+          "start_line": 135,
+          "end_line": 135,
+          "start_column": 7,
+          "end_column": 52
+        }
+      ]
+    },
+    {
+      "id": "TT2",
+      "finding_id": "finding-9eeb96b8edf149b8b02ed2d151c03d90",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'private_uri' from os.environ (line 87, credential/environment) \u2192 subprocess.run (code execution)",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "scripts/mirror_image.py",
+        "start_line": 135,
+        "end_line": 135,
+        "start_column": 7,
+        "end_column": 52
+      },
+      "finding": "subprocess.run([docker, \"push\", private_uri])",
+      "explanation": "Data from a source is assigned to a variable that is later passed to a sink, creating a variable-mediated taint flow.",
+      "remediation": "Validate tainted variables before passing them to sinks. Use allowlists, type checks, or sanitization functions on data from external sources.",
+      "code_snippet": "        return 1\n    subprocess.run([docker, \"tag\", public_uri, private_uri])\n    log(\"Pushing to private ECR...\")\n    if subprocess.run([docker, \"push\", private_uri]).returncode != 0:\n        log(\"ERROR: docker push failed\")\n        return 1\n",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1ebc4c02e79d0a24ffd0bc86b4600c70b9547f18f7e02bcd0bbf690001dd700c",
+      "occurrences": [
+        {
+          "file": "scripts/mirror_image.py",
+          "start_line": 135,
+          "end_line": 135,
+          "start_column": 7,
+          "end_column": 52
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 3,
+    "scanned_components": 3,
+    "coverage_percent": 100.0,
+    "is_complete": true,
+    "status": "complete_with_caveats",
+    "execution_successful": true,
+    "fully_inspected_files": 3,
+    "partially_inspected_files": 0,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 59,
+        "end_line": 59,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 60,
+        "end_line": 60,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 107,
+        "end_line": 107,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 119,
+        "end_line": 119,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 120,
+        "end_line": 120,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 143,
+        "end_line": 143,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 164,
+        "end_line": 164,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 168,
+        "end_line": 168,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 220,
+        "end_line": 220,
+        "fatal": false
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "completed",
+        "planned_work": 2,
+        "completed": 2,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 3,
+        "completed": 3,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [
+      {
+        "source_path": "SKILL.md",
+        "line": 28,
+        "column": 188,
+        "evidence": "s (e.g. `eu-south-1` uses `692866216735`). Check the [Region Availability page](https://aws.github.io/deep-learning-containers/reference/region_availability/) w",
+        "target_path": null,
+        "status": "rejected",
+        "disposition": "out_of_scope",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 30,
+        "column": 197,
+        "evidence": "d in late 2026). If you encounter a new family that isn't there, mirror it via `mirror_image.py` and pass the resulting URI directly.",
+        "target_path": "scripts/mirror_image.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 51,
+        "column": 213,
+        "evidence": "checks on TGI. Use vLLM instead. (The SageMaker SDK v3 agrees: since [PR #5960](https://github.com/aws/sagemaker-python-sdk/pull/5960), June 2026, its `ModelBui",
+        "target_path": null,
+        "status": "rejected",
+        "disposition": "out_of_scope",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 53,
+        "column": 36,
+        "evidence": "Full reasoning for each family in `references/model-to-image.md`.",
+        "target_path": "references/model-to-image.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 59,
+        "column": 154,
+        "evidence": "ence-transformers` rerankers) \u2014 BERT-family models with a classification head. `config.json` has `architectures: [..ForSequenceClassification]` on a TEI-support",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 60,
+        "column": 154,
+        "evidence": "judges) \u2014 decoder LLMs that score relevance via the logprob of a yes/no token. `config.json` has `architectures: [..ForCausalLM]`. \u2192 **HuggingFace vLLM**, deplo",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 94,
+        "column": 366,
+        "evidence": "l error for a region other than us-east-1, check the [Region Availability page](https://aws.github.io/deep-learning-containers/reference/region_availability/) f",
+        "target_path": null,
+        "status": "rejected",
+        "disposition": "out_of_scope",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 107,
+        "column": 141,
+        "evidence": "r later, pass `--inference-ami-version al2-ami-sagemaker-inference-gpu-3-1` to `deploy.py`. If a future CUDA version (cu140+) needs a different AMI, add a row t",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 119,
+        "column": 40,
+        "evidence": "| `SM_VLLM_MODEL` | HF model ID (e.g. `Qwen/Qwen3-0.6B`) or `/opt/ml/model` if loading from S3 | \u2014 |",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 120,
+        "column": 31,
+        "evidence": "| `SM_VLLM_HOST` | **Must be `0.0.0.0`** | Otherwise vLLM binds localhost only, ping fails, container dies before logs. Top cause of mystery failures with this ",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 143,
+        "column": 38,
+        "evidence": "| `HF_MODEL_ID` | HF model ID (e.g. `BAAI/bge-large-en-v1.5`) or `/opt/ml/model` | Yes |",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 164,
+        "column": 77,
+        "evidence": "SageMaker endpoints inside a VPC **without** a NAT gateway can't pull from `public.ecr.aws`. The deployment fails with an image-pull error that doesn't mention ",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 168,
+        "column": 23,
+        "evidence": "For images requiring `public.ecr.aws` access (less common): mirror to a private ECR repo in your account with `scripts/mirror_image.py` (cross-platform; needs D",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 168,
+        "column": 112,
+        "evidence": "r.aws` access (less common): mirror to a private ECR repo in your account with `scripts/mirror_image.py` (cross-platform; needs Docker + the `aws` CLI). Run it ",
+        "target_path": "scripts/mirror_image.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 172,
+        "column": 23,
+        "evidence": "PRIVATE_URI=$(python3 scripts/mirror_image.py \\",
+        "target_path": "scripts/mirror_image.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "plain_path"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 198,
+        "column": 43,
+        "evidence": "3. [Release notes on the DLC GitHub repo](https://github.com/aws/deep-learning-containers/releases).",
+        "target_path": null,
+        "status": "rejected",
+        "disposition": "out_of_scope",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 202,
+        "column": 284,
+        "evidence": "ivate ECR and pass the resulting URI directly to `deploy.py --image-uri`. Same `mirror_image.py` script.",
+        "target_path": "scripts/mirror_image.py",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 220,
+        "column": 99,
+        "evidence": "repeated deployments, pre-stage the weights in S3 and pass `--model-s3-uri` to `deploy.py` (the model then loads from `/opt/ml/model`) \u2014 faster, immune to Hub r",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      }
+    ],
+    "limitations": [],
+    "findings_before_filtering": 12,
+    "findings_after_filtering": 12,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

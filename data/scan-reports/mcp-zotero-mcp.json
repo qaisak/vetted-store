@@ -1,0 +1,3464 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\54yyyu__zotero-mcp\\zotero-mcp-main\\src\\zotero_mcp",
+    "scanned_at": "2026-10-31T23:23:35.391704+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "CRITICAL"
+  },
+  "components": [
+    {
+      "path": "__init__.py",
+      "type": "python",
+      "lines": 55,
+      "executable": true,
+      "size_bytes": 1996,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "_app.py",
+      "type": "python",
+      "lines": 158,
+      "executable": true,
+      "size_bytes": 5840,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "_context.py",
+      "type": "python",
+      "lines": 63,
+      "executable": true,
+      "size_bytes": 1914,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "_version.py",
+      "type": "python",
+      "lines": 3,
+      "executable": true,
+      "size_bytes": 51,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "batch_common.py",
+      "type": "python",
+      "lines": 518,
+      "executable": true,
+      "size_bytes": 20867,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "better_bibtex_client.py",
+      "type": "python",
+      "lines": 453,
+      "executable": true,
+      "size_bytes": 16213,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "chroma_client.py",
+      "type": "python",
+      "lines": 696,
+      "executable": true,
+      "size_bytes": 30600,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "citation_import.py",
+      "type": "python",
+      "lines": 910,
+      "executable": true,
+      "size_bytes": 34843,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "cli.py",
+      "type": "python",
+      "lines": 1535,
+      "executable": true,
+      "size_bytes": 70023,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "cli_json.py",
+      "type": "python",
+      "lines": 212,
+      "executable": true,
+      "size_bytes": 7809,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "cli_standalone.py",
+      "type": "python",
+      "lines": 2004,
+      "executable": true,
+      "size_bytes": 86717,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "client.py",
+      "type": "python",
+      "lines": 1302,
+      "executable": true,
+      "size_bytes": 50269,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "config.py",
+      "type": "python",
+      "lines": 159,
+      "executable": true,
+      "size_bytes": 5608,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "config_light.py",
+      "type": "python",
+      "lines": 138,
+      "executable": true,
+      "size_bytes": 5142,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "data/zotero_basefields.json",
+      "type": "json",
+      "lines": 853,
+      "executable": false,
+      "size_bytes": 21780,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "embeddings/__init__.py",
+      "type": "python",
+      "lines": 22,
+      "executable": true,
+      "size_bytes": 957,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "embeddings/base.py",
+      "type": "python",
+      "lines": 458,
+      "executable": true,
+      "size_bytes": 19079,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "embeddings/providers/__init__.py",
+      "type": "python",
+      "lines": 66,
+      "executable": true,
+      "size_bytes": 2787,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "embeddings/providers/gemini.py",
+      "type": "python",
+      "lines": 220,
+      "executable": true,
+      "size_bytes": 10551,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "embeddings/providers/huggingface.py",
+      "type": "python",
+      "lines": 73,
+      "executable": true,
+      "size_bytes": 2982,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "embeddings/providers/ollama.py",
+      "type": "python",
+      "lines": 159,
+      "executable": true,
+      "size_bytes": 7155,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "embeddings/providers/openai.py",
+      "type": "python",
+      "lines": 286,
+      "executable": true,
+      "size_bytes": 14003,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "embeddings/ratelimit.py",
+      "type": "python",
+      "lines": 330,
+      "executable": true,
+      "size_bytes": 14429,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "embeddings/registry.py",
+      "type": "python",
+      "lines": 338,
+      "executable": true,
+      "size_bytes": 12703,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "epub_utils.py",
+      "type": "python",
+      "lines": 929,
+      "executable": true,
+      "size_bytes": 30159,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "extract.py",
+      "type": "python",
+      "lines": 684,
+      "executable": true,
+      "size_bytes": 26862,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "fulltext_cache.py",
+      "type": "python",
+      "lines": 266,
+      "executable": true,
+      "size_bytes": 9695,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gemini_batch.py",
+      "type": "python",
+      "lines": 490,
+      "executable": true,
+      "size_bytes": 19472,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "html_metadata.py",
+      "type": "python",
+      "lines": 266,
+      "executable": true,
+      "size_bytes": 9149,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "identifiers.py",
+      "type": "python",
+      "lines": 347,
+      "executable": true,
+      "size_bytes": 12778,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "library.py",
+      "type": "python",
+      "lines": 633,
+      "executable": true,
+      "size_bytes": 25500,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "local_db.py",
+      "type": "python",
+      "lines": 3416,
+      "executable": true,
+      "size_bytes": 146839,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "note_html.py",
+      "type": "python",
+      "lines": 265,
+      "executable": true,
+      "size_bytes": 12095,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "openai_batch.py",
+      "type": "python",
+      "lines": 362,
+      "executable": true,
+      "size_bytes": 14384,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "pdf_layout.py",
+      "type": "python",
+      "lines": 795,
+      "executable": true,
+      "size_bytes": 30186,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "pdf_utils.py",
+      "type": "python",
+      "lines": 1011,
+      "executable": true,
+      "size_bytes": 33773,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "pdfannots_downloader.py",
+      "type": "python",
+      "lines": 188,
+      "executable": true,
+      "size_bytes": 6727,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "pdfannots_helper.py",
+      "type": "python",
+      "lines": 127,
+      "executable": true,
+      "size_bytes": 4126,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "prompts.py",
+      "type": "python",
+      "lines": 181,
+      "executable": true,
+      "size_bytes": 7979,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "resources.py",
+      "type": "python",
+      "lines": 90,
+      "executable": true,
+      "size_bytes": 3690,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "schema.py",
+      "type": "python",
+      "lines": 248,
+      "executable": true,
+      "size_bytes": 9403,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scite_client.py",
+      "type": "python",
+      "lines": 117,
+      "executable": true,
+      "size_bytes": 3508,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "search_semantics.py",
+      "type": "python",
+      "lines": 260,
+      "executable": true,
+      "size_bytes": 10096,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "semantic_search.py",
+      "type": "python",
+      "lines": 4433,
+      "executable": true,
+      "size_bytes": 209241,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "server.py",
+      "type": "python",
+      "lines": 158,
+      "executable": true,
+      "size_bytes": 4418,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "setup_helper.py",
+      "type": "python",
+      "lines": 953,
+      "executable": true,
+      "size_bytes": 40840,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skill_install.py",
+      "type": "python",
+      "lines": 428,
+      "executable": true,
+      "size_bytes": 17597,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/zotero-cli/SKILL.md",
+      "type": "markdown",
+      "lines": 204,
+      "executable": false,
+      "size_bytes": 9088,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/zotero-cli/reference.md",
+      "type": "markdown",
+      "lines": 422,
+      "executable": false,
+      "size_bytes": 14157,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tools/__init__.py",
+      "type": "python",
+      "lines": 26,
+      "executable": true,
+      "size_bytes": 791,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tools/_helpers.py",
+      "type": "python",
+      "lines": 2651,
+      "executable": true,
+      "size_bytes": 110523,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tools/annotations.py",
+      "type": "python",
+      "lines": 2336,
+      "executable": true,
+      "size_bytes": 95592,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tools/connectors.py",
+      "type": "python",
+      "lines": 197,
+      "executable": true,
+      "size_bytes": 8259,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tools/discovery.py",
+      "type": "python",
+      "lines": 403,
+      "executable": true,
+      "size_bytes": 16293,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tools/item_parent.py",
+      "type": "python",
+      "lines": 46,
+      "executable": true,
+      "size_bytes": 1602,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tools/local_auth.py",
+      "type": "python",
+      "lines": 200,
+      "executable": true,
+      "size_bytes": 8553,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tools/read_pdf.py",
+      "type": "python",
+      "lines": 693,
+      "executable": true,
+      "size_bytes": 29155,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tools/retrieval.py",
+      "type": "python",
+      "lines": 1675,
+      "executable": true,
+      "size_bytes": 70135,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tools/scite.py",
+      "type": "python",
+      "lines": 466,
+      "executable": true,
+      "size_bytes": 18221,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tools/search.py",
+      "type": "python",
+      "lines": 1781,
+      "executable": true,
+      "size_bytes": 84287,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tools/synthesis.py",
+      "type": "python",
+      "lines": 520,
+      "executable": true,
+      "size_bytes": 22092,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tools/write.py",
+      "type": "python",
+      "lines": 6111,
+      "executable": true,
+      "size_bytes": 255513,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "toolsets.py",
+      "type": "python",
+      "lines": 331,
+      "executable": true,
+      "size_bytes": 12625,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "updater.py",
+      "type": "python",
+      "lines": 862,
+      "executable": true,
+      "size_bytes": 31311,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "utils.py",
+      "type": "python",
+      "lines": 806,
+      "executable": true,
+      "size_bytes": 31542,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "webdav.py",
+      "type": "python",
+      "lines": 259,
+      "executable": true,
+      "size_bytes": 9205,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "TT3",
+      "finding_id": "finding-349ad2590cdd4bf18f72cbf9f135d737",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'port' from os.getenv (line 164, credential/environment) \u2192 requests.post (network output)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "tools/annotations.py",
+        "start_line": 177,
+        "end_line": 182,
+        "start_column": 15,
+        "end_column": 9
+      },
+      "finding": "requests.post(\n            f\"<redacted-url>\",\n            headers={\"Content-Type\": \"application/json\"},\n            json=payload,\n            timeout=30,\n        )",
+      "explanation": "Credentials or environment variables flow to a network sink. This is a high-confidence indicator of credential exfiltration.",
+      "remediation": "Never send credentials or environment variables over the network. Use secure credential stores and avoid transmitting secrets in request bodies or URLs.",
+      "code_snippet": "        \"uri\": \"about:blank\",\n    }\n    try:\n        resp = requests.post(\n            f\"<redacted-url>\",\n            headers={\"Content-Type\": \"application/json\"},\n            json=payload,",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8bddab6cbf0acf40ed9a8805cf5df5315f13a3440c28dcaec9510b9c87e5fda6",
+      "occurrences": [
+        {
+          "file": "tools/annotations.py",
+          "start_line": 177,
+          "end_line": 182,
+          "start_column": 15,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "TT3",
+      "finding_id": "finding-f12b5b9f28854ba8862355ca9b49b12d",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'params' from os.environ.get (line 1692, credential/environment) \u2192 requests.get (network output)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "tools/write.py",
+        "start_line": 1586,
+        "end_line": 1587,
+        "start_column": 19,
+        "end_column": 48
+      },
+      "finding": "requests.get(url, params=params, headers=_CROSSREF_HEADERS,\n                                timeout=timeout)",
+      "explanation": "Credentials or environment variables flow to a network sink. This is a high-confidence indicator of credential exfiltration.",
+      "remediation": "Never send credentials or environment variables over the network. Use secure credential stores and avoid transmitting secrets in request bodies or URLs.",
+      "code_snippet": "    last_error = None\n    for attempt in range(_CROSSREF_MAX_ATTEMPTS):\n        try:\n            resp = requests.get(url, params=params, headers=_CROSSREF_HEADERS,\n                                timeout=timeout)\n        except requests.Timeout:\n            return None, \"Error: CrossRef API request timed out. Please try again.\"",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "acffca6cdf9893c9d598ff57493ddea61aa1341e83bea1db0fe6d043728bc359",
+      "occurrences": [
+        {
+          "file": "tools/write.py",
+          "start_line": 1586,
+          "end_line": 1587,
+          "start_column": 19,
+          "end_column": 48
+        }
+      ]
+    },
+    {
+      "id": "TT3",
+      "finding_id": "finding-912283c5518d46e0a71fe2d07f26ddb4",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'url' from os.environ.get (line 1543, credential/environment) \u2192 requests.get (network output)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "tools/write.py",
+        "start_line": 2052,
+        "end_line": 2060,
+        "start_column": 15,
+        "end_column": 9
+      },
+      "finding": "requests.get(\n            url,\n            headers={\n                \"User-Agent\": _utils.USER_AGENT,\n                \"Accept\": \"text/html,application/xhtml+xml\",\n            },\n            timeout=_E",
+      "explanation": "Credentials or environment variables flow to a network sink. This is a high-confidence indicator of credential exfiltration.",
+      "remediation": "Never send credentials or environment variables over the network. Use secure credential stores and avoid transmitting secrets in request bodies or URLs.",
+      "code_snippet": "    URL-titled stubs nobody notices.\n    \"\"\"\n    try:\n        resp = requests.get(\n            url,\n            headers={\n                \"User-Agent\": _utils.USER_AGENT,",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8f3f6f0d050f576d10d708a95f1a89a43f62ead54a67c68fdb6b8cc31641b3a1",
+      "occurrences": [
+        {
+          "file": "tools/write.py",
+          "start_line": 2052,
+          "end_line": 2060,
+          "start_column": 15,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-28eaf95245d44ba9ac52707e364584d3",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "_app.py",
+        "start_line": 72,
+        "end_line": 72,
+        "start_column": 10
+      },
+      "finding": "os.environ.copy()",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "    pipes: a child that outlived the server would otherwise hold them open\n    and the client would never see the connection close (#431).\n    \"\"\"\n    env = os.environ.copy()\n    env.setdefault(\"PYTHONIOENCODING\", \"utf-8\")\n    return subprocess.Popen(\n        cmd,",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "23b3d476caf63d859a2a3bade37548b7986b00b138b45df1b6a49782c4e2984b",
+      "occurrences": [
+        {
+          "file": "_app.py",
+          "start_line": 72,
+          "end_line": 72,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-afd9d6bfd21b4d16b988c7f013ba4589",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "tools/write.py",
+        "start_line": 4417,
+        "end_line": 4417,
+        "start_column": 16
+      },
+      "finding": "os.environ.copy()",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "    # Strip API keys from the child's environment: the TOC reader does not\n    # need them, and leaking them via crash dumps (which this child is\n    # expected to produce) or /proc/<pid>/environ is needless exposure.\n    child_env = os.environ.copy()\n    for _key in (\n        \"OPENAI_API_KEY\",\n        \"GEMINI_API_KEY\",",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "23b3d476caf63d859a2a3bade37548b7986b00b138b45df1b6a49782c4e2984b",
+      "occurrences": [
+        {
+          "file": "tools/write.py",
+          "start_line": 4417,
+          "end_line": 4417,
+          "start_column": 16
+        }
+      ]
+    },
+    {
+      "id": "RA1",
+      "finding_id": "finding-8144878d63c64153a4a9fb38dd200eb6",
+      "category": "Rogue Agent",
+      "pattern": "Self-Modification",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "cli.py",
+        "start_line": 916,
+        "end_line": null,
+        "start_column": 14
+      },
+      "finding": "Overwrite existing file",
+      "explanation": "Skill modifies its own code, configuration, or behavior at runtime. Self-modification enables an agent to escalate privileges, disable safety constraints, or install persistent backdoors.",
+      "remediation": "Prevent the skill from modifying its own code, SKILL.md, or configuration files. Treat skill files as read-only at runtime.",
+      "code_snippet": "        help=\"Show every supported harness and whether it is detected here\")\n    skill_parser.add_argument(\n        \"--force\", action=\"store_true\",\n        help=\"Overwrite existing files. In a shared instructions file only the \"\n             \"managed block changes. No backup is kept.\")\n\n    # Local write authorization command",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ab825fad36644c7a7bb0fa0aa8ce605fb4ed63a23c0f134568b8dfd5c96f7cf8",
+      "occurrences": [
+        {
+          "file": "cli.py",
+          "start_line": 916,
+          "end_line": null,
+          "start_column": 14
+        }
+      ]
+    },
+    {
+      "id": "OH1",
+      "finding_id": "finding-bda851f931274e7b86da77022b2974ff",
+      "category": "Output Handling",
+      "pattern": "Unvalidated Output Injection",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "location": {
+        "file": "cli.py",
+        "start_line": 1466,
+        "end_line": null,
+        "start_column": 22
+      },
+      "finding": "f\"Update needed: {result",
+      "explanation": "Model output is used without validation or sanitization. Unvalidated output injected into downstream contexts (SQL, shell, HTML) enables injection attacks and arbitrary code execution.",
+      "remediation": "Validate and sanitize all model output before using it in downstream contexts. Use parameterized queries for SQL, shell quoting for commands, and HTML encoding for web output.",
+      "code_snippet": "            if args.check_only:\n                print(f\"Current version: {result.get('current_version', 'Unknown')}\")\n                print(f\"Latest version: {result.get('latest_version', 'Unknown')}\")\n                print(f\"Update needed: {result.get('needs_update', False)}\")\n                print(f\"Status: {result.get('message', 'Unknown')}\")\n            else:\n                if result.get('success'):",
+      "intent": null,
+      "tags": [
+        "Output Handling"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e7f8600cc9e5d0c5ffa6961bc120f152ef7881855a5a47969a6456074108eb8c",
+      "occurrences": [
+        {
+          "file": "cli.py",
+          "start_line": 1466,
+          "end_line": null,
+          "start_column": 22
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-48f7659952784162b9286e4a7e4fc448",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "cli_standalone.py",
+        "start_line": 232,
+        "end_line": 232,
+        "start_column": 25
+      },
+      "finding": "os.environ.items()",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "    import os\n    setup_zotero_environment()\n    config = {\n        k: v for k, v in os.environ.items()\n        if k.startswith(\"ZOTERO_\") or k in (\"OPENAI_API_KEY\", \"GOOGLE_API_KEY\", \"GEMINI_API_KEY\")\n    }\n    if not getattr(args, \"show_secrets\", False):",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "21b29b57b89a5a3233f697b487f442cbfa19ad73da80ad74d8531f3d6c0dc384",
+      "occurrences": [
+        {
+          "file": "cli_standalone.py",
+          "start_line": 232,
+          "end_line": 232,
+          "start_column": 25
+        }
+      ]
+    },
+    {
+      "id": "SSRF1",
+      "finding_id": "finding-a4d45012fc0447c8a645a4e331e00b69",
+      "category": "Server-Side Request Forgery",
+      "pattern": "Cloud Metadata Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "tools/_helpers.py",
+        "start_line": 1741,
+        "end_line": null,
+        "start_column": 52
+      },
+      "finding": "169.254.169.254",
+      "explanation": "Code accesses a cloud instance metadata endpoint (e.g. 169.254.169.254). A single request can return temporary IAM credentials, making this a high-value SSRF target for credential theft.",
+      "remediation": "Remove access to cloud metadata endpoints unless strictly required. If metadata is needed, restrict it (e.g. IMDSv2 with hop limit) and never expose returned credentials.",
+      "code_snippet": "    therefore attacker-influenceable (a hostile paper record, or prompt\n    injection steering ``zotero_add_item``). We reject non-http(s) schemes\n    and any host that resolves to a private, loopback, link-local, reserved,\n    or otherwise non-global address \u2014 including the 169.254.169.254\n    cloud-metadata endpoint, which matters for HTTP/SSE-transport deployments.\n\n    Note: a determined DNS-rebinding attacker could still flip the record",
+      "intent": null,
+      "tags": [
+        "Server-Side Request Forgery"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d61ab72824eae3143803cfed4f723d8454fedefdac1d6ad5c7f4299f9032a6ee",
+      "occurrences": [
+        {
+          "file": "tools/_helpers.py",
+          "start_line": 1741,
+          "end_line": null,
+          "start_column": 52
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-b512a8e84e6741b1b757ba9bb4de661c",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "tools/_helpers.py",
+        "start_line": 2276,
+        "end_line": null,
+        "start_column": 66
+      },
+      "finding": "/etc/passwd",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    Scheme-checked, because this branch never fetches and so never reaches\n    ``_guarded_pdf_get``. Every URL that arrives here came from outside:\n    an aggregator's JSON, or -- since the publisher source was added -- a\n    ``citation_pdf_url`` meta tag on an arbitrary page. A \"file:///etc/passwd\"\n    in that tag would otherwise be written into the library verbatim.\n    \"\"\"\n    if urlparse(pdf_url).scheme not in (\"http\", \"https\"):",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac75eea6ed115d0252fb13bbb10e9c4421764d5a7612787edcde6a78569d8f88",
+      "occurrences": [
+        {
+          "file": "tools/_helpers.py",
+          "start_line": 2276,
+          "end_line": null,
+          "start_column": 66
+        }
+      ]
+    },
+    {
+      "id": "OH1",
+      "finding_id": "finding-e99229e163d74be8832ca3eef94c0fbf",
+      "category": "Output Handling",
+      "pattern": "Unvalidated Output Injection",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "location": {
+        "file": "tools/write.py",
+        "start_line": 575,
+        "end_line": null,
+        "start_column": 34
+      },
+      "finding": "f\"Update may have failed for item {item_key}: {result",
+      "explanation": "Model output is used without validation or sanitization. Unvalidated output injected into downstream contexts (SQL, shell, HTML) enables injection attacks and arbitrary code execution.",
+      "remediation": "Validate and sanitize all model output before using it in downstream contexts. Use parameterized queries for SQL, shell quoting for commands, and HTML encoding for web output.",
+      "code_snippet": "                    if _helpers._handle_write_response(result, ctx):\n                        updated_count += 1\n                    else:\n                        ctx.error(f\"Update may have failed for item {item_key}: {result}\")\n                        skipped_count += 1\n                except Exception as e:\n                    ctx.error(f\"Failed to update item {item.get('key', 'unknown')}: {str(e)}\")",
+      "intent": null,
+      "tags": [
+        "Output Handling"
+      ],
+      "evidence": {},
+      "match_fingerprint": "67b980462a0b38d44c8aff3cc790db728050dcc4cde484012731bafdb61c370d",
+      "occurrences": [
+        {
+          "file": "tools/write.py",
+          "start_line": 575,
+          "end_line": null,
+          "start_column": 34
+        }
+      ]
+    },
+    {
+      "id": "OH1",
+      "finding_id": "finding-67252ebbd3f0455c9c217b89e91cfec8",
+      "category": "Output Handling",
+      "pattern": "Unvalidated Output Injection",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "location": {
+        "file": "tools/write.py",
+        "start_line": 790,
+        "end_line": null,
+        "start_column": 30
+      },
+      "finding": "f\"Update may have failed for item {item_key}: {result",
+      "explanation": "Model output is used without validation or sanitization. Unvalidated output injected into downstream contexts (SQL, shell, HTML) enables injection attacks and arbitrary code execution.",
+      "remediation": "Validate and sanitize all model output before using it in downstream contexts. Use parameterized queries for SQL, shell quoting for commands, and HTML encoding for web output.",
+      "code_snippet": "                if _helpers._handle_write_response(result, ctx):\n                    updated_count += 1\n                else:\n                    ctx.error(f\"Update may have failed for item {item_key}: {result}\")\n                    skipped_count += 1\n            except Exception as e:\n                ctx.error(f\"Failed to update item {item_key}: {str(e)}\")",
+      "intent": null,
+      "tags": [
+        "Output Handling"
+      ],
+      "evidence": {},
+      "match_fingerprint": "67b980462a0b38d44c8aff3cc790db728050dcc4cde484012731bafdb61c370d",
+      "occurrences": [
+        {
+          "file": "tools/write.py",
+          "start_line": 790,
+          "end_line": null,
+          "start_column": 30
+        }
+      ]
+    },
+    {
+      "id": "AR2",
+      "finding_id": "finding-8ca1d93349dc4674bc1936afc38fe801",
+      "category": "Anti-Refusal",
+      "pattern": "Anti-Refusal Statement",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "tools/write.py",
+        "start_line": 3151,
+        "end_line": 3152,
+        "start_column": 59,
+        "end_column": 15
+      },
+      "finding": "skip\n        warning",
+      "explanation": "Skill instructs the agent to omit warnings, disclaimers, or ethical commentary. Stripping safety caveats hides risk from the user and is a common jailbreak preamble.",
+      "remediation": "Remove instructions that suppress warnings, disclaimers, or ethical commentary. Let the agent surface safety-relevant caveats to the user.",
+      "code_snippet": "        ctx: MCP context.\n\n    Returns:\n        A markdown-formatted summary of what changed (or a skip\n        warning for fields not valid on the item type).\n    \"\"\"\n    try:",
+      "intent": null,
+      "tags": [
+        "Anti-Refusal"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d6c78208c6c8ff83a51a83195e63d6818af0d856895be244cca767cdcb01aec1",
+      "occurrences": [
+        {
+          "file": "tools/write.py",
+          "start_line": 3151,
+          "end_line": 3152,
+          "start_column": 59,
+          "end_column": 15
+        }
+      ]
+    },
+    {
+      "id": "OH1",
+      "finding_id": "finding-34186112740c4bcdbbd27a7854572f0d",
+      "category": "Output Handling",
+      "pattern": "Unvalidated Output Injection",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "location": {
+        "file": "updater.py",
+        "start_line": 620,
+        "end_line": null,
+        "start_column": 26
+      },
+      "finding": "f\"Update failed: {result",
+      "explanation": "Model output is used without validation or sanitization. Unvalidated output injected into downstream contexts (SQL, shell, HTML) enables injection attacks and arbitrary code execution.",
+      "remediation": "Validate and sanitize all model output before using it in downstream contexts. Use parameterized queries for SQL, shell quoting for commands, and HTML encoding for web output.",
+      "code_snippet": "        if result.returncode == 0:\n            return True, f\"Successfully updated via {method}\"\n        else:\n            return False, f\"Update failed: {result.stderr}\"\n\n    except subprocess.TimeoutExpired:\n        return False, \"Update timed out\"",
+      "intent": null,
+      "tags": [
+        "Output Handling"
+      ],
+      "evidence": {},
+      "match_fingerprint": "75604aab3163e81f7b8ccbbd06ca4ff050db04615d931b0ecedfa54f8429ad99",
+      "occurrences": [
+        {
+          "file": "updater.py",
+          "start_line": 620,
+          "end_line": null,
+          "start_column": 26
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-02a89db4d8ee40db854c8db3c5f4f12a",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "_app.py",
+        "start_line": 74,
+        "end_line": 85,
+        "start_column": 11,
+        "end_column": 5
+      },
+      "finding": "subprocess.Popen(\n        cmd,\n        stdin=subprocess.DEVNULL,\n        stdout=subprocess.PIPE,\n        stderr=subprocess.STDOUT,\n        text=True,\n        encoding=\"utf-8\",\n        errors=\"replace\"",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    \"\"\"\n    env = os.environ.copy()\n    env.setdefault(\"PYTHONIOENCODING\", \"utf-8\")\n    return subprocess.Popen(\n        cmd,\n        stdin=subprocess.DEVNULL,\n        stdout=subprocess.PIPE,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f30a6f990178744760ee2913a2dc281b9b2706cdad9dd3acd1808c71d03db170",
+      "occurrences": [
+        {
+          "file": "_app.py",
+          "start_line": 74,
+          "end_line": 85,
+          "start_column": 11,
+          "end_column": 5
+        }
+      ]
+    },
+    {
+      "id": "TT2",
+      "finding_id": "finding-49be14cb8fd742a0a4a81c7a62f4ce9f",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'payload' from requests.post (line 88, network input) \u2192 requests.post (network output)",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "better_bibtex_client.py",
+        "start_line": 96,
+        "end_line": 101,
+        "start_column": 23,
+        "end_column": 13
+      },
+      "finding": "requests.post(\n                self.base_url,\n                headers=self.headers,\n                data=json.dumps(payload),\n                timeout=30\n            )",
+      "explanation": "Data from a source is assigned to a variable that is later passed to a sink, creating a variable-mediated taint flow.",
+      "remediation": "Validate tainted variables before passing them to sinks. Use allowlists, type checks, or sanitization functions on data from external sources.",
+      "code_snippet": "        }\n\n        try:\n            response = requests.post(\n                self.base_url,\n                headers=self.headers,\n                data=json.dumps(payload),",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0054c2e57d48c9e3cb5f3e2e407838f4aa666b66e5bc3ab80da43b50eb96bb9a",
+      "occurrences": [
+        {
+          "file": "better_bibtex_client.py",
+          "start_line": 96,
+          "end_line": 101,
+          "start_column": 23,
+          "end_column": 13
+        }
+      ]
+    },
+    {
+      "id": "SSRF2",
+      "finding_id": "finding-31bbfd2fa3ad4f1d9d34db8935b8fe21",
+      "category": "Server-Side Request Forgery",
+      "pattern": "Internal Network Request",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "better_bibtex_client.py",
+        "start_line": 120,
+        "end_line": null,
+        "start_column": 23
+      },
+      "finding": "requests.get(\n                f\"http://127.0.0.1",
+      "explanation": "Code issues a request to a loopback, link-local, or private-range host. This can reach internal services not meant to be exposed and is a common SSRF pivot.",
+      "remediation": "Avoid requests to loopback/link-local/private hosts from skill code. If internal access is intended, document it and validate the target against an allowlist.",
+      "code_snippet": "    def is_zotero_running(self) -> bool:\n        \"\"\"Check if Zotero is running and accessible.\"\"\"\n        try:\n            response = requests.get(\n                f\"<redacted-url>\",\n                headers=self.headers,\n                timeout=5",
+      "intent": null,
+      "tags": [
+        "Server-Side Request Forgery"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7e4e968204d6d25f89268d5cfcc9d35853c68dbdff8dc834e66947781a0cc9cb",
+      "occurrences": [
+        {
+          "file": "better_bibtex_client.py",
+          "start_line": 120,
+          "end_line": null,
+          "start_column": 23
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-87515d44a5c54744b065b66c1decc522",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "cli.py",
+        "start_line": 1030,
+        "end_line": 1030,
+        "start_column": 21,
+        "end_column": 102
+      },
+      "finding": "subprocess.run([\"uv\", \"tool\", \"list\"], capture_output=True, text=True, timeout=5)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        # Detect installation method\n        try:\n            # Check if installed via uv\n            result = subprocess.run([\"uv\", \"tool\", \"list\"], capture_output=True, text=True, timeout=5)\n            if \"zotero-mcp-server\" in result.stdout or \"zotero-mcp\" in result.stdout:\n                print(\"  Installation method: uv tool\")\n            else:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "32560e0851ba6bec5cc7446591b3232c49de16461f2d870474639e35e3c6d27f",
+      "occurrences": [
+        {
+          "file": "cli.py",
+          "start_line": 1030,
+          "end_line": 1030,
+          "start_column": 21,
+          "end_column": 102
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-aae85793eaf04f61afa9ff819f553372",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "cli.py",
+        "start_line": 1035,
+        "end_line": 1036,
+        "start_column": 25,
+        "end_column": 80
+      },
+      "finding": "subprocess.run([sys.executable, \"-m\", \"pip\", \"show\", \"zotero-mcp-server\"],\n                                      capture_output=True, text=True, timeout=5)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "                print(\"  Installation method: uv tool\")\n            else:\n                # Check pip\n                result = subprocess.run([sys.executable, \"-m\", \"pip\", \"show\", \"zotero-mcp-server\"],\n                                      capture_output=True, text=True, timeout=5)\n                if result.returncode == 0:\n                    print(\"  Installation method: pip\")",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5134373d9c9aac22205db520a2defd5d52be24b6060287c28820c3c82d644242",
+      "occurrences": [
+        {
+          "file": "cli.py",
+          "start_line": 1035,
+          "end_line": 1036,
+          "start_column": 25,
+          "end_column": 80
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-465c7d0b11c3463ea3939635754164be",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "cli_standalone.py",
+        "start_line": 1305,
+        "end_line": 1305,
+        "start_column": 8,
+        "end_column": 62
+      },
+      "finding": "subprocess.run([\"open\", \"-R\", str(path)], check=False)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    import os\n    import subprocess\n    if sys.platform == \"darwin\":\n        subprocess.run([\"open\", \"-R\", str(path)], check=False)\n    elif sys.platform == \"win32\":\n        subprocess.run([\"explorer\", f\"/select,{path}\"], check=False)\n    else:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d783c869d1c17284691ef7ed26fd1f12b0a90460f4222df03076adf9c94324f0",
+      "occurrences": [
+        {
+          "file": "cli_standalone.py",
+          "start_line": 1305,
+          "end_line": 1305,
+          "start_column": 8,
+          "end_column": 62
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-4ecfc981e2c94d6692e1ac781d0a472b",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "cli_standalone.py",
+        "start_line": 1307,
+        "end_line": 1307,
+        "start_column": 8,
+        "end_column": 68
+      },
+      "finding": "subprocess.run([\"explorer\", f\"/select,{path}\"], check=False)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    if sys.platform == \"darwin\":\n        subprocess.run([\"open\", \"-R\", str(path)], check=False)\n    elif sys.platform == \"win32\":\n        subprocess.run([\"explorer\", f\"/select,{path}\"], check=False)\n    else:\n        subprocess.run([\"xdg-open\", os.path.dirname(str(path))], check=False)\n",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ad50a6503a9878d2bf8c79456508e9260b3fba2be37167e377ba1606fa2a7ab1",
+      "occurrences": [
+        {
+          "file": "cli_standalone.py",
+          "start_line": 1307,
+          "end_line": 1307,
+          "start_column": 8,
+          "end_column": 68
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-256d199104964370a53858ebcb85bac9",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "cli_standalone.py",
+        "start_line": 1309,
+        "end_line": 1309,
+        "start_column": 8,
+        "end_column": 77
+      },
+      "finding": "subprocess.run([\"xdg-open\", os.path.dirname(str(path))], check=False)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    elif sys.platform == \"win32\":\n        subprocess.run([\"explorer\", f\"/select,{path}\"], check=False)\n    else:\n        subprocess.run([\"xdg-open\", os.path.dirname(str(path))], check=False)\n\n\ndef cmd_plugin(args):",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1ce4c60d525948952878830ba08a9a466bf07f2ec751962db58f3e9af60e113a",
+      "occurrences": [
+        {
+          "file": "cli_standalone.py",
+          "start_line": 1309,
+          "end_line": 1309,
+          "start_column": 8,
+          "end_column": 77
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-9930443831da4d429f18ef1837bb39da",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "cli_standalone.py",
+        "start_line": 1362,
+        "end_line": 1362,
+        "start_column": 8,
+        "end_column": 49
+      },
+      "finding": "subprocess.run([\"open\", url], check=True)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    import os\n    import subprocess\n    if sys.platform == \"darwin\":\n        subprocess.run([\"open\", url], check=True)\n    elif sys.platform == \"win32\":\n        os.startfile(url)  # noqa: S606 -- a zotero:// link, not a path\n    else:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "cf74f269b05dc787b62f13be79daf311f1bfa105463c253bb92eea8b4331f6de",
+      "occurrences": [
+        {
+          "file": "cli_standalone.py",
+          "start_line": 1362,
+          "end_line": 1362,
+          "start_column": 8,
+          "end_column": 49
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-663ac33f3c0c45f0b208c607297c9549",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "cli_standalone.py",
+        "start_line": 1366,
+        "end_line": 1366,
+        "start_column": 8,
+        "end_column": 53
+      },
+      "finding": "subprocess.run([\"xdg-open\", url], check=True)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    elif sys.platform == \"win32\":\n        os.startfile(url)  # noqa: S606 -- a zotero:// link, not a path\n    else:\n        subprocess.run([\"xdg-open\", url], check=True)\n\n\ndef cmd_open(args):",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "bbeb3e3f831d2acf754a3bb468729ea9a66651fc0a03da7b1eeaea4e8515c274",
+      "occurrences": [
+        {
+          "file": "cli_standalone.py",
+          "start_line": 1366,
+          "end_line": 1366,
+          "start_column": 8,
+          "end_column": 53
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-c04cd5e57e7549c58d47803b51aa8fe9",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.7999999999999999,
+      "location": {
+        "file": "embeddings/providers/ollama.py",
+        "start_line": 118,
+        "end_line": null,
+        "start_column": 19
+      },
+      "finding": "requests.post(\n            f\"{self.base_url}/api/embed\",\n            json=",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "        except ImportError:\n            raise ImportError(\"requests package is required for Ollama embeddings\")\n\n        response = requests.post(\n            f\"{self.base_url}/api/embed\",\n            json={\"model\": self.model_name, \"input\": texts},\n            timeout=self.timeout,",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6de96467d9f5918ad8462f2e1b9f87278d9e6e6a9d26dd49499ff29fdcc559e2",
+      "occurrences": [
+        {
+          "file": "embeddings/providers/ollama.py",
+          "start_line": 118,
+          "end_line": null,
+          "start_column": 19
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-21aea4e337cf4ef589391c471c815b7b",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "library.py",
+        "start_line": 297,
+        "end_line": null,
+        "start_column": 63
+      },
+      "finding": "loop forever",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "\n    Paging stays here \u2014 over HTTP it is not optional \u2014 which is why\n    ``_paginate`` lives on this side of the port and never sees the SQLite\n    backend. Handing an unpaged backend to ``_paginate`` would loop forever:\n    it stops when a batch comes back shorter than the page size, and a\n    backend that returns everything on the first call never does.\n    \"\"\"",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "bf8606359f1586f62d6cc35460abf9efe79d8f62a4bb79e9135d3a7eb705940e",
+      "occurrences": [
+        {
+          "file": "library.py",
+          "start_line": 297,
+          "end_line": null,
+          "start_column": 63
+        }
+      ]
+    },
+    {
+      "id": "TT2",
+      "finding_id": "finding-dc215d4e65464a6f9115607ed9ec0c47",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'source' from os.getenv (line 839, credential/environment) \u2192 shutil.copyfile (file write)",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "local_db.py",
+        "start_line": 862,
+        "end_line": 862,
+        "start_column": 16,
+        "end_column": 45
+      },
+      "finding": "shutil.copyfile(source, snap)",
+      "explanation": "Data from a source is assigned to a variable that is later passed to a sink, creating a variable-mediated taint flow.",
+      "remediation": "Validate tainted variables before passing them to sinks. Use allowlists, type checks, or sanitization functions on data from external sources.",
+      "code_snippet": "            snap_dir = tempfile.mkdtemp(prefix=f\"{_SNAPSHOT_PREFIX}{os.getpid()}_\")\n            snap = os.path.join(snap_dir, \"zotero.sqlite\")\n            try:\n                shutil.copyfile(source, snap)\n                shutil.copyfile(wal, snap + \"-wal\")\n            except OSError as e:\n                shutil.rmtree(snap_dir, ignore_errors=True)",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c3288f2357373232b59335997e967b08c1493f1135c9100bbab8c94509b89a40",
+      "occurrences": [
+        {
+          "file": "local_db.py",
+          "start_line": 862,
+          "end_line": 862,
+          "start_column": 16,
+          "end_column": 45
+        }
+      ]
+    },
+    {
+      "id": "TT2",
+      "finding_id": "finding-73927a36bd1e4557a2bfc1ce7e030c6d",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'wal' from os.getenv (line 840, credential/environment) \u2192 shutil.copyfile (file write)",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "local_db.py",
+        "start_line": 863,
+        "end_line": 863,
+        "start_column": 16,
+        "end_column": 51
+      },
+      "finding": "shutil.copyfile(wal, snap + \"-wal\")",
+      "explanation": "Data from a source is assigned to a variable that is later passed to a sink, creating a variable-mediated taint flow.",
+      "remediation": "Validate tainted variables before passing them to sinks. Use allowlists, type checks, or sanitization functions on data from external sources.",
+      "code_snippet": "            snap = os.path.join(snap_dir, \"zotero.sqlite\")\n            try:\n                shutil.copyfile(source, snap)\n                shutil.copyfile(wal, snap + \"-wal\")\n            except OSError as e:\n                shutil.rmtree(snap_dir, ignore_errors=True)\n                logger.warning(",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e8814c5262560ce2239b397d5b249e99a68b6402844cf8880c81b5cd1a48e0c9",
+      "occurrences": [
+        {
+          "file": "local_db.py",
+          "start_line": 863,
+          "end_line": 863,
+          "start_column": 16,
+          "end_column": 51
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-698a120837c74bbd9b8ff820de66ae7a",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "pdfannots_helper.py",
+        "start_line": 115,
+        "end_line": 115,
+        "start_column": 17,
+        "end_column": 93
+      },
+      "finding": "subprocess.run(cmd, capture_output=True, text=True, check=True, timeout=120)",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    try:\n        # Run the command and capture JSON output. Bound the runtime so a\n        # hostile/oversized PDF can't wedge the worker indefinitely.\n        result = subprocess.run(cmd, capture_output=True, text=True, check=True, timeout=120)\n        annotations = json.loads(result.stdout)\n        logger.info(f\"Extracted {len(annotations)} annotations from PDF\")\n        return annotations",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8a6d89d6cc04d7a3564abe32fbbd3caea74b0c7525c40146e143ee7dcb3c0b90",
+      "occurrences": [
+        {
+          "file": "pdfannots_helper.py",
+          "start_line": 115,
+          "end_line": 115,
+          "start_column": 17,
+          "end_column": 93
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-ba056cd2399d479d8fbcca3e3f382552",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "schema.py",
+        "start_line": 38,
+        "end_line": null,
+        "start_column": 14
+      },
+      "finding": "https://api.zotero.org/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "import time\nfrom pathlib import Path\n\nSCHEMA_URL = \"https://api.zotero.org/schema\"\nDATA_FILE = Path(__file__).parent / \"data\" / \"zotero_basefields.json\"\nREFRESH_TTL_SECONDS = 7 * 24 * 3600  # weekly; renames are structurally frozen\n# Back-off after a failed refresh. Without it a machine that simply has no route",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "87d5a3ba2add433670b9fc1fe0619c1f4dddcfb6d663e4434ccf3be86fc8fbc5",
+      "occurrences": [
+        {
+          "file": "schema.py",
+          "start_line": 38,
+          "end_line": null,
+          "start_column": 14
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-0fcf04e2d7a34e69bbd1313461c7f401",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.7999999999999999,
+      "location": {
+        "file": "scite_client.py",
+        "start_line": 60,
+        "end_line": null,
+        "start_column": 15
+      },
+      "finding": "requests.post(\n            f\"{_BASE}/tallies\",\n            json=",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    if not dois:\n        return {}\n    try:\n        resp = requests.post(\n            f\"{_BASE}/tallies\",\n            json=dois[:500],\n            headers=_HEADERS,",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "687d83253f8208e5518aa4cbc14c412e70b662b77ca6f76b9e0cb85439de5503",
+      "occurrences": [
+        {
+          "file": "scite_client.py",
+          "start_line": 60,
+          "end_line": null,
+          "start_column": 15
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-df556ec68e064c2096c1ee33652e0c3f",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.7999999999999999,
+      "location": {
+        "file": "scite_client.py",
+        "start_line": 106,
+        "end_line": null,
+        "start_column": 15
+      },
+      "finding": "requests.post(\n            f\"{_BASE}/papers\",\n            json=",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    if not dois:\n        return {}\n    try:\n        resp = requests.post(\n            f\"{_BASE}/papers\",\n            json=dois[:500],\n            headers=_HEADERS,",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ec930319123ab5cc8136c3adef13bc07ac46048fc742137c815e80563c0e6997",
+      "occurrences": [
+        {
+          "file": "scite_client.py",
+          "start_line": 106,
+          "end_line": null,
+          "start_column": 15
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-996adc07976e4119bef4134fa6a47f2a",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "semantic_search.py",
+        "start_line": 3471,
+        "end_line": null,
+        "start_column": 47
+      },
+      "finding": "timeout=0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "        try:\n            while active_workers > 0:\n                try:\n                    payload = vector_queue.get(timeout=0.2)\n                except queue.Empty:\n                    continue\n                if payload is _STREAM_SENTINEL:",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e44269027db0b77c3f387ffaac96e37ae94b288abcfe941168fb22e5c43c7b09",
+      "occurrences": [
+        {
+          "file": "semantic_search.py",
+          "start_line": 3471,
+          "end_line": null,
+          "start_column": 47
+        }
+      ]
+    },
+    {
+      "id": "TM3",
+      "finding_id": "finding-b324eaa1c6fc4364870e205e1646446f",
+      "category": "Tool Misuse",
+      "pattern": "Unsafe Defaults",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "setup_helper.py",
+        "start_line": 32,
+        "end_line": null,
+        "start_column": 42
+      },
+      "finding": "world-readable",
+      "explanation": "Tool defaults are unsafe or overly permissive (e.g. disabled TLS verification, no authentication, world-writable permissions). Unsafe defaults widen the attack surface.",
+      "remediation": "Override unsafe defaults with secure settings (verify=True, auth required, restrictive permissions). Review and harden all tool configurations.",
+      "code_snippet": "    \"\"\"Best-effort ``chmod 600`` on a config file that may hold credentials.\n\n    Config files written here can contain ZOTERO_API_KEY and OpenAI/Gemini\n    keys; default umask often leaves them world-readable, which matters on\n    shared hosts / synced ~/.config. No-op on platforms without POSIX\n    permissions (Windows).\n    \"\"\"",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "08ab99de1034a0cd722661ecc978dd2265680bf78de538d14d0dea371d421246",
+      "occurrences": [
+        {
+          "file": "setup_helper.py",
+          "start_line": 32,
+          "end_line": null,
+          "start_column": 42
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-c97f600ff01f4191ae583ce7c17c7afc",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "setup_helper.py",
+        "start_line": 85,
+        "end_line": 88,
+        "start_column": 21,
+        "end_column": 13
+      },
+      "finding": "subprocess.run(\n                [\"find\", os.path.expanduser(\"~\"), \"-name\", \"zotero-mcp\", \"-type\", \"f\", \"-executable\"],\n                capture_output=True, text=True, timeout=10\n            )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        # On Unix-like systems, try using the 'find' command\n        if sys.platform != 'win32':\n            import subprocess\n            result = subprocess.run(\n                [\"find\", os.path.expanduser(\"~\"), \"-name\", \"zotero-mcp\", \"-type\", \"f\", \"-executable\"],\n                capture_output=True, text=True, timeout=10\n            )",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9f62db01a268b34c2883ce22f193e0ad1e360225fcc93b126518f40f0f4ab941",
+      "occurrences": [
+        {
+          "file": "setup_helper.py",
+          "start_line": 85,
+          "end_line": 88,
+          "start_column": 21,
+          "end_column": 13
+        }
+      ]
+    },
+    {
+      "id": "TT2",
+      "finding_id": "finding-a62ae5546f3d44a5a2ee9be5dc1c78a8",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'current' from requests.get (line 1794, network input) \u2192 requests.get (network output)",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "tools/_helpers.py",
+        "start_line": 1783,
+        "end_line": 1785,
+        "start_column": 15,
+        "end_column": 70
+      },
+      "finding": "requests.get(current, timeout=30, stream=True,\n                            allow_redirects=False,\n                            headers={\"User-Agent\": _utils.USER_AGENT})",
+      "explanation": "Data from a source is assigned to a variable that is later passed to a sink, creating a variable-mediated taint flow.",
+      "remediation": "Validate tainted variables before passing them to sinks. Use allowlists, type checks, or sanitization functions on data from external sources.",
+      "code_snippet": "        if not _url_resolves_to_public_host(current):\n            ctx.info(f\"PDF URL rejected by SSRF guard: {current}\")\n            return None\n        resp = requests.get(current, timeout=30, stream=True,\n                            allow_redirects=False,\n                            headers={\"User-Agent\": _utils.USER_AGENT})\n        if resp.status_code in _REDIRECT_STATUSES:",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8d63d432c6c644df07fa720950bed2c4918b4d042d8cab2313a19a0f7fe241bd",
+      "occurrences": [
+        {
+          "file": "tools/_helpers.py",
+          "start_line": 1783,
+          "end_line": 1785,
+          "start_column": 15,
+          "end_column": 70
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-d97ee0d270474296b6851ead4b9a9ca4",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "tools/_helpers.py",
+        "start_line": 2302,
+        "end_line": null,
+        "start_column": 14
+      },
+      "finding": "https://api.unpaywall.org/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    \"\"\"Try Unpaywall API for open-access PDF URLs.\"\"\"\n    try:\n        resp = requests.get(\n            f\"https://api.unpaywall.org/v2/{doi}\",\n            params={\"email\": \"zotero-mcp@users.noreply.github.com\"},\n            timeout=10,\n        )",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "993c9da63a9a91526367f69cb74d4871aa7e02a56984b2e47f6e70ad355b0c9d",
+      "occurrences": [
+        {
+          "file": "tools/_helpers.py",
+          "start_line": 2302,
+          "end_line": null,
+          "start_column": 14
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-9c06572ac546479fa3ec76b43370aa3d",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "tools/_helpers.py",
+        "start_line": 2366,
+        "end_line": null,
+        "start_column": 14
+      },
+      "finding": "https://api.openalex.org/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    \"\"\"\n    try:\n        resp = requests.get(\n            f\"https://api.openalex.org/works/https://doi.org/{doi}\",\n            params={\"mailto\": \"zotero-mcp@users.noreply.github.com\",\n                    \"select\": \"best_oa_location,locations\"},\n            headers={\"User-Agent\": _utils.USER_AGENT},",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "084795d7f5b81a72f2535543703c44e1d51963080730b88bbb32b1efa47792bb",
+      "occurrences": [
+        {
+          "file": "tools/_helpers.py",
+          "start_line": 2366,
+          "end_line": null,
+          "start_column": 14
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-448c3f876127457987b81a31c87a88cc",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "tools/_helpers.py",
+        "start_line": 2428,
+        "end_line": null,
+        "start_column": 14
+      },
+      "finding": "https://api.semanticscholar.org/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    \"\"\"Try Semantic Scholar API for an open-access PDF URL.\"\"\"\n    try:\n        resp = requests.get(\n            f\"https://api.semanticscholar.org/graph/v1/paper/DOI:{doi}\",\n            params={\"fields\": \"openAccessPdf\"},\n            timeout=10,\n        )",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "28a730c612683642ad2da1e285c84fc44a86c8ba8b39befce231ed47aae91211",
+      "occurrences": [
+        {
+          "file": "tools/_helpers.py",
+          "start_line": 2428,
+          "end_line": null,
+          "start_column": 14
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-3bee87d3767d4e8cb8452956fd8762af",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.7999999999999999,
+      "location": {
+        "file": "tools/annotations.py",
+        "start_line": 177,
+        "end_line": null,
+        "start_column": 15
+      },
+      "finding": "requests.post(\n            f\"<redacted-url>\",\n            headers={\"Content-Type\": \"application/json\"},\n            json=",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "        \"uri\": \"about:blank\",\n    }\n    try:\n        resp = requests.post(\n            f\"<redacted-url>\",\n            headers={\"Content-Type\": \"application/json\"},\n            json=payload,",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1975b6aefa318baf4ba9c555cd140e18112dd90b14e69a8d2c5bf24377f62556",
+      "occurrences": [
+        {
+          "file": "tools/annotations.py",
+          "start_line": 177,
+          "end_line": null,
+          "start_column": 15
+        }
+      ]
+    },
+    {
+      "id": "SSRF2",
+      "finding_id": "finding-908c73299ebd42ad8adac29ad79c083a",
+      "category": "Server-Side Request Forgery",
+      "pattern": "Internal Network Request",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "tools/annotations.py",
+        "start_line": 177,
+        "end_line": null,
+        "start_column": 15
+      },
+      "finding": "requests.post(\n            f\"http://127.0.0.1",
+      "explanation": "Code issues a request to a loopback, link-local, or private-range host. This can reach internal services not meant to be exposed and is a common SSRF pivot.",
+      "remediation": "Avoid requests to loopback/link-local/private hosts from skill code. If internal access is intended, document it and validate the target against an allowlist.",
+      "code_snippet": "        \"uri\": \"about:blank\",\n    }\n    try:\n        resp = requests.post(\n            f\"<redacted-url>\",\n            headers={\"Content-Type\": \"application/json\"},\n            json=payload,",
+      "intent": null,
+      "tags": [
+        "Server-Side Request Forgery"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7ea468687c129a42aa7f95794bf19faaac6a4d26dd79d8afc859f54eaf470d58",
+      "occurrences": [
+        {
+          "file": "tools/annotations.py",
+          "start_line": 177,
+          "end_line": null,
+          "start_column": 15
+        }
+      ]
+    },
+    {
+      "id": "TT2",
+      "finding_id": "finding-52dedcae477c4ecdaba4267a36da92e3",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'url' from requests.get (line 226, network input) \u2192 requests.get (network output)",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "tools/discovery.py",
+        "start_line": 84,
+        "end_line": 84,
+        "start_column": 15,
+        "end_column": 65
+      },
+      "finding": "requests.get(url, params=p, timeout=_HTTP_TIMEOUT)",
+      "explanation": "Data from a source is assigned to a variable that is later passed to a sink, creating a variable-mediated taint flow.",
+      "remediation": "Validate tainted variables before passing them to sinks. Use allowlists, type checks, or sanitization functions on data from external sources.",
+      "code_snippet": "    if params:\n        p.update(params)\n    try:\n        resp = requests.get(url, params=p, timeout=_HTTP_TIMEOUT)\n    except Exception:\n        return None\n    if getattr(resp, \"status_code\", None) != 200:",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "2432f097936a136fc822200775212685a9eb6456311b62b45a188f060899a2c7",
+      "occurrences": [
+        {
+          "file": "tools/discovery.py",
+          "start_line": 84,
+          "end_line": 84,
+          "start_column": 15,
+          "end_column": 65
+        }
+      ]
+    },
+    {
+      "id": "OH3",
+      "finding_id": "finding-f6933a4276994c768257414d9bc9f139",
+      "category": "Output Handling",
+      "pattern": "Unbounded Output",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "tools/retrieval.py",
+        "start_line": 395,
+        "end_line": null,
+        "start_column": 9
+      },
+      "finding": "without truncation",
+      "explanation": "Output size or generation rate is not bounded. Unbounded output enables denial-of-service through resource exhaustion, log flooding, or context-window stuffing.",
+      "remediation": "Set explicit limits on output length, generation count, and rate. Use max_tokens and truncation to prevent unbounded output.",
+      "code_snippet": "        \"zotero_search_collections \u2014 it returns only matches. \"\n        \"Scope is limited to the active library \u2014 switch libraries with \"\n        \"zotero_switch_library before listing. Deep hierarchies render inline \"\n        \"without truncation, so very deep trees can be long. \"\n        \"limit: cap on collections returned; pass None (default) to use 100, \"\n        \"or raise to 5000 for libraries with thousands of collections. \"\n        \"include_trashed: when True, also show collections in the Zotero \"",
+      "intent": null,
+      "tags": [
+        "Output Handling"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fca669c228c22de961384395266537b8f60e29c01517a578851b7b5464ace6af",
+      "occurrences": [
+        {
+          "file": "tools/retrieval.py",
+          "start_line": 395,
+          "end_line": null,
+          "start_column": 9
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-5344ce2635bb4d6ebbbfad0bf45b6368",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "tools/write.py",
+        "start_line": 1547,
+        "end_line": null,
+        "start_column": 23
+      },
+      "finding": "https://api.crossref.org/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    return supplemental\n\n\n_CROSSREF_WORKS_URL = \"https://api.crossref.org/works\"\n\n# CrossRef \"polite pool\": identifying via mailto gives higher rate limits and\n# priority routing, so it is sent unconditionally rather than only when the",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3d3547f384630996905cfd74fdee65b93e8b40d7941fa1457f6877350f5bffd0",
+      "occurrences": [
+        {
+          "file": "tools/write.py",
+          "start_line": 1547,
+          "end_line": null,
+          "start_column": 23
+        }
+      ]
+    },
+    {
+      "id": "TT2",
+      "finding_id": "finding-615e4b52d8e043e98dbb541d658c6f72",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'url' from requests.get (line 1648, network input) \u2192 requests.get (network output)",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "tools/write.py",
+        "start_line": 1586,
+        "end_line": 1587,
+        "start_column": 19,
+        "end_column": 48
+      },
+      "finding": "requests.get(url, params=params, headers=_CROSSREF_HEADERS,\n                                timeout=timeout)",
+      "explanation": "Data from a source is assigned to a variable that is later passed to a sink, creating a variable-mediated taint flow.",
+      "remediation": "Validate tainted variables before passing them to sinks. Use allowlists, type checks, or sanitization functions on data from external sources.",
+      "code_snippet": "    last_error = None\n    for attempt in range(_CROSSREF_MAX_ATTEMPTS):\n        try:\n            resp = requests.get(url, params=params, headers=_CROSSREF_HEADERS,\n                                timeout=timeout)\n        except requests.Timeout:\n            return None, \"Error: CrossRef API request timed out. Please try again.\"",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "face33fbdfdb2caaf4585000103a000eb4d3a2dda74e00ee55f2b3db0ac2c332",
+      "occurrences": [
+        {
+          "file": "tools/write.py",
+          "start_line": 1586,
+          "end_line": 1587,
+          "start_column": 19,
+          "end_column": 48
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-c5e7dcc498b14f4abec6dee91bdc94a1",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "tools/write.py",
+        "start_line": 4434,
+        "end_line": 4443,
+        "start_column": 15,
+        "end_column": 9
+      },
+      "finding": "subprocess.Popen(\n            [sys.executable, \"-c\", _TOC_CHILD_SCRIPT, str(pdf_path)],\n            stdin=subprocess.DEVNULL,\n            stdout=subprocess.PIPE,\n            stderr=subprocess.PIPE,\n  ",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        # server's stdin IS the MCP pipe from the client, and a child that\n        # outlives its parent would hold that pipe open, so the client never\n        # sees the connection close (#431).\n        proc = subprocess.Popen(\n            [sys.executable, \"-c\", _TOC_CHILD_SCRIPT, str(pdf_path)],\n            stdin=subprocess.DEVNULL,\n            stdout=subprocess.PIPE,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "b3b62cc386df31ab3d64cb137410312387466d59be15283d18aba589ba8804d9",
+      "occurrences": [
+        {
+          "file": "tools/write.py",
+          "start_line": 4434,
+          "end_line": 4443,
+          "start_column": 15,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-e73841d503ac41d19068433770029a56",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "updater.py",
+        "start_line": 33,
+        "end_line": 38,
+        "start_column": 17,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            [\"uv\", \"tool\", \"list\"],\n            capture_output=True,\n            text=True,\n            timeout=10,\n        )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        return False\n\n    try:\n        result = subprocess.run(\n            [\"uv\", \"tool\", \"list\"],\n            capture_output=True,\n            text=True,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7e288be71dc3436f8945a2d0b7160a0e0b1a3978eaddd078f1ba4eb74af0294a",
+      "occurrences": [
+        {
+          "file": "updater.py",
+          "start_line": 33,
+          "end_line": 38,
+          "start_column": 17,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-d5d444357f1f48f69b811db357a985e1",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "updater.py",
+        "start_line": 107,
+        "end_line": 112,
+        "start_column": 17,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            [\"pipx\", \"list\"],\n            capture_output=True,\n            text=True,\n            timeout=10\n        )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "            return False\n\n        # Try to get pipx list\n        result = subprocess.run(\n            [\"pipx\", \"list\"],\n            capture_output=True,\n            text=True,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fd9d65ee1d3ac1335e125c4a27ad49621d00882c4f39d3f58b57c60ae4241cef",
+      "occurrences": [
+        {
+          "file": "updater.py",
+          "start_line": 107,
+          "end_line": 112,
+          "start_column": 17,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-82e120738bf04612b7ef674174f008fe",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "updater.py",
+        "start_line": 135,
+        "end_line": 140,
+        "start_column": 21,
+        "end_column": 13
+      },
+      "finding": "subprocess.run(\n                [sys.executable, \"-m\", \"pip\", \"show\", \"zotero-mcp-server\"],\n                capture_output=True,\n                text=True,\n                timeout=10\n            )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    except ImportError:\n        # Fallback to pip show\n        try:\n            result = subprocess.run(\n                [sys.executable, \"-m\", \"pip\", \"show\", \"zotero-mcp-server\"],\n                capture_output=True,\n                text=True,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6763410f2badeaa08ad5a443d82e76ec95ae0703556af23aa6bd075719ca52be",
+      "occurrences": [
+        {
+          "file": "updater.py",
+          "start_line": 135,
+          "end_line": 140,
+          "start_column": 21,
+          "end_column": 13
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-80b0a50857b946d396d8a29637fd5209",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "updater.py",
+        "start_line": 176,
+        "end_line": 187,
+        "start_column": 17,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            [\n                interpreter,\n                \"-E\",\n                \"-c\",\n                \"import importlib.metadata as m; print(m.version('zotero-mcp-server'))\",\n        ",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    \"\"\"\n    try:\n        interpreter = str(python or sys.executable)\n        result = subprocess.run(\n            [\n                interpreter,\n                \"-E\",",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "b867e87f27ac0e02b7274eaf72afeca1743cadeb8a3b1ee0f3be9a693fe2acf4",
+      "occurrences": [
+        {
+          "file": "updater.py",
+          "start_line": 176,
+          "end_line": 187,
+          "start_column": 17,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-a387bbacc2f247ab931fc27f2c22d187",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "updater.py",
+        "start_line": 208,
+        "end_line": 213,
+        "start_column": 17,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            [\"uv\", \"tool\", \"dir\"],\n            capture_output=True,\n            text=True,\n            timeout=10,\n        )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "def _uv_tool_dir() -> Path | None:\n    \"\"\"Directory uv keeps its tool environments and receipts in.\"\"\"\n    try:\n        result = subprocess.run(\n            [\"uv\", \"tool\", \"dir\"],\n            capture_output=True,\n            text=True,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7e8d5c368c904143541b55f6c2cbb8e8369f14aa5fdea1740b781d2c0ef62b49",
+      "occurrences": [
+        {
+          "file": "updater.py",
+          "start_line": 208,
+          "end_line": 213,
+          "start_column": 17,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-de1709418b3b4766b2e061c87caa79e0",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "updater.py",
+        "start_line": 330,
+        "end_line": null,
+        "start_column": 13
+      },
+      "finding": "https://api.github.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    # Fallback to GitHub releases\n    try:\n        response = requests.get(\n            \"https://api.github.com/repos/54yyyu/zotero-mcp/releases/latest\",\n            timeout=10\n        )\n        if response.status_code == 200:",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "061abab0022b7a79cdf98b2721e4ad6d47cd4ad12584ecf052130ef51f05d966",
+      "occurrences": [
+        {
+          "file": "updater.py",
+          "start_line": 330,
+          "end_line": null,
+          "start_column": 13
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-fd83ee91b7ef4a1784892490a8e94792",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "updater.py",
+        "start_line": 536,
+        "end_line": 541,
+        "start_column": 37,
+        "end_column": 21
+      },
+      "finding": "subprocess.run(\n                        [\"uv\", \"tool\", \"upgrade\", \"zotero-mcp-server\"],\n                        capture_output=True,\n                        text=True,\n                        timeout=",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "                    )\n                    cmd = _uv_tool_reinstall_command(receipt)\n                else:\n                    upgrade_result = subprocess.run(\n                        [\"uv\", \"tool\", \"upgrade\", \"zotero-mcp-server\"],\n                        capture_output=True,\n                        text=True,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "006e7ed41d943f574faa30b2958b670fc1764eea850e4544659c547520a99152",
+      "occurrences": [
+        {
+          "file": "updater.py",
+          "start_line": 536,
+          "end_line": 541,
+          "start_column": 37,
+          "end_column": 21
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-dd3b46b4e8f145db86b0668651168f89",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "updater.py",
+        "start_line": 586,
+        "end_line": 591,
+        "start_column": 25,
+        "end_column": 17
+      },
+      "finding": "subprocess.run(\n                    [\"pipx\", \"upgrade\", \"zotero-mcp-server\"],\n                    capture_output=True,\n                    text=True,\n                    timeout=300\n                )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        elif method == \"pipx\":\n            # First try to upgrade, if that fails, reinstall\n            try:\n                result = subprocess.run(\n                    [\"pipx\", \"upgrade\", \"zotero-mcp-server\"],\n                    capture_output=True,\n                    text=True,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "563e0359bff9ac8a3475d0b5ab060a9ce67c91c9811410897b5d8a8b4293894e",
+      "occurrences": [
+        {
+          "file": "updater.py",
+          "start_line": 586,
+          "end_line": 591,
+          "start_column": 25,
+          "end_column": 17
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-9ca309145ba84c17b1759043ef7e7d2f",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "updater.py",
+        "start_line": 610,
+        "end_line": 615,
+        "start_column": 17,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            cmd,\n            capture_output=True,\n            text=True,\n            timeout=300\n        )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "            cmd.append(\"--force-reinstall\")\n\n        print(f\"Running: {' '.join(cmd)}\")\n        result = subprocess.run(\n            cmd,\n            capture_output=True,\n            text=True,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "15b1782ba092acd1cfb4c8fb454d63d9603ce5feac720765dd753e1d2c407aef",
+      "occurrences": [
+        {
+          "file": "updater.py",
+          "start_line": 610,
+          "end_line": 615,
+          "start_column": 17,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-d0adc224c3604cbdabd0de5ed3f04ee6",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "updater.py",
+        "start_line": 661,
+        "end_line": 667,
+        "start_column": 17,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            [interpreter, \"-E\", \"-m\", \"zotero_mcp.cli\", \"version\"],\n            capture_output=True,\n            text=True,\n            timeout=10,\n            cwd=_neutral_cwd(interpr",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "        # files the install step left behind rather than this process's\n        # already-imported module.\n        interpreter = str(python or sys.executable)\n        result = subprocess.run(\n            [interpreter, \"-E\", \"-m\", \"zotero_mcp.cli\", \"version\"],\n            capture_output=True,\n            text=True,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1abee8ca1dfa815658a1db579dcd25d692df813a713632ef2ccfac7cf0d3a351",
+      "occurrences": [
+        {
+          "file": "updater.py",
+          "start_line": 661,
+          "end_line": 667,
+          "start_column": 17,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-b6f83e3107f54dda8d9351707da2f503",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "_app.py",
+        "start_line": 22,
+        "end_line": 22,
+        "start_column": 10,
+        "end_column": 55
+      },
+      "finding": "getattr(logging, _log_level, logging.WARNING)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "# Set ZOTERO_MCP_LOG_LEVEL=DEBUG in Claude Desktop config to enable debug logs\n_log_level = os.environ.get(\"ZOTERO_MCP_LOG_LEVEL\", \"WARNING\").upper()\nlogging.basicConfig(\n    level=getattr(logging, _log_level, logging.WARNING),\n    format=\"%(asctime)s [%(name)s] %(levelname)s: %(message)s\",\n    stream=sys.stderr,\n)",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e6de6ad886f0b0f9c7150b71b0bb0377c00d0e75ef2c9f35be12e8ac881be6ae",
+      "occurrences": [
+        {
+          "file": "_app.py",
+          "start_line": 22,
+          "end_line": 22,
+          "start_column": 10,
+          "end_column": 55
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-4560ff18b6614ef68512544419bab16a",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "_context.py",
+        "start_line": 30,
+        "end_line": 30,
+        "start_column": 34,
+        "end_column": 59
+      },
+      "finding": "getattr(self._ctx, level)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "        import anyio.from_thread\n\n        try:\n            anyio.from_thread.run(getattr(self._ctx, level), message)\n        except Exception:\n            # A progress note must never fail the tool: no event loop to\n            # reach (called outside a worker thread) or a client gone away.",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "150558a0e1faab504de29f1841d15083032bdeb979d1b8008d40f07db5078b38",
+      "occurrences": [
+        {
+          "file": "_context.py",
+          "start_line": 30,
+          "end_line": 30,
+          "start_column": 34,
+          "end_column": 59
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-95bdb9aa6787457ab886a424319d4eb2",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "_context.py",
+        "start_line": 46,
+        "end_line": 46,
+        "start_column": 15,
+        "end_column": 39
+      },
+      "finding": "getattr(self._ctx, name)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "        self._log(\"error\", message)\n\n    def __getattr__(self, name):\n        return getattr(self._ctx, name)\n\n\ndef sync_context(fn):",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9688dfabcd12784834dc1dc9370c626cd27baffad6ed0a54ff9b3e54f72b1f8d",
+      "occurrences": [
+        {
+          "file": "_context.py",
+          "start_line": 46,
+          "end_line": 46,
+          "start_column": 15,
+          "end_column": 39
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-9ff0086d14a64207820c4b8cc0fd00e3",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "batch_common.py",
+        "start_line": 122,
+        "end_line": 122,
+        "start_column": 11,
+        "end_column": 37
+      },
+      "finding": "getattr(obj, key, default)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "def _object_attr(obj: Any, key: str, default: Any = None) -> Any:\n    if isinstance(obj, dict):\n        return obj.get(key, default)\n    return getattr(obj, key, default)\n\n\ndef _jsonable(value: Any) -> Any:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1863fcbed51d07209e0fd9ba6a9f6452326cac55fe5901cab9a152ca9c23e8b4",
+      "occurrences": [
+        {
+          "file": "batch_common.py",
+          "start_line": 122,
+          "end_line": 122,
+          "start_column": 11,
+          "end_column": 37
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-67a137d37f0b4cf6bc2a6cc12ca19d9b",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server dependency without pinned version: 'pip install -U fastmcp'.",
+      "severity": "LOW",
+      "confidence": 0.6,
+      "location": {
+        "file": "cli.py",
+        "start_line": 242,
+        "end_line": null
+      },
+      "finding": "pip install -U fastmcp",
+      "explanation": "pip install without ==version installs the latest release, which could include malicious changes.",
+      "remediation": "Pin the version: pip install package==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4b1c0e58be91ba2c777fb1f60b0f4a9b66c427758c2d63b7763c187a72d50ed2",
+      "occurrences": [
+        {
+          "file": "cli.py",
+          "start_line": 242,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-bb8fa91fc99f40b0a01c0508de1c8fcb",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "cli.py",
+        "start_line": 1176,
+        "end_line": 1176,
+        "start_column": 19,
+        "end_column": 53
+      },
+      "finding": "getattr(args, f\"{provider}_batch\")",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "                extraction_workers=getattr(args, \"extraction_workers\", None),\n            )\n            for flag, provider in ((\"--openai-batch\", \"openai\"), (\"--gemini-batch\", \"gemini\")):\n                if getattr(args, f\"{provider}_batch\") is True and (\n                    search.chroma_client.embedding_model != provider\n                ):\n                    print(",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "556404ce7290e9dc38f2d11d98289ca3655f9acd5e5389af4797df1eec673b11",
+      "occurrences": [
+        {
+          "file": "cli.py",
+          "start_line": 1176,
+          "end_line": 1176,
+          "start_column": 19,
+          "end_column": 53
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-bdb93af1e7bb4969883680158fd5296c",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "client.py",
+        "start_line": 197,
+        "end_line": 197,
+        "start_column": 17,
+        "end_column": 53
+      },
+      "finding": "getattr(defining_module, name, None)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "    \"\"\"\n    defining_module = sys.modules.get(zotero.Zotero.__module__)\n    for name in (\"httpx2\", \"httpx\"):\n        module = getattr(defining_module, name, None)\n        if module is not None:\n            return module\n    logger.warning(",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8d5ba2d463b3df1b518394d73703ea014557e9519ffcd5e6a5f7ea89afbaa064",
+      "occurrences": [
+        {
+          "file": "client.py",
+          "start_line": 197,
+          "end_line": 197,
+          "start_column": 17,
+          "end_column": 53
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-c4f39fb02faa4332a1fc97206b120f36",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "html_metadata.py",
+        "start_line": 218,
+        "end_line": 218,
+        "start_column": 25,
+        "end_column": 44
+      },
+      "finding": "getattr(meta, attr)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "\n    for tag, attr in _HIGHWIRE.items():\n        value = first(tag)\n        if value and not getattr(meta, attr):\n            setattr(meta, attr, value)\n\n    for tag, attr in _DUBLIN_CORE.items():",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "09de00d48c6efc02fa65ce2750d6d1500052b136ee42dcdd0fe08aebdfff0660",
+      "occurrences": [
+        {
+          "file": "html_metadata.py",
+          "start_line": 218,
+          "end_line": 218,
+          "start_column": 25,
+          "end_column": 44
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-d8d9d4b4d38940e688e35efddf4fc3a2",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "html_metadata.py",
+        "start_line": 223,
+        "end_line": 223,
+        "start_column": 24,
+        "end_column": 43
+      },
+      "finding": "getattr(meta, attr)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "\n    for tag, attr in _DUBLIN_CORE.items():\n        value = first(tag)\n        if not value or getattr(meta, attr):\n            continue\n        if attr == \"doi\":\n            value = _clean_doi(value)",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "09de00d48c6efc02fa65ce2750d6d1500052b136ee42dcdd0fe08aebdfff0660",
+      "occurrences": [
+        {
+          "file": "html_metadata.py",
+          "start_line": 223,
+          "end_line": 223,
+          "start_column": 24,
+          "end_column": 43
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-902e3ed83beb4ed78c5d415edddd441b",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "identifiers.py",
+        "start_line": 317,
+        "end_line": 317,
+        "start_column": 20,
+        "end_column": 50
+      },
+      "finding": "getattr(item_like, attr, None)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "        (\"extra\", (\"extra\",)),\n    ):\n        for attr in attrs:\n            if v := getattr(item_like, attr, None):\n                fields[name] = v\n                break\n    return fields",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fdc9ff5b958116c193dcf3d42db9f343910ce4006bbd59996b894f359784733c",
+      "occurrences": [
+        {
+          "file": "identifiers.py",
+          "start_line": 317,
+          "end_line": 317,
+          "start_column": 20,
+          "end_column": 50
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-dac6c5e54eaf43718249d144e9f3e563",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "library.py",
+        "start_line": 559,
+        "end_line": 559,
+        "start_column": 17,
+        "end_column": 45
+      },
+      "finding": "getattr(self._primary, attr)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "        return self._api\n\n    def __getattr__(self, attr):\n        target = getattr(self._primary, attr)\n        if not callable(target):\n            return target\n",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "34f076e7f2c64aac2b3e6c9af9ba3ec2acf50094173b55a7e3260e1bb0ad2c4c",
+      "occurrences": [
+        {
+          "file": "library.py",
+          "start_line": 559,
+          "end_line": 559,
+          "start_column": 17,
+          "end_column": 45
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-7bcabebbfb7545fcbc5a42ba8d6de75b",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "library.py",
+        "start_line": 568,
+        "end_line": 568,
+        "start_column": 23,
+        "end_column": 57
+      },
+      "finding": "getattr(self._api_backend(), attr)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "                return target(*args, **kwargs)\n            except UnsupportedByBackend as exc:\n                logger.debug(\"SQLite cannot answer %s (%s); asking the API\", attr, exc)\n                return getattr(self._api_backend(), attr)(*args, **kwargs)\n\n        return call\n",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0fbf9dd34b741152c84ffb37e7c6f884789c8f8810f6a1de79ac6bb221fc3de5",
+      "occurrences": [
+        {
+          "file": "library.py",
+          "start_line": 568,
+          "end_line": 568,
+          "start_column": 23,
+          "end_column": 57
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-4b8d005401e847b3a63f10d574402c6a",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server dependency without pinned version: 'pip install zotero-mcp-server'.",
+      "severity": "LOW",
+      "confidence": 0.6,
+      "location": {
+        "file": "tools/__init__.py",
+        "start_line": 16,
+        "end_line": null
+      },
+      "finding": "pip install zotero-mcp-server",
+      "explanation": "pip install without ==version installs the latest release, which could include malicious changes.",
+      "remediation": "Pin the version: pip install package==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "53814c185c30b21cec892d1724ed4333c809a594e5f5cd1c31e647180bf1de76",
+      "occurrences": [
+        {
+          "file": "tools/__init__.py",
+          "start_line": 16,
+          "end_line": null
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 66,
+    "scanned_components": 64,
+    "coverage_percent": 97.0,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 64,
+    "partially_inspected_files": 2,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "client.py",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "skills/zotero-cli/reference.md",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 66,
+        "completed": 66,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 63,
+        "completed": 63,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 63,
+        "completed": 63,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 66,
+        "completed": 66,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "degraded",
+        "planned_work": 66,
+        "completed": 64,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "degraded",
+        "planned_work": 66,
+        "completed": 64,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 66,
+        "completed": 66,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "degraded",
+        "planned_work": 66,
+        "completed": 64,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "degraded",
+        "planned_work": 66,
+        "completed": 64,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "degraded",
+        "planned_work": 66,
+        "completed": 64,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "degraded",
+        "planned_work": 66,
+        "completed": 64,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 66,
+        "completed": 66,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "degraded",
+        "planned_work": 66,
+        "completed": 64,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "degraded",
+        "planned_work": 66,
+        "completed": 64,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "degraded",
+        "planned_work": 66,
+        "completed": 64,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "degraded",
+        "planned_work": 66,
+        "completed": 64,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 66,
+        "completed": 64,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "degraded",
+        "planned_work": 66,
+        "completed": 64,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 66,
+        "completed": 64,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 66,
+        "completed": 66,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_agent_snooping status: degraded.",
+      "Analyzer static_patterns_anti_refusal status: degraded.",
+      "Analyzer static_patterns_deserialization status: degraded.",
+      "Analyzer static_patterns_excessive_agency status: degraded.",
+      "Analyzer static_patterns_harmful_content status: degraded.",
+      "Analyzer static_patterns_memory_poisoning status: degraded.",
+      "Analyzer static_patterns_privilege_escalation status: degraded.",
+      "Analyzer static_patterns_prompt_injection status: degraded.",
+      "Analyzer static_patterns_rogue_agent status: degraded.",
+      "Analyzer static_patterns_ssrf status: degraded.",
+      "Analyzer static_patterns_supply_chain status: degraded.",
+      "Analyzer static_patterns_system_prompt_leakage status: degraded.",
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 69,
+    "findings_after_filtering": 69,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

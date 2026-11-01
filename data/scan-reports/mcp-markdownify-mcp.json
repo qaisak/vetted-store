@@ -1,0 +1,1982 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\zcaceres__markdownify-mcp\\markdownify-mcp-main",
+    "scanned_at": "2026-10-31T23:00:14.730028+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "CRITICAL"
+  },
+  "components": [
+    {
+      "path": ".dockerignore",
+      "type": "other",
+      "lines": 9,
+      "executable": false,
+      "size_bytes": 69,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "type": "yaml",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 380,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 7,
+      "executable": false,
+      "size_bytes": 69,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".python-version",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 5,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CLAUDE.md",
+      "type": "markdown",
+      "lines": 5,
+      "executable": false,
+      "size_bytes": 138,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Dockerfile",
+      "type": "other",
+      "lines": 34,
+      "executable": false,
+      "size_bytes": 876,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1088,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 114,
+      "executable": false,
+      "size_bytes": 4399,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "bun.lock",
+      "type": "other",
+      "lines": 480,
+      "executable": false,
+      "size_bytes": 45640,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "logo.jpg",
+      "type": "other",
+      "lines": 38218,
+      "executable": false,
+      "size_bytes": 1495348,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "package.json",
+      "type": "json",
+      "lines": 38,
+      "executable": false,
+      "size_bytes": 1030,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "preinstall.js",
+      "type": "javascript",
+      "lines": 7,
+      "executable": true,
+      "size_bytes": 184,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "pyproject.toml",
+      "type": "toml",
+      "lines": 9,
+      "executable": false,
+      "size_bytes": 180,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/docker-smoke-test.sh",
+      "type": "shell",
+      "lines": 49,
+      "executable": true,
+      "size_bytes": 1398,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "setup.bat",
+      "type": "other",
+      "lines": 5,
+      "executable": true,
+      "size_bytes": 202,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "setup.sh",
+      "type": "shell",
+      "lines": 7,
+      "executable": true,
+      "size_bytes": 209,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/Markdownify.test.ts",
+      "type": "typescript",
+      "lines": 270,
+      "executable": true,
+      "size_bytes": 8811,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/Markdownify.ts",
+      "type": "typescript",
+      "lines": 233,
+      "executable": true,
+      "size_bytes": 6148,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/index.ts",
+      "type": "typescript",
+      "lines": 16,
+      "executable": true,
+      "size_bytes": 422,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/sample-data/test.docx",
+      "type": "docx",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 18,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/sample-data/test.jpg",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 17,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/sample-data/test.pdf",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 544,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/sample-data/test.pptx",
+      "type": "pptx",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 18,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/sample-data/test.xlsx",
+      "type": "xlsx",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 18,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/server.ts",
+      "type": "typescript",
+      "lines": 122,
+      "executable": true,
+      "size_bytes": 3525,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools.ts",
+      "type": "typescript",
+      "lines": 229,
+      "executable": true,
+      "size_bytes": 5474,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/utils.test.ts",
+      "type": "typescript",
+      "lines": 354,
+      "executable": true,
+      "size_bytes": 10552,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/utils.ts",
+      "type": "typescript",
+      "lines": 110,
+      "executable": true,
+      "size_bytes": 3623,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tsconfig.json",
+      "type": "json",
+      "lines": 15,
+      "executable": false,
+      "size_bytes": 370,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "uv.lock",
+      "type": "other",
+      "lines": 460,
+      "executable": false,
+      "size_bytes": 70683,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "SC4",
+      "finding_id": "finding-07b015be218b4604b33a9588755d3464",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: certifi==2026.2.25 \u2014 2 advisory(ies): GHSA-6q48-6c7w-9gw2 (certifi bundles emSign root CAs with compromised intermediate CA keys); PYSEC-2026-4320 (certifi bundles emSign root CAs with compromised intermediate CA keys)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "uv.lock",
+        "start_line": 27,
+        "end_line": null
+      },
+      "finding": "certifi==2026.2.25",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "228cb34411504dc423ff8fd82324551ca2af608ce884fef6616aaae817c014f4",
+      "occurrences": [
+        {
+          "file": "uv.lock",
+          "start_line": 27,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-51ddbcaa0b78491e8f3912e38301dd7c",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "src/Markdownify.test.ts",
+        "start_line": 177,
+        "end_line": null,
+        "start_column": 44
+      },
+      "finding": "/etc/passwd",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\ntest(\"Markdownify.fromRepo rejects file:// URLs\", async () => {\n  await expect(\n    Markdownify.fromRepo({ repoUrl: \"file:///etc/passwd\" }),\n  ).rejects.toThrow(\"Only http: and https: repository URLs are allowed\");\n});\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac75eea6ed115d0252fb13bbb10e9c4421764d5a7612787edcde6a78569d8f88",
+      "occurrences": [
+        {
+          "file": "src/Markdownify.test.ts",
+          "start_line": 177,
+          "end_line": null,
+          "start_column": 44
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-8a36bd123f1e4b1dade8e6dfbdaf8c24",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "src/utils.test.ts",
+        "start_line": 55,
+        "end_line": null,
+        "start_column": 37
+      },
+      "finding": "/etc/passwd",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  });\n\n  test(\"rejects file URLs\", () => {\n    expect(() => validateUrl(\"file:///etc/passwd\")).toThrow(\n      \"Only http: and https: schemes are allowed.\",\n    );\n  });",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac75eea6ed115d0252fb13bbb10e9c4421764d5a7612787edcde6a78569d8f88",
+      "occurrences": [
+        {
+          "file": "src/utils.test.ts",
+          "start_line": 55,
+          "end_line": null,
+          "start_column": 37
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-b1bba00f492c40b5bbb398b50047f301",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "src/utils.test.ts",
+        "start_line": 203,
+        "end_line": null,
+        "start_column": 41
+      },
+      "finding": "/etc/passwd",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  });\n\n  test(\"rejects file:// URLs\", () => {\n    expect(() => validateRepoUrl(\"file:///etc/passwd\")).toThrow(\n      \"Only http: and https: repository URLs are allowed\",\n    );\n  });",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac75eea6ed115d0252fb13bbb10e9c4421764d5a7612787edcde6a78569d8f88",
+      "occurrences": [
+        {
+          "file": "src/utils.test.ts",
+          "start_line": 203,
+          "end_line": null,
+          "start_column": 41
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-6352c3309872492a9a2751db673b8eb4",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "src/utils.test.ts",
+        "start_line": 331,
+        "end_line": null,
+        "start_column": 36
+      },
+      "finding": "/etc/passwd",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  });\n\n  test(\"assertPathAllowed is no-op when unrestricted\", () => {\n    expect(() => assertPathAllowed(\"/etc/passwd\")).not.toThrow();\n  });\n\n  test(\"assertPathAllowed permits files inside an allowed dir\", () => {",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac75eea6ed115d0252fb13bbb10e9c4421764d5a7612787edcde6a78569d8f88",
+      "occurrences": [
+        {
+          "file": "src/utils.test.ts",
+          "start_line": 331,
+          "end_line": null,
+          "start_column": 36
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-0dfa4f3c92a14f75963977c7ca448352",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "src/utils.test.ts",
+        "start_line": 343,
+        "end_line": null,
+        "start_column": 36
+      },
+      "finding": "/etc/passwd",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n  test(\"assertPathAllowed rejects files outside allowed dirs\", () => {\n    process.env.MD_ALLOWED_PATHS = \"/tmp/allowed\";\n    expect(() => assertPathAllowed(\"/etc/passwd\")).toThrow(\n      \"outside the allowed directories\",\n    );\n  });",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac75eea6ed115d0252fb13bbb10e9c4421764d5a7612787edcde6a78569d8f88",
+      "occurrences": [
+        {
+          "file": "src/utils.test.ts",
+          "start_line": 343,
+          "end_line": null,
+          "start_column": 36
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-c960264128bc4c4c96db15b3d3a0d18e",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "src/utils.test.ts",
+        "start_line": 351,
+        "end_line": null,
+        "start_column": 40
+      },
+      "finding": "/etc/passwd",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  test(\"assertPathAllowed rejects path traversal escapes\", () => {\n    process.env.MD_ALLOWED_PATHS = \"/tmp/allowed\";\n    expect(() =>\n      assertPathAllowed(\"/tmp/allowed/../etc/passwd\"),\n    ).toThrow(\"outside the allowed directories\");\n  });\n});",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac75eea6ed115d0252fb13bbb10e9c4421764d5a7612787edcde6a78569d8f88",
+      "occurrences": [
+        {
+          "file": "src/utils.test.ts",
+          "start_line": 351,
+          "end_line": null,
+          "start_column": 40
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-8188f166fb8f4ca287b0e7cbe639c4c0",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/Markdownify.test.ts",
+        "start_line": 183,
+        "end_line": null,
+        "start_column": 49
+      },
+      "finding": "rm -rf /",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "\ntest(\"Markdownify.fromRepo rejects shell metacharacters in URL\", async () => {\n  await expect(\n    Markdownify.fromRepo({ repoUrl: \"owner/repo; rm -rf /\" }),\n  ).rejects.toThrow(\"Invalid repository URL or shorthand\");\n});\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f3ff4d6cfbe1b7f6b23dd4d1379edae984c14738c5f5b14db40e215beb673f08",
+      "occurrences": [
+        {
+          "file": "src/Markdownify.test.ts",
+          "start_line": 183,
+          "end_line": null,
+          "start_column": 49
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-f9627f7660844d369a4d2d4c0981101d",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/utils.test.ts",
+        "start_line": 191,
+        "end_line": null,
+        "start_column": 46
+      },
+      "finding": "rm -rf /",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "  });\n\n  test(\"rejects shell metacharacters\", () => {\n    expect(() => validateRepoUrl(\"owner/repo; rm -rf /\")).toThrow(\n      \"Invalid repository URL or shorthand\",\n    );\n  });",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f3ff4d6cfbe1b7f6b23dd4d1379edae984c14738c5f5b14db40e215beb673f08",
+      "occurrences": [
+        {
+          "file": "src/utils.test.ts",
+          "start_line": 191,
+          "end_line": null,
+          "start_column": 46
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-c216e524331342cda7b04a7df16e53ee",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/Markdownify.test.ts",
+        "start_line": 183,
+        "end_line": null,
+        "start_column": 49
+      },
+      "finding": "rm -rf /\" }),\n  ).rejects.toThrow(\"Invalid repository URL or shorthand\");\n});\n\n// Integration tests against diverse real repositories\ntest(\"Markdownify.fromRepo handles a TypeScript repo ",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "\ntest(\"Markdownify.fromRepo rejects shell metacharacters in URL\", async () => {\n  await expect(\n    Markdownify.fromRepo({ repoUrl: \"owner/repo; rm -rf /\" }),\n  ).rejects.toThrow(\"Invalid repository URL or shorthand\");\n});\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1c134eb9661ecfeef4a3d9ab2059ab80c595347150f69026c93e4982fc817a53",
+      "occurrences": [
+        {
+          "file": "src/Markdownify.test.ts",
+          "start_line": 183,
+          "end_line": null,
+          "start_column": 49
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-18b0c4cabd314dce8b2417f213fabaac",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "src/Markdownify.test.ts",
+        "start_line": 183,
+        "end_line": null,
+        "start_column": 49
+      },
+      "finding": "rm -rf /\"",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "\ntest(\"Markdownify.fromRepo rejects shell metacharacters in URL\", async () => {\n  await expect(\n    Markdownify.fromRepo({ repoUrl: \"owner/repo; rm -rf /\" }),\n  ).rejects.toThrow(\"Invalid repository URL or shorthand\");\n});\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "27e76377cb5ff2d68171e047ecb47c1c1268da1cb778111906599044cb2ca492",
+      "occurrences": [
+        {
+          "file": "src/Markdownify.test.ts",
+          "start_line": 183,
+          "end_line": null,
+          "start_column": 49
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-26e0ffb702984d4bb4c0db9eb945ba8c",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/Markdownify.test.ts",
+        "start_line": 183,
+        "end_line": null,
+        "start_column": 47
+      },
+      "finding": "; rm -",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "\ntest(\"Markdownify.fromRepo rejects shell metacharacters in URL\", async () => {\n  await expect(\n    Markdownify.fromRepo({ repoUrl: \"owner/repo; rm -rf /\" }),\n  ).rejects.toThrow(\"Invalid repository URL or shorthand\");\n});\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "653c73eb47bd50a95878b88c727b3b22838d19b40be7e0c38ee04dc79d87f76f",
+      "occurrences": [
+        {
+          "file": "src/Markdownify.test.ts",
+          "start_line": 183,
+          "end_line": null,
+          "start_column": 47
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-8b30103dcc31401383cbe86f311d6182",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/utils.test.ts",
+        "start_line": 191,
+        "end_line": null,
+        "start_column": 44
+      },
+      "finding": "; rm -",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "  });\n\n  test(\"rejects shell metacharacters\", () => {\n    expect(() => validateRepoUrl(\"owner/repo; rm -rf /\")).toThrow(\n      \"Invalid repository URL or shorthand\",\n    );\n  });",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "653c73eb47bd50a95878b88c727b3b22838d19b40be7e0c38ee04dc79d87f76f",
+      "occurrences": [
+        {
+          "file": "src/utils.test.ts",
+          "start_line": 191,
+          "end_line": null,
+          "start_column": 44
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-6ff359a2ad2742a7903e3061f242ee51",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/utils.test.ts",
+        "start_line": 191,
+        "end_line": null,
+        "start_column": 46
+      },
+      "finding": "rm -rf /\")).toThrow(\n      \"Invalid repository URL or shorthand\",\n    );\n  });\n\n  test(\"rejects flag injection\", () => {\n    expect(() => validateRepoUrl(\"--help\")).toThrow(\n      \"Invalid repository ",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "  });\n\n  test(\"rejects shell metacharacters\", () => {\n    expect(() => validateRepoUrl(\"owner/repo; rm -rf /\")).toThrow(\n      \"Invalid repository URL or shorthand\",\n    );\n  });",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6745b88a72fd8349fb8c338bfd75028c4925da1dc0986f99a7166eca8c27f2bd",
+      "occurrences": [
+        {
+          "file": "src/utils.test.ts",
+          "start_line": 191,
+          "end_line": null,
+          "start_column": 46
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-a21ec590603d4470b1879b17435c4c33",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "src/utils.test.ts",
+        "start_line": 191,
+        "end_line": null,
+        "start_column": 46
+      },
+      "finding": "rm -rf /\")).toThrow(",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "  });\n\n  test(\"rejects shell metacharacters\", () => {\n    expect(() => validateRepoUrl(\"owner/repo; rm -rf /\")).toThrow(\n      \"Invalid repository URL or shorthand\",\n    );\n  });",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "398326074406f0a41c0ceff1df180618160460e7ec26ee00df67bce452394ae8",
+      "occurrences": [
+        {
+          "file": "src/utils.test.ts",
+          "start_line": 191,
+          "end_line": null,
+          "start_column": 46
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-8b21f4f4d03746488fc3789ea780425b",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: idna==3.11 \u2014 2 advisory(ies): CVE-2026-45409 (Internationalized Domain Names in Applications (IDNA): Specially crafted inputs ); CVE-2026-45409 (Internationalized Domain Names in Applications (IDNA) for Python provides suppor)",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "uv.lock",
+        "start_line": 171,
+        "end_line": null
+      },
+      "finding": "idna==3.11",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "79d74beaa9917915efe449ac41f3f3375da1264d33d460545d91453297d5d4e0",
+      "occurrences": [
+        {
+          "file": "uv.lock",
+          "start_line": 171,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-4b5ed24c7ec54dac9ff2018780bf8c70",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: soupsieve==2.8.3 \u2014 8 advisory(ies): CVE-2026-49476 (Soup Sieve has Memory Exhaustion via Large Comma-Separated Selector Lists); CVE-2026-49477 (Soup Sieve: Regular Expression Denial of Service (ReDoS) via Selector Parser); CVE-2026-86000 (Soup Sieve: Polynomial-time ReDoS (O(n\u00b2)) in the `IDENTIFIER` / `VALUE` selector) +5 more",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "uv.lock",
+        "start_line": 424,
+        "end_line": null
+      },
+      "finding": "soupsieve==2.8.3",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "431907aba5589a2b3d59ec1cae6c3874b0fba7679e48173f46a51706efdcb38e",
+      "occurrences": [
+        {
+          "file": "uv.lock",
+          "start_line": 424,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-d63afe8ebdea4b65879e225097261317",
+      "category": "Supply Chain",
+      "pattern": "Known Vulnerable Dependency: urllib3==2.6.3 \u2014 10 advisory(ies): CVE-2026-97687 (urllib3: HTTPS proxy TLS configuration may be ignored or overridden); CVE-2026-97688 (urllib3: Chunked Deflate streaming can enter an infinite loop); CVE-2026-44432 (urllib3: Decompression-bomb safeguards bypassed in parts of the streaming API) +7 more",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "uv.lock",
+        "start_line": 454,
+        "end_line": null
+      },
+      "finding": "urllib3==2.6.3",
+      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
+      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3da2de5c6559cf272849b4705afffe9775a52dc1c051b21f8824c57b0635cc7b",
+      "occurrences": [
+        {
+          "file": "uv.lock",
+          "start_line": 454,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-1f458c62391d435c97ff4b5980aa5918",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker run --rm'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "README.md",
+        "start_line": 82,
+        "end_line": null
+      },
+      "finding": "docker run --rm",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "efc156300614fe5ffcf05d4db3303fe76bb02fad1f9d185be59396ae5dfd036c",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 82,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-e9eb8739904e427ea3876f5949409a80",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker run --rm'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "scripts/docker-smoke-test.sh",
+        "start_line": 27,
+        "end_line": null
+      },
+      "finding": "docker run --rm",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "efc156300614fe5ffcf05d4db3303fe76bb02fad1f9d185be59396ae5dfd036c",
+      "occurrences": [
+        {
+          "file": "scripts/docker-smoke-test.sh",
+          "start_line": 27,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "AE2",
+      "finding_id": "finding-38a9095415dc4bc081aaca4340614f90",
+      "category": "analysis-evasion",
+      "pattern": null,
+      "severity": "MEDIUM",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/sample-data/test.jpg",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": null,
+      "explanation": "Artifact content does not match its filename extension",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "artifact-integrity"
+      ],
+      "evidence": {},
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "src/sample-data/test.jpg",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-bdb5ed5f035f4acab799848134f8e4d0",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "Dockerfile",
+        "start_line": 6,
+        "end_line": null,
+        "start_column": 98
+      },
+      "finding": "rm -rf /",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "WORKDIR /app\n\n# Install dependencies\nRUN apt-get update && apt-get install -y --no-install-recommends python3 python3-venv bash git && rm -rf /var/lib/apt/lists/*\n\n# Copy the source code\nCOPY . .",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f3ff4d6cfbe1b7f6b23dd4d1379edae984c14738c5f5b14db40e215beb673f08",
+      "occurrences": [
+        {
+          "file": "Dockerfile",
+          "start_line": 6,
+          "end_line": null,
+          "start_column": 98
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-d217300496e5419f8e800539e9e26ae8",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "Dockerfile",
+        "start_line": 6,
+        "end_line": null,
+        "start_column": 98
+      },
+      "finding": "rm -rf /var/lib/apt/lists/*",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "WORKDIR /app\n\n# Install dependencies\nRUN apt-get update && apt-get install -y --no-install-recommends python3 python3-venv bash git && rm -rf /var/lib/apt/lists/*\n\n# Copy the source code\nCOPY . .",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "95e9afa11fed54a53f28b6f446bbc3a2db2288e67b4d456b256a99ab81fe73f6",
+      "occurrences": [
+        {
+          "file": "Dockerfile",
+          "start_line": 6,
+          "end_line": null,
+          "start_column": 98
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-69ccc6ef4caa44dc8bf99deb848f15af",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "Dockerfile",
+        "start_line": 6,
+        "end_line": null,
+        "start_column": 95
+      },
+      "finding": "&& rm -",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "WORKDIR /app\n\n# Install dependencies\nRUN apt-get update && apt-get install -y --no-install-recommends python3 python3-venv bash git && rm -rf /var/lib/apt/lists/*\n\n# Copy the source code\nCOPY . .",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "da42bed49ba667f4edac8a3628fa28e5cc6bbc20fc757fb7d1ddbddd9a531ec0",
+      "occurrences": [
+        {
+          "file": "Dockerfile",
+          "start_line": 6,
+          "end_line": null,
+          "start_column": 95
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-04e4a943feef4c7e8fdbfe2ed08001a3",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 29,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@modelcontextprotocol/sdk\": \"^1.27.1\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"test:watch\": \"bun test --watch\"\n  },\n  \"dependencies\": {\n    \"@modelcontextprotocol/sdk\": \"^1.27.1\",\n    \"private-ip\": \"^3.0.2\",\n    \"repomix\": \"^1.12.0\",\n    \"zod\": \"^4.3.6\"",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "baf6637ab1ea943517219be50cf13c0478b24506a049ee541614d120aa58a389",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 29,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-02dbe04547e3406b95835e0cabc907b5",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: @modelcontextprotocol/sdk has 9 known advisory(ies) (CVE-2026-111767 (MCP TypeScript SDK: Experimental tasks were not tied to the session that created); CVE-2026-25536 (@modelcontextprotocol/sdk has cross-client data leak via shared server/transport); CVE-2026-111768 (MCP TypeScript SDK: One HTTP request within the default size limit could exhaust) +6 more), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 29,
+        "end_line": null
+      },
+      "finding": "@modelcontextprotocol/sdk",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0c15734ee5bc08aeaf229d954424372b6d05b41932b3401ab7bbbb13365f47f3",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 29,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-aae3647871f84149b4db81bb4045e8e1",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 30,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"private-ip\": \"^3.0.2\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  },\n  \"dependencies\": {\n    \"@modelcontextprotocol/sdk\": \"^1.27.1\",\n    \"private-ip\": \"^3.0.2\",\n    \"repomix\": \"^1.12.0\",\n    \"zod\": \"^4.3.6\"\n  },",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8c2e145e57734d43ef5352acfdd686ef57e96206716bda999ffcd97336c13610",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 30,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-f33c30753fe94fc5ac7768991042d8cb",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: private-ip has 2 known advisory(ies) (CVE-2020-28360 (Server-Side Request Forgery in private-ip); CVE-2025-8020 (private-ip vulnerable to Server-Side Request Forgery)), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 30,
+        "end_line": null
+      },
+      "finding": "private-ip",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "394821e80672dc2c2f0ec68f8d7550c006c297aec68df905372e81a2f6671974",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 30,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-54d44303352049c3a7917d1423155e1e",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 31,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"repomix\": \"^1.12.0\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  \"dependencies\": {\n    \"@modelcontextprotocol/sdk\": \"^1.27.1\",\n    \"private-ip\": \"^3.0.2\",\n    \"repomix\": \"^1.12.0\",\n    \"zod\": \"^4.3.6\"\n  },\n  \"devDependencies\": {",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ce17e6fbcaff9dd88d6557c83282b69c9e864c470d74d2143dbc3a6cd2154471",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 31,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-83e1835589f04fb28afa204a86d6c4a9",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: repomix has 2 known advisory(ies) (CVE-2026-49987 (repomix Vulnerable to Command Injection (RCE) via `--remote-branch` Argument Inj); CVE-2026-49988 (repomix: attach_packed_output can bypass file-read secret scanning for supported)), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 31,
+        "end_line": null
+      },
+      "finding": "repomix",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "59c065e7e2adb2843d66ec1c61e4261a1db684ce73c801622b70e5e0a78796c0",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 31,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-fb932399e84543f8bf6b5b3a7ed89733",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 32,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"zod\": \"^4.3.6\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@modelcontextprotocol/sdk\": \"^1.27.1\",\n    \"private-ip\": \"^3.0.2\",\n    \"repomix\": \"^1.12.0\",\n    \"zod\": \"^4.3.6\"\n  },\n  \"devDependencies\": {\n    \"@types/node\": \"^25.3.5\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "60902eff241387806757d6ac71b4191c5473830c3949dd47179eecc0e6bb6c3b",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 32,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-a17767e378414d1b99119bae41ef3c36",
+      "category": "Supply Chain",
+      "pattern": "Unverifiable Dependency: zod has 2 known advisory(ies) (CVE-2023-4316 (Zod denial of service vulnerability); CVE-2023-54404 (Zod can exhaust memory while validating oversized constrained collections)), but the manifest does not pin a version, so it is unknown whether the installed release is affected",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 32,
+        "end_line": null
+      },
+      "finding": "zod",
+      "explanation": "OSV returned advisories for this package, but its resolved version is unknown. A package-name lookup does not establish whether the installed release is affected by those advisories.",
+      "remediation": "Determine the dependency's exact resolved version from the environment or lockfile and compare it with the advisories in OSV (osv.dev). If it is affected, use a verified fixed release or remove or replace the dependency when no fix is available.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7c38c1841a95c57526af54b7df1d6dc7f78729f0090449106d9431f1e0e8c9ee",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 32,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-996694c1db3e4eae8569e427306b11d6",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 35,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@types/node\": \"^25.3.5\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"zod\": \"^4.3.6\"\n  },\n  \"devDependencies\": {\n    \"@types/node\": \"^25.3.5\",\n    \"typescript\": \"^6.0.2\"\n  }\n}",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5fe0a5d3bd63cfa2714d7ab1e700d1b06fb60ac2fb6a28f07ce13120e71a7c22",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 35,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-327495dc221441eb8ea44f8e4544a66c",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 36,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"typescript\": \"^6.0.2\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  },\n  \"devDependencies\": {\n    \"@types/node\": \"^25.3.5\",\n    \"typescript\": \"^6.0.2\"\n  }\n}",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5870b7f399461f102ca40f793170a77a8a3a22af183d0c9c48b73749029cfd04",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 36,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 28,
+    "scanned_components": 21,
+    "coverage_percent": 75.0,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 21,
+    "partially_inspected_files": 7,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "bun.lock",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "bun.lock",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/Markdownify.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "nested_artifact_inspection",
+        "reason_code": "archive_format_mismatch",
+        "message": "Artifact bytes do not match the container format implied by its filename.",
+        "path": "src/sample-data/test.docx",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "nested_artifact_inspection",
+        "reason_code": "archive_format_mismatch",
+        "message": "Artifact bytes do not match the container format implied by its filename.",
+        "path": "src/sample-data/test.pptx",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "nested_artifact_inspection",
+        "reason_code": "archive_format_mismatch",
+        "message": "Artifact bytes do not match the container format implied by its filename.",
+        "path": "src/sample-data/test.xlsx",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/utils.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/utils.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "logo.jpg",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "cache",
+        "reason_code": "binary_text_projection",
+        "message": "Only bounded printable text was inspected; binary structure and behavior are outside scope.",
+        "path": "src/sample-data/test.pdf",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false
+      }
+    ],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 30,
+        "completed": 30,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 30,
+        "completed": 30,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "degraded",
+        "planned_work": 29,
+        "completed": 28,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "degraded",
+        "planned_work": 29,
+        "completed": 28,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 29,
+        "completed": 29,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "degraded",
+        "planned_work": 29,
+        "completed": 28,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "degraded",
+        "planned_work": 29,
+        "completed": 28,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "degraded",
+        "planned_work": 29,
+        "completed": 28,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "degraded",
+        "planned_work": 29,
+        "completed": 28,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 29,
+        "completed": 29,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "degraded",
+        "planned_work": 29,
+        "completed": 28,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "degraded",
+        "planned_work": 29,
+        "completed": 28,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "degraded",
+        "planned_work": 29,
+        "completed": 28,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "degraded",
+        "planned_work": 29,
+        "completed": 28,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 29,
+        "completed": 28,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "degraded",
+        "planned_work": 29,
+        "completed": 28,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 29,
+        "completed": 25,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 30,
+        "completed": 30,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_agent_snooping status: degraded.",
+      "Analyzer static_patterns_anti_refusal status: degraded.",
+      "Analyzer static_patterns_deserialization status: degraded.",
+      "Analyzer static_patterns_excessive_agency status: degraded.",
+      "Analyzer static_patterns_harmful_content status: degraded.",
+      "Analyzer static_patterns_memory_poisoning status: degraded.",
+      "Analyzer static_patterns_privilege_escalation status: degraded.",
+      "Analyzer static_patterns_prompt_injection status: degraded.",
+      "Analyzer static_patterns_rogue_agent status: degraded.",
+      "Analyzer static_patterns_ssrf status: degraded.",
+      "Analyzer static_patterns_supply_chain status: degraded.",
+      "Analyzer static_patterns_system_prompt_leakage status: degraded.",
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 34,
+    "findings_after_filtering": 34,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}
