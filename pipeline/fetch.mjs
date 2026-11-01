@@ -77,6 +77,11 @@ const SKILL_REPOS = [
   { repo: 'earthtojake/text-to-cad', pick: ['skills/cad'] },
   { repo: 'cloudflare/security-audit-skill', pick: ['skills/security-audit'] },
   { repo: 'heygen-com/hyperframes', pick: ['skills/hyperframes'] },
+  // Filling thin job categories, November 1, 2026: security skills from Trail of Bits, business skills from Anthropic's knowledge-work plugins
+  { repo: 'trailofbits/skills', pick: ['plugins/sharp-edges/skills/sharp-edges', 'plugins/differential-review/skills/differential-review',
+    'plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor', 'plugins/agentic-actions-auditor/skills/agentic-actions-auditor', 'plugins/variant-analysis/skills/variant-analysis'] },
+  { repo: 'anthropics/knowledge-work-plugins', pick: ['small-business/skills/invoice-chase', 'small-business/skills/cash-flow-snapshot', 'small-business/skills/tax-season-organizer',
+    'small-business/skills/proposal-builder', 'small-business/skills/review-reputation', 'small-business/skills/job-post-builder', 'small-business/skills/contract-review', 'legal/skills/triage-nda'] },
 ];
 const MCP = [
   { repo: 'modelcontextprotocol/servers', sub: ['everything', 'fetch', 'filesystem', 'git', 'memory', 'sequentialthinking', 'time'] },
@@ -125,7 +130,9 @@ const TOOLS = ['NVIDIA/SkillSpector', 'vercel-labs/skills', 'BurntSushi/ripgrep'
   // Trending, added November 1, 2026
   'Gathin23/cleanyourtv', 'storytold/photocraft', 'storytold/pdfcraft', 'KnifeLemon/Filee', 'robbietilton/Compositor', 'jub0t/Concat', 'crmne/spotifast',
   // GitHub's monthly trending list, November 1, 2026
-  'debpalash/VoiceStudio', 'storytold/lightcraft'];
+  'debpalash/VoiceStudio', 'storytold/lightcraft',
+  // Filling thin job categories (everyday and security), November 1, 2026
+  'localsend/localsend', 'upscayl/upscayl', 'qarmin/czkawka', 'flameshot-org/flameshot', 'keepassxreboot/keepassxc', 'syncthing/syncthing', 'trufflesecurity/trufflehog'];
 
 const meta = {}, scores = {}, hn = {}, avatars = {};
 async function repoMeta(repo) {

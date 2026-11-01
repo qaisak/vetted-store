@@ -2331,5 +2331,165 @@
       "design"
     ],
     1
+  ],
+  "trailofbits-sharp-edges": [
+    "Finds settings and APIs in your code that make security mistakes easy, and suggests safer defaults.",
+    [
+      "security",
+      "dev"
+    ],
+    1
+  ],
+  "trailofbits-differential-review": [
+    "Reviews a code change for security problems before you merge it and writes a short report.",
+    [
+      "security",
+      "dev"
+    ],
+    2
+  ],
+  "trailofbits-supply-chain-risk-auditor": [
+    "Checks the packages your project depends on for known advisories, abandoned projects and risky install scripts.",
+    [
+      "security",
+      "dev",
+      "devops"
+    ],
+    2
+  ],
+  "trailofbits-agentic-actions-auditor": [
+    "Checks GitHub Actions that run AI agents for ways an outsider could hijack them.",
+    [
+      "security",
+      "devops",
+      "ai"
+    ],
+    2
+  ],
+  "trailofbits-variant-analysis": [
+    "After a bug turns up, hunts for the same mistake elsewhere in your code.",
+    [
+      "security",
+      "dev"
+    ],
+    1
+  ],
+  "anthropics-invoice-chase": [
+    "Drafts polite reminders for overdue invoices from your accounting app, firmer for repeat late payers. You approve before anything is sent.",
+    [
+      "business",
+      "office"
+    ],
+    2
+  ],
+  "anthropics-cash-flow-snapshot": [
+    "Forecasts your cash for the next 30, 60 and 90 days from your accounting app or a spreadsheet, and flags risks.",
+    [
+      "business",
+      "data"
+    ],
+    2
+  ],
+  "anthropics-tax-season-organizer": [
+    "Gathers what your accountant needs at tax time, like quarterly estimates and 1099 forms (US). Not tax advice.",
+    [
+      "business",
+      "office"
+    ],
+    2
+  ],
+  "anthropics-proposal-builder": [
+    "Turns call notes, photos or an RFP into a priced proposal or estimate in your own template.",
+    [
+      "business",
+      "writing"
+    ],
+    2
+  ],
+  "anthropics-review-reputation": [
+    "Collects your Google, Yelp and Facebook reviews, sums up what customers say, and drafts replies for you to approve.",
+    [
+      "business",
+      "marketing"
+    ],
+    2
+  ],
+  "anthropics-job-post-builder": [
+    "Writes a job post, interview questions with a scoring guide, and an offer letter for a role you are hiring for.",
+    [
+      "business",
+      "writing"
+    ],
+    1
+  ],
+  "anthropics-contract-review": [
+    "Reads an NDA or vendor contract, explains the risky parts in plain English and marks up changes. Not a substitute for a lawyer.",
+    [
+      "business",
+      "office"
+    ],
+    1
+  ],
+  "anthropics-triage-nda": [
+    "Sorts an incoming NDA into sign it, ask a lawyer, or needs full legal review, and says why.",
+    [
+      "business",
+      "office"
+    ],
+    1
+  ],
+  "localsend": [
+    "Sends files and photos between your phone and computers on the same Wi-Fi, like AirDrop for any device.",
+    [
+      "everyday"
+    ],
+    1
+  ],
+  "upscayl": [
+    "Makes small or blurry photos bigger and sharper with AI that runs on your own computer. Needs a graphics card that supports Vulkan.",
+    [
+      "everyday",
+      "design"
+    ],
+    1
+  ],
+  "krokiet-czkawka": [
+    "Finds duplicate files, similar photos and empty folders so you can free up space.",
+    [
+      "everyday"
+    ],
+    1
+  ],
+  "flameshot": [
+    "Takes screenshots you can mark up with arrows, boxes, text and blur before sharing.",
+    [
+      "everyday",
+      "office"
+    ],
+    1
+  ],
+  "keepassxc": [
+    "A password manager that keeps your passwords in an encrypted file on your own computer, not in the cloud.",
+    [
+      "everyday",
+      "security"
+    ],
+    1
+  ],
+  "syncthing": [
+    "Keeps folders in sync between your own devices directly, with no cloud account in between.",
+    [
+      "everyday",
+      "office"
+    ],
+    2
+  ],
+  "trufflehog": [
+    "Finds passwords and API keys leaked in code, Git history and files, and checks whether they still work.",
+    [
+      "security",
+      "devops"
+    ],
+    2
   ]
 }

@@ -228,6 +228,9 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .loc { font-size: 12px; overflow-wrap: anywhere; }
 .snip { display: block; font-family: var(--mono); font-size: 12px; background: var(--code); border: 1px solid var(--sep); border-radius: 8px; padding: 6px 10px; overflow-x: auto; white-space: pre; }
 .fd .why { font-size: 13px; color: var(--label2); }
+/* Review notes cite file paths and code that have no break points */
+#main p, #main li, .sheet-in p, .article p { overflow-wrap: break-word; }
+.fd .ours, .fd .why, .cap p, .tools li p, .worth p { overflow-wrap: anywhere; }
 .fd .ours { font-size: 14px; color: var(--label); line-height: 1.45; }
 .fd .ours span { font-weight: 700; }
 .fd .also { font-size: 12.5px; color: var(--label2); align-self: center; }
@@ -761,6 +764,7 @@ function pageToday() {
       <div class="copy"><span class="eyebrow">${s.eyebrow}</span><span class="title">${s.title}</span></div>
       ${s.wide && s.app ? `<div class="bottom frost">${icon(s.app, 48)}<div class="t"><b>${esc(s.app.n)}</b><span>${esc(plainOf(s.app))}</span></div><span class="get light" data-get="${s.app.id}">GET</span></div>`
         : `<div class="bottom">${s.lede || ''}</div>`}</button>`).join('')}</div>
+    ${trendingToday()}
     ${startHere()}
     <section class="shelf"><div class="shelf-head"><h2>Starter kits<span class="sub">Six picks for one goal, in the order to add them</span></h2><a class="see-all" href="#browse">See All</a></div>
       <div class="job-grid">${KITS.map(kitCard).join('')}</div></section>
@@ -827,7 +831,7 @@ function pageBrowse() {
     <div class="large-title"><h1>Browse</h1><p>Find things by the work you do, or by what kind of thing they are. Every listing says in plain words what it helps with, how hard it is to set up, and what our checks found.</p></div>
     <div class="job-grid">${JOBS.map(jobCard).join('')}</div>
     <section class="shelf"><div class="shelf-head"><h2>By type</h2></div>
-      <div class="job-grid">${[['tools', 'Apps', 'Programs you run on your computer', 'tool', ['#1D4ED8', '#3B82F6'], L.filter(l => l.k === 'tool').length],
+      <div class="job-grid">${[['trending', 'Trending', 'What\'s catching on this week and month', 'pulse', ['#BE123C', '#F97316'], ''], ['tools', 'Apps', 'Programs you run on your computer', 'tool', ['#1D4ED8', '#3B82F6'], L.filter(l => l.k === 'tool').length],
         ['skills', 'Skills', 'Teach your assistant a job', 'skill', ['#7C3AED', '#A855F7'], L.filter(l => l.k === 'skill').length],
         ['mcp', 'Connectors', 'Let your assistant use your apps (MCP servers)', 'mcp', ['#B45309', '#F59E0B'], L.filter(l => l.k === 'mcp').length],
         ['trusted', 'Trusted publishers', 'From Anthropic, OpenAI, NVIDIA, GitHub and more', 'building', ['#1D2B53', '#5E6EFF'], L.filter(l => l.tr).length]]
@@ -858,7 +862,7 @@ function pageJob(k) {
     ${dataNote()}</div>`;
 }
 
-const NICE_REPO = { 'obra/superpowers': 'Superpowers', 'anthropics/skills': 'Anthropic Skills', 'openai/skills': 'OpenAI Skills', 'NVIDIA/skills': 'NVIDIA Skills', 'huggingface/skills': 'Hugging Face Skills',
+const NICE_REPO = { 'AgriciDaniel/claude-seo': 'Claude SEO', 'thedotmack/claude-mem': 'claude-mem', 'trailofbits/skills': 'Trail of Bits Skills', 'anthropics/knowledge-work-plugins': 'Anthropic Knowledge Work Plugins', 'obra/superpowers': 'Superpowers', 'anthropics/skills': 'Anthropic Skills', 'openai/skills': 'OpenAI Skills', 'NVIDIA/skills': 'NVIDIA Skills', 'huggingface/skills': 'Hugging Face Skills',
   'vercel-labs/agent-skills': 'Vercel Agent Skills', 'addyosmani/agent-skills': 'Agent Skills by Addy Osmani', 'coreyhaines31/marketingskills': 'Marketing Skills', 'Jeffallan/claude-skills': 'Claude Skills by Jeffallan',
   'alirezarezvani/claude-skills': 'Claude Skills by Alireza Rezvani', 'wshobson/agents': 'Agents by wshobson', 'muratcankoylan/Agent-Skills-for-Context-Engineering': 'Context Engineering Skills',
   'kepano/obsidian-skills': 'Obsidian Skills', 'czlonkowski/n8n-skills': 'n8n Skills', 'Weizhena/Deep-Research-skills': 'Deep Research Skills', 'thedotmack/claude-mem': 'claude-mem' };
@@ -1224,10 +1228,54 @@ function pageProduct(id) {
   </div>`;
 }
 
+// ---------- Trending ----------
+// GitHub's trending lists (read at build time) matched to listings here; one row per repository, ranked by stars gained
+function trendItems(rows) {
+  return (rows || []).map(([r, , gain]) => ({ r, gain, ls: byStars(byRepo(r)) })).filter(x => x.ls.length).sort((a, b) => b.gain - a.gain);
+}
+const trendRow = (x, i, word) => {
+  const lead = x.ls[0], one = x.ls.length === 1, tag = one ? 'a' : 'button', attr = one ? `href="#${lead.id}"` : `data-seeall="${esc(x.r)}"`;
+  const line = `+${x.gain.toLocaleString('en-US')} stars ${word}`;
+  return `<div class="row">${icon(lead, 64)}<span class="rank">${i + 1}</span><div class="row-body"><${tag} class="row-txt" ${attr}><b>${esc(one ? lead.n : niceRepo(x.r))}</b><span>${esc(line)}</span></${tag}>
+    <div class="btn-col">${one ? getBtn(lead) + caption(lead) : `<button class="get" data-seeall="${esc(x.r)}" aria-label="See ${esc(niceRepo(x.r))}">SEE</button><span class="iap">${x.ls.length} listings</span>`}</div></div></div>`;
+};
+const trendShelf = (title, sub, items, word, max = 9) => items.length ? `<section class="shelf"><div class="shelf-head"><h2>${title}<span class="sub">${sub}</span></h2></div>
+  <div class="scroller ranked ${items.length <= 2 ? 'one' : items.length <= 6 ? 'two' : ''}">${items.slice(0, max).map((x, i) => trendRow(x, i, word)).join('')}</div></section>` : '';
+// Listings with a Hacker News thread in the year before the data was fetched, by the thread's points
+function hnShelf() {
+  const last = new Date((D.gen) + 'T00:00:00Z');
+  const hot = uniqueRepos(L.filter(l => (repoOf(l).hn || []).some(h => (last - new Date(h[4] + 'T00:00:00Z')) / 864e5 <= 365)))
+    .map(l => ({ l, h: [...repoOf(l).hn].filter(h => (last - new Date(h[4] + 'T00:00:00Z')) / 864e5 <= 365).sort((a, b) => b[2] - a[2])[0] }))
+    .sort((a, b) => b.h[2] - a.h[2]).slice(0, 9);
+  if (hot.length < 3) return '';
+  return `<section class="shelf"><div class="shelf-head"><h2>Talked about on Hacker News<span class="sub">The biggest thread about each project in the past year, by points</span></h2></div>
+    <div class="scroller ranked">${hot.map(({ l, h }, i) => `<div class="row">${icon(l, 64)}<span class="rank">${i + 1}</span><div class="row-body"><a class="row-txt" href="#${l.id}"><b>${esc(l.n)}</b><span>${h[2].toLocaleString('en-US')} points, ${h[3].toLocaleString('en-US')} comments · ${fmtDate(h[4])}</span></a>
+      <div class="btn-col">${getBtn(l)}${caption(l)}</div></div></div>`).join('')}</div></section>`;
+}
+function pageTrending() {
+  const T = D.TR || {}, read = T.read ? fmtDate(T.read) : null;
+  const w = trendItems(T.weekly), m = trendItems(T.monthly), d = trendItems(T.daily);
+  return `<div class="page">
+    <div class="large-title"><h1>Trending</h1><p>What's catching on right now, from real numbers: GitHub's own trending lists, how fast projects gain stars, and Hacker News discussions. Everything here is in Vetted, so it's scanned and explained like the rest.</p></div>
+    ${trendShelf('This week on GitHub', `Stars gained in the last 7 days, from GitHub's trending list${read ? ` on ${read}` : ''}`, w, 'this week')}
+    ${trendShelf('This month on GitHub', `Stars gained in the last 30 days, from GitHub's trending list${read ? ` on ${read}` : ''}`, m, 'this month')}
+    ${trendShelf('Today on GitHub', `Stars gained in the last 24 hours${read ? `, ${read}` : ''}`, d, 'today')}
+    ${risingShelf()}
+    ${hnShelf()}
+    <p class="data-note">Trending lists come from github.com/trending${read ? `, read ${read}` : ''}. Star counts come from GitHub, and Hacker News threads from its search. Projects trending on GitHub that aren't in Vetted yet appear here only after we've scanned and checked them. Stars and points show attention, not safety.</p>
+  </div>`;
+}
+// A short Trending shelf for Today
+function trendingToday() {
+  const T = D.TR || {}, items = trendItems(T.weekly).length >= 3 ? [trendItems(T.weekly), 'this week'] : [trendItems(T.monthly), 'this month'];
+  return items[0].length ? `<section class="shelf"><div class="shelf-head"><h2>Trending now<span class="sub">Gaining the most GitHub stars ${items[1]}, all checked by Vetted</span></h2><a class="see-all" href="#trending">See All</a></div>
+    <div class="scroller ranked ${items[0].length <= 2 ? 'one' : items[0].length <= 6 ? 'two' : ''}">${items[0].slice(0, 6).map((x, i) => trendRow(x, i, items[1])).join('')}</div></section>` : '';
+}
+
 // ---------- routing ----------
 const S = { tab: 'today', detail: null, job: null, easy: false, q: '', agent: 'claude-code' };
 try { const a = localStorage.getItem('vetted-agent'); if (AGENTS.some(x => x[0] === a)) S.agent = a; } catch (e) {}
-const TABS = [['today', 'Today', 'today'], ['browse', 'Browse', 'grid'], ['tools', 'Apps', 'tool'], ['skills', 'Skills', 'skill'], ['mcp', 'Connectors', 'mcp'], ['trusted', 'Trusted', 'building'], ['search', 'Search', 'search']];
+const TABS = [['today', 'Today', 'today'], ['trending', 'Trending', 'pulse'], ['browse', 'Browse', 'grid'], ['tools', 'Apps', 'tool'], ['skills', 'Skills', 'skill'], ['mcp', 'Connectors', 'mcp'], ['trusted', 'Trusted', 'building'], ['search', 'Search', 'search']];
 const MOBILE_TABS = ['today', 'browse', 'tools', 'skills', 'mcp', 'search'];
 const count = k => L.filter(l => l.k === k && !l.tr).length;
 function chrome() {
@@ -1237,7 +1285,7 @@ function chrome() {
 }
 function render() {
   document.getElementById('main').innerHTML = S.detail ? pageProduct(S.detail) : S.job ? pageJob(S.job) : S.kit ? pageKit(S.kit)
-    : { today: pageToday, browse: pageBrowse, skills: pageSkills, mcp: pageMcp, tools: pageTools, trusted: pageTrusted, search: pageSearch }[S.tab]();
+    : { today: pageToday, trending: pageTrending, browse: pageBrowse, skills: pageSkills, mcp: pageMcp, tools: pageTools, trusted: pageTrusted, search: pageSearch }[S.tab]();
   chrome();
 }
 function route() {

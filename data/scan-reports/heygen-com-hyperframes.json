@@ -1,0 +1,3316 @@
+{
+  "skill": {
+    "name": "hyperframes",
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/heygen-com__hyperframes/hyperframes-main/skills/hyperframes",
+    "scanned_at": "2026-11-01T13:27:51.069115+00:00"
+  },
+  "risk_assessment": {
+    "score": 77,
+    "severity": "HIGH",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": "SKILL.md",
+      "type": "markdown",
+      "lines": 74,
+      "executable": false,
+      "size_bytes": 7165,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/biennale-yellow/FRAME.md",
+      "type": "markdown",
+      "lines": 289,
+      "executable": false,
+      "size_bytes": 17789,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/biennale-yellow/caption-skin.html",
+      "type": "other",
+      "lines": 220,
+      "executable": false,
+      "size_bytes": 8131,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/biennale-yellow/frame-showcase.html",
+      "type": "other",
+      "lines": 1214,
+      "executable": false,
+      "size_bytes": 34908,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/blockframe/FRAME.md",
+      "type": "markdown",
+      "lines": 275,
+      "executable": false,
+      "size_bytes": 16292,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/blockframe/caption-skin.html",
+      "type": "other",
+      "lines": 223,
+      "executable": false,
+      "size_bytes": 8345,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/blockframe/frame-showcase.html",
+      "type": "other",
+      "lines": 1347,
+      "executable": false,
+      "size_bytes": 38856,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/blue-professional/FRAME.md",
+      "type": "markdown",
+      "lines": 307,
+      "executable": false,
+      "size_bytes": 17202,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/blue-professional/caption-skin.html",
+      "type": "other",
+      "lines": 222,
+      "executable": false,
+      "size_bytes": 8257,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/blue-professional/frame-showcase.html",
+      "type": "other",
+      "lines": 1372,
+      "executable": false,
+      "size_bytes": 39108,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/bold-poster/FRAME.md",
+      "type": "markdown",
+      "lines": 275,
+      "executable": false,
+      "size_bytes": 15984,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/bold-poster/caption-skin.html",
+      "type": "other",
+      "lines": 229,
+      "executable": false,
+      "size_bytes": 8720,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/bold-poster/frame-showcase.html",
+      "type": "other",
+      "lines": 1140,
+      "executable": false,
+      "size_bytes": 32385,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/broadside/FRAME.md",
+      "type": "markdown",
+      "lines": 284,
+      "executable": false,
+      "size_bytes": 16303,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/broadside/caption-skin.html",
+      "type": "other",
+      "lines": 224,
+      "executable": false,
+      "size_bytes": 8431,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/broadside/frame-showcase.html",
+      "type": "other",
+      "lines": 1166,
+      "executable": false,
+      "size_bytes": 33899,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/capsule/FRAME.md",
+      "type": "markdown",
+      "lines": 284,
+      "executable": false,
+      "size_bytes": 17214,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/capsule/caption-skin.html",
+      "type": "other",
+      "lines": 223,
+      "executable": false,
+      "size_bytes": 8374,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/capsule/frame-showcase.html",
+      "type": "other",
+      "lines": 1465,
+      "executable": false,
+      "size_bytes": 43052,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/cartesian/FRAME.md",
+      "type": "markdown",
+      "lines": 278,
+      "executable": false,
+      "size_bytes": 17294,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/cartesian/caption-skin.html",
+      "type": "other",
+      "lines": 221,
+      "executable": false,
+      "size_bytes": 8315,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/cartesian/frame-showcase.html",
+      "type": "other",
+      "lines": 1263,
+      "executable": false,
+      "size_bytes": 35340,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/cobalt-grid/FRAME.md",
+      "type": "markdown",
+      "lines": 265,
+      "executable": false,
+      "size_bytes": 17286,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/cobalt-grid/caption-skin.html",
+      "type": "other",
+      "lines": 237,
+      "executable": false,
+      "size_bytes": 8825,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/cobalt-grid/frame-showcase.html",
+      "type": "other",
+      "lines": 1468,
+      "executable": false,
+      "size_bytes": 47020,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/code-editorial/FRAME.md",
+      "type": "markdown",
+      "lines": 277,
+      "executable": false,
+      "size_bytes": 20610,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/code-editorial/caption-skin.html",
+      "type": "other",
+      "lines": 223,
+      "executable": false,
+      "size_bytes": 8322,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/code-editorial/fonts/EBGaramond-400.woff2",
+      "type": "other",
+      "lines": 615,
+      "executable": false,
+      "size_bytes": 21704,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/code-editorial/fonts/EBGaramond-700.woff2",
+      "type": "other",
+      "lines": 601,
+      "executable": false,
+      "size_bytes": 23076,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/code-editorial/fonts/Inter-400.woff2",
+      "type": "other",
+      "lines": 607,
+      "executable": false,
+      "size_bytes": 23664,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/code-editorial/fonts/Inter-700.woff2",
+      "type": "other",
+      "lines": 712,
+      "executable": false,
+      "size_bytes": 24356,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/code-editorial/fonts/JetBrainsMono-400.woff2",
+      "type": "other",
+      "lines": 566,
+      "executable": false,
+      "size_bytes": 21168,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/code-editorial/fonts/JetBrainsMono-700.woff2",
+      "type": "other",
+      "lines": 650,
+      "executable": false,
+      "size_bytes": 21908,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/code-editorial/fonts/OFL-eb-garamond.txt",
+      "type": "text",
+      "lines": 93,
+      "executable": false,
+      "size_bytes": 4519,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/code-editorial/fonts/OFL-inter.txt",
+      "type": "text",
+      "lines": 93,
+      "executable": false,
+      "size_bytes": 4477,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/code-editorial/fonts/OFL-jetbrains-mono.txt",
+      "type": "text",
+      "lines": 93,
+      "executable": false,
+      "size_bytes": 4524,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/code-editorial/frame-showcase.html",
+      "type": "other",
+      "lines": 1438,
+      "executable": false,
+      "size_bytes": 43711,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/coral/FRAME.md",
+      "type": "markdown",
+      "lines": 314,
+      "executable": false,
+      "size_bytes": 18950,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/coral/caption-skin.html",
+      "type": "other",
+      "lines": 225,
+      "executable": false,
+      "size_bytes": 8330,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/coral/frame-showcase.html",
+      "type": "other",
+      "lines": 1268,
+      "executable": false,
+      "size_bytes": 36472,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/creative-mode/FRAME.md",
+      "type": "markdown",
+      "lines": 333,
+      "executable": false,
+      "size_bytes": 19605,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/creative-mode/caption-skin.html",
+      "type": "other",
+      "lines": 226,
+      "executable": false,
+      "size_bytes": 8389,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/creative-mode/frame-showcase.html",
+      "type": "other",
+      "lines": 1330,
+      "executable": false,
+      "size_bytes": 38750,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/daisy-days/FRAME.md",
+      "type": "markdown",
+      "lines": 274,
+      "executable": false,
+      "size_bytes": 17445,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/daisy-days/caption-skin.html",
+      "type": "other",
+      "lines": 229,
+      "executable": false,
+      "size_bytes": 8516,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/daisy-days/frame-showcase.html",
+      "type": "other",
+      "lines": 1444,
+      "executable": false,
+      "size_bytes": 42293,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/editorial-forest/FRAME.md",
+      "type": "markdown",
+      "lines": 265,
+      "executable": false,
+      "size_bytes": 17019,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/editorial-forest/caption-skin.html",
+      "type": "other",
+      "lines": 222,
+      "executable": false,
+      "size_bytes": 8356,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/frame-presets/editorial-forest/frame-showcase.html",
+      "type": "other",
+      "lines": 1273,
+      "executable": false,
+      "size_bytes": 36847,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/captions.md",
+      "type": "markdown",
+      "lines": 46,
+      "executable": false,
+      "size_bytes": 4985,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/film.md",
+      "type": "markdown",
+      "lines": 48,
+      "executable": false,
+      "size_bytes": 7236,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/format.md",
+      "type": "markdown",
+      "lines": 159,
+      "executable": false,
+      "size_bytes": 13048,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/look.md",
+      "type": "markdown",
+      "lines": 69,
+      "executable": false,
+      "size_bytes": 6031,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/motion.md",
+      "type": "markdown",
+      "lines": 95,
+      "executable": false,
+      "size_bytes": 12162,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/overlays.md",
+      "type": "markdown",
+      "lines": 39,
+      "executable": false,
+      "size_bytes": 2592,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/plugin-installation.md",
+      "type": "markdown",
+      "lines": 43,
+      "executable": false,
+      "size_bytes": 2706,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/review.md",
+      "type": "markdown",
+      "lines": 51,
+      "executable": false,
+      "size_bytes": 5327,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/runtimes.md",
+      "type": "markdown",
+      "lines": 69,
+      "executable": false,
+      "size_bytes": 4019,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/skill-lifecycle.md",
+      "type": "markdown",
+      "lines": 49,
+      "executable": false,
+      "size_bytes": 4191,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/sound.md",
+      "type": "markdown",
+      "lines": 43,
+      "executable": false,
+      "size_bytes": 3599,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/spec.md",
+      "type": "markdown",
+      "lines": 76,
+      "executable": false,
+      "size_bytes": 6055,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/story.md",
+      "type": "markdown",
+      "lines": 103,
+      "executable": false,
+      "size_bytes": 11486,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/storyboard-format.md",
+      "type": "markdown",
+      "lines": 107,
+      "executable": false,
+      "size_bytes": 6696,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/storyboard.md",
+      "type": "markdown",
+      "lines": 36,
+      "executable": false,
+      "size_bytes": 4067,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/types/3d.md",
+      "type": "markdown",
+      "lines": 25,
+      "executable": false,
+      "size_bytes": 1673,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/types/character.md",
+      "type": "markdown",
+      "lines": 20,
+      "executable": false,
+      "size_bytes": 1635,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/types/data.md",
+      "type": "markdown",
+      "lines": 19,
+      "executable": false,
+      "size_bytes": 1322,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/types/explainer.md",
+      "type": "markdown",
+      "lines": 34,
+      "executable": false,
+      "size_bytes": 3045,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/types/launch.md",
+      "type": "markdown",
+      "lines": 41,
+      "executable": false,
+      "size_bytes": 4738,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/types/music.md",
+      "type": "markdown",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 1606,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "references/types/vertical.md",
+      "type": "markdown",
+      "lines": 23,
+      "executable": false,
+      "size_bytes": 1646,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/bake-basemap.mjs",
+      "type": "javascript",
+      "lines": 324,
+      "executable": true,
+      "size_bytes": 18158,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/lib/main-module.mjs",
+      "type": "javascript",
+      "lines": 13,
+      "executable": true,
+      "size_bytes": 479,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/lib/main-module.test.mjs",
+      "type": "javascript",
+      "lines": 46,
+      "executable": true,
+      "size_bytes": 1943,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/locate.mjs",
+      "type": "javascript",
+      "lines": 228,
+      "executable": true,
+      "size_bytes": 8234,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/plugin-cli.mjs",
+      "type": "javascript",
+      "lines": 89,
+      "executable": true,
+      "size_bytes": 2899,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/plugin-cli.test.mjs",
+      "type": "javascript",
+      "lines": 121,
+      "executable": true,
+      "size_bytes": 4398,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "P2",
+      "finding_id": "finding-4cd9a230b1ac4f6e8dcd55602338854f",
+      "category": "Prompt Injection",
+      "pattern": "Hidden Instructions",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "assets/frame-presets/blue-professional/caption-skin.html",
+        "start_line": 1,
+        "end_line": 27,
+        "start_column": 0,
+        "end_column": 3
+      },
+      "finding": "<!--\n  Blue Professional \u2014 caption skin (preset-local source).\n\n  This is the preset's own lower-third karaoke caption look: a caption skin to read or\n  copy, not to mount as is. A copy used as compos",
+      "explanation": "Hidden instructions were detected in comments or invisible text. These could contain malicious directives. Manual review is recommended.",
+      "remediation": "Audit all comments and invisible characters. Remove any instructions that direct the agent to perform unauthorized actions. Use plain, reviewable content.",
+      "code_snippet": "<!--\n  Blue Professional \u2014 caption skin (preset-local source).\n\n  This is the preset's own lower-third karaoke caption look: a caption skin to read or",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a790d7d5870e27152ebc92fa4ad7a6accf50b71ec64fedc602de4e3c3801d79e",
+      "occurrences": [
+        {
+          "file": "assets/frame-presets/blue-professional/caption-skin.html",
+          "start_line": 1,
+          "end_line": 27,
+          "start_column": 0,
+          "end_column": 3
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "finding_id": "finding-a19589367ca44310adec53d1967eb4b7",
+      "category": "Prompt Injection",
+      "pattern": "Hidden Instructions",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "assets/frame-presets/bold-poster/caption-skin.html",
+        "start_line": 1,
+        "end_line": 28,
+        "start_column": 0,
+        "end_column": 3
+      },
+      "finding": "<!--\n  Bold Poster \u2014 caption skin (preset-local source).\n\n  This is the preset's own lower-third karaoke caption look: a caption skin to read or\n  copy, not to mount as is. A copy used as compositions",
+      "explanation": "Hidden instructions were detected in comments or invisible text. These could contain malicious directives. Manual review is recommended.",
+      "remediation": "Audit all comments and invisible characters. Remove any instructions that direct the agent to perform unauthorized actions. Use plain, reviewable content.",
+      "code_snippet": "<!--\n  Bold Poster \u2014 caption skin (preset-local source).\n\n  This is the preset's own lower-third karaoke caption look: a caption skin to read or",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "b9ca9a7fef55acb4fa4234c48c254fe4ce407466f0f484ff859785f6fb524602",
+      "occurrences": [
+        {
+          "file": "assets/frame-presets/bold-poster/caption-skin.html",
+          "start_line": 1,
+          "end_line": 28,
+          "start_column": 0,
+          "end_column": 3
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "finding_id": "finding-66d8ad9095cf4fa3a44b1c81900d19f6",
+      "category": "Prompt Injection",
+      "pattern": "Hidden Instructions",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "assets/frame-presets/editorial-forest/caption-skin.html",
+        "start_line": 1,
+        "end_line": 28,
+        "start_column": 0,
+        "end_column": 3
+      },
+      "finding": "<!--\n  Editorial Forest \u2014 caption skin (preset-local source).\n\n  This is the preset's own lower-third karaoke caption look: a caption skin to read or\n  copy, not to mount as is. A copy used as composi",
+      "explanation": "Hidden instructions were detected in comments or invisible text. These could contain malicious directives. Manual review is recommended.",
+      "remediation": "Audit all comments and invisible characters. Remove any instructions that direct the agent to perform unauthorized actions. Use plain, reviewable content.",
+      "code_snippet": "<!--\n  Editorial Forest \u2014 caption skin (preset-local source).\n\n  This is the preset's own lower-third karaoke caption look: a caption skin to read or",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "dce94bb257238f8fc0553e9fd1749250254c04e2020f1225c557bc794a70e16d",
+      "occurrences": [
+        {
+          "file": "assets/frame-presets/editorial-forest/caption-skin.html",
+          "start_line": 1,
+          "end_line": 28,
+          "start_column": 0,
+          "end_column": 3
+        }
+      ]
+    },
+    {
+      "id": "AR2",
+      "finding_id": "finding-f9a41d0ee77e466c9e309d1f7efa17d1",
+      "category": "Anti-Refusal",
+      "pattern": "Anti-Refusal Statement",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "references/skill-lifecycle.md",
+        "start_line": 43,
+        "end_line": 43,
+        "start_column": 185,
+        "end_column": 195
+      },
+      "finding": "no warning",
+      "explanation": "Skill instructs the agent to omit warnings, disclaimers, or ethical commentary. Stripping safety caveats hides risk from the user and is a common jailbreak preamble.",
+      "remediation": "Remove instructions that suppress warnings, disclaimers, or ethical commentary. Let the agent surface safety-relevant caveats to the user.",
+      "code_snippet": "A scaffolded project pins `hyperframes@<version>` in its `package.json` scripts so renders stay reproducible; the pin never advances on its own, and a pinned run of an older CLI prints no warning about it. When resuming a project whose scripts carry a pin, probe once before the first render-affecting command:",
+      "intent": null,
+      "tags": [
+        "Anti-Refusal",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "449e47b25897541aa26f8824417d1280ef58d2d29e5e3ba95502143b7207c9ec",
+      "occurrences": [
+        {
+          "file": "references/skill-lifecycle.md",
+          "start_line": 43,
+          "end_line": 43,
+          "start_column": 185,
+          "end_column": 195
+        }
+      ]
+    },
+    {
+      "id": "LP3",
+      "finding_id": "finding-b7707eb6f29a4671b744fdefb92819db",
+      "category": "MCP Least Privilege",
+      "pattern": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: env, network.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: env, network.",
+      "explanation": "Without declared permissions the skill's intent is opaque and cannot be validated.",
+      "remediation": "Clarify the skill's intended tool scope and review how the host runtime enforces it; runtime permissions are unknown unless separately verified. For Claude Code / Agent Skills SKILL.md, 'allowed-tools' records preapproved tools, not a permission ceiling; add a tool only when it is independently approved as necessary, not to silence this finding. For MCP server manifests, use a 'permissions' list naming the required capabilities.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI02"
+      ],
+      "evidence": {},
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-4894ce2ad14849e9a8634cf1c41254ce",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 10,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 10,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-3c45f777d3e5460d8e94caa9fb289d75",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 12,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 12,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-3b96c34f2e0d4b0391a3d8b92608166c",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 18,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 18,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-534d78ea3b734ba8b952044b2fefd0b0",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 30,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 30,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-488460590e634e64a6430df4c12988ed",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 45,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 45,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-5dbe4f4f9efe4d5ca0798ba094291a68",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 47,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 47,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-bca4ffae8e1a4f23ad71ab6fcb241c63",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "SKILL.md",
+        "start_line": 56,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "SKILL.md",
+          "start_line": 56,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-166623b018a64f26a43a9433a1a78df0",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/captions.md",
+        "start_line": 5,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/captions.md",
+          "start_line": 5,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-962b58f3aa2c42c2946fb24400b6842c",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/captions.md",
+        "start_line": 6,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/captions.md",
+          "start_line": 6,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-28ff560959274b308a59ab701336d95e",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/captions.md",
+        "start_line": 15,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/captions.md",
+          "start_line": 15,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-3d3727c26d3245c29e67c5ab85f4a0c3",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/captions.md",
+        "start_line": 43,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/captions.md",
+          "start_line": 43,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-dd6f110437c84fb293c2eef2cbb070ba",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/film.md",
+        "start_line": 14,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/film.md",
+          "start_line": 14,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-de229ae74ea64a0ea1b2a209828b88d5",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/film.md",
+        "start_line": 28,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/film.md",
+          "start_line": 28,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-577a3752989c46c6aeb49987f8753eec",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/film.md",
+        "start_line": 33,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/film.md",
+          "start_line": 33,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-4661bfacc38f4b67b21903f384e8d804",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/format.md",
+        "start_line": 3,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/format.md",
+          "start_line": 3,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-47e176643c3e473fa57f92edad55dc5e",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/format.md",
+        "start_line": 110,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/format.md",
+          "start_line": 110,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-6d7686d04bc44bccbe5168fbacb16752",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/look.md",
+        "start_line": 15,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/look.md",
+          "start_line": 15,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-3949a8479c9c4b7f874ab5995a17346c",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/look.md",
+        "start_line": 16,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/look.md",
+          "start_line": 16,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-b93fc830849f47188079750c1fc59b8a",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/motion.md",
+        "start_line": 44,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/motion.md",
+          "start_line": 44,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-3b9598cf08df413ca05239c50269b639",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/motion.md",
+        "start_line": 63,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/motion.md",
+          "start_line": 63,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-a8bd85a6fdce403d8d4c7a56bfc28424",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/motion.md",
+        "start_line": 69,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/motion.md",
+          "start_line": 69,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-f8807134132546dd8351052e62fbdbe6",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/motion.md",
+        "start_line": 70,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/motion.md",
+          "start_line": 70,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-5ea234e56331462896fd593991846539",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/motion.md",
+        "start_line": 71,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/motion.md",
+          "start_line": 71,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-f377bc20f7074418b71458793c4f8840",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/plugin-installation.md",
+        "start_line": 18,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/plugin-installation.md",
+          "start_line": 18,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-c7b562a79b6a429abe5ae848c0e3b13a",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/review.md",
+        "start_line": 7,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/review.md",
+          "start_line": 7,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-e9c24498024549e1bff89a0e684b05e8",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/review.md",
+        "start_line": 8,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/review.md",
+          "start_line": 8,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-9e40cec7b3744b53b10a12f9593451dc",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/review.md",
+        "start_line": 10,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/review.md",
+          "start_line": 10,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-84b67ec28dbe4f61baf3a76c9a167854",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/runtimes.md",
+        "start_line": 3,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/runtimes.md",
+          "start_line": 3,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-8af3c76782f04bf4b98cb55ff437127a",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/skill-lifecycle.md",
+        "start_line": 8,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/skill-lifecycle.md",
+          "start_line": 8,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-2190b177b86a4712bf5b6232f57e312d",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/skill-lifecycle.md",
+        "start_line": 12,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/skill-lifecycle.md",
+          "start_line": 12,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-a93d088123c0450a8ba540aa711f71cd",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/skill-lifecycle.md",
+        "start_line": 25,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/skill-lifecycle.md",
+          "start_line": 25,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-aacc50d85fee4cccb44a98dc14fbf51c",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/skill-lifecycle.md",
+        "start_line": 26,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/skill-lifecycle.md",
+          "start_line": 26,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-f00d434ae315469d8c2f3d3f3e60fcb5",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/skill-lifecycle.md",
+        "start_line": 27,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/skill-lifecycle.md",
+          "start_line": 27,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-c94a795ca1494d499b2063e311868db3",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/skill-lifecycle.md",
+        "start_line": 28,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/skill-lifecycle.md",
+          "start_line": 28,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-fc5a9f77d8a242d7953e6462cd641aeb",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/skill-lifecycle.md",
+        "start_line": 29,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/skill-lifecycle.md",
+          "start_line": 29,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-d347306fe8fd4f97938147c84def3bf0",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/skill-lifecycle.md",
+        "start_line": 46,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/skill-lifecycle.md",
+          "start_line": 46,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-5ca0bf41df8742f3847863be7f2caefa",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/skill-lifecycle.md",
+        "start_line": 49,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/skill-lifecycle.md",
+          "start_line": 49,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-9f037df714b64dedaf9d3ea04b42e706",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/sound.md",
+        "start_line": 15,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/sound.md",
+          "start_line": 15,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-9e32dc46e71c4b93bb0f9502c536b456",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/sound.md",
+        "start_line": 36,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/sound.md",
+          "start_line": 36,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-d3732faccf82456680086a41bd0c8097",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/sound.md",
+        "start_line": 43,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/sound.md",
+          "start_line": 43,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-77d3f828a2924968808e98859b2f0bf9",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/storyboard.md",
+        "start_line": 12,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/storyboard.md",
+          "start_line": 12,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-5831fcc1948e486f9e12840e8a1d39c6",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/types/data.md",
+        "start_line": 15,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/types/data.md",
+          "start_line": 15,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-c673d5b764724986b4e5749de4eada3a",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/types/launch.md",
+        "start_line": 9,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/types/launch.md",
+          "start_line": 9,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-4ba0bc5b025741b780f0ca105842a8c3",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx hyperframes'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/types/music.md",
+        "start_line": 7,
+        "end_line": null
+      },
+      "finding": "npx hyperframes",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9c0890cb5a51bdd7b5d559cbc121a60b04c456f948c1ea5579990d5b27969eed",
+      "occurrences": [
+        {
+          "file": "references/types/music.md",
+          "start_line": 7,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-a360d2008406433193412d3db2d6dd84",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx skills'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/plugin-installation.md",
+        "start_line": 12,
+        "end_line": null
+      },
+      "finding": "npx skills",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "2b5664f2a936abba4141331e7b3e83205cce617d2cea9af83aa306db07500782",
+      "occurrences": [
+        {
+          "file": "references/plugin-installation.md",
+          "start_line": 12,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-a7eacb8b4b5f417d806b4a05f7391ee2",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx skills'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "references/skill-lifecycle.md",
+        "start_line": 37,
+        "end_line": null
+      },
+      "finding": "npx skills",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "2b5664f2a936abba4141331e7b3e83205cce617d2cea9af83aa306db07500782",
+      "occurrences": [
+        {
+          "file": "references/skill-lifecycle.md",
+          "start_line": 37,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-0efc8c470af64df393f5068323873bec",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "references/skill-lifecycle.md",
+        "start_line": 49,
+        "end_line": null,
+        "start_column": 796
+      },
+      "finding": "no verification",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "ainst the latest release; keep the explicit `.` \u2014 on older CLI releases a bare `--project` followed by another flag consumes that flag as its directory value. When it reports the project behind \u2014 or any CLI output already shows it (the stderr notice `This project pins hyperframes@\u2026 (latest \u2026)`, or `_meta.updateAvailable: true` in a `--json` result from a pinned script) \u2014 apply with `npx hyperframes@latest upgrade --project .`, then verify with `npx hyperframes check`. A passing check confirms the project's compositions still validate on the new version \u2014 not that rendered output is frame-identical to the old pin \u2014 so a successful bump is never silent: name the old and new version in the run's summary. A project with no composition yet needs no verification. If the check fails, revert the `package.json` change, continue on the pinned version, and report which version the project stays on and why. Act on the signal rather than relaying it to the user; never leave a bumped pin unverified.",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e632c41fa2bd2e83dae197a127308a9708429db61e7967e12888dfcd5ce5c64b",
+      "occurrences": [
+        {
+          "file": "references/skill-lifecycle.md",
+          "start_line": 49,
+          "end_line": null,
+          "start_column": 796
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-9a02c1fec05643dfb3fe3d73177e4a82",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx puppeteer'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/bake-basemap.mjs",
+        "start_line": 72,
+        "end_line": null
+      },
+      "finding": "npx puppeteer",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f6bb0418a4d5b129a189db2b44bb280e9ba7dbf2ae147c79bac04ca0d2a6af75",
+      "occurrences": [
+        {
+          "file": "scripts/bake-basemap.mjs",
+          "start_line": 72,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-11e2e6505f1c457e82280ef085dce316",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx through'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/plugin-cli.test.mjs",
+        "start_line": 76,
+        "end_line": null
+      },
+      "finding": "npx through",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e34e37c36ff26882ded23eeac7eb51b32d86b89e40ab65c8dc44b9447d7af035",
+      "occurrences": [
+        {
+          "file": "scripts/plugin-cli.test.mjs",
+          "start_line": 76,
+          "end_line": null
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 71,
+    "scanned_components": 69,
+    "coverage_percent": 97.2,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 69,
+    "partially_inspected_files": 2,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 12,
+        "end_line": 12,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 46,
+        "end_line": 46,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "reference_resolution",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
+        "path": "SKILL.md",
+        "start_line": 47,
+        "end_line": 47,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "scripts/bake-basemap.mjs",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "scripts/locate.mjs",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "assets/frame-presets/code-editorial/fonts/EBGaramond-400.woff2",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "assets/frame-presets/code-editorial/fonts/EBGaramond-700.woff2",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "assets/frame-presets/code-editorial/fonts/Inter-400.woff2",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "assets/frame-presets/code-editorial/fonts/Inter-700.woff2",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "assets/frame-presets/code-editorial/fonts/JetBrainsMono-400.woff2",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "assets/frame-presets/code-editorial/fonts/JetBrainsMono-700.woff2",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 77,
+        "completed": 77,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "completed",
+        "planned_work": 7,
+        "completed": 7,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 77,
+        "completed": 77,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 71,
+        "completed": 71,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 71,
+        "completed": 71,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 71,
+        "completed": 71,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 71,
+        "completed": 71,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 71,
+        "completed": 71,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 71,
+        "completed": 71,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 71,
+        "completed": 71,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 71,
+        "completed": 71,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 71,
+        "completed": 71,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 71,
+        "completed": 71,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 71,
+        "completed": 71,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 71,
+        "completed": 71,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 71,
+        "completed": 71,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 71,
+        "completed": 71,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 71,
+        "completed": 69,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 77,
+        "completed": 77,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [
+      {
+        "source_path": "SKILL.md",
+        "line": 6,
+        "column": 90,
+        "evidence": "installs:** Before setup or freshness commands, follow [plugin execution rules](references/plugin-installation.md) when this skill is inside a HyperFrames plugi",
+        "target_path": "references/plugin-installation.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "markdown_link"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 12,
+        "column": 2,
+        "evidence": "`index.html` is the root composition: it declares the video's variables and mounts one scene per sub-composition from `compositions/`. Media and fonts live in `",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 14,
+        "column": 242,
+        "evidence": "ts music and sound on its visible actions unless the person asked for silence (`references/sound.md`). A new video is 1920\u00d71080 at 30 fps. A question, a hold or",
+        "target_path": "references/sound.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 28,
+        "column": 29,
+        "evidence": "9. Only the bundled fonts (`references/format.md`) resolve by name; any other family needs `@font-face` to a file in `assets/fonts/`.",
+        "target_path": "references/format.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 46,
+        "column": 78,
+        "evidence": "- A new film over ~15 s that tells something: its type's file (below), then `references/story.md`: three storylines that are three different films, in words onl",
+        "target_path": "references/story.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 46,
+        "column": 231,
+        "evidence": " words only; the person picks unless they asked for the file or no stops. Then `SPEC.md` (`references/spec.md`): every adjective as a number, the defaults banne",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 46,
+        "column": 242,
+        "evidence": "; the person picks unless they asked for the file or no stops. Then `SPEC.md` (`references/spec.md`): every adjective as a number, the defaults banned by name, ",
+        "target_path": "references/spec.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 47,
+        "column": 144,
+        "evidence": "ry error, weigh every warning. A film: `npx hyperframes snapshot --review` and `references/review.md`, ending in `REVIEW.md`. A small edit: snapshot what you ch",
+        "target_path": "references/review.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 47,
+        "column": 178,
+        "evidence": "ilm: `npx hyperframes snapshot --review` and `references/review.md`, ending in `REVIEW.md`. A small edit: snapshot what you changed (`--at`, `--range`, `--compo",
+        "target_path": null,
+        "status": "missing",
+        "disposition": "partial",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 62,
+        "column": 29,
+        "evidence": "| Launch, promo, feature | `references/types/launch.md` |",
+        "target_path": "references/types/launch.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 63,
+        "column": 26,
+        "evidence": "| Explainer, tutorial | `references/types/explainer.md` |",
+        "target_path": "references/types/explainer.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 64,
+        "column": 18,
+        "evidence": "| Music video | `references/types/music.md` |",
+        "target_path": "references/types/music.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 65,
+        "column": 21,
+        "evidence": "| Chart, numbers | `references/types/data.md` |",
+        "target_path": "references/types/data.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 66,
+        "column": 30,
+        "evidence": "| Vertical or social clip | `references/types/vertical.md` |",
+        "target_path": "references/types/vertical.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 67,
+        "column": 33,
+        "evidence": "| 3D, simulation, generative | `references/types/3d.md` |",
+        "target_path": "references/types/3d.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 68,
+        "column": 37,
+        "evidence": "| Character, mascot, story short | `references/types/character.md` |",
+        "target_path": "references/types/character.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 69,
+        "column": 65,
+        "evidence": "| A real place or map; a website, PR or script; kinetic type | `references/film.md` |",
+        "target_path": "references/film.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 70,
+        "column": 42,
+        "evidence": "| Captions; cards over a talking head | `references/captions.md`; `references/overlays.md` |",
+        "target_path": "references/captions.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 70,
+        "column": 68,
+        "evidence": "| Captions; cards over a talking head | `references/captions.md`; `references/overlays.md` |",
+        "target_path": "references/overlays.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 71,
+        "column": 59,
+        "evidence": "| Motion: eases, titles, cuts, punch-ins, speed, holds | `references/motion.md` |",
+        "target_path": "references/motion.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 72,
+        "column": 64,
+        "evidence": "| Scenes, attributes, media, lint; GSAP, Lottie, 3D, canvas | `references/format.md`; `references/runtimes.md` |",
+        "target_path": "references/format.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 72,
+        "column": 88,
+        "evidence": "| Scenes, attributes, media, lint; GSAP, Lottie, 3D, canvas | `references/format.md`; `references/runtimes.md` |",
+        "target_path": "references/runtimes.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      },
+      {
+        "source_path": "SKILL.md",
+        "line": 74,
+        "column": 148,
+        "evidence": "igma: `/figma`. Installing, refreshing or upgrading skills and the pinned CLI: `references/skill-lifecycle.md`.",
+        "target_path": "references/skill-lifecycle.md",
+        "status": "resolved",
+        "disposition": "analyzed",
+        "reference_kind": "quoted_or_code"
+      }
+    ],
+    "limitations": [
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 64,
+    "findings_after_filtering": 64,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

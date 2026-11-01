@@ -961,7 +961,44 @@
   },
   "mcp-rea": {
     "credentials": "A redaction list: names like accesstoken, apikey and bearer that it strips from environment reports so they don't end up in its output (src/application/environment/environmentBuildReport.ts:28).",
-    "secretFiles": "A list of config file names (.npmrc, .nvmrc, .editorconfig) it uses to classify files in a project it analyzes (src/domain/referenceSourceClassification.ts:145). It doesn't read your own .npmrc."
+    "secretFiles": "A list of config file names (.npmrc, .nvmrc, .editorconfig) it uses to classify files in a project it analyzes (src/domain/referenceSourceClassification.ts:145). It doesn't read your own .npmrc.",
+    "_findings": [
+      {
+        "match": "capture context",
+        "file": "src/application/ValidateSelectedWebScript.ts",
+        "level": "benign",
+        "note": "Wording about REA's own recorded browser captures: a code comment on copying a capture's hashes and paths into a manifest (ValidateSelectedWebScript.ts:37) and a report caveat (browserScenarioDiff.ts:141). Nothing leaks.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "capture context",
+        "file": "src/domain/browserScenarioDiff.ts",
+        "level": "benign",
+        "note": "Wording about REA's own recorded browser captures: a code comment on copying a capture's hashes and paths into a manifest (ValidateSelectedWebScript.ts:37) and a report caveat (browserScenarioDiff.ts:141). Nothing leaks.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "reset state",
+        "file": "src/application/environment/environmentCompare.ts",
+        "level": "benign",
+        "note": "Help text and a code comment for the environment-compare command: each recorded test sequence is replayed from a fresh, reset state of the simulated app (environmentCompare.ts:467, environmentCommands.ts:600).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "reset state",
+        "file": "src/cli/environmentCommands.ts",
+        "level": "benign",
+        "note": "Help text and a code comment for the environment-compare command: each recorded test sequence is replayed from a fresh, reset state of the simulated app (environmentCompare.ts:467, environmentCommands.ts:600).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "delete context",
+        "file": "src/cli/jsonLines.ts",
+        "level": "benign",
+        "note": "Ordinary code that drops fields from a temporary copy (a variable named context) when filtering the CLI's JSON output (jsonLines.ts:186, 190). It does not touch any AI memory or conversation.",
+        "date": "2026-11-01"
+      }
+    ]
   },
   "cleanyourtv": {
     "credentials": "Only in its optional smart-home add-on for the TV, which uses the Home Assistant token you give it (addons/smart-home/.../HaClient.java:56).",
@@ -1012,11 +1049,95 @@
     ]
   },
   "photocraft": {
-    "shell": "Desktop integration helpers: it reads your light or dark mode setting (apps/photocraft/src/appearance.rs:47), finds fonts with fc-match, opens an SVG in your chosen editor (src/external_svg.rs:121), and restarts itself after updates. The shell and cmd calls the scanner also sees are in tests inside source files."
+    "shell": "Desktop integration helpers: it reads your light or dark mode setting (apps/photocraft/src/appearance.rs:47), finds fonts with fc-match, opens an SVG in your chosen editor (src/external_svg.rs:121), and restarts itself after updates. The shell and cmd calls the scanner also sees are in tests inside source files.",
+    "_findings": [
+      {
+        "match": "Clear History",
+        "file": "crates/engine/src/cmd/atn_cmds/steps_layer.rs",
+        "level": "benign",
+        "note": "The image editor's History panel command \"Clear History\": it empties the undo list without changing the picture, and Undo brings it back (history_menu_cmds.rs:35-38; tests; Photoshop action import steps_layer.rs:143).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Clear History",
+        "file": "crates/engine/src/cmd/history_cmds.rs",
+        "level": "benign",
+        "note": "The image editor's History panel command \"Clear History\": it empties the undo list without changing the picture, and Undo brings it back (history_menu_cmds.rs:35-38; tests; Photoshop action import steps_layer.rs:143).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Clear History",
+        "file": "crates/engine/src/cmd/history_menu_cmds.rs",
+        "level": "benign",
+        "note": "The image editor's History panel command \"Clear History\": it empties the undo list without changing the picture, and Undo brings it back (history_menu_cmds.rs:35-38; tests; Photoshop action import steps_layer.rs:143).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Delete State",
+        "file": "crates/engine/src/cmd/history_cmds.rs",
+        "level": "benign",
+        "note": "Menu label of the History panel's \"Delete State\" command, which removes an undo step from the editing history (history_cmds.rs:268). Normal photo-editor feature.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "delete state",
+        "file": "crates/engine/src/cmd/history_options_cmds.rs",
+        "level": "benign",
+        "note": "Code comment for deleting one undo step when non-linear history is on (history_options_cmds.rs:61). Normal photo-editor feature, nothing to do with system or AI state.",
+        "date": "2026-11-01"
+      }
+    ]
   },
   "pdfcraft": {
     "shell": "Desktop integration helpers: reduced-motion and appearance settings (reg, defaults), printer options (lpoptions), and restarting itself (apps/pdfcraft/src/motion.rs:43). The security and PowerShell calls are in tests.",
-    "secretFiles": "For signing PDFs with a digital ID: it uses certificates stored in your macOS Keychain through Apple's Security framework, the private key never leaves the Keychain, and macOS asks you to allow it (crates/sign/src/keychain.rs)."
+    "secretFiles": "For signing PDFs with a digital ID: it uses certificates stored in your macOS Keychain through Apple's Security framework, the private key never leaves the Keychain, and macOS asks you to allow it (crates/sign/src/keychain.rs).",
+    "_findings": [
+      {
+        "match": "access token",
+        "file": "apps/pdfcraft/src/single_instance.rs",
+        "level": "benign",
+        "note": "Reads the Windows session number from the app's own process token, only to name its single-window socket so files open in your window (single_instance.rs:187); line 428 is a test of that. No credentials.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "eychain",
+        "file": "crates/automation/src/dispatch.rs",
+        "level": "notice",
+        "title": "AI agent can sign PDFs as you",
+        "note": "An AI agent you connect to PdfCraft's automation tools (pdfcraft-cli mcp) can list the signing identities in your Mac Keychain and sign PDFs with them (dispatch.rs:774, signing.rs:178). Folder limits don't cover these. Keys stay on your Mac; macOS may ask first.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "eychain",
+        "file": "crates/automation/src/signing.rs",
+        "level": "notice",
+        "title": "AI agent can sign PDFs as you",
+        "note": "An AI agent you connect to PdfCraft's automation tools (pdfcraft-cli mcp) can list the signing identities in your Mac Keychain and sign PDFs with them (dispatch.rs:774, signing.rs:178). Folder limits don't cover these. Keys stay on your Mac; macOS may ask first.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "eychain",
+        "file": "crates/automation/src/tools.rs",
+        "level": "notice",
+        "title": "AI agent can sign PDFs as you",
+        "note": "An AI agent you connect to PdfCraft's automation tools (pdfcraft-cli mcp) can list the signing identities in your Mac Keychain and sign PDFs with them (dispatch.rs:774, signing.rs:178). Folder limits don't cover these. Keys stay on your Mac; macOS may ask first.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "/etc/passwd",
+        "file": "crates/automation/src/mcp.rs",
+        "level": "benign",
+        "note": "A safety test checking that the MCP server refuses a file:///etc/passwd address and only serves its own pdfcraft://doc/... resources (mcp.rs:677). It never reads that file.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "/etc/passwd",
+        "file": "crates/fonts/src/fallback.rs",
+        "level": "benign",
+        "note": "A test feeding hostile font names like \"../../etc/passwd\" to the font matcher to prove it never crashes (fallback.rs:357). The name is only compared as text; no file is opened.",
+        "date": "2026-11-01"
+      }
+    ]
   },
   "concat": {
     "credentials": "Protects its optional local control server with a random 128-bit token that every connection must present, even from your own computer (src/crates/concat-server/src/grpc.rs:164, lib.rs:23).",
@@ -3828,5 +3949,212 @@
         "date": "2026-11-01"
       }
     ]
+  },
+  "nutlope-hallmark": {
+    "_findings": [
+      {
+        "match": "169.254.169.254",
+        "file": "references/brand-truth.md",
+        "level": "benign",
+        "note": "references/brand-truth.md:7 is a safety rule for fetching a brand's website: refuse raw IP addresses, localhost and internal hosts, which includes the cloud metadata address. It protects you.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.codex/config.toml",
+        "file": "references/flow.md",
+        "level": "benign",
+        "note": "references/flow.md:119 tells the assistant never to suggest editing Codex's config, sandbox or approval policy, and to name a blocked step instead. A protective rule.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "keyring",
+        "file": "scripts/photos.json",
+        "level": "benign",
+        "note": "scripts/photos.json is a list of stock photo descriptions and tags; 'keyring' is a tag on photos of keys. No passwords or keychains involved.",
+        "date": "2026-11-01"
+      }
+    ],
+    "network": "Only in optional scripts: imagegen.mjs sends an image prompt to Together AI when you have set TOGETHER_API_KEY (off otherwise), and the design checker opens your own page in headless Chrome.",
+    "files": "Saves screenshots and generated images in your project, and its optional hook installer writes one entry to .claude/settings.json.",
+    "env": "Reads its own settings (Chrome and Puppeteer paths) and TOGETHER_API_KEY for optional image generation.",
+    "credentials": "Sends your own TOGETHER_API_KEY to Together AI, only when you run image generation (scripts/imagegen.mjs:52-65).",
+    "browser": "Opens your page in headless Chrome to screenshot it and check the design (scripts/capture.mjs).",
+    "_notices": [
+      {
+        "title": "Optional image generation sends prompts to Together AI",
+        "level": "notice",
+        "note": "Off by default. If you set TOGETHER_API_KEY, scripts/imagegen.mjs sends your image prompt to Together AI (FLUX model) with your key and saves the picture. Without the key it uses placeholders.",
+        "where": [
+          [
+            "scripts/imagegen.mjs",
+            52
+          ]
+        ],
+        "date": "2026-11-01"
+      },
+      {
+        "title": "Can add a design-check hook to Claude Code",
+        "level": "notice",
+        "note": "Optional: scripts/install-hook.mjs adds a hook to .claude/settings.json (or ~/.claude/settings.json with --global) that runs its design linter after each file edit. It refuses to overwrite a settings file it cannot read.",
+        "where": [
+          [
+            "scripts/install-hook.mjs",
+            14
+          ]
+        ],
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "leonxlnx-design-taste-frontend": {
+    "_findings": [
+      {
+        "match": "keyring",
+        "file": "library/sites.json",
+        "level": "benign",
+        "note": "library/sites.json describes example websites the skill learns from; 'keyring' is part of a page description (a 3D bunch of keyring charms in a hero image). No passwords involved.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "keychain",
+        "file": "library/sites.json",
+        "level": "benign",
+        "note": "library/sites.json describes example websites; 'keychain' refers to 3D keychain charms shown on one site (sites.json:2664). Nothing to do with your keychain.",
+        "date": "2026-11-01"
+      }
+    ],
+    "env": "Reads only its own settings: where to keep its history file and which Chrome to use for screenshots (scripts/draw.mjs:111, scripts/lib/cdp.mjs:12)."
+  },
+  "earthtojake-cad": {
+    "_findings": [
+      {
+        "match": "curl -fsSL https://texttocad.dev/install.sh | sh",
+        "file": "references/setup.md",
+        "level": "notice",
+        "title": "Installs its engine with a downloaded script",
+        "note": "references/setup.md:16 installs the cadgen engine by piping texttocad.dev's install script into your shell. Standard for many tools, but it runs code from the internet as soon as you paste it.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "| sh",
+        "file": "references/setup.md",
+        "level": "notice",
+        "title": "Installs its engine with a downloaded script",
+        "note": "references/setup.md:16 installs the cadgen engine by piping texttocad.dev's install script into your shell. Standard for many tools, but it runs code from the internet as soon as you paste it.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "cloudflare-security-audit": {
+    "_findings": [
+      {
+        "match": "delete memory",
+        "file": "AI-AND-LLM.md",
+        "level": "benign",
+        "note": "AI-AND-LLM.md:29 is security guidance: check who can write or delete an AI system's memory, because poisoned memory can shape later tasks. Advice for reviewers.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "credentials.json",
+        "file": "ATTACK-CLASSES.md",
+        "level": "benign",
+        "note": "ATTACK-CLASSES.md:118 is a checklist question for auditors: are secret files like credentials.json committed to the repo? Advice, nothing is read.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "keychain",
+        "file": "DESKTOP-MOBILE-AND-LOCAL-IPC.md",
+        "level": "benign",
+        "note": "DESKTOP-MOBILE-AND-LOCAL-IPC.md:15 lists keychain access rules among the real security controls to check in desktop and mobile apps. Advice for reviewers.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "/etc/passwd",
+        "file": "validate-coverage-ledger.test.cjs",
+        "level": "benign",
+        "note": "Test files for the skill's report checker (validate-findings.test.cjs:320, 606; validate-coverage-ledger.test.cjs:495) use /etc/passwd as sample text in findings. They never open it.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "/etc/passwd",
+        "file": "validate-findings.test.cjs",
+        "level": "benign",
+        "note": "Test files for the skill's report checker (validate-findings.test.cjs:320, 606; validate-coverage-ledger.test.cjs:495) use /etc/passwd as sample text in findings. They never open it.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "heygen-com-hyperframes": {
+    "_findings": [
+      {
+        "match": "caption skin",
+        "file": "assets/frame-presets/blue-professional/caption-skin.html",
+        "level": "benign",
+        "note": "The flagged text is an HTML comment at the top of each caption preset (e.g. assets/frame-presets/blue-professional/caption-skin.html:1) explaining how the template's placeholders get filled. Documentation, not hidden instructions.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "caption skin",
+        "file": "assets/frame-presets/bold-poster/caption-skin.html",
+        "level": "benign",
+        "note": "The flagged text is an HTML comment at the top of each caption preset (e.g. assets/frame-presets/blue-professional/caption-skin.html:1) explaining how the template's placeholders get filled. Documentation, not hidden instructions.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "caption skin",
+        "file": "assets/frame-presets/editorial-forest/caption-skin.html",
+        "level": "benign",
+        "note": "The flagged text is an HTML comment at the top of each caption preset (e.g. assets/frame-presets/blue-professional/caption-skin.html:1) explaining how the template's placeholders get filled. Documentation, not hidden instructions.",
+        "date": "2026-11-01"
+      }
+    ],
+    "network": "Map videos download map tiles from ArcGIS or CARTO and map libraries from jsDelivr (scripts/bake-basemap.mjs). An optional locate auto mode sends an image to Google Gemini, only with your GEMINI_API_KEY.",
+    "shell": "Runs ffmpeg and base64 to cut frames and draw boxes on images (scripts/locate.mjs, scripts/bake-basemap.mjs).",
+    "env": "Reads its own settings (Chrome path, map name and style) and GEMINI_API_KEY for the optional mode.",
+    "browser": "Drives headless Chrome to render map backgrounds for videos (scripts/bake-basemap.mjs:43).",
+    "_notices": [
+      {
+        "title": "Optional mode sends an image to Google Gemini",
+        "level": "notice",
+        "note": "Only if you set GEMINI_API_KEY and run locate auto: scripts/locate.mjs sends the image to Google Gemini to find an object in it. The default grid method sends nothing anywhere.",
+        "where": [
+          [
+            "scripts/locate.mjs",
+            192
+          ]
+        ],
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "mcp-context-mode": {
+    "credentials": "Reads an API key only from ~/.context-mode/platform.json, the opt-in team analytics link described under Before you install (hooks/platform-bridge.mjs:51).",
+    "browser": "Only in a script that renders preview images for the project website, and a list of test-tool names used to classify errors. The connector itself doesn't drive a browser.",
+    "_notices": [
+      {
+        "title": "Optional analytics link sends session events",
+        "level": "notice",
+        "note": "Off by default. If you create ~/.context-mode/platform.json with an API key, its hooks send each session event (secrets redacted, your project's git remote name) to that server. Its README otherwise says nothing leaves your machine.",
+        "where": [
+          [
+            "hooks/platform-bridge.mjs",
+            1
+          ],
+          [
+            "hooks/platform-bridge.mjs",
+            286
+          ]
+        ],
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "voicestudio": {
+    "credentials": "Access control for its optional server mode: API keys, short-lived sessions and a PIN for other devices (backend/api/dependencies.py). The server only listens on your own computer unless you change it (backend/main.py:2228).",
+    "secretFiles": "Two places, neither touching your files: the release build signs the app with the developer's keychain (electron/omnivoice-tts-bundle.mjs:135), and the iPhone app saves its server login in the iOS Keychain.",
+    "browser": "Only a list of links to other tools shown in the app, such as Playwright MCP (electron/src/shared/config/integration-catalog.js:95). It doesn't drive a browser."
+  },
+  "lightcraft": {
+    "credentials": "Model downloads can send an access token you put in an environment variable, only over HTTPS and only to the download's original host, never after a redirect (crates/fetch/src/lib.rs:277-281)."
   }
 }

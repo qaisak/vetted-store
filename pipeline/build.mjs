@@ -13,7 +13,7 @@ for (const p of marketplace?.plugins || []) for (const s of p.skills || []) anth
 
 const OWNER = { anthropics: 'Anthropic', openai: 'OpenAI', NVIDIA: 'NVIDIA', huggingface: 'Hugging Face', 'vercel-labs': 'Vercel Labs', modelcontextprotocol: 'Model Context Protocol',
   github: 'GitHub', microsoft: 'Microsoft', upstash: 'Upstash', ChromeDevTools: 'Chrome DevTools', jqlang: 'jq', cli: 'GitHub', 'astral-sh': 'Astral', ollama: 'Ollama',
-  aquasecurity: 'Aqua Security', semgrep: 'Semgrep', gitleaks: 'Gitleaks', cloudflare: 'Cloudflare', 'heygen-com': 'HeyGen' };
+  aquasecurity: 'Aqua Security', semgrep: 'Semgrep', gitleaks: 'Gitleaks', cloudflare: 'Cloudflare', 'heygen-com': 'HeyGen', trailofbits: 'Trail of Bits', trufflesecurity: 'Truffle Security' };
 const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'astral-sh/uv': 'uv', 'jqlang/jq': 'jq', 'sharkdp/fd': 'fd', 'sharkdp/bat': 'bat', 'junegunn/fzf': 'fzf',
   'BurntSushi/ripgrep': 'ripgrep', 'jesseduffield/lazygit': 'lazygit', 'ollama/ollama': 'Ollama', 'aquasecurity/trivy': 'Trivy', 'semgrep/semgrep': 'Semgrep', 'gitleaks/gitleaks': 'Gitleaks',
   'NVIDIA/SkillSpector': 'SkillSpector', 'github/github-mcp-server': 'GitHub MCP Server', 'microsoft/playwright-mcp': 'Playwright MCP', 'upstash/context7': 'Context7',
@@ -32,6 +32,8 @@ const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'ast
   'morluto/rea': 'REA: Reverse Engineer Anything', 'Gathin23/cleanyourtv': 'CleanYourTV', 'storytold/photocraft': 'PhotoCraft', 'storytold/pdfcraft': 'PdfCraft',
   'KnifeLemon/Filee': 'Filee', 'robbietilton/Compositor': 'Compositor', 'jub0t/Concat': 'Concat', 'crmne/spotifast': 'Spotifast',
   'mksglu/context-mode': 'context-mode', 'debpalash/VoiceStudio': 'VoiceStudio', 'storytold/lightcraft': 'LightCraft',
+  'localsend/localsend': 'LocalSend', 'upscayl/upscayl': 'Upscayl', 'qarmin/czkawka': 'Krokiet (Czkawka)', 'flameshot-org/flameshot': 'Flameshot',
+  'keepassxreboot/keepassxc': 'KeePassXC', 'syncthing/syncthing': 'Syncthing', 'trufflesecurity/trufflehog': 'TruffleHog',
   'yt-dlp/yt-dlp': 'yt-dlp', 'Wilfred/difftastic': 'difftastic', 'muesli/duf': 'duf', 'ClementTsang/bottom': 'bottom', 'ducaale/xh': 'xh', 'chmln/sd': 'sd' };
 // Hand-written plain-language lines, job tags and setup level (pipeline/plain.json)
 const SOURCES = JSON.parse(fs.readFileSync(new URL('../data/sources.json', import.meta.url), 'utf8'));
@@ -95,7 +97,7 @@ const MCP_INSTALL = {
     { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add google-calendar -e GOOGLE_OAUTH_CREDENTIALS=/path/to/gcp-oauth.keys.json -- npx -y @cocal/google-calendar-mcp'], note: 'First create a Google Cloud OAuth client (Desktop app) and download its keys file, as the README explains. Then ask your assistant to authenticate.' }],
 };
 // Companies whose own repositories are listed as "Trusted publisher" (no scan up front)
-const TRUSTED = new Set(['anthropics', 'openai', 'NVIDIA', 'microsoft', 'github', 'cli', 'modelcontextprotocol', 'ChromeDevTools', 'huggingface', 'vercel-labs', 'upstash', 'aquasecurity', 'semgrep', 'astral-sh', 'ollama', 'cloudflare', 'heygen-com']);
+const TRUSTED = new Set(['anthropics', 'openai', 'NVIDIA', 'microsoft', 'github', 'cli', 'modelcontextprotocol', 'ChromeDevTools', 'huggingface', 'vercel-labs', 'upstash', 'aquasecurity', 'semgrep', 'astral-sh', 'ollama', 'cloudflare', 'heygen-com', 'trailofbits', 'trufflesecurity']);
 OWNER.cli = 'GitHub'; OWNER.ChromeDevTools = 'Google Chrome';
 const SUB = { everything: 'Everything (test server)', sequentialthinking: 'Sequential Thinking' };
 const DESC_FIX = { everything: 'Reference test server that exercises every MCP feature (tools, prompts, resources and more). Built for people developing MCP clients, not for daily use.' };
@@ -134,7 +136,8 @@ for (const [repo, m] of Object.entries(d.repos)) {
   const sc = d.scores[repo];
   const urlRe = new RegExp('github\\.com/' + m.full.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(/|$|#|\\?)', 'i');
   // Licenses GitHub can't classify, read from the repository's own license file (checked November 1, 2026)
-  const LICENSE_FIX = { 'muesli/duf': 'MIT', 'nicolargo/glances': 'LGPL-3.0', 'Gathin23/cleanyourtv': 'MIT', 'mksglu/context-mode': 'Elastic License 2.0' };
+  const LICENSE_FIX = { 'muesli/duf': 'MIT', 'nicolargo/glances': 'LGPL-3.0', 'Gathin23/cleanyourtv': 'MIT', 'mksglu/context-mode': 'Elastic License 2.0',
+    'qarmin/czkawka': 'MIT (library), GPL-3.0 (apps)', 'keepassxreboot/keepassxc': 'GPL-2.0 or GPL-3.0' };
   R[m.full] = { st: m.stars, fk: m.forks, is: m.issues, lic: LICENSE_FIX[m.full] || m.license, pu: m.pushed?.slice(0, 10), cr: m.created?.slice(0, 10), ar: m.archived, own: m.owner,
     org: m.ownerType === 'Organization', on: OWNER[m.owner] || m.owner, lang: m.language, br: m.branch,
     sc: sc === 'unchecked' ? 'u' : sc ? { s: sc.score, date: sc.date?.slice(0, 10), ch: sc.checks.filter(c => c.score >= 0).map(c => [c.name, c.score, c.reason]) } : null,
@@ -196,7 +199,10 @@ for (const l of d.listings) {
       'darrenburns/posting': { brew: 'brew install darrenburns/homebrew/posting@beta', go: 'go install github.com/darrenburns/posting/v3/cmd/posting@latest' },
       'nicolargo/glances': { pipx: "pipx install 'glances[all]'", pip: 'pip install glances' },
       'tconbeer/harlequin': { brew: 'brew install harlequin', uvTool: 'uv tool install harlequin' },
-      'denisidoro/navi': { brew: 'brew install navi' } };
+      'denisidoro/navi': { brew: 'brew install navi' },
+      // LocalSend's README links its Homebrew cask and winget package (the fetched brew line is its separate command-line tool)
+      'localsend/localsend': { brew: 'brew install --cask localsend', winget: 'winget install LocalSend.LocalSend' },
+      'flameshot-org/flameshot': { brew: 'brew tap flameshot-org/flameshot && brew trust --cask flameshot-org/flameshot/flameshot-org-flameshot && brew install flameshot-org-flameshot', apt: 'apt install flameshot' } };
     const i = Object.fromEntries(Object.entries({ ...(l.install || {}), ...(TOOL_INSTALL[repo] || {}) }).map(([k, v]) => [k, v.replace(/\s+#.*$/, '')]));   // drop trailing shell comments
     if (repo === 'ollama/ollama') delete i.pip;
     if (repo === 'astral-sh/uv') delete i.uvTool;
@@ -206,7 +212,9 @@ for (const l of d.listings) {
     // Desktop apps: installers on each project's releases page (checked in their READMEs, November 1, 2026)
     const DESKTOP = { 'storytold/photocraft': 'macOS, Windows, Linux', 'storytold/pdfcraft': 'macOS, Windows, Linux', 'KnifeLemon/Filee': 'Windows, macOS, Linux',
       'robbietilton/Compositor': 'macOS', 'jub0t/Concat': 'Windows, macOS, Linux', 'crmne/spotifast': 'Linux, macOS, Windows',
-      'debpalash/VoiceStudio': 'macOS, Windows, Linux', 'storytold/lightcraft': 'Windows, macOS, Linux' };
+      'debpalash/VoiceStudio': 'macOS, Windows, Linux', 'storytold/lightcraft': 'Windows, macOS, Linux',
+      'localsend/localsend': 'Windows, macOS, Linux, Android', 'upscayl/upscayl': 'Windows, macOS, Linux', 'qarmin/czkawka': 'Windows, macOS, Linux',
+      'flameshot-org/flameshot': 'Windows, Linux', 'keepassxreboot/keepassxc': 'Windows, macOS, Linux', 'syncthing/syncthing': 'Windows, macOS, Linux and more' };
     if (DESKTOP[repo]) inst.push({ to: DESKTOP[repo], how: 'Download', link: `https://github.com/${repo}/releases/latest`, linkText: 'Download from GitHub', note: 'Pick the installer for your computer from the latest release.' });
     if (repo === 'Gathin23/cleanyourtv') inst.push({ to: 'With a coding assistant', how: 'Prompt', cmds: ['git clone https://github.com/Gathin23/cleanyourtv'], note: 'Open that folder in Claude Code or Codex, paste PROMPT.md and fill in your TV model. Your computer needs Python 3, a JDK (17 to 22) and the Android SDK, as the README explains. Turn on USB debugging on the TV first.' },
       { to: 'Android phone only', how: 'Separate app', link: 'https://cleanyour.tv/app', linkText: 'Open the phone app page', note: 'A community-built phone app by another developer. Vetted hasn\'t checked it.' });
@@ -218,7 +226,11 @@ for (const l of d.listings) {
     if (repo === 'cli/cli') inst.push({ to: 'Coding agents', how: 'Agent skill', cmds: ['gh skill install cli/cli gh --scope user'], note: 'Installs the gh agent skill. Install GitHub CLI itself first.' });
     if (!inst.length || repo === 'cli/cli' || repo === 'jqlang/jq') if (!DESKTOP[repo]) inst.push({ to: 'All platforms', how: 'Install guide', link: repo === 'jqlang/jq' ? 'https://github.com/jqlang/jq/releases' : repo === 'cli/cli' ? 'https://github.com/cli/cli#installation' : repo === 'yt-dlp/yt-dlp' ? 'https://github.com/yt-dlp/yt-dlp#installation' : `https://github.com/${repo}#readme`, note: repo === 'jqlang/jq' ? 'Download the binary for your platform from the releases page.' : 'Follow the project\'s install guide.' });
   }
-  const name = niceName(l.kind === 'skill' ? l.name : l.kind === 'mcp' && l.path ? (SUB[l.slug] || l.name) : (NAME[repo] || l.name));
+  // Skills whose folder name isn't the name the project goes by (from each README)
+  const SKILL_NAME = { 'heygen-com/hyperframes:hyperframes': 'HyperFrames', 'earthtojake/text-to-cad:cad': 'Text-to-CAD', 'Leonxlnx/taste-skill:design-taste-frontend': 'Taste Skill',
+    'AgriciDaniel/claude-seo:seo': 'Claude SEO', 'AgriciDaniel/claude-seo:seo-audit': 'SEO Audit', 'AgriciDaniel/claude-seo:seo-local': 'Local SEO', 'cloudflare/security-audit-skill:security-audit': 'Security Audit',
+    'trailofbits/skills:sharp-edges': 'Sharp Edges', 'anthropics/knowledge-work-plugins:triage-nda': 'NDA Triage' };
+  const name = SKILL_NAME[`${repo}:${l.slug}`] || niceName(l.kind === 'skill' ? l.name : l.kind === 'mcp' && l.path ? (SUB[l.slug] || l.name) : (NAME[repo] || l.name));
   L.push({ id, k: l.kind, n: name, sl: l.slug, t: tagline(desc), d: desc, r: repo, u: l.url, p: l.path, nv: !!l.nvidia, tr: TRUSTED.has(owner), g: glyphFor(l.slug + ' ' + desc + ' ' + repo), c: colorFor(id),
     lines: l.lines || null, lic: l.license || null, inst, pl: PLAIN[id]?.[0] || null, jb: PLAIN[id]?.[1] || [], lv: PLAIN[id]?.[2] || null,
     vd: (VIDEOS[l.kind === 'mcp' && l.path ? `${repo}:${l.path}` : repo] || []).map(v => [v.kind, v.url, v.label || null, v.id || null]) });
@@ -292,7 +304,12 @@ for (const l of L) {
 // Nothing is listed before it's scanned: listings without a scan report wait for the next build
 if (scanDir) { const held = L.filter(l => !SC[l.id]); if (held.length) console.error('HELD BACK (not scanned yet):', held.map(l => l.id).join(', ')); for (const l of held) L.splice(L.indexOf(l), 1); }
 
-const DATA = { gen: d.generated.slice(0, 10), L, R, AV: d.avatars, SC, MR };
+// GitHub's own trending lists, read at build time (data/trending.json); the page shows only repositories listed here
+const TRF = new URL('../data/trending.json', import.meta.url);
+const TR = fs.existsSync(TRF) ? JSON.parse(fs.readFileSync(TRF, 'utf8')) : null;
+if (TR) for (const k of ['daily', 'weekly', 'monthly']) TR[k] = (TR[k] || []).filter(([repo]) => L.some(l => l.r === repo));
+
+const DATA = { gen: d.generated.slice(0, 10), L, R, AV: d.avatars, SC, MR, TR };
 const json = JSON.stringify(DATA).replace(/</g, '\\u003c');
 const tpl = fs.readFileSync(tplPath, 'utf8');
 // A function replacement, so "$'" or "$&" inside scanned text is inserted literally
