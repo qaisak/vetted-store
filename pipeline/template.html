@@ -220,6 +220,18 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .loc { font-size: 12px; overflow-wrap: anywhere; }
 .snip { display: block; font-family: var(--mono); font-size: 12px; background: var(--code); border: 1px solid var(--sep); border-radius: 8px; padding: 6px 10px; overflow-x: auto; white-space: pre; }
 .fd .why { font-size: 13px; color: var(--label2); }
+.fd .ours { font-size: 14px; color: var(--label); line-height: 1.45; }
+.fd .ours span { font-weight: 700; }
+.fd .also { font-size: 12.5px; color: var(--label2); align-self: center; }
+.fh .chip { align-self: center; }
+.rv { background: var(--bg2); border-radius: 14px; padding: 16px; }
+.rv-h { font-size: 18px; font-weight: 700; }
+.rv-list { list-style: none; margin: 10px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px 20px; }
+.rv-list li { display: grid; grid-template-columns: 3.4ch minmax(0, 1fr); gap: 10px; align-items: baseline; font-size: 14px; color: var(--label2); line-height: 1.4; }
+.rv-list b { font-size: 21px; font-weight: 800; color: var(--label); font-variant-numeric: tabular-nums; text-align: right; }
+.raw { margin-top: 10px; display: flex; flex-wrap: wrap; gap: 4px 18px; align-items: baseline; font-size: 13px; color: var(--label2); border: 1px solid var(--sep); border-radius: 12px; padding: 10px 14px; }
+.raw > span:first-child { flex-basis: 100%; font-weight: 600; color: var(--label2); }
+.raw b { color: var(--label); font-weight: 600; }
 @media (max-width: 1000px) { .rep { grid-template-columns: minmax(0, 1fr); } }
 
 /* Trusted publisher */
@@ -232,6 +244,10 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .scan-anyway[open] > summary { margin-bottom: 4px; }
 
 .worth { margin-top: 12px; background: color-mix(in srgb, var(--orange) 10%, var(--bg2)); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
+.worth.lv-note { background: color-mix(in srgb, var(--blue) 8%, var(--bg2)); }
+.worth.lv-warn { background: color-mix(in srgb, var(--orange) 13%, var(--bg2)); }
+.worth.lv-bad { background: color-mix(in srgb, var(--red) 13%, var(--bg2)); }
+.worth:first-of-type { margin-top: 0; }
 .worth b { font-size: 16px; }
 .worth p { font-size: 14px; color: var(--label2); line-height: 1.5; max-width: 80ch; }
 .ev-row { display: flex; gap: 6px; flex-wrap: wrap; }
@@ -296,7 +312,9 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .plain .check { margin-top: 10px; font-size: 14.5px; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 6px; row-gap: 2px; align-items: start; }
 .plain .check .ic { margin-top: 3px; }
 .plain .check button { justify-self: start; }
-.plain .check b { font-weight: 600; }
+.plain .check b { font-weight: 700; }
+.plain .check .vsub { grid-column: 2; font-size: 14px; color: var(--label2); line-height: 1.45; }
+.plain .check .vbtns { grid-column: 2; display: flex; column-gap: 14px; row-gap: 2px; flex-wrap: wrap; margin-top: 2px; }
 .plain .check button { color: var(--blue); font-size: 14px; font-weight: 600; }
 .plain .lbl { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--label2); }
 .plain p { font-size: 17px; line-height: 1.4; margin-top: 2px; }
@@ -362,6 +380,11 @@ dialog.sheet[open] { animation: sheetUp .32s cubic-bezier(.2,.8,.2,1); }
 .sheet-bar { display: flex; justify-content: space-between; align-items: center; font-weight: 600; font-size: 17px; }
 .text-btn { color: var(--blue); font-size: 17px; }
 .sheet-app { display: flex; gap: 12px; align-items: center; background: var(--card); border-radius: 12px; padding: 12px; }
+.sheet-warn { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 10px; background: color-mix(in srgb, var(--orange) 13%, var(--card)); border-radius: 12px; padding: 12px 14px; margin-top: 10px; }
+.sheet-warn .ic { color: var(--orange); font-size: 22px; margin-top: 1px; }
+.sheet-warn b { font-size: 15px; display: block; }
+.sheet-warn p { font-size: 13.5px; color: var(--label2); line-height: 1.45; margin-top: 2px; }
+.sheet-warn a { font-size: 13.5px; font-weight: 600; }
 .sheet-app .icon { width: 60px; height: 60px; }
 .sheet-app .t { min-width: 0; flex: 1; }
 .sheet-app b { font-size: 17px; display: block; }
@@ -569,18 +592,32 @@ function pageKit(k) {
 const LEVEL = { 1: ['Easy setup', 'lv1', 'Nothing to sign up for: an upload or one copy-paste command'], 2: ['Some setup', 'lv2', 'A terminal command, and sometimes an account, key or extra app'],
   3: ['Technical', 'lv3', 'Needs developer tools, cloud accounts or specialist software'] };
 const plainOf = l => l.pl || l.t;
-// One plain sentence about what our checks found, for the top of a listing: [color, text, icon]
-function safety(l) {
-  const m = (D.MR || {})[l.id], sc = (D.SC || {})[l.id];
-  if (m) {
-    const nn = m.notices?.length || 0, extra = nn ? ` ${nn} thing${nn > 1 ? 's' : ''} worth knowing.` : '';
-    if (m.codeFree && m.verdict === 'fits') return ['c-green', 'Our check: instructions only, no code that runs on your computer.' + extra, 'shieldok'];
-    return { fits: ['c-green', 'Our check: it does what it says, and nothing its purpose doesn\'t explain.' + extra, 'shieldok'],
-      review: ['c-orange', 'Our check: it can do more than it says. Read the unexpected items before installing.', 'shieldq'],
-      flag: ['c-red', 'Our check: flagged. It touches secret files or a tool hides instructions.', 'shieldq'] }[m.verdict];
-  }
-  if (sc) return [SEVC[sc.sev] || 'c-gray', `Our check: SkillSpector rates it ${(SEVW[sc.sev] || sc.sev).toLowerCase()} risk, with ${sc.n} finding${sc.n === 1 ? '' : 's'}.${sc.sev === 'HIGH' || sc.sev === 'CRITICAL' ? ' This automatic scan also flags routine steps, so read what it found.' : ''}`, sc.sev === 'LOW' ? 'shieldok' : 'shieldq'];
-  return ['c-gray', 'Not scanned yet.', 'shieldq'];
+// Things a reviewer found worth knowing before installing: [{t: title, n: note, lv: note|warn|bad, w: [[file, line]]}]
+const NT = l => l.nt || [];
+// How the scanner's high-risk flags were explained, as one sentence
+function flagLine(rv) {
+  const B = [['where', 'is in a test or build file that doesn\'t run', 'are in tests or build files that don\'t run'], ['purpose', 'matches what it\'s for', 'match what it\'s for'],
+    ['read', 'was read line by line', 'were read line by line'], ['rule', 'is a known scanner false alarm', 'are known scanner false alarms'],
+    ['cov', 'is a file the scanner couldn\'t fully read', 'are files the scanner couldn\'t fully read']];
+  const parts = B.map(([k, one, many]) => [rv[k], one, many]).filter(p => p[0]).sort((a, b) => b[0] - a[0]);
+  const head = `The scanner raised ${rv.n === 1 ? '1 high-risk flag' : rv.n + ' high-risk flags'}`;
+  if (parts.length === 1) return rv.n === 1 ? `${head}. It ${parts[0][1]}.` : `${head}. All ${rv.n} ${parts[0][2]}.`;
+  const items = parts.map(([n, one, many]) => `${n} ${n === 1 ? one : many}`);
+  return `${head}: ${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}.`;
+}
+// One verdict for the top of a listing, from the Purpose Check, the scan and the review of every high-risk flag: [color, icon, headline, sentence]
+function verdict(l) {
+  const m = MRof(l), sc = scanOf(l), rv = sc?.rv, nt = NT(l);
+  const warns = nt.filter(x => x.lv === 'warn'), notes = nt.filter(x => x.lv === 'note').length;
+  const more = notes ? ` ${notes === 1 ? 'One thing' : notes + ' things'} worth knowing below.` : '';
+  if (nt.some(x => x.lv === 'bad') || rv?.bad) return ['c-red', 'shieldq', 'Looks harmful', 'A reviewer found something in its code that looks deliberate. Read it before installing.'];
+  if (m?.verdict === 'flag') return ['c-red', 'shieldq', 'Flagged', 'It touches secret files or one of its tools hides instructions. Read the details before installing.'];
+  if (m?.verdict === 'review') return ['c-orange', 'shieldq', 'Does more than it says', 'Its code can do things its stated purpose doesn\'t explain. Read the unexpected items before installing.'];
+  if (warns.length) return ['c-orange', 'shieldq', warns.length === 1 ? 'One risk to know first' : `${warns.length} risks to know first`, warns.map(x => x.t).join('. ') + '. Not malicious, but read the note before installing.' + more];
+  if (!sc) return ['c-gray', 'shieldq', 'Not scanned yet', 'We haven\'t scanned this one yet.'];
+  if (rv.open) return ['c-gray', 'shieldq', 'Review in progress', `The scanner raised ${rv.n} high-risk flags. ${rv.n - rv.open} are explained so far and ${rv.open} are waiting for a reviewer.`];
+  if (m?.codeFree) return ['c-green', 'shieldok', 'Instructions only', 'Nothing in it runs on your computer, so it can only do what your assistant is already allowed to do.' + (rv.n ? ' ' + flagLine(rv) : '') + more];
+  return ['c-green', 'shieldok', m ? 'Fits its purpose' : 'No red flags', (m ? 'It does what it says. ' : '') + (rv.n ? flagLine(rv) : 'The scanner found nothing high-risk.') + more];
 }
 const GEN = new Date(D.gen + 'T00:00:00Z');
 const fmtK = n => n >= 1e6 ? (n / 1e6).toFixed(1).replace(/\.0$/, '') + 'M' : n >= 1000 ? (n / 1000).toFixed(n >= 1e4 ? 0 : 1).replace(/\.0$/, '') + 'K' : String(n);
@@ -598,23 +635,23 @@ const owner = l => repoOf(l).own;
 const SEVC = { LOW: 'c-green', MEDIUM: 'c-blue', HIGH: 'c-orange', CRITICAL: 'c-red', INFO: 'c-gray' };
 const SEVW = { LOW: 'Low', MEDIUM: 'Medium', HIGH: 'High', CRITICAL: 'Critical', INFO: 'Info' };
 const scanOf = l => (D.SC || {})[l.id];
+// The short label under a listing's GET button. Risks and flags win over who published it.
 function trust(l) {
-  const r = repoOf(l), sc = scanOf(l);
+  const v = verdict(l), warns = NT(l).filter(x => x.lv === 'warn').length;
+  if (v[2] === 'Looks harmful' || v[2] === 'Flagged') return { short: v[2], cls: 'c-red', icon: 'shieldq' };
+  if (v[2] === 'Does more than it says') return { short: 'Does more than stated', cls: 'c-orange', icon: 'shieldq' };
+  if (warns) return { short: warns === 1 ? '1 risk to know' : `${warns} risks to know`, cls: 'c-orange', icon: 'shieldq' };
   if (l.nv) return { short: 'NVIDIA Verified', cls: 'c-green', icon: 'shieldok' };
   if (l.tr) return { short: 'Trusted publisher', cls: 'c-blue', icon: 'building' };
-  const mr = (D.MR || {})[l.id];
-  if (mr && mr.codeFree && mr.verdict === 'fits') return { short: 'Instructions only', cls: 'c-green', icon: 'shieldok' };
-  const nn = mr?.notices?.length || 0;
-  if (mr) return mr.verdict === 'fits' ? { short: nn ? `Fits · ${nn} note${nn > 1 ? 's' : ''}` : 'Fits its purpose', cls: 'c-green', icon: 'shieldok' }
-    : mr.verdict === 'review' ? { short: 'Does more than stated', cls: 'c-orange', icon: 'shieldq' } : { short: 'Flagged', cls: 'c-red', icon: 'shieldq' };
-  if (sc) return { short: `Scan ${sc.s} · ${SEVW[sc.sev] || sc.sev}`, cls: SEVC[sc.sev] || 'c-gray', icon: sc.sev === 'LOW' ? 'shieldok' : 'shieldq' };
-  if (r.sc && r.sc !== 'u') return { short: `Scorecard ${r.sc.s.toFixed(1)}`, cls: r.sc.s >= 7 ? 'c-green' : 'c-blue', icon: 'gauge' };
-  return { short: 'Not scanned yet', cls: 'c-gray', icon: 'shieldq' };
+  if (v[2] === 'Not scanned yet' || v[2] === 'Review in progress') return { short: v[2], cls: 'c-gray', icon: 'shieldq' };
+  if (v[2] === 'Instructions only') return { short: 'Instructions only', cls: 'c-green', icon: 'shieldok' };
+  const nn = NT(l).length;
+  return { short: v[2] === 'Fits its purpose' && nn ? `Fits · ${nn} note${nn > 1 ? 's' : ''}` : v[2], cls: 'c-green', icon: 'shieldok' };
 }
 function icon(l, size) {
   const av = D.AV[owner(l)];
   const st = size ? `width:${size}px;height:${size}px;` : '';
-  if (l.k !== 'skill' && !l.p && av) return `<span class="icon" style="${st}background:#FFFFFF"><img src="${av}" alt=""></span>`;
+  if (l.k !== 'skill' && !l.p && av && repoOf(l).org) return `<span class="icon" style="${st}background:#FFFFFF"><img src="${av}" alt=""></span>`;
   return `<span class="icon" style="${st}background:linear-gradient(160deg,${l.c[0]},${l.c[1]})">${ic(l.g, 1.9)}${av ? `<span class="av"><img src="${av}" alt=""></span>` : ''}</span>`;
 }
 const caption = l => { const t = trust(l); return `<span class="iap ${t.cls}">${t.short}</span>`; };
@@ -655,34 +692,41 @@ function stories() {
   const reviewedN = checked.reduce((a, l) => a + MRof(l).reviewed.length, 0);
   const featured = uniqueRepos(byStars(comm)).slice(0, 8);
   const out = [];
-  const noted = checked.filter(l => MRof(l).notices?.length).length;
+  const noted = checked.filter(l => NT(l).length).length, ft = flagTotals();
   out.push({ id: 'community', eyebrow: 'How Vetted works', title: 'See what it can access before you install it', g: ['#14213D', '#3A6EA5'], glyph: 'shieldok', wide: true, app: BY['blader-humanizer'] || featured[0],
     body: [`AI add-ons and open-source apps can go online, read your files, run other programs and use your passwords. Most places that list them don't tell you which ones do what.`,
       `We read each project's code and list exactly what it can reach: <strong>the internet, your files, other programs, passwords and keys, and your browser</strong>. Then we compare that with what the project says it's for.`,
       `If a note-taking skill could read your SSH keys, its page would say so in orange. If an app sends usage data unless you switch it off, its page says so and tells you how to switch it off.`,
-      `Right now: ${L.length} listings, every one scanned with NVIDIA's SkillSpector. ${checked.length} projects from independent developers got the full check; ${noted} of them have something worth knowing before you install, written on their page.`], apps: featured });
+      `The automatic scanner raises a lot of alarms, most of them about ordinary code. So a person explains every high-risk flag before a listing gets its label: ${ft.n.toLocaleString('en-US')} so far${ft.open ? `, ${ft.open} still waiting` : ''}, each with the reason on the listing's page.`,
+      `Right now: ${L.length} listings, every one scanned with NVIDIA's SkillSpector. ${checked.length} projects from independent developers also got the Purpose Check; ${noted} of them have something worth knowing before you install, written at the top of their page.`], apps: featured });
   const commScans = comm.map(l => scanOf(l)).filter(Boolean);
   if (spector && commScans.length) {
     const c = {}; for (const x of commScans) c[x.sev] = (c[x.sev] || 0) + 1;
     out.push({ id: 'scan', eyebrow: 'Security Spotlight', title: 'Scanned with NVIDIA SkillSpector', lede: `${commScans.length} community projects scanned.`, g: ['#0B3D2E', '#1F9D6B'], glyph: 'shieldok',
       body: [`Skills run with your assistant's permissions, so a bad one can read files, leak data or run commands. NVIDIA's open-source <strong>SkillSpector</strong> flags prompt injection, data exfiltration, privilege escalation and other risky patterns.`,
         `NVIDIA's own research put numbers on it: in a subset of 31,132 skills they analyzed, 26.1% contained vulnerabilities and 5.2% showed likely malicious intent.`,
-        `We ran SkillSpector ${esc(commScans[0].ver)} in static mode on <strong>${commScans.length} community projects</strong>: ${c.LOW || 0} scored low, ${c.MEDIUM || 0} medium, ${c.HIGH || 0} high and ${c.CRITICAL || 0} critical. Static mode can't judge intent, which is why the Purpose Check comes first on every page.`,
+        `We ran SkillSpector ${esc(commScans[0].ver)} in static mode on <strong>${commScans.length} community projects</strong>: ${c.LOW || 0} scored low, ${c.MEDIUM || 0} medium, ${c.HIGH || 0} high and ${c.CRITICAL || 0} critical. Static mode can't judge intent, so those scores alone would scare you off almost anything.`,
+        `That's why we explain every high-risk flag ourselves, across all ${L.filter(l => scanOf(l)).length} scanned listings: ${(ft => `${ft.read.toLocaleString('en-US')} read line by line, ${ft.where.toLocaleString('en-US')} in tests or build files that don't run, ${ft.purpose.toLocaleString('en-US')} explained by what the project is for, ${ft.rule.toLocaleString('en-US')} known scanner false alarms`)(flagTotals())}. The reason for each one is on the listing's page.`,
         `Every listing also has a ready-to-copy SkillSpector command, so you can rerun the check yourself.`], apps: [spector, BY['gitleaks']].filter(Boolean) });
   }
   const cnt = f => L.filter(f).length, M = l => MRof(l);
+  const lab = {}; for (const l of L) { const k = trust(l).short.replace(/^Fits · .*/, 'Fits · notes').replace(/^\d+ risks? to know$/, 'risk'); lab[k] = (lab[k] || 0) + 1; }
+  const nn = k => lab[k] || 0;
   out.push({ id: 'labels', hidden: true, eyebrow: 'Safety Labels', title: 'What our checks mean', lede: 'Every label, in plain words.', g: ['#0F3D3E', '#2A9D8F'], glyph: 'shieldok',
-    body: [`<strong>Instructions only</strong> (${cnt(l => M(l)?.codeFree && M(l).verdict === 'fits')}): a skill that is just text for your assistant. Nothing in it runs on your computer, so it can only do what your assistant is already allowed to do.`,
-      `<strong>Fits its purpose</strong> (${cnt(l => M(l) && !M(l).codeFree && M(l).verdict === 'fits' && !M(l).notices?.length)}): we read what its code can do (internet, files, running programs, secrets, browser) and all of it is explained by what it says it's for. Anything that looked off was read line by line, and the reason is on its page.`,
-      `<strong>Fits, with notes</strong> (${cnt(l => M(l)?.verdict === 'fits' && M(l).notices?.length)}): it fits, but there's something you'd want to know first, like usage data sent by default or an optional feature that shares data. The note says how to turn it off.`,
-      `<strong>Does more than stated</strong> (${cnt(l => M(l)?.verdict === 'review')}) and <strong>Flagged</strong> (${cnt(l => M(l)?.verdict === 'flag')}): its code can do things its purpose doesn't explain, or it touches secret files or hides instructions. Read the details before installing.`,
-      `<strong>Trusted publisher</strong> (${cnt(l => l.tr)}): from a company's own GitHub organization, like Anthropic, OpenAI or NVIDIA. We still scan these with SkillSpector and show what it found.`,
-      `<strong>SkillSpector risk</strong>: NVIDIA's automatic scanner rates every listing low, medium, high or critical. It can't judge intent, so routine steps like deleting a temporary file count as high. That's why we read the code ourselves when something looks off.`,
-      `No scan is a guarantee. Code can change after we check it, so the date and exact version we checked are on every page.`], apps: [] });
+    body: [`Every listing gets one label, shown under its GET button. Here is what each one means and how many listings have it right now.`,
+      `<strong>Instructions only</strong> (${nn('Instructions only')}): a skill that is just text for your assistant. Nothing in it runs on your computer, so it can only do what your assistant is already allowed to do.`,
+      `<strong>Fits its purpose</strong> (${nn('Fits its purpose')}): a project from an independent developer. We listed what its code can reach (the internet, your files, other programs, passwords and keys, your browser) and all of it is explained by what it says it's for.`,
+      `<strong>Fits · notes</strong> (${nn('Fits · notes')}): it fits, but there's something you'd want to know first, like usage data sent by default. The note is at the top of its page and says how to turn it off.`,
+      `<strong>Risk to know</strong> (${nn('risk')}): a real weakness or risky default, like a local server any device on your network can use. Not malicious, but read the note before installing. It also shows in the install sheet.`,
+      ...(nn('Does more than stated') + nn('Flagged') + nn('Looks harmful') ? [`<strong>Does more than stated</strong> (${nn('Does more than stated')}), <strong>Flagged</strong> (${nn('Flagged')}) and <strong>Looks harmful</strong> (${nn('Looks harmful')}): its code can do things its purpose doesn't explain, touches secret files, hides instructions or looks deliberately harmful.`] : []),
+      `<strong>Trusted publisher</strong> (${nn('Trusted publisher')}) and <strong>NVIDIA Verified</strong> (${nn('NVIDIA Verified')}): from a company's own GitHub organization, like Anthropic, OpenAI or NVIDIA. We scan these too and explain every high-risk flag.`,
+      ...(nn('Not scanned yet') + nn('Review in progress') ? [`<strong>Not scanned yet</strong> (${nn('Not scanned yet')}) and <strong>Review in progress</strong> (${nn('Review in progress')}): just added. The label changes once the scan and review are done.`] : []),
+      `<strong>About scanner flags</strong>: NVIDIA's SkillSpector raised ${ft.n.toLocaleString('en-US')} high-risk flags across the store. It can't judge intent, so ordinary code trips it. Each flag has a written status on its listing's page: ${ft.read.toLocaleString('en-US')} read line by line, ${ft.where.toLocaleString('en-US')} in tests or build files that don't run, ${ft.purpose.toLocaleString('en-US')} explained by what the project is for, ${ft.rule.toLocaleString('en-US')} known scanner false alarms and ${ft.cov.toLocaleString('en-US')} files it couldn't fully read${ft.open ? `; ${ft.open} are still waiting for a reviewer` : ''}.`,
+      `No check is a guarantee. Code can change after we look at it, so the date and exact version we checked are on every page.`], apps: [] });
   const trustedList = L.filter(l => l.tr);
   out.push({ id: 'trusted', eyebrow: 'Trusted Publishers', title: 'From Anthropic, OpenAI, NVIDIA and more', lede: `${trustedList.length} listings from ${new Set(trustedList.map(l => repoOf(l).on)).size} companies.`, g: ['#1D2B53', '#5E6EFF'], glyph: 'building',
     body: [`Anthropic, OpenAI, NVIDIA, GitHub, Microsoft, Google and others publish skills, MCP servers and tools from their own GitHub organizations, backed by their own security reviews and release processes.`,
-      `Vetted lists them as Trusted publishers, and scans them anyway: ${trustedList.filter(l => scanOf(l)).length} of the ${trustedList.length} have a SkillSpector report on their page.`],
+      `Vetted lists them as Trusted publishers, and checks them anyway: ${trustedList.filter(l => scanOf(l)).length} of the ${trustedList.length} have a SkillSpector report on their page, with every high-risk flag explained. Where we found something you'd want to know, like a skill that prints your access token into the chat, it's at the top of the page.`],
     apps: pick(['anthropics-docx', 'openai-security-threat-model', 'mcp-github-mcp-server', 'mcp-playwright-mcp', 'skillspector', 'uv']).concat(L.filter(l => l.nv).slice(0, 2)) });
   if (trivyHN) out.push({ id: 'trivy', eyebrow: 'Security News', title: 'Even security tools get hit', lede: `${trivyHN[2]} points on Hacker News.`, g: ['#3A0A14', '#C2364A'], glyph: 'shieldq',
     body: [`A Hacker News thread titled “${esc(trivyHN[0])}” (${trivyHN[2]} points, ${trivyHN[3]} comments, ${fmtDate(trivyHN[4])}) covered a compromise in the Trivy ecosystem's supply chain.`,
@@ -733,7 +777,14 @@ function pageToday() {
 // Says only what the data shows: how many listings really have a SkillSpector report
 function promiseText() {
   const nSC = L.filter(l => scanOf(l)).length, comm = L.filter(l => !l.tr), commChecked = comm.filter(l => MRof(l)).length;
-  return `${nSC === L.length ? `All ${L.length} listings get` : `${nSC} of ${L.length} listings have`} an automatic security scan (NVIDIA SkillSpector) before they go up. ${commChecked === comm.length ? 'Projects from independent developers also get' : `${commChecked} projects from independent developers also have`} our Purpose Check: we list what the code can reach and compare it with what the project says it's for. Anything unusual is explained on its page.`;
+  const ft = flagTotals();
+  return `${nSC === L.length ? `All ${L.length} listings get` : `${nSC} of ${L.length} listings have`} an automatic security scan (NVIDIA SkillSpector). The scanner can't tell ordinary code from harmful code, so a person explains ${ft.open ? `its high-risk flags (${(ft.n - ft.open).toLocaleString('en-US')} of ${ft.n.toLocaleString('en-US')} so far)` : `every high-risk flag it raises (${ft.n.toLocaleString('en-US')} so far)`}. ${commChecked === comm.length ? 'Projects from independent developers also get' : `${commChecked} projects from independent developers also have`} our Purpose Check: we list what the code can reach and compare it with what the project says it's for. Anything you'd want to know is at the top of its page.`;
+}
+// Store-wide count of high-risk scanner flags by how each was explained
+function flagTotals() {
+  const t = { n: 0, read: 0, where: 0, purpose: 0, rule: 0, cov: 0, open: 0 };
+  for (const l of L) { const rv = scanOf(l)?.rv; if (rv) for (const k in t) t[k] += rv[k] || 0; }
+  return t;
 }
 
 const byJob = k => L.filter(l => (l.jb || []).includes(k));
@@ -872,10 +923,33 @@ const SYN = [['video', 'videos', 'youtube', 'yt-dlp', 'transcript'], ['excel', '
   ['notes', 'note', 'obsidian', 'notion'], ['password', 'passwords', 'secret', 'secrets', 'credential'], ['photo', 'photos', 'image', 'images', 'picture'],
   ['email', 'emails', 'mail', 'inbox', 'gmail'], ['website', 'site', 'web page', 'landing page', 'webpage'], ['blog', 'article', 'post', 'content', 'copy', 'writing'],
   ['meeting', 'meetings', 'agenda'], ['word', 'docx', 'document'], ['calendar', 'schedule', 'events'], ['ai', 'llm', 'model', 'agent'], ['download', 'downloads'],
-  ['browser', 'chrome', 'playwright', 'web'], ['design', 'figma', 'ui'], ['security', 'vulnerability', 'scan', 'scanner'], ['research', 'papers', 'paper', 'arxiv', 'zotero']];
+  ['browser', 'chrome', 'playwright', 'web'], ['design', 'figma', 'ui'], ['security', 'vulnerability', 'scan', 'scanner', 'safe', 'safety', 'privacy'], ['research', 'papers', 'paper', 'arxiv', 'zotero'],
+  // Names people type for the tools they already know
+  ['grep', 'rg', 'ripgrep'], ['find', 'fd'], ['cat', 'bat'], ['top', 'htop', 'btop', 'glances', 'bottom', 'monitor'], ['diff', 'delta', 'difftastic'], ['json', 'jq'],
+  ['docker', 'container', 'containers', 'lazydocker'], ['kubernetes', 'k8s', 'kubectl', 'k9s'], ['git', 'lazygit', 'github'], ['tv', 'television', 'cleanyourtv'],
+  ['reverse', 'decompile', 'disassemble', 'ida', 'ghidra', 'binary'], ['business', 'invoice', 'invoices', 'sales', 'pricing', 'founder', 'startup'], ['pdf', 'pdfs', 'pdfcraft']];
 const SYNMAP = {}; for (const g of SYN) for (const w of g) SYNMAP[w] = g;
+const STOP = new Set(['my', 'me', 'the', 'a', 'an', 'to', 'for', 'of', 'in', 'on', 'and', 'with', 'i', 'it', 'is', 'from', 'into', 'how', 'can', 'do', 'want', 'help', 'tool', 'tools', 'app', 'apps', 'make', 'use', 'using', 'need', 'some', 'something', 'thing', 'small', 'best', 'good', 'free']);
+// A pasted GitHub link or owner/repo finds that project directly
+const repoQuery = q => { const m = q.trim().match(/^(?:https?:\/\/)?(?:www\.)?(?:github\.com\/)?([\w.-]+)\/([\w.-]+?)(?:\.git)?(?:[\/#?].*)?$/i); return m && (q.includes('/')) ? `${m[1]}/${m[2]}`.toLowerCase() : null; };
+// Typo help: the closest word from listing names and descriptions, one or two letters off
+let VOCAB = null;
+function lev(a, b) { if (Math.abs(a.length - b.length) > 2) return 9; let prev = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i++) { const cur = [i]; for (let j = 1; j <= b.length; j++) cur[j] = Math.min(prev[j] + 1, cur[j - 1] + 1, prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)); prev = cur; } return prev[b.length]; }
+function correct(q) {
+  VOCAB ||= (() => { const c = {}; for (const l of L) for (const w of `${l.n} ${l.sl} ${l.pl || ''} ${(l.jb || []).map(j => JOB[j][1]).join(' ')}`.toLowerCase().split(/[^a-z0-9]+/)) if (w.length > 2) c[w] = (c[w] || 0) + 1;
+    for (const g of SYN) for (const w of g) if (!w.includes(' ')) c[w] = (c[w] || 0) + 5; return c; })();
+  let changed = false;
+  const out = q.toLowerCase().split(/\s+/).map(w => {
+    if (w.length < 4 || VOCAB[w] || STOP.has(w)) return w;
+    let best = null, bd = 9;
+    for (const v in VOCAB) { const d = lev(w, v); if (d < bd || (d === bd && VOCAB[v] > VOCAB[best])) { bd = d; best = v; } }
+    if (best && bd <= (w.length >= 7 ? 2 : 1)) { changed = true; return best; }
+    return w;
+  }).join(' ');
+  return changed ? out : null;
+}
 const searchHits = q => {
-  const STOP = new Set(['my', 'me', 'the', 'a', 'an', 'to', 'for', 'of', 'in', 'on', 'and', 'with', 'i', 'it', 'from', 'into', 'how', 'can', 'do', 'want', 'help', 'tool', 'app', 'make', 'use', 'using', 'need', 'some', 'something', 'thing']);
   const words = q.trim().toLowerCase().split(/\s+/).filter(w => w.length > 1 && !STOP.has(w));
   if (!words.length) return [];
   // [exact forms, synonyms]: a synonym match counts for less than the word itself
@@ -895,9 +969,20 @@ const searchHits = q => {
 function resultsHTML() {
   const q = S.q.trim();
   if (!q) return `<h2 style="font-size:22px;margin-bottom:6px">Discover</h2><ul class="suggest">${['email', 'slides', 'spreadsheet', 'notes', 'video', 'website', 'security', 'figma', 'research', 'deploy'].map(s => `<li><button data-suggest="${s}">${ic('search')}${s}</button></li>`).join('')}</ul>`;
-  const res = searchHits(q);
-  if (!res.length) return `<p class="empty">No results for “${esc(q)}”.<br>Try a task, like “spreadsheet” or “deploy”, or browse by the work you do:</p><div class="job-grid">${JOBS.slice(0, 6).map(jobCard).join('')}</div>`;
-  return `<p class="result-count">${res.length} result${res.length > 1 ? 's' : ''}</p><div class="rowlist">${res.map(l => row(l)).join('')}</div>`;
+  const list = res => `<div class="rowlist">${res.map(l => row(l)).join('')}</div>`;
+  const rq = repoQuery(q);
+  if (rq) {
+    const res = L.filter(l => l.r.toLowerCase() === rq);
+    if (res.length) return `<p class="result-count">${res.length} listing${res.length > 1 ? 's' : ''} from ${esc(res[0].r)}</p>${list(res)}`;
+  }
+  // "ci/cd" or "a/b testing" look like owner/repo too, so only a GitHub link, or text nothing else matches, counts as a repository
+  const notListed = `<p class="empty">${esc(rq)} isn't in Vetted yet, so we haven't scanned or checked it.<br>Until we do, read its code before you install it, or scan it yourself with SkillSpector:</p>${BY['skillspector'] ? list([BY['skillspector']]) : ''}`;
+  if (rq && /github\.com/i.test(q)) return notListed;
+  let res = searchHits(q), fixed = null;
+  if (rq && !res.length && !/\s/.test(q)) return notListed;
+  if (!res.length) { fixed = correct(q); if (fixed) res = searchHits(fixed); }
+  if (!res.length) return `<p class="empty">No results for “${esc(q)}”.<br>Try a task, like “spreadsheet” or “deploy”, or browse by the work you do:</p><div class="job-grid">${['everyday', 'vibe', 'office', 'data', 'writing', 'business', 'design', 'dev'].map(k => jobCard(JOB[k])).join('')}</div>`;
+  return `${fixed ? `<p class="result-count">No results for “${esc(q)}”. Showing results for <button class="text-btn" data-suggest="${esc(fixed)}">${esc(fixed)}</button></p>` : ''}<p class="result-count">${res.length} result${res.length > 1 ? 's' : ''}</p>${list(res)}`;
 }
 const pageSearch = () => `<div class="page"><div class="large-title"><h1>Search</h1></div>
   <label class="search-field" for="q">${ic('search')}<input id="q" type="search" placeholder="Skills, MCP servers and tools" value="${esc(S.q)}" autocomplete="off"></label>
@@ -925,22 +1010,43 @@ function instCards(l) {
 // ---------- SkillSpector report ----------
 const recWord = r => ({ DO_NOT_INSTALL: 'Do not install', INSTALL: 'Install', SAFE_TO_INSTALL: 'Safe to install', SAFE: 'Safe to install', REVIEW: 'Review before installing',
   REVIEW_BEFORE_INSTALL: 'Review before installing', INSTALL_WITH_CAUTION: 'Install with caution', CAUTION: 'Install with caution' })[r] || String(r || '').replace(/_/g, ' ').toLowerCase().replace(/^\w/, c => c.toUpperCase());
+// Links to a file in the listing's repository (a path inside a bundled archive links to the archive)
+const ghFile = (l, f, n) => `https://github.com/${l.r}/blob/${repoOf(l).br}/${l.p ? l.p + '/' : ''}${String(f).replace(/\\/g, '/').split('!/')[0]}${n && !String(f).includes('!/') ? '#L' + n : ''}`;
+const NT_LV = { note: ['lv-note', 'c-blue', 'Worth knowing'], warn: ['lv-warn', 'c-orange', 'Risk'], bad: ['lv-bad', 'c-red', 'Looks harmful'] };
+function notesHTML(l) {
+  const nt = NT(l);
+  if (!nt.length) return '';
+  return `<section class="shelf"><div class="shelf-head"><h2>Before you install<span class="sub">What our review found that you'd want to know, with where it is in the code</span></h2></div>
+    ${nt.map(n => `<div class="worth ${NT_LV[n.lv][0]}"><div class="cap-h"><b>${esc(n.t)}</b><span class="chip ${NT_LV[n.lv][1]}">${NT_LV[n.lv][2]}</span></div><p>${esc(n.n)}</p>
+      ${n.w.length ? `<div class="ev-row">${n.w.map(([f, ln]) => `<a class="ev mono" href="${ghFile(l, f, ln)}" target="_blank" rel="noopener"><span>${esc(f)}${ln ? ':' + ln : ''}</span></a>`).join('')}</div>` : ''}</div>`).join('')}
+  </section>`;
+}
+// Review status of one finding: [chip color, label]
+const ST_CHIP = { note: ['c-blue', 'Worth knowing'], warn: ['c-orange', 'Risk'], bad: ['c-red', 'Looks harmful'], cov: ['c-gray', 'Scanner gap'], open: ['c-gray', 'Not reviewed yet'] };
+const BY_CHIP = { read: 'Read: routine', where: 'Doesn\'t run', purpose: 'Fits its purpose', rule: 'Scanner false alarm' };
+const stChip = f => !f[9] ? '' : (([c, t]) => `<span class="chip ${c}">${t}</span>`)(f[9] === 'ok' ? ['c-green', BY_CHIP[f[11]] || 'Routine'] : ST_CHIP[f[9]]);
 function reportHTML(l) {
   const sc = scanOf(l);
   if (!sc) return '';
-  return `<section class="shelf"><div class="shelf-head"><h2>SkillSpector Report<span class="sub">NVIDIA SkillSpector ${esc(sc.ver)} · static scan · ${fmtDate(sc.at)}${repoOf(l).cm ? ` · commit <a href="https://github.com/${l.r}/tree/${repoOf(l).cm}" target="_blank" rel="noopener" class="mono">${repoOf(l).cm}</a>` : ''}${sc.scope ? ` · scanned ${esc(sc.scope)}/ only (the whole repository is too large)` : ''}</span></h2></div>
-    <div class="rep">
-      <div class="rep-score ${SEVC[sc.sev] || 'c-gray'}"><div class="dial" style="--p:${sc.s}"><span><b>${sc.s}</b><small>/ 100</small></span></div>
-        <div><div class="sevword">${SEVW[sc.sev] || esc(sc.sev)} risk</div><div class="rec">SkillSpector's call: ${esc(recWord(sc.rec))}</div></div></div>
-      <div class="rep-counts">${['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'].map(k => `<span class="cnt"><b class="${SEVC[k]}">${sc.by[k] || 0}</b>${SEVW[k]}</span>`).join('')}</div>
-      <ul class="kv"><li><span>Files scanned</span><span>${sc.files}${sc.cov != null ? ` · ${sc.cov}% coverage` : ''}</span></li>
-        <li><span>Executable scripts</span><span>${sc.exe ? 'Yes' : 'No'}</span></li><li><span>Total findings</span><span>${sc.n}</span></li></ul>
-    </div>
-    <p class="caveat">Static mode checks code and instructions against SkillSpector's 71 risk patterns without judging intent, so routine steps like deleting a temp file or running a bundled script can count as High. Its optional LLM review checks intent and filters many of these; that needs your own API key.</p>
-    ${sc.top.length ? `<div class="findings">${sc.top.map(f => `<div class="fd"><div class="fh"><span class="sev ${SEVC[f[0]] || ''}">${esc(f[0])}</span><b>${esc(f[2])}</b><span class="pid mono">${esc(f[1])}</span></div>
-      <div class="pat">${esc(f[3])}</div>${f[4] ? `<a class="loc mono" href="https://github.com/${l.r}/blob/${repoOf(l).br}/${l.p ? l.p + '/' : ''}${f[4]}${f[5] ? '#L' + f[5] : ''}" target="_blank" rel="noopener">${esc(f[4])}${f[5] ? ':' + f[5] : ''}</a>` : ''}
-      ${f[6] ? `<code class="snip">${esc(f[6])}</code>` : ''}${f[7] ? `<p class="why">${esc(f[7])}</p>` : ''}</div>`).join('')}</div>` : `<p class="empty-note">No findings.</p>`}
-    ${sc.n > sc.top.length ? `<p class="caveat">Showing the ${sc.top.length} most severe of ${sc.n} findings. Run the scan command in Install for the full report.</p>` : ''}
+  const rv = sc.rv, r = repoOf(l);
+  const maxed = L.filter(x => scanOf(x)?.s >= 100).length, scanned = L.filter(x => scanOf(x)).length;
+  const ex = ['ripgrep', 'jq'].map(id => BY[id]).filter(x => x && x.id !== l.id && scanOf(x)?.s >= 100);
+  const rows = [[rv.read, 'read line by line by a reviewer, with the reason written down'], [rv.where, 'in tests, docs or build files that don\'t run when you use it'],
+    [rv.purpose, 'explained by what it\'s for, like a downloader using the internet'], [rv.rule, 'known scanner false alarms, like a rule that flags every script file'],
+    [rv.cov, 'files the scanner couldn\'t fully read, so it couldn\'t judge them'], [rv.open, 'not reviewed yet']].filter(x => x[0]);
+  const pointed = rv.note + rv.warn + rv.bad;
+  return `<section class="shelf"><div class="shelf-head"><h2>Security scan<span class="sub">NVIDIA SkillSpector ${esc(sc.ver)} · static scan · ${fmtDate(sc.at)}${r.cm ? ` · commit <a href="https://github.com/${l.r}/tree/${r.cm}" target="_blank" rel="noopener" class="mono">${r.cm}</a>` : ''}${sc.scope ? ` · scanned ${esc(sc.scope)}/ only (the whole repository is too large)` : ''}${sc.skipped ? ` · scanned everything except ${sc.skipped.map(x => esc(x) + '/').join(', ')} (sample files and docs, too large to scan in time)` : ''}</span></h2></div>
+    <div class="rv"><div class="rv-h">${!rv.n ? 'No high-risk flags' : `${rv.n} high-risk flag${rv.n === 1 ? '' : 's'}, ${rv.open ? `${rv.n - rv.open} explained so far` : rv.n === 1 ? 'explained' : 'every one explained'}`}</div>
+      ${rows.length ? `<ul class="rv-list">${rows.map(([n, t]) => `<li><b>${n.toLocaleString('en-US')}</b><span>${t}</span></li>`).join('')}</ul>` : `<p class="pc-sub">The scanner found ${sc.n ? `only medium or low-risk patterns (${sc.n})` : 'nothing'} in this listing.</p>`}
+      ${pointed ? `<p class="pc-sub" style="margin-top:10px">${pointed === 1 ? 'One flag points' : pointed + ' flags point'} to something you should know. ${NT(l).length === 1 ? 'It\'s' : 'They\'re'} summed up under Before you install.</p>` : rv.read ? `<p class="pc-sub" style="margin-top:10px">None of the flags our reviewer read is harmful.</p>` : ''}</div>
+    <div class="raw"><span>Before our review, SkillSpector's automatic verdict</span><span><b>${SEVW[sc.sev] || esc(sc.sev)} risk</b>, score ${sc.s} of 100 (higher is riskier)</span><span>Its call: <b>${esc(recWord(sc.rec))}</b></span>
+      <span>${['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'].map(k => `${sc.by[k] || 0} ${SEVW[k].toLowerCase()}`).join(' · ')}</span><span>${sc.files} files</span></div>
+    <p class="caveat">SkillSpector's static mode matches 71 risk patterns without judging intent, so ordinary software scores high: it gives its maximum score to ${maxed} of the ${scanned} listings here${ex.length ? `, including ${ex.map(x => `${esc(x.n)} (${fmtK(repoOf(x).st)} GitHub stars)`).join(' and ')}` : ''}. That's why a person explains every high-risk flag before a listing gets its label. SkillSpector's optional AI review judges intent too, but needs your own API key.</p>
+    ${sc.top.length ? `<div class="findings">${sc.top.map(f => `<div class="fd"><div class="fh"><span class="sev ${SEVC[f[0]] || ''}">${esc(f[0])}</span><b>${esc(f[2])}</b>${stChip(f)}<span class="pid mono">${esc(f[1])}</span></div>
+      <div class="pat">${esc(f[3])}</div>${f[4] ? `<a class="loc mono" href="${ghFile(l, f[4], f[5])}" target="_blank" rel="noopener">${esc(f[4])}${f[5] ? ':' + f[5] : ''}</a>` : ''}
+      ${f[6] ? `<code class="snip">${esc(f[6])}</code>` : ''}${f[10] ? `<p class="ours"><span>Our review:</span> ${esc(f[10])}</p>` : ''}${f[7] ? `<p class="why">SkillSpector: ${esc(f[7])}</p>` : ''}
+      ${f[12] > 1 ? `<div class="ev-row"><span class="also">Same explanation for ${f[12] - 1} more:</span>${f[13].map(([fl, ln]) => `<a class="ev mono" href="${ghFile(l, fl, ln)}" target="_blank" rel="noopener"><span>${esc(fl.split('/').pop())}${ln ? ':' + ln : ''}</span></a>`).join('')}${f[12] - 1 > f[13].length ? `<span class="also">and ${f[12] - 1 - f[13].length} others</span>` : ''}</div>` : ''}</div>`).join('')}</div>` : `<p class="empty-note">No findings.</p>`}
+    ${(shown => sc.n > shown ? `<p class="caveat">Showing ${shown.toLocaleString('en-US')} of ${sc.n.toLocaleString('en-US')} findings, the ones that need your attention first. Every high-risk one is counted above; the SkillSpector command under Install prints the full report.</p>` : '')(sc.top.reduce((a, f) => a + (f[12] || 1), 0))}
   </section>`;
 }
 
@@ -972,8 +1078,6 @@ function purposeHTML(l) {
   return `<section class="shelf"><div class="shelf-head"><h2>Purpose Check<span class="sub">Judged against what it says it's for, not on one fixed scale · reviewed ${fmtDate(m.reviewDate)}</span></h2></div>
     <div class="pc-verdict ${V[0]}">${ic(V[1], 1.8)}<div><b>${V[2]}</b><p>${V[3]}</p><p class="purpose"><span>Stated purpose${m.auto ? ' (from its description; expected access inferred from it)' : ''}</span>${esc(m.purpose)}</p></div></div>
     ${m.note ? `<p class="empty-note" style="margin-top:12px">${esc(m.note)}</p>` : ''}
-    ${(m.notices || []).map(n => `<div class="worth"><div class="cap-h"><b>${esc(n.title)}</b><span class="chip c-orange">Worth knowing</span></div><p>${esc(n.note)}</p>
-      <div class="ev-row">${(n.where || []).map(([f, ln]) => `<a class="ev mono" href="${gh(f, ln)}" target="_blank" rel="noopener"><span>${esc(f)}:${ln}</span></a>`).join('')}</div></div>`).join('')}
     <div class="pc-grid">
       <div class="pc-card"><h3>What it can do</h3><p class="pc-sub">Found by reading its ${m.files.production} production code files (${m.loc.toLocaleString('en-US')} lines).</p><ul class="caps">${capRows || '<li class="cap"><p>No access to files, network, programs or secrets found.</p></li>'}</ul></div>
       <div class="pc-side">
@@ -1015,7 +1119,7 @@ function pageProduct(id) {
     <div class="product-head">${icon(l)}<div class="txt"><h1>${esc(l.n)}</h1><span class="sub">${esc(r.on)} · ${KIND[l.k]}</span>
       <div class="acts">${getBtn(l, 'primary')}${l.vd?.length ? `<button class="pill-link" data-jump="videos">${ic('play')} Watch the demo</button>` : ''}<a class="pill-link" href="${l.u}" target="_blank" rel="noopener">GitHub ${ic('ext')}</a></div></div></div>
     ${l.pl ? `<div class="plain">${ic('bulb', 2)}<div><span class="lbl">What it helps you do</span><p>${esc(l.pl)}</p>
-      <div class="check ${safety(l)[0]}">${ic(safety(l)[2], 2.2)}<b>${esc(safety(l)[1])}</b><span style="grid-column:2;display:flex;column-gap:14px;row-gap:2px;flex-wrap:wrap"><button data-jump="checks">See what we checked</button><button data-story="labels">What the labels mean</button></span></div>
+      ${(v => `<div class="check ${v[0]}">${ic(v[1], 2.2)}<b>${esc(v[2])}</b><span class="vsub">${esc(v[3])}</span><span class="vbtns"><button data-jump="checks">See what we checked</button><button data-story="labels">What the labels mean</button></span></div>`)(verdict(l))}
       <div class="chips">${lv ? `<span class="${lv[1]}" title="${esc(lv[2])}">${lv[0]}</span>` : ''}${(l.jb || []).map(j => `<a href="#for-${j}">${esc(JOB[j][1])}</a>`).join('')}</div></div></div>` : ''}
     <div class="strip">
       <div><span class="k">GitHub</span><span class="v">${ic('star', 2)}${fmtK(r.st)}</span><span class="c">stars${l.p ? ' (whole repo)' : ''}</span></div>
@@ -1033,6 +1137,7 @@ function pageProduct(id) {
 
     ${l.tr ? `<section class="shelf"><div class="trusted-note">${ic('building', 1.8)}<div><b>Trusted publisher</b><p>Published by ${esc(r.on)} from its own GitHub organization, which runs its own security reviews and release process. Vetted scans it anyway, like every other listing${scanOf(l) ? '. The results are below' : ''}.</p></div></div></section>` : ''}
     <div id="checks"></div>
+    ${notesHTML(l)}
     ${purposeHTML(l)}
     ${reportHTML(l)}
 
@@ -1103,10 +1208,14 @@ function route() {
   if (BY[h]) { S.detail = h; if (!S.tab) S.tab = 'today'; }
   else if (h.startsWith('kit-') && KIT[h.slice(4)]) { S.detail = null; S.kit = h.slice(4); S.tab = 'browse'; }
   else if (h.startsWith('for-') && JOB[h.slice(4)]) { S.detail = null; S.job = h.slice(4); S.tab = 'browse'; }
-  else { S.detail = null; S.tab = TABS.some(t => t[0] === h) ? h : 'today'; }
+  else {
+    S.detail = null; S.tab = TABS.some(t => t[0] === h) ? h : 'today';
+    if (h && S.tab !== h) { S.back = 'today'; setTimeout(() => toast('That page isn\'t in Vetted. Here\'s Today.'), 0); }
+  }
   render();
 }
-function go(tab) { if (location.hash.slice(1) === tab) route(); else location.hash = tab; }
+// Tapping the tab you're on takes you back to its top
+function go(tab) { if (location.hash.slice(1) === tab) { route(); scrollTo({ top: 0, behavior: 'smooth' }); } else location.hash = tab; }
 
 // ---------- sheet & story ----------
 const sheet = document.getElementById('sheet'), story = document.getElementById('story');
@@ -1115,29 +1224,47 @@ function drawSheet() {
   const l = BY[sheetId], t = trust(l);
   document.getElementById('sheet-body').innerHTML = `<div class="sheet-bar"><span>Install</span><button class="text-btn" data-closesheet>Done</button></div>
     <div class="sheet-app">${icon(l, 60)}<div class="t"><b>${esc(l.n)}</b><span>${esc(repoOf(l).on)} · ★ ${fmtK(repoOf(l).st)}</span><span class="${t.cls}">${t.short}</span></div></div>
+    ${(w => w.length ? `<div class="sheet-warn">${ic('shieldq', 2)}<div><b>Before you install: ${esc(w[0].t)}</b><p>${esc(w[0].n)}</p>${w.length > 1 ? `<p>${w.length - 1} more on its page.</p>` : ''}<a href="#${l.id}" data-closesheet>Read the full listing</a></div></div>` : '')(NT(l).filter(x => x.lv !== 'note'))}
     <div class="group-label">Choose where to install</div>
     <p class="sheet-help">${l.k === 'skill' ? 'Use the Claude app? Pick <b>Claude app</b>: no terminal needed. ' : ''}${l.k === 'tool' ? (l.inst.some(o => o.cmds?.length) ? 'Apps install from your computer\'s terminal (Terminal on Mac, PowerShell on Windows): paste the command for your system. ' : 'This app has its own installers: follow its install guide for your system. ') : 'Claude Code, Codex and Cursor are AI coding assistants: paste the command into your terminal, or where the card says, into the assistant\'s chat. '}</p>${instCards(l)}
     <a class="pill-link" href="#${l.id}" data-closesheet style="align-self:center">View full listing</a>`;
 }
-function openSheet(id) { sheetId = id; drawSheet(); if (!sheet.open) sheet.showModal(); }
+// The install sheet and stories each get a history entry, so the browser's Back button closes them
+const modals = [], closedByBack = new WeakSet();
+let pendingHash = null;
+function pushModal(dlg) { modals.push(dlg); history.pushState({ ...(history.state || {}), modal: modals.length }, ''); }
+function closeModal(dlg, then) { pendingHash = then || null; dlg.close(); }
+function onModalClose(dlg) {
+  if (closedByBack.has(dlg)) { closedByBack.delete(dlg); return; }
+  const i = modals.lastIndexOf(dlg); if (i >= 0) modals.splice(i, 1);
+  if (history.state?.modal) history.back(); else if (pendingHash) { const h = pendingHash; pendingHash = null; location.hash = h; }
+}
+window.addEventListener('popstate', () => {
+  const depth = history.state?.modal || 0;
+  while (modals.length > depth) { const d = modals.pop(); if (d.open) { closedByBack.add(d); d.close(); } }
+  if (!depth && pendingHash) { const h = pendingHash; pendingHash = null; location.hash = h; }
+});
+function openSheet(id) { sheetId = id; drawSheet(); if (!sheet.open) { sheet.showModal(); pushModal(sheet); } }
 function openStory(id) {
   const s = stories().find(x => x.id === id);
   story.innerHTML = `<button class="close" data-closestory aria-label="Close">${ic('x', 2.6)}</button>
     <div class="hero">${art(s.g, s.glyph)}<div class="copy"><span class="eyebrow">${s.eyebrow}</span><span class="title">${s.title}</span>${s.lede ? `<span style="opacity:.85">${s.lede}</span>` : ''}</div></div>
     <div class="article">${s.body.map(p => `<p>${p}</p>`).join('')}<div class="rows">${s.apps.map(a => row(a)).join('')}</div></div>`;
-  story.showModal(); story.scrollTop = 0;
+  if (!story.open) { story.showModal(); pushModal(story); }
+  story.scrollTop = 0;
 }
 
 document.addEventListener('click', e => {
   const t = e.target.closest('[data-tab],[data-get],[data-story],[data-closestory],[data-closesheet],[data-copy],[data-agent],[data-suggest],[data-seeall],[data-easy],[data-jump],[data-unclamp],.story-ov .row-txt');
   if (!t) return;
   const d = t.dataset;
-  if (t.matches('.story-ov .row-txt')) { story.close(); return; }
+  const target = t.getAttribute('href')?.startsWith('#') ? t.getAttribute('href').slice(1) : null;
+  if (t.matches('.story-ov .row-txt')) { e.preventDefault(); closeModal(story, target); return; }
   if (d.tab) { e.preventDefault(); go(d.tab); }
   else if (d.get) { e.preventDefault(); e.stopPropagation(); openSheet(d.get); }
   else if (d.story) openStory(d.story);
-  else if ('closestory' in d) story.close();
-  else if ('closesheet' in d) sheet.close();
+  else if ('closestory' in d) closeModal(story);
+  else if ('closesheet' in d) { if (target) e.preventDefault(); closeModal(sheet, target); }
   else if (d.copy) {
     const text = d.copy;
     const fallback = () => { const code = t.parentElement.querySelector('code'); const r = document.createRange(); r.selectNodeContents(code); const s = getSelection(); s.removeAllRanges(); s.addRange(r); toast('Selected. Press Ctrl+C or ⌘C to copy'); };
@@ -1148,23 +1275,41 @@ document.addEventListener('click', e => {
     if (sheet.open) drawSheet();
     if (S.detail) { const y = scrollY; render(); scrollTo(0, y); }
   }
-  else if (d.suggest) { S.q = d.suggest; render(); }
+  else if (d.suggest) { S.q = d.suggest; document.getElementById('side-q').value = S.q; render(); }
   else if ('unclamp' in d) { t.previousElementSibling.classList.remove('clamp'); t.remove(); }
   else if (d.jump) { document.getElementById(d.jump)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   else if (d.easy) { S.easy = d.easy === '1'; const y = scrollY; render(); scrollTo(0, y); }
-  else if (d.seeall) { S.q = d.seeall; go('search'); }
+  else if (d.seeall) { S.q = d.seeall; document.getElementById("side-q").value = S.q; go("search"); }
 });
 document.addEventListener('input', e => {
-  if (e.target.id === 'q') { S.q = e.target.value; document.getElementById('results').innerHTML = resultsHTML(); }
+  if (e.target.id === 'q') { S.q = e.target.value; document.getElementById('side-q').value = S.q; document.getElementById('results').innerHTML = resultsHTML(); }
   if (e.target.id === 'side-q') {
-    S.q = e.target.value;
+    S.q = e.target.value; const q = document.getElementById('q'); if (q) q.value = S.q;
     if (S.tab !== 'search' || S.detail) go('search');
     else { const r = document.getElementById('results'); if (r) r.innerHTML = resultsHTML(); }
   }
 });
 sheet.addEventListener('click', e => { if (e.target === sheet) sheet.close(); });
 story.addEventListener('click', e => { if (e.target === story) story.close(); });
-window.addEventListener('hashchange', () => { route(); window.scrollTo(0, 0); });
+sheet.addEventListener('close', () => onModalClose(sheet));
+story.addEventListener('close', () => onModalClose(story));
+// Each page visit gets an id in its history entry. Going back to a page restores where you were on it; a new visit starts at the top.
+const POS = {};
+const stamp = () => { if (!history.state?.nav) history.replaceState({ ...(history.state || {}), nav: Date.now().toString(36) + Math.random().toString(36).slice(2, 6) }, ''); return history.state.nav; };
+let curNav = stamp(), prevHash = null;
+window.addEventListener('hashchange', e => {
+  POS[curNav] = window.scrollY;
+  prevHash = decodeURIComponent(new URL(e.oldURL).hash.slice(1));
+  const seen = history.state?.nav;
+  route();
+  window.scrollTo(0, seen && POS[seen] != null ? POS[seen] : 0);
+  curNav = stamp();
+});
+// A Back link to the page you just came from goes back in history, so the browser's Back button doesn't bounce you forward again
+document.addEventListener('click', e => {
+  const a = e.target.closest('a.back');
+  if (a && prevHash != null && a.getAttribute('href') === '#' + prevHash) { e.preventDefault(); history.back(); }
+});
 
 document.getElementById('mark').innerHTML = ic('shieldok', 2.4);
 document.getElementById('side-q-ic').innerHTML = ic('search');

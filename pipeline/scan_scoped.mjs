@@ -32,9 +32,20 @@ const JOBS = ARGS.length ? Array.from({ length: Math.floor(ARGS.length / 3) }, (
   { id: 'k9s', dir: 'src/derailed__k9s/k9s-master', scope: 'internal' },
 ];
 
+// A scope that starts with "-" scans the whole repository except the listed top-level folders ("-examples,docs"),
+// for repos whose bulk is sample output or docs. The skipped folders are recorded in <id>.exclude.txt and shown on the page.
+function target(id, dir, scope) {
+  if (!scope.startsWith('-')) return path.join(ROOT, dir, scope);
+  const skip = new Set(scope.slice(1).split(',')), src = path.join(ROOT, dir), dst = path.join(ROOT, 'filtered', id);
+  fs.rmSync(dst, { recursive: true, force: true });
+  fs.mkdirSync(dst, { recursive: true });
+  for (const e of fs.readdirSync(src)) if (!skip.has(e)) fs.cpSync(path.join(src, e), path.join(dst, e), { recursive: true, verbatimSymlinks: true });
+  return dst;
+}
+
 await Promise.all(JOBS.map(({ id, dir, scope }) => new Promise(resolve => {
   const t0 = Date.now();
-  const p = spawn(EXE, ['scan', path.join(ROOT, dir, scope), '--no-llm', '--format', 'json'], { windowsHide: true });
+  const p = spawn(EXE, ['scan', target(id, dir, scope), '--no-llm', '--format', 'json'], { windowsHide: true });
   let out = '';
   const timer = setTimeout(() => p.kill(), 45 * 60 * 1000);
   p.stdout.on('data', b => out += b);
@@ -43,7 +54,8 @@ await Promise.all(JOBS.map(({ id, dir, scope }) => new Promise(resolve => {
     try {
       JSON.parse(out);
       fs.writeFileSync(path.join(ROOT, 'out', id + '.json'), out);
-      fs.writeFileSync(path.join(ROOT, 'out', id + '.scope.txt'), scope);
+      if (scope.startsWith('-')) fs.writeFileSync(path.join(ROOT, 'out', id + '.exclude.txt'), scope.slice(1));
+      else fs.writeFileSync(path.join(ROOT, 'out', id + '.scope.txt'), scope);
       fs.rmSync(path.join(ROOT, 'out', id + '.err.txt'), { force: true });
       console.error(id, 'ok', Math.round((Date.now() - t0) / 1000) + 's');
     } catch (e) { console.error(id, 'FAILED exit', code, Math.round((Date.now() - t0) / 1000) + 's'); }

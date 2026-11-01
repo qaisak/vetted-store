@@ -246,6 +246,8 @@ for (const l of L) {
     const j = JSON.parse(fs.readFileSync(f, 'utf8'));
     // Scoped scans (large repos) report paths relative to the scanned folder
     const scope = fs.existsSync(`${scanDir}/${l.id}.scope.txt`) ? fs.readFileSync(`${scanDir}/${l.id}.scope.txt`, 'utf8').trim() : null;
+    // Folders left out of a whole-repository scan (scan_scoped.mjs "-folder,folder"), shown on the page
+    const skipped = fs.existsSync(`${scanDir}/${l.id}.exclude.txt`) ? fs.readFileSync(`${scanDir}/${l.id}.exclude.txt`, 'utf8').trim().split(',') : null;
     if (scope) for (const i of j.issues) if (i.location?.file) i.location.file = `${scope}/${i.location.file.replace(/\\/g, '/')}`;
     // rv: status counts; how: how each finding was explained (read line by line, by where it is, by what the listing is for, or by a scanner rule)
     const by = {}, rv = { n: 0, ok: 0, note: 0, warn: 0, bad: 0, cov: 0, open: 0, read: 0, where: 0, purpose: 0, rule: 0 }, st = new Map();
@@ -259,13 +261,21 @@ for (const l of L) {
     reviewedTotal += rv.n - rv.open; openTotal += rv.open;
     // Findings that need a reader's attention first, then the rest by severity
     const key = i => st.has(i) ? ST_RANK[st.get(i).s] : 9;
-    const top = [...j.issues].sort((a, b) => key(a) - key(b) || (SEV_RANK[a.severity] ?? 9) - (SEV_RANK[b.severity] ?? 9) || (b.confidence || 0) - (a.confidence || 0)).slice(0, 20)
-      .map(i => [i.severity, i.id, i.category, trim(i.pattern, 120), i.location?.file || '', i.location?.start_line || null, trim(i.finding, 140), trim(i.explanation, 220), i.confidence ?? null,
-        st.get(i)?.s || null, st.has(i) && st.get(i).n ? trim(st.get(i).n, 260) : null]);
+    // Findings with the same review explanation are shown once, with where else they occur
+    const sorted = [...j.issues].sort((a, b) => key(a) - key(b) || (SEV_RANK[a.severity] ?? 9) - (SEV_RANK[b.severity] ?? 9) || (b.confidence || 0) - (a.confidence || 0));
+    const groups = [], gi = new Map();
+    for (const i of sorted) {
+      const r = st.get(i), k = r?.n ? `${r.s}|${r.n}|${i.category}` : null;
+      if (k && gi.has(k)) { const g = gi.get(k); g.n++; if (g.more.length < 6) g.more.push([i.location?.file || '', i.location?.start_line || null]); continue; }
+      if (groups.length >= 20) continue;
+      const g = { i, n: 1, more: [] }; groups.push(g); if (k) gi.set(k, g);
+    }
+    const top = groups.map(({ i, n, more }) => [i.severity, i.id, i.category, trim(i.pattern, 120), i.location?.file || '', i.location?.start_line || null, trim(i.finding, 140), trim(i.explanation, 220), i.confidence ?? null,
+      st.get(i)?.s || null, st.has(i) && st.get(i).n ? trim(st.get(i).n, 260) : null, st.get(i)?.by || null, n, more]);
     const ac = j.analysis_completeness || {};
     SC[l.id] = { s: j.risk_assessment.score, sev: j.risk_assessment.severity, rec: j.risk_assessment.recommendation, n: j.issues.length, by, rv,
       files: j.components?.length || 0, exe: !!j.metadata?.has_executable_scripts, ver: j.metadata?.skillspector_version, at: j.skill?.scanned_at?.slice(0, 10),
-      cov: ac.coverage_percent ?? null, scope, top };
+      cov: ac.coverage_percent ?? null, scope, skipped, top };
   }
   // Purpose-check notices for findings outside the scan's serious set (e.g. medium findings a reviewer flagged)
   for (const x of mr?.notices || []) addNote(x.title, x.note, x.level === 'warning' ? 'warn' : 'note', x.where || []);
@@ -275,6 +285,7 @@ for (const l of L) {
 const DATA = { gen: d.generated.slice(0, 10), L, R, AV: d.avatars, SC, MR };
 const json = JSON.stringify(DATA).replace(/</g, '\\u003c');
 const tpl = fs.readFileSync(tplPath, 'utf8');
-fs.writeFileSync(outPath, tpl.replace('/*__DATA__*/null', json));
+// A function replacement, so "$'" or "$&" inside scanned text is inserted literally
+fs.writeFileSync(outPath, tpl.replace('/*__DATA__*/null', () => json));
 console.error('listings', L.length, 'skills', L.filter(x => x.k === 'skill').length, 'mcp', L.filter(x => x.k === 'mcp').length, 'tools', L.filter(x => x.k === 'tool').length,
   'scanned', Object.keys(SC).length, 'serious reviewed', reviewedTotal, 'open', openTotal, 'anth plugins mapped', Object.keys(anthPlugin).length, 'hn kept', Object.values(R).reduce((a, r) => a + (r.hn?.length || 0), 0), 'bytes', fs.statSync(outPath).size);
