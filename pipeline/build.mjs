@@ -283,6 +283,9 @@ for (const l of L) {
   if (nt.length) l.nt = nt.sort((a, b) => NT_RANK[a.lv] - NT_RANK[b.lv]);
 }
 
+// Nothing is listed before it's scanned: listings without a scan report wait for the next build
+if (scanDir) { const held = L.filter(l => !SC[l.id]); if (held.length) console.error('HELD BACK (not scanned yet):', held.map(l => l.id).join(', ')); for (const l of held) L.splice(L.indexOf(l), 1); }
+
 const DATA = { gen: d.generated.slice(0, 10), L, R, AV: d.avatars, SC, MR };
 const json = JSON.stringify(DATA).replace(/</g, '\\u003c');
 const tpl = fs.readFileSync(tplPath, 'utf8');
