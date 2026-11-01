@@ -71,6 +71,26 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   }
   await p.evaluate(() => document.querySelector('#main .pick a.pk-t').click()); await p.waitForTimeout(300);
   ok(/Digest/.test(await p.evaluate(() => document.querySelector('a.back')?.textContent || '')), 'a pick links back to the Digest');
+  // Focus: choose a setup, every row shown fits it, install cards lead with the chosen assistant, and reset clears it
+  await p.goto(url + '#today'); await p.waitForTimeout(300);
+  await p.evaluate(() => document.querySelector('[data-focus]').click()); await p.waitForTimeout(200);
+  for (const [set, val] of [['jobs', 'design'], ['kinds', 'skill'], ['ai', 'codex'], ['level', '1']])
+    await p.evaluate(([s, v]) => document.querySelector(`#panel [data-fset="${s}"][data-fval="${v}"]`).click(), [set, val]);
+  await p.evaluate(() => document.querySelector('#panel [data-closepanel]').click()); await p.waitForTimeout(300);
+  const fr = await p.evaluate(() => ({ bar: !!document.querySelector('.focusbar'), picked: [...document.querySelectorAll('#main h2')].some(h => /Picked for you/.test(h.textContent)),
+    bad: [...document.querySelectorAll('#main .row-txt[href^="#"]')].map(a => BY[a.getAttribute('href').slice(1)]).filter(l => l && !fits(l)).map(l => l.id) }));
+  ok(fr.bar && fr.picked, 'a focus shows the focus bar and Picked for you');
+  ok(!fr.bad.length, 'every listing shown fits the focus ' + fr.bad.join(', '));
+  ok(await p.evaluate(() => !document.getElementById('panel').open && !history.state?.modal), 'closing the panel leaves no history entry');
+  await p.goto(url + '#anthropics-pptx'); await p.waitForTimeout(300);
+  await p.click('.product-head [data-get]'); await p.waitForTimeout(200);
+  ok(/Any agent|Codex/.test(await p.evaluate(() => document.querySelector('#sheet .inst-card b').textContent)), 'install sheet leads with the chosen assistant');
+  await p.evaluate(() => document.getElementById('sheet').close()); await p.waitForTimeout(200);
+  await p.goto(url + '#tools'); await p.waitForTimeout(300);
+  ok(/aren't in your focus/.test(await p.evaluate(() => document.getElementById('main').innerText)), 'a page outside the focus says so');
+  await p.evaluate(() => document.querySelector('[data-focus]').click()); await p.waitForTimeout(200);
+  await p.evaluate(() => document.querySelector('#panel [data-focusreset]').click()); await p.waitForTimeout(200);
+  ok(await p.evaluate(() => !document.querySelector('.focusbar') && localStorage.getItem('vetted-focus') === JSON.stringify({ jobs: [], kinds: [], ai: [], os: null, level: 3 })), 'reset clears the focus');
   ok(!errs.length, 'no page errors ' + errs.join('; '));
   await b.close();
 })();
