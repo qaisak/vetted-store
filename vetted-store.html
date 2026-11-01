@@ -733,7 +733,7 @@ function stories() {
       `No check is a guarantee. Code can change after we look at it, so the date and exact version we checked are on every page.`], apps: [] });
   const trustedList = L.filter(l => l.tr);
   out.push({ id: 'trusted', eyebrow: 'Trusted Publishers', title: 'From Anthropic, OpenAI, NVIDIA and more', lede: `${trustedList.length} listings from ${new Set(trustedList.map(l => repoOf(l).on)).size} companies.`, g: ['#1D2B53', '#5E6EFF'], glyph: 'building',
-    body: [`Anthropic, OpenAI, NVIDIA, GitHub, Microsoft, Google and others publish skills, MCP servers and tools from their own GitHub organizations, backed by their own security reviews and release processes.`,
+    body: [`Anthropic, OpenAI, NVIDIA, GitHub, Microsoft, Google and others publish skills, MCP servers and tools from their own GitHub organizations. That tells you who made them. It doesn't make them safe by itself.`,
       `Vetted lists them as Trusted publishers, and checks them anyway: ${trustedList.filter(l => scanOf(l)).length} of the ${trustedList.length} have a SkillSpector report on their page, with every high-risk flag explained. Where we found something you'd want to know, like a skill that prints your access token into the chat, it's at the top of the page.`],
     apps: pick(['anthropics-docx', 'openai-security-threat-model', 'mcp-github-mcp-server', 'mcp-playwright-mcp', 'skillspector', 'uv']).concat(L.filter(l => l.nv).slice(0, 2)) });
   const cm = byStars(comm.filter(l => l.k === 'mcp'));
@@ -815,7 +815,7 @@ function startHere() {
   const n = k => L.filter(l => l.k === k).length;
   return `<section class="shelf"><div class="shelf-head"><h2>What you'll find here</h2></div>
     <div class="start">
-      <a href="#skills">${ic('skill', 1.8)}<b>Skills</b><span>Instructions that teach your AI assistant (Claude, ChatGPT's Codex, Cursor) how to do a specific job well, like making slide decks or reviewing code. Most are just text.</span><em>${n('skill')} skills →</em></a>
+      <a href="#skills">${ic('skill', 1.8)}<b>Skills</b><span>Instructions that teach your AI assistant (Claude, OpenAI's Codex, Cursor) how to do a specific job well, like making slide decks or reviewing code. Most are just text.</span><em>${n('skill')} skills →</em></a>
       <a href="#mcp">${ic('mcp', 1.8)}<b>Connectors</b><span>Also called MCP servers. They let your assistant use your apps and accounts: Slack, Figma, Google Calendar, your browser. Because they can reach real data, check what each one can access.</span><em>${n('mcp')} connectors →</em></a>
       <a href="#tools">${ic('tool', 1.8)}<b>Apps</b><span>Open-source programs you run on your own computer, mostly in the terminal: fast file search, visual Git, system monitors, security scanners.</span><em>${n('tool')} apps →</em></a>
     </div>
@@ -941,7 +941,7 @@ function pageTrusted() {
   for (const l of tr) (pubs[repoOf(l).on] ??= []).push(l);
   const order = Object.entries(pubs).sort((a, b) => Math.max(...b[1].map(l => repoOf(l).st)) - Math.max(...a[1].map(l => repoOf(l).st)));
   return `<div class="page">
-    <div class="large-title"><h1>Trusted Publishers</h1><p>${tr.length} listings from ${order.length} companies that publish from their own GitHub organizations and run their own security reviews. Vetted scans them anyway: ${tr.filter(l => scanOf(l)).length} of the ${tr.length} have a SkillSpector report on their page.</p></div>
+    <div class="large-title"><h1>Trusted Publishers</h1><p>${tr.length} listings from ${order.length} companies that publish from their own GitHub organizations, so you know who made them. That doesn't make them safe by itself, so Vetted checks them like everything else: each is scanned, and every high-risk warning is explained on its page.</p></div>
     ${order.filter(([, list]) => list.length >= 3).map(([pub, list]) => `<section class="shelf"><div class="shelf-head"><h2>${esc(pub)}<span class="sub">${list.length} listings</span></h2></div><div class="scroller tiles">${byStars(list).map(tile).join('')}</div></section>`).join('')}
     ${(small => small.length ? `<section class="shelf"><div class="shelf-head"><h2>More companies<span class="sub">${small.map(([pub]) => esc(pub)).join(', ')}</span></h2></div><div class="scroller tiles">${byStars(small.flatMap(([, list]) => list)).map(tile).join('')}</div></section>` : '')(order.filter(([, list]) => list.length < 3))}
     ${dataNote()}</div>`;
@@ -1172,7 +1172,7 @@ function pageProduct(id) {
 
     <section class="shelf"><div class="shelf-head"><h2>Install</h2></div><div class="inst-grid">${instCards(l)}</div></section>
 
-    ${l.tr ? `<section class="shelf"><div class="trusted-note">${ic('building', 1.8)}<div><b>Trusted publisher</b><p>Published by ${esc(r.on)} from its own GitHub organization, which runs its own security reviews and release process. Vetted scans it anyway, like every other listing${scanOf(l) ? '. The results are below' : ''}.</p></div></div></section>` : ''}
+    ${l.tr ? `<section class="shelf"><div class="trusted-note">${ic('building', 1.8)}<div><b>Trusted publisher</b><p>Published by ${esc(r.on)} from its own GitHub organization, so you know who made it. That doesn't make it safe by itself, so Vetted checks it like every other listing${scanOf(l) ? '. The results are below' : ''}.</p></div></div></section>` : ''}
     <div id="checks"></div>
     ${notesHTML(l)}
     ${purposeHTML(l)}
