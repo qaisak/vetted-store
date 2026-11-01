@@ -59,9 +59,10 @@ for (const [label, viewport, scheme] of [['desktop', { width: 1280, height: 860 
     await page.click('#main .product-head [data-get]');
     const sheetOk = await page.evaluate(() => document.getElementById('sheet').open && document.querySelectorAll('#sheet .inst-card').length > 0);
     if (!sheetOk) fail(`${label} #${id}`, 'install sheet did not open or is empty');
-    const badCmd = await page.evaluate(() => [...document.querySelectorAll('#sheet code')].map(c => c.innerText).filter(t => !t.trim() || /undefined|null/.test(t)));
+    const badCmd = await page.evaluate(() => [...document.querySelectorAll('#sheet code')].map(c => c.textContent).filter(t => !t.trim() || /undefined|null/.test(t)));
     if (badCmd.length) fail(`${label} #${id}`, 'bad install command: ' + badCmd.join(' | '));
     await page.evaluate(() => document.getElementById('sheet').close());
+    await page.waitForFunction(() => !history.state?.modal);   // closing a sheet steps back out of its history entry
   }
   if (shots) for (const id of ids.filter((_, i) => i % 25 === 0)) {
     await page.evaluate(id => { location.hash = id; }, id); await page.waitForTimeout(40);
@@ -79,6 +80,7 @@ for (const [label, viewport, scheme] of [['desktop', { width: 1280, height: 860 
     if (!ok) fail(`${label} story ${s}`, 'did not open');
     if (shots) await page.screenshot({ path: `${shots}/${label}-story-${s}.png` });
     await page.click('[data-closestory]');
+    await page.waitForFunction(() => !history.state?.modal);
   }
   console.error(`${label}: ${tabs.length} tabs, job and kit pages, ${ids.length} listings, ${stories.length} stories checked`);
   await ctx.close();
