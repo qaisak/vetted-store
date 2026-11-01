@@ -839,12 +839,19 @@ function pageBrowse() {
 function pageJob(k) {
   const [, title, sub, g, c] = JOB[k];
   const all = byJob(k).filter(l => !S.easy || l.lv === 1);
-  const groups = ['skill', 'mcp', 'tool'].map(kind => [kind, byStars(all.filter(l => l.k === kind)).sort((a, b) => (a.tr - b.tr))]).filter(([, list]) => list.length);
+  const groups = ['skill', 'mcp', 'tool'].map(kind => [KINDS[kind], byStars(all.filter(l => l.k === kind)).sort((a, b) => (a.tr - b.tr))]).filter(([, list]) => list.length);
+  // A kind with only one or two listings joins the biggest shelf instead of getting a near-empty one of its own
+  if (groups.length > 1) {
+    const small = groups.filter(([, list]) => list.length < 3), big = groups.reduce((a, b) => b[1].length > a[1].length ? b : a);
+    const names = [big[0]];
+    for (const g of small) if (g !== big) { names.push(g[0].toLowerCase()); big[1] = big[1].concat(g[1]); groups.splice(groups.indexOf(g), 1); }
+    big[0] = names.length > 1 ? `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}` : names[0];
+  }
   return `<div class="navbar"><div class="in"><a class="back" href="#browse">${ic('back', 2.4)}Browse</a></div></div>
   <div class="page" style="padding-top:12px">
     <div class="large-title"><div class="job-card" style="background:none;padding:0;margin-bottom:6px"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span><h1>${esc(title)}</h1></div><p>${esc(sub)}. ${byJob(k).length} listings, community projects first.</p></div>
     <div class="filters" role="group" aria-label="Filter"><button data-easy="0" aria-pressed="${!S.easy}">Everything</button><button data-easy="1" aria-pressed="${!!S.easy}">One-step setup only</button></div>
-    ${groups.length ? groups.map(([kind, list]) => `<section class="shelf"><div class="shelf-head"><h2>${KINDS[kind]}<span class="sub">${list.length} listing${list.length > 1 ? 's' : ''}</span></h2></div><div class="rowlist">${list.map(l => row(l)).join('')}</div></section>`).join('')
+    ${groups.length ? groups.map(([name, list]) => `<section class="shelf"><div class="shelf-head"><h2>${name}<span class="sub">${list.length} listing${list.length > 1 ? 's' : ''}</span></h2></div><div class="rowlist">${list.map(l => row(l)).join('')}</div></section>`).join('')
       : `<p class="empty">Nothing with one-step setup here yet.</p>`}
     ${dataNote()}</div>`;
 }
@@ -915,9 +922,8 @@ function pageTools() {
     ['Everyday', 'Convert, download, send and protect files; clean up your TV; play music', ['filee', 'yt-dlp', 'croc', 'age', 'cleanyourtv', 'spotifast', 'navi']],
     ['Files & search', 'Find, view and manage files fast', ['ripgrep', 'fd', 'fzf', 'bat', 'zoxide', 'yazi', 'superfile', 'dust', 'duf', 'sd', 'tokei']],
     ['Data & APIs', 'Spreadsheets, databases, JSON and web APIs', ['visidata', 'harlequin', 'jq', 'xh', 'posting']],
-    ['Git & code', 'Commit, compare and run your project', ['lazygit', 'gitui', 'delta', 'difftastic', 'just', 'mise', 'hyperfine']],
-    ['System & servers', 'Watch your computer, containers and clusters', ['btop', 'bottom', 'glances', 'lazydocker', 'k9s']],
-    ['Security', 'Catch leaked secrets', ['gitleaks']]].filter(([, , ids]) => pick(ids).filter(l => !l.tr).length >= 3);   // no near-empty shelves
+    ['Git & code', 'Commit, compare, catch leaked passwords and run your project', ['lazygit', 'gitui', 'delta', 'difftastic', 'gitleaks', 'just', 'mise', 'hyperfine']],
+    ['System & servers', 'Watch your computer, containers and clusters', ['btop', 'bottom', 'glances', 'lazydocker', 'k9s']]].filter(([, , ids]) => pick(ids).filter(l => !l.tr).length >= 3);   // no near-empty shelves
   const placed = new Set(SHELVES.flatMap(x => x[2]));
   const rest = comm.filter(l => !placed.has(l.id));
   return `<div class="page">
@@ -936,7 +942,8 @@ function pageTrusted() {
   const order = Object.entries(pubs).sort((a, b) => Math.max(...b[1].map(l => repoOf(l).st)) - Math.max(...a[1].map(l => repoOf(l).st)));
   return `<div class="page">
     <div class="large-title"><h1>Trusted Publishers</h1><p>${tr.length} listings from ${order.length} companies that publish from their own GitHub organizations and run their own security reviews. Vetted scans them anyway: ${tr.filter(l => scanOf(l)).length} of the ${tr.length} have a SkillSpector report on their page.</p></div>
-    ${order.map(([pub, list]) => `<section class="shelf"><div class="shelf-head"><h2>${esc(pub)}<span class="sub">${list.length} listing${list.length > 1 ? 's' : ''}</span></h2></div><div class="scroller tiles">${byStars(list).map(tile).join('')}</div></section>`).join('')}
+    ${order.filter(([, list]) => list.length >= 3).map(([pub, list]) => `<section class="shelf"><div class="shelf-head"><h2>${esc(pub)}<span class="sub">${list.length} listings</span></h2></div><div class="scroller tiles">${byStars(list).map(tile).join('')}</div></section>`).join('')}
+    ${(small => small.length ? `<section class="shelf"><div class="shelf-head"><h2>More companies<span class="sub">${small.map(([pub]) => esc(pub)).join(', ')}</span></h2></div><div class="scroller tiles">${byStars(small.flatMap(([, list]) => list)).map(tile).join('')}</div></section>` : '')(order.filter(([, list]) => list.length < 3))}
     ${dataNote()}</div>`;
 }
 // Search: every word must match (with simple plurals and synonyms people actually type); ranked by where it matched
