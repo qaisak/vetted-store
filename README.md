@@ -4,7 +4,12 @@ An App Store-style catalog of real open-source projects: CLI apps, agent skills 
 Projects from **independent developers** are the focus: each gets a **Purpose Check** (what its code can
 actually do, compared with what it says it's for) and a static **NVIDIA SkillSpector** scan.
 Projects from companies (Anthropic, OpenAI, NVIDIA, GitHub, Microsoft, Google and others) are listed as
-**Trusted publishers** and aren't scanned up front.
+**Trusted publishers**, which says who made them, and are scanned like everything else.
+
+Every high or critical SkillSpector finding on every listing has a written status: read line by line (with the
+reason), in tests or build files that don't run, explained by what the listing is for, a known scanner false alarm,
+or a file the scanner couldn't read. A listing isn't published until it's scanned, and each page leads with one
+verdict built from all of this. SkillSpector's raw score is shown below it as "before our review".
 
 The site is a single self-contained page: [`vetted-store.html`](vetted-store.html), published as a Claude artifact.
 
@@ -16,16 +21,21 @@ The site is a single self-contained page: [`vetted-store.html`](vetted-store.htm
 | `pipeline/template.html` | Site source: HTML, CSS and JS; the build injects the data |
 | `pipeline/fetch.mjs` | Pulls repo metadata, SKILL.md files, OpenSSF Scorecard, Hacker News threads, README install lines and avatars |
 | `pipeline/scan.mjs` | Runs SkillSpector on every skill and MCP server |
-| `pipeline/scan_scoped.mjs` | Scans only the main source folder of repos too large for a whole-repo scan |
+| `pipeline/scan_scoped.mjs` | Scans only the main source folder of repos too large for a whole-repo scan, or the whole repo minus named folders |
+| `pipeline/findings.mjs` | Review status of each high or critical finding, shared by the build and the review tools |
+| `pipeline/finding-rules.json` | The two scanner rules that say nothing about a listing on their own, with the reason |
+| `pipeline/open_findings.mjs` | Lists the high or critical findings that have no review yet, for reviewers |
+| `pipeline/merge_reviews.mjs` | Merges reviewers' verdicts into `reviews.json`, pinned to the files they were written for |
 | `pipeline/purpose_analyze.mjs` | The Purpose Check: production-code filter, capability detection, purpose profiles, tool extraction, peer comparison |
-| `pipeline/reviews.json` | Human reviews of every mismatch (benign reasons, and "worth knowing" notices) |
+| `pipeline/reviews.json` | Written reviews: capability notes, per-finding verdicts (`_findings`: benign, notice, warning, concern) and listing notes (`_notices`) |
 | `pipeline/plain.json` | Hand-written plain-language line, job tags and setup level for every listing |
 | `pipeline/videos.mjs` | Collects demo videos each project links in its own README (`data/videos.json`) |
 | `pipeline/smoke.mjs` | Headless smoke test: every tab, job page, listing, install sheet and story, desktop and phone |
+| `pipeline/flows.cjs` | Headless checks of navigation (Back closes sheets, scroll restore) and search (aliases, typos, pasted links) |
 | `pipeline/build.mjs` | Builds the data and writes `vetted-store.html` |
 | `data/data.json` | Fetched listings and repo data (October 31, 2026) |
 | `data/purpose.json` | Purpose Check results |
-| `data/scan-reports/` | SkillSpector JSON reports, one per listing (`*.scope.txt` marks scoped scans) |
+| `data/scan-reports/` | SkillSpector JSON reports, one per listing (`*.scope.txt` marks scoped scans, `*.exclude.txt` lists skipped folders) |
 | `data/sources.json` | Exact commits scanned for listings added or rescanned after October 31, 2026 |
 
 ## Rebuild the site
@@ -49,13 +59,20 @@ node pipeline/build.mjs data/data.json pipeline/template.html vetted-store.html 
    or `git clone` it and `uv tool install --python 3.12 ./SkillSpector`):
    `node pipeline/scan.mjs data/data.json <scan-root> 6 [--tools] [--skip id,id]`; reports land in `<scan-root>/out/`.
    `--tools` also scans the command-line apps. For repos too large for the 15-minute limit, scan the main source folder:
-   `node pipeline/scan_scoped.mjs <scan-root> <id> <repo-dir> <folder>`. Set `SKILLSPECTOR` if the executable isn't on your PATH.
+   `node pipeline/scan_scoped.mjs <scan-root> <id> <repo-dir> <folder>`, or scan everything except some top-level folders with
+   `-folder,folder` in place of `<folder>` (the page names the skipped folders). Set `SKILLSPECTOR` if the executable isn't on your PATH.
 4. **Purpose Check**: `node pipeline/purpose_analyze.mjs data/data.json <scan-root> data/purpose.json`. Listings whose source isn't
    under `<scan-root>` keep their earlier result, so you can check new listings alone.
+4b. **Review every high or critical finding** no rule explains: `node pipeline/open_findings.mjs data/data.json data/scan-reports data/purpose.json open.json`
+   lists them with file, line and matched text. Read each line in its repository, then write verdicts
+   (`[{id, match, file?, level: benign|notice|warning|concern, title?, note}]`) and merge them with
+   `node pipeline/merge_reviews.mjs open.json verdicts.json --date YYYY-MM-DD`. It prints any finding still uncovered.
+   Never mark something a warning or concern without reading the code. Rerun the Purpose Check afterwards.
 5. **Plain words**: add a line to `pipeline/plain.json` for every new listing (the build warns when one is missing).
    **Videos**: `node pipeline/videos.mjs data/data.json data/videos.json`, then check each new link is a demo of the project.
 6. **Build** as above, pointing the scan-reports argument at `<scan-root>/out` or `data/scan-reports`.
-7. **Smoke test** before publishing: `node pipeline/smoke.mjs vetted-store.html` (uses the preinstalled Playwright).
+7. **Smoke test** before publishing: `node pipeline/smoke.mjs vetted-store.html` and `node pipeline/flows.cjs vetted-store.html`
+   (both use the preinstalled Playwright). Listings without a scan report are held back by the build, which names them.
 
 ## How the Purpose Check decides
 
@@ -77,7 +94,11 @@ Things that couldn't be done from the build machine on November 1, 2026, or need
 - **Very large repositories** (GitHub CLI, uv, Trivy, Semgrep, mise, Ollama, lazygit, lazydocker, difftastic, yt-dlp, Posting,
   Harlequin, VisiData, Glances, k9s, SkillSpector, Chrome MCP) were scanned by their main source folder, because a whole-repository
   scan passed the time limit. `*.scope.txt` and `data/sources.json` say which folder; `node pipeline/scan_scoped.mjs <scan-root>` reruns them.
-- **Audience testing.** The persona walkthroughs were done by hand with headless screenshots. A simulation tool such as MiroFish
-  needs an LLM API key and its own services, which this machine can't reach.
+  Some listings added November 1 (CleanYourTV, Anatomy, Spotifast, Filee, Concat, REA, PdfCraft, PhotoCraft) were scanned without
+  their tests, docs, examples or media folders; `*.exclude.txt` lists them and each page says so.
+- **Audience testing.** Instead of MiroFish (which needs an LLM API key and its own services this machine can't reach), eight
+  simulated users walked the site with headless screenshots: a non-technical user, a vibe coder, a developer, a marketer, a
+  small-business owner, a researcher, a designer and a security engineer. Their findings drove the one-verdict pages, the
+  finding reviews, history-aware navigation, search fixes and the install sheet changes. Real user testing is still worth doing.
 - **Short videos.** Listings show demo videos their developers link in their READMEs (`pipeline/videos.mjs`). Curating third-party
   reels or TikToks would need a source and permission policy first.
