@@ -150,6 +150,8 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .desc { margin-top: 26px; display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 30px; }
 .desc p { font-size: 15px; line-height: 1.55; max-width: 68ch; overflow-wrap: anywhere; }
 .desc > div { min-width: 0; }
+.desc p.clamp { display: -webkit-box; -webkit-line-clamp: 5; -webkit-box-orient: vertical; overflow: hidden; }
+.desc .more { color: var(--blue); font-size: 15px; font-weight: 600; margin-top: 4px; }
 .desc .lbl { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--label2); margin-bottom: 4px; }
 .desc .dev a { font-size: 15px; display: block; overflow-wrap: anywhere; }
 .desc .dev span { font-size: 13px; color: var(--label2); display: block; }
@@ -289,7 +291,9 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 /* Plain words, setup level, jobs */
 .plain { margin-top: 18px; background: color-mix(in srgb, var(--blue) 8%, var(--bg2)); border-radius: 14px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; }
 .plain > .ic { font-size: 22px; color: var(--blue); margin-top: 2px; }
-.plain .check { margin-top: 10px; font-size: 14.5px; display: flex; gap: 6px; align-items: baseline; flex-wrap: wrap; }
+.plain .check { margin-top: 10px; font-size: 14.5px; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 6px; row-gap: 2px; align-items: start; }
+.plain .check .ic { margin-top: 3px; }
+.plain .check button { grid-column: 2; justify-self: start; }
 .plain .check b { font-weight: 600; }
 .plain .check button { color: var(--blue); font-size: 14px; font-weight: 600; }
 .plain .lbl { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--label2); }
@@ -324,6 +328,7 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .suggest { list-style: none; padding: 0; margin: 0; }
 .suggest li button { width: 100%; text-align: left; display: flex; gap: 10px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--sep); color: var(--blue); font-size: 20px; }
 .suggest .ic { color: var(--label3); font-size: 18px; }
+.rowlist .row-txt span, .article .row-txt span { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
 .rowlist { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 30px; }
 .empty { color: var(--label2); text-align: center; padding: 50px 10px; font-size: 17px; }
 .result-count { color: var(--label2); font-size: 13px; margin-bottom: 6px; }
@@ -342,6 +347,10 @@ dialog.sheet[open] { animation: sheetUp .32s cubic-bezier(.2,.8,.2,1); }
 .sheet-app .t { min-width: 0; flex: 1; }
 .sheet-app b { font-size: 17px; display: block; }
 .sheet-app span { font-size: 13px; color: var(--label2); display: block; overflow-wrap: anywhere; }
+.sheet-help { font-size: 13.5px; color: var(--label2); padding: 0 4px; line-height: 1.45; }
+.sheet-help b { color: var(--label); }
+.steps { margin: 0; padding-left: 20px; font-size: 14px; display: flex; flex-direction: column; gap: 4px; }
+.steps li { overflow-wrap: anywhere; }
 .group-label { font-size: 13px; color: var(--label2); text-transform: uppercase; padding: 4px 4px 0; }
 
 dialog.story-ov { width: min(720px, 100vw); height: 100dvh; border-radius: 0; background: var(--bg); overflow-y: auto; margin: 0 auto; }
@@ -470,7 +479,7 @@ const JOBS = [
   ['science', 'Science & biotech', 'Proteins, DNA and molecules (NVIDIA)', 'flask', ['#047857', '#0D9488']],
 ];
 const JOB = Object.fromEntries(JOBS.map(j => [j[0], j]));
-const LEVEL = { 1: ['Easy setup', 'lv1', 'Built in, or one command with no accounts or keys'], 2: ['Some setup', 'lv2', 'A terminal command, and sometimes an account, key or extra app'],
+const LEVEL = { 1: ['Easy setup', 'lv1', 'Nothing to sign up for: an upload or one copy-paste command'], 2: ['Some setup', 'lv2', 'A terminal command, and sometimes an account, key or extra app'],
   3: ['Technical', 'lv3', 'Needs developer tools, cloud accounts or specialist software'] };
 const plainOf = l => l.pl || l.t;
 // One plain sentence about what our checks found, for the top of a listing: [color, text, icon]
@@ -557,7 +566,7 @@ function stories() {
   const reviewedN = checked.reduce((a, l) => a + MRof(l).reviewed.length, 0);
   const featured = uniqueRepos(byStars(comm)).slice(0, 8);
   const out = [];
-  out.push({ id: 'community', eyebrow: 'How Vetted Works', title: 'Made by one person. Checked before you install.', g: ['#14213D', '#3A6EA5'], glyph: 'shieldok', wide: true, app: BY['yazi'] || featured[0],
+  out.push({ id: 'community', eyebrow: 'How Vetted Works', title: 'Made by one person. Checked before you install.', g: ['#14213D', '#3A6EA5'], glyph: 'shieldok', wide: true, app: BY['blader-humanizer'] || featured[0],
     body: [`Most great open-source tools are built by individuals, not companies. Vetted reads their code before you install it and asks one question: <strong>does it do more than its job needs?</strong>`,
       `A file finder that reads files is fine. A clock that reads your SSH keys is not. So each project gets a <strong>Purpose Check</strong>: what its code can actually do (network, files, running programs, secrets, browser), compared with what it says it's for.`,
       `So far that's ${checked.length} community projects: ${withCode.length} with code we read, and ${checked.length - withCode.length} skills that are instructions only. ${fits} fit their purpose${checked.length - fits ? `, and ${checked.length - fits} still need${checked.length - fits === 1 ? 's' : ''} a closer look` : ''}. Every mismatch we found (${reviewedN}) was read line by line, and the reason is written on its page.`,
@@ -600,7 +609,7 @@ function pageToday() {
     <div class="large-title"><h1>Today</h1></div>
     <div class="today">${st.map(s => `<button class="story ${s.wide ? 'wide' : ''}" data-story="${s.id}">${art(s.g, s.glyph)}
       <div class="copy"><span class="eyebrow">${s.eyebrow}</span><span class="title">${s.title}</span></div>
-      ${s.wide && s.app ? `<div class="bottom frost">${icon(s.app, 48)}<div class="t"><b>${esc(s.app.n)}</b><span>${esc(s.app.t)}</span></div><span class="get light" data-get="${s.app.id}">GET</span></div>`
+      ${s.wide && s.app ? `<div class="bottom frost">${icon(s.app, 48)}<div class="t"><b>${esc(s.app.n)}</b><span>${esc(plainOf(s.app))}</span></div><span class="get light" data-get="${s.app.id}">GET</span></div>`
         : `<div class="bottom">${s.lede || ''}</div>`}</button>`).join('')}</div>
     ${startHere()}
     <section class="shelf"><div class="shelf-head"><h2>Browse by job<span class="sub">Pick the work you do and see what helps</span></h2><a class="see-all" href="#browse">See All</a></div>
@@ -741,6 +750,8 @@ function instCards(l) {
       ${o.agentCmd ? `<div class="seg" role="group" aria-label="Agent">${AGENTS.map(([k, n]) => `<button data-agent="${k}" aria-pressed="${agent === k}">${n}</button>`).join('')}</div>${copyBox(`${o.agentCmd} --agent ${agent}`)}` : ''}
       ${(o.cmds || []).map(copyBox).join('')}
       ${o.text ? `<span class="note" style="color:var(--label)">${esc(o.text)}</span>` : ''}
+      ${o.steps ? `<ol class="steps">${o.steps.map(x => `<li>${esc(x)}</li>`).join('')}</ol>` : ''}
+      ${o.dl ? `<a class="pill-link" href="${o.dl}" rel="noopener" style="align-self:flex-start">Download ZIP ${ic('ext')}</a>` : ''}
       ${o.link ? `<a class="pill-link" href="${o.link}" target="_blank" rel="noopener" style="align-self:flex-start">Open install guide ${ic('ext')}</a>` : ''}
       ${o.note ? `<span class="note">${esc(o.note)}</span>` : ''}</div>`;
   }).join('');
@@ -752,7 +763,7 @@ const recWord = r => ({ DO_NOT_INSTALL: 'Do not install', INSTALL: 'Install', SA
 function reportHTML(l) {
   const sc = scanOf(l);
   if (!sc) return '';
-  return `<section class="shelf"><div class="shelf-head"><h2>SkillSpector Report<span class="sub">NVIDIA SkillSpector ${esc(sc.ver)} · static scan · ${fmtDate(sc.at)}${sc.scope ? ` · scanned ${esc(sc.scope)}/ only (the whole repository is too large)` : ''}</span></h2></div>
+  return `<section class="shelf"><div class="shelf-head"><h2>SkillSpector Report<span class="sub">NVIDIA SkillSpector ${esc(sc.ver)} · static scan · ${fmtDate(sc.at)}${repoOf(l).cm ? ` · commit <a href="https://github.com/${l.r}/tree/${repoOf(l).cm}" target="_blank" rel="noopener" class="mono">${repoOf(l).cm}</a>` : ''}${sc.scope ? ` · scanned ${esc(sc.scope)}/ only (the whole repository is too large)` : ''}</span></h2></div>
     <div class="rep">
       <div class="rep-score ${SEVC[sc.sev] || 'c-gray'}"><div class="dial" style="--p:${sc.s}"><span><b>${sc.s}</b><small>/ 100</small></span></div>
         <div><div class="sevword">${SEVW[sc.sev] || esc(sc.sev)} risk</div><div class="rec">SkillSpector's call: ${esc(recWord(sc.rec))}</div></div></div>
@@ -802,7 +813,7 @@ function purposeHTML(l) {
       <div class="pc-card"><h3>What it can do</h3><p class="pc-sub">Found by reading its ${m.files.production} production code files (${m.loc.toLocaleString('en-US')} lines).</p><ul class="caps">${capRows || '<li class="cap"><p>No access to files, network, programs or secrets found.</p></li>'}</ul></div>
       <div class="pc-side">
         ${m.kind === 'mcp' ? `<div class="pc-card"><h3>Its tools</h3>
-          ${m.toolCount ? `<p class="pc-sub">${m.toolCount} tool${m.toolCount > 1 ? 's' : ''} found. ${m.poisoned ? `<b class="c-red">${m.poisoned} with suspicious instructions in the description.</b>` : 'No hidden instructions in any description.'}</p>
+          ${m.toolCount ? `<p class="pc-sub">Read ${m.toolCount} tool description${m.toolCount > 1 ? 's' : ''} from the source. ${m.poisoned ? `<b class="c-red">${m.poisoned} with suspicious instructions in the description.</b>` : 'No hidden instructions in any description.'}</p>
             <details class="tools"><summary>Show tools</summary><ul>${m.tools.map(t => `<li><span class="mono">${esc(t.name)}</span>${t.desc ? `<p>${esc(t.desc)}</p>` : ''}${t.flags.length ? `<p class="c-red">${esc(t.flags.join(', '))}</p>` : ''}</li>`).join('')}</ul></details>`
             : `<p class="pc-sub">Couldn't read the tool list from the source automatically.</p>`}
           ${m.reviewNotes?.poisoning ? `<p class="pc-sub"><span class="chip c-blue">Reviewed: benign</span> ${esc(m.reviewNotes.poisoning)}</p>` : ''}</div>` : ''}
@@ -840,7 +851,7 @@ function pageProduct(id) {
       <div class="acts">${getBtn(l, 'primary')}<a class="pill-link" href="${l.u}" target="_blank" rel="noopener">GitHub ${ic('ext')}</a></div></div></div>
     ${l.pl ? `<div class="plain">${ic('bulb', 2)}<div><span class="lbl">What it helps you do</span><p>${esc(l.pl)}</p>
       <div class="check ${safety(l)[0]}">${ic(safety(l)[2], 2.2)}<b>${esc(safety(l)[1])}</b><button data-jump="checks">See what we checked</button></div>
-      <div class="chips">${lv ? `<span class="${lv[1]}" title="${esc(lv[2])}">${lv[0]}: ${esc(lv[2].toLowerCase())}</span>` : ''}${(l.jb || []).map(j => `<a href="#for-${j}">${esc(JOB[j][1])}</a>`).join('')}</div></div></div>` : ''}
+      <div class="chips">${lv ? `<span class="${lv[1]}" title="${esc(lv[2])}">${lv[0]}</span>` : ''}${(l.jb || []).map(j => `<a href="#for-${j}">${esc(JOB[j][1])}</a>`).join('')}</div></div></div>` : ''}
     <div class="strip">
       <div><span class="k">GitHub</span><span class="v">${ic('star', 2)}${fmtK(r.st)}</span><span class="c">stars${l.p ? ' (whole repo)' : ''}</span></div>
       <div><span class="k">Trust</span><span class="v ${t.cls}">${ic(t.icon, 2.2)}</span><span class="c">${t.short}</span></div>
@@ -849,7 +860,7 @@ function pageProduct(id) {
       <div><span class="k">Publisher</span><span class="v">${ic(r.org ? 'building' : 'person', 2)}</span><span class="c">${r.org ? 'Organization' : 'Individual'}</span></div>
       ${l.lines ? `<div><span class="k">SKILL.md</span><span class="v">${l.lines}</span><span class="c">lines</span></div>` : r.lang ? `<div><span class="k">Language</span><span class="v">${ic('code', 2)}</span><span class="c">${esc(r.lang)}</span></div>` : ''}
     </div>
-    <div class="desc"><div><span class="lbl">From the developer</span><p>${esc(l.d)}</p></div>
+    <div class="desc"><div><span class="lbl">From the developer</span><p class="${l.d.length > 280 ? 'clamp' : ''}">${esc(l.d)}</p>${l.d.length > 280 ? `<button class="more" data-unclamp>More</button>` : ''}</div>
       <div class="dev"><div><a href="https://github.com/${l.r.split('/')[0]}" target="_blank" rel="noopener">${esc(r.on)}</a><span>Publisher</span></div>
         <div><a href="${l.u}" target="_blank" rel="noopener" class="mono">${esc(l.r)}${l.p ? '/' + esc(l.p) : ''}</a><span>Source</span></div></div></div>
 
@@ -934,7 +945,8 @@ function drawSheet() {
   const l = BY[sheetId], t = trust(l);
   document.getElementById('sheet-body').innerHTML = `<div class="sheet-bar"><span>Install</span><button class="text-btn" data-closesheet>Done</button></div>
     <div class="sheet-app">${icon(l, 60)}<div class="t"><b>${esc(l.n)}</b><span>${esc(repoOf(l).on)} · ★ ${fmtK(repoOf(l).st)}</span><span class="${t.cls}">${t.short}</span></div></div>
-    <div class="group-label">Choose where to install</div>${instCards(l)}
+    <div class="group-label">Choose where to install</div>
+    <p class="sheet-help">${l.k === 'skill' ? 'Use the Claude app? Pick <b>Claude app</b>: no terminal needed. ' : ''}${l.k === 'tool' ? 'Apps install from your computer\'s terminal (Terminal on Mac, PowerShell on Windows): paste the command for your system. ' : 'Claude Code, Codex and Cursor are AI coding assistants: paste the command into your terminal, or where the card says, into the assistant\'s chat. '}</p>${instCards(l)}
     <a class="pill-link" href="#${l.id}" data-closesheet style="align-self:center">View full listing</a>`;
 }
 function openSheet(id) { sheetId = id; drawSheet(); if (!sheet.open) sheet.showModal(); }
@@ -947,7 +959,7 @@ function openStory(id) {
 }
 
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-tab],[data-get],[data-story],[data-closestory],[data-closesheet],[data-copy],[data-agent],[data-suggest],[data-seeall],[data-easy],[data-jump],.story-ov .row-txt');
+  const t = e.target.closest('[data-tab],[data-get],[data-story],[data-closestory],[data-closesheet],[data-copy],[data-agent],[data-suggest],[data-seeall],[data-easy],[data-jump],[data-unclamp],.story-ov .row-txt');
   if (!t) return;
   const d = t.dataset;
   if (t.matches('.story-ov .row-txt')) { story.close(); return; }
@@ -967,6 +979,7 @@ document.addEventListener('click', e => {
     if (S.detail) { const y = scrollY; render(); scrollTo(0, y); }
   }
   else if (d.suggest) { S.q = d.suggest; render(); }
+  else if ('unclamp' in d) { t.previousElementSibling.classList.remove('clamp'); t.remove(); }
   else if (d.jump) { document.getElementById(d.jump)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   else if (d.easy) { S.easy = d.easy === '1'; const y = scrollY; render(); scrollTo(0, y); }
   else if (d.seeall) { S.q = d.seeall; go('search'); }

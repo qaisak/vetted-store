@@ -25,6 +25,7 @@ const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'ast
   'taylorwilsdon/google_workspace_mcp': 'Google Workspace MCP', 'korotovsky/slack-mcp-server': 'Slack MCP Server', 'nickclyde/duckduckgo-mcp-server': 'DuckDuckGo MCP Server',
   'nspady/google-calendar-mcp': 'Google Calendar MCP' };
 // Hand-written plain-language lines, job tags and setup level (pipeline/plain.json)
+const SOURCES = JSON.parse(fs.readFileSync(new URL('../data/sources.json', import.meta.url), 'utf8'));
 const PLAIN = JSON.parse(fs.readFileSync(new URL('./plain.json', import.meta.url), 'utf8'));
 // Install steps for MCP servers whose README gives a JSON config or several steps instead of one command.
 // Every command is the README's own, or its JSON config written as the equivalent `claude mcp add`.
@@ -86,7 +87,7 @@ for (const [repo, m] of Object.entries(d.repos)) {
   R[m.full] = { st: m.stars, fk: m.forks, is: m.issues, lic: m.license, pu: m.pushed?.slice(0, 10), cr: m.created?.slice(0, 10), ar: m.archived, own: m.owner,
     org: m.ownerType === 'Organization', on: OWNER[m.owner] || m.owner, lang: m.language, br: m.branch,
     sc: sc ? { s: sc.score, date: sc.date?.slice(0, 10), ch: sc.checks.filter(c => c.score >= 0).map(c => [c.name, c.score, c.reason]) } : null,
-    hn: (d.hn[repo] || []).filter(h => urlRe.test(h.url || '')).map(h => [h.title, h.url, h.points, h.comments, h.date, h.id]), fd: m.fetched || d.generated.slice(0, 10) };
+    hn: (d.hn[repo] || []).filter(h => urlRe.test(h.url || '')).map(h => [h.title, h.url, h.points, h.comments, h.date, h.id]), fd: m.fetched || d.generated.slice(0, 10), cm: SOURCES[m.full]?.commit?.slice(0, 7) || null };
 }
 
 const L = [];
@@ -101,10 +102,18 @@ for (const l of d.listings) {
   const desc = clean(DESC_FIX[l.slug] || l.desc);
   const inst = [];
   if (l.kind === 'skill') {
+    // Claude app (claude.ai, desktop, mobile): upload the skill folder as a ZIP in Customize > Skills
+    // (support.claude.com/en/articles/12512180, checked November 1, 2026). Anthropic's own skills are built in.
+    const folder = l.path.split('/').pop();
+    if (owner !== 'anthropics') inst.push({ to: 'Claude app', how: 'Upload', dl: `https://github.com/${repo}/archive/refs/heads/${m.branch}.zip`,
+      steps: ['Download the project as a ZIP with the button below, and unzip it.', `Find the folder ${repoName}-${m.branch}/${l.path}.`,
+        ...(folder !== l.slug ? [`Rename that folder to ${l.slug} (the upload needs the folder named like the skill).`] : []),
+        `Zip just that folder.`, 'In Claude, open Customize → Skills, click +, choose Create skill, then Upload a skill, and pick your ZIP.'],
+      note: 'Needs "Code execution and file creation" turned on in Settings → Capabilities. Works on Free, Pro, Max, Team and Enterprise plans.' });
     if (owner === 'anthropics') {
       const plug = anthPlugin[l.path];
       if (plug) inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin marketplace add anthropics/skills', `/plugin install ${plug}@anthropic-agent-skills`], note: `Run inside Claude Code. Installs the ${plug} bundle, which includes this skill.` });
-      inst.push({ to: 'Claude app', how: 'Built in', text: 'The Anthropic example skills are already available on paid Claude plans.' });
+      inst.unshift({ to: 'Claude app', how: 'Built in', text: 'Already in Claude. Turn it on in Customize → Skills.', note: 'Needs "Code execution and file creation" turned on in Settings → Capabilities.' });
     }
     if (owner === 'obra') inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin install superpowers@claude-plugins-official'], note: 'Run inside Claude Code. Installs the whole Superpowers pack.' });
     if (owner === 'huggingface') inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin marketplace add huggingface/skills'], note: 'Run inside Claude Code, then choose plugins from /plugin.' });

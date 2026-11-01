@@ -142,6 +142,18 @@
         ],
         "note": "The optional agent chat in the side panel runs Claude Code with permission prompts off unless you pick another mode (bypassPermissions), and always runs Codex with --dangerously-bypass-approvals-and-sandbox, in the project folder you choose. Whatever the agent decides to do there happens without asking you. The browser tools work without this feature."
       }
+    ],
+    "_findings": [
+      {
+        "match": "reset conversation",
+        "level": "benign",
+        "note": "Error messages for the \"reset conversation\" button in its side-panel chat (app/chrome-extension/entrypoints/sidepanel/composables/useAgentSessions.ts:418). It clears its own chat, not your assistant's memory."
+      },
+      {
+        "match": "hnswlib-index",
+        "level": "benign",
+        "note": "It deletes its own in-browser search index (an IndexedDB database named /hnswlib-index) when rebuilding tab search (app/chrome-extension/utils/vector-database.ts:1524). Not a command or a file on your computer."
+      }
     ]
   },
   "mcp-desktopcommandermcp": {
