@@ -1,6 +1,7 @@
 // Turns data.json (from fetch.mjs) into the compact DATA object embedded in the store page.
 // Usage: node build.mjs data.json template.html out.html
 import fs from 'node:fs';
+import { findingStatus, isSerious } from './findings.mjs';
 
 const [, , dataPath, tplPath, outPath] = process.argv;
 const d = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
@@ -28,6 +29,8 @@ const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'ast
   'Pimzino/spec-workflow-mcp': 'Spec Workflow MCP', 'jae-jae/fetcher-mcp': 'Fetcher MCP', 'schollz/croc': 'croc', 'FiloSottile/age': 'age', 'saulpw/visidata': 'VisiData',
   'derailed/k9s': 'k9s', 'nicolargo/glances': 'Glances', 'yorukot/superfile': 'superfile', 'darrenburns/posting': 'Posting', 'tconbeer/harlequin': 'Harlequin', 'denisidoro/navi': 'navi',
   'lharries/whatsapp-mcp': 'WhatsApp MCP', 'chigwell/telegram-mcp': 'Telegram MCP', 'domdomegg/airtable-mcp-server': 'Airtable MCP Server', 'marcelmarais/spotify-mcp-server': 'Spotify MCP Server',
+  'morluto/rea': 'REA: Reverse Engineer Anything', 'Gathin23/cleanyourtv': 'CleanYourTV', 'storytold/photocraft': 'PhotoCraft', 'storytold/pdfcraft': 'PdfCraft',
+  'KnifeLemon/Filee': 'Filee', 'robbietilton/Compositor': 'Compositor', 'jub0t/Concat': 'Concat', 'crmne/spotifast': 'Spotifast',
   'yt-dlp/yt-dlp': 'yt-dlp', 'Wilfred/difftastic': 'difftastic', 'muesli/duf': 'duf', 'ClementTsang/bottom': 'bottom', 'ducaale/xh': 'xh', 'chmln/sd': 'sd' };
 // Hand-written plain-language lines, job tags and setup level (pipeline/plain.json)
 const SOURCES = JSON.parse(fs.readFileSync(new URL('../data/sources.json', import.meta.url), 'utf8'));
@@ -81,6 +84,8 @@ const MCP_INSTALL = {
     { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add airtable -e AIRTABLE_API_KEY=your-token -- npx -y airtable-mcp-server'], note: 'Create an Airtable personal access token with only the scopes you need, as the README explains. Same settings as its install link.' }],
   'marcelmarais/spotify-mcp-server': [
     { to: 'All clients', how: 'Install guide', link: 'https://github.com/marcelmarais/spotify-mcp-server#readme', note: 'Needs a Spotify developer app (client ID and secret); you build it locally and sign in with Spotify once.' }],
+  'morluto/rea': [
+    { to: 'Your agent', how: 'Setup command', cmds: ['npx rea-agents setup'], note: 'From the README. Registers REA with your agent (Claude Code, Codex and others) and installs its workflow instructions. Needs Node.js 22.' }],
   'nspady/google-calendar-mcp': [
     { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add google-calendar -e GOOGLE_OAUTH_CREDENTIALS=/path/to/gcp-oauth.keys.json -- npx -y @cocal/google-calendar-mcp'], note: 'First create a Google Cloud OAuth client (Desktop app) and download its keys file, as the README explains. Then ask your assistant to authenticate.' }],
 };
@@ -90,6 +95,14 @@ OWNER.cli = 'GitHub'; OWNER.ChromeDevTools = 'Google Chrome';
 const SUB = { everything: 'Everything (test server)', sequentialthinking: 'Sequential Thinking' };
 const DESC_FIX = { everything: 'Reference test server that exercises every MCP feature (tools, prompts, resources and more). Built for people developing MCP clients, not for daily use.' };
 
+// Display names: fix acronyms and small words in names made from folder names ("Ci Cd And Automation" -> "CI/CD and Automation")
+const ACRO = { ai: 'AI', seo: 'SEO', aso: 'ASO', api: 'API', cli: 'CLI', mcp: 'MCP', hf: 'HF', adhd: 'ADHD', ui: 'UI', ux: 'UX', gdpr: 'GDPR', kpi: 'KPI', sql: 'SQL',
+  wcag: 'WCAG', stride: 'STRIDE', pdf: 'PDF', docx: 'DOCX', pptx: 'PPTX', xlsx: 'XLSX', aws: 'AWS', iam: 'IAM', nim: 'NIM', pdbs: 'PDBs', rtsp: 'RTSP', amc: 'AMC', gh: 'GH',
+  n8n: 'n8n', json: 'JSON', svg: 'SVG', gif: 'GIF', cudf: 'cuDF', codonfm: 'CodonFM', kermt: 'KERMT', evo2: 'Evo 2', genmol: 'GenMol', diffdock: 'DiffDock', boltz2: 'Boltz-2',
+  openai: 'OpenAI', chatgpt: 'ChatGPT', aspnet: 'ASP.NET', winui: 'WinUI', sagemaker: 'SageMaker', cmim: 'cMIM', ios: 'iOS', css: 'CSS', html: 'HTML', llm: 'LLM', ab: 'A/B', nvidia: 'NVIDIA',
+  devtools: 'DevTools', github: 'GitHub', pci: 'PCI', tam: 'TAM', bdi: 'BDI', mem: 'Mem', ide: 'IDE' };
+const SMALL = new Set(['and', 'or', 'of', 'to', 'for', 'with', 'the', 'a', 'in', 'on', 'by', 'from']);
+const niceName = n => String(n).replace(/\bCi Cd\b/i, 'CI/CD').split(' ').map((w, i) => { const k = w.toLowerCase(); return ACRO[k] || (i > 0 && SMALL.has(k) ? k : w); }).join(' ');
 const clean = s => (s || '').replace(/\*\*/g, '').replace(/`/g, '').replace(/\s+/g, ' ').replace(/:[a-z_]+:\s*/g, '').trim();
 function tagline(s) {
   s = clean(s);
@@ -116,7 +129,7 @@ for (const [repo, m] of Object.entries(d.repos)) {
   const sc = d.scores[repo];
   const urlRe = new RegExp('github\\.com/' + m.full.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(/|$|#|\\?)', 'i');
   // Licenses GitHub can't classify, read from the repository's own license file (checked November 1, 2026)
-  const LICENSE_FIX = { 'muesli/duf': 'MIT', 'nicolargo/glances': 'LGPL-3.0' };
+  const LICENSE_FIX = { 'muesli/duf': 'MIT', 'nicolargo/glances': 'LGPL-3.0', 'Gathin23/cleanyourtv': 'MIT' };
   R[m.full] = { st: m.stars, fk: m.forks, is: m.issues, lic: LICENSE_FIX[m.full] || m.license, pu: m.pushed?.slice(0, 10), cr: m.created?.slice(0, 10), ar: m.archived, own: m.owner,
     org: m.ownerType === 'Organization', on: OWNER[m.owner] || m.owner, lang: m.language, br: m.branch,
     sc: sc === 'unchecked' ? 'u' : sc ? { s: sc.score, date: sc.date?.slice(0, 10), ch: sc.checks.filter(c => c.score >= 0).map(c => [c.name, c.score, c.reason]) } : null,
@@ -184,49 +197,84 @@ for (const l of d.listings) {
     if (repo === 'aristocratos/btop') delete i.brew;   // README line lists build dependencies, not an install
     if (i.cargo && /--path/.test(i.cargo)) delete i.cargo;
     if (repo === 'vercel-labs/skills') delete i.npx;
+    // Desktop apps: installers on each project's releases page (checked in their READMEs, November 1, 2026)
+    const DESKTOP = { 'storytold/photocraft': 'macOS, Windows, Linux', 'storytold/pdfcraft': 'macOS, Windows, Linux', 'KnifeLemon/Filee': 'Windows, macOS, Linux',
+      'robbietilton/Compositor': 'macOS', 'jub0t/Concat': 'Windows, macOS, Linux', 'crmne/spotifast': 'Linux, macOS, Windows' };
+    if (DESKTOP[repo]) inst.push({ to: DESKTOP[repo], how: 'Download', link: `https://github.com/${repo}/releases/latest`, linkText: 'Download from GitHub', note: 'Pick the installer for your computer from the latest release.' });
+    if (repo === 'Gathin23/cleanyourtv') inst.push({ to: 'With a coding assistant', how: 'Prompt', cmds: ['git clone https://github.com/Gathin23/cleanyourtv'], note: 'Open that folder in Claude Code or Codex, paste PROMPT.md and fill in your TV model. Your computer needs Python 3, a JDK (17 to 22) and the Android SDK, as the README explains. Turn on USB debugging on the TV first.' },
+      { to: 'Android phone only', how: 'Separate app', link: 'https://cleanyour.tv/app', linkText: 'Open the phone app page', note: 'A community-built phone app by another developer. Vetted hasn\'t checked it.' });
     const mac = [i.brew].filter(Boolean), win = [i.winget, i.scoop, i.ps].filter(Boolean), any = [i.apt, i.curl, i.uvTool, i.pipx, i.cargo, i.npm, i.go, i.pip].filter(Boolean);
     if (mac.length) inst.push({ to: 'macOS', how: 'Homebrew', cmds: mac });
     if (win.length) inst.push({ to: 'Windows', how: win[0].startsWith('winget') ? 'winget' : win[0].startsWith('scoop') ? 'Scoop' : 'PowerShell', cmds: win });
     if (any.length) inst.push({ to: 'Linux & others', how: 'Terminal', cmds: any });
     if (repo === 'vercel-labs/skills') inst.push({ to: 'Any agent', how: 'npx', cmds: ['npx skills add vercel-labs/agent-skills'], note: 'No install needed. Runs through npx; this example adds Vercel\'s skills.' });
     if (repo === 'cli/cli') inst.push({ to: 'Coding agents', how: 'Agent skill', cmds: ['gh skill install cli/cli gh --scope user'], note: 'Installs the gh agent skill. Install GitHub CLI itself first.' });
-    if (!inst.length || repo === 'cli/cli' || repo === 'jqlang/jq') inst.push({ to: 'All platforms', how: 'Install guide', link: repo === 'jqlang/jq' ? 'https://github.com/jqlang/jq/releases' : repo === 'cli/cli' ? 'https://github.com/cli/cli#installation' : repo === 'yt-dlp/yt-dlp' ? 'https://github.com/yt-dlp/yt-dlp#installation' : `https://github.com/${repo}#readme`, note: repo === 'jqlang/jq' ? 'Download the binary for your platform from the releases page.' : 'Follow the project\'s install guide.' });
+    if (!inst.length || repo === 'cli/cli' || repo === 'jqlang/jq') if (!DESKTOP[repo]) inst.push({ to: 'All platforms', how: 'Install guide', link: repo === 'jqlang/jq' ? 'https://github.com/jqlang/jq/releases' : repo === 'cli/cli' ? 'https://github.com/cli/cli#installation' : repo === 'yt-dlp/yt-dlp' ? 'https://github.com/yt-dlp/yt-dlp#installation' : `https://github.com/${repo}#readme`, note: repo === 'jqlang/jq' ? 'Download the binary for your platform from the releases page.' : 'Follow the project\'s install guide.' });
   }
-  const name = l.kind === 'skill' ? l.name : l.kind === 'mcp' && l.path ? (SUB[l.slug] || l.name) : (NAME[repo] || l.name);
+  const name = niceName(l.kind === 'skill' ? l.name : l.kind === 'mcp' && l.path ? (SUB[l.slug] || l.name) : (NAME[repo] || l.name));
   L.push({ id, k: l.kind, n: name, sl: l.slug, t: tagline(desc), d: desc, r: repo, u: l.url, p: l.path, nv: !!l.nvidia, tr: TRUSTED.has(owner), g: glyphFor(l.slug + ' ' + desc + ' ' + repo), c: colorFor(id),
     lines: l.lines || null, lic: l.license || null, inst, pl: PLAIN[id]?.[0] || null, jb: PLAIN[id]?.[1] || [], lv: PLAIN[id]?.[2] || null,
     vd: (VIDEOS[l.kind === 'mcp' && l.path ? `${repo}:${l.path}` : repo] || []).map(v => [v.kind, v.url, v.label || null, v.id || null]) });
   if (!PLAIN[id]) console.error('NO PLAIN TEXT', id);
 }
 
-// SkillSpector static-scan reports, one JSON per listing id (from scan.mjs)
+// Purpose-relative check (from purpose_analyze.mjs) and written reviews (reviews.json)
+const MR = process.argv[6] && fs.existsSync(process.argv[6]) ? JSON.parse(fs.readFileSync(process.argv[6], 'utf8')) : {};
+const REV = JSON.parse(fs.readFileSync(new URL('./reviews.json', import.meta.url), 'utf8'));
+
+// SkillSpector static-scan reports, one JSON per listing id (from scan.mjs).
+// Every high or critical finding carries our review status (findings.mjs), so a page can say plainly what was read and what it was.
 const SC = {};
 const scanDir = process.argv[5];
 const SEV_RANK = { CRITICAL: 0, HIGH: 1, MEDIUM: 2, LOW: 3, INFO: 4 };
+const ST_RANK = { bad: 0, warn: 1, note: 2, open: 3, cov: 4, ok: 5 };
+const NT_RANK = { bad: 0, warn: 1, note: 2 };
 const trim = (s, n) => { s = String(s || '').replace(/\s+/g, ' ').trim(); return s.length > n ? s.slice(0, n - 1) + '…' : s; };
-if (scanDir) for (const l of L) {
-  const f = `${scanDir}/${l.id}.json`;
-  if (!fs.existsSync(f)) continue;
-  const j = JSON.parse(fs.readFileSync(f, 'utf8'));
-  // Scoped scans (large repos) report paths relative to the scanned folder
-  const scope = fs.existsSync(`${scanDir}/${l.id}.scope.txt`) ? fs.readFileSync(`${scanDir}/${l.id}.scope.txt`, 'utf8').trim() : null;
-  if (scope) for (const i of j.issues) if (i.location?.file) i.location.file = `${scope}/${i.location.file.replace(/\\/g, '/')}`;
-  const by = {};
-  for (const i of j.issues) by[i.severity] = (by[i.severity] || 0) + 1;
-  const top = [...j.issues].sort((a, b) => (SEV_RANK[a.severity] ?? 9) - (SEV_RANK[b.severity] ?? 9) || (b.confidence || 0) - (a.confidence || 0)).slice(0, 15)
-    .map(i => [i.severity, i.id, i.category, trim(i.pattern, 120), i.location?.file || '', i.location?.start_line || null, trim(i.finding, 140), trim(i.explanation, 220), i.confidence ?? null]);
-  const ac = j.analysis_completeness || {};
-  SC[l.id] = { s: j.risk_assessment.score, sev: j.risk_assessment.severity, rec: j.risk_assessment.recommendation, n: j.issues.length, by,
-    files: j.components?.length || 0, exe: !!j.metadata?.has_executable_scripts, ver: j.metadata?.skillspector_version, at: j.skill?.scanned_at?.slice(0, 10),
-    cov: ac.coverage_percent ?? null, scope, top };
+let reviewedTotal = 0, openTotal = 0;
+for (const l of L) {
+  const rev = REV[l.id] || {}, mr = MR[l.id];
+  // Things worth knowing before installing: reviewer notes on the listing, plus findings a reviewer marked notice, warning or concern
+  const nt = [];
+  const addNote = (t, n, lv, where) => {
+    const ex = nt.find(x => x.t === t || x.n === n);
+    if (ex) { for (const w of where) if (ex.w.length < 3 && !ex.w.some(e => e[0] === w[0] && e[1] === w[1])) ex.w.push(w); if (NT_RANK[lv] < NT_RANK[ex.lv]) ex.lv = lv; return; }
+    nt.push({ t, n, lv, w: where.slice(0, 3) });
+  };
+  for (const x of rev._notices || []) addNote(x.title, x.note, x.level === 'warning' ? 'warn' : x.level === 'concern' ? 'bad' : 'note', x.where || []);
+  const f = scanDir && `${scanDir}/${l.id}.json`;
+  if (f && fs.existsSync(f)) {
+    const j = JSON.parse(fs.readFileSync(f, 'utf8'));
+    // Scoped scans (large repos) report paths relative to the scanned folder
+    const scope = fs.existsSync(`${scanDir}/${l.id}.scope.txt`) ? fs.readFileSync(`${scanDir}/${l.id}.scope.txt`, 'utf8').trim() : null;
+    if (scope) for (const i of j.issues) if (i.location?.file) i.location.file = `${scope}/${i.location.file.replace(/\\/g, '/')}`;
+    // rv: status counts; how: how each finding was explained (read line by line, by where it is, by what the listing is for, or by a scanner rule)
+    const by = {}, rv = { n: 0, ok: 0, note: 0, warn: 0, bad: 0, cov: 0, open: 0, read: 0, where: 0, purpose: 0, rule: 0 }, st = new Map();
+    for (const i of j.issues) {
+      by[i.severity] = (by[i.severity] || 0) + 1;
+      if (!isSerious(i)) continue;
+      const r = findingStatus(i, { id: l.id, k: l.k }, rev, mr);
+      st.set(i, r); rv.n++; rv[r.s]++; if (r.by && r.s !== 'cov') rv[r.by]++;
+      if (NT_RANK[r.s] != null && r.n) addNote(r.t || { note: 'Worth knowing', warn: 'A risk to know about', bad: 'Looks harmful' }[r.s], r.n, r.s, i.location?.file ? [[i.location.file, i.location.start_line || null]] : []);
+    }
+    reviewedTotal += rv.n - rv.open; openTotal += rv.open;
+    // Findings that need a reader's attention first, then the rest by severity
+    const key = i => st.has(i) ? ST_RANK[st.get(i).s] : 9;
+    const top = [...j.issues].sort((a, b) => key(a) - key(b) || (SEV_RANK[a.severity] ?? 9) - (SEV_RANK[b.severity] ?? 9) || (b.confidence || 0) - (a.confidence || 0)).slice(0, 20)
+      .map(i => [i.severity, i.id, i.category, trim(i.pattern, 120), i.location?.file || '', i.location?.start_line || null, trim(i.finding, 140), trim(i.explanation, 220), i.confidence ?? null,
+        st.get(i)?.s || null, st.has(i) && st.get(i).n ? trim(st.get(i).n, 260) : null]);
+    const ac = j.analysis_completeness || {};
+    SC[l.id] = { s: j.risk_assessment.score, sev: j.risk_assessment.severity, rec: j.risk_assessment.recommendation, n: j.issues.length, by, rv,
+      files: j.components?.length || 0, exe: !!j.metadata?.has_executable_scripts, ver: j.metadata?.skillspector_version, at: j.skill?.scanned_at?.slice(0, 10),
+      cov: ac.coverage_percent ?? null, scope, top };
+  }
+  // Purpose-check notices for findings outside the scan's serious set (e.g. medium findings a reviewer flagged)
+  for (const x of mr?.notices || []) addNote(x.title, x.note, x.level === 'warning' ? 'warn' : 'note', x.where || []);
+  if (nt.length) l.nt = nt.sort((a, b) => NT_RANK[a.lv] - NT_RANK[b.lv]);
 }
-
-// Purpose-relative MCP check (from mcp_analyze.mjs)
-const MR = process.argv[6] && fs.existsSync(process.argv[6]) ? JSON.parse(fs.readFileSync(process.argv[6], 'utf8')) : {};
 
 const DATA = { gen: d.generated.slice(0, 10), L, R, AV: d.avatars, SC, MR };
 const json = JSON.stringify(DATA).replace(/</g, '\\u003c');
 const tpl = fs.readFileSync(tplPath, 'utf8');
 fs.writeFileSync(outPath, tpl.replace('/*__DATA__*/null', json));
 console.error('listings', L.length, 'skills', L.filter(x => x.k === 'skill').length, 'mcp', L.filter(x => x.k === 'mcp').length, 'tools', L.filter(x => x.k === 'tool').length,
-  'scanned', Object.keys(SC).length, 'anth plugins mapped', Object.keys(anthPlugin).length, 'hn kept', Object.values(R).reduce((a, r) => a + (r.hn?.length || 0), 0), 'bytes', fs.statSync(outPath).size);
+  'scanned', Object.keys(SC).length, 'serious reviewed', reviewedTotal, 'open', openTotal, 'anth plugins mapped', Object.keys(anthPlugin).length, 'hn kept', Object.values(R).reduce((a, r) => a + (r.hn?.length || 0), 0), 'bytes', fs.statSync(outPath).size);

@@ -485,6 +485,7 @@ const KIND = { skill: 'Agent Skill', mcp: 'Connector (MCP server)', tool: 'App' 
 const KINDS = { skill: 'Skills', mcp: 'Connectors', tool: 'Apps' };
 // Jobs people do; each listing's tags are hand-written in pipeline/plain.json
 const JOBS = [
+  ['everyday', 'Everyday & home', 'Photos, video, files, music and your TV', 'play', ['#BE185D', '#F43F5E']],
   ['vibe', 'Building with AI', 'For vibe coders: plan, build and check apps with your assistant', 'spark', ['#7C3AED', '#C026D3']],
   ['dev', 'Developers', 'Write, review, test and ship code', 'code', ['#2563EB', '#0EA5E9']],
   ['design', 'Designers', 'Figma, interfaces, art and visuals', 'pen', ['#DB2777', '#F97316']],
@@ -635,7 +636,7 @@ function toast(m) {
 }
 // The span of fetch dates: most listings were fetched with D.gen, later additions carry their own date
 function dataDates() { const last = Object.values(R).map(r => r.fd).filter(Boolean).sort().pop(); return last && last !== D.gen ? `${fmtDate(D.gen)} to ${fmtDate(last)}` : fmtDate(D.gen); }
-const dataNote = () => `<p class="data-note">Every listing is a real open-source repository. Community projects get Vetted's Purpose Check and a static NVIDIA SkillSpector scan; trusted publishers aren't scanned up front. Stars, licenses and activity come from GitHub, repository scores from OpenSSF Scorecard, discussions from Hacker News, and install commands from each project's own README. Data fetched ${dataDates()}. Vetted is a prototype and isn't affiliated with these projects.</p>`;
+const dataNote = () => `<p class="data-note">Every listing is a real open-source project on GitHub, and every one is scanned with NVIDIA SkillSpector before it's listed. Projects from independent developers also get Vetted's Purpose Check. Stars, licenses and activity come from GitHub, security scores from OpenSSF Scorecard, discussions from Hacker News, and install steps from each project's own README. Data fetched ${dataDates()}. Vetted isn't affiliated with these projects.</p>`;
 
 // ---------- stories ----------
 const community = () => L.filter(l => !l.tr);
@@ -654,11 +655,12 @@ function stories() {
   const reviewedN = checked.reduce((a, l) => a + MRof(l).reviewed.length, 0);
   const featured = uniqueRepos(byStars(comm)).slice(0, 8);
   const out = [];
-  out.push({ id: 'community', eyebrow: 'How Vetted Works', title: 'Made by one person. Checked before you install.', g: ['#14213D', '#3A6EA5'], glyph: 'shieldok', wide: true, app: BY['blader-humanizer'] || featured[0],
-    body: [`Most great open-source tools are built by individuals, not companies. Vetted reads their code before you install it and asks one question: <strong>does it do more than its job needs?</strong>`,
-      `A file finder that reads files is fine. A clock that reads your SSH keys is not. So each project gets a <strong>Purpose Check</strong>: what its code can actually do (network, files, running programs, secrets, browser), compared with what it says it's for.`,
-      `So far that's ${checked.length} community projects: ${withCode.length} with code we read, and ${checked.length - withCode.length} skills that are instructions only. ${fits} fit their purpose${checked.length - fits ? `, and ${checked.length - fits} still need${checked.length - fits === 1 ? 's' : ''} a closer look` : ''}. Every mismatch we found (${reviewedN}) was read line by line, and the reason is written on its page.`,
-      `Skills and connectors published by companies like Anthropic, OpenAI and NVIDIA sit under <strong>Trusted publishers</strong>. We scan those too.`], apps: featured });
+  const noted = checked.filter(l => MRof(l).notices?.length).length;
+  out.push({ id: 'community', eyebrow: 'How Vetted works', title: 'See what it can access before you install it', g: ['#14213D', '#3A6EA5'], glyph: 'shieldok', wide: true, app: BY['blader-humanizer'] || featured[0],
+    body: [`AI add-ons and open-source apps can go online, read your files, run other programs and use your passwords. Most places that list them don't tell you which ones do what.`,
+      `We read each project's code and list exactly what it can reach: <strong>the internet, your files, other programs, passwords and keys, and your browser</strong>. Then we compare that with what the project says it's for.`,
+      `If a note-taking skill could read your SSH keys, its page would say so in orange. If an app sends usage data unless you switch it off, its page says so and tells you how to switch it off.`,
+      `Right now: ${L.length} listings, every one scanned with NVIDIA's SkillSpector. ${checked.length} projects from independent developers got the full check; ${noted} of them have something worth knowing before you install, written on their page.`], apps: featured });
   const commScans = comm.map(l => scanOf(l)).filter(Boolean);
   if (spector && commScans.length) {
     const c = {}; for (const x of commScans) c[x.sev] = (c[x.sev] || 0) + 1;
@@ -678,7 +680,7 @@ function stories() {
       `<strong>SkillSpector risk</strong>: NVIDIA's automatic scanner rates every listing low, medium, high or critical. It can't judge intent, so routine steps like deleting a temporary file count as high. That's why we read the code ourselves when something looks off.`,
       `No scan is a guarantee. Code can change after we check it, so the date and exact version we checked are on every page.`], apps: [] });
   const trustedList = L.filter(l => l.tr);
-  out.push({ id: 'trusted', eyebrow: 'Trusted Publishers', title: 'The big names, in one place', lede: `${trustedList.length} listings from ${new Set(trustedList.map(l => repoOf(l).on)).size} companies.`, g: ['#1D2B53', '#5E6EFF'], glyph: 'building',
+  out.push({ id: 'trusted', eyebrow: 'Trusted Publishers', title: 'From Anthropic, OpenAI, NVIDIA and more', lede: `${trustedList.length} listings from ${new Set(trustedList.map(l => repoOf(l).on)).size} companies.`, g: ['#1D2B53', '#5E6EFF'], glyph: 'building',
     body: [`Anthropic, OpenAI, NVIDIA, GitHub, Microsoft, Google and others publish skills, MCP servers and tools from their own GitHub organizations, backed by their own security reviews and release processes.`,
       `Vetted lists them as Trusted publishers, and scans them anyway: ${trustedList.filter(l => scanOf(l)).length} of the ${trustedList.length} have a SkillSpector report on their page.`],
     apps: pick(['anthropics-docx', 'openai-security-threat-model', 'mcp-github-mcp-server', 'mcp-playwright-mcp', 'skillspector', 'uv']).concat(L.filter(l => l.nv).slice(0, 2)) });
@@ -710,7 +712,7 @@ function pageToday() {
       ${s.wide && s.app ? `<div class="bottom frost">${icon(s.app, 48)}<div class="t"><b>${esc(s.app.n)}</b><span>${esc(plainOf(s.app))}</span></div><span class="get light" data-get="${s.app.id}">GET</span></div>`
         : `<div class="bottom">${s.lede || ''}</div>`}</button>`).join('')}</div>
     ${startHere()}
-    <section class="shelf"><div class="shelf-head"><h2>Starter kits<span class="sub">Hand-picked sets so you don't have to piece it together</span></h2><a class="see-all" href="#browse">See All</a></div>
+    <section class="shelf"><div class="shelf-head"><h2>Starter kits<span class="sub">Six picks for one goal, in the order to add them</span></h2><a class="see-all" href="#browse">See All</a></div>
       <div class="job-grid">${KITS.map(kitCard).join('')}</div></section>
     <section class="shelf"><div class="shelf-head"><h2>Browse by job<span class="sub">Pick the work you do and see what helps</span></h2><a class="see-all" href="#browse">See All</a></div>
       <div class="job-grid">${JOBS.slice(0, 8).map(jobCard).join('')}</div></section>
@@ -731,20 +733,21 @@ function pageToday() {
 // Says only what the data shows: how many listings really have a SkillSpector report
 function promiseText() {
   const nSC = L.filter(l => scanOf(l)).length, comm = L.filter(l => !l.tr), commChecked = comm.filter(l => MRof(l)).length;
-  return `${nSC === L.length ? `Every one of the ${L.length} listings is` : `${nSC} of ${L.length} listings are`} scanned with NVIDIA SkillSpector${commChecked === comm.length ? ', and every community project also gets our Purpose Check' : ''}: we read what the code can actually do and compare it with what it says it's for. Anything that doesn't add up is read line by line, and what we found is written on its page.`;
+  return `${nSC === L.length ? `All ${L.length} listings get` : `${nSC} of ${L.length} listings have`} an automatic security scan (NVIDIA SkillSpector) before they go up. ${commChecked === comm.length ? 'Projects from independent developers also get' : `${commChecked} projects from independent developers also have`} our Purpose Check: we list what the code can reach and compare it with what the project says it's for. Anything unusual is explained on its page.`;
 }
+
 const byJob = k => L.filter(l => (l.jb || []).includes(k));
 const jobCard = ([k, t, sub, g, c]) => `<a class="job-card" href="#for-${k}"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span>
   <span style="min-width:0"><b>${esc(t)}</b><span class="s">${esc(sub)}</span></span><span class="n">${byJob(k).length}</span></a>`;
 function startHere() {
   const n = k => L.filter(l => l.k === k).length;
-  return `<section class="shelf"><div class="shelf-head"><h2>New here? Start with this<span class="sub">Three kinds of things, explained without jargon</span></h2></div>
+  return `<section class="shelf"><div class="shelf-head"><h2>What you'll find here</h2></div>
     <div class="start">
       <a href="#skills">${ic('skill', 1.8)}<b>Skills</b><span>Instructions that teach your AI assistant (Claude, ChatGPT's Codex, Cursor) how to do a specific job well, like making slide decks or reviewing code. Most are just text.</span><em>${n('skill')} skills →</em></a>
       <a href="#mcp">${ic('mcp', 1.8)}<b>Connectors</b><span>Also called MCP servers. They let your assistant use your apps and accounts: Slack, Figma, Google Calendar, your browser. Because they can reach real data, check what each one can access.</span><em>${n('mcp')} connectors →</em></a>
       <a href="#tools">${ic('tool', 1.8)}<b>Apps</b><span>Open-source programs you run on your own computer, mostly in the terminal: fast file search, visual Git, system monitors, security scanners.</span><em>${n('tool')} apps →</em></a>
     </div>
-    <div class="promise">${ic('shieldok', 1.8)}<div><b>Checked before it's listed</b><span>${promiseText()}</span>
+    <div class="promise">${ic('shieldok', 1.8)}<div><b>What we check</b><span>${promiseText()}</span>
       <button class="text-btn" style="font-size:14px;font-weight:600;margin-top:6px;display:block" data-story="labels">What our safety labels mean</button></div></div></section>`;
 }
 function pageBrowse() {
@@ -774,6 +777,11 @@ function pageJob(k) {
     ${dataNote()}</div>`;
 }
 
+const NICE_REPO = { 'obra/superpowers': 'Superpowers', 'anthropics/skills': 'Anthropic Skills', 'openai/skills': 'OpenAI Skills', 'NVIDIA/skills': 'NVIDIA Skills', 'huggingface/skills': 'Hugging Face Skills',
+  'vercel-labs/agent-skills': 'Vercel Agent Skills', 'addyosmani/agent-skills': 'Agent Skills by Addy Osmani', 'coreyhaines31/marketingskills': 'Marketing Skills', 'Jeffallan/claude-skills': 'Claude Skills by Jeffallan',
+  'alirezarezvani/claude-skills': 'Claude Skills by Alireza Rezvani', 'wshobson/agents': 'Agents by wshobson', 'muratcankoylan/Agent-Skills-for-Context-Engineering': 'Context Engineering Skills',
+  'kepano/obsidian-skills': 'Obsidian Skills', 'czlonkowski/n8n-skills': 'n8n Skills', 'Weizhena/Deep-Research-skills': 'Deep Research Skills', 'thedotmack/claude-mem': 'claude-mem' };
+const niceRepo = repo => NICE_REPO[repo] || repoTitle(repo);
 function repoTitle(repo) { const n = repo.split('/')[1].replace(/[-_]+/g, ' '); return n.charAt(0).toUpperCase() + n.slice(1); }
 function trustedShelf(kind, title) {
   const list = byStars(L.filter(l => l.tr && (!kind || l.k === kind)));
@@ -794,17 +802,30 @@ function banners(items) {
 }
 const jobChips = kind => `<div class="chips" style="margin:-6px 0 14px">${JOBS.filter(([k]) => L.some(l => l.k === kind && (l.jb || []).includes(k))).map(([k, t]) => `<a href="#for-${k}">${esc(t)}</a>`).join('')}</div>`;
 function pageSkills() {
-  const comm = community().filter(l => l.k === 'skill');
-  const repos = [...new Set(byStars(comm).map(l => l.r))];
+  const all = L.filter(l => l.k === 'skill');
+  const comm = all.filter(l => !l.tr);
+  // One shelf per job a skill mainly helps with (its first job tag), community projects first.
+  // Jobs with fewer than 3 skills fold into "More skills" so no shelf holds a single item.
+  const byPrimary = {};
+  for (const l of all) (byPrimary[(l.jb || [])[0] || 'other'] ??= []).push(l);
+  const order = (list) => [...byStars(list.filter(l => !l.tr)), ...byStars(list.filter(l => l.tr))];
+  const shelves = JOBS.filter(([k]) => (byPrimary[k] || []).length >= 3);
+  const rest = JOBS.filter(([k]) => (byPrimary[k] || []).length < 3).flatMap(([k]) => byPrimary[k] || []).concat(byPrimary.other || []);
+  // Developers who publish several skills, as a compact list
+  const packs = Object.entries(all.reduce((a, l) => ((a[l.r] ??= []).push(l), a), {})).filter(([, v]) => v.length >= 3)
+    .sort((a, b) => R[b[0]].st - R[a[0]].st);
   return `<div class="page">
-    <div class="large-title"><h1>Skills</h1><p>Instruction packs that teach Claude, Codex and other agents how to do specific jobs. ${comm.length} community skills from ${repos.length} independent developers, each Purpose-Checked and scanned with SkillSpector.</p></div>
+    <div class="large-title"><h1>Skills</h1><p>A skill is a set of instructions that teaches your AI assistant one job, like writing ad copy or reviewing code. ${all.length} skills: ${comm.length} from independent developers, ${all.length - comm.length} from companies. Every one is scanned before it's listed.</p></div>
     ${jobChips('skill')}
-    ${banners(uniqueRepos(byStars(comm)).slice(0, 4).map(l => ({ l, eb: 'Community · ' + repoOf(l).own })))}
-    ${repos.map(repo => { const list = byRepo(repo);
-      return `<section class="shelf"><div class="shelf-head"><h2>${esc(repoTitle(repo))}<span class="sub">by ${esc(repo.split('/')[0])} · ★ ${fmtK(R[repo].st)} on GitHub</span></h2>${list.length > 6 ? `<button class="see-all" data-seeall="${repo}">See All</button>` : ''}</div>${ranked(list.slice(0, 12))}</section>`; }).join('')}
-    ${trustedShelf('skill', 'Skills from Trusted Publishers')}
+    ${banners(uniqueRepos(byStars(comm)).slice(0, 4).map(l => ({ l, eb: (JOB[(l.jb || [])[0]] || [0, 'Skill'])[1] })))}
+    ${shelves.map(([k, t]) => { const list = order(byPrimary[k]);
+      return `<section class="shelf"><div class="shelf-head"><h2>${esc(t)}<span class="sub">${list.length} skill${list.length > 1 ? 's' : ''}</span></h2>${list.length > 9 ? `<a class="see-all" href="#for-${k}">See All</a>` : ''}</div>${ranked(list.slice(0, 9))}</section>`; }).join('')}
+    ${rest.length ? `<section class="shelf"><div class="shelf-head"><h2>More skills</h2></div>${ranked(order(rest))}</section>` : ''}
+    <section class="shelf"><div class="shelf-head"><h2>Skill packs<span class="sub">Developers who publish several skills together</span></h2></div>
+      <div class="job-grid">${packs.map(([repo, list]) => `<button class="job-card" data-seeall="${esc(repo)}">${icon(list[0], 44)}<span style="min-width:0"><b>${esc(niceRepo(repo))}</b><span class="s">by ${esc(R[repo].on)} · ★ ${fmtK(R[repo].st)}</span></span><span class="n">${list.length}</span></button>`).join('')}</div></section>
     ${dataNote()}</div>`;
 }
+
 function pageMcp() {
   const comm = byStars(community().filter(l => l.k === 'mcp'));
   return `<div class="page">
@@ -818,18 +839,19 @@ function pageMcp() {
 function pageTools() {
   const comm = community().filter(l => l.k === 'tool');
   // Shelves by what people use them for; anything not placed here still shows under "More apps", so nothing goes missing
-  const SHELVES = [['Everyday', 'Download, send and protect files', ['yt-dlp', 'croc', 'age', 'navi']],
+  const SHELVES = [['Creative', 'Edit photos, video and PDFs on your computer', ['photocraft', 'compositor', 'concat', 'pdfcraft']],
+    ['Everyday', 'Convert, download, send and protect files; clean up your TV; play music', ['filee', 'yt-dlp', 'croc', 'age', 'cleanyourtv', 'spotifast', 'navi']],
     ['Files & search', 'Find, view and manage files fast', ['ripgrep', 'fd', 'fzf', 'bat', 'zoxide', 'yazi', 'superfile', 'dust', 'duf', 'sd', 'tokei']],
     ['Data & APIs', 'Spreadsheets, databases, JSON and web APIs', ['visidata', 'harlequin', 'jq', 'xh', 'posting']],
     ['Git & code', 'Commit, compare and run your project', ['lazygit', 'gitui', 'delta', 'difftastic', 'just', 'mise', 'hyperfine']],
     ['System & servers', 'Watch your computer, containers and clusters', ['btop', 'bottom', 'glances', 'lazydocker', 'k9s']],
-    ['Security', 'Catch leaked secrets', ['gitleaks']]];
+    ['Security', 'Catch leaked secrets', ['gitleaks']]].filter(([, , ids]) => pick(ids).filter(l => !l.tr).length >= 3);   // no near-empty shelves
   const placed = new Set(SHELVES.flatMap(x => x[2]));
   const rest = comm.filter(l => !placed.has(l.id));
   return `<div class="page">
-    <div class="large-title"><h1>Apps</h1><p>${comm.length} open-source apps from independent developers, mostly for the terminal. Each one is Purpose-Checked and scanned: we read its code and compare what it can do with what it says it's for.</p></div>
+    <div class="large-title"><h1>Apps</h1><p>${comm.length} open-source apps from independent developers: desktop apps for photos, video, PDFs and files, plus tools for the terminal. Each one is Purpose-Checked and scanned: we read its code and compare what it can do with what it says it's for.</p></div>
     ${jobChips('tool')}
-    ${banners([{ l: BY['yt-dlp'], eb: 'Download Anything' }, { l: BY['croc'], eb: 'Send Files' }, { l: BY['yazi'], eb: 'File Manager' }, { l: BY['lazygit'], eb: 'Git, Visually' }])}
+    ${banners([{ l: BY['photocraft'], eb: 'Edit Photos' }, { l: BY['concat'], eb: 'Edit Video' }, { l: BY['filee'], eb: 'Convert Files' }, { l: BY['yt-dlp'], eb: 'Download Video' }])}
     ${SHELVES.map(([t, sub, ids]) => { const list = byStars(pick(ids).filter(l => !l.tr)); return list.length ? `<section class="shelf"><div class="shelf-head"><h2>${t}<span class="sub">${sub}</span></h2></div>${ranked(list, true)}</section>` : ''; }).join('')}
     ${rest.length ? `<section class="shelf"><div class="shelf-head"><h2>More apps</h2></div>${ranked(byStars(rest), true)}</section>` : ''}
     ${trustedShelf('tool', 'Tools from Trusted Publishers')}
@@ -895,7 +917,7 @@ function instCards(l) {
       ${o.text ? `<span class="note" style="color:var(--label)">${esc(o.text)}</span>` : ''}
       ${o.steps ? `<ol class="steps">${o.steps.map(x => `<li>${esc(x)}</li>`).join('')}</ol>` : ''}
       ${o.dl ? `<a class="pill-link" href="${o.dl}" rel="noopener" style="align-self:flex-start">Download ZIP ${ic('ext')}</a>` : ''}
-      ${o.link ? `<a class="pill-link" href="${o.link}" target="_blank" rel="noopener" style="align-self:flex-start">Open install guide ${ic('ext')}</a>` : ''}
+      ${o.link ? `<a class="pill-link" href="${o.link}" target="_blank" rel="noopener" style="align-self:flex-start">${esc(o.linkText || 'Open install guide')} ${ic('ext')}</a>` : ''}
       ${o.note ? `<span class="note">${esc(o.note)}</span>` : ''}</div>`;
   }).join('');
 }

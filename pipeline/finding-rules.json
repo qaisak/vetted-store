@@ -1,0 +1,9 @@
+{
+  "_about": "Pattern-level notes for SkillSpector rules whose definition says nothing about what a listing does. Everything else is reviewed per finding in reviews.json.",
+  "rules": [
+    { "pattern": "Concealed Executable Artifact", "status": "ok",
+      "note": "This rule flags every script or program file inside a project, because skill bundles usually ship none. It says the file is code, not that the code does anything harmful; what the code does is checked by the other rules." },
+    { "pattern": "Incomplete referenced artifact analysis", "status": "cov",
+      "note": "The scanner couldn't fully read a file this one points to, such as a linked script or reference. That's a gap in the scan, not something it found." }
+  ]
+}

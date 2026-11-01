@@ -66,6 +66,10 @@ const SKILL_REPOS = [
     'plugins/incident-response/skills/postmortem-writing', 'plugins/avoid-ai-writing/skills/avoid-ai-writing', 'plugins/before-you-build/skills/before-you-build',
     'plugins/payment-processing/skills/stripe-integration', 'plugins/developer-essentials/skills/sql-optimization-patterns', 'plugins/security-scanning/skills/stride-analysis-patterns',
     'plugins/ui-design/skills/visual-design-foundations'] },
+  // Trending, added November 1, 2026
+  { repo: 'wheresryan22/anatomy', pick: [''] },
+  { repo: 'lemomo-ai/lemo-opuscar', pick: ['plugin/skills/lemo-opuscar'] },
+  { repo: 'aicodeking/leanrea', pick: ['leanrea'] },
 ];
 const MCP = [
   { repo: 'modelcontextprotocol/servers', sub: ['everything', 'fetch', 'filesystem', 'git', 'memory', 'sequentialthinking', 'time'] },
@@ -101,6 +105,7 @@ const MCP = [
   { repo: 'chigwell/telegram-mcp' },
   { repo: 'domdomegg/airtable-mcp-server' },
   { repo: 'marcelmarais/spotify-mcp-server' },
+  { repo: 'morluto/rea' },
 ];
 const TOOLS = ['NVIDIA/SkillSpector', 'vercel-labs/skills', 'BurntSushi/ripgrep', 'sharkdp/fd', 'junegunn/fzf', 'jqlang/jq', 'cli/cli', 'astral-sh/uv',
   'sharkdp/bat', 'jesseduffield/lazygit', 'ollama/ollama', 'aquasecurity/trivy', 'semgrep/semgrep', 'gitleaks/gitleaks',
@@ -108,7 +113,9 @@ const TOOLS = ['NVIDIA/SkillSpector', 'vercel-labs/skills', 'BurntSushi/ripgrep'
   'ajeetdsouza/zoxide', 'aristocratos/btop', 'dandavison/delta', 'bootandy/dust', 'sharkdp/hyperfine', 'casey/just', 'sxyazi/yazi',
   'extrawurst/gitui', 'jdx/mise', 'jesseduffield/lazydocker', 'XAMPPRocky/tokei',
   'yt-dlp/yt-dlp', 'Wilfred/difftastic', 'muesli/duf', 'ClementTsang/bottom', 'ducaale/xh', 'chmln/sd',
-  'schollz/croc', 'FiloSottile/age', 'saulpw/visidata', 'derailed/k9s', 'nicolargo/glances', 'yorukot/superfile', 'darrenburns/posting', 'tconbeer/harlequin', 'denisidoro/navi'];
+  'schollz/croc', 'FiloSottile/age', 'saulpw/visidata', 'derailed/k9s', 'nicolargo/glances', 'yorukot/superfile', 'darrenburns/posting', 'tconbeer/harlequin', 'denisidoro/navi',
+  // Trending, added November 1, 2026
+  'Gathin23/cleanyourtv', 'storytold/photocraft', 'storytold/pdfcraft', 'KnifeLemon/Filee', 'robbietilton/Compositor', 'jub0t/Concat', 'crmne/spotifast'];
 
 const meta = {}, scores = {}, hn = {}, avatars = {};
 async function repoMeta(repo) {
@@ -185,9 +192,9 @@ for (const { repo, max = 99, nvidia, pick } of SKILL_REPOS) {
   const tree = await get(`https://api.github.com/repos/${m.full}/git/trees/${m.branch}?recursive=1`);
   const readme = await get(`https://raw.githubusercontent.com/${m.full}/${m.branch}/README.md`, { json: false });
   const all = tree ? tree.tree.filter(t => t.type === 'blob' && /(^|\/)SKILL\.md$/.test(t.path)).map(t => t.path) : localSkillFiles(m);
-  const files = pick ? pick.map(p => `${p}/SKILL.md`).filter(p => all.includes(p))
+  const files = pick ? pick.map(p => p ? `${p}/SKILL.md` : 'SKILL.md').filter(p => all.includes(p))
     : all.filter(p => !/(^|\/)(test|tests|fixtures|examples?|template)s?\//i.test(p) || repo === 'anthropics/skills');
-  if (pick && files.length < pick.length) console.error('MISSING PICKS', repo, pick.filter(p => !all.includes(`${p}/SKILL.md`)));
+  if (pick && files.length < pick.length) console.error('MISSING PICKS', repo, pick.filter(p => !all.includes(p ? `${p}/SKILL.md` : 'SKILL.md')));
   let n = 0;
   for (const p of files) {
     if (n >= max) break;

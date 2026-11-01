@@ -1,5 +1,5 @@
 {
-  "_about": "Hand-written plain-language summaries, written from each project's own description and README. [what it helps you do, jobs it's for, setup: 1 easy, 2 some setup, 3 technical]. Jobs: dev, vibe, design, marketing, business, writing, research, data, office, security, devops, ai, science.",
+  "_about": "Hand-written plain-language summaries, written from each project's own description and README. [what it helps you do, jobs it's for, setup: 1 easy, 2 some setup, 3 technical]. Jobs: everyday, dev, vibe, design, marketing, business, writing, research, data, office, security, devops, ai, science.",
   "anthropics-academy-guide": [
     "Points you to Claude Academy courses and tutorials when you ask how to use Claude.",
     [
@@ -1853,6 +1853,7 @@
   "mcp-mcp-server-youtube-transcript": [
     "Gets the transcript of a YouTube video so your assistant can summarize or quote it.",
     [
+      "everyday",
       "research",
       "marketing",
       "office"
@@ -1870,6 +1871,7 @@
   "yt-dlp": [
     "Downloads videos and audio from YouTube and thousands of other sites.",
     [
+      "everyday",
       "marketing",
       "research"
     ],
@@ -1931,6 +1933,7 @@
   "croc": [
     "Sends a file or folder to another computer with a short code phrase, encrypted end to end.",
     [
+      "everyday",
       "office",
       "dev"
     ],
@@ -1939,6 +1942,7 @@
   "age": [
     "Locks files with encryption so only the right person can open them. Simpler than GPG.",
     [
+      "everyday",
       "security",
       "dev"
     ],
@@ -2121,6 +2125,7 @@
   "mcp-whatsapp-mcp": [
     "Lets your assistant search and read your WhatsApp chats, and send messages for you.",
     [
+      "everyday",
       "office"
     ],
     3
@@ -2143,8 +2148,96 @@
   "mcp-spotify-mcp-server": [
     "Lets your assistant play music on Spotify and manage your playlists.",
     [
+      "everyday",
       "office"
     ],
     3
+  ],
+  "mcp-rea": [
+    "Lets your AI assistant take apart an app or program to show how it works, down to the machine code.",
+    [
+      "security",
+      "dev"
+    ],
+    3
+  ],
+  "cleanyourtv": [
+    "Removes ads and junk apps from an Android or Google TV over Wi-Fi and gives it a clean, Apple TV-style home screen. Can be undone.",
+    [
+      "everyday"
+    ],
+    3
+  ],
+  "photocraft": [
+    "A free photo editor for your computer, a Photoshop alternative.",
+    [
+      "design",
+      "everyday"
+    ],
+    1
+  ],
+  "pdfcraft": [
+    "A free app to read, edit, sign and fill in PDF files.",
+    [
+      "office",
+      "everyday"
+    ],
+    1
+  ],
+  "filee": [
+    "Converts files between 263 formats (images, PDF, Word, Excel, audio, video) by drag and drop, offline.",
+    [
+      "office",
+      "everyday"
+    ],
+    1
+  ],
+  "compositor": [
+    "A free image editor for Mac, a Photoshop alternative.",
+    [
+      "design",
+      "everyday"
+    ],
+    1
+  ],
+  "concat": [
+    "A free video editor, a CapCut alternative, that runs on your own computer.",
+    [
+      "design",
+      "marketing",
+      "everyday"
+    ],
+    1
+  ],
+  "spotifast": [
+    "A fast, lightweight desktop app for your Spotify music.",
+    [
+      "everyday"
+    ],
+    1
+  ],
+  "wheresryan22-anatomy": [
+    "Makes detailed, interactive isometric illustrations that explain how something works.",
+    [
+      "design",
+      "writing"
+    ],
+    1
+  ],
+  "lemomo-ai-lemo-opuscar": [
+    "Makes short films in code with your coding assistant, in one of 66 visual styles.",
+    [
+      "design",
+      "marketing"
+    ],
+    2
+  ],
+  "aicodeking-leanrea": [
+    "Helps your assistant take apart shipped apps with ordinary command-line tools.",
+    [
+      "security",
+      "dev"
+    ],
+    2
   ]
 }

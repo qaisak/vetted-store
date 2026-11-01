@@ -1,7 +1,16 @@
 {
   "obra-writing-skills": {
     "files": "A helper script reads skill files and writes the diagrams it renders.",
-    "shell": "Runs Graphviz (dot) to render the flowcharts in skill docs."
+    "shell": "Runs Graphviz (dot) to render the flowcharts in skill docs.",
+    "_findings": [
+      {
+        "match": "~/.claude/",
+        "file": "references/CLAUDE_MD_TESTING.md",
+        "level": "benign",
+        "note": "references/CLAUDE_MD_TESTING.md:85,95,123 are sample CLAUDE.md wordings being compared. Each tells the assistant to search your own installed skills folder (~/.claude/skills) for a relevant skill.",
+        "date": "2026-11-01"
+      }
+    ]
   },
   "mcp-playwright-mcp": {
     "secretFiles": "Only in a Docker build script that can use an .npmrc for npm ci. Not part of the server.",
@@ -31,12 +40,34 @@
           ]
         ],
         "note": "On startup the Blender add-on checks GitHub for a newer addon.py from the project's main branch, not from a signed or tagged release. It only installs when you click \"Update Addon\", syntax-checks the download first (compile() doesn't run it) and keeps a .bak of the old file. SkillSpector rates this critical. It isn't malicious, but clicking update means trusting whatever is on main at that moment. Set BLENDERMCP_NO_UPDATE_CHECK to turn the check off."
+      },
+      {
+        "match": "curl -LsSf",
+        "file": "install.sh",
+        "level": "notice",
+        "title": "Installer runs downloaded install scripts",
+        "note": "Lines 4 and 10 are usage examples in comments. The script itself pipes uv's official installer into sh if uv is missing (install.sh:33-35), then runs the latest mcp-for-blender from PyPI (install.sh:58-60).",
+        "date": "2026-11-01"
       }
     ],
     "files": "The Blender add-on saves downloaded models and textures and imports them into your scene.",
     "shell": "Its setup command finds Blender and runs it to install the add-on.",
     "secretFiles": "Its setup command finds your AI clients (Claude Code, Codex, Claude Desktop, VS Code) and adds Blender MCP to their MCP settings. The ~/.codex/config.toml matches are its status message and a printed tip (setup_cli.py:495, 830).",
-    "credentials": "Optional API keys for its asset features are sent only to those services: Hyper3D Rodin (hyperhuman.deemos.com), fal.ai (queue.fal.run) and Sketchfab (api.sketchfab.com). SkillSpector flags each of these key-to-network flows as critical; they're the feature working as designed."
+    "credentials": "Optional API keys for its asset features are sent only to those services: Hyper3D Rodin (hyperhuman.deemos.com), fal.ai (queue.fal.run) and Sketchfab (api.sketchfab.com). SkillSpector flags each of these key-to-network flows as critical; they're the feature working as designed.",
+    "_notices": [
+      {
+        "title": "Sends anonymous usage data by default",
+        "level": "notice",
+        "note": "Default: sends install ID, tool name, success, time, versions, OS to Supabase (telemetry.py:295-318). Prompts, code, screenshots, scene data only if you opt in (addon.py:6287). DISABLE_TELEMETRY=true stops all (telemetry.py:116).",
+        "where": [
+          [
+            "src/blender_mcp/telemetry.py",
+            null
+          ]
+        ],
+        "date": "2026-11-01"
+      }
+    ]
   },
   "mcp-zotero-mcp": {
     "shell": "Its optional Zotero plugin can start an AI agent you configure, through the Agent Client Protocol.",
@@ -66,7 +97,16 @@
     "credentials": "Protects that --listen server with an optional FZF_API_KEY."
   },
   "lazygit": {
-    "secretFiles": "False match: a file-icon table includes .npmrc."
+    "secretFiles": "False match: a file-icon table includes .npmrc.",
+    "_findings": [
+      {
+        "match": "reset state",
+        "file": "pkg/gocui/escape.go",
+        "level": "benign",
+        "note": "Comment in the terminal escape-code parser explaining it skips unknown codes rather than erroring, so stray codes don't show up as junk text (escape.go:469-474). Display logic only.",
+        "date": "2026-11-01"
+      }
+    ]
   },
   "gitleaks": {
     "network": "Its optional --diagnostics mode serves profiling data on localhost:6060.",
@@ -110,6 +150,15 @@
         ],
         "note": "It sends usage events to PostHog (us.i.posthog.com) unless you opt out: which tool ran, how long it took, response sizes, your MCP client's name and error messages, with your Figma token redacted. Turn it off with --no-telemetry, FRAMELINK_TELEMETRY=off or DO_NOT_TRACK=1."
       }
+    ],
+    "_findings": [
+      {
+        "match": "silently send",
+        "file": "src/server.ts",
+        "level": "benign",
+        "note": "Comment explaining why the server prints a warning when no image folder is set, so downloaded Figma images aren't saved somewhere unexpected on your own disk (server.ts:74-84). Nothing is sent anywhere.",
+        "date": "2026-11-01"
+      }
     ]
   },
   "mcp-ida-pro-mcp": {
@@ -135,6 +184,13 @@
         "match": "eval(",
         "level": "benign",
         "note": "The same py_eval feature: it evaluates the last expression of the Python you send."
+      },
+      {
+        "match": "list MCP tools",
+        "file": "src/ida_pro_mcp/ida_mcp/profile.py",
+        "level": "benign",
+        "note": "Docstring: 'Profile files whitelist MCP tools by name' (profile.py:1). A profile file lets you limit which of this server's own tools are offered. It does not read other apps' MCP settings.",
+        "date": "2026-11-01"
       }
     ]
   },
@@ -154,7 +210,8 @@
             111
           ]
         ],
-        "note": "The optional agent chat in the side panel runs Claude Code with permission prompts off unless you pick another mode (bypassPermissions), and always runs Codex with --dangerously-bypass-approvals-and-sandbox, in the project folder you choose. Whatever the agent decides to do there happens without asking you. The browser tools work without this feature."
+        "note": "The optional agent chat in the side panel runs Claude Code with permission prompts off unless you pick another mode (bypassPermissions), and always runs Codex with --dangerously-bypass-approvals-and-sandbox, in the project folder you choose. Whatever the agent decides to do there happens without asking you. The browser tools work without this feature.",
+        "level": "warning"
       }
     ],
     "_findings": [
@@ -167,6 +224,62 @@
         "match": "hnswlib-index",
         "level": "benign",
         "note": "It deletes its own in-browser search index (an IndexedDB database named /hnswlib-index) when rebuilding tab search (app/chrome-extension/utils/vector-database.ts:1524). Not a command or a file on your computer."
+      },
+      {
+        "match": "Reset state",
+        "file": "app/chrome-extension/entrypoints/offscreen/gif-encoder.ts",
+        "level": "benign",
+        "note": "Comments on code that clears internal variables: after making a GIF (gif-encoder.ts:117), ending a recording (recorder.js:591,655), a test helper (offscreen-manager.ts:98), a bad message (native-messaging-host.ts:49).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Reset state",
+        "file": "app/chrome-extension/inject-scripts/recorder.js",
+        "level": "benign",
+        "note": "Comments on code that clears internal variables: after making a GIF (gif-encoder.ts:117), ending a recording (recorder.js:591,655), a test helper (offscreen-manager.ts:98), a bad message (native-messaging-host.ts:49).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Reset state",
+        "file": "app/chrome-extension/utils/offscreen-manager.ts",
+        "level": "benign",
+        "note": "Comments on code that clears internal variables: after making a GIF (gif-encoder.ts:117), ending a recording (recorder.js:591,655), a test helper (offscreen-manager.ts:98), a bad message (native-messaging-host.ts:49).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Reset state",
+        "file": "app/native-server/src/native-messaging-host.ts",
+        "level": "benign",
+        "note": "Comments on code that clears internal variables: after making a GIF (gif-encoder.ts:117), ending a recording (recorder.js:591,655), a test helper (offscreen-manager.ts:98), a bad message (native-messaging-host.ts:49).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "reset history",
+        "file": "app/chrome-extension/entrypoints/popup/components/builder/store/useBuilderStore.ts",
+        "level": "benign",
+        "note": "Comment before code that empties the undo/redo list when a workflow is loaded into the visual builder (useBuilderStore.ts:121-124). Ordinary editor housekeeping.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "clear state",
+        "file": "app/chrome-extension/entrypoints/sidepanel/composables/useWebEditorTxState.ts",
+        "level": "benign",
+        "note": "Comments on UI cleanup: clearing the side panel when you switch tabs (useWebEditorTxState.ts:368), telling it the editor closed (editor.ts:1531), and ending a hover animation (canvas-overlay.ts:619).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "clear state",
+        "file": "app/chrome-extension/entrypoints/web-editor-v2/core/editor.ts",
+        "level": "benign",
+        "note": "Comments on UI cleanup: clearing the side panel when you switch tabs (useWebEditorTxState.ts:368), telling it the editor closed (editor.ts:1531), and ending a hover animation (canvas-overlay.ts:619).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "clear state",
+        "file": "app/chrome-extension/entrypoints/web-editor-v2/overlay/canvas-overlay.ts",
+        "level": "benign",
+        "note": "Comments on UI cleanup: clearing the side panel when you switch tabs (useWebEditorTxState.ts:368), telling it the editor closed (editor.ts:1531), and ending a hover animation (canvas-overlay.ts:619).",
+        "date": "2026-11-01"
       }
     ]
   },
@@ -188,6 +301,22 @@
         ],
         "note": "It sends usage events to telemetry.desktopcommander.app unless you opt out: tool names, OS and versions, file extensions and sizes, and base command names. Its privacy policy says it never sends file paths, file contents or command arguments. Turn it off with \"telemetryEnabled\": false in ~/.desktop-commander/config.json, by asking the assistant to disable it, or with DESKTOP_COMMANDER_DISABLE_TELEMETRY=1."
       }
+    ],
+    "_findings": [
+      {
+        "match": "Extract context",
+        "file": "src/search-manager.ts",
+        "level": "benign",
+        "note": "Doc comment for a helper that shows about 50 characters around a search match in results, like grep (search-manager.ts:923-929). Text stays local and is shown only to you.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "capture context",
+        "file": "src/server.ts",
+        "level": "benign",
+        "note": "Code comment: tool calls fired by its own interface are left out of usage telemetry (server.ts:1182). The telemetry itself, on by default, is explained under Worth knowing.",
+        "date": "2026-11-01"
+      }
     ]
   },
   "mcp-google-workspace-mcp": {
@@ -202,6 +331,20 @@
         "match": "silently send",
         "level": "benign",
         "note": "A docstring and an error message saying Gmail \"would silently send from the default address\" if the From address isn't one of yours. The code refuses to send in that case (gmail/gmail_helpers.py:1745)."
+      },
+      {
+        "match": "Extract thread",
+        "file": "gmail/gmail_tools.py",
+        "level": "benign",
+        "note": "Comment before code that reads the subject line of the first email in a Gmail thread to title the thread summary returned to you (gmail_tools.py:3758-3761). Normal feature, not leakage.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Extract context",
+        "file": "gsearch/search_tools.py",
+        "level": "benign",
+        "note": "Comment before code that reads your custom search engine's title from Google's reply to show its settings (search_tools.py:227-229). 'Context' is Google's name for that metadata field.",
+        "date": "2026-11-01"
       }
     ]
   },
@@ -215,7 +358,45 @@
     "env": "Port, host and folder settings for the companion (BRAINSTORM_* variables, scripts/server.cjs:85-104)."
   },
   "pbakaus-impeccable": {
-    "network": "Its live preview script runs in your own page and talks to Impeccable's server on localhost with a session token (scripts/live-browser.js:3947). It doesn't contact the internet."
+    "network": "Its live preview script runs in your own page and talks to Impeccable's server on localhost with a session token (scripts/live-browser.js:3947). It doesn't contact the internet.",
+    "_findings": [
+      {
+        "match": "new identity is",
+        "file": "reference/colorize.md",
+        "level": "benign",
+        "note": "reference/colorize.md:23 means a new visual brand identity (color palette): \"If a new identity is required, use new-work.md.\" Nothing to do with the assistant's memory or persona.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.claude/settings.json",
+        "file": "reference/hooks.md",
+        "level": "notice",
+        "title": "Can add an auto-running design hook",
+        "note": "reference/hooks.md:17,109 list where the optional design-check hook is saved, incl. user-wide ~/.claude/settings.json. Turned on via /impeccable hooks on, it runs a downloaded, checksum-checked engine after edits, unsandboxed.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "clear state",
+        "file": "reference/mode-operate.md",
+        "level": "benign",
+        "note": "reference/mode-operate.md:15 is design guidance asking mock-up screens to show \"charts and tables with clear states\". Nothing clears memory or state.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Code capability 'network'",
+        "file": "scripts/live-browser.js",
+        "level": "benign",
+        "note": "scripts/live-browser.js is the in-page toolbar for live design mode. It only talks to the skill's own local helper server (localhost, with a token) and re-downloads the page's own fonts for screenshots.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Remove //",
+        "file": "scripts/live-browser.js",
+        "level": "benign",
+        "note": "scripts/live-browser.js:8372 is a code comment: the Delete/Backspace key works as a shortcut for the toolbar's Remove button, only when the prompt box is empty.",
+        "date": "2026-11-01"
+      }
+    ]
   },
   "othmanadi-planning-with-files": {
     "shell": "Runs its own helper scripts: a ledger summary shell script and a catch-up Python script that ship with the skill (scripts/inject-plan.py:1433, 1679).",
@@ -225,14 +406,102 @@
         "match": "lsum_sh, ledger_dir",
         "level": "benign",
         "note": "SkillSpector traces this to hook input, but the folder passed here is a temporary folder the script creates itself (scripts/inject-plan.py:1378), handed to its own ledger-summary.sh as an argument list with no shell."
+      },
+      {
+        "match": "Code capability 'env' detected in scripts/inject-plan.py",
+        "file": "scripts/inject-plan.py",
+        "level": "benign",
+        "note": "scripts/inject-plan.py reads only its own settings from environment variables (PWF_*, PLAN_ID, HOME, temp folder) to find and show your plan files. No secrets, no internet use.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Code capability 'network' detected in scripts/session-catchup.py",
+        "file": "scripts/session-catchup.py",
+        "level": "benign",
+        "note": "scripts/session-catchup.py has no internet code. The only \"connection\" is a read-only open of a local OpenCode history database. Results are printed locally.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Extract conversation",
+        "file": "scripts/session-catchup.py",
+        "level": "benign",
+        "note": "scripts/session-catchup.py:835 pulls recent messages from your local AI chat history to recover lost notes. It runs only when you explicitly ask (--replay), per SKILL.md:48; nothing is uploaded.",
+        "date": "2026-11-01"
       }
     ]
   },
   "cathrynlavery-diagram-design": {
-    "browser": "Uses Playwright's headless browser to turn a finished diagram into a PNG (scripts/export_png.py:35). It doesn't browse the web."
+    "browser": "Uses Playwright's headless browser to turn a finished diagram into a PNG (scripts/export_png.py:35). It doesn't browse the web.",
+    "_findings": [
+      {
+        "match": "Legacy System",
+        "file": "assets/example-high-level-dark.html",
+        "level": "benign",
+        "note": "assets/example-high-level-dark.html:146 and example-high-level.html:183 are HTML comments labeling the \"Legacy System\" box in a sample architecture diagram. Layout notes, no hidden instructions.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Legacy System",
+        "file": "assets/example-high-level.html",
+        "level": "benign",
+        "note": "assets/example-high-level-dark.html:146 and example-high-level.html:183 are HTML comments labeling the \"Legacy System\" box in a sample architecture diagram. Layout notes, no hidden instructions.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access token",
+        "file": "assets/example-sequence-oauth-full.html",
+        "level": "benign",
+        "note": "assets/example-sequence-oauth-full.html:318 is caption text in a sample login-flow diagram explaining what happens when the access token is still valid.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "GET /resource (before ALT frame)",
+        "file": "assets/example-sequence-oauth.html",
+        "level": "benign",
+        "note": "assets/example-sequence-oauth.html:108 is an HTML comment labeling the first arrow (client to API) in a sample sequence diagram. A layout note, no hidden instructions.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Event 1: FEB 2025",
+        "file": "assets/example-timeline-dark.html",
+        "level": "benign",
+        "note": "example-timeline-dark.html:88, example-timeline-full.html:69 and example-timeline.html:88 are HTML comments labeling the first event on sample timeline diagrams. Layout notes.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Event 1: FEB 2025",
+        "file": "assets/example-timeline-full.html",
+        "level": "benign",
+        "note": "example-timeline-dark.html:88, example-timeline-full.html:69 and example-timeline.html:88 are HTML comments labeling the first event on sample timeline diagrams. Layout notes.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Event 1: FEB 2025",
+        "file": "assets/example-timeline.html",
+        "level": "benign",
+        "note": "example-timeline-dark.html:88, example-timeline-full.html:69 and example-timeline.html:88 are HTML comments labeling the first event on sample timeline diagrams. Layout notes.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "START_TAG_RE = re.compile(",
+        "file": "references/export.md",
+        "level": "benign",
+        "note": "references/export.md:85 is Python code in an SVG-export recipe that recognizes HTML comment markers so it can skip over them. The scanner matched the \"<!--\" pattern itself.",
+        "date": "2026-11-01"
+      }
+    ]
   },
   "zarazhangrui-frontend-slides": {
-    "browser": "Uses Playwright's headless browser to export your slides to PDF (scripts/export-pdf.sh:193). It doesn't browse the web."
+    "browser": "Uses Playwright's headless browser to export your slides to PDF (scripts/export-pdf.sh:193). It doesn't browse the web.",
+    "_findings": [
+      {
+        "match": "<!-- Fonts: use Fontshare or Google Fonts",
+        "file": "html-template.md",
+        "level": "benign",
+        "note": "html-template.md:15 is a comment in the slide template telling the assistant to load fonts from Fontshare or Google Fonts. Normal web styling; finished slides fetch fonts from those sites.",
+        "date": "2026-11-01"
+      }
+    ]
   },
   "thedotmack-agent-cost-report": {
     "network": "Downloads public model prices from OpenRouter (scripts/acr/prices.py:14), checks your own OpenRouter key's usage if you set OPENROUTER_API_KEY (scripts/acr/measure.py:18), and the optional --classify pass described below.",
@@ -247,6 +516,15 @@
           ]
         ],
         "note": "Off by default. If you run it with --classify, it sends short snippets of your AI coding transcripts (the flagged message plus one before and after, scrubbed, up to 1,500 characters) to OpenRouter using your OPENROUTER_API_KEY, to label them. It caps that at $2 a run. Without --classify, nothing from your transcripts leaves your computer."
+      }
+    ],
+    "_findings": [
+      {
+        "match": "detected in scripts/acr/classify.py",
+        "file": "scripts/acr/classify.py",
+        "level": "benign",
+        "note": "scripts/acr/classify.py is the optional --classify mode, off by default. What it sends to OpenRouter is explained under Worth knowing.",
+        "date": "2026-11-01"
       }
     ]
   },
@@ -355,6 +633,20 @@
         "match": "Enable debug mode",
         "level": "benign",
         "note": "A translated label in its VS Code extension's settings screen (vscode-extension/src/webview/i18n.ts:59)."
+      },
+      {
+        "match": ".env ",
+        "file": "src/dashboard_frontend/src/i18n.ts",
+        "level": "benign",
+        "note": "Developer note: set VITE_I18N_DYNAMIC=true in your .env file to load translations on demand (i18n.ts:18). It does not read any secrets.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "clear state",
+        "file": "vscode-extension/src/webview/App.tsx",
+        "level": "benign",
+        "note": "Comments about resetting the 'batch in progress' spinner in the VS Code panel once the backend confirms or a timeout fires (App.tsx:257, 509). Ordinary UI bookkeeping.",
+        "date": "2026-11-01"
       }
     ]
   },
@@ -412,6 +704,13 @@
         "match": "send chat",
         "level": "benign",
         "note": "Its optional Matrix chat loader: when you open a Matrix account, pressing a sends the message you type to the room you're on (visidata/loaders/api_matrix.py:146)."
+      },
+      {
+        "match": "apps/galcon/__init__.py",
+        "file": "visidata/apps/galcon/__init__.py",
+        "level": "benign",
+        "note": "A symlink to galcon.py, an old multiplayer game demo that only contacts a game server you open. Not part of the installed package (setup.py:96-98 omit it); README says it's outdated.",
+        "date": "2026-11-01"
       }
     ]
   },
@@ -477,6 +776,13 @@
         "match": "rm -rf ${cwd}/build/ios",
         "level": "benign",
         "note": "A build script for iOS that cleans its own build folders (compile-ios.sh:104). Not part of the jq program."
+      },
+      {
+        "match": "corrupt state",
+        "file": "src/jq_test.c",
+        "level": "benign",
+        "note": "Comment on a unit test that checks jq's engine can be safely reused after it runs out of results (jq_test.c:462-464). Test code only.",
+        "date": "2026-11-01"
       }
     ]
   },
@@ -491,6 +797,20 @@
         "match": "swap memory",
         "level": "benign",
         "note": "Text in its settings and menu about showing swap memory (src/btop_config.cpp:210)."
+      },
+      {
+        "match": "Enable debug mode",
+        "file": "src/btop_cli.hpp",
+        "level": "benign",
+        "note": "Comment describing btop's --debug command-line option, which adds extra logs and metrics (btop_cli.hpp:19-20). Not an instruction to an AI.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Reset memory",
+        "file": "src/osx/btop_collect.cpp",
+        "level": "benign",
+        "note": "Comment: on macOS, if a process can't be read (no permission or zombie), btop shows its memory as 0 (btop_collect.cpp:1882-1885). Just a displayed number.",
+        "date": "2026-11-01"
       }
     ]
   },
@@ -500,6 +820,13 @@
         "match": ".env",
         "level": "benign",
         "note": "False match: a field named env in its settings code (src/config.rs:195)."
+      },
+      {
+        "match": "/etc/passwd",
+        "file": "src/subcommands/diff.rs",
+        "level": "benign",
+        "note": "Unit test cases that diff standard system files (/etc/group, /etc/passwd, /dev/null) to check delta reports differences correctly (diff.rs:131-133). Read locally during tests only.",
+        "date": "2026-11-01"
       }
     ]
   },
@@ -566,7 +893,8 @@
             778
           ]
         ],
-        "note": "The WhatsApp bridge serves an API on port 8080 on every network interface, not just your own computer, and it doesn't ask for a password or check where a request comes from. While it runs, another device on the same network, or a web page you open, could send WhatsApp messages as you through /api/send. Run it only on a network you trust, and block port 8080 from other machines with your firewall."
+        "note": "The WhatsApp bridge serves an API on port 8080 on every network interface, not just your own computer, and it doesn't ask for a password or check where a request comes from. While it runs, another device on the same network, or a web page you open, could send WhatsApp messages as you through /api/send. Run it only on a network you trust, and block port 8080 from other machines with your firewall.",
+        "level": "warning"
       }
     ]
   },
@@ -595,6 +923,2759 @@
         "match": "swap memory",
         "level": "benign",
         "note": "Field descriptions such as \"Total swap memory.\" (glances/plugins/memswap/model.py:52)."
+      },
+      {
+        "match": "Reset history",
+        "file": "glances/outputs/glances_curses.py",
+        "level": "benign",
+        "note": "Comment noting that the old version labeled the 'r' key 'Reset history' but it actually toggled SMART disk stats (glances_curses.py:261-264). Keyboard shortcut docs.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "wheresryan22-anatomy": {
+    "network": "Only to a headless Chrome it starts on your own computer, through Chrome's local debugging port on 127.0.0.1, to screenshot and check the illustration it drew (scripts/capture.mjs:147, scripts/drive.mjs:145).",
+    "env": "Finds Chrome through CHROME_PATH or its usual install folders (scripts/capture.mjs:78).",
+    "browser": "Launches headless Chrome or Playwright's Chromium to render and screenshot the illustration (scripts/capture.mjs:92-126). It doesn't browse the web."
+  },
+  "lemomo-ai-lemo-opuscar": {
+    "browser": "Its setup script installs a headless Chromium (scripts/setup.sh:71) to render the films it makes into video. It doesn't browse the web."
+  },
+  "mcp-rea": {
+    "credentials": "A redaction list: names like accesstoken, apikey and bearer that it strips from environment reports so they don't end up in its output (src/application/environment/environmentBuildReport.ts:28).",
+    "secretFiles": "A list of config file names (.npmrc, .nvmrc, .editorconfig) it uses to classify files in a project it analyzes (src/domain/referenceSourceClassification.ts:145). It doesn't read your own .npmrc."
+  },
+  "cleanyourtv": {
+    "credentials": "Only in its optional smart-home add-on for the TV, which uses the Home Assistant token you give it (addons/smart-home/.../HaClient.java:56)."
+  },
+  "photocraft": {
+    "shell": "Desktop integration helpers: it reads your light or dark mode setting (apps/photocraft/src/appearance.rs:47), finds fonts with fc-match, opens an SVG in your chosen editor (src/external_svg.rs:121), and restarts itself after updates. The shell and cmd calls the scanner also sees are in tests inside source files."
+  },
+  "pdfcraft": {
+    "shell": "Desktop integration helpers: reduced-motion and appearance settings (reg, defaults), printer options (lpoptions), and restarting itself (apps/pdfcraft/src/motion.rs:43). The security and PowerShell calls are in tests.",
+    "secretFiles": "For signing PDFs with a digital ID: it uses certificates stored in your macOS Keychain through Apple's Security framework, the private key never leaves the Keychain, and macOS asks you to allow it (crates/sign/src/keychain.rs)."
+  },
+  "concat": {
+    "credentials": "Protects its optional local control server with a random 128-bit token that every connection must present, even from your own computer (src/crates/concat-server/src/grpc.rs:164, lib.rs:23)."
+  },
+  "spotifast": {
+    "secretFiles": "Stores your Spotify login in your system's secure store (macOS Keychain, Windows Credential Manager or the Linux secret service) instead of a plain file (src/credentials.rs:287)."
+  },
+  "skills-cli": {
+    "_findings": [
+      {
+        "match": "Update skill",
+        "file": "src/cli.ts",
+        "level": "benign",
+        "note": "Help text and menu hints for the tool's own 'skills update' command, which refreshes skills you installed (src/cli.ts:163, src/update.ts:233, 238). It does not change the tool itself or any AI agent.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Update skill",
+        "file": "src/update.ts",
+        "level": "benign",
+        "note": "Help text and menu hints for the tool's own 'skills update' command, which refreshes skills you installed (src/cli.ts:163, src/update.ts:233, 238). It does not change the tool itself or any AI agent.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "enable Developer Mode",
+        "file": "src/add.ts",
+        "level": "benign",
+        "note": "Message shown on Windows when shortcut links fail: files were copied instead, and turning on Windows Developer Mode allows links (src/add.ts:1153, 2714). Nothing to do with AI 'developer mode' jailbreaks.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "delete //",
+        "file": "src/installer.ts",
+        "level": "benign",
+        "note": "Code comment explaining a safety check: the installer refuses to install a skill onto its own source folder, because cleaning the target would delete your original files (src/installer.ts:360).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "/etc/passwd",
+        "file": "src/installer.ts",
+        "level": "benign",
+        "note": "Comment describing a protection: when copying a skill, links pointing outside the skill folder (e.g. to /etc/passwd or ~/.ssh) are skipped so private files are not copied in (src/installer.ts:554, enforced at 561-575).",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "github-cli": {
+    "_findings": [
+      {
+        "match": "eyring",
+        "file": "pkg/cmd/agent-task/agent_task.go",
+        "level": "benign",
+        "note": "Check that your saved GitHub login came from the normal browser sign-in (stored in the system keychain) before allowing Copilot agent-task commands (agent_task.go:90-96). It only inspects the token type.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "keyring",
+        "file": "pkg/cmd/auth/shared/telemetry.go",
+        "level": "benign",
+        "note": "Usage statistic recording only whether your token was saved in the secure keychain or a plain file, as the word 'keyring' or 'plaintext' (telemetry.go:86-94). The token itself is not sent; skipped for Enterprise hosts.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "eyring",
+        "file": "pkg/cmd/auth/token/token.go",
+        "level": "notice",
+        "title": "Can print your saved GitHub token",
+        "note": "The 'gh auth token' command reads your GitHub login token from the system keychain and prints it, mainly for scripts (token.go:93-209). Documented and user-run, but anything able to run gh can get your token.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access token",
+        "file": "pkg/cmd/auth/token/token.go",
+        "level": "benign",
+        "note": "Code comment explaining that 'gh auth token --no-refresh' returns the stored token without renewing it (token.go:180). Part of the token-printing command noted separately.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "keyring",
+        "file": "pkg/cmd/config/get/get.go",
+        "level": "notice",
+        "title": "Can print your saved GitHub token",
+        "note": "'gh config get oauth_token -h <host>' looks up your saved GitHub login token (keychain included) and prints it (get.go:56-63). A documented, user-run command, same as 'gh auth token'.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Keychain",
+        "file": "pkg/cmd/attestation/artifact/oci/client.go",
+        "level": "benign",
+        "note": "Uses your existing container-registry login (e.g. from docker login) to download signed attestation data when you run 'gh attestation' on an image (oci/client.go:55-88). Standard library call; nothing is stored or sent elsewhere.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access token",
+        "file": "pkg/cmd/auth/login/login.go",
+        "level": "benign",
+        "note": "Help text for 'gh auth login' explaining you can sign in with a personal access token and which permissions it needs (login.go:87-91). It also notes tokens fall back to a plain file if no keychain exists.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access token",
+        "file": "pkg/cmd/auth/refresh/refresh.go",
+        "level": "benign",
+        "note": "Code comment in 'gh auth refresh' explaining it renews an expiring token first so your existing permissions are kept (refresh.go:207). Talks only to GitHub.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access token",
+        "file": "pkg/cmd/ruleset/list/list.go",
+        "level": "benign",
+        "note": "Help text telling you your token needs the admin:org permission to list organization rulesets (list.go:53).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Access Token",
+        "file": "pkg/cmd/auth/shared/login_flow.go",
+        "level": "benign",
+        "note": "Tip printed during login pointing you to GitHub's own token settings page to create a Personal Access Token (login_flow.go:227).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Overwrite existing file",
+        "file": "pkg/cmd/issue/artifact/download/download.go",
+        "level": "benign",
+        "note": "Description of the optional --clobber flag for download commands, which replaces files of the same name only if you ask; off by default (issue/artifact/download/download.go:135, release/download/download.go:116).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Overwrite existing file",
+        "file": "pkg/cmd/release/download/download.go",
+        "level": "benign",
+        "note": "Description of the optional --clobber flag for download commands, which replaces files of the same name only if you ask; off by default (issue/artifact/download/download.go:135, release/download/download.go:116).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Remove //",
+        "file": "pkg/cmd/pr/edit/edit.go",
+        "level": "benign",
+        "note": "Ordinary code reading which pull-request reviewers you asked to remove, followed by a comment (pr/edit/edit.go:520). The scanner joined a variable name with the next comment line.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "remove //",
+        "file": "pkg/cmd/pr/merge/merge.go",
+        "level": "benign",
+        "note": "Comment explaining why gh blocks --delete-branch when a merge queue is on: it could remove the PR from the queue (pr/merge/merge.go:246). A safety check.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env",
+        "file": "pkg/cmd/secret/set/set.go",
+        "level": "benign",
+        "note": "Help examples showing you can upload values from your own .env file as GitHub secrets or variables with -f .env (secret/set/set.go:107-108, variable/set/set.go:83-84). Only happens when you run it.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env",
+        "file": "pkg/cmd/variable/set/set.go",
+        "level": "benign",
+        "note": "Help examples showing you can upload values from your own .env file as GitHub secrets or variables with -f .env (secret/set/set.go:107-108, variable/set/set.go:83-84). Only happens when you run it.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "return rules",
+        "file": "pkg/cmd/ruleset/shared/shared.go",
+        "level": "benign",
+        "note": "Sorting repository ruleset entries by type for display (ruleset/shared/shared.go:75). 'Rules' here are GitHub branch rules, not AI prompts.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Overwrite existing skill",
+        "file": "pkg/cmd/skills/install/install.go",
+        "level": "benign",
+        "note": "Description of the optional --force flag for 'gh skills install', which replaces an already-installed skill without asking (skills/install/install.go:246). Off by default.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "uv": {
+    "_findings": [
+      {
+        "match": "elf-update",
+        "file": "crates/uv/src/commands/diagnostics.rs",
+        "level": "benign",
+        "note": "Build switches, log lines and errors for the 'uv self update' command, which downloads a newer official uv release only when you run it (self_update.rs, lib.rs, mod.rs). It refuses for pip/brew installs.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "elf-update",
+        "file": "crates/uv/src/commands/mod.rs",
+        "level": "benign",
+        "note": "Build switches, log lines and errors for the 'uv self update' command, which downloads a newer official uv release only when you run it (self_update.rs, lib.rs, mod.rs). It refuses for pip/brew installs.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "elf-update",
+        "file": "crates/uv/src/commands/self_update.rs",
+        "level": "benign",
+        "note": "Build switches, log lines and errors for the 'uv self update' command, which downloads a newer official uv release only when you run it (self_update.rs, lib.rs, mod.rs). It refuses for pip/brew installs.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "elf-update",
+        "file": "crates/uv/src/install_source.rs",
+        "level": "benign",
+        "note": "Build switches, log lines and errors for the 'uv self update' command, which downloads a newer official uv release only when you run it (self_update.rs, lib.rs, mod.rs). It refuses for pip/brew installs.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "elf-update",
+        "file": "crates/uv/src/lib.rs",
+        "level": "benign",
+        "note": "Build switches, log lines and errors for the 'uv self update' command, which downloads a newer official uv release only when you run it (self_update.rs, lib.rs, mod.rs). It refuses for pip/brew installs.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "self_update",
+        "file": "crates/uv/src/commands/mod.rs",
+        "level": "benign",
+        "note": "Names of the function behind the user-run 'uv self update' command (commands/mod.rs:42, 73; self_update.rs:60; lib.rs:1484). It only runs when you ask uv to update itself.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "self_update",
+        "file": "crates/uv/src/commands/self_update.rs",
+        "level": "benign",
+        "note": "Names of the function behind the user-run 'uv self update' command (commands/mod.rs:42, 73; self_update.rs:60; lib.rs:1484). It only runs when you ask uv to update itself.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "self_update",
+        "file": "crates/uv/src/lib.rs",
+        "level": "benign",
+        "note": "Names of the function behind the user-run 'uv self update' command (commands/mod.rs:42, 73; self_update.rs:60; lib.rs:1484). It only runs when you ask uv to update itself.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "SelfUpdate",
+        "file": "crates/uv/src/lib.rs",
+        "level": "benign",
+        "note": "Name of the settings type for the user-run 'uv self update' command (lib.rs:34, 1478).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "without warning",
+        "file": "crates/uv/src/commands/auth/helper.rs",
+        "level": "benign",
+        "note": "Notice that an experimental command 'may change without warning' and how to hide that notice (auth/helper.rs:94, cache_size.rs:23). Not an instruction to skip safety prompts.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "without warning",
+        "file": "crates/uv/src/commands/cache_size.rs",
+        "level": "benign",
+        "note": "Notice that an experimental command 'may change without warning' and how to hide that notice (auth/helper.rs:94, cache_size.rs:23). Not an instruction to skip safety prompts.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "eyring",
+        "file": "crates/uv/src/commands/venv.rs",
+        "level": "benign",
+        "note": "Passing along uv's optional 'keyring provider' setting, used to fetch passwords for private package servers (venv.rs:16-291, lib.rs:803-2079). It is off by default and must be turned on by you.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "eyring",
+        "file": "crates/uv/src/lib.rs",
+        "level": "benign",
+        "note": "Passing along uv's optional 'keyring provider' setting, used to fetch passwords for private package servers (venv.rs:16-291, lib.rs:803-2079). It is off by default and must be turned on by you.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "ollama": {
+    "_findings": [
+      {
+        "match": "clear memory",
+        "file": "server/sched.go",
+        "level": "benign",
+        "note": "Log message when the computer runs out of graphics/system memory: Ollama unloads models to free RAM before the next request (server/sched.go:1698). Nothing to do with AI chat memory.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "trivy": {
+    "_findings": [
+      {
+        "match": "password.txt",
+        "file": "pkg/commands/app.go",
+        "level": "benign",
+        "note": "Help example for 'trivy registry login' showing how to pass your own registry password via standard input instead of the command line (pkg/commands/app.go:1325). A safer-practice example.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "--skip-check",
+        "file": "pkg/commands/operation/operation.go",
+        "level": "benign",
+        "note": "Log message when you used --skip-check-update: Trivy uses its already-downloaded scan rules instead of fetching new ones (operation/operation.go:91). Nothing is skipped silently.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "semgrep": {
+    "_findings": [
+      {
+        "match": ".env ",
+        "file": "cli/src/semgrep/app/version.py",
+        "level": "benign",
+        "note": "The line 'env = get_state().env' loads Semgrep's internal settings object (URLs, whether it runs in Docker/CI). It does not open any .env secrets file (version.py, cli.py, config_resolver.py, git.py, meta.py, login.py).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env ",
+        "file": "cli/src/semgrep/cli.py",
+        "level": "benign",
+        "note": "The line 'env = get_state().env' loads Semgrep's internal settings object (URLs, whether it runs in Docker/CI). It does not open any .env secrets file (version.py, cli.py, config_resolver.py, git.py, meta.py, login.py).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env ",
+        "file": "cli/src/semgrep/commands/login.py",
+        "level": "benign",
+        "note": "The line 'env = get_state().env' loads Semgrep's internal settings object (URLs, whether it runs in Docker/CI). It does not open any .env secrets file (version.py, cli.py, config_resolver.py, git.py, meta.py, login.py).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env ",
+        "file": "cli/src/semgrep/config_resolver.py",
+        "level": "benign",
+        "note": "The line 'env = get_state().env' loads Semgrep's internal settings object (URLs, whether it runs in Docker/CI). It does not open any .env secrets file (version.py, cli.py, config_resolver.py, git.py, meta.py, login.py).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env ",
+        "file": "cli/src/semgrep/git.py",
+        "level": "benign",
+        "note": "The line 'env = get_state().env' loads Semgrep's internal settings object (URLs, whether it runs in Docker/CI). It does not open any .env secrets file (version.py, cli.py, config_resolver.py, git.py, meta.py, login.py).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env ",
+        "file": "cli/src/semgrep/meta.py",
+        "level": "benign",
+        "note": "The line 'env = get_state().env' loads Semgrep's internal settings object (URLs, whether it runs in Docker/CI). It does not open any .env secrets file (version.py, cli.py, config_resolver.py, git.py, meta.py, login.py).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "return",
+        "file": "cli/src/semgrep/config_resolver.py",
+        "level": "benign",
+        "note": "Ordinary code returning parsed Semgrep scanning rules (config_resolver.py:758, 859; util.py:135; test.py:66). 'Rules' are code-pattern rules, not AI system prompts.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "return",
+        "file": "cli/src/semgrep/util.py",
+        "level": "benign",
+        "note": "Ordinary code returning parsed Semgrep scanning rules (config_resolver.py:758, 859; util.py:135; test.py:66). 'Rules' are code-pattern rules, not AI system prompts.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "return",
+        "file": "cli/src/semgrep/test.py",
+        "level": "benign",
+        "note": "Ordinary code returning parsed Semgrep scanning rules (config_resolver.py:758, 859; util.py:135; test.py:66). 'Rules' are code-pattern rules, not AI system prompts.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "os.execvp(str(path), sys.argv)",
+        "file": "cli/src/semgrep/console_scripts/entrypoint.py",
+        "level": "benign",
+        "note": "The 'semgrep' command handing off to its own bundled semgrep-core engine with the same arguments (console_scripts/entrypoint.py:281). Runs only Semgrep's installed binary, not downloaded code.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "dict(os.environ)",
+        "file": "cli/src/semgrep/git.py",
+        "level": "benign",
+        "note": "Copies the current environment so git runs with a few extra settings added (git.py:111-112). The values stay on your machine and go only to the local git command.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "git reset --hard",
+        "file": "cli/src/semgrep/git.py",
+        "level": "benign",
+        "note": "Comment on how diff scans view the older commit. The code only resets when git shows no unsaved changes, then restores your commit afterwards; otherwise it uses a separate temp copy (git.py:513-540).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.ssh/id_rsa",
+        "file": "cli/src/semgrep/mcp/hooks/stop.py",
+        "level": "benign",
+        "note": "Comment explaining a protection: the MCP stop hook refuses to follow planted shortcut links in its temp cache, e.g. one pointing at ~/.ssh/id_rsa (mcp/hooks/stop.py:113-116).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "os.environ.copy()",
+        "file": "cli/src/semgrep/mcp/semgrep.py",
+        "level": "benign",
+        "note": "The MCP server copies its environment to run the local semgrep program, adding log and tracing settings (mcp/semgrep.py:44-55). Nothing is sent anywhere.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "grep MCP server is configured at user level",
+        "file": "cli/src/semgrep/mcp/server.py",
+        "level": "benign",
+        "note": "Error text explaining that a scan was refused because the workspace looks like your whole home folder, e.g. when set up in ~/.cursor/mcp.json (mcp/server.py:399). It does not read that file; it limits scans.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Write rule to file",
+        "file": "cli/src/semgrep/mcp/server.py",
+        "level": "benign",
+        "note": "Saves a Semgrep rule you supplied into a temporary folder so it can be run against code snippets (mcp/server.py:877-880). Not related to AI prompts.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access token",
+        "file": "cli/src/semgrep/mcp/utilities/utils.py",
+        "level": "benign",
+        "note": "The hosted Semgrep MCP server checks your Semgrep sign-in token and sends it only to Semgrep's own API to look up your account (mcp/utilities/utils.py:205-414). Expected for logging in.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "nvidia-ambient-healthcare-agent-with-nemotron-voice-agent": {
+    "_findings": [
+      {
+        "match": "urllib.request.urlopen(request",
+        "file": "scripts/run_expected_conversation.py",
+        "level": "notice",
+        "title": "Sends test chats to NVIDIA's AI service",
+        "note": "run_expected_conversation.py:460 sends the skill's fictional patient test chats, with your NVIDIA_API_KEY, to the chosen AI endpoint (NVIDIA's public one by default). It refuses to run without --live-test-approved.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env",
+        "file": "evals/evals.json",
+        "level": "benign",
+        "note": "Test cases (evals.json:18-22) check that the assistant tells you to put your NVIDIA key in your own NVA .env file and never asks for it in chat. Test text only; nothing is read.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env",
+        "file": "evals/grader.py",
+        "level": "benign",
+        "note": "grader.py:31 is a fixed example path (/workspace/nva-clinic/.env) that the test grader looks for in the assistant's answer. It does not open or read any .env file.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "nvidia-amc-run-rtsp-calibration": {
+    "_findings": [
+      {
+        "match": "requests.get(",
+        "file": "scripts/run_rtsp_calibration.py",
+        "level": "benign",
+        "note": "run_rtsp_calibration.py:169 is a health check asking your own video service (VIOS, default localhost:30888 or the VIOS_BASE_URL you set) for its camera list. No keys or personal data are sent.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "nvidia-amc-setup-calibration-stack": {
+    "_findings": [
+      {
+        "match": ".env",
+        "file": "evals/evals.json",
+        "level": "benign",
+        "note": "evals.json:7 is a test's expected answer describing careful key handling: ask for the NGC key without echoing or saving it, and write only ports and host IP to compose/.env with owner-only access.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "nvidia-boltz2-nim": {
+    "_findings": [
+      {
+        "match": ".env",
+        "file": "SKILL.md",
+        "level": "notice",
+        "title": "Needs your NVIDIA NGC API key",
+        "note": "SKILL.md:54 loads your project's .env file to get your NGC API key, used to log in to NVIDIA's container registry. Hosted mode also sends your protein inputs to NVIDIA's API with that key.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env",
+        "file": "config/skillspector-baseline.yml",
+        "level": "benign",
+        "note": "skillspector-baseline.yml:14 is NVIDIA's written note explaining why the .env line in SKILL.md is a reviewed false alarm for this scanner. Plain text; it reads nothing.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env",
+        "file": "evals/evals.json",
+        "level": "benign",
+        "note": "evals.json:39,44 are test expectations that the setup answer loads the project's .env only if present to find the NGC key. Test text only; nothing is read.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "nvidia-codonfm-embed": {
+    "_findings": [
+      {
+        "match": "==",
+        "file": "evals/files/codonfm_source.zip!/requirements.txt",
+        "level": "notice",
+        "title": "Pins packages with known security advisories",
+        "note": "The bundled copy of NVIDIA's CodonFM source pins torch 2.5.1 and transformers 4.54.1 (16 advisories each), plus lightning 2.5.2, hydra-core 1.3.2, hydra-optuna-sweeper 1.2.0, pytest 8.1.1, sh 2.2.2 (requirements.txt).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "&& chown -R",
+        "file": "evals/files/codonfm_source.zip!/Dockerfile",
+        "level": "benign",
+        "note": "Dockerfile:57 in the bundled CodonFM source copy makes a new non-root user the owner of the container's /workspace folder while the image is built. Routine container setup.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "=host",
+        "file": "evals/files/codonfm_source.zip!/run_dev.sh",
+        "level": "benign",
+        "note": "run_dev.sh:57-58 is in a test copy of CodonFM's dev-container launcher (host network sharing). This skill never runs it; the separate codonfm-setup skill does and discloses it.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "nvidia-codonfm-finetune": {
+    "_findings": [
+      {
+        "match": "==",
+        "file": "evals/files/codonfm_source.zip!/requirements.txt",
+        "level": "notice",
+        "title": "Pins packages with known security advisories",
+        "note": "The bundled copy of NVIDIA's CodonFM source pins torch 2.5.1 and transformers 4.54.1 (16 advisories each), plus lightning 2.5.2, hydra-core 1.3.2, hydra-optuna-sweeper 1.2.0, pytest 8.1.1, sh 2.2.2 (requirements.txt).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "&& chown -R",
+        "file": "evals/files/codonfm_source.zip!/Dockerfile",
+        "level": "benign",
+        "note": "Dockerfile:57 in the bundled CodonFM source copy makes a new non-root user the owner of the container's /workspace folder while the image is built. Routine container setup.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "=host",
+        "file": "evals/files/codonfm_source.zip!/run_dev.sh",
+        "level": "benign",
+        "note": "run_dev.sh:57-58 is in a test copy of CodonFM's dev-container launcher (host network sharing). This skill never runs it; the separate codonfm-setup skill does and discloses it.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "nvidia-codonfm-score": {
+    "_findings": [
+      {
+        "match": "==",
+        "file": "evals/files/codonfm_source.zip!/requirements.txt",
+        "level": "notice",
+        "title": "Pins packages with known security advisories",
+        "note": "The bundled copy of NVIDIA's CodonFM source pins torch 2.5.1 and transformers 4.54.1 (16 advisories each), plus lightning 2.5.2, hydra-core 1.3.2, hydra-optuna-sweeper 1.2.0, pytest 8.1.1, sh 2.2.2 (requirements.txt).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "&& chown -R",
+        "file": "evals/files/codonfm_source.zip!/Dockerfile",
+        "level": "benign",
+        "note": "Dockerfile:57 in the bundled CodonFM source copy makes a new non-root user the owner of the container's /workspace folder while the image is built. Routine container setup.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "=host",
+        "file": "evals/files/codonfm_source.zip!/run_dev.sh",
+        "level": "benign",
+        "note": "run_dev.sh:57-58 is in a test copy of CodonFM's dev-container launcher (host network sharing). This skill never runs it; the separate codonfm-setup skill does and discloses it.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "nvidia-codonfm-setup": {
+    "_findings": [
+      {
+        "match": "==",
+        "file": "evals/files/codonfm_source.zip!/requirements.txt",
+        "level": "notice",
+        "title": "Pins packages with known security advisories",
+        "note": "The bundled copy of NVIDIA's CodonFM source pins torch 2.5.1 and transformers 4.54.1 (16 advisories each), plus lightning 2.5.2, hydra-core 1.3.2, hydra-optuna-sweeper 1.2.0, pytest 8.1.1, sh 2.2.2 (requirements.txt).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "&& chown -R",
+        "file": "evals/files/codonfm_source.zip!/Dockerfile",
+        "level": "benign",
+        "note": "Dockerfile:57 in the bundled CodonFM source copy makes a new non-root user the owner of the container's /workspace folder while the image is built. Routine container setup.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "=host",
+        "file": "evals/files/codonfm_source.zip!/run_dev.sh",
+        "level": "notice",
+        "title": "Dev container shares your host network",
+        "note": "run_dev.sh:57-58 (CodonFM's launcher, which this skill runs) shares your computer's network and memory space with the container and mounts ~/.ssh read-only. The skill says to tell you first.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "nvidia-complexa-evaluate-pdbs": {
+    "_findings": [
+      {
+        "match": ".env",
+        "file": "scripts/preflight.sh",
+        "level": "benign",
+        "note": "preflight.sh:34 reads the project's .env as plain text (never runs it) and keeps only tool and data folder paths for a local readiness report. No keys are read or sent.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "nvidia-complexa-sweep": {
+    "_findings": [
+      {
+        "match": ".env",
+        "file": "scripts/preflight.sh",
+        "level": "benign",
+        "note": "preflight.sh:34 reads the project's .env as plain text (never runs it) and keeps only tool and data folder paths for a local readiness report. No keys are read or sent.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "nvidia-complexa-target": {
+    "_findings": [
+      {
+        "match": ".env",
+        "file": "evals/files/campaign_context/README-excerpts.md",
+        "level": "benign",
+        "note": "README-excerpts.md:67 is a quoted line from the Proteina-Complexa README: 'complexa init' creates its settings (.env) file. Reference text used by tests only.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "nvidia-diffdock-nim": {
+    "_findings": [
+      {
+        "match": ".env",
+        "file": "config/skillspector-baseline.yml",
+        "level": "benign",
+        "note": "skillspector-baseline.yml:14 is NVIDIA's written note explaining why the .env line in references/api.md is a reviewed false alarm for this scanner. Plain text; it reads nothing.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env",
+        "file": "evals/evals.json",
+        "level": "benign",
+        "note": "evals.json:41,46 are test expectations that the Docker setup answer loads the project's .env only if present to find the NGC key. Test text only; nothing is read.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env",
+        "file": "references/api.md",
+        "level": "notice",
+        "title": "Needs your NVIDIA NGC API key",
+        "note": "api.md:90 loads your project's .env file to get your NGC API key for logging in to NVIDIA's container registry. The skill's hosted mode sends your molecules to NVIDIA's API with that key.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "nvidia-evo2-nim": {
+    "_findings": [
+      {
+        "match": "requests.post(url",
+        "file": "scripts/generate.py",
+        "level": "notice",
+        "title": "Sends DNA sequences to NVIDIA's API",
+        "note": "generate.py:123 sends your DNA sequence to NVIDIA's hosted Evo 2 service with your NGC_API_KEY (the default), or to your own local server if EVO2_NIM_URL is set. Redirects are blocked; the key isn't saved.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Code capability",
+        "file": "scripts/generate.py",
+        "level": "benign",
+        "note": "Scanner note that generate.py reads environment settings and uses the network without a permissions list. Both are just the Evo 2 request at generate.py:80-123 covered above.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env",
+        "file": "SKILL.md",
+        "level": "notice",
+        "title": "Needs your NVIDIA NGC API key",
+        "note": "SKILL.md:125 loads your project's .env file to get your NGC API key for logging in to NVIDIA's container registry before running Evo 2 on your own GPUs.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env",
+        "file": "references/api.md",
+        "level": "notice",
+        "title": "Needs your NVIDIA NGC API key",
+        "note": "api.md:165 loads your project's .env file to get your NGC API key for logging in to NVIDIA's container registry before running Evo 2 on your own GPUs.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env",
+        "file": "config/skillspector-baseline.yml",
+        "level": "benign",
+        "note": "skillspector-baseline.yml:34,45,55 are NVIDIA's written notes explaining why the .env mentions are reviewed false alarms for this scanner. Plain text; it reads nothing.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env",
+        "file": "evals/evals.json",
+        "level": "benign",
+        "note": "evals.json:28 is a test expectation that the local setup answer mentions the project's .env and key names. Test text only; nothing is read.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "huggingface-hf-cli": {
+    "_findings": [
+      {
+        "match": "curl -LsSf https://hf.co/cli/install.sh | bash",
+        "file": "SKILL.md",
+        "level": "notice",
+        "title": "Installs by running a downloaded script",
+        "note": "SKILL.md:6 gives the official install command, which downloads Hugging Face's installer from hf.co and runs it right away. Standard for this tool, but it runs code from the internet.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access token",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:26-30 lists the hf CLI's own login commands (list, switch, print your token). It's a reference list; nothing tells the assistant to send your token anywhere.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Access Token",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:225 describes the --token option and advises setting HF_TOKEN instead of typing the token into commands, which is the safer practice.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "--skip-checks",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:188 lists an option of 'hf spaces hot-reload' (skip checks when reloading a file in your own Space). It's a reference entry, not an instruction to use it.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "huggingface-hf-cloud-aws-context-discovery": {
+    "_findings": [
+      {
+        "match": "~/.aws/config",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:16,24,64 read your AWS profile and region from ~/.aws/config, which holds settings, not secrets, so the assistant doesn't guess your account or region.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.aws/credentials",
+        "file": "SKILL.md",
+        "level": "notice",
+        "title": "May read your AWS credentials file",
+        "note": "SKILL.md:64 lets the assistant open ~/.aws/credentials (read-only) to list profiles. That file holds secret keys, which would then show up in the chat. It prefers 'aws configure list' first.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "huggingface-huggingface-community-evals": {
+    "_findings": [
+      {
+        "match": "printenv HF_TOKEN",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:47 checks that HF_TOKEN is set; '>/dev/null' throws the output away, so your token is never shown or sent anywhere.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "vercel-labs-vercel-composition-patterns": {
+    "_findings": [
+      {
+        "match": "clear context",
+        "file": "README.md",
+        "level": "benign",
+        "note": "README.md:28 says 'Define clear context interfaces', meaning React Context in app code design. It has nothing to do with clearing the assistant's memory.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "vercel-labs-vercel-react-best-practices": {
+    "_findings": [
+      {
+        "match": "dangerouslySetInnerHTML={",
+        "file": "AGENTS.md",
+        "level": "benign",
+        "note": "AGENTS.md:2537 and rules/rendering-hydration-no-flicker.md:63 show a React example with a fixed inline script that applies a saved theme. No user input is inserted; it's a coding tip.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "dangerouslySetInnerHTML={",
+        "file": "rules/rendering-hydration-no-flicker.md",
+        "level": "benign",
+        "note": "AGENTS.md:2537 and rules/rendering-hydration-no-flicker.md:63 show a React example with a fixed inline script that applies a saved theme. No user input is inserted; it's a coding tip.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "vercel-labs-vercel-cli-with-tokens": {
+    "_findings": [
+      {
+        "match": "access token",
+        "file": "SKILL.md",
+        "level": "notice",
+        "title": "Needs a Vercel access token",
+        "note": "The skill deploys with your Vercel access token, taken from your environment or project .env, or asks you to create one at vercel.com/account/tokens (SKILL.md:3,53).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "printenv VERCEL_TOKEN",
+        "file": "SKILL.md",
+        "level": "notice",
+        "title": "Shows your Vercel token in the chat",
+        "note": "SKILL.md:20 checks for your token by printing its value, and the .env searches at SKILL.md:28-48, 78 and 318 print matching lines, token included. The token then sits in the assistant chat and its logs. It goes nowhere else, but a check that hides the value would be safer.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env ",
+        "file": "SKILL.md",
+        "level": "notice",
+        "title": "Shows your Vercel token in the chat",
+        "note": "SKILL.md:20 checks for your token by printing its value, and the .env searches at SKILL.md:28-48, 78 and 318 print matching lines, token included. The token then sits in the assistant chat and its logs. It goes nowhere else, but a check that hides the value would be safer.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env.local ",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:244 is the standard 'vercel env pull' command, which saves your Vercel project's settings to a local .env.local file. Routine Vercel workflow.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "vercel-labs-vercel-optimize": {
+    "_findings": [
+      {
+        "match": "return rule",
+        "file": "lib/support-topics.mjs",
+        "level": "benign",
+        "note": "support-topics.mjs:326 is ordinary code: 'rule' is a variable for a docs citation, and the line returns whether it applies to your framework. Unrelated to system prompts.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "obra-diagnosing-superpowers": {
+    "_findings": [
+      {
+        "match": "Do not judge",
+        "file": "prompts/request-conflicts.md",
+        "level": "benign",
+        "note": "prompts/request-conflicts.md:19 tells a review helper, which reads a past session log, to report conflicting instructions without judging whether the user was right. Not about refusing anything.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "obra-executing-plans": {
+    "_findings": [
+      {
+        "match": "git clean -fdx",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:140 is a caution, not a command: it warns that running git clean -fdx would wipe the skill's scratch progress folder, and says how to recover from git history.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "obra-finishing-a-development-branch": {
+    "_findings": [
+      {
+        "match": "git push -u origin <feature-branch>",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:116 is the push-and-open-PR step. It runs only after the user picks \"Push and create a Pull Request\" from a menu the skill must show and wait on (SKILL.md:54-80).",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "obra-subagent-driven-development": {
+    "_findings": [
+      {
+        "match": "git clean -fdx",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:126 is a caution, not a command: running git clean -fdx would delete the skill's scratch progress folder; it says to recover from git history if that happens.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "obra-systematic-debugging": {
+    "_findings": [
+      {
+        "match": "eychain",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:98-99 is a sample debug script for a broken Mac app-signing build in CI. It lists keychains and signing certificates to find which step fails. It reads no passwords.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Capture context",
+        "file": "defense-in-depth.md",
+        "level": "benign",
+        "note": "defense-in-depth.md:73 is a heading about adding debug logging (folder, working directory, stack trace) to your own code. The log stays local; nothing is sent anywhere.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "obra-using-superpowers": {
+    "_findings": [
+      {
+        "match": "~/.codex/config.toml",
+        "file": "references/codex-tools.md",
+        "level": "benign",
+        "note": "references/codex-tools.md:3,71 are setup tips for Codex users: turn on multi-agent support, and ask the user to set a cheaper default model for helper agents. No secrets are read.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "addyosmani-browser-testing-with-devtools": {
+    "_findings": [
+      {
+        "match": "Ignore previous instructions",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:77 quotes \"Ignore previous instructions\" as an example of an attack hidden in a web page, and tells the assistant to treat it as data and report it. A safety rule, not an injection.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "addyosmani-ci-cd-and-automation": {
+    "_findings": [
+      {
+        "match": ".env",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:278 is a table of where secrets belong: the local .env file is never committed to git; CI and production secrets live in a vault. Good-practice advice.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "addyosmani-code-simplification": {
+    "_findings": [
+      {
+        "match": "Remove the assertion",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:155 is a code clean-up tip: drop redundant type casts where the type is already known. \"Assertion\" here means a TypeScript type cast, not a test or safety check.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "addyosmani-context-engineering": {
+    "_findings": [
+      {
+        "match": ".env",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:65 is a sample project rules file telling the assistant never to commit .env files or secrets. A protective rule.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "coreyhaines31-ad-creative": {
+    "_findings": [
+      {
+        "match": "rsenic",
+        "file": "assets/creative-review-template.html",
+        "level": "benign",
+        "note": "assets/creative-review-template.html:170-210 is sample ad copy for a protein powder brand saying lab tests found low arsenic and other heavy metals. Example content, not harmful instructions.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "without warning",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:419 lists a common ad mistake: ignoring character limits, because ad platforms cut off long text without warning. Not an instruction to skip safety warnings.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "coreyhaines31-ads": {
+    "_findings": [
+      {
+        "match": "ignore previous instructions",
+        "file": "references/audit-guardrails.md",
+        "level": "benign",
+        "note": "references/audit-guardrails.md:87 quotes \"ignore previous instructions\" as an example of an attack hidden in fetched pages and says never to follow it. A protective rule.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "swap rules",
+        "file": "references/b2b-paid-playbook.md",
+        "level": "benign",
+        "note": "references/b2b-paid-playbook.md:69 points to the ad \"swap rules\": never pause a working ad until a replacement ad is ready. Advertising advice, not memory tampering.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Swap rules",
+        "file": "references/meta-decision-system.md",
+        "level": "benign",
+        "note": "references/meta-decision-system.md:15,107 is a section titled \"Swap rules\" on replacing worn-out Facebook/Instagram ads with fresh ones. Advertising advice, not memory tampering.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "don't judge",
+        "file": "references/reading-google-ads-data.md",
+        "level": "benign",
+        "note": "references/reading-google-ads-data.md:64 says don't judge ad performance while Google's automatic bidding is still in its learning phase. Data-reading advice, not about refusals.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "coreyhaines31-attribution": {
+    "_findings": [
+      {
+        "match": "Safari/Firefox ITP-style cookie limits",
+        "file": "references/measurement-paradigms.md",
+        "level": "benign",
+        "note": "references/measurement-paradigms.md:24 explains why tracking a customer across devices keeps getting harder (browser cookie limits, iOS privacy prompts, ad blockers). Background text; no cookies are read.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "jeffallan-api-designer": {
+    "_findings": [
+      {
+        "match": "access token",
+        "file": "references/error-handling.md",
+        "level": "benign",
+        "note": "references/error-handling.md:131 and openapi.md:436 are sample API docs: an \"access token is invalid or expired\" error message and a description of a login token field. Examples only.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access token",
+        "file": "references/openapi.md",
+        "level": "benign",
+        "note": "references/error-handling.md:131 and openapi.md:436 are sample API docs: an \"access token is invalid or expired\" error message and a description of a login token field. Examples only.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "DELETE /users/",
+        "file": "references/error-handling.md",
+        "level": "benign",
+        "note": "references/rest-patterns.md:17,123 and error-handling.md:151 are textbook REST API examples showing what a request to delete a user record looks like. Nothing is executed.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "DELETE /users/",
+        "file": "references/rest-patterns.md",
+        "level": "benign",
+        "note": "references/rest-patterns.md:17,123 and error-handling.md:151 are textbook REST API examples showing what a request to delete a user record looks like. Nothing is executed.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "without warning",
+        "file": "references/versioning.md",
+        "level": "benign",
+        "note": "references/versioning.md:377,389 advise API makers never to break or retire API versions without warning their users. Good-practice advice, not about skipping safety warnings.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "jeffallan-atlassian-mcp": {
+    "_findings": [
+      {
+        "match": "access tokens",
+        "file": "SKILL.md",
+        "level": "notice",
+        "title": "Needs your Jira and Confluence tokens",
+        "note": "SKILL.md:80 has you run the community mcp-atlassian server (downloaded via uvx) with Jira/Confluence personal access tokens, or sign in to Atlassian's hosted server. Tokens come from env variables.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Access Tokens",
+        "file": "references/authentication-patterns.md",
+        "level": "benign",
+        "note": "references/authentication-patterns.md:227-238 are steps for creating a personal access token in your Jira/Confluence profile settings. How-to documentation.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env",
+        "file": "references/authentication-patterns.md",
+        "level": "benign",
+        "note": "references/authentication-patterns.md:460-461 are sample .gitignore entries that keep .env secret files out of git. Protective advice.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "credentials.json",
+        "file": "references/authentication-patterns.md",
+        "level": "benign",
+        "note": "references/authentication-patterns.md:463 is a sample .gitignore entry that keeps credentials.json out of git. Protective advice.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access token",
+        "file": "references/mcp-server-setup.md",
+        "level": "benign",
+        "note": "references/mcp-server-setup.md:175,185 are rows in a settings table naming the token variables for self-hosted Jira and Confluence. Documentation of the token need noted on SKILL.md:80.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "jeffallan-chaos-engineer": {
+    "_findings": [
+      {
+        "match": "kubeconfig",
+        "file": "references/chaos-tools.md",
+        "level": "benign",
+        "note": "references/chaos-tools.md:239-241 are a sample CI pipeline step that connects to a staging Kubernetes cluster using the repo's stored AWS secrets before a chaos test. Example only.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "jeffallan-cli-developer": {
+    "_findings": [
+      {
+        "match": "credentials.json",
+        "file": "references/design-patterns.md",
+        "level": "benign",
+        "note": "references/design-patterns.md:145 shows a suggested folder layout for a command-line tool you build, noting its credentials file should be private (600 permissions). Good practice.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Overwrite existing file",
+        "file": "references/node-cli.md",
+        "level": "benign",
+        "note": "references/node-cli.md:24 is sample code for a --force option in a command-line tool you build, letting its users overwrite files. Nothing to do with the assistant changing itself.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "jeffallan-cloud-architect": {
+    "_findings": [
+      {
+        "match": "169.254.169.254",
+        "file": "references/cost.md",
+        "level": "benign",
+        "note": "references/cost.md:113 is sample code for AWS spot servers: it asks the server's own built-in info address whether it is about to be shut down, so the app can stop cleanly. Standard AWS pattern.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "jeffallan-code-documenter": {
+    "_findings": [
+      {
+        "match": "access token",
+        "file": "references/user-guides-tutorials.md",
+        "level": "benign",
+        "note": "references/user-guides-tutorials.md:284 is a sample tutorial step showing a developer how to use an OAuth login token with an SDK. Example documentation.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "lukasniessen-terrashark": {
+    "_findings": [
+      {
+        "match": "capture context",
+        "file": "README.md",
+        "level": "benign",
+        "note": "README.md:196 and docs/advanced/comparison.md:31 describe the skill's first step, \"capture context\": noting your Terraform setup before writing code. Nothing is collected or sent.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "capture context",
+        "file": "docs/advanced/comparison.md",
+        "level": "benign",
+        "note": "README.md:196 and docs/advanced/comparison.md:31 describe the skill's first step, \"capture context\": noting your Terraform setup before writing code. Nothing is collected or sent.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Capture Context",
+        "file": "docs/core-concepts/workflow.md",
+        "level": "benign",
+        "note": "docs/core-concepts/workflow.md:8 is the first step of the workflow: record your Terraform version, cloud and environment before writing code (SKILL.md:10-16). Stays in the chat.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "muratcankoylan-multi-agent-patterns": {
+    "_findings": [
+      {
+        "match": "clear context",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:226 says add more helper agents only when \"a clear context isolation benefit exists\". The scanner matched \"clear context\" inside that phrase; nothing is wiped.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "czlonkowski-n8n-workflow-patterns": {
+    "_findings": [
+      {
+        "match": "post message to",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:424 is an example n8n automation: a web form submission posts a message to your own Slack #notifications channel. A recipe you build, not the assistant sending data.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "czlonkowski-n8n-error-handling": {
+    "_findings": [
+      {
+        "match": "access token",
+        "file": "ERROR_WORKFLOWS.md",
+        "level": "benign",
+        "note": "ERROR_WORKFLOWS.md:109 notes that an n8n error-alert workflow needs an n8n API personal access token attached, or it fails. Setup advice for your own n8n.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "czlonkowski-n8n-node-configuration": {
+    "_findings": [
+      {
+        "match": "DELETE //",
+        "file": "DEPENDENCIES.md",
+        "level": "benign",
+        "note": "DEPENDENCIES.md:640 is a code comment noting the HTTP Request node shows a body field only for POST/PUT/PATCH/DELETE requests. Nothing is deleted.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "no warning",
+        "file": "NODE_FAMILY_GOTCHAS.md",
+        "level": "benign",
+        "note": "NODE_FAMILY_GOTCHAS.md:20 describes an n8n pitfall: a Switch node silently drops unmatched items with no error or warning, and gives the fix. Not about skipping warnings.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "wshobson-gdpr-data-handling": {
+    "_findings": [
+      {
+        "match": "without safeguards",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:73 is GDPR advice: don't transfer personal data abroad without legal safeguards (standard contract clauses or adequacy decisions). Protective guidance.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "mcp-git": {
+    "_findings": [
+      {
+        "match": "/etc/passwd",
+        "file": "src/mcp_server_git/server.py",
+        "level": "benign",
+        "note": "Code comment naming '../../etc/passwd' as an example of a path-traversal trick. The code below it blocks staging files outside the repository (server.py:213-220). Protective, not an access attempt.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "mcp-context7": {
+    "_findings": [
+      {
+        "match": "~/.gemini/config",
+        "file": "packages/cli/src/setup/agents.ts",
+        "level": "benign",
+        "note": "Comment saying Antigravity keeps its MCP settings in ~/.gemini/config/mcp_config.json, so the 'setup' command you run can add a Context7 entry there (agents.ts:336-345). Not snooping.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "bottom": {
+    "_findings": [
+      {
+        "match": "swap memory",
+        "file": "src/collection/memory/windows.rs",
+        "level": "benign",
+        "note": "Doc comment for a function that reads Windows swap-memory usage from performance counters to display it (windows.rs:18-19). Read-only system monitoring.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "skillspector": {
+    "_findings": [
+      {
+        "match": "cyanide",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_harmful_content.py",
+        "level": "benign",
+        "note": "One word in the scanner's list of poisons (lines 35-50) it watches for in skills, e.g. a recipe telling an agent to 'add a pinch of' it. A search keyword, not instructions. static_patterns_harmful_content.py:36",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "arsenic",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_harmful_content.py",
+        "level": "benign",
+        "note": "One word in the scanner's list of poisons (lines 35-50) it watches for in skills, e.g. a recipe telling an agent to 'add a pinch of' it. A search keyword, not instructions. static_patterns_harmful_content.py:37",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "ricin",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_harmful_content.py",
+        "level": "benign",
+        "note": "One word in the scanner's list of poisons (lines 35-50) it watches for in skills, e.g. a recipe telling an agent to 'add a pinch of' it. A search keyword, not instructions. static_patterns_harmful_content.py:38",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "botulinum",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_harmful_content.py",
+        "level": "benign",
+        "note": "One word in the scanner's list of poisons (lines 35-50) it watches for in skills, e.g. a recipe telling an agent to 'add a pinch of' it. A search keyword, not instructions. static_patterns_harmful_content.py:39",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "strychnine",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_harmful_content.py",
+        "level": "benign",
+        "note": "One word in the scanner's list of poisons (lines 35-50) it watches for in skills, e.g. a recipe telling an agent to 'add a pinch of' it. A search keyword, not instructions. static_patterns_harmful_content.py:40",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "thallium",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_harmful_content.py",
+        "level": "benign",
+        "note": "One word in the scanner's list of poisons (lines 35-50) it watches for in skills, e.g. a recipe telling an agent to 'add a pinch of' it. A search keyword, not instructions. static_patterns_harmful_content.py:41",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "cyanide",
+        "file": "src/skillspector/nodes/meta_analyzer.py",
+        "level": "benign",
+        "note": "Example in the scanner's instructions to its own AI reviewer: 'cyanide' in a cooking skill is critical, in a chemistry lesson maybe fine. Guidance text. nodes/meta_analyzer.py:193",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "pay the ransom",
+        "file": "src/skillspector/nodes/analyzers/static_yara.py",
+        "level": "benign",
+        "note": "Code comment giving 'Never pay the ransom in Bitcoin' as harmless advice the ransomware rule should not flag. static_yara.py:929",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "return rules",
+        "file": "src/skillspector/nodes/analyzers/static_yara.py",
+        "level": "benign",
+        "note": "Ordinary code: 'return rules, _rules_skipped_count' hands back the loaded detection rules. Nothing to do with revealing a prompt. static_yara.py:679",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "ignore filter",
+        "file": "src/skillspector/__init__.py",
+        "level": "benign",
+        "note": "Code comment about adding a Python warning filter to hide one noisy library deprecation message. Not an instruction to an AI. __init__.py:29",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".npmrc",
+        "file": "src/skillspector/dependency_inspection.py",
+        "level": "benign",
+        "note": "Module description promising this npm package check never reads .npmrc files or uses your saved credentials. dependency_inspection.py:7",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".npmrc",
+        "file": "src/skillspector/dependency_sources.py",
+        "level": "benign",
+        "note": "Parser that reads .npmrc files inside the skill being scanned, only the 'registry=' line, to spot package-source redirects. It does not read your own .npmrc. dependency_sources.py:1244,1950,2146",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".npmrc",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Detection pattern in the scanner's list of credential files (lines 125-149) that skills should not read. The scanner looks for this path in skills; it never opens it. static_patterns_privilege_escalation.py:139",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".aws/",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Detection patterns for AWS credential files in the scanner's watch-list of secrets skills should not read. Search terms only. static_patterns_privilege_escalation.py:129-130",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".config/gcloud/",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Detection pattern for Google Cloud credential folders in the scanner's watch-list of secrets skills should not read. Search term only. static_patterns_privilege_escalation.py:132",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".azure/",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Detection pattern for Azure credential folders in the scanner's watch-list of secrets skills should not read. Search term only. static_patterns_privilege_escalation.py:134",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "kube",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Detection patterns for Kubernetes login files (.kube/config, kubeconfig) in the scanner's watch-list of secrets. Search terms only. static_patterns_privilege_escalation.py:136-137",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".git-credentials",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Detection pattern for git's saved-password file in the scanner's watch-list of secrets skills should not read. Search term only. static_patterns_privilege_escalation.py:140",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".netrc",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Detection pattern for the .netrc password file in the scanner's watch-list of secrets skills should not read. Search term only. static_patterns_privilege_escalation.py:141",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "/etc/",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Detection patterns for the system account files (lines 142-143), plus a helper (lines 175-207) that excuses read-only /etc/passwd container mounts. Search logic only. static_patterns_privilege_escalation.py:142-195",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "key",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Detection pattern (line 147) and helper checks (lines 454-1167, incl. the GitLab setting GLAB_USE_KEYRING) for skills that touch the system password store. The scanner never opens it. static_patterns_privilege_escalation.py",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "KEYRING",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Code that recognizes the GitLab CLI setting name GLAB_USE_KEYRING so it is not mistaken for password-store access. Detection logic only. static_patterns_privilege_escalation.py:1019,1054,1061",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Login Data",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Detection pattern for browser cookie and saved-password files; a malware signature rule matched the pattern's own text. The scanner looks for it in skills. static_patterns_privilege_escalation.py:148",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "credentials.json",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Docstring explaining that an ignore-file line like 'config/credentials.json' only keeps a secret out of git and is not credential access. static_patterns_privilege_escalation.py:628",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "--privileged",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Detection pattern for skills that launch fully privileged containers. The scanner searches for this flag; it does not use it. static_patterns_privilege_escalation.py:163",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "release_agent",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Detection pattern for a known container-escape trick (cgroup release_agent). The scanner searches for it in skills; it does not use it. static_patterns_privilege_escalation.py:170",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "The scanner's pattern for phrases like 'access the credentials' (line 152) and comments/exception lists for harmless uses such as the noun 'access token'. Reads nothing. static_patterns_privilege_escalation.py:213-824,1379",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "id_rsa",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Code comment about counting one finding per occurrence of an SSH key path like '.ssh/id_rsa' in a scanned skill. static_patterns_privilege_escalation.py:1265",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "DockerClient(",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Code comment about de-duplicating findings for skills that open the Docker control socket, e.g. DockerClient(...). Detection logic only. static_patterns_privilege_escalation.py:1284",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "--cap-add",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_privilege_escalation.py",
+        "level": "benign",
+        "note": "Code comment: one 'docker run' line in a skill can match several risky flags like --cap-add=SYS_ADMIN, so only the strongest is kept. static_patterns_privilege_escalation.py:1308",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "os.environ.items()",
+        "file": "src/skillspector/input_handler.py",
+        "level": "benign",
+        "note": "When cloning a repo for an untrusted scan request, keeps only path, proxy and certificate settings and uses an empty temp home, so your credentials are not passed on. input_handler.py:1161",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "os.environ.items()",
+        "file": "src/skillspector/providers/_agent_cli.py",
+        "level": "benign",
+        "note": "Strips the environment down to an allow-list (path, proxy, language) before starting an AI command-line tool, so API keys are not handed to it. providers/_agent_cli.py:137",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "keychain",
+        "file": "src/skillspector/providers/_agent_cli.py",
+        "level": "benign",
+        "note": "Comment explaining why the claude tool is not run with '--bare': that flag would skip the tool's own saved login. SkillSpector does not read the keychain itself. providers/_agent_cli.py:263",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "keychain",
+        "file": "src/skillspector/providers/claude_cli/__init__.py",
+        "level": "benign",
+        "note": "Package description of the optional Claude provider: sign-in is handled by the separately installed claude tool, not by SkillSpector. providers/claude_cli/__init__.py:19",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "keychain",
+        "file": "src/skillspector/providers/claude_cli/provider.py",
+        "level": "notice",
+        "title": "Optional AI review uses your Claude login",
+        "note": "Docstring: if you choose SKILLSPECTOR_PROVIDER=claude_cli, files being scanned are sent to Anthropic through your installed claude tool and its saved login. Off by default. provider.py:19",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "return prompt",
+        "file": "src/skillspector/llm_analyzer_base.py",
+        "level": "benign",
+        "note": "Ordinary code returning the prompt text the scanner built for its AI reviewer. Not an attempt to reveal a hidden prompt. llm_analyzer_base.py:116",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "utput",
+        "file": "src/skillspector/llm_analyzer_base.py",
+        "level": "benign",
+        "note": "'Output guidelines' heading and docstrings in SkillSpector's own instructions to its AI reviewer, telling it to report only findings it is sure of. llm_analyzer_base.py:985,1011,1014,1255",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "src/skillspector/nodes/analyzers/artifact_integrity.py",
+        "level": "benign",
+        "note": "A pattern for the harmless spelled-out sum 'b + y + p + a + s + s', listed so the hidden-word check does not flag math or spelling examples. Exception list, not hidden text. artifact_integrity.py:308",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "/.",
+        "file": "src/skillspector/nodes/analyzers/bundled_execution_surface.py",
+        "level": "benign",
+        "note": "Watch-list of sensitive files (Claude settings, Docker, .netrc, .npmrc) the scanner checks a skill's bundled hooks against. It flags hooks that touch them; it does not read them. bundled_execution_surface.py:178-183,844",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "credentials.json",
+        "file": "src/skillspector/nodes/analyzers/bundled_execution_surface.py",
+        "level": "benign",
+        "note": "Entry '/.claude/.credentials.json' in the same watch-list of sensitive files that a skill's bundled hooks should not touch. Detection data only. bundled_execution_surface.py:180",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env\"",
+        "file": "src/skillspector/nodes/analyzers/mcp_least_privilege.py",
+        "level": "benign",
+        "note": "Regex 'process.env' in a list used to detect whether a scanned skill reads environment variables, compared with the permissions it declares. mcp_least_privilege.py:107",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env",
+        "file": "src/skillspector/nodes/analyzers/static_runner.py",
+        "level": "benign",
+        "note": "Helper that recognizes when a '.env' mention in a skill's docs is only a reference, not code reading secrets. Docstring and check. static_runner.py:643,664",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env\"",
+        "file": "src/skillspector/nodes/build_context.py",
+        "level": "benign",
+        "note": "Protective code: blanks out the values in .env files before any file text is sent to an outside AI model. nodes/build_context.py:1201",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "safety",
+        "file": "src/skillspector/nodes/analyzers/pattern_defaults.py",
+        "level": "benign",
+        "note": "Plain-English report text explaining each rule, e.g. 'attempts to ... ignore safety constraints' (lines 53, 86-87, 366); a signature rule also matched these words file-wide (line 33). Describes attacks only. pattern_defaults.py",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "override system",
+        "file": "src/skillspector/nodes/analyzers/pattern_defaults.py",
+        "level": "benign",
+        "note": "Report text explaining the prompt-injection rule: 'This pattern attempts to override system instructions...'. Shown to users; not an instruction. pattern_defaults.py:53",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "transmit conversation",
+        "file": "src/skillspector/nodes/analyzers/pattern_defaults.py",
+        "level": "benign",
+        "note": "Report text explaining a rule: skills that tell the agent to transmit conversation context to outside services. Shown to users. pattern_defaults.py:55",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "system prompts",
+        "file": "src/skillspector/nodes/analyzers/pattern_defaults.py",
+        "level": "benign",
+        "note": "Report text explaining and fixing the prompt-leak rule ('could directly expose system prompts', 'remove instructions that output system prompts'). pattern_defaults.py:81,394",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "--",
+        "file": "src/skillspector/nodes/analyzers/pattern_defaults.py",
+        "level": "benign",
+        "note": "Report text naming the risky Docker flags (--disable-content-trust, --insecure-registry) that the supply-chain rule warns about. pattern_defaults.py:100",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "DOCKER_CONTENT_TRUST",
+        "file": "src/skillspector/nodes/analyzers/pattern_defaults.py",
+        "level": "benign",
+        "note": "Report text naming the DOCKER_CONTENT_TRUST=0 setting that the supply-chain rule warns about. Explanation only. pattern_defaults.py:100",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "MCP config",
+        "file": "src/skillspector/nodes/analyzers/pattern_defaults.py",
+        "level": "benign",
+        "note": "Report text explaining and fixing the rule for skills that read MCP config files (mcp.json, claude_desktop_config.json). pattern_defaults.py:143,456",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "never refuse",
+        "file": "src/skillspector/nodes/analyzers/pattern_defaults.py",
+        "level": "benign",
+        "note": "Report text explaining and fixing the rule for skills that tell an agent to 'never refuse'. Describes the problem; not an instruction. pattern_defaults.py:146,459",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "always comply",
+        "file": "src/skillspector/nodes/analyzers/pattern_defaults.py",
+        "level": "benign",
+        "note": "Report text explaining and fixing the rule for skills that tell an agent to 'always comply'. Describes the problem; not an instruction. pattern_defaults.py:146,459",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "no restrictions",
+        "file": "src/skillspector/nodes/analyzers/pattern_defaults.py",
+        "level": "benign",
+        "note": "Report text quoting jailbreak phrases like 'you have no restrictions' to explain what the rule catches. pattern_defaults.py:148",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "your guidelines",
+        "file": "src/skillspector/nodes/analyzers/pattern_defaults.py",
+        "level": "benign",
+        "note": "Report text quoting jailbreak phrases like 'ignore your guidelines' to explain what the rule catches. pattern_defaults.py:148",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "anything now",
+        "file": "src/skillspector/nodes/analyzers/pattern_defaults.py",
+        "level": "benign",
+        "note": "Report text quoting the 'do anything now' jailbreak phrase to explain what the rule catches. pattern_defaults.py:148",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "169.254",
+        "file": "src/skillspector/nodes/analyzers/pattern_defaults.py",
+        "level": "benign",
+        "note": "Report text explaining why requests to the cloud metadata address 169.254.169.254 are risky. Explanation only; nothing is contacted. pattern_defaults.py:150",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env",
+        "file": "src/skillspector/nodes/analyzers/pattern_defaults.py",
+        "level": "benign",
+        "note": "Fix-it advice in reports: 'Never load .env or token files in production code paths.' pattern_defaults.py:379",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "guardrails",
+        "file": "src/skillspector/nodes/analyzers/pattern_defaults.py",
+        "level": "benign",
+        "note": "Fix-it advice in reports: skills must not tell the agent to ignore its guidelines or operate without guardrails. pattern_defaults.py:461",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "bypass safety",
+        "file": "src/skillspector/nodes/analyzers/semantic_security_discovery.py",
+        "level": "benign",
+        "note": "SkillSpector's prompt to its AI reviewer describing jailbreaks ('framings used to bypass safety', line 78); a signature rule also paired it with the word MODEL (line 22). Guidance text. semantic_security_discovery.py",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "bypass safety",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_tool_misuse.py",
+        "level": "benign",
+        "note": "Module description and comment ('tool chaining is used to bypass safety') naming what this detector finds; a signature rule also matched them. Description only. static_patterns_tool_misuse.py:19,338",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "--privileged",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_tool_misuse.py",
+        "level": "benign",
+        "note": "Detection pattern for skills that start a privileged Kubernetes pod with 'kubectl run --privileged'. Search term only. static_patterns_tool_misuse.py:460",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "chmod",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_tool_misuse.py",
+        "level": "benign",
+        "note": "Code comment explaining that GNU chmod accepts forms like 'chmod +777', so such commands are reported. Detection logic only. static_patterns_tool_misuse.py:301",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "--no-check",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_tool_misuse.py",
+        "level": "benign",
+        "note": "Detection pattern for 'wget --no-check-certificate' (download with security checks off). Search term only. static_patterns_tool_misuse.py:317",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "first|step",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_tool_misuse.py",
+        "level": "benign",
+        "note": "Detection pattern for step-by-step instructions that end in deleting or sending data. Search pattern only. static_patterns_tool_misuse.py:354",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Disable security feature",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_tool_misuse.py",
+        "level": "benign",
+        "note": "Comment heading a group of detection patterns for skills that turn off security features. static_patterns_tool_misuse.py:433",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "--",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_supply_chain.py",
+        "level": "benign",
+        "note": "Detection patterns that flag skills pulling container images with signature or registry checks turned off. The scanner looks for these flags; it does not use them. static_patterns_supply_chain.py:432,436",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "no warning",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_anti_refusal.py",
+        "level": "benign",
+        "note": "Docstring example (line 25) and comments (lines 260-275) explaining that code notes like 'the server emits no warning' are not instructions to hide warnings. static_patterns_anti_refusal.py",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "never refuse",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_anti_refusal.py",
+        "level": "benign",
+        "note": "Docstring and comment listing jailbreak phrases this detector catches, e.g. 'never refuse'. Examples, not instructions. static_patterns_anti_refusal.py:24,53",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "always comply",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_anti_refusal.py",
+        "level": "benign",
+        "note": "Docstring and comment listing jailbreak phrases this detector catches, e.g. 'always comply'. Examples, not instructions. static_patterns_anti_refusal.py:24,53",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "say no",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_anti_refusal.py",
+        "level": "benign",
+        "note": "Docstring listing jailbreak phrases this detector catches, e.g. 'you cannot say no'. Example, not an instruction. static_patterns_anti_refusal.py:24",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "moralize",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_anti_refusal.py",
+        "level": "benign",
+        "note": "Docstring listing phrases this detector catches, e.g. 'do not moralize'. Example, not an instruction. static_patterns_anti_refusal.py:25",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "ethics",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_anti_refusal.py",
+        "level": "benign",
+        "note": "Docstring listing phrases this detector catches, e.g. 'skip the ethics'. Example, not an instruction. static_patterns_anti_refusal.py:25",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "no restrictions",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_anti_refusal.py",
+        "level": "benign",
+        "note": "Docstring listing jailbreak phrases this detector catches, e.g. 'you have no restrictions'. Example, not an instruction. static_patterns_anti_refusal.py:26",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "guidelines",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_anti_refusal.py",
+        "level": "benign",
+        "note": "Docstring listing jailbreak phrases this detector catches, e.g. 'ignore your guidelines'. Example, not an instruction. static_patterns_anti_refusal.py:26",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "bound by",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_anti_refusal.py",
+        "level": "benign",
+        "note": "Docstring listing jailbreak phrases this detector catches, e.g. 'not bound by any policy'. Example, not an instruction. static_patterns_anti_refusal.py:27",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "anything now",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_anti_refusal.py",
+        "level": "benign",
+        "note": "Docstring example (line 27) and a code check (line 332) for the 'do anything now' jailbreak phrase. Detection logic only. static_patterns_anti_refusal.py",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Output rules",
+        "file": "src/skillspector/nodes/analyzers/semantic_developer_intent.py",
+        "level": "benign",
+        "note": "'### Output rules' heading in SkillSpector's own instructions to its AI reviewer. Formatting guidance, not prompt extraction. semantic_developer_intent.py:154",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Output rules",
+        "file": "src/skillspector/nodes/analyzers/semantic_quality_policy.py",
+        "level": "benign",
+        "note": "'### Output rules' heading in SkillSpector's own instructions to its AI reviewer. Formatting guidance, not prompt extraction. semantic_quality_policy.py:170",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "always",
+        "file": "src/skillspector/nodes/analyzers/semantic_quality_policy.py",
+        "level": "benign",
+        "note": "Examples in the AI reviewer's instructions of a skill wrongly forcing a language, e.g. 'always respond in Japanese'. Guidance text. semantic_quality_policy.py:162,164",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "reset state",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_memory_poisoning.py",
+        "level": "benign",
+        "note": "Docstring for a helper that lets hardware docs about a chip's 'reset state' pass without a memory-tampering finding. static_patterns_memory_poisoning.py:551",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "exec(output",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_output_handling.py",
+        "level": "benign",
+        "note": "Docstrings explaining how the checker tells a JavaScript regex '.exec(output)' call apart from running untrusted output as code. static_patterns_output_handling.py:222,466",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Ignore Prior",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_prompt_injection.py",
+        "level": "benign",
+        "note": "A signature rule matched the word 'models' in an import (line 27) plus the example 'IgnorePriorInstructions' in a docstring (line 350) of the prompt-injection detector. static_patterns_prompt_injection.py",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "SELF_UPDATE",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_rogue_agent.py",
+        "level": "benign",
+        "note": "Name of a pattern used to recognize a documented companion CLI's 'self-update' command so it is not mistaken for a skill rewriting itself. static_patterns_rogue_agent.py:110,468",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "self-update",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_rogue_agent.py",
+        "level": "benign",
+        "note": "Messages, docstrings and comments in the self-modification detector about when a 'self-update' command is a normal signed CLI update. static_patterns_rogue_agent.py:310-622",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "fd00:ec2::254",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_ssrf.py",
+        "level": "benign",
+        "note": "Detection pattern for the AWS metadata address over IPv6, used to flag skills that try to grab cloud credentials. The scanner makes no such request. static_patterns_ssrf.py:43",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "system prompt; reveal",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_system_prompt_leakage.py",
+        "level": "benign",
+        "note": "A signature rule matched this detector's own description of prompt-leak attacks (docstring, line 16). Description only. static_patterns_system_prompt_leakage.py",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "reveal system prompts",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_system_prompt_leakage.py",
+        "level": "benign",
+        "note": "Comment heading the detection patterns for skills that tell an agent to reveal its system prompt. static_patterns_system_prompt_leakage.py:66",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Output Rules",
+        "file": "src/skillspector/nodes/analyzers/static_patterns_system_prompt_leakage.py",
+        "level": "benign",
+        "note": "Code recognizing a harmless '## Output Rules' heading in skill docs so it is not reported as prompt extraction. static_patterns_system_prompt_leakage.py:196,867,868",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "return rule",
+        "file": "src/skillspector/suppression.py",
+        "level": "benign",
+        "note": "Ordinary code returning the reason a user's suppression rule matched a finding. suppression.py:356",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "anthropics-claude-api": {
+    "_findings": [
+      {
+        "match": "send the full conversation history",
+        "file": "python/claude-api/README.md",
+        "level": "benign",
+        "note": "API docs explaining that Claude's API keeps no memory, so your app re-sends earlier messages each request (python/claude-api/README.md:334, typescript/claude-api/README.md:256). Normal usage.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "send the full conversation history",
+        "file": "typescript/claude-api/README.md",
+        "level": "benign",
+        "note": "API docs explaining that Claude's API keeps no memory, so your app re-sends earlier messages each request (python/claude-api/README.md:334, typescript/claude-api/README.md:256). Normal usage.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "no warning",
+        "file": "python/claude-api/tool-use.md",
+        "level": "benign",
+        "note": "Caution in SDK docs: a paused server-tool turn ends with 'no error, no warning, just a silently truncated answer', plus how to handle it (python/ and typescript/claude-api/tool-use.md:68-69).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "no warning",
+        "file": "typescript/claude-api/tool-use.md",
+        "level": "benign",
+        "note": "Caution in SDK docs: a paused server-tool turn ends with 'no error, no warning, just a silently truncated answer', plus how to handle it (python/ and typescript/claude-api/tool-use.md:68-69).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "| sudo ",
+        "file": "shared/anthropic-cli.md",
+        "level": "benign",
+        "note": "Install step for Anthropic's own 'ant' command-line tool: download the release from its GitHub page and unpack it into /usr/local/bin, which needs admin rights (shared/anthropic-cli.md:25).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access token",
+        "file": "shared/anthropic-cli.md",
+        "level": "benign",
+        "note": "Docs showing how to print your own Anthropic login token to use in a curl request to Anthropic's API (shared/anthropic-cli.md:57). The token stays with you.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "ccess",
+        "file": "shared/managed-agents-tools.md",
+        "level": "benign",
+        "note": "Docs on storing an OAuth credential in a vault: the format with access and refresh tokens (shared/managed-agents-tools.md:353, 373) and an old internal name for these tokens (line 336).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Access Token",
+        "file": "shared/managed-agents-environments.md",
+        "level": "benign",
+        "note": "Reference table: a field that takes a GitHub Personal Access Token so a cloud agent can clone your repo; the token is never echoed back (shared/managed-agents-environments.md:133).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env ",
+        "file": "shared/anthropic-cli.md",
+        "level": "benign",
+        "note": "Docs comment: 'ant auth print-credentials --env' prints your Anthropic login as KEY=value lines so a local script can use it (shared/anthropic-cli.md:65). Stays on your machine.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "--model claude-opus-5-5",
+        "file": "shared/anthropic-cli.md",
+        "level": "benign",
+        "note": "Example commands calling Anthropic's own Claude model with the 'ant' tool (shared/anthropic-cli.md:85, 154; shared/token-counting.md:31). Naming a model in an example is normal.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "--model claude-opus-5-5",
+        "file": "shared/token-counting.md",
+        "level": "benign",
+        "note": "Example commands calling Anthropic's own Claude model with the 'ant' tool (shared/anthropic-cli.md:85, 154; shared/token-counting.md:31). Naming a model in an example is normal.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.ssh/id_rsa",
+        "file": "shared/evals/report/build-report-lite.mjs",
+        "level": "benign",
+        "note": "Code comments describing a defense: the report tools refuse symlinked files so a planted link to your SSH key can't end up in a report (shared/evals/report/build-report-lite.mjs:28, runner-scaffold.mjs:112).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.ssh/id_rsa",
+        "file": "shared/evals/report/runner-scaffold.mjs",
+        "level": "benign",
+        "note": "Code comments describing a defense: the report tools refuse symlinked files so a planted link to your SSH key can't end up in a report (shared/evals/report/build-report-lite.mjs:28, runner-scaffold.mjs:112).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Extract context",
+        "file": "shared/live-sources.md",
+        "level": "benign",
+        "note": "Table of official Claude docs pages with fetch prompts like 'Extract context editing thresholds...' and 'Extract context window sizes...' (shared/live-sources.md:87, 89). Just reading public docs.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "curl | sh",
+        "file": "shared/managed-agents-onboarding-from-url.md",
+        "level": "benign",
+        "note": "A safety rule: treat fetched web pages as data and never run their commands, setup scripts or 'curl | sh' lines (shared/managed-agents-onboarding-from-url.md:30). It protects the user.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "&& sudo",
+        "file": "shared/managed-agents-self-hosted-sandboxes.md",
+        "level": "benign",
+        "note": "One-time host setup for a self-hosted worker: create the /mnt/memory folder with admin rights and give it to your user (shared/managed-agents-self-hosted-sandboxes.md:187). Documented for the person to run.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "rm -rf /",
+        "file": "shared/managed-agents-tools.md",
+        "level": "benign",
+        "note": "Sample API event where the permission checker DENIED an 'rm -rf /workspace/reports' command as high risk (shared/managed-agents-tools.md:144). It shows the safety check; it is not a command to run.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "tools =",
+        "file": "shared/model-migration.md",
+        "level": "benign",
+        "note": "Scanner matched many 'tools = [...]' code samples in this model-upgrade guide (e.g. shared/model-migration.md:430). Ordinary API examples; no hidden characters or instructions found.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "send the conversation ",
+        "file": "shared/model-migration.md",
+        "level": "benign",
+        "note": "Docs on retrying after a refusal: re-send the same conversation to another Claude model through Anthropic's API (shared/model-migration.md:1446). Nothing goes to an outside party.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "new name is",
+        "file": "shared/preserved-thinking-migration/causes.md",
+        "level": "benign",
+        "note": "Troubleshooting table on prompt caching: changing a tool's description mid-chat needs 'a new name' for the tool (shared/preserved-thinking-migration/causes.md:37). Nothing about memory tampering.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "mcp.json`) can hold secret",
+        "file": "shared/prompt-audit.md",
+        "level": "benign",
+        "note": "A protective rule: when auditing prompts, do not read the agent's settings, credential files or MCP config (.mcp.json) because they can hold secrets (shared/prompt-audit.md:33).",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "anthropics-discernment-nudge": {
+    "_findings": [
+      {
+        "match": "Always answer",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "Formatting rule: fully answer the user's question first, then add an optional short nudge after it (SKILL.md:191). It is about answer order, not about getting around refusals.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "anthropics-docx": {
+    "_findings": [
+      {
+        "match": "rm -",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "Repacking step: from inside the unpacked folder, delete any old out.docx and zip the edited files into a fresh out.docx (SKILL.md:56). Only touches the output file.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "os.environ.copy()",
+        "file": "scripts/office/soffice.py",
+        "level": "benign",
+        "note": "Copies the current environment settings to launch LibreOffice for document conversion, adding a display setting and a socket workaround (scripts/office/soffice.py:28). Nothing is sent anywhere.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "anthropics-frontend-design": {
+    "_findings": [
+      {
+        "match": "don't apologize",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "UI writing advice: an app's error messages shouldn't apologize or be vague; they should say what went wrong and how to fix it (SKILL.md:69). Not about the AI's own behavior.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "anthropics-mcp-builder": {
+    "_findings": [
+      {
+        "match": "claude-3-7-sonnet-20250219",
+        "file": "reference/evaluation.md",
+        "level": "benign",
+        "note": "Help text for the bundled evaluation script: the -m option picks which Claude model answers the test questions (reference/evaluation.md:488). A normal setting.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access tokens",
+        "file": "reference/mcp_best_practices.md",
+        "level": "benign",
+        "note": "Security best practice for MCP server authors: validate OAuth access tokens and only accept tokens meant for your server (reference/mcp_best_practices.md:158).",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "anthropics-pptx": {
+    "_findings": [
+      {
+        "match": "rm -",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "Repacking step: from inside the unpacked folder, delete any old out.pptx and zip the edited files into a fresh out.pptx so removed slides don't linger (SKILL.md:62). Only touches the output file.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "os.environ.copy()",
+        "file": "scripts/office/soffice.py",
+        "level": "benign",
+        "note": "Copies the current environment settings to launch LibreOffice for document conversion, adding a display setting and a socket workaround (scripts/office/soffice.py:28). Nothing is sent anywhere.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "anthropics-skill-creator": {
+    "_findings": [
+      {
+        "match": "os.environ.items()",
+        "file": "scripts/improve_description.py",
+        "level": "benign",
+        "note": "Passes your environment to the local 'claude -p' test run, minus CLAUDECODE so it can start inside a Claude Code session (scripts/run_eval.py:83, scripts/improve_description.py:33). Stays local.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "os.environ.items()",
+        "file": "scripts/run_eval.py",
+        "level": "benign",
+        "note": "Passes your environment to the local 'claude -p' test run, minus CLAUDECODE so it can start inside a Claude Code session (scripts/run_eval.py:83, scripts/improve_description.py:33). Stays local.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Find the project root",
+        "file": "scripts/run_eval.py",
+        "level": "benign",
+        "note": "Finds the project folder by looking for .claude/, writes a temporary test command file there, and deletes it after the run (scripts/run_eval.py:23, 180). Used to test whether a skill triggers.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "anthropics-webapp-testing": {
+    "_findings": [
+      {
+        "match": "shell=True",
+        "file": "scripts/with_server.py",
+        "level": "benign",
+        "note": "Starts the dev-server command passed with --server (e.g. 'cd backend && npm run dev'); shell mode lets such commands work (scripts/with_server.py:69). It runs only what the caller supplies.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "anthropics-xlsx": {
+    "_findings": [
+      {
+        "match": "os.environ.copy()",
+        "file": "scripts/office/soffice.py",
+        "level": "benign",
+        "note": "Copies the current environment settings to launch LibreOffice for spreadsheet conversion and recalculation, adding a socket workaround (scripts/office/soffice.py:28). Nothing is sent anywhere.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-chatgpt-apps": {
+    "_findings": [
+      {
+        "match": "enable Developer Mode",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "Setup step for testing your own app: turn on ChatGPT's Developer Mode setting so you can connect a custom app server (SKILL.md:252). A product setting, not a jailbreak.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-cli-creator": {
+    "_findings": [
+      {
+        "match": "repo-local `.codex/",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "After building the CLI, the AI writes a short companion skill to your Codex skills folder, or a repo .codex/skills path you name (SKILL.md:146). Part of the skill's stated purpose.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-cloudflare-deploy": {
+    "_findings": [
+      {
+        "match": ".env ",
+        "file": "references/api/configuration.md",
+        "level": "benign",
+        "note": "Docs showing where to keep Cloudflare tokens: in a .env file kept out of git (references/api/configuration.md:15, 18; turn/configuration.md:8; r2-sql/gotchas.md:100-101; others). Advice only.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env ",
+        "file": "references/argo-smart-routing/configuration.md",
+        "level": "benign",
+        "note": "Docs showing where to keep Cloudflare tokens: in a .env file kept out of git (references/api/configuration.md:15, 18; turn/configuration.md:8; r2-sql/gotchas.md:100-101; others). Advice only.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env ",
+        "file": "references/r2-data-catalog/configuration.md",
+        "level": "benign",
+        "note": "Docs showing where to keep Cloudflare tokens: in a .env file kept out of git (references/api/configuration.md:15, 18; turn/configuration.md:8; r2-sql/gotchas.md:100-101; others). Advice only.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env ",
+        "file": "references/r2-sql/gotchas.md",
+        "level": "benign",
+        "note": "Docs showing where to keep Cloudflare tokens: in a .env file kept out of git (references/api/configuration.md:15, 18; turn/configuration.md:8; r2-sql/gotchas.md:100-101; others). Advice only.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env ",
+        "file": "references/turn/configuration.md",
+        "level": "benign",
+        "note": "Docs showing where to keep Cloudflare tokens: in a .env file kept out of git (references/api/configuration.md:15, 18; turn/configuration.md:8; r2-sql/gotchas.md:100-101; others). Advice only.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".env ",
+        "file": "references/turnstile/gotchas.md",
+        "level": "benign",
+        "note": "Docs showing where to keep Cloudflare tokens: in a .env file kept out of git (references/api/configuration.md:15, 18; turn/configuration.md:8; r2-sql/gotchas.md:100-101; others). Advice only.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Access secrets",
+        "file": "references/bindings/gotchas.md",
+        "level": "benign",
+        "note": "Tip that production secrets are only reachable in local development when using 'wrangler dev --remote' (references/bindings/gotchas.md:127). A troubleshooting note.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access secret",
+        "file": "references/secrets-store/gotchas.md",
+        "level": "benign",
+        "note": "Troubleshooting notes: Worker secrets can't be read during startup or from production while developing locally (references/secrets-store/gotchas.md:25, 62).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access secrets",
+        "file": "references/workers-playground/gotchas.md",
+        "level": "benign",
+        "note": "Limits table for Cloudflare's online playground: it has no environment variables, so secrets aren't available there (references/workers-playground/gotchas.md:10).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "/etc/passwd",
+        "file": "references/r2/gotchas.md",
+        "level": "benign",
+        "note": "Security example: shows a path-traversal key ('../../../etc/passwd') as the DANGEROUS pattern, then safe key validation for R2 storage (references/r2/gotchas.md:64).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "curl -fsSL https://code-server.dev/install.sh | sh",
+        "file": "references/sandbox/patterns.md",
+        "level": "notice",
+        "title": "Example runs downloaded installer script",
+        "note": "Sample Worker code that installs code-server in a Cloudflare sandbox by piping its install script to the shell, then exposes the IDE on a public URL (references/sandbox/patterns.md:40). Runs in the cloud.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "secret.txt",
+        "file": "references/secrets-store/configuration.md",
+        "level": "benign",
+        "note": "Example of creating a Cloudflare secret by piping it from a local file into wrangler (references/secrets-store/configuration.md:98). Standard command-line usage.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "credentials.json",
+        "file": "references/tunnel/patterns.md",
+        "level": "benign",
+        "note": "Docker Compose example that mounts your Cloudflare Tunnel credentials file read-only into the cloudflared container (references/tunnel/patterns.md:21). Standard tunnel setup.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Upload ",
+        "file": "references/workers-for-platforms/api.md",
+        "level": "benign",
+        "note": "Cloudflare API docs on uploading static site files: creating an 'upload session' and its 1-hour limit (references/workers-for-platforms/api.md:93, gotchas.md:110). Nothing to do with chat data.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Upload ",
+        "file": "references/workers-for-platforms/gotchas.md",
+        "level": "benign",
+        "note": "Cloudflare API docs on uploading static site files: creating an 'upload session' and its 1-hour limit (references/workers-for-platforms/api.md:93, gotchas.md:110). Nothing to do with chat data.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "rm -rf .wrangler/state",
+        "file": "references/wrangler/gotchas.md",
+        "level": "benign",
+        "note": "Troubleshooting tip: delete Wrangler's local dev cache folder (.wrangler/state) to reset local test data (references/wrangler/gotchas.md:166). Only affects the project's temporary state.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-figma-create-design-system-rules": {
+    "_findings": [
+      {
+        "match": "clear state",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "Scanner matched 'clear state' inside 'clear statements' in advice to merge related design rules (SKILL.md:490). Nothing to do with memory.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-figma-implement-design": {
+    "_findings": [
+      {
+        "match": "extract context",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "Note that Figma's remote server needs a link to a frame or layer to pull design details (SKILL.md:58). Refers to reading the user's own Figma design.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-figma-use": {
+    "_findings": [
+      {
+        "match": "parameters:",
+        "file": "references/plugin-api-standalone.d.ts",
+        "level": "benign",
+        "note": "Scanner matched '@param' notes and emoji-joiner characters in Figma's official plugin API type file (references/plugin-api-standalone.d.ts:237, 8497). The joiners sit inside a family-emoji example.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "send messages to",
+        "file": "references/plugin-api-standalone.d.ts",
+        "level": "benign",
+        "note": "API docs: after a plugin's UI window is closed you can no longer send messages to and from it (references/plugin-api-standalone.d.ts:2629). Describes plugin UI messaging.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "without constraints",
+        "file": "references/plugin-api-standalone.d.ts",
+        "level": "benign",
+        "note": "API docs: 'Resizes the node without constraints', meaning without Figma's layout constraints (references/plugin-api-standalone.d.ts:10739, 10773). Design terminology.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-figma": {
+    "_findings": [
+      {
+        "match": "~/.codex/config.toml",
+        "file": "references/figma-mcp-config.md",
+        "level": "notice",
+        "title": "Uses your Figma token with Figma",
+        "note": "Setup guide to register Figma's official MCP server (mcp.figma.com) in Codex's config; your Figma OAuth token, read from an environment variable, is sent to it (references/figma-mcp-config.md:3, 24).",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-jupyter-notebook": {
+    "_findings": [
+      {
+        "match": "overwrite existing file",
+        "file": "scripts/new_notebook.py",
+        "level": "benign",
+        "note": "Safety check: the notebook creator refuses to overwrite an existing file unless --force is given (scripts/new_notebook.py:119).",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-migrate-to-codex": {
+    "_findings": [
+      {
+        "match": "~/.codex/config.toml",
+        "file": "SKILL.md",
+        "level": "notice",
+        "title": "Edits Codex setup without asking each step",
+        "note": "Tells the AI to keep going and create, edit or delete Codex files (AGENTS.md, .codex/, ~/.codex/) in the target you picked without asking each step; unrelated settings are kept (SKILL.md:10).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "less they fail validation",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "Same paragraph sets a limit: don't edit the original Claude Code files (.claude/, ~/.claude/, .mcp.json, .claude.json) during migration (SKILL.md:10). This protects the source setup.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "unrelated project code",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "Same line also forbids touching unrelated project code, secrets or other repositories during the migration (SKILL.md:10). A protective rule.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.claude/settings.json",
+        "file": "references/differences.md",
+        "level": "benign",
+        "note": "Reference table explaining how hooks from Claude Code's settings files are partly converted to Codex hooks, with a caution to review them (references/differences.md:82).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Write skill",
+        "file": "scripts/cli.py",
+        "level": "benign",
+        "note": "Help text for the migrator's --skills option, which writes converted skills under .agents/skills (scripts/cli.py:750). Normal output of the migration.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Path(\".",
+        "file": "scripts/migrate/settings.py",
+        "level": "benign",
+        "note": "Names Claude Code's MCP config files (.mcp.json, .claude.json) that the migrator reads locally to copy server entries, including any keys in them, into Codex config (scripts/migrate/settings.py:19-20). No network.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-netlify-deploy": {
+    "_findings": [
+      {
+        "match": ".env ",
+        "file": "references/cli-commands.md",
+        "level": "benign",
+        "note": "CLI reference: 'netlify env:import .env' uploads the variables in your .env file to your own Netlify site settings (references/cli-commands.md:95). A listed command, used when you choose.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-notion-knowledge-capture": {
+    "_findings": [
+      {
+        "match": "Capture conversation",
+        "file": "SKILL.md",
+        "level": "notice",
+        "title": "Saves chat content to your Notion",
+        "note": "The skill's purpose: turn the current conversation into Notion pages through Notion's MCP server (SKILL.md:3, 5; agents/openai.yaml:3). Chat content is copied into your Notion workspace.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Capture conversation",
+        "file": "agents/openai.yaml",
+        "level": "notice",
+        "title": "Saves chat content to your Notion",
+        "note": "The skill's purpose: turn the current conversation into Notion pages through Notion's MCP server (SKILL.md:3, 5; agents/openai.yaml:3). Chat content is copied into your Notion workspace.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-notion-meeting-intelligence": {
+    "_findings": [
+      {
+        "match": "Clear state",
+        "file": "reference/brainstorming-template.md",
+        "level": "benign",
+        "note": "Scanner matched 'Clear statement' placeholders in meeting note templates, e.g. '[Clear statement of decision needed]' (reference/decision-meeting-template.md:29 and two similar). Harmless template text.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Clear state",
+        "file": "reference/decision-meeting-template.md",
+        "level": "benign",
+        "note": "Scanner matched 'Clear statement' placeholders in meeting note templates, e.g. '[Clear statement of decision needed]' (reference/decision-meeting-template.md:29 and two similar). Harmless template text.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Clear state",
+        "file": "reference/sprint-planning-template.md",
+        "level": "benign",
+        "note": "Scanner matched 'Clear statement' placeholders in meeting note templates, e.g. '[Clear statement of decision needed]' (reference/decision-meeting-template.md:29 and two similar). Harmless template text.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-openai-docs": {
+    "_findings": [
+      {
+        "match": "Output rule",
+        "file": "references/upgrade-guide.md",
+        "level": "benign",
+        "note": "Heading in an upgrade guide: 'Output rule' lists what to report for each code site, such as a reasoning-effort recommendation (references/upgrade-guide.md:61). Not about revealing prompts.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-playwright-interactive": {
+    "_findings": [
+      {
+        "match": "~/.codex/config.toml",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "Setup note: if the js_repl feature is missing, turn it on in Codex's config with 'js_repl = true' (SKILL.md:13). Enables the tool this skill needs.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-render-deploy": {
+    "_findings": [
+      {
+        "match": "mcp.json` (replace `<YOUR_API_KEY",
+        "file": "SKILL.md",
+        "level": "notice",
+        "title": "Needs your Render API key",
+        "note": "Setup steps have you paste your Render API key into Cursor's MCP config (~/.cursor/mcp.json) in plain text; it is sent to Render's own server, mcp.render.com (SKILL.md:126).",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-security-best-practices": {
+    "_findings": [
+      {
+        "match": "without warning",
+        "file": "references/golang-general-backend-security.md",
+        "level": "benign",
+        "note": "Rule for the AI: keep security fixes minimal and don't introduce breaking changes without warning (references/golang-general-backend-security.md:17). Pro-safety guidance.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access tokens",
+        "file": "references/javascript-express-web-server-security.md",
+        "level": "benign",
+        "note": "Security guide listing insecure patterns, such as keeping access tokens in cookies, localStorage or URLs (e.g. python-fastapi-web-server-security.md:241, 373; javascript-express-web-server-security.md:342).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access tokens",
+        "file": "references/python-flask-web-server-security.md",
+        "level": "benign",
+        "note": "Security guide listing insecure patterns, such as keeping access tokens in cookies, localStorage or URLs (e.g. python-fastapi-web-server-security.md:241, 373; javascript-express-web-server-security.md:342).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access tokens",
+        "file": "references/javascript-typescript-nextjs-web-server-security.md",
+        "level": "benign",
+        "note": "Security guide listing insecure patterns, such as keeping access tokens in cookies, localStorage or URLs (e.g. python-fastapi-web-server-security.md:241, 373; javascript-express-web-server-security.md:342).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "access tokens",
+        "file": "references/python-fastapi-web-server-security.md",
+        "level": "benign",
+        "note": "Security guide listing insecure patterns, such as keeping access tokens in cookies, localStorage or URLs (e.g. python-fastapi-web-server-security.md:241, 373; javascript-express-web-server-security.md:342).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "dangerouslySetInnerHTML={",
+        "file": "references/javascript-typescript-nextjs-web-server-security.md",
+        "level": "benign",
+        "note": "Examples of the unsafe pattern to look for: inserting user HTML via dangerouslySetInnerHTML with no sanitizer (nextjs-web-server-security.md:540, react-web-frontend-security.md:185).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "dangerouslySetInnerHTML={",
+        "file": "references/javascript-typescript-react-web-frontend-security.md",
+        "level": "benign",
+        "note": "Examples of the unsafe pattern to look for: inserting user HTML via dangerouslySetInnerHTML with no sanitizer (nextjs-web-server-security.md:540, react-web-frontend-security.md:185).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "os.system(request.",
+        "file": "references/python-django-web-server-security.md",
+        "level": "benign",
+        "note": "An insecure example ('os.system(request.GET[\"cmd\"])') listed so the AI can spot command injection in code it reviews (references/python-django-web-server-security.md:505). Not working code.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "shell=True",
+        "file": "references/python-django-web-server-security.md",
+        "level": "benign",
+        "note": "Listed as insecure patterns to find: building shell commands from user input with shell=True (python-django...:506, python-fastapi...:786, python-flask-web-server-security.md:507).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "shell=True",
+        "file": "references/python-fastapi-web-server-security.md",
+        "level": "benign",
+        "note": "Listed as insecure patterns to find: building shell commands from user input with shell=True (python-django...:506, python-fastapi...:786, python-flask-web-server-security.md:507).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "shell=True",
+        "file": "references/python-flask-web-server-security.md",
+        "level": "benign",
+        "note": "Listed as insecure patterns to find: building shell commands from user input with shell=True (python-django...:506, python-fastapi...:786, python-flask-web-server-security.md:507).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "enable debug mode",
+        "file": "references/python-flask-web-server-security.md",
+        "level": "benign",
+        "note": "Security rule: 'MUST NOT enable debug mode in production' for Flask apps (references/python-flask-web-server-security.md:134). Pro-safety guidance.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-security-ownership-map": {
+    "_findings": [
+      {
+        "match": "return rules",
+        "file": "scripts/build_ownership_map.py",
+        "level": "benign",
+        "note": "End of a function that reads sensitive-file pattern rules from a CSV file and returns them (scripts/build_ownership_map.py:222). Nothing to do with system prompts.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-sentry": {
+    "_findings": [
+      {
+        "match": "curl https://cli.sentry.dev/install -fsS | bash",
+        "file": "SKILL.md",
+        "level": "notice",
+        "title": "Installs Sentry CLI via piped script",
+        "note": "If the CLI is missing, the user is told to install it by piping Sentry's install script from cli.sentry.dev straight into bash (SKILL.md:18). Common, but it runs downloaded code unseen.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-speech": {
+    "_findings": [
+      {
+        "match": "rm -f tmp/speech/jobs.jsonl",
+        "file": "references/cli.md",
+        "level": "benign",
+        "note": "Cleanup step that deletes the temporary batch job file the skill created under tmp/ (references/cli.md:89).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.codex/config.toml",
+        "file": "references/codex-network.md",
+        "level": "notice",
+        "title": "Suggests turning off approval prompts",
+        "note": "Optional tip to stop repeated prompts: set approval_policy = \"never\" and enable network in ~/.codex/config.toml, with a caution note (references/codex-network.md:11). This removes command approvals.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "return instructions",
+        "file": "scripts/text_to_speech.py",
+        "level": "benign",
+        "note": "Returns the voice-style instructions for a speech request, dropping them for older models that don't support them (scripts/text_to_speech.py:180). Not prompt leakage.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-vercel-deploy": {
+    "_findings": [
+      {
+        "match": ".env'",
+        "file": "scripts/deploy.sh",
+        "level": "benign",
+        "note": "Leaves out .env secret files when copying the project for upload to Vercel's deploy service (scripts/deploy.sh:204). This keeps your keys from being sent.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-winui-app": {
+    "_findings": [
+      {
+        "match": "overwrite existing file",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "Rule: don't use --force unless the user explicitly asked to overwrite existing files (SKILL.md:18). Protective.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "nable Developer Mode",
+        "file": "SKILL.md",
+        "level": "warning",
+        "title": "Changes Windows settings without asking first",
+        "note": "For a new app, SKILL.md:25 has the assistant run config.yaml right away: it turns on Developer Mode and installs Visual Studio, accepting the agreements for you. It asks first only for check-only requests; Windows still asks for admin rights.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "nable Developer Mode",
+        "file": "config.yaml",
+        "level": "warning",
+        "title": "Changes Windows settings without asking first",
+        "note": "For a new app, SKILL.md:25 has the assistant run config.yaml right away: it turns on Developer Mode and installs Visual Studio, accepting the agreements for you. It asks first only for check-only requests; Windows still asks for admin rights.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "openai-imagegen": {
+    "_findings": [
+      {
+        "match": "rm -f tmp/imagegen/prompts.jsonl",
+        "file": "references/cli.md",
+        "level": "benign",
+        "note": "Cleanup step that deletes the temporary batch prompt file the skill created under tmp/ (references/cli.md:140).",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.codex/config.toml",
+        "file": "references/codex-network.md",
+        "level": "benign",
+        "note": "Optional tip for the fallback CLI: enable network in Codex's sandbox while keeping approvals 'on-request', with a safety caution (references/codex-network.md:20). Approvals stay on.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "return prompt",
+        "file": "scripts/image_gen.py",
+        "level": "benign",
+        "note": "Returns the user's image prompt text, optionally adding structured sections (scripts/image_gen.py:81, 198). Normal input handling, not prompt leakage.",
+        "date": "2026-11-01"
       }
     ]
   }

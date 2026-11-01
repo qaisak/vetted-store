@@ -7,6 +7,7 @@
 // check new listings without downloading every repository again.
 import fs from 'node:fs';
 import path from 'node:path';
+import { NONPROD, CODE, NONPROD_SKILL, fileKind, CAT_CAP, OTHER_NOTES, capOfFinding } from './filekind.mjs';
 
 const [, , DATA, ROOT, OUT] = process.argv;
 const d = JSON.parse(fs.readFileSync(DATA, 'utf8'));
@@ -79,6 +80,8 @@ const PROFILES = {
     expect: { network: 'Calls the Airtable API', credentials: 'Uses your Airtable personal access token', env: 'The token comes from an environment variable' } },
   'mcp-spotify-mcp-server': { date: '2026-11-01', purpose: 'Lets the model control Spotify playback and search, and manage your playlists, with your Spotify account.',
     expect: { network: 'Calls the Spotify API', credentials: 'Signs in to Spotify with OAuth and keeps the tokens', files: 'Stores its settings and tokens in a config file', env: 'Settings', shell: 'Opens your browser to sign in' } },
+  'mcp-rea': { date: '2026-11-01', purpose: 'Reverse engineers software with your agent: inspects apps, web bundles and native binaries, drives disassemblers like Ghidra or Hopper, and observes programs as they run.',
+    expect: { files: 'Reads the apps and binaries you point it at and writes its reports', shell: 'Starts Ghidra, Hopper, Java and other analysis tools', network: 'Observes the network traffic of apps you analyze, and its setup can download tools', browser: 'Drives a browser to watch web apps at runtime', env: 'Tool paths and settings' } },
   'mcp-google-calendar-mcp': { date: '2026-11-01', purpose: 'Manages your Google Calendar: list, search, create, change and delete events, and check free/busy times across accounts.',
     expect: { network: 'Calls the Google Calendar API', credentials: 'Signs in to your Google account with OAuth', files: 'Reads your OAuth client file and stores tokens', env: 'The credentials path comes from an environment variable' } },
 
@@ -130,6 +133,20 @@ const PROFILES = {
     expect: { files: 'Opens database files and saves queries', network: 'Connects to the database servers you name', env: 'Config settings', credentials: 'Uses the database passwords you provide' } },
   'navi': { date: '2026-11-01', purpose: 'An interactive cheat sheet for the command line: find a command, fill in the blanks, run it.',
     expect: { shell: 'Runs the command you pick', files: 'Reads cheat sheet files', network: 'Downloads community cheat sheets when you ask', env: 'Shell and config settings' } },
+  'cleanyourtv': { date: '2026-11-01', purpose: 'Debloats an Android or Google TV over Wi-Fi: backs up its settings, disables ad and telemetry apps (nothing uninstalled), and installs a clean home screen. Meant to be run by your coding assistant.',
+    expect: { shell: 'Runs adb and Android build tools against your TV', network: 'Connects to your TV over your Wi-Fi', files: 'Saves the backup and restore record, and builds the launcher', env: 'Tool paths and settings' } },
+  'photocraft': { date: '2026-11-01', purpose: 'A desktop photo editor, like a free Photoshop alternative, for macOS, Windows, Linux and the web.',
+    expect: { files: 'Opens and saves your images', env: 'Settings', network: 'Checks for updates and loads optional resources' } },
+  'pdfcraft': { date: '2026-11-01', purpose: 'A desktop app to read, edit, sign and annotate PDF files.',
+    expect: { files: 'Opens and saves your PDFs', env: 'Settings', network: 'Checks for updates and loads optional resources' } },
+  'filee': { date: '2026-11-01', purpose: 'A desktop file converter for 263 formats (images, PDF, Word, Excel, PowerPoint, audio, video) that works offline by drag and drop.',
+    expect: { files: 'Reads and writes the files you convert', shell: 'Runs converter tools like ffmpeg', env: 'Settings', network: 'Checks for updates' } },
+  'compositor': { date: '2026-11-01', purpose: 'An image editor for Mac, a Photoshop alternative.',
+    expect: { files: 'Opens and saves your images', network: 'Checks for updates', env: 'Settings' } },
+  'concat': { date: '2026-11-01', purpose: 'A free video editor that runs on your computer, a CapCut alternative, with optional AI captions, voices and cutouts whose models download once.',
+    expect: { files: 'Opens your footage and saves projects and exports', network: 'Downloads its AI models once and checks for updates', shell: 'Runs ffmpeg and its local AI helpers', env: 'Settings' } },
+  'spotifast': { date: '2026-11-01', purpose: 'A lightweight desktop app for your Spotify library: local playback and Spotify Connect.',
+    expect: { network: 'Talks to Spotify', credentials: 'Signs in to your Spotify account', files: 'Caches music data and stores its settings', env: 'Settings', shell: 'Opens your browser to sign in' } },
   'sd': { date: '2026-11-01', purpose: 'Find and replace text in files, a simpler sed.',
     expect: { files: 'Reads and rewrites the files you name', env: 'Settings' } },
 };
@@ -158,20 +175,15 @@ const REVIEWED_EXTRA = fs.existsSync(REVIEWS_FILE) ? JSON.parse(fs.readFileSync(
 for (const [id, v] of Object.entries(REVIEWED_EXTRA)) REVIEWED[id] = { ...(REVIEWED[id] || {}), ...v };
 
 const CAPS = {
-  network: { label: 'Network access', re: /\bfetch\(|\baxios\b|https?\.(request|get)\(|\bhttpx\b|\brequests\.(get|post|request|Session)\b|\burllib\.request\b|\burlopen\(|\baiohttp\b|"net\/http"|\bhttp\.(Get|Post|NewRequest|Client)\b|new WebSocket\(|\bundici\b|\breqwest\b|\bureq\b|\bhyper::|\bTcpStream\b|\btokio::net\b|\bcurl_easy|\bnet\.Dial|\bsocket\.(socket|create_connection)\(/ },
-  files: { label: 'Reads or writes files', re: /\bfs\.(read|write|append|mkdir|rm|unlink|copy|rename|open|createWriteStream|createReadStream)|from ['"](node:)?fs(\/promises)?['"]|\bopen\([^)]*['"][rwa]b?\+?['"]|\bPath\([^)]*\)\.(read|write)_|\bos\.(ReadFile|WriteFile|Open|OpenFile|Create|MkdirAll|Remove|RemoveAll|ReadDir)\(|\bshutil\.|\bstd::fs\b|\bfs::(read|write|File|create_dir|remove|read_dir)|\bFile::(open|create)\(|\btokio::fs\b|\bfopen\(|\bstd::(i|o)fstream\b|\bstd::filesystem\b/ },
-  shell: { label: 'Runs other programs', re: /from ['"](node:)?child_process['"]|require\(['"](node:)?child_process['"]\)|(?<![.\w:])spawn(Sync)?\(|\bexecFile(Sync)?\(|\bexecSync\(|\bsubprocess\.(run|call|Popen|check_output|check_call)\b|\bos\.system\(|\bexec\.Command(Context)?\(|\bPopen\(|^\s*import git\b|^\s*from git import|\bprocess::Command\b|\bpopen\(|\bexecvp?\(|\bsystem\(\s*["a-z]/m },
-  env: { label: 'Reads environment variables', re: /process\.env\b|os\.environ|os\.getenv\(|os\.Getenv\(|os\.LookupEnv\(|\bdotenv\b|\benv::var(_os)?\(|\bgetenv\(/ },
+  network: { label: 'Network access', re: /\bfetch\(|\baxios\b|https?\.(request|get)\(|\bhttpx\b|\brequests\.(get|post|request|Session)\b|\burllib\.request\b|\burlopen\(|\baiohttp\b|"net\/http"|\bhttp\.(Get|Post|NewRequest|Client)\b|new WebSocket\(|\bundici\b|\breqwest\b|\bureq\b|\bhyper::|\bTcpStream\b|\btokio::net\b|\bcurl_easy|\bnet\.Dial|\bsocket\.(socket|create_connection)\(|\bHttpClient\b|\bWebClient\b|\bURLSession\b|\bURLRequest\(|\bNWConnection\b|\bOkHttpClient\b|\bHttpURLConnection\b|\bnew Socket\(/ },
+  files: { label: 'Reads or writes files', re: /\bfs\.(read|write|append|mkdir|rm|unlink|copy|rename|open|createWriteStream|createReadStream)|from ['"](node:)?fs(\/promises)?['"]|\bopen\([^)]*['"][rwa]b?\+?['"]|\bPath\([^)]*\)\.(read|write)_|\bos\.(ReadFile|WriteFile|Open|OpenFile|Create|MkdirAll|Remove|RemoveAll|ReadDir)\(|\bshutil\.|\bstd::fs\b|\bfs::(read|write|File|create_dir|remove|read_dir)|\bFile::(open|create)\(|\btokio::fs\b|\bfopen\(|\bstd::(i|o)fstream\b|\bstd::filesystem\b|\bFile\.(Read|Write|Open|Create|Delete|Copy|Move|Append)\w*\(|\bDirectory\.(Create|Delete|Get|Enumerate|Move)\w*\(|\bnew FileStream\(|\bFileManager\.default\b|\.write\(to:|\bData\(contentsOf:|\bjava\.io\.File\b|\bFiles\.(read|write|copy|delete|move)\w*\(/ },
+  shell: { label: 'Runs other programs', re: /from ['"](node:)?child_process['"]|require\(['"](node:)?child_process['"]\)|(?<![.\w:])spawn(Sync)?\(|\bexecFile(Sync)?\(|\bexecSync\(|\bsubprocess\.(run|call|Popen|check_output|check_call)\b|\bos\.system\(|\bexec\.Command(Context)?\(|\bPopen\(|^\s*import git\b|^\s*from git import|\bprocess::Command\b|\bpopen\(|\bexecvp?\(|(?<![.\w])system\(\s*["a-z]|\bProcess\.Start\(|\bProcessStartInfo\b|=\s*Process\(\)|\bNSTask\b|\bRuntime\.getRuntime\(\)\.exec\(|\bProcessBuilder\(/m },
+  env: { label: 'Reads environment variables', re: /process\.env\b|os\.environ|os\.getenv\(|os\.Getenv\(|os\.LookupEnv\(|\bdotenv\b|\benv::var(_os)?\(|\bgetenv\(|\bEnvironment\.GetEnvironmentVariable\(|\bProcessInfo\.processInfo\.environment\b|\bSystem\.getenv\(/ },
   credentials: { label: 'Handles tokens or API keys', re: /\b(api[_-]?key|access[_-]?token|bearer|client[_-]?secret|personal[_-]?access[_-]?token|oauth)\b/i },
   secretFiles: { label: 'Touches secret files (SSH keys, cloud credentials)', re: /\.ssh\/|id_rsa|id_ed25519|\.aws\/credentials|\.netrc|\.npmrc|\.docker\/config|\.kube\/config|keychain|Login Data|Cookies\.sqlite/i },
   browser: { label: 'Controls a web browser', re: /\bplaywright\b|\bpuppeteer\b|chrome-remote-interface|devtools-protocol|\bCDPSession\b|launchPersistentContext|\bchromium\.launch/i },
 };
 
-const NONPROD = /(^|\/)(tests?|__tests__|e2e|specs?|fixtures?|testdata|test-data|tests-data|mocks?|__mocks__|examples?|demos?|playground|docs?|scripts|packaging|\.github|benchmarks?|benches|bench|dist|build|node_modules|coverage|third_party|vendor|vendored|xtask|fuzz|www)(\/|$)|\.(test|spec|vitest)\.[cm]?[jt]sx?$|_test\.go$|(^|\/)conftest\.py$|(^|\/)test_[^/]*\.py$|\.config\.[cm]?[jt]s$|(^|\/)(eslint|prettier|rollup|vitest|jest|playwright|puppeteer)\.config\.|\.d\.ts$|(^|\/)build\.rs$/i;
-const CODE = /\.(ts|tsx|js|mjs|cjs|py|go|rs|c|h|cc|cpp|hpp|sh)$/;
-// In a skill, scripts/ (and bin/, tools/) hold the code the agent runs, so they count as production code there.
-const NONPROD_SKILL = new RegExp(NONPROD.source.replace('|scripts|', '|'), 'i');
-const fileKind = (f, kind) => (f = f.replace(/\\/g, '/'), !CODE.test(f)) ? (/\.(md|mdx|txt|rst)$/i.test(f) ? 'docs' : 'other') : (kind === 'skill' ? NONPROD_SKILL : NONPROD).test(f) ? (/(^|\/)(docs?|examples?)\//i.test(f) ? 'docs' : 'tests & tooling') : 'production';
 const isCommentLine = ln => /^\s*(\/\/|#|\*|\/\*|""")/.test(ln || '');
 const commentRe = /^\s*(\/\/|#(?!include|define|if|pragma|!)|\*|\/\*)/;
 
@@ -246,18 +258,8 @@ const POISON = [
 ];
 
 const SEV_W = { CRITICAL: 10, HIGH: 5, MEDIUM: 2, LOW: 0.5, INFO: 0 };
-const CAT_CAP = [[/tainted flow.*credential/i, 'credentials'], [/credential access/i, 'credentials'], [/env variable/i, 'env'], [/server-side request|ssrf/i, 'network'], [/dangerous code|tool misuse|command/i, 'shell'],
-  [/agent snooping|config (directory )?access/i, 'secretFiles'], [/tool poisoning|yara/i, 'poisoning'], [/file/i, 'files']];
 // SkillSpector patterns that don't map to a capability, reviewed against the code that triggered them.
 // A serious finding whose pattern isn't listed here counts as "needs a closer look".
-const OTHER_NOTES = {
-  'Concealed Executable Artifact': 'A rule built for skill bundles, which normally ship no code. In a software project it flags every script and source file.',
-  'Direct Prompt Extraction': 'Matches code that returns the server\'s own usage instructions to the client, which MCP servers do by design.',
-  'Anti-Refusal Statement': 'Matches tool descriptions such as "without warning" for overwriting a file you asked it to write.',
-  'Self-Modification': 'Matches tool descriptions such as "overwrite existing file".',
-  'Unvalidated Output Injection': 'Matches status messages built from results, such as "Update failed: …".',
-};
-const capOfFinding = i => (CAT_CAP.find(([re]) => re.test(`${i.category} ${i.pattern}`)) || [0, 'other'])[1];
 
 const TRUSTED = new Set(['anthropics', 'openai', 'NVIDIA', 'microsoft', 'github', 'cli', 'modelcontextprotocol', 'ChromeDevTools', 'huggingface', 'vercel-labs', 'upstash', 'aquasecurity', 'semgrep', 'astral-sh', 'ollama']);
 const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'NVIDIA/SkillSpector': 'SkillSpector' };
@@ -337,10 +339,11 @@ for (const l of d.listings) {
   const patKey = s => Object.keys(OTHER_NOTES).find(k => (s.pat || '').startsWith(k));
   const fr = rev._findings || [];   // individual findings a reviewer read: benign, or a notice worth showing
   // A review names a snippet to match, a file, or both (some findings come with an empty snippet)
-  const reviewedFinding = s => fr.some(f => (f.match || f.file) && (!f.match || (s.snip || '').includes(f.match)) && (!f.file || s.file === f.file));
+  // A finding that a reviewer judged harmful ("concern") or couldn't read ("open") doesn't count as explained
+  const reviewedFinding = s => fr.some(f => f.level !== 'concern' && f.level !== 'open' && (f.match || f.file) && (!f.match || (s.snip || '').includes(f.match)) && (!f.file || s.file === f.file));
   const unexpectedSerious = seriousCode.filter(s => !reviewedFinding(s) && ((s.expected === false && !rev[s.cap]) || (s.cap === 'other' && !patKey(s))));
-  const notices = fr.filter(f => f.level === 'notice' && f.match && seriousCode.some(s => (s.snip || '').includes(f.match))).map(({ title, note, where }) => ({ title, note, where }))
-    .concat((rev._notices || []).map(({ title, note, where }) => ({ title, note, where })));   // reviewer notices that don't hinge on a scan finding
+  const notices = fr.filter(f => (f.level === 'notice' || f.level === 'warning') && f.match && seriousCode.some(s => (s.snip || '').includes(f.match))).map(({ title, note, where, level }) => ({ title, note, where, level }))
+    .concat((rev._notices || []).map(({ title, note, where, level }) => ({ title, note, where, level })));   // reviewer notices that don't hinge on a scan finding
   const other = {};
   for (const s of seriousCode.filter(s => s.cap === 'other' && !reviewedFinding(s))) {
     const k = patKey(s) || s.pat || s.cat;
