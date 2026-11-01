@@ -74,8 +74,9 @@ Things that couldn't be done from the build machine on November 1, 2026, or need
   so those listings say "not checked" instead of showing results. Rerun `fetch.mjs --only <repos>` from a machine that can reach them.
 - **OSV.dev** was unreachable during the November 1 scans, so SkillSpector's dependency check used its bundled vulnerability data.
   Rescanning with network access gives fresher dependency results.
-- **Very large repositories** (GitHub CLI, uv, Trivy, Semgrep, mise, Ollama, lazygit, difftastic, Chrome MCP) were scanned
-  folder by folder (`*.scope.txt` says which). A machine with more time per scan can cover them whole.
+- **Very large repositories** (GitHub CLI, uv, Trivy, Semgrep, mise, Ollama, lazygit, lazydocker, difftastic, yt-dlp, Posting,
+  Harlequin, VisiData, Glances, k9s, SkillSpector, Chrome MCP) were scanned by their main source folder, because a whole-repository
+  scan passed the time limit. `*.scope.txt` and `data/sources.json` say which folder; `node pipeline/scan_scoped.mjs <scan-root>` reruns them.
 - **Audience testing.** The persona walkthroughs were done by hand with headless screenshots. A simulation tool such as MiroFish
   needs an LLM API key and its own services, which this machine can't reach.
 - **Short videos.** Listings show demo videos their developers link in their READMEs (`pipeline/videos.mjs`). Curating third-party

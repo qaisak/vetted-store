@@ -730,7 +730,7 @@ function pageToday() {
 
 // Says only what the data shows: how many listings really have a SkillSpector report
 function promiseText() {
-  const nSC = L.filter(l => scanOf(l)).length, comm = L.filter(l => !l.tr), commChecked = comm.filter(l => MRof(l) || scanOf(l)).length;
+  const nSC = L.filter(l => scanOf(l)).length, comm = L.filter(l => !l.tr), commChecked = comm.filter(l => MRof(l)).length;
   return `${nSC === L.length ? `Every one of the ${L.length} listings is` : `${nSC} of ${L.length} listings are`} scanned with NVIDIA SkillSpector${commChecked === comm.length ? ', and every community project also gets our Purpose Check' : ''}: we read what the code can actually do and compare it with what it says it's for. Anything that doesn't add up is read line by line, and what we found is written on its page.`;
 }
 const byJob = k => L.filter(l => (l.jb || []).includes(k));

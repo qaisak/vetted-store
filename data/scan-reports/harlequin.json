@@ -1,0 +1,2159 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/tconbeer__harlequin/harlequin-main/src/harlequin",
+    "scanned_at": "2026-11-01T02:46:52.015136+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": "__init__.py",
+      "type": "python",
+      "lines": 81,
+      "executable": true,
+      "size_bytes": 2796,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "__main__.py",
+      "type": "python",
+      "lines": 3,
+      "executable": true,
+      "size_bytes": 49,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "actions.py",
+      "type": "python",
+      "lines": 393,
+      "executable": true,
+      "size_bytes": 15178,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "adapter.py",
+      "type": "python",
+      "lines": 334,
+      "executable": true,
+      "size_bytes": 11884,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "app.py",
+      "type": "python",
+      "lines": 2112,
+      "executable": true,
+      "size_bytes": 81072,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "app.tcss",
+      "type": "other",
+      "lines": 860,
+      "executable": false,
+      "size_bytes": 14813,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "app_base.py",
+      "type": "python",
+      "lines": 159,
+      "executable": true,
+      "size_bytes": 5715,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "autocomplete/__init__.py",
+      "type": "python",
+      "lines": 17,
+      "executable": true,
+      "size_bytes": 432,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "autocomplete/completers.py",
+      "type": "python",
+      "lines": 377,
+      "executable": true,
+      "size_bytes": 13975,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "autocomplete/completion.py",
+      "type": "python",
+      "lines": 58,
+      "executable": true,
+      "size_bytes": 2482,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "autocomplete/constants.py",
+      "type": "python",
+      "lines": 145,
+      "executable": true,
+      "size_bytes": 2413,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "autocomplete/symbols.py",
+      "type": "python",
+      "lines": 94,
+      "executable": true,
+      "size_bytes": 3107,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "bindings.py",
+      "type": "python",
+      "lines": 77,
+      "executable": true,
+      "size_bytes": 2603,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "cache.py",
+      "type": "python",
+      "lines": 9,
+      "executable": true,
+      "size_bytes": 256,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "catalog.py",
+      "type": "python",
+      "lines": 137,
+      "executable": true,
+      "size_bytes": 4798,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "catalog_cache.py",
+      "type": "python",
+      "lines": 140,
+      "executable": true,
+      "size_bytes": 3978,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "cli.py",
+      "type": "python",
+      "lines": 606,
+      "executable": true,
+      "size_bytes": 22503,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "colors.py",
+      "type": "python",
+      "lines": 69,
+      "executable": true,
+      "size_bytes": 1914,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/__init__.py",
+      "type": "python",
+      "lines": 29,
+      "executable": true,
+      "size_bytes": 1007,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/catalog_source_screen.py",
+      "type": "python",
+      "lines": 165,
+      "executable": true,
+      "size_bytes": 5767,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/code_editor.py",
+      "type": "python",
+      "lines": 553,
+      "executable": true,
+      "size_bytes": 21123,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/confirm_modal.py",
+      "type": "python",
+      "lines": 39,
+      "executable": true,
+      "size_bytes": 1208,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/data_catalog/__init__.py",
+      "type": "python",
+      "lines": 288,
+      "executable": true,
+      "size_bytes": 9834,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/data_catalog/database_tree.py",
+      "type": "python",
+      "lines": 616,
+      "executable": true,
+      "size_bytes": 25513,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/data_catalog/file_tree.py",
+      "type": "python",
+      "lines": 24,
+      "executable": true,
+      "size_bytes": 648,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/data_catalog/s3_tree.py",
+      "type": "python",
+      "lines": 196,
+      "executable": true,
+      "size_bytes": 6282,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/data_catalog/tree.py",
+      "type": "python",
+      "lines": 130,
+      "executable": true,
+      "size_bytes": 4939,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/debug_info.py",
+      "type": "python",
+      "lines": 342,
+      "executable": true,
+      "size_bytes": 12160,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/export_screen.py",
+      "type": "python",
+      "lines": 285,
+      "executable": true,
+      "size_bytes": 10583,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/help_screen.md",
+      "type": "markdown",
+      "lines": 78,
+      "executable": false,
+      "size_bytes": 2967,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/help_screen.py",
+      "type": "python",
+      "lines": 86,
+      "executable": true,
+      "size_bytes": 3022,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/history_screen.py",
+      "type": "python",
+      "lines": 353,
+      "executable": true,
+      "size_bytes": 12635,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/keys_panel.py",
+      "type": "python",
+      "lines": 44,
+      "executable": true,
+      "size_bytes": 1328,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/modal.py",
+      "type": "python",
+      "lines": 19,
+      "executable": true,
+      "size_bytes": 760,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/results_viewer.py",
+      "type": "python",
+      "lines": 327,
+      "executable": true,
+      "size_bytes": 12281,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/run_query_bar.py",
+      "type": "python",
+      "lines": 115,
+      "executable": true,
+      "size_bytes": 4202,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "components/text_modal.py",
+      "type": "python",
+      "lines": 147,
+      "executable": true,
+      "size_bytes": 4455,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "config.py",
+      "type": "python",
+      "lines": 1223,
+      "executable": true,
+      "size_bytes": 47736,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "config_schema.py",
+      "type": "python",
+      "lines": 335,
+      "executable": true,
+      "size_bytes": 13493,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "config_wizard.py",
+      "type": "python",
+      "lines": 444,
+      "executable": true,
+      "size_bytes": 15122,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "copy_formats.py",
+      "type": "python",
+      "lines": 343,
+      "executable": true,
+      "size_bytes": 10420,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "copy_widgets.py",
+      "type": "python",
+      "lines": 42,
+      "executable": true,
+      "size_bytes": 1312,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "core_options.py",
+      "type": "python",
+      "lines": 1119,
+      "executable": true,
+      "size_bytes": 35563,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "crash.py",
+      "type": "python",
+      "lines": 198,
+      "executable": true,
+      "size_bytes": 6979,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "driver.py",
+      "type": "python",
+      "lines": 82,
+      "executable": true,
+      "size_bytes": 2599,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "editor_cache.py",
+      "type": "python",
+      "lines": 188,
+      "executable": true,
+      "size_bytes": 5539,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "environment.py",
+      "type": "python",
+      "lines": 165,
+      "executable": true,
+      "size_bytes": 5615,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "exception.py",
+      "type": "python",
+      "lines": 118,
+      "executable": true,
+      "size_bytes": 2656,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "export.py",
+      "type": "python",
+      "lines": 389,
+      "executable": true,
+      "size_bytes": 13772,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "external.py",
+      "type": "python",
+      "lines": 155,
+      "executable": true,
+      "size_bytes": 5300,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "first_pass.py",
+      "type": "python",
+      "lines": 208,
+      "executable": true,
+      "size_bytes": 8542,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "global.tcss",
+      "type": "other",
+      "lines": 79,
+      "executable": false,
+      "size_bytes": 1420,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "history.py",
+      "type": "python",
+      "lines": 211,
+      "executable": true,
+      "size_bytes": 7003,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/__init__.py",
+      "type": "python",
+      "lines": 131,
+      "executable": true,
+      "size_bytes": 4574,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/cli.py",
+      "type": "python",
+      "lines": 2731,
+      "executable": true,
+      "size_bytes": 103134,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/client.py",
+      "type": "python",
+      "lines": 405,
+      "executable": true,
+      "size_bytes": 15748,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/diagnostics.py",
+      "type": "python",
+      "lines": 503,
+      "executable": true,
+      "size_bytes": 18779,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/modes/__init__.py",
+      "type": "python",
+      "lines": 29,
+      "executable": true,
+      "size_bytes": 1242,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/modes/catalog.py",
+      "type": "python",
+      "lines": 73,
+      "executable": true,
+      "size_bytes": 2375,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/modes/catalog_search.py",
+      "type": "python",
+      "lines": 60,
+      "executable": true,
+      "size_bytes": 2036,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/modes/config.py",
+      "type": "python",
+      "lines": 603,
+      "executable": true,
+      "size_bytes": 23379,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/modes/history.py",
+      "type": "python",
+      "lines": 75,
+      "executable": true,
+      "size_bytes": 2377,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/modes/info.py",
+      "type": "python",
+      "lines": 223,
+      "executable": true,
+      "size_bytes": 8631,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/modes/skill.py",
+      "type": "python",
+      "lines": 89,
+      "executable": true,
+      "size_bytes": 3288,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/modes/spec.py",
+      "type": "python",
+      "lines": 333,
+      "executable": true,
+      "size_bytes": 13048,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/output.py",
+      "type": "python",
+      "lines": 86,
+      "executable": true,
+      "size_bytes": 2947,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/protocol.py",
+      "type": "python",
+      "lines": 314,
+      "executable": true,
+      "size_bytes": 11053,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/server.py",
+      "type": "python",
+      "lines": 1096,
+      "executable": true,
+      "size_bytes": 44927,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/session.py",
+      "type": "python",
+      "lines": 219,
+      "executable": true,
+      "size_bytes": 8877,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/skill/.claude-plugin/plugin.json",
+      "type": "json",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 481,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/skill/SKILL.md",
+      "type": "markdown",
+      "lines": 100,
+      "executable": false,
+      "size_bytes": 5030,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/skill/references/config.md",
+      "type": "markdown",
+      "lines": 96,
+      "executable": false,
+      "size_bytes": 4036,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/skill/references/queries.md",
+      "type": "markdown",
+      "lines": 140,
+      "executable": false,
+      "size_bytes": 6378,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/skill/references/scripting.md",
+      "type": "markdown",
+      "lines": 122,
+      "executable": false,
+      "size_bytes": 4243,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/skill/references/sessions.md",
+      "type": "markdown",
+      "lines": 125,
+      "executable": false,
+      "size_bytes": 5776,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/skill/references/troubleshooting.md",
+      "type": "markdown",
+      "lines": 102,
+      "executable": false,
+      "size_bytes": 5218,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "hsql/timeout.py",
+      "type": "python",
+      "lines": 157,
+      "executable": true,
+      "size_bytes": 5981,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "keymap.py",
+      "type": "python",
+      "lines": 74,
+      "executable": true,
+      "size_bytes": 2235,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "keys_app.py",
+      "type": "python",
+      "lines": 607,
+      "executable": true,
+      "size_bytes": 22349,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "keys_app.tcss",
+      "type": "other",
+      "lines": 330,
+      "executable": false,
+      "size_bytes": 6039,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "layout.py",
+      "type": "python",
+      "lines": 493,
+      "executable": true,
+      "size_bytes": 18840,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "locale_manager.py",
+      "type": "python",
+      "lines": 57,
+      "executable": true,
+      "size_bytes": 2766,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "messages.py",
+      "type": "python",
+      "lines": 27,
+      "executable": true,
+      "size_bytes": 660,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "navigate.py",
+      "type": "python",
+      "lines": 269,
+      "executable": true,
+      "size_bytes": 10023,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "options.py",
+      "type": "python",
+      "lines": 778,
+      "executable": true,
+      "size_bytes": 28653,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "palette.py",
+      "type": "python",
+      "lines": 183,
+      "executable": true,
+      "size_bytes": 5500,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "plugins.py",
+      "type": "python",
+      "lines": 130,
+      "executable": true,
+      "size_bytes": 4810,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "py.typed",
+      "type": "other",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 0,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "query.py",
+      "type": "python",
+      "lines": 377,
+      "executable": true,
+      "size_bytes": 15378,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "query_log.py",
+      "type": "python",
+      "lines": 592,
+      "executable": true,
+      "size_bytes": 20276,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "redact.py",
+      "type": "python",
+      "lines": 241,
+      "executable": true,
+      "size_bytes": 9455,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "schemas/config-v1.json",
+      "type": "json",
+      "lines": 373,
+      "executable": false,
+      "size_bytes": 13379,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "ssh.py",
+      "type": "python",
+      "lines": 1066,
+      "executable": true,
+      "size_bytes": 41209,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "statements.py",
+      "type": "python",
+      "lines": 191,
+      "executable": true,
+      "size_bytes": 7414,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "transaction_mode.py",
+      "type": "python",
+      "lines": 26,
+      "executable": true,
+      "size_bytes": 871,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "windows_timezone.py",
+      "type": "python",
+      "lines": 142,
+      "executable": true,
+      "size_bytes": 5512,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "P6",
+      "finding_id": "finding-d078785cf66e4f9f91b283862110f34e",
+      "category": "System Prompt Leakage",
+      "pattern": "Direct Prompt Extraction",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "layout.py",
+        "start_line": 409,
+        "end_line": null,
+        "start_column": 12
+      },
+      "finding": "return rule",
+      "explanation": "Skill contains instructions that could directly expose system prompts, internal rules, or hidden instructions to users or external parties.",
+      "remediation": "Remove any instructions that reveal, print, or output system prompts or internal rules. System instructions should never be exposed to end users.",
+      "code_snippet": "    def _record_rule(self, index: int, width: int) -> str:\n        rule = f\"-[ RECORD {index} ]\"\n        if not self.options.aligned:\n            return rule\n        return rule + \"-\" * max(width - len(rule), 1)\n\n",
+      "intent": null,
+      "tags": [
+        "System Prompt Leakage"
+      ],
+      "evidence": {},
+      "match_fingerprint": "457bb74dd0eb3f195d54fbf3bf07e26dc6f982b06ad90b9a248f56071c83b964",
+      "occurrences": [
+        {
+          "file": "layout.py",
+          "start_line": 409,
+          "end_line": null,
+          "start_column": 12
+        }
+      ]
+    },
+    {
+      "id": "P6",
+      "finding_id": "finding-cf5804b51d3646369f2c728b4af76e21",
+      "category": "System Prompt Leakage",
+      "pattern": "Direct Prompt Extraction",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "layout.py",
+        "start_line": 410,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "return rule",
+      "explanation": "Skill contains instructions that could directly expose system prompts, internal rules, or hidden instructions to users or external parties.",
+      "remediation": "Remove any instructions that reveal, print, or output system prompts or internal rules. System instructions should never be exposed to end users.",
+      "code_snippet": "        rule = f\"-[ RECORD {index} ]\"\n        if not self.options.aligned:\n            return rule\n        return rule + \"-\" * max(width - len(rule), 1)\n\n\ndef _width(text: str) -> int:",
+      "intent": null,
+      "tags": [
+        "System Prompt Leakage"
+      ],
+      "evidence": {},
+      "match_fingerprint": "457bb74dd0eb3f195d54fbf3bf07e26dc6f982b06ad90b9a248f56071c83b964",
+      "occurrences": [
+        {
+          "file": "layout.py",
+          "start_line": 410,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    },
+    {
+      "id": "AST10",
+      "finding_id": "finding-46ef8a83668d4cc68c0ac0343e0f7fe2",
+      "category": "Dangerous Code Execution",
+      "pattern": "Insecure deserialization: pickle.load()",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "catalog_cache.py",
+        "start_line": 114,
+        "end_line": 114,
+        "start_column": 34,
+        "end_column": 48
+      },
+      "finding": "pickle.load(f)",
+      "explanation": "Untrusted data is passed to an insecure deserializer (pickle, marshal, dill, jsonpickle, joblib, yaml.load without a safe Loader, or torch.load without weights_only). These deserializers reconstruct arbitrary objects and invoke callables during loading, so deserializing attacker-controlled bytes is equivalent to arbitrary code execution.",
+      "remediation": "Never deserialize untrusted input with pickle/marshal/dill/jsonpickle/joblib. Use a data-only format such as JSON. For YAML use yaml.safe_load; for PyTorch use torch.load(..., weights_only=True); for numpy avoid allow_pickle=True. If a binary format is unavoidable, verify an HMAC/signature over the bytes before loading.",
+      "code_snippet": "        cache_file = _get_cache_file()\n    try:\n        with cache_file.open(\"rb\") as f:\n            cache: CatalogCache = pickle.load(f)\n            assert isinstance(cache, CatalogCache)\n    except (\n        pickle.UnpicklingError,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0fdb3aa67672bdd8a02250493333a7a5b5f70c3bf836528f26261eb54bc5b642",
+      "occurrences": [
+        {
+          "file": "catalog_cache.py",
+          "start_line": 114,
+          "end_line": 114,
+          "start_column": 34,
+          "end_column": 48
+        }
+      ]
+    },
+    {
+      "id": "AST10",
+      "finding_id": "finding-19e46528713646f893836fe5f4ae2467",
+      "category": "Dangerous Code Execution",
+      "pattern": "Insecure deserialization: pickle.load()",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "editor_cache.py",
+        "start_line": 70,
+        "end_line": 70,
+        "start_column": 27,
+        "end_column": 41
+      },
+      "finding": "pickle.load(f)",
+      "explanation": "Untrusted data is passed to an insecure deserializer (pickle, marshal, dill, jsonpickle, joblib, yaml.load without a safe Loader, or torch.load without weights_only). These deserializers reconstruct arbitrary objects and invoke callables during loading, so deserializing attacker-controlled bytes is equivalent to arbitrary code execution.",
+      "remediation": "Never deserialize untrusted input with pickle/marshal/dill/jsonpickle/joblib. Use a data-only format such as JSON. For YAML use yaml.safe_load; for PyTorch use torch.load(..., weights_only=True); for numpy avoid allow_pickle=True. If a binary format is unavoidable, verify an HMAC/signature over the bytes before loading.",
+      "code_snippet": "    cache_file = get_cache_file()\n    try:\n        with cache_file.open(\"rb\") as f:\n            cache: Cache = pickle.load(f)\n            assert isinstance(cache, Cache)\n    except (\n        pickle.UnpicklingError,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0fdb3aa67672bdd8a02250493333a7a5b5f70c3bf836528f26261eb54bc5b642",
+      "occurrences": [
+        {
+          "file": "editor_cache.py",
+          "start_line": 70,
+          "end_line": 70,
+          "start_column": 27,
+          "end_column": 41
+        }
+      ]
+    },
+    {
+      "id": "AST10",
+      "finding_id": "finding-3530fbdea5cf4512b4789a62e38d4d9e",
+      "category": "Dangerous Code Execution",
+      "pattern": "Insecure deserialization: pickle.load()",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "editor_cache.py",
+        "start_line": 153,
+        "end_line": 153,
+        "start_column": 24,
+        "end_column": 38
+      },
+      "finding": "pickle.load(f)",
+      "explanation": "Untrusted data is passed to an insecure deserializer (pickle, marshal, dill, jsonpickle, joblib, yaml.load without a safe Loader, or torch.load without weights_only). These deserializers reconstruct arbitrary objects and invoke callables during loading, so deserializing attacker-controlled bytes is equivalent to arbitrary code execution.",
+      "remediation": "Never deserialize untrusted input with pickle/marshal/dill/jsonpickle/joblib. Use a data-only format such as JSON. For YAML use yaml.safe_load; for PyTorch use torch.load(..., weights_only=True); for numpy avoid allow_pickle=True. If a binary format is unavoidable, verify an HMAC/signature over the bytes before loading.",
+      "code_snippet": "            continue\n        try:\n            with replayed.open(\"rb\") as f:\n                cache = pickle.load(f)\n            assert isinstance(cache, Cache)\n        except Exception:\n            continue",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0fdb3aa67672bdd8a02250493333a7a5b5f70c3bf836528f26261eb54bc5b642",
+      "occurrences": [
+        {
+          "file": "editor_cache.py",
+          "start_line": 153,
+          "end_line": 153,
+          "start_column": 24,
+          "end_column": 38
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-9d273a1651bf486c83070cb4c2572e1d",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "external.py",
+        "start_line": 98,
+        "end_line": 98,
+        "start_column": 19,
+        "end_column": 46
+      },
+      "finding": "subprocess.call(list(argv))",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "\n    try:\n        with app.suspend():\n            return subprocess.call(list(argv))\n    except SuspendNotSupported as e:\n        raise HarlequinExternalError(\n            title=ERROR_TITLE,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "243c1673a621dbce80d2f076b873ceb752c165249e53df08fca815f95cbfc2f4",
+      "occurrences": [
+        {
+          "file": "external.py",
+          "start_line": 98,
+          "end_line": 98,
+          "start_column": 19,
+          "end_column": 46
+        }
+      ]
+    },
+    {
+      "id": "TT2",
+      "finding_id": "finding-b3c32a96a33a48caa71d0c3685b9e72e",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'argv' from os.environ.get (line 140, credential/environment) \u2192 subprocess.call (code execution)",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "external.py",
+        "start_line": 98,
+        "end_line": 98,
+        "start_column": 19,
+        "end_column": 46
+      },
+      "finding": "subprocess.call(list(argv))",
+      "explanation": "Data from a source is assigned to a variable that is later passed to a sink, creating a variable-mediated taint flow.",
+      "remediation": "Validate tainted variables before passing them to sinks. Use allowlists, type checks, or sanitization functions on data from external sources.",
+      "code_snippet": "\n    try:\n        with app.suspend():\n            return subprocess.call(list(argv))\n    except SuspendNotSupported as e:\n        raise HarlequinExternalError(\n            title=ERROR_TITLE,",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "77c00c7164d968c9a7b24bdba48f157905f3ded5c02303c5a02d731758a6b98a",
+      "occurrences": [
+        {
+          "file": "external.py",
+          "start_line": 98,
+          "end_line": 98,
+          "start_column": 19,
+          "end_column": 46
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-6cfddeac64c841a6a874ad1d3e78626b",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "hsql/cli.py",
+        "start_line": 388,
+        "end_line": null,
+        "start_column": 16
+      },
+      "finding": "timeout = None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "        # requests is not one the server counts down\n        raw_timeout = values.pop(\"timeout\", None)\n        if serve is not None:\n            raw_timeout = None\n        stats: bool = bool(values.pop(\"stats\", False))\n        tuples_only: bool = bool(values.pop(\"tuples_only\", False))\n        no_align: bool = bool(values.pop(\"no_align\", False))",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1bfffcad3cc52e1c1c892c27692b5d0d64b95983ef1ee65d42c390f162cacf50",
+      "occurrences": [
+        {
+          "file": "hsql/cli.py",
+          "start_line": 388,
+          "end_line": null,
+          "start_column": 16
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-fc52c14219d9495d9d8578bee38f5115",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "hsql/modes/info.py",
+        "start_line": 113,
+        "end_line": 118,
+        "start_column": 20,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            [path, \"-V\"],\n            capture_output=True,\n            timeout=_VERSION_SECONDS,\n            stdin=subprocess.DEVNULL,\n        )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    if path is None:\n        return {\"client\": None, \"version\": None}\n    try:\n        completed = subprocess.run(\n            [path, \"-V\"],\n            capture_output=True,\n            timeout=_VERSION_SECONDS,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e78805d59fde3c9a66ca2f97857bbce1694cb2e887dac2a1da5cc112ca146ea9",
+      "occurrences": [
+        {
+          "file": "hsql/modes/info.py",
+          "start_line": 113,
+          "end_line": 118,
+          "start_column": 20,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "TM3",
+      "finding_id": "finding-c2ed4ee1af1243988902f8a9fa1cdfaa",
+      "category": "Tool Misuse",
+      "pattern": "Unsafe Defaults",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "hsql/session.py",
+        "start_line": 184,
+        "end_line": null,
+        "start_column": 28
+      },
+      "finding": "world-writable",
+      "explanation": "Tool defaults are unsafe or overly permissive (e.g. disabled TLS verification, no authentication, world-writable permissions). Unsafe defaults widen the attack surface.",
+      "remediation": "Override unsafe defaults with secure settings (verify=True, auth required, restrictive permissions). Review and harden all tool configurations.",
+      "code_snippet": "    \"\"\"Where the session called `name` listens. Derived, never configurable.\n\n    A caller-named socket file is the obvious escape hatch and the obvious way\n    to end up with one on a world-writable directory, or on a filesystem that\n    cannot host a socket at all.\n    \"\"\"\n    return os.path.join(runtime_dir(environ), f\"{name}.sock\")",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f239fe898e7090985596902b5111ef3fb3133f3991fb13b1656c70b3bbdc433f",
+      "occurrences": [
+        {
+          "file": "hsql/session.py",
+          "start_line": 184,
+          "end_line": null,
+          "start_column": 28
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-bd4337c6396b437faa4d28fcddab3d0c",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "hsql/skill/references/sessions.md",
+        "start_line": 112,
+        "end_line": null,
+        "start_column": 79
+      },
+      "finding": "setsid ",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "        \"hooks\": [\n          {\n            \"type\": \"command\",\n            \"command\": \"hsql --session dev --session-status >/dev/null 2>&1 || setsid hsql --serve dev -P dev >>/tmp/hsql-dev.log 2>&1 &\"\n          }\n        ]\n      }",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "46970e2d8425d41998e9806d2cdacc2240e0e8354f4bd50fef102f0baaac0bfa",
+      "occurrences": [
+        {
+          "file": "hsql/skill/references/sessions.md",
+          "start_line": 112,
+          "end_line": null,
+          "start_column": 79
+        }
+      ]
+    },
+    {
+      "id": "TM3",
+      "finding_id": "finding-d99cac240a924601b2656fdaaf3e96e7",
+      "category": "Tool Misuse",
+      "pattern": "Unsafe Defaults",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "query_log.py",
+        "start_line": 292,
+        "end_line": null,
+        "start_column": 59
+      },
+      "finding": "world-readable",
+      "explanation": "Tool defaults are unsafe or overly permissive (e.g. disabled TLS verification, no authentication, world-writable permissions). Unsafe defaults widen the attack surface.",
+      "remediation": "Override unsafe defaults with secure settings (verify=True, auth required, restrictive permissions). Review and harden all tool configurations.",
+      "code_snippet": "        db: sqlite3.Connection | None = None\n        try:\n            store.parent.mkdir(parents=True, exist_ok=True, mode=0o700)\n            # every statement this machine has run, so not world-readable.\n            # SQLite gives -wal and -shm the main file's mode. No-op on Windows.\n            os.close(os.open(store, os.O_CREAT | os.O_RDWR, 0o600))\n            # not thread-bound: the lock in `_run()` is what serializes writers",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "08ab99de1034a0cd722661ecc978dd2265680bf78de538d14d0dea371d421246",
+      "occurrences": [
+        {
+          "file": "query_log.py",
+          "start_line": 292,
+          "end_line": null,
+          "start_column": 59
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-5efef6e3f54c4375ad828219451077b7",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "schemas/config-v1.json",
+        "start_line": 263,
+        "end_line": null,
+        "start_column": 26
+      },
+      "finding": "Write the Agent Skill for driving hsql, as markdown. -o installs it: 'hsql --skill -o ~/.claude",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "        },\n        \"skill\": {\n          \"type\": \"boolean\",\n          \"description\": \"Write the Agent Skill for driving hsql, as markdown. -o installs it: 'hsql --skill -o ~/.claude/skills/hsql/'.\",\n          \"default\": false\n        },\n        \"session_reset\": {",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8b6af593dc71a3017d32f13a287edfe8816c7a5fe20dd5a8ba1d09f6ae9e247a",
+      "occurrences": [
+        {
+          "file": "schemas/config-v1.json",
+          "start_line": 263,
+          "end_line": null,
+          "start_column": 26
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-995456b856064a20bfafc5dd6dcfc2e5",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "ssh.py",
+        "start_line": 68,
+        "end_line": null,
+        "start_column": 9
+      },
+      "finding": "TIMEOUT = 0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "\"\"\"\n\n_POLL_INTERVAL = 0.05\n_CONNECT_TIMEOUT = 0.5\n\"\"\"How long one probe of one local port may take.\"\"\"\n\n_GRACE_SECONDS = 1.0",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e952a40b76a51289820e710b3e32cbe2a18ce022e98cca1f1e5a46aa0fcf5465",
+      "occurrences": [
+        {
+          "file": "ssh.py",
+          "start_line": 68,
+          "end_line": null,
+          "start_column": 9
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-88bf5cce35cb4c2f907249bb94beb982",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "ssh.py",
+        "start_line": 353,
+        "end_line": 359,
+        "start_column": 20,
+        "end_column": 9
+      },
+      "finding": "subprocess.run(\n            probe,\n            capture_output=True,\n            timeout=timeout,\n            # a config that runs `Match exec` inherits our stdin otherwise\n            stdin=subprocess",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    \"\"\"\n    probe = [_client_path(argv[0]), \"-G\", *argv[1:]]\n    try:\n        completed = subprocess.run(\n            probe,\n            capture_output=True,\n            timeout=timeout,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d2afc76defbb9768d7a573b919df93cf27acf43e28c1e853022731143800b685",
+      "occurrences": [
+        {
+          "file": "ssh.py",
+          "start_line": 353,
+          "end_line": 359,
+          "start_column": 20,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-511820c3e0c44dd5be5fa324d3e43e6b",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "ssh.py",
+        "start_line": 589,
+        "end_line": 597,
+        "start_column": 22,
+        "end_column": 13
+      },
+      "finding": "subprocess.Popen(\n                argv,\n                # ssh's prompts go to the terminal it inherits, not to this\n                # pipe, so capturing stderr does not swallow them\n                # ",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "            # ahead of the destination, which ssh takes last\n            argv = [*argv[:-1], \"-o\", \"BatchMode=yes\", argv[-1]]\n        try:\n            process = subprocess.Popen(\n                argv,\n                # ssh's prompts go to the terminal it inherits, not to this\n                # pipe, so capturing stderr does not swallow them",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4ada582bc92cb1dbcd2ac94d2e860d67d5944a00f4bc7169a1bad31ad3a8c62a",
+      "occurrences": [
+        {
+          "file": "ssh.py",
+          "start_line": 589,
+          "end_line": 597,
+          "start_column": 22,
+          "end_column": 13
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-ee52557e19ed4808be35fec6a6c4b855",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "windows_timezone.py",
+        "start_line": 138,
+        "end_line": null,
+        "start_column": 13
+      },
+      "finding": "without checking",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "            \"Harlequin was not able to download a timezone database. Without \"\n            \"a timezone database, Harlequin may crash if you attempt to load \"\n            \"timestamptz values into the results viewer. To start Harlequin \"\n            \"without checking for one, set the --no-download-tzdata option.\\n\"\n            f\"For more info, see {TZ_DATA_DOCS_URL}\\n\"\n            f\"Download failed with the following exception:\\n{e}\"\n        )",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9341b6f34d6af9081a0d6673f4217b7307d273da9f43357efd9029e15c5da76c",
+      "occurrences": [
+        {
+          "file": "windows_timezone.py",
+          "start_line": 138,
+          "end_line": null,
+          "start_column": 13
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-b7b926bae1e04985a4d4d97eefb6a98a",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "__init__.py",
+        "start_line": 74,
+        "end_line": 74,
+        "start_column": 12,
+        "end_column": 53
+      },
+      "finding": "getattr(import_module(module_name), name)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "        raise AttributeError(f\"module {__name__!r} has no attribute {name!r}\") from None\n    from importlib import import_module\n\n    value = getattr(import_module(module_name), name)\n    # cache on the module so subsequent lookups skip __getattr__ entirely\n    globals()[name] = value\n    return value",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "2e23dbc461d2f1532c89dba12b164e017c32ea8f170e7985345a4baa1f1a22bd",
+      "occurrences": [
+        {
+          "file": "__init__.py",
+          "start_line": 74,
+          "end_line": 74,
+          "start_column": 12,
+          "end_column": 53
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-3a1019b056434898808039d6f178efbf",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "components/text_modal.py",
+        "start_line": 81,
+        "end_line": 81,
+        "start_column": 12,
+        "end_column": 45
+      },
+      "finding": "getattr(self.body, scroll_action)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "        event.prevent_default()\n        scroll_action = self.SCROLL_ACTIONS.get(event.key)\n        if scroll_action is not None:\n            getattr(self.body, scroll_action)()\n        elif event.key == \"c\":\n            self.copy()\n        else:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3aaf2a51c665f8a7940952a709023016ae54f8c1fc9d53e3a5dd9d52fc3e9063",
+      "occurrences": [
+        {
+          "file": "components/text_modal.py",
+          "start_line": 81,
+          "end_line": 81,
+          "start_column": 12,
+          "end_column": 45
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-b93945ef4fb842a4bc1628ea90b07435",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "config.py",
+        "start_line": 524,
+        "end_line": 524,
+        "start_column": 31,
+        "end_column": 51
+      },
+      "finding": "getattr(parsed, key)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "            problems.add(message, key=key)\n        return profile\n\n    return {**profile, **{key: getattr(parsed, key) for key in given}}\n\n\ndef adapter_options_model(",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c76f07a8b34461ec4ba4b2616020ecaa44f63b92370835562af191da0ec7ad62",
+      "occurrences": [
+        {
+          "file": "config.py",
+          "start_line": 524,
+          "end_line": 524,
+          "start_column": 31,
+          "end_column": 51
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-a8e9a17276da43f98d275a9c3c836b63",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "environment.py",
+        "start_line": 137,
+        "end_line": 137,
+        "start_column": 27,
+        "end_column": 60
+      },
+      "finding": "getattr(adapter_cls, name, False)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "    from harlequin.adapter import HarlequinAdapter\n\n    return {\n        name.lower(): bool(getattr(adapter_cls, name, False))\n        for name in sorted(vars(HarlequinAdapter))\n        if name.startswith(\"IMPLEMENTS_\")\n    }",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "29d603857b7550d5c270e762b9880617889a86de496f192f21910d88f41b6a4e",
+      "occurrences": [
+        {
+          "file": "environment.py",
+          "start_line": 137,
+          "end_line": 137,
+          "start_column": 27,
+          "end_column": 60
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-96b5ff93c00546d89be4f4d40a5c768d",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "ssh.py",
+        "start_line": 244,
+        "end_line": 244,
+        "start_column": 17,
+        "end_column": 44
+      },
+      "finding": "getattr(signal, name, None)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "        os.kill(os.getpid(), number)\n\n    for name in (\"SIGTERM\", \"SIGHUP\"):\n        number = getattr(signal, name, None)\n        if number is None:\n            continue\n        with contextlib.suppress(ValueError, OSError):",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d230859e1b5e759b1a58ef9cb0931a371226ba4714da056c46b4884e5cc4cf1a",
+      "occurrences": [
+        {
+          "file": "ssh.py",
+          "start_line": 244,
+          "end_line": 244,
+          "start_column": 17,
+          "end_column": 44
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 96,
+    "scanned_components": 95,
+    "coverage_percent": 99.0,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 95,
+    "partially_inspected_files": 1,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "hsql/modes/config.py",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 83,
+        "completed": 83,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 83,
+        "completed": 83,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 96,
+        "completed": 95,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 96,
+        "completed": 96,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 22,
+    "findings_after_filtering": 22,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

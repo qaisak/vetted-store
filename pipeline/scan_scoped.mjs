@@ -13,6 +13,23 @@ const JOBS = ARGS.length ? Array.from({ length: Math.floor(ARGS.length / 3) }, (
   { id: 'mcp-zotero-mcp', dir: 'src/54yyyu__zotero-mcp/zotero-mcp-main', scope: 'src/zotero_mcp' },
   { id: 'mcp-codebase-memory-mcp', dir: 'src/DeusData__codebase-memory-mcp/codebase-memory-mcp-main', scope: 'src' },
   { id: 'mcp-mcp-chrome', dir: 'src/hangwin__mcp-chrome/mcp-chrome-master', scope: 'app' },
+  // November 1, 2026: repositories whose whole-repo scan passed the 15-minute limit
+  { id: 'skillspector', dir: 'src/NVIDIA__SkillSpector/SkillSpector-main', scope: 'src' },
+  { id: 'github-cli', dir: 'src/cli__cli/cli-trunk', scope: 'pkg/cmd' },
+  { id: 'uv', dir: 'src/astral-sh__uv/uv-main', scope: 'crates/uv' },
+  { id: 'trivy', dir: 'src/aquasecurity__trivy/trivy-main', scope: 'pkg/commands' },
+  { id: 'semgrep', dir: 'src/semgrep__semgrep/semgrep-develop', scope: 'cli/src/semgrep' },
+  { id: 'mise', dir: 'src/jdx__mise/mise-main', scope: 'src' },
+  { id: 'yt-dlp', dir: 'src/yt-dlp__yt-dlp/yt-dlp-master', scope: 'yt_dlp' },
+  { id: 'difftastic', dir: 'src/Wilfred__difftastic/difftastic-master', scope: 'src' },
+  { id: 'lazygit', dir: 'src/jesseduffield__lazygit/lazygit-master', scope: 'pkg' },
+  { id: 'ollama', dir: 'src/ollama__ollama/ollama-main', scope: 'server' },
+  { id: 'lazydocker', dir: 'src/jesseduffield__lazydocker/lazydocker-master', scope: 'pkg' },
+  { id: 'posting', dir: 'src/darrenburns__posting/posting-main', scope: 'internal' },
+  { id: 'harlequin', dir: 'src/tconbeer__harlequin/harlequin-main', scope: 'src/harlequin' },
+  { id: 'visidata', dir: 'src/saulpw__visidata/visidata-develop', scope: 'visidata' },
+  { id: 'glances', dir: 'src/nicolargo__glances/glances-develop', scope: 'glances' },
+  { id: 'k9s', dir: 'src/derailed__k9s/k9s-master', scope: 'internal' },
 ];
 
 await Promise.all(JOBS.map(({ id, dir, scope }) => new Promise(resolve => {

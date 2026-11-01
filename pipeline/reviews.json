@@ -292,7 +292,14 @@
   },
   "difftastic": {
     "network": "False match: a minified video player on the project's website (homepage/), not part of the program.",
-    "shell": "Runs git check-attr to see whether Git marks a file as binary (src/gitattributes.rs:30)."
+    "shell": "Runs git check-attr to see whether Git marks a file as binary (src/gitattributes.rs:30).",
+    "_findings": [
+      {
+        "match": ".env",
+        "level": "benign",
+        "note": "False match: *.env in its table of which file names map to which language (src/parse/guess_language.rs:199)."
+      }
+    ]
   },
   "yt-dlp": {
     "secretFiles": "Only when you ask: --netrc reads site logins from your .netrc file, and --cookies-from-browser reads your browser's cookies (yt_dlp/cookies.py). Both are documented options for downloading from sites you're signed in to.",
@@ -394,7 +401,19 @@
     ]
   },
   "visidata": {
-    "credentials": "Only in optional extras you turn on yourself: a geocoding plugin that uses an API key you set (plugins/geocoding.py), and an experimental LLM command that sends the column text you analyze to Anthropic with your ANTHROPIC_API_KEY (visidata/experimental/llm.py:84). Neither loads unless you import it in your config."
+    "credentials": "Only in optional extras you turn on yourself: a geocoding plugin that uses an API key you set (plugins/geocoding.py), a Matrix chat loader that uses your Matrix token (visidata/loaders/api_matrix.py), and an experimental LLM command that sends the column text you analyze to Anthropic with your ANTHROPIC_API_KEY (visidata/experimental/llm.py:84). The LLM command doesn't load unless you import it in your config.",
+    "_findings": [
+      {
+        "match": "eset state",
+        "level": "benign",
+        "note": "Docstrings in its test-replay feature: \"Reset state for next test\" (visidata/features/replay_bulk.py:33)."
+      },
+      {
+        "match": "send chat",
+        "level": "benign",
+        "note": "Its optional Matrix chat loader: when you open a Matrix account, pressing a sends the message you type to the room you're on (visidata/loaders/api_matrix.py:146)."
+      }
+    ]
   },
   "superfile": {
     "network": "Checks GitHub for a newer release at most once a day and tells you if there is one (src/cmd/main.go:238-311). On by default; set auto_check_update = false in its config to turn it off.",
@@ -416,7 +435,14 @@
     "secretFiles": "False match: a docstring explaining that forwards declared in ~/.ssh/config are handled by ssh itself (src/harlequin/ssh.py:15). Harlequin doesn't read your SSH files."
   },
   "posting": {
-    "shell": "Opens a request body or script in your editor or pager when you ask, through a temporary file (internal/ui/external.go:40). The older Python version kept in src/ does the same (src/posting/widgets/text_area.py:249, request/request_scripts.py:99)."
+    "shell": "Opens a request body or script in your editor or pager when you ask, through a temporary file (internal/ui/external.go:40). The older Python version kept in src/ does the same (src/posting/widgets/text_area.py:249, request/request_scripts.py:99).",
+    "_findings": [
+      {
+        "match": "Clear history",
+        "level": "benign",
+        "note": "A \"Clear history\" item in its command palette that clears its own request history (internal/ui/overlays.go:172)."
+      }
+    ]
   },
   "mcp-mcp-server-youtube-transcript": {
     "_findings": [
@@ -541,6 +567,34 @@
           ]
         ],
         "note": "The WhatsApp bridge serves an API on port 8080 on every network interface, not just your own computer, and it doesn't ask for a password or check where a request comes from. While it runs, another device on the same network, or a web page you open, could send WhatsApp messages as you through /api/send. Run it only on a network you trust, and block port 8080 from other machines with your firewall."
+      }
+    ]
+  },
+  "k9s": {
+    "_findings": [
+      {
+        "match": "log Dialog",
+        "level": "benign",
+        "note": "False match: a dialog colour setting in its theme config (internal/config/styles.go:77)."
+      },
+      {
+        "match": "Delete context",
+        "level": "benign",
+        "note": "A \"Delete context?\" confirmation before removing a Kubernetes context you chose from your kubeconfig (internal/view/context.go:72)."
+      }
+    ]
+  },
+  "glances": {
+    "_findings": [
+      {
+        "match": "docker.from_env()",
+        "level": "benign",
+        "note": "Its optional containers plugin connects to Docker to show container stats (glances/plugins/containers/engines/docker.py:271)."
+      },
+      {
+        "match": "swap memory",
+        "level": "benign",
+        "note": "Field descriptions such as \"Total swap memory.\" (glances/plugins/memswap/model.py:52)."
       }
     ]
   }
