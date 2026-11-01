@@ -1022,7 +1022,23 @@
     "credentials": "Protects its optional local control server with a random 128-bit token that every connection must present, even from your own computer (src/crates/concat-server/src/grpc.rs:164, lib.rs:23)."
   },
   "spotifast": {
-    "secretFiles": "Stores your Spotify login in your system's secure store (macOS Keychain, Windows Credential Manager or the Linux secret service) instead of a plain file (src/credentials.rs:287)."
+    "secretFiles": "Stores your Spotify login in your system's secure store (macOS Keychain, Windows Credential Manager or the Linux secret service) instead of a plain file (src/credentials.rs:287).",
+    "_findings": [
+      {
+        "match": "description:",
+        "file": "src/demo.rs",
+        "level": "benign",
+        "note": "src/demo.rs is sample data for screenshots and tests (it says nothing in it talks to Spotify). The 'description' fields are made-up playlist and podcast blurbs; the hidden characters are the joiners inside a family emoji in a sample playlist name.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Clear history",
+        "file": "src/ui/settings.rs",
+        "level": "benign",
+        "note": "src/ui/settings.rs:2289 is the 'Clear history' button in Settings > Storage. It clears the app's own record of what you played (Action::ClearPlayHistory). Nothing to do with an AI's memory.",
+        "date": "2026-11-01"
+      }
+    ]
   },
   "skills-cli": {
     "_findings": [
