@@ -37,6 +37,7 @@ The site is a single self-contained page: [`vetted-store.html`](vetted-store.htm
 | `data/purpose.json` | Purpose Check results |
 | `data/scan-reports/` | SkillSpector JSON reports, one per listing (`*.scope.txt` marks scoped scans, `*.exclude.txt` lists skipped folders) |
 | `data/sources.json` | Exact commits scanned for listings added or rescanned after October 31, 2026 |
+| `data/trending.json` | GitHub's own trending lists (today, this week, this month) with stars gained, read on the date it states |
 
 ## Rebuild the site
 
@@ -68,6 +69,8 @@ node pipeline/build.mjs data/data.json pipeline/template.html vetted-store.html 
    (`[{id, match, file?, level: benign|notice|warning|concern, title?, note}]`) and merge them with
    `node pipeline/merge_reviews.mjs open.json verdicts.json --date YYYY-MM-DD`. It prints any finding still uncovered.
    Never mark something a warning or concern without reading the code. Rerun the Purpose Check afterwards.
+4c. **Trending**: refresh `data/trending.json` from github.com/trending (`?since=daily`, `weekly`, `monthly`): repo, total stars,
+   stars gained, rank. The build keeps only repositories listed in Vetted, so a trending project appears only after it's scanned.
 5. **Plain words**: add a line to `pipeline/plain.json` for every new listing (the build warns when one is missing).
    **Videos**: `node pipeline/videos.mjs data/data.json data/videos.json`, then check each new link is a demo of the project.
 6. **Build** as above, pointing the scan-reports argument at `<scan-root>/out` or `data/scan-reports`.
@@ -100,5 +103,8 @@ Things that couldn't be done from the build machine on November 1, 2026, or need
   simulated users walked the site with headless screenshots: a non-technical marketer, a low-tech small-business owner, a student
   vibe coder, a skeptical security engineer, a Hacker News skeptic, a power developer, a designer and a data analyst. Their findings drove the one-verdict pages, the
   finding reviews, history-aware navigation, search fixes and the install sheet changes. Real user testing is still worth doing.
+- **Social signals on the Trending page.** Hacker News search (`hn.algolia.com`) and Reddit (`www.reddit.com`) were blocked by
+  the build environment's network policy on November 1, so Trending uses GitHub's trending lists, star growth and the Hacker News
+  threads collected earlier. Allow those hosts in the environment's network settings to add live discussion counts.
 - **Short videos.** Listings show demo videos their developers link in their READMEs (`pipeline/videos.mjs`). Curating third-party
   reels or TikToks would need a source and permission policy first.

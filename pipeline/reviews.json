@@ -4549,5 +4549,30 @@
         "date": "2026-11-01"
       }
     ]
+  },
+  "pi-hole": {
+    "_findings": [
+      {
+        "match": "curl -sSL https://install.pi-hole.net | bash",
+        "file": "automated install/basic-install.sh",
+        "level": "benign",
+        "note": "basic-install.sh:16 is a comment showing the one-line install command from the README. The install card notes that this runs the installer straight from the internet.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "curl -sSL https://install.pi-hole.net | bash",
+        "file": "automated install/uninstall.sh",
+        "level": "benign",
+        "note": "uninstall.sh:219 is the goodbye message after uninstalling, showing the command to reinstall. It only prints it.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "curl piping",
+        "file": "automated install/basic-install.sh",
+        "level": "benign",
+        "note": "basic-install.sh:2425: if you started the installer by piping it from the web without admin rights, it downloads itself again and reruns with sudo. That's the documented install path; installing a DNS server needs admin rights.",
+        "date": "2026-11-01"
+      }
+    ]
   }
 }
