@@ -63,3 +63,18 @@ node pipeline/build.mjs data/data.json pipeline/template.html vetted-store.html 
 - Every mismatch, and every serious SkillSpector finding that isn't explained by the purpose, must have a written review in `reviews.json`. Otherwise the listing shows "Does more than stated".
 - Things a user should know even when nothing is wrong (telemetry that's on by default, an agent that skips permission prompts) go in
   `_notices` in `reviews.json` and show as "Worth knowing" on the listing.
+
+## Open items
+
+Things that couldn't be done from the build machine on November 1, 2026, or need a decision:
+
+- **Scorecard and Hacker News for listings added November 1.** `api.securityscorecards.dev` and `hn.algolia.com` weren't reachable,
+  so those listings say "not checked" instead of showing results. Rerun `fetch.mjs --only <repos>` from a machine that can reach them.
+- **OSV.dev** was unreachable during the November 1 scans, so SkillSpector's dependency check used its bundled vulnerability data.
+  Rescanning with network access gives fresher dependency results.
+- **Very large repositories** (GitHub CLI, uv, Trivy, Semgrep, mise, Ollama, lazygit, difftastic, Chrome MCP) were scanned
+  folder by folder (`*.scope.txt` says which). A machine with more time per scan can cover them whole.
+- **Audience testing.** The persona walkthroughs were done by hand with headless screenshots. A simulation tool such as MiroFish
+  needs an LLM API key and its own services, which this machine can't reach.
+- **Short videos.** Listings show demo videos their developers link in their READMEs (`pipeline/videos.mjs`). Curating third-party
+  reels or TikToks would need a source and permission policy first.

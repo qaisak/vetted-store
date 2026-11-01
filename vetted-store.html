@@ -623,7 +623,9 @@ function toast(m) {
   t.classList.remove('show'); requestAnimationFrame(() => requestAnimationFrame(() => t.classList.add('show')));
   clearTimeout(toast.h); toast.h = setTimeout(() => { t.classList.remove('show'); setTimeout(() => { try { t.hidePopover(); } catch (e) {} }, 250); }, 2200);
 }
-const dataNote = () => `<p class="data-note">Every listing is a real open-source repository. Community projects get Vetted's Purpose Check and a static NVIDIA SkillSpector scan; trusted publishers aren't scanned up front. Stars, licenses and activity come from GitHub, repository scores from OpenSSF Scorecard, discussions from Hacker News, and install commands from each project's own README. Data fetched ${fmtDate(D.gen)}. Vetted is a prototype and isn't affiliated with these projects.</p>`;
+// The span of fetch dates: most listings were fetched with D.gen, later additions carry their own date
+function dataDates() { const last = Object.values(R).map(r => r.fd).filter(Boolean).sort().pop(); return last && last !== D.gen ? `${fmtDate(D.gen)} to ${fmtDate(last)}` : fmtDate(D.gen); }
+const dataNote = () => `<p class="data-note">Every listing is a real open-source repository. Community projects get Vetted's Purpose Check and a static NVIDIA SkillSpector scan; trusted publishers aren't scanned up front. Stars, licenses and activity come from GitHub, repository scores from OpenSSF Scorecard, discussions from Hacker News, and install commands from each project's own README. Data fetched ${dataDates()}. Vetted is a prototype and isn't affiliated with these projects.</p>`;
 
 // ---------- stories ----------
 const community = () => L.filter(l => !l.tr);
@@ -1117,6 +1119,6 @@ window.addEventListener('hashchange', () => { route(); window.scrollTo(0, 0); })
 
 document.getElementById('mark').innerHTML = ic('shieldok', 2.4);
 document.getElementById('side-q-ic').innerHTML = ic('search');
-document.getElementById('side-foot').innerHTML = `${L.length} real listings · data from GitHub, OpenSSF and Hacker News, ${fmtDate(D.gen)}`;
+document.getElementById('side-foot').innerHTML = `${L.length} real listings · data from GitHub, OpenSSF and Hacker News, ${dataDates()}`;
 route();
 </script>
