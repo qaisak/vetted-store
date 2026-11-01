@@ -839,7 +839,9 @@ function pageBrowse() {
 function pageJob(k) {
   const [, title, sub, g, c] = JOB[k];
   const all = byJob(k).filter(l => !S.easy || l.lv === 1);
-  const groups = ['skill', 'mcp', 'tool'].map(kind => [KINDS[kind], byStars(all.filter(l => l.k === kind)).sort((a, b) => (a.tr - b.tr))]).filter(([, list]) => list.length);
+  // Listings whose main job is this one come first, then community before trusted, then by stars
+  const main = l => (l.jb || [])[0] === k ? 0 : 1;
+  const groups = ['skill', 'mcp', 'tool'].map(kind => [KINDS[kind], byStars(all.filter(l => l.k === kind)).sort((a, b) => main(a) - main(b) || (a.tr - b.tr))]).filter(([, list]) => list.length);
   // A kind with only one or two listings joins the biggest shelf instead of getting a near-empty one of its own
   if (groups.length > 1) {
     const small = groups.filter(([, list]) => list.length < 3), big = groups.reduce((a, b) => b[1].length > a[1].length ? b : a);
