@@ -170,7 +170,8 @@ for (const l of d.listings) {
     inst.push({ scan: true, cmds: [`git clone --depth 1 https://github.com/${repo}`, `skillspector scan ${repoName}/${l.path} --no-llm`] });
   } else if (l.kind === 'mcp') {
     const run = l.npxPkg ? `npx -y ${l.npxPkg}${l.slug === 'filesystem' ? ' /path/to/allowed/folder' : ''}` : l.uvxPkg ? `uvx ${l.uvxPkg}` : null;
-    if (MCP_INSTALL[repo]) inst.push(...MCP_INSTALL[repo], { to: 'Other clients', how: 'Install guide', link: `https://github.com/${repo}#readme`, note: 'Setup differs by client. Follow the project\'s README.' });
+    // A README card for other clients, unless the README-based cards already cover every client
+    if (MCP_INSTALL[repo]) inst.push(...MCP_INSTALL[repo], ...(MCP_INSTALL[repo].some(c => /^All /.test(c.to)) ? [] : [{ to: 'Other clients', how: 'Install guide', link: `https://github.com/${repo}#readme`, note: 'Setup differs by client. Follow the project\'s README.' }]));
     else if (repo === 'ChromeDevTools/chrome-devtools-mcp') inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin marketplace add ChromeDevTools/chrome-devtools-mcp', '/plugin install chrome-devtools-mcp@chrome-devtools-plugins'], note: 'Run inside Claude Code.' });
     else if (repo === 'upstash/context7') inst.push({ to: 'Claude Code', how: 'Setup CLI', cmds: ['npx ctx7 setup --claude'], note: 'Signs you in with OAuth and configures Context7. Needs Node.js 22.13 or newer.' });
     else if (l.install?.claude) inst.push({ to: 'Claude Code', how: 'CLI', cmds: [l.install.claude], note: repo === 'github/github-mcp-server' ? 'Needs Docker and a GitHub personal access token in $GITHUB_PAT.' : 'Run in your terminal.' });
