@@ -290,7 +290,7 @@ const SEV_W = { CRITICAL: 10, HIGH: 5, MEDIUM: 2, LOW: 0.5, INFO: 0 };
 // A serious finding whose pattern isn't listed here counts as "needs a closer look".
 
 const TRUSTED = new Set(['anthropics', 'openai', 'NVIDIA', 'microsoft', 'github', 'cli', 'modelcontextprotocol', 'ChromeDevTools', 'huggingface', 'vercel-labs', 'upstash', 'aquasecurity', 'semgrep', 'astral-sh', 'ollama']);
-const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'NVIDIA/SkillSpector': 'SkillSpector', 'qarmin/czkawka': 'Krokiet (Czkawka)' };
+const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'NVIDIA/SkillSpector': 'SkillSpector', 'qarmin/czkawka': 'Krokiet (Czkawka)', 'gorhill/uBlock': 'uBlock Origin' };
 const idOf = (l, m) => (l.kind === 'skill' ? `${m.owner}-${l.slug}` : l.kind === 'mcp' ? `mcp-${l.slug}` : (NAME[m.full] || l.slug)).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 const PREV = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, 'utf8')) : {};

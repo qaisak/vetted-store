@@ -4574,5 +4574,71 @@
         "date": "2026-11-01"
       }
     ]
+  },
+  "ublock-origin": {
+    "_findings": [
+      {
+        "match": "secret.txt",
+        "file": "platform/mv3/make-rulesets.js",
+        "level": "benign",
+        "note": "platform/mv3/make-rulesets.js:200-204 is a build script that makes a random key, stored in its own cache folder, to sign filter directives it inserts. It runs when maintainers build the extension, not in your browser.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": ".unserialize(",
+        "file": "platform/nodejs/index.js",
+        "level": "benign",
+        "note": "platform/nodejs/index.js:261 loads uBlock's own saved filter engine data back into memory (its Node.js package). It reads data uBlock itself wrote, not anything from a website.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "clear context",
+        "file": "src/js/messaging.js",
+        "level": "benign",
+        "note": "src/js/messaging.js:181 is a comment: when the element picker is opened from a settings page, it clears the remembered right-click menu position. Nothing to do with AI memory.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Exec(request.",
+        "file": "src/js/messaging.js",
+        "level": "benign",
+        "note": "src/js/messaging.js:183 calls uBlock's own elementPickerExec to open the element picker you clicked. A web-shell signature matched the function name; it runs no outside code.",
+        "date": "2026-11-01"
+      }
+    ],
+    "shell": "Only in build and test scripts: making the Chrome-store rulesets fetches filter lists with the GitHub CLI (platform/mv3/make-rulesets.js:160), and a test runner starts Node. None of it is in the extension.",
+    "credentials": "Only in a stand-in script, taken from AdGuard's Scriptlets, that uBlock puts in place of Google's ad SDK on pages; it copies that SDK's apiKey field so pages don't break (src/web_accessible_resources/google-ima-dai.js:85). Not your credentials."
+  },
+  "rustdesk": {
+    "_findings": [
+      {
+        "match": "capture context",
+        "file": "build.py",
+        "level": "benign",
+        "note": "build.py:532 is a build comment: on Linux the screen capture is opened only by RustDesk's own system service, so a separate privileged helper is switched off. A build setting, not data collection.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "capture thread",
+        "file": "src/audio_resampler/allocation_tests.rs",
+        "level": "benign",
+        "note": "src/audio_resampler/allocation_tests.rs:58 is a test checking that audio processing doesn't allocate memory on the audio capture thread. Test code.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "GetAsyncKeyState",
+        "file": "src/platform/windows.cc",
+        "level": "benign",
+        "note": "src/platform/windows.cc:763 catches only system shortcuts (Windows key, Alt+Tab, Alt/Ctrl+Esc, Print Screen) while the remote window has focus, and passes them to that window so they reach the remote computer. Nothing is recorded.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "send chat ",
+        "file": "src/ui_cm_interface.rs",
+        "level": "benign",
+        "note": "src/ui_cm_interface.rs:396 sends a chat message to the person you're connected to, through RustDesk's built-in chat during a session.",
+        "date": "2026-11-01"
+      }
+    ]
   }
 }
