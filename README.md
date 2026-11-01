@@ -37,6 +37,8 @@ The site is a single self-contained page: [`vetted-store.html`](vetted-store.htm
 | `data/purpose.json` | Purpose Check results |
 | `data/scan-reports/` | SkillSpector JSON reports, one per listing (`*.scope.txt` marks scoped scans, `*.exclude.txt` lists skipped folders) |
 | `data/sources.json` | Exact commits scanned for listings added or rescanned after October 31, 2026 |
+| `pipeline/digest.mjs` | Writes the weekly, monthly and yearly Digest issues from the trending lists, launch dates and additions |
+| `data/digests/` | One JSON file per Digest issue; past issues are never rewritten, so the archive keeps what was true then |
 | `data/trending.json` | GitHub's own trending lists (today, this week, this month) with stars gained, read on the date it states |
 
 ## Rebuild the site
@@ -71,6 +73,10 @@ node pipeline/build.mjs data/data.json pipeline/template.html vetted-store.html 
    Never mark something a warning or concern without reading the code. Rerun the Purpose Check afterwards.
 4c. **Trending**: refresh `data/trending.json` from github.com/trending (`?since=daily`, `weekly`, `monthly`): repo, total stars,
    stars gained, rank. The build keeps only repositories listed in Vetted, so a trending project appears only after it's scanned.
+4d. **Digest**: after refreshing `data/trending.json`, run `node pipeline/digest.mjs`. It writes this week's issue, the month's and
+   the year's so far; earlier issues stay as they were and appear under Past issues. Headlines and intros are computed from the
+   numbers (the leading job among the week's top gainers, the month's biggest gainer), so nothing is written by hand.
+   A weekly routine: refresh the trending lists, run the digest, rebuild, smoke test, publish.
 5. **Plain words**: add a line to `pipeline/plain.json` for every new listing (the build warns when one is missing).
    **Videos**: `node pipeline/videos.mjs data/data.json data/videos.json`, then check each new link is a demo of the project.
 6. **Build** as above, pointing the scan-reports argument at `<scan-root>/out` or `data/scan-reports`.

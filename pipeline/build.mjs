@@ -316,7 +316,11 @@ const TRF = new URL('../data/trending.json', import.meta.url);
 const TR = fs.existsSync(TRF) ? JSON.parse(fs.readFileSync(TRF, 'utf8')) : null;
 if (TR) for (const k of ['daily', 'weekly', 'monthly']) TR[k] = (TR[k] || []).filter(([repo]) => L.some(l => l.r === repo));
 
-const DATA = { gen: d.generated.slice(0, 10), L, R, AV: d.avatars, SC, MR, TR };
+// Digest issues (pipeline/digest.mjs), newest first
+const DGD = new URL('../data/digests/', import.meta.url);
+const DG = fs.existsSync(DGD) ? fs.readdirSync(DGD).filter(f => f.endsWith('.json')).map(f => JSON.parse(fs.readFileSync(new URL(f, DGD), 'utf8'))).sort((a, b) => b.to.localeCompare(a.to) || a.type.localeCompare(b.type)) : [];
+
+const DATA = { gen: d.generated.slice(0, 10), L, R, AV: d.avatars, SC, MR, TR, DG };
 const json = JSON.stringify(DATA).replace(/</g, '\\u003c');
 const tpl = fs.readFileSync(tplPath, 'utf8');
 // A function replacement, so "$'" or "$&" inside scanned text is inserted literally

@@ -60,6 +60,17 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   r = await S('github.com/foo/bar'); ok(/isn't in Vetted yet/.test(r.text), 'unlisted repo link says so');
   r = await S('ci/cd'); ok(/CI\/CD/.test(r.top || ''), 'ci/cd is a word, not a repo');
   ok(r.side === 'ci/cd', 'search boxes stay in sync');
+  // Digest: every issue opens, with a title and at least one pick, and a pick leads back to the issue
+  await p.goto(url + '#digest'); await p.waitForTimeout(300);
+  const issues = await p.evaluate(() => [...document.querySelectorAll('#main a.issue-card')].map(a => a.getAttribute('href')));
+  ok(issues.length >= 3, 'digest lists the latest weekly, monthly and yearly issues');
+  for (const h of issues) {
+    await p.goto(url + h); await p.waitForTimeout(250);
+    const r = await p.evaluate(() => ({ h1: document.querySelector('#main .issue-hero h1')?.textContent, picks: document.querySelectorAll('#main .pick').length }));
+    ok(r.h1 && r.picks > 0, `issue ${h}: "${r.h1}" with ${r.picks} picks`);
+  }
+  await p.evaluate(() => document.querySelector('#main .pick a.pk-t').click()); await p.waitForTimeout(300);
+  ok(/Digest/.test(await p.evaluate(() => document.querySelector('a.back')?.textContent || '')), 'a pick links back to the Digest');
   ok(!errs.length, 'no page errors ' + errs.join('; '));
   await b.close();
 })();

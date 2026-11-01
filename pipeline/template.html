@@ -174,6 +174,30 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .copybox { display: flex; gap: 8px; align-items: center; background: var(--code); border: 1px solid var(--sep); border-radius: 10px; padding: 8px 8px 8px 12px; min-width: 0; }
 .copybox code { flex: 1; min-width: 0; font-family: var(--mono); font-size: 12.5px; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.45; }
 .dev-scan { margin-top: 4px; }
+/* Digest */
+.issues { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.scroller.issues { display: grid; grid-auto-flow: column; grid-template-columns: none; grid-auto-columns: minmax(260px, calc((100% - 32px) / 3)); }
+.issue-card { position: relative; border-radius: 16px; overflow: hidden; color: #FFFFFF; padding: 18px; min-height: 196px; display: flex; flex-direction: column; gap: 4px; text-align: left; box-shadow: var(--shadow); }
+.issue-card .art, .issue-hero .art { position: absolute; inset: 0; }
+.issue-card .ey, .issue-hero .ey { position: relative; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; opacity: .85; }
+.issue-card .tt { position: relative; font-size: 22px; font-weight: 800; line-height: 1.12; }
+.issue-card .ft { position: relative; margin-top: auto; display: flex; align-items: center; gap: 6px; font-size: 13px; }
+.issue-card .ft .icon { width: 30px; height: 30px; }
+.issue-card .ft span { margin-left: 4px; opacity: .9; }
+.issue-hero { position: relative; overflow: hidden; border-radius: 18px; color: #FFFFFF; padding: 26px 22px; margin-bottom: 16px; display: flex; flex-direction: column; gap: 6px; }
+.issue-hero h1 { position: relative; font-size: 32px; font-weight: 800; line-height: 1.08; color: #FFFFFF; max-width: 18ch; }
+.issue-intro { font-size: 17px; line-height: 1.5; max-width: 64ch; }
+.picks { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 30px; }
+.pick { display: grid; grid-template-columns: 22px auto minmax(0, 1fr) auto; gap: 12px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--sep); min-width: 0; }
+.pk-n { font-size: 17px; font-weight: 700; text-align: center; color: var(--label2); }
+.pk-t { display: flex; flex-direction: column; min-width: 0; text-align: left; color: var(--label); gap: 1px; }
+.pk-t b { font-size: 16px; font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pk-m { font-size: 13px; font-weight: 700; color: var(--green); }
+.pk-d { font-size: 13px; color: var(--label2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.past { list-style: none; margin: 0; padding: 0; }
+.past li a { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--sep); color: var(--label); }
+.past li span { color: var(--label2); font-size: 14px; }
+@media (max-width: 760px) { .issues { grid-template-columns: minmax(0, 1fr); } .scroller.issues { grid-auto-columns: 82%; } .picks { grid-template-columns: minmax(0, 1fr); } .issue-hero h1 { font-size: 28px; } }
 details.full { margin-top: 30px; border-top: 1px solid var(--sep); }
 details.full > summary { list-style: none; cursor: pointer; display: flex; flex-direction: column; gap: 2px; padding: 16px 0 4px; }
 details.full > summary::-webkit-details-marker { display: none; }
@@ -791,6 +815,7 @@ function pageToday() {
       ${s.wide && s.app ? `<div class="bottom frost">${icon(s.app, 48)}<div class="t"><b>${esc(s.app.n)}</b><span>${esc(plainOf(s.app))}</span></div><span class="get light" data-get="${s.app.id}">GET</span></div>`
         : `<div class="bottom">${s.lede || ''}</div>`}</button>`).join('')}</div>
     ${trendingToday()}
+    ${digestShelf()}
     <section class="shelf"><div class="shelf-head"><h2>Browse by job</h2><a class="see-all" href="#browse">See All</a></div>
       <div class="job-grid">${JOBS.slice(0, 6).map(jobCard).join('')}</div></section>
     <section class="shelf"><div class="shelf-head"><h2>Starter kits<span class="sub">A few picks for one goal</span></h2><a class="see-all" href="#browse">See All</a></div>
@@ -1179,7 +1204,7 @@ const SOCIAL = [['YouTube', '#FF0033', q => `https://www.youtube.com/results?sea
 const CHECK_ORDER = ['Maintained', 'Code-Review', 'Vulnerabilities', 'Dangerous-Workflow', 'Token-Permissions', 'Branch-Protection', 'Security-Policy', 'Pinned-Dependencies', 'SAST', 'Signed-Releases'];
 function pageProduct(id) {
   const l = BY[id], r = repoOf(l), t = trust(l);
-  const from = S.back?.startsWith('for-') ? JOB[S.back.slice(4)][1] : S.back?.startsWith('kit-') ? KIT[S.back.slice(4)][1] : { today: 'Today', browse: 'Browse', skills: 'Skills', mcp: 'Connectors', tools: 'Apps', trusted: 'Trusted', search: 'Search' }[S.back || S.tab] || 'Today';
+  const from = S.back?.startsWith('for-') ? JOB[S.back.slice(4)][1] : S.back?.startsWith('kit-') ? KIT[S.back.slice(4)][1] : S.back?.startsWith('digest-') ? 'Digest' : { today: 'Today', trending: 'Trending', digest: 'Digest', browse: 'Browse', skills: 'Skills', mcp: 'Connectors', tools: 'Apps', trusted: 'Trusted', search: 'Search' }[S.back || S.tab] || 'Today';
   const siblings = byRepo(l.r).filter(x => x.id !== l.id);
   const q = encodeURIComponent(l.k === 'skill' ? `${l.sl} ${r.on} skill` : l.k === 'mcp' ? `${l.n} MCP` : `${l.n} ${l.r.split('/')[1] === l.n.toLowerCase() ? '' : l.r.split('/')[1]}`.trim());
   const checks = r.sc && r.sc !== 'u' ? CHECK_ORDER.map(n => r.sc.ch.find(c => c[0] === n)).filter(Boolean).slice(0, 6) : [];
@@ -1302,10 +1327,93 @@ function trendingToday() {
     <div class="scroller ranked ${items[0].length <= 2 ? 'one' : items[0].length <= 6 ? 'two' : ''}">${items[0].slice(0, 6).map((x, i) => trendRow(x, i, items[1])).join('')}</div></section>` : '';
 }
 
+// ---------- Digest ----------
+// Weekly, monthly and yearly issues written by pipeline/digest.mjs from GitHub's trending lists and launch dates.
+// Every headline and sentence below is computed from those numbers; only listings in Vetted appear.
+const JOB_PHRASE = { everyday: 'everyday apps', vibe: 'AI building tools', dev: 'developer tools', design: 'design tools', marketing: 'marketing tools', business: 'business tools',
+  writing: 'writing tools', office: 'office tools', data: 'data tools', research: 'research tools', security: 'security tools', devops: 'cloud tools', ai: 'AI tools', science: 'science tools' };
+const ISSUE_LOOK = { weekly: [['#7C2D12', '#F97316'], 'pulse', 'Weekly'], monthly: [['#312E81', '#6366F1'], 'clock', 'Monthly'], yearly: [['#064E3B', '#10B981'], 'star', 'Yearly'] };
+const listedOf = arr => (arr || []).filter(x => byRepo(x.repo).length);
+const leadOf = repo => byStars(byRepo(repo))[0];
+const repoName = repo => byRepo(repo).length === 1 ? byRepo(repo)[0].n : niceRepo(repo);
+const capFirst = t => t.charAt(0).toUpperCase() + t.slice(1);
+function pickCard(x, i, metric) {
+  const ls = byStars(byRepo(x.repo)), lead = ls[0], one = ls.length === 1, tag = one ? 'a' : 'button', attr = one ? `href="#${lead.id}"` : `data-seeall="${esc(x.repo)}"`;
+  return `<div class="pick"><span class="pk-n">${i + 1}</span>${icon(lead, 56)}<${tag} class="pk-t" ${attr}><b>${esc(repoName(x.repo))}</b><span class="pk-m">${esc(metric)}</span><span class="pk-d">${esc(one ? plainOf(lead) : `${ls.length} listings in Vetted, such as ${lead.n}`)}</span></${tag}>
+    <div class="btn-col">${one ? getBtn(lead) + caption(lead) : `<button class="get" data-seeall="${esc(x.repo)}" aria-label="See ${esc(niceRepo(x.repo))}">SEE</button>`}</div></div>`;
+}
+const picksSection = (title, sub, items, metric, max = 10) => items.length ? `<section class="shelf"><div class="shelf-head"><h2>${title}${sub ? `<span class="sub">${sub}</span>` : ''}</h2></div>
+  <div class="picks">${items.slice(0, max).map((x, i) => pickCard(x, i, metric(x))).join('')}</div></section>` : '';
+const launchedOn = x => `Launched ${fmtDate(x.created).replace(/, \d{4}$/, '')} · ★ ${fmtK(x.stars)}`;
+// Headline, title and intro for an issue, from its numbers
+function issueInfo(is) {
+  const [g, glyph, kind] = ISSUE_LOOK[is.type];
+  if (is.type === 'weekly') {
+    const gain = listedOf(is.gainers).sort((a, b) => b.gain - a.gain), added = listedOf(is.added);
+    const jobs = {}; for (const x of gain.slice(0, 6)) { const j = (leadOf(x.repo).jb || [])[0]; if (j) jobs[j] = (jobs[j] || 0) + 1; }
+    const top = Object.entries(jobs).sort((a, b) => b[1] - a[1])[0];
+    const title = top && top[1] >= 3 ? `${capFirst(JOB_PHRASE[top[0]])} lead the week` : gain[0] ? `${repoName(gain[0].repo)} leads the week` : 'The week in Vetted';
+    const intro = `${gain.length ? `The ${gain.length} projects in Vetted that gained the most GitHub stars in the 7 days to ${fmtDate(is.to)}${gain[0] ? `, led by ${repoName(gain[0].repo)} with ${fmtK(gain[0].gain)} new stars` : ''}.` : ''}${added.length ? ` Plus ${added.length} projects added to Vetted this week.` : ''}`;
+    return { g, glyph, kind, title, eyebrow: `Weekly · ${fmtDate(is.from).replace(/, \d{4}$/, '')} to ${fmtDate(is.to)}`, intro, lead: gain[0] || added[0], count: [gain.length && `${gain.length} rising`, added.length && `${added.length} new`].filter(Boolean).join(' · ') };
+  }
+  if (is.type === 'monthly') {
+    const gain = listedOf(is.gainers).sort((a, b) => b.gain - a.gain), launched = listedOf(is.launched), month = is.title.split(' ')[0];
+    const title = gain[0] ? `${repoName(gain[0].repo)} tops ${month}` : `${is.title} in Vetted`;
+    const intro = `${gain.length ? `The projects in Vetted that gained the most GitHub stars in the 30 days to ${fmtDate(is.to)}.` : ''}${launched.length ? ` ${launched.length === 1 ? 'One project' : launched.length + ' projects'} in Vetted launched in ${month}.` : ''}`;
+    return { g, glyph, kind, title, eyebrow: `Monthly · ${is.title}`, intro, lead: gain[0] || launched[0], count: [gain.length && `${gain.length} rising`, launched.length && `${launched.length} launched`].filter(Boolean).join(' · ') };
+  }
+  const launched = listedOf(is.launched);
+  return { g, glyph, kind, title: `${is.title}'s breakout projects`, eyebrow: `Yearly · ${is.title} so far`, lead: launched[0], count: `${launched.length} launched`,
+    intro: `${launched.length} projects in Vetted launched in ${is.title}, ranked by GitHub stars as of ${fmtDate(is.to)}${launched[0] ? `. The biggest, ${repoName(launched[0].repo)}, has ${fmtK(launched[0].stars)}` : ''}.` };
+}
+const issueCard = is => { const f = issueInfo(is), tops = [...new Set([...(is.gainers ? listedOf(is.gainers).sort((a, b) => b.gain - a.gain) : []), ...listedOf(is.launched || is.added)].map(x => x.repo))].slice(0, 4);
+  return `<a class="issue-card" href="#digest-${is.id}">${art(f.g, f.glyph)}<span class="ey">${esc(f.eyebrow)}</span><span class="tt">${esc(f.title)}</span>
+    <span class="ft">${tops.map(r => icon(leadOf(r), 30)).join('')}<span>${f.count}</span></span></a>`; };
+const latestIssues = () => ['weekly', 'monthly', 'yearly'].map(t => (D.DG || []).find(i => i.type === t)).filter(Boolean);
+function digestShelf() {
+  const latest = latestIssues();
+  return latest.length ? `<section class="shelf"><div class="shelf-head"><h2>Digest<span class="sub">What's new and rising this week, month and year</span></h2><a class="see-all" href="#digest">See All</a></div>
+    <div class="scroller issues">${latest.map(issueCard).join('')}</div></section>` : '';
+}
+function pageDigest() {
+  const latest = latestIssues(), past = (D.DG || []).filter(i => !latest.includes(i));
+  return `<div class="page"><div class="large-title"><h1>Digest</h1><p>What's new and rising, every week, month and year. Picks come from GitHub's trending lists and launch dates, and only checked listings appear.</p></div>
+    <div class="issues">${latest.map(issueCard).join('')}</div>
+    ${past.length ? `<section class="shelf"><div class="shelf-head"><h2>Past issues</h2></div><ul class="past">${past.map(is => { const f = issueInfo(is); return `<li><a href="#digest-${is.id}"><b>${esc(f.title)}</b><span>${esc(f.eyebrow)}</span></a></li>`; }).join('')}</ul></section>` : ''}
+    ${dataNote()}</div>`;
+}
+function pageIssue(id) {
+  const is = (D.DG || []).find(i => i.id === id), f = issueInfo(is);
+  let body = '';
+  if (is.type === 'weekly') {
+    const gain = listedOf(is.gainers).sort((a, b) => b.gain - a.gain);
+    body = picksSection('Biggest gainers', 'Most new GitHub stars this week', gain, x => `+${x.gain.toLocaleString('en-US')} stars this week`)
+      + picksSection('Today on GitHub', 'Most new stars in the last 24 hours', listedOf(is.today).sort((a, b) => b.gain - a.gain), x => `+${x.gain.toLocaleString('en-US')} stars today`, 6)
+      + picksSection('New in Vetted', 'Added and checked this week, most-starred first', listedOf(is.added).sort((a, b) => b.stars - a.stars), x => `★ ${fmtK(x.stars)} · new this week`, 10);
+  } else if (is.type === 'monthly') {
+    const month = is.title.split(' ')[0];
+    body = picksSection(`Biggest gainers in ${month}`, 'Most new GitHub stars in 30 days', listedOf(is.gainers).sort((a, b) => b.gain - a.gain), x => `+${x.gain.toLocaleString('en-US')} stars this month`)
+      + picksSection(`Launched in ${month}`, 'New projects, most-starred first', listedOf(is.launched), launchedOn)
+      + (listedOf(is.hn).length >= 2 ? `<section class="shelf"><div class="shelf-head"><h2>On Hacker News in ${month}</h2></div><div class="hn-list">${listedOf(is.hn).slice(0, 6).map(h => `<a class="hn" href="https://news.ycombinator.com/item?id=${h.hnid}" target="_blank" rel="noopener"><span class="src"><span class="dotsrc" style="background:#FF6600"></span>Hacker News<span class="when">${fmtDate(h.date)}</span></span><b>${esc(h.title)}</b><span class="foot"><span>${h.points} points</span><span>${h.comments} comments</span></span></a>`).join('')}</div></section>` : '');
+  } else {
+    const launched = listedOf(is.launched);
+    const byJobBest = JOBS.map(([k, t]) => [t, launched.find(x => (leadOf(x.repo).jb || []).includes(k))]).filter(([, x]) => x);
+    body = picksSection(`Launched in ${is.title}`, 'Most-starred first', launched, launchedOn, 12)
+      + (byJobBest.length ? `<section class="shelf"><div class="shelf-head"><h2>The biggest new project for each job</h2></div><div class="picks">${byJobBest.map(([t, x], i) => pickCard(x, i, t)).join('')}</div></section>` : '');
+  }
+  return `<div class="navbar"><div class="in"><a class="back" href="#digest">${ic('back', 2.4)}Digest</a></div></div>
+  <div class="page" style="padding-top:12px">
+    <div class="issue-hero">${art(f.g, f.glyph)}<span class="ey">${esc(f.eyebrow)}</span><h1>${esc(f.title)}</h1></div>
+    <p class="issue-intro">${esc(f.intro)}</p>
+    ${body}
+    <p class="data-note">Stars gained come from GitHub's trending lists, read ${fmtDate(is.read)}. Launch dates and star counts come from GitHub. Stars show attention, not safety: each listing's check is on its page. <button class="text-btn" style="font-size:12px" data-story="labels">How we check</button></p>
+  </div>`;
+}
+
 // ---------- routing ----------
 const S = { tab: 'today', detail: null, job: null, easy: false, q: '', agent: 'claude-code' };
 try { const a = localStorage.getItem('vetted-agent'); if (AGENTS.some(x => x[0] === a)) S.agent = a; } catch (e) {}
-const TABS = [['today', 'Today', 'today'], ['trending', 'Trending', 'pulse'], ['browse', 'Browse', 'grid'], ['tools', 'Apps', 'tool'], ['skills', 'Skills', 'skill'], ['mcp', 'Connectors', 'mcp'], ['trusted', 'Trusted', 'building'], ['search', 'Search', 'search']];
+const TABS = [['today', 'Today', 'today'], ['trending', 'Trending', 'pulse'], ['digest', 'Digest', 'book'], ['browse', 'Browse', 'grid'], ['tools', 'Apps', 'tool'], ['skills', 'Skills', 'skill'], ['mcp', 'Connectors', 'mcp'], ['trusted', 'Trusted', 'building'], ['search', 'Search', 'search']];
 const MOBILE_TABS = ['today', 'browse', 'tools', 'skills', 'mcp', 'search'];
 const count = k => L.filter(l => l.k === k && !l.tr).length;
 function chrome() {
@@ -1315,16 +1423,17 @@ function chrome() {
 }
 function render() {
   document.getElementById('main').innerHTML = S.detail ? pageProduct(S.detail) : S.job ? pageJob(S.job) : S.kit ? pageKit(S.kit)
-    : { today: pageToday, trending: pageTrending, browse: pageBrowse, skills: pageSkills, mcp: pageMcp, tools: pageTools, trusted: pageTrusted, search: pageSearch }[S.tab]();
+    : S.issue ? pageIssue(S.issue) : { today: pageToday, trending: pageTrending, digest: pageDigest, browse: pageBrowse, skills: pageSkills, mcp: pageMcp, tools: pageTools, trusted: pageTrusted, search: pageSearch }[S.tab]();
   chrome();
 }
 function route() {
   const h = decodeURIComponent(location.hash.slice(1));
-  S.job = null; S.kit = null;
+  S.job = null; S.kit = null; S.issue = null;
   if (!BY[h]) S.back = h || 'today';
   if (BY[h]) { S.detail = h; if (!S.tab) S.tab = 'today'; }
   else if (h.startsWith('kit-') && KIT[h.slice(4)]) { S.detail = null; S.kit = h.slice(4); S.tab = 'browse'; }
   else if (h.startsWith('for-') && JOB[h.slice(4)]) { S.detail = null; S.job = h.slice(4); S.tab = 'browse'; }
+  else if (h.startsWith('digest-') && (D.DG || []).some(i => i.id === h.slice(7))) { S.detail = null; S.issue = h.slice(7); S.tab = 'digest'; }
   else {
     S.detail = null; S.tab = TABS.some(t => t[0] === h) ? h : 'today';
     if (h && S.tab !== h) { S.back = 'today'; setTimeout(() => toast('That page isn\'t in Vetted. Here\'s Today.'), 0); }
