@@ -1,13 +1,13 @@
 {
   "skill": {
     "name": "using-git-worktrees",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\obra__superpowers\\superpowers-main\\skills\\using-git-worktrees",
-    "scanned_at": "2026-10-31T21:51:55.618630+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/obra__superpowers/superpowers-main/skills/using-git-worktrees",
+    "scanned_at": "2026-11-01T01:25:55.922380+00:00"
   },
   "risk_assessment": {
     "score": 11,
     "severity": "LOW",
-    "recommendation": "CAUTION",
+    "recommendation": "SAFE",
     "max_issue_severity": "MEDIUM"
   },
   "components": [
@@ -26,7 +26,7 @@
   "issues": [
     {
       "id": "EA2",
-      "finding_id": "finding-0e38e2474704491fb8916fd42a396929",
+      "finding_id": "finding-b58992fdac9d40cc9b28d4c7003a7388",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -58,7 +58,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-d400206ee0134496a9eab70e6edc5860",
+      "finding_id": "finding-a2e8527532684bc19a0211312c95bfb9",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -217,8 +217,8 @@
     "total_components": 1,
     "scanned_components": 1,
     "coverage_percent": 100.0,
-    "is_complete": false,
-    "status": "partial",
+    "is_complete": true,
+    "status": "complete_with_caveats",
     "execution_successful": true,
     "fully_inspected_files": 1,
     "partially_inspected_files": 0,
@@ -227,8 +227,8 @@
       {
         "outcome": "partial",
         "phase": "reference_resolution",
-        "reason_code": "referenced_uninspected",
-        "message": "A referenced artifact was not completely inspected.",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
         "path": "SKILL.md",
         "start_line": 127,
         "end_line": 127,
@@ -540,8 +540,8 @@
         "line": 127,
         "column": 42,
         "evidence": "npm test / cargo test / pytest / go test ./...",
-        "target_path": "...",
-        "status": "uninspected",
+        "target_path": null,
+        "status": "missing",
         "disposition": "partial",
         "reference_kind": "plain_path"
       },

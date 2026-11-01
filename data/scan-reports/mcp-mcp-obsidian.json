@@ -1,0 +1,1372 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/MarkusPfundstein__mcp-obsidian/mcp-obsidian-main",
+    "scanned_at": "2026-11-01T01:25:24.570974+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "CRITICAL"
+  },
+  "components": [
+    {
+      "path": ".dockerignore",
+      "type": "other",
+      "lines": 13,
+      "executable": false,
+      "size_bytes": 116,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".env.example",
+      "type": "other",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 90,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "type": "yaml",
+      "lines": 23,
+      "executable": false,
+      "size_bytes": 464,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 11,
+      "executable": false,
+      "size_bytes": 114,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Dockerfile",
+      "type": "other",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 685,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1074,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 209,
+      "executable": false,
+      "size_bytes": 5928,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docker-compose.yml",
+      "type": "yaml",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 1177,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "openapi.yaml",
+      "type": "yaml",
+      "lines": 2066,
+      "executable": false,
+      "size_bytes": 70828,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "pyproject.toml",
+      "type": "toml",
+      "lines": 32,
+      "executable": false,
+      "size_bytes": 644,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/mcp_obsidian/__init__.py",
+      "type": "python",
+      "lines": 24,
+      "executable": true,
+      "size_bytes": 709,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/mcp_obsidian/obsidian.py",
+      "type": "python",
+      "lines": 419,
+      "executable": true,
+      "size_bytes": 15354,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/mcp_obsidian/server.py",
+      "type": "python",
+      "lines": 95,
+      "executable": true,
+      "size_bytes": 2767,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/mcp_obsidian/tools.py",
+      "type": "python",
+      "lines": 736,
+      "executable": true,
+      "size_bytes": 27660,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/__init__.py",
+      "type": "python",
+      "lines": 0,
+      "executable": true,
+      "size_bytes": 0,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/conftest.py",
+      "type": "python",
+      "lines": 4,
+      "executable": true,
+      "size_bytes": 66,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_get_frontmatter.py",
+      "type": "python",
+      "lines": 81,
+      "executable": true,
+      "size_bytes": 3104,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_obsidian_heading_fallback.py",
+      "type": "python",
+      "lines": 200,
+      "executable": true,
+      "size_bytes": 8488,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_obsidian_put_content.py",
+      "type": "python",
+      "lines": 74,
+      "executable": true,
+      "size_bytes": 3304,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_obsidian_requests.py",
+      "type": "python",
+      "lines": 192,
+      "executable": true,
+      "size_bytes": 7377,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_obsidian_utf8.py",
+      "type": "python",
+      "lines": 50,
+      "executable": true,
+      "size_bytes": 2014,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_search_by_tag.py",
+      "type": "python",
+      "lines": 81,
+      "executable": true,
+      "size_bytes": 3000,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_server.py",
+      "type": "python",
+      "lines": 69,
+      "executable": true,
+      "size_bytes": 2024,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_stdio.py",
+      "type": "python",
+      "lines": 25,
+      "executable": true,
+      "size_bytes": 582,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_tools.py",
+      "type": "python",
+      "lines": 241,
+      "executable": true,
+      "size_bytes": 9236,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "uv.lock",
+      "type": "other",
+      "lines": 615,
+      "executable": false,
+      "size_bytes": 84710,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "TT3",
+      "finding_id": "finding-a31f60f1157d47d5af8312e89d95e28d",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'url' from os.getenv (line 56, credential/environment) \u2192 requests.get (network output)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/mcp_obsidian/obsidian.py",
+        "start_line": 59,
+        "end_line": 59,
+        "start_column": 23,
+        "end_column": 115
+      },
+      "finding": "requests.get(url, headers=self._get_headers(), verify=self.verify_ssl, timeout=self.timeout)",
+      "explanation": "Credentials or environment variables flow to a network sink. This is a high-confidence indicator of credential exfiltration.",
+      "remediation": "Never send credentials or environment variables over the network. Use secure credential stores and avoid transmitting secrets in request bodies or URLs.",
+      "code_snippet": "        url = f\"{self.get_base_url()}/vault/\"\n        \n        def call_fn():\n            response = requests.get(url, headers=self._get_headers(), verify=self.verify_ssl, timeout=self.timeout)\n            response.raise_for_status()\n            \n            return response.json()['files']",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e315c254910a0f70b6817e3e2a6d681889180367767dbff821989f92d6aca92",
+      "occurrences": [
+        {
+          "file": "src/mcp_obsidian/obsidian.py",
+          "start_line": 59,
+          "end_line": 59,
+          "start_column": 23,
+          "end_column": 115
+        }
+      ]
+    },
+    {
+      "id": "TT3",
+      "finding_id": "finding-e4b529a713d84ffaa7422a6b8cc33cec",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'url' from os.getenv (line 68, credential/environment) \u2192 requests.get (network output)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/mcp_obsidian/obsidian.py",
+        "start_line": 71,
+        "end_line": 71,
+        "start_column": 23,
+        "end_column": 115
+      },
+      "finding": "requests.get(url, headers=self._get_headers(), verify=self.verify_ssl, timeout=self.timeout)",
+      "explanation": "Credentials or environment variables flow to a network sink. This is a high-confidence indicator of credential exfiltration.",
+      "remediation": "Never send credentials or environment variables over the network. Use secure credential stores and avoid transmitting secrets in request bodies or URLs.",
+      "code_snippet": "        url = f\"{self.get_base_url()}/vault/{dirpath}/\"\n        \n        def call_fn():\n            response = requests.get(url, headers=self._get_headers(), verify=self.verify_ssl, timeout=self.timeout)\n            response.raise_for_status()\n            \n            return response.json()['files']",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e315c254910a0f70b6817e3e2a6d681889180367767dbff821989f92d6aca92",
+      "occurrences": [
+        {
+          "file": "src/mcp_obsidian/obsidian.py",
+          "start_line": 71,
+          "end_line": 71,
+          "start_column": 23,
+          "end_column": 115
+        }
+      ]
+    },
+    {
+      "id": "TT3",
+      "finding_id": "finding-42827286226b4865a71e4303a47ebc53",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'url' from os.getenv (line 79, credential/environment) \u2192 requests.get (network output)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/mcp_obsidian/obsidian.py",
+        "start_line": 82,
+        "end_line": 82,
+        "start_column": 23,
+        "end_column": 115
+      },
+      "finding": "requests.get(url, headers=self._get_headers(), verify=self.verify_ssl, timeout=self.timeout)",
+      "explanation": "Credentials or environment variables flow to a network sink. This is a high-confidence indicator of credential exfiltration.",
+      "remediation": "Never send credentials or environment variables over the network. Use secure credential stores and avoid transmitting secrets in request bodies or URLs.",
+      "code_snippet": "        url = f\"{self.get_base_url()}/vault/{filepath}\"\n    \n        def call_fn():\n            response = requests.get(url, headers=self._get_headers(), verify=self.verify_ssl, timeout=self.timeout)\n            response.raise_for_status()\n            \n            return response.text",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e315c254910a0f70b6817e3e2a6d681889180367767dbff821989f92d6aca92",
+      "occurrences": [
+        {
+          "file": "src/mcp_obsidian/obsidian.py",
+          "start_line": 82,
+          "end_line": 82,
+          "start_column": 23,
+          "end_column": 115
+        }
+      ]
+    },
+    {
+      "id": "TT3",
+      "finding_id": "finding-33a191d4e2e042c49a3618140ee84ba5",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'url' from os.getenv (line 111, credential/environment) \u2192 requests.post (network output)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/mcp_obsidian/obsidian.py",
+        "start_line": 118,
+        "end_line": 118,
+        "start_column": 23,
+        "end_column": 131
+      },
+      "finding": "requests.post(url, headers=self._get_headers(), params=params, verify=self.verify_ssl, timeout=self.timeout)",
+      "explanation": "Credentials or environment variables flow to a network sink. This is a high-confidence indicator of credential exfiltration.",
+      "remediation": "Never send credentials or environment variables over the network. Use secure credential stores and avoid transmitting secrets in request bodies or URLs.",
+      "code_snippet": "        }\n        \n        def call_fn():\n            response = requests.post(url, headers=self._get_headers(), params=params, verify=self.verify_ssl, timeout=self.timeout)\n            response.raise_for_status()\n            return response.json()\n",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "dd4b39ec156bbf6b294365857d4cc9cc37019f6dffdd93e27468b9fdf53db163",
+      "occurrences": [
+        {
+          "file": "src/mcp_obsidian/obsidian.py",
+          "start_line": 118,
+          "end_line": 118,
+          "start_column": 23,
+          "end_column": 131
+        }
+      ]
+    },
+    {
+      "id": "TT3",
+      "finding_id": "finding-b56fefcf812149f0be9791ab28584254",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'url' from os.getenv (line 125, credential/environment) \u2192 requests.post (network output)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/mcp_obsidian/obsidian.py",
+        "start_line": 128,
+        "end_line": 134,
+        "start_column": 23,
+        "end_column": 13
+      },
+      "finding": "requests.post(\n                url,\n                headers=self._get_headers() | {'Content-Type': 'text/markdown; charset=utf-8'},\n                data=content.encode(\"utf-8\"),\n                verify",
+      "explanation": "Credentials or environment variables flow to a network sink. This is a high-confidence indicator of credential exfiltration.",
+      "remediation": "Never send credentials or environment variables over the network. Use secure credential stores and avoid transmitting secrets in request bodies or URLs.",
+      "code_snippet": "        url = f\"{self.get_base_url()}/vault/{filepath}\"\n\n        def call_fn():\n            response = requests.post(\n                url,\n                headers=self._get_headers() | {'Content-Type': 'text/markdown; charset=utf-8'},\n                data=content.encode(\"utf-8\"),",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "bb26faf3732db662071b4c65728b0886ee7cb07ed1380faf2671f88ada5ee64c",
+      "occurrences": [
+        {
+          "file": "src/mcp_obsidian/obsidian.py",
+          "start_line": 128,
+          "end_line": 134,
+          "start_column": 23,
+          "end_column": 13
+        }
+      ]
+    },
+    {
+      "id": "TT3",
+      "finding_id": "finding-548466bbc72847cc9d445d30a7fcd974",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'url' from os.getenv (line 168, credential/environment) \u2192 requests.patch (network output)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/mcp_obsidian/obsidian.py",
+        "start_line": 182,
+        "end_line": 182,
+        "start_column": 23,
+        "end_column": 135
+      },
+      "finding": "requests.patch(url, headers=headers, data=content.encode(\"utf-8\"), verify=self.verify_ssl, timeout=self.timeout)",
+      "explanation": "Credentials or environment variables flow to a network sink. This is a high-confidence indicator of credential exfiltration.",
+      "remediation": "Never send credentials or environment variables over the network. Use secure credential stores and avoid transmitting secrets in request bodies or URLs.",
+      "code_snippet": "        }\n\n        def call_fn():\n            response = requests.patch(url, headers=headers, data=content.encode(\"utf-8\"), verify=self.verify_ssl, timeout=self.timeout)\n            response.raise_for_status()\n            return None\n",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7891cfc97a723c3028ced2178ee2912ce15e22b3a71078140a228abf2392b805",
+      "occurrences": [
+        {
+          "file": "src/mcp_obsidian/obsidian.py",
+          "start_line": 182,
+          "end_line": 182,
+          "start_column": 23,
+          "end_column": 135
+        }
+      ]
+    },
+    {
+      "id": "TT3",
+      "finding_id": "finding-6af0cb025e9a4ca4b24b29885b5ae1e4",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'url' from os.getenv (line 189, credential/environment) \u2192 requests.put (network output)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/mcp_obsidian/obsidian.py",
+        "start_line": 192,
+        "end_line": 198,
+        "start_column": 23,
+        "end_column": 13
+      },
+      "finding": "requests.put(\n                url,\n                headers=self._get_headers() | {'Content-Type': 'text/markdown; charset=utf-8'},\n                data=content.encode(\"utf-8\"),\n                verify=",
+      "explanation": "Credentials or environment variables flow to a network sink. This is a high-confidence indicator of credential exfiltration.",
+      "remediation": "Never send credentials or environment variables over the network. Use secure credential stores and avoid transmitting secrets in request bodies or URLs.",
+      "code_snippet": "        url = f\"{self.get_base_url()}/vault/{filepath}\"\n\n        def call_fn():\n            response = requests.put(\n                url,\n                headers=self._get_headers() | {'Content-Type': 'text/markdown; charset=utf-8'},\n                data=content.encode(\"utf-8\"),",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "cfc23d6f4966620360c8133248b010526d54a4375d62cd077872a7bc511a7300",
+      "occurrences": [
+        {
+          "file": "src/mcp_obsidian/obsidian.py",
+          "start_line": 192,
+          "end_line": 198,
+          "start_column": 23,
+          "end_column": 13
+        }
+      ]
+    },
+    {
+      "id": "TT3",
+      "finding_id": "finding-2b6e5abe80114dba8be64dcf8f3db7aa",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'url' from os.getenv (line 223, credential/environment) \u2192 requests.post (network output)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/mcp_obsidian/obsidian.py",
+        "start_line": 230,
+        "end_line": 230,
+        "start_column": 23,
+        "end_column": 116
+      },
+      "finding": "requests.post(url, headers=headers, json=query, verify=self.verify_ssl, timeout=self.timeout)",
+      "explanation": "Credentials or environment variables flow to a network sink. This is a high-confidence indicator of credential exfiltration.",
+      "remediation": "Never send credentials or environment variables over the network. Use secure credential stores and avoid transmitting secrets in request bodies or URLs.",
+      "code_snippet": "        }\n\n        def call_fn():\n            response = requests.post(url, headers=headers, json=query, verify=self.verify_ssl, timeout=self.timeout)\n            response.raise_for_status()\n            return response.json()\n",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "74f7576b652fc3618bc00a41f9369fb3cd835cd5b47192d9e693b65cc831110e",
+      "occurrences": [
+        {
+          "file": "src/mcp_obsidian/obsidian.py",
+          "start_line": 230,
+          "end_line": 230,
+          "start_column": 23,
+          "end_column": 116
+        }
+      ]
+    },
+    {
+      "id": "TT3",
+      "finding_id": "finding-650ca08b3de84b1fb97b008b49595ecd",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'url' from os.getenv (line 276, credential/environment) \u2192 requests.get (network output)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/mcp_obsidian/obsidian.py",
+        "start_line": 282,
+        "end_line": 282,
+        "start_column": 23,
+        "end_column": 103
+      },
+      "finding": "requests.get(url, headers=headers, verify=self.verify_ssl, timeout=self.timeout)",
+      "explanation": "Credentials or environment variables flow to a network sink. This is a high-confidence indicator of credential exfiltration.",
+      "remediation": "Never send credentials or environment variables over the network. Use secure credential stores and avoid transmitting secrets in request bodies or URLs.",
+      "code_snippet": "        }\n\n        def call_fn():\n            response = requests.get(url, headers=headers, verify=self.verify_ssl, timeout=self.timeout)\n            response.raise_for_status()\n            payload = response.json()\n            return payload.get(\"frontmatter\", {}) or {}",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "26426d93df87d561efb2f4c50e84ce6552366cc5d74e5a5568b806a6236d6ec4",
+      "occurrences": [
+        {
+          "file": "src/mcp_obsidian/obsidian.py",
+          "start_line": 282,
+          "end_line": 282,
+          "start_column": 23,
+          "end_column": 103
+        }
+      ]
+    },
+    {
+      "id": "TT3",
+      "finding_id": "finding-635bb3807ee044e0b6b623c5a0e6a0ac",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'url' from os.getenv (line 301, credential/environment) \u2192 requests.get (network output)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/mcp_obsidian/obsidian.py",
+        "start_line": 307,
+        "end_line": 307,
+        "start_column": 23,
+        "end_column": 103
+      },
+      "finding": "requests.get(url, headers=headers, verify=self.verify_ssl, timeout=self.timeout)",
+      "explanation": "Credentials or environment variables flow to a network sink. This is a high-confidence indicator of credential exfiltration.",
+      "remediation": "Never send credentials or environment variables over the network. Use secure credential stores and avoid transmitting secrets in request bodies or URLs.",
+      "code_snippet": "            headers = self._get_headers()\n            if type == \"metadata\":\n                headers['Accept'] = 'application/vnd.olrapi.note+json'\n            response = requests.get(url, headers=headers, verify=self.verify_ssl, timeout=self.timeout)\n            response.raise_for_status()\n            \n            return response.text",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "26426d93df87d561efb2f4c50e84ce6552366cc5d74e5a5568b806a6236d6ec4",
+      "occurrences": [
+        {
+          "file": "src/mcp_obsidian/obsidian.py",
+          "start_line": 307,
+          "end_line": 307,
+          "start_column": 23,
+          "end_column": 103
+        }
+      ]
+    },
+    {
+      "id": "TT3",
+      "finding_id": "finding-e80dab6aee6d4a9789fd611cfd9cbf5d",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'url' from os.getenv (line 325, credential/environment) \u2192 requests.get (network output)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/mcp_obsidian/obsidian.py",
+        "start_line": 332,
+        "end_line": 338,
+        "start_column": 23,
+        "end_column": 13
+      },
+      "finding": "requests.get(\n                url, \n                headers=self._get_headers(), \n                params=params,\n                verify=self.verify_ssl, \n                timeout=self.timeout\n         ",
+      "explanation": "Credentials or environment variables flow to a network sink. This is a high-confidence indicator of credential exfiltration.",
+      "remediation": "Never send credentials or environment variables over the network. Use secure credential stores and avoid transmitting secrets in request bodies or URLs.",
+      "code_snippet": "        }\n        \n        def call_fn():\n            response = requests.get(\n                url, \n                headers=self._get_headers(), \n                params=params,",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "171c1ffc66d6f013aad60d7e7f17eb9154e84e0dd30e6745685eca044bb3604b",
+      "occurrences": [
+        {
+          "file": "src/mcp_obsidian/obsidian.py",
+          "start_line": 332,
+          "end_line": 338,
+          "start_column": 23,
+          "end_column": 13
+        }
+      ]
+    },
+    {
+      "id": "TT3",
+      "finding_id": "finding-e28ffee4a89949fd92ea8d4b4342ce8c",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'url' from os.getenv (line 367, credential/environment) \u2192 requests.post (network output)",
+      "severity": "CRITICAL",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/mcp_obsidian/obsidian.py",
+        "start_line": 373,
+        "end_line": 379,
+        "start_column": 23,
+        "end_column": 13
+      },
+      "finding": "requests.post(\n                url,\n                headers=headers,\n                data=dql_query.encode('utf-8'),\n                verify=self.verify_ssl,\n                timeout=self.timeout\n      ",
+      "explanation": "Credentials or environment variables flow to a network sink. This is a high-confidence indicator of credential exfiltration.",
+      "remediation": "Never send credentials or environment variables over the network. Use secure credential stores and avoid transmitting secrets in request bodies or URLs.",
+      "code_snippet": "        }\n        \n        def call_fn():\n            response = requests.post(\n                url,\n                headers=headers,\n                data=dql_query.encode('utf-8'),",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "795502ba0c48d651f1d24aff3d53dbd55f75267df8162961ec31899c813fbd3b",
+      "occurrences": [
+        {
+          "file": "src/mcp_obsidian/obsidian.py",
+          "start_line": 373,
+          "end_line": 379,
+          "start_column": 23,
+          "end_column": 13
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-539338fca30a46bd9e69d4b4ecd991d3",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "README.md",
+        "start_line": 142,
+        "end_line": null,
+        "start_column": 16
+      },
+      "finding": ".env\n",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n1. Copy `.env.example` to `.env` and fill in your Obsidian REST API key:\n```bash\ncp .env.example .env\n```\nBy default `OBSIDIAN_HOST` is set to `host.docker.internal`, which resolves to\nyour host machine from inside the container (works on Linux, Mac and Windows).",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "66ef81c27c03406fd9935e5fc86fc4126d7150c15b8d076fdc528d05cea7c7bf",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 142,
+          "end_line": null,
+          "start_column": 16
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-dadb4f10cca94bf0ae6ec191cc6d3543",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx binaries'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "Dockerfile",
+        "start_line": 3,
+        "end_line": null
+      },
+      "finding": "uvx binaries",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "806f3d89cd36cbf68c24055fed7dfd3b1caeb8f6cf36b749abb93f2e5f5aee6d",
+      "occurrences": [
+        {
+          "file": "Dockerfile",
+          "start_line": 3,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-31dd9d9461de467bb2a7cd3d5054be8d",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx @modelcontextprotocol/inspector'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 200,
+        "end_line": null
+      },
+      "finding": "npx @modelcontextprotocol/inspector",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fa23549bff69cf1d0cc91c3c6865ab824c05e1e659d5db3cb893ae75f3af5fd4",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 200,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-0a20b5a3ca4b43b0acf49e5e0d6d8090",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.7999999999999999,
+      "location": {
+        "file": "src/mcp_obsidian/obsidian.py",
+        "start_line": 230,
+        "end_line": null,
+        "start_column": 23
+      },
+      "finding": "requests.post(url, headers=headers, json=",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "        }\n\n        def call_fn():\n            response = requests.post(url, headers=headers, json=query, verify=self.verify_ssl, timeout=self.timeout)\n            response.raise_for_status()\n            return response.json()\n",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "503fd659864515395eb2de851d7573857586fa8d087daad3bb6c4e81e58825b1",
+      "occurrences": [
+        {
+          "file": "src/mcp_obsidian/obsidian.py",
+          "start_line": 230,
+          "end_line": null,
+          "start_column": 23
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-13f4659876044d7a8058769b2db97748",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (15 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "pyproject.toml",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "pyproject.toml",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-d5dc9e38cf5f4fbe97a9dfe362e49d5f",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (15 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "uv.lock",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "uv.lock",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-6fba322140c44fc69f2c828ce3313049",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "tests/test_tools.py",
+        "start_line": 17,
+        "end_line": 17,
+        "start_column": 8,
+        "end_column": 33
+      },
+      "finding": "getattr(api, method_name)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "def _run_handler(handler, method_name, args, return_value=None):\n    with patch(\"mcp_obsidian.tools.obsidian.Obsidian\") as mock_cls:\n        api = mock_cls.return_value\n        getattr(api, method_name).return_value = return_value\n        result = handler.run_tool(args)\n    mock_cls.assert_called_once_with(api_key=\"test-key\", host=\"127.0.0.1\")\n    return result, api",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ce8ebd4a0c79496c3292e8a0c68e703bd92d04314d38ba096b1dce85524c4fdb",
+      "occurrences": [
+        {
+          "file": "tests/test_tools.py",
+          "start_line": 17,
+          "end_line": 17,
+          "start_column": 8,
+          "end_column": 33
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 26,
+    "scanned_components": 24,
+    "coverage_percent": 92.3,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 24,
+    "partially_inspected_files": 2,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "analyzer_runtime_error",
+        "message": "Analyzer failed after beginning applicable work.",
+        "path": "pyproject.toml",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_analyzer_runtime_error"
+        ],
+        "error_class": "ProxyError"
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "analyzer_runtime_error",
+        "message": "Analyzer failed after beginning applicable work.",
+        "path": "uv.lock",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_analyzer_runtime_error"
+        ],
+        "error_class": "ProxyError"
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 15,
+        "completed": 15,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 15,
+        "completed": 15,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 28,
+        "completed": 26,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 26,
+        "completed": 26,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_supply_chain status: degraded."
+    ],
+    "findings_before_filtering": 19,
+    "findings_after_filtering": 19,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

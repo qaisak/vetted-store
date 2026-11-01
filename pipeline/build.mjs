@@ -23,7 +23,9 @@ const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'ast
   'sxyazi/yazi': 'Yazi', 'gitui-org/gitui': 'gitui', 'jdx/mise': 'mise', 'jesseduffield/lazydocker': 'lazydocker', 'XAMPPRocky/tokei': 'tokei',
   'GLips/Figma-Context-MCP': 'Framelink MCP for Figma', 'mrexodia/ida-pro-mcp': 'IDA Pro MCP', 'hangwin/mcp-chrome': 'Chrome MCP Server', 'wonderwhy-er/DesktopCommanderMCP': 'Desktop Commander',
   'taylorwilsdon/google_workspace_mcp': 'Google Workspace MCP', 'korotovsky/slack-mcp-server': 'Slack MCP Server', 'nickclyde/duckduckgo-mcp-server': 'DuckDuckGo MCP Server',
-  'nspady/google-calendar-mcp': 'Google Calendar MCP' };
+  'nspady/google-calendar-mcp': 'Google Calendar MCP', 'MarkusPfundstein/mcp-obsidian': 'Obsidian MCP', 'Jpisnice/shadcn-ui-mcp-server': 'shadcn/ui MCP Server',
+  'suekou/mcp-notion-server': 'Notion MCP Server', 'kimtaeyoon83/mcp-server-youtube-transcript': 'YouTube Transcript MCP', 'vivekVells/mcp-pandoc': 'Pandoc MCP',
+  'yt-dlp/yt-dlp': 'yt-dlp', 'Wilfred/difftastic': 'difftastic', 'muesli/duf': 'duf', 'ClementTsang/bottom': 'bottom', 'ducaale/xh': 'xh', 'chmln/sd': 'sd' };
 // Hand-written plain-language lines, job tags and setup level (pipeline/plain.json)
 const SOURCES = JSON.parse(fs.readFileSync(new URL('../data/sources.json', import.meta.url), 'utf8'));
 const PLAIN = JSON.parse(fs.readFileSync(new URL('./plain.json', import.meta.url), 'utf8'));
@@ -50,6 +52,17 @@ const MCP_INSTALL = {
   'nickclyde/duckduckgo-mcp-server': [
     { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add ddg-search -- uvx duckduckgo-mcp-server'], note: 'Run in your terminal. No API key needed.' },
     { to: 'Codex', how: 'CLI', cmds: ['codex mcp add ddg-search -- uvx duckduckgo-mcp-server'], note: 'Run in your terminal.' }],
+  'MarkusPfundstein/mcp-obsidian': [
+    { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add obsidian -e OBSIDIAN_API_KEY=YOUR-KEY -- uvx mcp-obsidian'], note: 'First install and enable the Local REST API community plugin in Obsidian and copy its API key. Same settings as the README\'s config.' }],
+  'Jpisnice/shadcn-ui-mcp-server': [
+    { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add shadcn -- npx @jpisnice/shadcn-ui-mcp-server'], note: 'Run in your terminal. Add --github-api-key with a GitHub token if you hit GitHub\'s rate limit, as the README describes.' }],
+  'suekou/mcp-notion-server': [
+    { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add notion -e NOTION_API_TOKEN=your-integration-token -- npx -y @suekou/mcp-notion-server'], note: 'Create a Notion integration, share the pages it may use with it, and paste its token. Same settings as the README\'s config.' }],
+  'kimtaeyoon83/mcp-server-youtube-transcript': [
+    { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add youtube-transcript -- npx -y @kimtaeyoon83/mcp-server-youtube-transcript'], note: 'Run in your terminal. No key needed for transcripts.' },
+    { to: 'Codex', how: 'CLI', cmds: ['codex mcp add youtube-transcript -- npx -y @kimtaeyoon83/mcp-server-youtube-transcript'], note: 'Run in your terminal.' }],
+  'vivekVells/mcp-pandoc': [
+    { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add pandoc -- uvx mcp-pandoc'], note: 'Needs pandoc installed on your computer (pandoc.org). Same settings as the README\'s config.' }],
   'nspady/google-calendar-mcp': [
     { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add google-calendar -e GOOGLE_OAUTH_CREDENTIALS=/path/to/gcp-oauth.keys.json -- npx -y @cocal/google-calendar-mcp'], note: 'First create a Google Cloud OAuth client (Desktop app) and download its keys file, as the README explains. Then ask your assistant to authenticate.' }],
 };
@@ -136,19 +149,23 @@ for (const l of d.listings) {
     if (!inst.length) inst.push({ to: 'All clients', how: 'Install guide', link: `https://github.com/${repo}#readme`, note: 'Setup differs by client. Follow the project\'s README.' });
     inst.push({ scan: true, cmds: [`skillspector scan https://github.com/${repo} --no-llm`] });
   } else {
-    const i = l.install || {};
+    // Commands copied from each README where the line-matcher missed them (checked November 1, 2026)
+    const TOOL_INSTALL = { 'Wilfred/difftastic': { brew: 'brew install difftastic', winget: 'winget install difftastic', scoop: 'scoop install difftastic' },
+      'muesli/duf': { brew: 'brew install duf', scoop: 'scoop install duf', apt: 'apt install duf' }, 'chmln/sd': { cargo: 'cargo install sd' },
+      'ducaale/xh': { brew: 'brew install xh', scoop: 'scoop install xh', cargo: 'cargo install xh --locked' } };
+    const i = { ...(l.install || {}), ...(TOOL_INSTALL[repo] || {}) };
     if (repo === 'ollama/ollama') delete i.pip;
     if (repo === 'astral-sh/uv') delete i.uvTool;
     if (repo === 'aristocratos/btop') delete i.brew;   // README line lists build dependencies, not an install
     if (i.cargo && /--path/.test(i.cargo)) delete i.cargo;
     if (repo === 'vercel-labs/skills') delete i.npx;
-    const mac = [i.brew].filter(Boolean), win = [i.winget, i.scoop, i.ps].filter(Boolean), any = [i.curl, i.uvTool, i.pipx, i.cargo, i.npm, i.go, i.pip].filter(Boolean);
+    const mac = [i.brew].filter(Boolean), win = [i.winget, i.scoop, i.ps].filter(Boolean), any = [i.apt, i.curl, i.uvTool, i.pipx, i.cargo, i.npm, i.go, i.pip].filter(Boolean);
     if (mac.length) inst.push({ to: 'macOS', how: 'Homebrew', cmds: mac });
     if (win.length) inst.push({ to: 'Windows', how: win[0].startsWith('winget') ? 'winget' : win[0].startsWith('scoop') ? 'Scoop' : 'PowerShell', cmds: win });
     if (any.length) inst.push({ to: 'Linux & others', how: 'Terminal', cmds: any });
     if (repo === 'vercel-labs/skills') inst.push({ to: 'Any agent', how: 'npx', cmds: ['npx skills add vercel-labs/agent-skills'], note: 'No install needed. Runs through npx; this example adds Vercel\'s skills.' });
     if (repo === 'cli/cli') inst.push({ to: 'Coding agents', how: 'Agent skill', cmds: ['gh skill install cli/cli gh --scope user'], note: 'Installs the gh agent skill. Install GitHub CLI itself first.' });
-    if (!inst.length || repo === 'cli/cli' || repo === 'jqlang/jq') inst.push({ to: 'All platforms', how: 'Install guide', link: repo === 'jqlang/jq' ? 'https://github.com/jqlang/jq/releases' : repo === 'cli/cli' ? 'https://github.com/cli/cli#installation' : `https://github.com/${repo}#readme`, note: repo === 'jqlang/jq' ? 'Download the binary for your platform from the releases page.' : 'Follow the project\'s install guide.' });
+    if (!inst.length || repo === 'cli/cli' || repo === 'jqlang/jq') inst.push({ to: 'All platforms', how: 'Install guide', link: repo === 'jqlang/jq' ? 'https://github.com/jqlang/jq/releases' : repo === 'cli/cli' ? 'https://github.com/cli/cli#installation' : repo === 'yt-dlp/yt-dlp' ? 'https://github.com/yt-dlp/yt-dlp#installation' : `https://github.com/${repo}#readme`, note: repo === 'jqlang/jq' ? 'Download the binary for your platform from the releases page.' : 'Follow the project\'s install guide.' });
   }
   const name = l.kind === 'skill' ? l.name : l.kind === 'mcp' && l.path ? (SUB[l.slug] || l.name) : (NAME[repo] || l.name);
   L.push({ id, k: l.kind, n: name, sl: l.slug, t: tagline(desc), d: desc, r: repo, u: l.url, p: l.path, nv: !!l.nvidia, tr: TRUSTED.has(owner), g: glyphFor(l.slug + ' ' + desc + ' ' + repo), c: colorFor(id),

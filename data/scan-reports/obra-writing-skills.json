@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "writing-skills",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\obra__superpowers\\superpowers-main\\skills\\writing-skills",
-    "scanned_at": "2026-10-31T21:52:15.274314+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/obra__superpowers/superpowers-main/skills/writing-skills",
+    "scanned_at": "2026-11-01T01:26:37.848876+00:00"
   },
   "risk_assessment": {
     "score": 100,
@@ -116,7 +116,7 @@
   "issues": [
     {
       "id": "RA1",
-      "finding_id": "finding-c437d9b671ec49a1a8758b1e0c0e8b20",
+      "finding_id": "finding-937d112ab5f44d8c85090091fe4673c1",
       "category": "Rogue Agent",
       "pattern": "Self-Modification",
       "severity": "HIGH",
@@ -148,7 +148,7 @@
     },
     {
       "id": "RA1",
-      "finding_id": "finding-f4d1a18da1354d99b68385844077d8d6",
+      "finding_id": "finding-aab8fae83a8645f5a078b799fdb5e608",
       "category": "Rogue Agent",
       "pattern": "Self-Modification",
       "severity": "HIGH",
@@ -180,7 +180,7 @@
     },
     {
       "id": "RA1",
-      "finding_id": "finding-e88cbabe66534f3fb7ce968fd84e3cbd",
+      "finding_id": "finding-22e5a4bf81d8491480387a4da2fbc477",
       "category": "Rogue Agent",
       "pattern": "Self-Modification",
       "severity": "HIGH",
@@ -212,7 +212,7 @@
     },
     {
       "id": "RA1",
-      "finding_id": "finding-cf24585ee7f349a5bbc082c910df4146",
+      "finding_id": "finding-179f320edf7a4e87a0bbccdeae5125da",
       "category": "Rogue Agent",
       "pattern": "Self-Modification",
       "severity": "HIGH",
@@ -244,7 +244,7 @@
     },
     {
       "id": "RA1",
-      "finding_id": "finding-f8ee6babfea749c6af8f169fa65a4c12",
+      "finding_id": "finding-4b7247d351d24f4abe44797b4a04b142",
       "category": "Rogue Agent",
       "pattern": "Self-Modification",
       "severity": "HIGH",
@@ -276,7 +276,7 @@
     },
     {
       "id": "RA1",
-      "finding_id": "finding-d5572c2dd02b47ec91018c4e335e2f67",
+      "finding_id": "finding-d6329ecea833420fb07095c6a709f8c4",
       "category": "Rogue Agent",
       "pattern": "Self-Modification",
       "severity": "HIGH",
@@ -308,7 +308,7 @@
     },
     {
       "id": "RA1",
-      "finding_id": "finding-e2fdbecb38454abaaa058051f30a2bc2",
+      "finding_id": "finding-bfc33a3d6cdf49d4bb6719656565a0f3",
       "category": "Rogue Agent",
       "pattern": "Self-Modification",
       "severity": "HIGH",
@@ -340,7 +340,7 @@
     },
     {
       "id": "AE1",
-      "finding_id": "finding-66ad95d411ad44f28d3208f549008d42",
+      "finding_id": "finding-9846a6808b6142bb87d7a30a4cbba0be",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -481,7 +481,7 @@
     },
     {
       "id": "AS1",
-      "finding_id": "finding-e7e9b5f3c4a04f3cb56dd84d568aa04b",
+      "finding_id": "finding-6eedd651773e444780dc32eaefd1bcee",
       "category": "Agent Snooping",
       "pattern": "Agent Config Directory Access",
       "severity": "HIGH",
@@ -513,7 +513,7 @@
     },
     {
       "id": "AS1",
-      "finding_id": "finding-3236e5f600d74d7ca5d3c4bf6340c1f3",
+      "finding_id": "finding-21af7edbeb444293926a1df050daf360",
       "category": "Agent Snooping",
       "pattern": "Agent Config Directory Access",
       "severity": "HIGH",
@@ -545,7 +545,7 @@
     },
     {
       "id": "AS1",
-      "finding_id": "finding-731ca3d09789471599dfa46b1dea3848",
+      "finding_id": "finding-50b96a6b005b4067a3210358630cf435",
       "category": "Agent Snooping",
       "pattern": "Agent Config Directory Access",
       "severity": "HIGH",
@@ -577,7 +577,7 @@
     },
     {
       "id": "RA1",
-      "finding_id": "finding-3770476cd229409cabe65d96e984423e",
+      "finding_id": "finding-94d6c0ccef894ed5bca7c19f353acafc",
       "category": "Rogue Agent",
       "pattern": "Self-Modification",
       "severity": "HIGH",
@@ -609,7 +609,7 @@
     },
     {
       "id": "RA1",
-      "finding_id": "finding-6b4382c0f6cf440b926863f254f5e569",
+      "finding_id": "finding-0dd8eb287af94bc58ef70106b835f94c",
       "category": "Rogue Agent",
       "pattern": "Self-Modification",
       "severity": "HIGH",
@@ -641,7 +641,7 @@
     },
     {
       "id": "AS3",
-      "finding_id": "finding-6a88961e3008432d88f714d8739d1525",
+      "finding_id": "finding-d77a6f16ebec4b3b8ffef0b0eba8669b",
       "category": "Agent Snooping",
       "pattern": "Skill Enumeration",
       "severity": "MEDIUM",
@@ -673,7 +673,7 @@
     },
     {
       "id": "AS3",
-      "finding_id": "finding-342a6ffdd4f04373bf83c6ec0dce4fc8",
+      "finding_id": "finding-99d9877c981143e283e1fa8bf58367ba",
       "category": "Agent Snooping",
       "pattern": "Skill Enumeration",
       "severity": "MEDIUM",
@@ -705,7 +705,7 @@
     },
     {
       "id": "AS3",
-      "finding_id": "finding-b672fb3b7dc447e585a9f4ed395d05b6",
+      "finding_id": "finding-857882e9a5c34b54afc1b24496fef7c1",
       "category": "Agent Snooping",
       "pattern": "Skill Enumeration",
       "severity": "MEDIUM",
@@ -737,7 +737,7 @@
     },
     {
       "id": "AS3",
-      "finding_id": "finding-e0ac2815beb14a8ba91da30dd26bc91d",
+      "finding_id": "finding-6604f047b66344aa8531ba140f7eb13d",
       "category": "Agent Snooping",
       "pattern": "Skill Enumeration",
       "severity": "MEDIUM",
@@ -769,7 +769,7 @@
     },
     {
       "id": "AS3",
-      "finding_id": "finding-c3385f5f3c664c86ae1ce124b5cfb10a",
+      "finding_id": "finding-45f7b978b5c14f4b97c3f8786300fe73",
       "category": "Agent Snooping",
       "pattern": "Skill Enumeration",
       "severity": "MEDIUM",

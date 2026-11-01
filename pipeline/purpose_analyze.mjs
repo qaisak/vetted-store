@@ -55,6 +55,16 @@ const PROFILES = {
     note: 'Its "stealth mode" signs in with session tokens (xoxc and the d cookie) that you copy out of your browser, and can mimic a browser\'s TLS handshake. Those tokens act as you, with everything your Slack account can see; check your workspace\'s policy first. Bot (xoxb) or user OAuth (xoxp) tokens are the safer options it also supports.' },
   'mcp-duckduckgo-mcp-server': { date: '2026-11-01', purpose: 'Searches the web through DuckDuckGo and fetches result pages as clean text.',
     expect: { network: 'Searching and fetching pages is its job', env: 'Proxy and backend settings' } },
+  'mcp-mcp-obsidian': { date: '2026-11-01', purpose: 'Lets the model list, read, search, edit and delete notes in your Obsidian vault through Obsidian\'s Local REST API plugin.',
+    expect: { network: 'Talks to the Local REST API plugin on your computer', credentials: 'Uses the plugin\'s API key', env: 'API key, host and port come from environment variables' } },
+  'mcp-shadcn-ui-mcp-server': { date: '2026-11-01', purpose: 'Gives coding agents the source, demos and docs of shadcn/ui components and blocks, fetched from GitHub.',
+    expect: { network: 'Fetches components from GitHub', credentials: 'Optional GitHub token for higher rate limits', env: 'Token and settings', files: 'Caches what it fetches' } },
+  'mcp-mcp-notion-server': { date: '2026-11-01', purpose: 'Lets the model find, read, query and update pages and databases in your Notion workspace through the Notion API.',
+    expect: { network: 'Calls the Notion API', credentials: 'Uses your Notion integration token', env: 'The token comes from an environment variable' } },
+  'mcp-mcp-server-youtube-transcript': { date: '2026-11-01', purpose: 'Gets the transcript of a YouTube video. Optionally sends a video URL to TwelveLabs for analysis if you add their API key.',
+    expect: { network: 'Fetches captions from YouTube, and TwelveLabs if enabled', credentials: 'Optional TwelveLabs API key', env: 'The API key comes from an environment variable' } },
+  'mcp-mcp-pandoc': { date: '2026-11-01', purpose: 'Converts documents between formats (Markdown, Word, HTML, PDF and more) with pandoc, reading and writing the files you name.',
+    expect: { files: 'Reads and writes the documents it converts', shell: 'Runs pandoc', env: 'Settings' } },
   'mcp-google-calendar-mcp': { date: '2026-11-01', purpose: 'Manages your Google Calendar: list, search, create, change and delete events, and check free/busy times across accounts.',
     expect: { network: 'Calls the Google Calendar API', credentials: 'Signs in to your Google account with OAuth', files: 'Reads your OAuth client file and stores tokens', env: 'The credentials path comes from an environment variable' } },
 
@@ -77,6 +87,19 @@ const PROFILES = {
   'mise': { purpose: 'Installs and switches developer tools and runtimes per project, and runs tasks.', expect: { network: 'Downloads tools', files: 'Installs tools and reads project config', shell: 'Runs installers and tasks', env: 'Manages environment variables per project', credentials: 'Can use a GitHub token to avoid rate limits' } },
   'lazydocker': { purpose: 'A terminal UI for Docker and Docker Compose.', expect: { network: 'Talks to the Docker API', shell: 'Runs docker and docker compose commands', files: 'Reads compose files and config', env: 'Docker and editor settings' } },
   'tokei': { purpose: 'Counts lines of code by language.', expect: { files: 'Reads the code it counts', env: 'Config settings' } },
+  // Added November 1, 2026
+  'yt-dlp': { date: '2026-11-01', purpose: 'Downloads video and audio from YouTube and thousands of other sites, and can sign in to sites when you give it an account.',
+    expect: { network: 'Downloading from sites is its job', files: 'Saves downloads and its cache', shell: 'Runs ffmpeg to merge and convert media', env: 'Config and proxy settings', credentials: 'Uses a login or cookies you provide for sites that need one' } },
+  'difftastic': { date: '2026-11-01', purpose: 'Compares files by their structure instead of line by line, to show what really changed in code.',
+    expect: { files: 'Reads the files it compares', env: 'Display and Git settings' } },
+  'duf': { date: '2026-11-01', purpose: 'Shows disk usage and free space for every drive, as a readable table.',
+    expect: { files: 'Reads the system\'s list of mounted drives', env: 'Color and theme settings' } },
+  'bottom': { date: '2026-11-01', purpose: 'A terminal system monitor: CPU, memory, disks, network, temperatures and processes.',
+    expect: { files: 'Reads system stats and its config', env: 'Config settings', shell: 'Can stop a process you pick' } },
+  'xh': { date: '2026-11-01', purpose: 'Sends HTTP requests from the terminal, a friendlier curl for testing APIs.',
+    expect: { network: 'Sending requests is its job', files: 'Saves downloads and sessions', env: 'Proxy and config settings', credentials: 'Sends the auth headers and tokens you give it', secretFiles: 'Can read logins from your .netrc file, like curl' } },
+  'sd': { date: '2026-11-01', purpose: 'Find and replace text in files, a simpler sed.',
+    expect: { files: 'Reads and rewrites the files you name', env: 'Settings' } },
 };
 
 // For community skills: expected access inferred from the skill's own description
@@ -114,7 +137,9 @@ const CAPS = {
 
 const NONPROD = /(^|\/)(tests?|__tests__|e2e|specs?|fixtures?|testdata|test-data|tests-data|mocks?|__mocks__|examples?|demos?|playground|docs?|scripts|\.github|benchmarks?|benches|bench|dist|build|node_modules|coverage|third_party|vendor|vendored|xtask|fuzz|www)(\/|$)|\.(test|spec)\.[cm]?[jt]sx?$|_test\.go$|(^|\/)conftest\.py$|(^|\/)test_[^/]*\.py$|\.config\.[cm]?[jt]s$|(^|\/)(eslint|prettier|rollup|vitest|jest|playwright|puppeteer)\.config\.|\.d\.ts$|(^|\/)build\.rs$/i;
 const CODE = /\.(ts|tsx|js|mjs|cjs|py|go|rs|c|h|cc|cpp|hpp|sh)$/;
-const fileKind = f => (f = f.replace(/\\/g, '/'), !CODE.test(f)) ? (/\.(md|mdx|txt|rst)$/i.test(f) ? 'docs' : 'other') : NONPROD.test(f) ? (/(^|\/)(docs?|examples?)\//i.test(f) ? 'docs' : 'tests & tooling') : 'production';
+// In a skill, scripts/ (and bin/, tools/) hold the code the agent runs, so they count as production code there.
+const NONPROD_SKILL = new RegExp(NONPROD.source.replace('|scripts|', '|'), 'i');
+const fileKind = (f, kind) => (f = f.replace(/\\/g, '/'), !CODE.test(f)) ? (/\.(md|mdx|txt|rst)$/i.test(f) ? 'docs' : 'other') : (kind === 'skill' ? NONPROD_SKILL : NONPROD).test(f) ? (/(^|\/)(docs?|examples?)\//i.test(f) ? 'docs' : 'tests & tooling') : 'production';
 const isCommentLine = ln => /^\s*(\/\/|#|\*|\/\*|""")/.test(ln || '');
 const commentRe = /^\s*(\/\/|#(?!include|define|if|pragma|!)|\*|\/\*)/;
 
@@ -209,10 +234,13 @@ const idOf = (l, m) => (l.kind === 'skill' ? `${m.owner}-${l.slug}` : l.kind ===
 const PREV = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, 'utf8')) : {};
 const results = {};
 const kept = [];
+const seenIds = new Set();
 for (const l of d.listings) {
   const m = d.repos[l.repo] || Object.values(d.repos).find(x => x?.full === l.repo);
   if (!m || l.slug === 'template-skill') continue;
   const id = idOf(l, m);
+  if (seenIds.has(id)) continue;   // same id listed twice (a skill shipped in several folders): the first wins, as in build.mjs
+  seenIds.add(id);
   const trusted = TRUSTED.has(m.owner);
   let prof = PROFILES[id];
   if (!prof && (trusted || l.kind !== 'skill')) continue;   // trusted skills and unprofiled tools are not checked
@@ -229,7 +257,7 @@ for (const l of d.listings) {
   }
   const files = walk(base);
   const kinds = { production: [], docs: [], 'tests & tooling': [], other: [] };
-  for (const f of files) kinds[fileKind(f)].push(f);
+  for (const f of files) kinds[fileKind(f, l.kind)].push(f);
   let loc = 0;
   const caps = {};
   let tools = [];
@@ -260,7 +288,7 @@ for (const l of d.listings) {
   }
   const where = { production: 0, 'tests & tooling': 0, docs: 0, other: 0 };
   const prod = [];
-  for (const i of rep?.issues || []) { const k = fileKind(i.location?.file || ''); where[k]++; if (k === 'production') prod.push(i); }
+  for (const i of rep?.issues || []) { const k = fileKind(i.location?.file || '', l.kind); where[k]++; if (k === 'production') prod.push(i); }
   const lineCache = {};
   const lineAt = (f, n) => { try { lineCache[f] ??= fs.readFileSync(path.join(base, f.replace(/\\/g, '/')), 'utf8').split(/\r?\n/); return lineCache[f][n - 1]; } catch (e) { return ''; } };
   const serious = prod.filter(i => i.severity === 'HIGH' || i.severity === 'CRITICAL').map(i => {

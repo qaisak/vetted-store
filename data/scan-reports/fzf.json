@@ -1,0 +1,4862 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/junegunn__fzf/fzf-master",
+    "scanned_at": "2026-11-01T01:11:03.723091+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": ".editorconfig",
+      "type": "other",
+      "lines": 20,
+      "executable": false,
+      "size_bytes": 472,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/CODEOWNERS",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 12,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/FUNDING.yml",
+      "type": "yaml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 17,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/issue_template.yml",
+      "type": "yaml",
+      "lines": 58,
+      "executable": false,
+      "size_bytes": 1457,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/PULL_REQUEST_TEMPLATE.md",
+      "type": "markdown",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 658,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "type": "yaml",
+      "lines": 10,
+      "executable": false,
+      "size_bytes": 209,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/labeler.yml",
+      "type": "yaml",
+      "lines": 64,
+      "executable": false,
+      "size_bytes": 1084,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/codeql-analysis.yml",
+      "type": "yaml",
+      "lines": 44,
+      "executable": false,
+      "size_bytes": 1111,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/depsreview.yaml",
+      "type": "yaml",
+      "lines": 14,
+      "executable": false,
+      "size_bytes": 296,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/labeler.yml",
+      "type": "yaml",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 292,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/linux.yml",
+      "type": "yaml",
+      "lines": 62,
+      "executable": false,
+      "size_bytes": 1754,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/macos.yml",
+      "type": "yaml",
+      "lines": 45,
+      "executable": false,
+      "size_bytes": 1050,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "type": "yaml",
+      "lines": 76,
+      "executable": false,
+      "size_bytes": 2220,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/typos.yml",
+      "type": "yaml",
+      "lines": 10,
+      "executable": false,
+      "size_bytes": 236,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/winget.yml",
+      "type": "yaml",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 607,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 14,
+      "executable": false,
+      "size_bytes": 97,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".goreleaser.yml",
+      "type": "yaml",
+      "lines": 133,
+      "executable": false,
+      "size_bytes": 3012,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".rubocop.yml",
+      "type": "yaml",
+      "lines": 42,
+      "executable": false,
+      "size_bytes": 794,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".tool-versions",
+      "type": "other",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 32,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "ADVANCED.md",
+      "type": "markdown",
+      "lines": 714,
+      "executable": false,
+      "size_bytes": 29117,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "BUILD.md",
+      "type": "markdown",
+      "lines": 75,
+      "executable": false,
+      "size_bytes": 1917,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CHANGELOG.md",
+      "type": "markdown",
+      "lines": 3502,
+      "executable": false,
+      "size_bytes": 148921,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Dockerfile",
+      "type": "other",
+      "lines": 22,
+      "executable": false,
+      "size_bytes": 917,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Gemfile",
+      "type": "other",
+      "lines": 8,
+      "executable": false,
+      "size_bytes": 180,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Gemfile.lock",
+      "type": "other",
+      "lines": 47,
+      "executable": false,
+      "size_bytes": 1095,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1085,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Makefile",
+      "type": "other",
+      "lines": 236,
+      "executable": false,
+      "size_bytes": 6984,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README-VIM.md",
+      "type": "markdown",
+      "lines": 552,
+      "executable": false,
+      "size_bytes": 20497,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 1160,
+      "executable": false,
+      "size_bytes": 42726,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "RELEASE.md",
+      "type": "markdown",
+      "lines": 58,
+      "executable": false,
+      "size_bytes": 1905,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "SECURITY.md",
+      "type": "markdown",
+      "lines": 33,
+      "executable": false,
+      "size_bytes": 1274,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "bin/fzf-preview.sh",
+      "type": "shell",
+      "lines": 86,
+      "executable": true,
+      "size_bytes": 2868,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "bin/fzf-tmux",
+      "type": "other",
+      "lines": 257,
+      "executable": true,
+      "size_bytes": 7382,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "doc/fzf.txt",
+      "type": "text",
+      "lines": 546,
+      "executable": false,
+      "size_bytes": 23545,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "go.mod",
+      "type": "other",
+      "lines": 20,
+      "executable": false,
+      "size_bytes": 529,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "go.sum",
+      "type": "other",
+      "lines": 54,
+      "executable": false,
+      "size_bytes": 5021,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "install",
+      "type": "other",
+      "lines": 478,
+      "executable": true,
+      "size_bytes": 13738,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "install.ps1",
+      "type": "other",
+      "lines": 65,
+      "executable": true,
+      "size_bytes": 1882,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "main.go",
+      "type": "go",
+      "lines": 115,
+      "executable": true,
+      "size_bytes": 2308,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "man/man1/fzf-tmux.1",
+      "type": "other",
+      "lines": 68,
+      "executable": false,
+      "size_bytes": 2022,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "man/man1/fzf.1",
+      "type": "other",
+      "lines": 2447,
+      "executable": false,
+      "size_bytes": 87272,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "plugin/fzf.vim",
+      "type": "other",
+      "lines": 1327,
+      "executable": false,
+      "size_bytes": 41084,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "shell/common.sh",
+      "type": "shell",
+      "lines": 40,
+      "executable": true,
+      "size_bytes": 1867,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "shell/completion-examples.nu",
+      "type": "other",
+      "lines": 91,
+      "executable": false,
+      "size_bytes": 2927,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "shell/completion.bash",
+      "type": "shell",
+      "lines": 740,
+      "executable": true,
+      "size_bytes": 21682,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "shell/completion.fish",
+      "type": "other",
+      "lines": 167,
+      "executable": false,
+      "size_bytes": 6284,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "shell/completion.nu",
+      "type": "other",
+      "lines": 523,
+      "executable": false,
+      "size_bytes": 23204,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "shell/completion.zsh",
+      "type": "shell",
+      "lines": 477,
+      "executable": true,
+      "size_bytes": 16430,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "shell/key-bindings.bash",
+      "type": "shell",
+      "lines": 195,
+      "executable": true,
+      "size_bytes": 7250,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "shell/key-bindings.fish",
+      "type": "other",
+      "lines": 223,
+      "executable": false,
+      "size_bytes": 9055,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "shell/key-bindings.nu",
+      "type": "other",
+      "lines": 190,
+      "executable": false,
+      "size_bytes": 7503,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "shell/key-bindings.zsh",
+      "type": "shell",
+      "lines": 203,
+      "executable": true,
+      "size_bytes": 7578,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "shell/update.sh",
+      "type": "shell",
+      "lines": 68,
+      "executable": true,
+      "size_bytes": 1470,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/LICENSE",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1085,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/actiontype_string.go",
+      "type": "go",
+      "lines": 201,
+      "executable": true,
+      "size_bytes": 9119,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/algo/SIMD.md",
+      "type": "markdown",
+      "lines": 99,
+      "executable": false,
+      "size_bytes": 4454,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/algo/algo.go",
+      "type": "go",
+      "lines": 1341,
+      "executable": true,
+      "size_bytes": 37125,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/algo/algo_test.go",
+      "type": "go",
+      "lines": 315,
+      "executable": true,
+      "size_bytes": 13063,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/algo/fastpath_equiv_test.go",
+      "type": "go",
+      "lines": 157,
+      "executable": true,
+      "size_bytes": 4677,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/algo/indexbyte2_amd64.go",
+      "type": "go",
+      "lines": 24,
+      "executable": true,
+      "size_bytes": 563,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/algo/indexbyte2_amd64.s",
+      "type": "other",
+      "lines": 377,
+      "executable": false,
+      "size_bytes": 6426,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/algo/indexbyte2_arm64.go",
+      "type": "go",
+      "lines": 17,
+      "executable": true,
+      "size_bytes": 531,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/algo/indexbyte2_arm64.s",
+      "type": "other",
+      "lines": 249,
+      "executable": false,
+      "size_bytes": 6328,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/algo/indexbyte2_other.go",
+      "type": "go",
+      "lines": 33,
+      "executable": true,
+      "size_bytes": 656,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/algo/indexbyte2_test.go",
+      "type": "go",
+      "lines": 259,
+      "executable": true,
+      "size_bytes": 7045,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/algo/normalize.go",
+      "type": "go",
+      "lines": 589,
+      "executable": true,
+      "size_bytes": 23990,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/algo/runeindex_others.go",
+      "type": "go",
+      "lines": 23,
+      "executable": true,
+      "size_bytes": 721,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/algo/runeindex_ref.go",
+      "type": "go",
+      "lines": 55,
+      "executable": true,
+      "size_bytes": 1455,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/algo/runeindex_x86.go",
+      "type": "go",
+      "lines": 128,
+      "executable": true,
+      "size_bytes": 3663,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/algo/runeprefilter_test.go",
+      "type": "go",
+      "lines": 479,
+      "executable": true,
+      "size_bytes": 16665,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ansi.go",
+      "type": "go",
+      "lines": 578,
+      "executable": true,
+      "size_bytes": 13381,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ansi_test.go",
+      "type": "go",
+      "lines": 559,
+      "executable": true,
+      "size_bytes": 15095,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cache.go",
+      "type": "go",
+      "lines": 98,
+      "executable": true,
+      "size_bytes": 2103,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cache_test.go",
+      "type": "go",
+      "lines": 39,
+      "executable": true,
+      "size_bytes": 847,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/chunklist.go",
+      "type": "go",
+      "lines": 170,
+      "executable": true,
+      "size_bytes": 3737,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/chunklist_test.go",
+      "type": "go",
+      "lines": 116,
+      "executable": true,
+      "size_bytes": 2830,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/constants.go",
+      "type": "go",
+      "lines": 77,
+      "executable": true,
+      "size_bytes": 1765,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/core.go",
+      "type": "go",
+      "lines": 643,
+      "executable": true,
+      "size_bytes": 17149,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/functions.go",
+      "type": "go",
+      "lines": 35,
+      "executable": true,
+      "size_bytes": 675,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/history.go",
+      "type": "go",
+      "lines": 95,
+      "executable": true,
+      "size_bytes": 2071,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/history_test.go",
+      "type": "go",
+      "lines": 67,
+      "executable": true,
+      "size_bytes": 1501,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/item.go",
+      "type": "go",
+      "lines": 59,
+      "executable": true,
+      "size_bytes": 1455,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/item_test.go",
+      "type": "go",
+      "lines": 23,
+      "executable": true,
+      "size_bytes": 484,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/matcher.go",
+      "type": "go",
+      "lines": 271,
+      "executable": true,
+      "size_bytes": 6458,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/merger.go",
+      "type": "go",
+      "lines": 183,
+      "executable": true,
+      "size_bytes": 4200,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/merger_test.go",
+      "type": "go",
+      "lines": 104,
+      "executable": true,
+      "size_bytes": 2494,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/options.go",
+      "type": "go",
+      "lines": 3998,
+      "executable": true,
+      "size_bytes": 110891,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/options_no_pprof.go",
+      "type": "go",
+      "lines": 13,
+      "executable": true,
+      "size_bytes": 332,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/options_pprof.go",
+      "type": "go",
+      "lines": 73,
+      "executable": true,
+      "size_bytes": 1628,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/options_pprof_test.go",
+      "type": "go",
+      "lines": 89,
+      "executable": true,
+      "size_bytes": 2069,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/options_test.go",
+      "type": "go",
+      "lines": 604,
+      "executable": true,
+      "size_bytes": 18337,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/pattern.go",
+      "type": "go",
+      "lines": 501,
+      "executable": true,
+      "size_bytes": 13554,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/pattern_test.go",
+      "type": "go",
+      "lines": 318,
+      "executable": true,
+      "size_bytes": 11584,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/protector/protector.go",
+      "type": "go",
+      "lines": 6,
+      "executable": true,
+      "size_bytes": 122,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/protector/protector_openbsd.go",
+      "type": "go",
+      "lines": 10,
+      "executable": true,
+      "size_bytes": 238,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/proxy.go",
+      "type": "go",
+      "lines": 267,
+      "executable": true,
+      "size_bytes": 6902,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/proxy_test.go",
+      "type": "go",
+      "lines": 65,
+      "executable": true,
+      "size_bytes": 1709,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/proxy_unix.go",
+      "type": "go",
+      "lines": 41,
+      "executable": true,
+      "size_bytes": 690,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/proxy_windows.go",
+      "type": "go",
+      "lines": 85,
+      "executable": true,
+      "size_bytes": 1558,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/reader.go",
+      "type": "go",
+      "lines": 411,
+      "executable": true,
+      "size_bytes": 9665,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/reader_test.go",
+      "type": "go",
+      "lines": 139,
+      "executable": true,
+      "size_bytes": 3572,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/result.go",
+      "type": "go",
+      "lines": 436,
+      "executable": true,
+      "size_bytes": 10470,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/result_others.go",
+      "type": "go",
+      "lines": 20,
+      "executable": true,
+      "size_bytes": 490,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/result_test.go",
+      "type": "go",
+      "lines": 299,
+      "executable": true,
+      "size_bytes": 10567,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/result_x86.go",
+      "type": "go",
+      "lines": 20,
+      "executable": true,
+      "size_bytes": 458,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/server.go",
+      "type": "go",
+      "lines": 277,
+      "executable": true,
+      "size_bytes": 6995,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/terminal.go",
+      "type": "go",
+      "lines": 8933,
+      "executable": true,
+      "size_bytes": 255852,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/terminal_test.go",
+      "type": "go",
+      "lines": 982,
+      "executable": true,
+      "size_bytes": 38628,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/terminal_unix.go",
+      "type": "go",
+      "lines": 29,
+      "executable": true,
+      "size_bytes": 444,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/terminal_windows.go",
+      "type": "go",
+      "lines": 62,
+      "executable": true,
+      "size_bytes": 1324,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tmux.go",
+      "type": "go",
+      "lines": 275,
+      "executable": true,
+      "size_bytes": 11146,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tmux_test.go",
+      "type": "go",
+      "lines": 53,
+      "executable": true,
+      "size_bytes": 1273,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tokenizer.go",
+      "type": "go",
+      "lines": 338,
+      "executable": true,
+      "size_bytes": 7569,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tokenizer_test.go",
+      "type": "go",
+      "lines": 125,
+      "executable": true,
+      "size_bytes": 3055,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tui/dummy.go",
+      "type": "go",
+      "lines": 47,
+      "executable": true,
+      "size_bytes": 2091,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tui/eventtype_string.go",
+      "type": "go",
+      "lines": 179,
+      "executable": true,
+      "size_bytes": 5981,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tui/light.go",
+      "type": "go",
+      "lines": 1877,
+      "executable": true,
+      "size_bytes": 47729,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tui/light_csi_test.go",
+      "type": "go",
+      "lines": 274,
+      "executable": true,
+      "size_bytes": 8526,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tui/light_escape_test.go",
+      "type": "go",
+      "lines": 96,
+      "executable": true,
+      "size_bytes": 2617,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tui/light_query_test.go",
+      "type": "go",
+      "lines": 182,
+      "executable": true,
+      "size_bytes": 4528,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tui/light_test.go",
+      "type": "go",
+      "lines": 480,
+      "executable": true,
+      "size_bytes": 17094,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tui/light_unix.go",
+      "type": "go",
+      "lines": 278,
+      "executable": true,
+      "size_bytes": 6914,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tui/light_windows.go",
+      "type": "go",
+      "lines": 190,
+      "executable": true,
+      "size_bytes": 5889,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tui/tcell.go",
+      "type": "go",
+      "lines": 1183,
+      "executable": true,
+      "size_bytes": 27155,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tui/tcell_test.go",
+      "type": "go",
+      "lines": 473,
+      "executable": true,
+      "size_bytes": 23828,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tui/ttyname_unix.go",
+      "type": "go",
+      "lines": 54,
+      "executable": true,
+      "size_bytes": 978,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tui/ttyname_windows.go",
+      "type": "go",
+      "lines": 21,
+      "executable": true,
+      "size_bytes": 304,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tui/tui.go",
+      "type": "go",
+      "lines": 1527,
+      "executable": true,
+      "size_bytes": 38203,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tui/tui_test.go",
+      "type": "go",
+      "lines": 60,
+      "executable": true,
+      "size_bytes": 1636,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/atexit.go",
+      "type": "go",
+      "lines": 28,
+      "executable": true,
+      "size_bytes": 554,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/atexit_test.go",
+      "type": "go",
+      "lines": 24,
+      "executable": true,
+      "size_bytes": 446,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/atomicbool.go",
+      "type": "go",
+      "lines": 34,
+      "executable": true,
+      "size_bytes": 748,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/atomicbool_test.go",
+      "type": "go",
+      "lines": 17,
+      "executable": true,
+      "size_bytes": 301,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/chars.go",
+      "type": "go",
+      "lines": 481,
+      "executable": true,
+      "size_bytes": 11958,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/chars_test.go",
+      "type": "go",
+      "lines": 273,
+      "executable": true,
+      "size_bytes": 8418,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/concurrent_set.go",
+      "type": "go",
+      "lines": 39,
+      "executable": true,
+      "size_bytes": 851,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/eventbox.go",
+      "type": "go",
+      "lines": 96,
+      "executable": true,
+      "size_bytes": 1960,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/eventbox_test.go",
+      "type": "go",
+      "lines": 60,
+      "executable": true,
+      "size_bytes": 899,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/slab.go",
+      "type": "go",
+      "lines": 12,
+      "executable": true,
+      "size_bytes": 185,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/util.go",
+      "type": "go",
+      "lines": 165,
+      "executable": true,
+      "size_bytes": 3437,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/util_test.go",
+      "type": "go",
+      "lines": 171,
+      "executable": true,
+      "size_bytes": 3779,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/util_unix.go",
+      "type": "go",
+      "lines": 94,
+      "executable": true,
+      "size_bytes": 2287,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/util_windows.go",
+      "type": "go",
+      "lines": 228,
+      "executable": true,
+      "size_bytes": 6462,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/util_windows_test.go",
+      "type": "go",
+      "lines": 203,
+      "executable": true,
+      "size_bytes": 7134,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/winpty.go",
+      "type": "go",
+      "lines": 13,
+      "executable": true,
+      "size_bytes": 206,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/winpty_windows.go",
+      "type": "go",
+      "lines": 80,
+      "executable": true,
+      "size_bytes": 1781,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/zellij.go",
+      "type": "go",
+      "lines": 83,
+      "executable": true,
+      "size_bytes": 2993,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/lib/common.fish",
+      "type": "other",
+      "lines": 16,
+      "executable": false,
+      "size_bytes": 580,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/lib/common.rb",
+      "type": "ruby",
+      "lines": 398,
+      "executable": true,
+      "size_bytes": 10916,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/lib/common.sh",
+      "type": "shell",
+      "lines": 59,
+      "executable": true,
+      "size_bytes": 1281,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/runner.rb",
+      "type": "ruby",
+      "lines": 5,
+      "executable": true,
+      "size_bytes": 116,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/test_core.rb",
+      "type": "ruby",
+      "lines": 3145,
+      "executable": true,
+      "size_bytes": 120821,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/test_exec.rb",
+      "type": "ruby",
+      "lines": 417,
+      "executable": true,
+      "size_bytes": 15463,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/test_filter.rb",
+      "type": "ruby",
+      "lines": 361,
+      "executable": true,
+      "size_bytes": 10935,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/test_layout.rb",
+      "type": "ruby",
+      "lines": 2040,
+      "executable": true,
+      "size_bytes": 80812,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/test_preview.rb",
+      "type": "ruby",
+      "lines": 685,
+      "executable": true,
+      "size_bytes": 27737,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/test_raw.rb",
+      "type": "ruby",
+      "lines": 113,
+      "executable": true,
+      "size_bytes": 2770,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/test_server.rb",
+      "type": "ruby",
+      "lines": 110,
+      "executable": true,
+      "size_bytes": 4470,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/test_shell_integration.rb",
+      "type": "ruby",
+      "lines": 1329,
+      "executable": true,
+      "size_bytes": 42376,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/test_tmux.rb",
+      "type": "ruby",
+      "lines": 126,
+      "executable": true,
+      "size_bytes": 5140,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/vim/fzf.vader",
+      "type": "other",
+      "lines": 255,
+      "executable": false,
+      "size_bytes": 8458,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "typos.toml",
+      "type": "toml",
+      "lines": 12,
+      "executable": false,
+      "size_bytes": 247,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "uninstall",
+      "type": "other",
+      "lines": 127,
+      "executable": true,
+      "size_bytes": 2996,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "TM2",
+      "finding_id": "finding-677ee5b517c4482e9aef79abb75b36fc",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": ".github/workflows/linux.yml",
+        "start_line": 36,
+        "end_line": null,
+        "start_column": 11
+      },
+      "finding": "|\n        sudo ",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "        ruby-version: 3.4.6\n\n    - name: Install packages\n      run: |\n        sudo install -d -m 0755 /etc/apt/keyrings\n        wget -qO- https://apt.fury.io/nushell/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/fury-nushell.gpg\n        echo \"deb [signed-by=/etc/apt/keyrings/fury-nushell.gpg] https://apt.fury.io/nushell/ /\" | sudo tee /etc/apt/sources.list.d/fury-nushell.list",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8f26f53bcbcfbd9fb11a52b90ffc7313a44714737c9e55dde0122f11bd18f036",
+      "occurrences": [
+        {
+          "file": ".github/workflows/linux.yml",
+          "start_line": 36,
+          "end_line": null,
+          "start_column": 11
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-5c2578cc99a9492bb54fb66c3b11c611",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": ".github/workflows/linux.yml",
+        "start_line": 38,
+        "end_line": null,
+        "start_column": 54
+      },
+      "finding": "| sudo ",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "    - name: Install packages\n      run: |\n        sudo install -d -m 0755 /etc/apt/keyrings\n        wget -qO- https://apt.fury.io/nushell/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/fury-nushell.gpg\n        echo \"deb [signed-by=/etc/apt/keyrings/fury-nushell.gpg] https://apt.fury.io/nushell/ /\" | sudo tee /etc/apt/sources.list.d/fury-nushell.list\n        sudo apt-get update\n        # Pinned: the Nushell scripts now require 0.116+, where an external",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8f26f53bcbcfbd9fb11a52b90ffc7313a44714737c9e55dde0122f11bd18f036",
+      "occurrences": [
+        {
+          "file": ".github/workflows/linux.yml",
+          "start_line": 38,
+          "end_line": null,
+          "start_column": 54
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-2a7df51e75684fd78335b4d178d1b31c",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": ".github/workflows/linux.yml",
+        "start_line": 39,
+        "end_line": null,
+        "start_column": 97
+      },
+      "finding": "| sudo ",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "      run: |\n        sudo install -d -m 0755 /etc/apt/keyrings\n        wget -qO- https://apt.fury.io/nushell/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/fury-nushell.gpg\n        echo \"deb [signed-by=/etc/apt/keyrings/fury-nushell.gpg] https://apt.fury.io/nushell/ /\" | sudo tee /etc/apt/sources.list.d/fury-nushell.list\n        sudo apt-get update\n        # Pinned: the Nushell scripts now require 0.116+, where an external\n        # completer reaches the terminal through the @interactive attribute.",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8f26f53bcbcfbd9fb11a52b90ffc7313a44714737c9e55dde0122f11bd18f036",
+      "occurrences": [
+        {
+          "file": ".github/workflows/linux.yml",
+          "start_line": 39,
+          "end_line": null,
+          "start_column": 97
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-6653eac5d6e04224ab5b1b0c284a6d4f",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/linux.yml",
+        "start_line": 37,
+        "end_line": null,
+        "start_column": 41
+      },
+      "finding": "keyring",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n    - name: Install packages\n      run: |\n        sudo install -d -m 0755 /etc/apt/keyrings\n        wget -qO- https://apt.fury.io/nushell/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/fury-nushell.gpg\n        echo \"deb [signed-by=/etc/apt/keyrings/fury-nushell.gpg] https://apt.fury.io/nushell/ /\" | sudo tee /etc/apt/sources.list.d/fury-nushell.list\n        sudo apt-get update",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "84a991daf1cf151025511db9da88c8dc38facff873a2a0b5bfbd848887a1d158",
+      "occurrences": [
+        {
+          "file": ".github/workflows/linux.yml",
+          "start_line": 37,
+          "end_line": null,
+          "start_column": 41
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-6323f5d26e3c45d699c7ffafa3498db6",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/linux.yml",
+        "start_line": 38,
+        "end_line": null,
+        "start_column": 87
+      },
+      "finding": "keyring",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    - name: Install packages\n      run: |\n        sudo install -d -m 0755 /etc/apt/keyrings\n        wget -qO- https://apt.fury.io/nushell/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/fury-nushell.gpg\n        echo \"deb [signed-by=/etc/apt/keyrings/fury-nushell.gpg] https://apt.fury.io/nushell/ /\" | sudo tee /etc/apt/sources.list.d/fury-nushell.list\n        sudo apt-get update\n        # Pinned: the Nushell scripts now require 0.116+, where an external",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "84a991daf1cf151025511db9da88c8dc38facff873a2a0b5bfbd848887a1d158",
+      "occurrences": [
+        {
+          "file": ".github/workflows/linux.yml",
+          "start_line": 38,
+          "end_line": null,
+          "start_column": 87
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-026e2d7fe8744696ab3ab7721005b523",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/linux.yml",
+        "start_line": 39,
+        "end_line": null,
+        "start_column": 38
+      },
+      "finding": "keyring",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "      run: |\n        sudo install -d -m 0755 /etc/apt/keyrings\n        wget -qO- https://apt.fury.io/nushell/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/fury-nushell.gpg\n        echo \"deb [signed-by=/etc/apt/keyrings/fury-nushell.gpg] https://apt.fury.io/nushell/ /\" | sudo tee /etc/apt/sources.list.d/fury-nushell.list\n        sudo apt-get update\n        # Pinned: the Nushell scripts now require 0.116+, where an external\n        # completer reaches the terminal through the @interactive attribute.",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "84a991daf1cf151025511db9da88c8dc38facff873a2a0b5bfbd848887a1d158",
+      "occurrences": [
+        {
+          "file": ".github/workflows/linux.yml",
+          "start_line": 39,
+          "end_line": null,
+          "start_column": 38
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-a7ad22f0b1234910ac4a777e017cff99",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "Dockerfile",
+        "start_line": 8,
+        "end_line": null,
+        "start_column": 78
+      },
+      "finding": "keyring",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "RUN <<EOF\n    set -ex\n    apt-get install -y wget gnupg\n    wget -qO- https://apt.fury.io/nushell/gpg.key | gpg --dearmor -o /etc/apt/keyrings/fury-nushell.gpg\n    echo \"deb [signed-by=/etc/apt/keyrings/fury-nushell.gpg] https://apt.fury.io/nushell/ /\" | tee /etc/apt/sources.list.d/fury-nushell.list\n    apt-get update\n    apt-get install -y nushell",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "84a991daf1cf151025511db9da88c8dc38facff873a2a0b5bfbd848887a1d158",
+      "occurrences": [
+        {
+          "file": "Dockerfile",
+          "start_line": 8,
+          "end_line": null,
+          "start_column": 78
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-c5d16bba37df452a91a078c63ea3e650",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "Dockerfile",
+        "start_line": 9,
+        "end_line": null,
+        "start_column": 34
+      },
+      "finding": "keyring",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    set -ex\n    apt-get install -y wget gnupg\n    wget -qO- https://apt.fury.io/nushell/gpg.key | gpg --dearmor -o /etc/apt/keyrings/fury-nushell.gpg\n    echo \"deb [signed-by=/etc/apt/keyrings/fury-nushell.gpg] https://apt.fury.io/nushell/ /\" | tee /etc/apt/sources.list.d/fury-nushell.list\n    apt-get update\n    apt-get install -y nushell\nEOF",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "84a991daf1cf151025511db9da88c8dc38facff873a2a0b5bfbd848887a1d158",
+      "occurrences": [
+        {
+          "file": "Dockerfile",
+          "start_line": 9,
+          "end_line": null,
+          "start_column": 34
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-55023c89feab472f84a1329107a1777e",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "ADVANCED.md",
+        "start_line": 443,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "rm -f /tmp/rg-fzf-{r,f}",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "#!/usr/bin/env bash\n\n# Switch between Ripgrep launcher mode (CTRL-R) and fzf filtering mode (CTRL-F)\nrm -f /tmp/rg-fzf-{r,f}\nRG_PREFIX=\"rg --column --line-number --no-heading --color=always --smart-case \"\nINITIAL_QUERY=\"${*:-}\"\nfzf --ansi --disabled --query \"$INITIAL_QUERY\" \\",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3adbf4695d6cc3d3c05e19e6eb0b1b773d0d8480ef6adcb3152102a1d22536bb",
+      "occurrences": [
+        {
+          "file": "ADVANCED.md",
+          "start_line": 443,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-727d5d39344b42439a922a216a8faf38",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "ADVANCED.md",
+        "start_line": 486,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "rm -f /tmp/rg-fzf-{r,f}",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "#!/usr/bin/env bash\n\n# Switch between Ripgrep mode and fzf filtering mode (CTRL-T)\nrm -f /tmp/rg-fzf-{r,f}\nRG_PREFIX=\"rg --column --line-number --no-heading --color=always --smart-case \"\nINITIAL_QUERY=\"${*:-}\"\nfzf --ansi --disabled --query \"$INITIAL_QUERY\" \\",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3adbf4695d6cc3d3c05e19e6eb0b1b773d0d8480ef6adcb3152102a1d22536bb",
+      "occurrences": [
+        {
+          "file": "ADVANCED.md",
+          "start_line": 486,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "MP3",
+      "finding_id": "finding-2188000c60114a1e9433c112401b3633",
+      "category": "Memory Poisoning",
+      "pattern": "Memory Manipulation",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 277,
+        "end_line": null,
+        "start_column": 67
+      },
+      "finding": "delete history",
+      "explanation": "Skill manipulates agent memory, state, or stored context. Memory corruption can alter personality, override safety rules, or cause unpredictable behavior.",
+      "remediation": "Protect agent memory and state from modification by untrusted content. Use read-only memory for critical instructions and validate all state changes.",
+      "code_snippet": "    - Improved the cache structure, reducing memory footprint per entry by 86x.\n        - With the reduced per-entry cost, the cache now has broader coverage.\n- Shell integration improvements\n    - bash: CTRL-R now supports multi-select and `shift-delete` to delete history entries (#4715)\n    - fish:\n        - Improved command history (CTRL-R) (#4703) (@bitraid)\n        - Rewrite completion script (SHIFT-TAB) (#4731) (@bitraid)",
+      "intent": null,
+      "tags": [
+        "Memory Poisoning"
+      ],
+      "evidence": {},
+      "match_fingerprint": "bfd2ff3d41226ae65d0e33c8bf41e81696c3e384f16dda8ba84454f631e22dc8",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 277,
+          "end_line": null,
+          "start_column": 67
+        }
+      ]
+    },
+    {
+      "id": "MP3",
+      "finding_id": "finding-17994d38fdb44c3d8fcb59f9df7cc250",
+      "category": "Memory Poisoning",
+      "pattern": "Memory Manipulation",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 882,
+        "end_line": null,
+        "start_column": 14
+      },
+      "finding": "delete history",
+      "explanation": "Skill manipulates agent memory, state, or stored context. Memory corruption can alter personality, override safety rules, or cause unpredictable behavior.",
+      "remediation": "Protect agent memory and state from modification by untrusted content. Use read-only memory for critical instructions and validate all state changes.",
+      "code_snippet": "  ```\n- [fish] Improvements in CTRL-R binding (@bitraid)\n    - You can trigger CTRL-R in the middle of a command to insert the selected item\n    - You can delete history items with SHIFT-DEL\n- Bug fixes and improvements\n    - Fixed unnecessary 100ms delay after `reload` (#4364)\n    - Fixed `selected-bg` not applied to colored items (#4372)",
+      "intent": null,
+      "tags": [
+        "Memory Poisoning"
+      ],
+      "evidence": {},
+      "match_fingerprint": "bfd2ff3d41226ae65d0e33c8bf41e81696c3e384f16dda8ba84454f631e22dc8",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 882,
+          "end_line": null,
+          "start_column": 14
+        }
+      ]
+    },
+    {
+      "id": "YR1",
+      "finding_id": "finding-ef945bee3f574aa8bce4d6d4e007709f",
+      "category": "YARA Match",
+      "pattern": "YARA rule 'backdoor_persistence': Backdoor persistence with malicious payloads (shell commands, SSH key injection, hidden root users) [malware]",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "Dockerfile",
+        "start_line": 14,
+        "end_line": null
+      },
+      "finding": "echo '. /usr/share/bash-completion/completions/git' >> ~/.bashrc",
+      "explanation": "YARA rule matched a known malware signature (reverse shell, backdoor, ransomware, C2 framework, or info stealer).",
+      "remediation": "Remove the malware payload or compromised file entirely. Investigate how it entered the skill and audit all other artifacts for additional indicators of compromise.",
+      "code_snippet": "F\n    set -ex\n    apt-get install -y wget gnupg\n    wget -qO- https://apt.fury.io/nushell/gpg.key | gpg --dearmor -o /etc/apt/keyrings/fury-nushell.gpg\n    echo \"deb [signed-by=/etc/apt/keyrings/fury-nushell.gpg] https://apt.fury.io/nushell/ /\" | tee /etc/apt/sources.list.d/fury-nushell.list\n    apt-get update\n    apt-get install -y nushell\nEOF\nRUN gem install --no-document -v 5.22.3 minitest\nRUN echo '. /usr/share/bash-completion/completions/git' >> ~/.bashrc\nRUN echo '. ~/.bashrc' >> ~/.bash_profile\n\n# Do not set default PS1\nRUN rm -f /etc/bash.bashrc\nCOPY . /fzf\nRUN cd /fzf && make install && ./install --all\nENV LANG=C.UTF-8\nCMD [\"bash\", \"-ic\", \"tmux new 'set -o pipefail; ruby /fzf/test/runner.rb | tee out && touch ok' && cat out && [ -e ok ]\"]\n",
+      "intent": null,
+      "tags": [
+        "YARA Match"
+      ],
+      "evidence": {},
+      "match_fingerprint": "df4ff3708b36aedf765da8d8b47df544b28ec4b5cd42a2e466caae47ccda5387",
+      "occurrences": [
+        {
+          "file": "Dockerfile",
+          "start_line": 14,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-35c86a13c7b74f2a8c1eec990d8e3071",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "Dockerfile",
+        "start_line": 18,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "rm -f /etc/bash.bashrc",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "RUN echo '. ~/.bashrc' >> ~/.bash_profile\n\n# Do not set default PS1\nRUN rm -f /etc/bash.bashrc\nCOPY . /fzf\nRUN cd /fzf && make install && ./install --all\nENV LANG=C.UTF-8",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c8f531925be0fec0e4bbc471a3d3bfeee7621847bb8522ccf9451eab206d8cc7",
+      "occurrences": [
+        {
+          "file": "Dockerfile",
+          "start_line": 18,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-e014e3102f5341e4b3f3faba175890cb",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "Makefile",
+        "start_line": 102,
+        "end_line": null,
+        "start_column": 6
+      },
+      "finding": "; rm -",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "\t@dir=$$(mktemp -d) && \\\n\tenv -u TMUX TMUX_TMPDIR=$$dir sh -c \\\n\t\t'tmux -f /dev/null new-session -d && ruby test/runner.rb; s=$$?; tmux kill-server; exit $$s'; \\\n\ts=$$?; rm -rf $$dir; exit $$s\n\n# Actively fuzz the matcher fast paths against the general algorithm.\n# Go fuzzes one target at a time, so iterate. Override duration with",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "653c73eb47bd50a95878b88c727b3b22838d19b40be7e0c38ee04dc79d87f76f",
+      "occurrences": [
+        {
+          "file": "Makefile",
+          "start_line": 102,
+          "end_line": null,
+          "start_column": 6
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-4673d475e5144e5885ef7edd42c80d21",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/tmux.go",
+        "start_line": 195,
+        "end_line": null,
+        "start_column": 23
+      },
+      "finding": "; rm -",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "\t\t// An interrupted wait does not reap the waiter, so it is killed\n\t\t// along with the watchdog.\n\t\tscript := fmt.Sprintf(`trap '[ -n \"$id\" ] && tmux kill-pane -t \"$id\" 2> /dev/null' INT TERM HUP\nid=$(%s) || { status=$?; rm -f %s; exit \"$status\"; }\n{ while tmux has-session -t \"$id\" 2> /dev/null; do sleep 1; done; tmux wait-for -S %s; } &\nwatchdog=$!\ntmux wait-for %s &",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "653c73eb47bd50a95878b88c727b3b22838d19b40be7e0c38ee04dc79d87f76f",
+      "occurrences": [
+        {
+          "file": "src/tmux.go",
+          "start_line": 195,
+          "end_line": null,
+          "start_column": 23
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-5ba6efd41a0c47f38216d719117aecd7",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "Makefile",
+        "start_line": 175,
+        "end_line": null,
+        "start_column": 1
+      },
+      "finding": "git push origin temp --follow-tags --force",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "\n\t# Push to temp branch first so that install scripts always works on master branch\n\tgit checkout -B temp master\n\tgit push origin temp --follow-tags --force\n\n\t# Make a GitHub release\n\tgoreleaser --clean --release-notes tmp/release-note",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5da93ef3f89bcbb51808cab3cd3f55f4e723ca05dc828010ac033f4fae6c911f",
+      "occurrences": [
+        {
+          "file": "Makefile",
+          "start_line": 175,
+          "end_line": null,
+          "start_column": 1
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-716c624a8563472db7d90724da230830",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "Makefile",
+        "start_line": 221,
+        "end_line": null,
+        "start_column": 2
+      },
+      "finding": "rm -f bin/fzf",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "\tGOARCH=loong64 $(GO) build $(BUILD_FLAGS) -o $@\n\nbin/fzf: target/$(BINARY) | bin\n\t-rm -f bin/fzf\n\tcp -f target/$(BINARY) bin/fzf\n\ndocker:",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3bf40c89c882557d37964acf47453c25f1cc7e650ed47738e5a5afa7c51ab28d",
+      "occurrences": [
+        {
+          "file": "Makefile",
+          "start_line": 221,
+          "end_line": null,
+          "start_column": 2
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-d19651a72b6b4a7d9bd93b843528b9bd",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "install",
+        "start_line": 103,
+        "end_line": null,
+        "start_column": 2
+      },
+      "finding": "rm -f \"$fzf_base\"/bin/fzf",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "      return 0\n    fi\n  fi\n  rm -f \"$fzf_base\"/bin/fzf\n  return 1\n}\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4ff7f664e2bc9d4243fca1c5245d7eb3d702bc5d0364f4e73fe434c664f8b53e",
+      "occurrences": [
+        {
+          "file": "install",
+          "start_line": 103,
+          "end_line": null,
+          "start_column": 2
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-05738dc72e4c4783aefb9099ae40c6be",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "install",
+        "start_line": 111,
+        "end_line": null,
+        "start_column": 24
+      },
+      "finding": "&& rm -",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "  if which_fzf=\"$(command -v fzf)\"; then\n    echo '  - Found in $PATH'\n    echo \"  - Creating symlink: bin/fzf -> $which_fzf\"\n    (cd \"$fzf_base\"/bin && rm -f fzf && ln -sf \"$which_fzf\" fzf)\n    check_binary && return\n  fi\n  return 1",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "da42bed49ba667f4edac8a3628fa28e5cc6bbc20fc757fb7d1ddbddd9a531ec0",
+      "occurrences": [
+        {
+          "file": "install",
+          "start_line": 111,
+          "end_line": null,
+          "start_column": 24
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-0e9ae16592f1426d9f09ce7bcb44d4d8",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "install",
+        "start_line": 128,
+        "end_line": null,
+        "start_column": 47
+      },
+      "finding": "&& rm -",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "      curl -fL $1 | tar $tar_opts\n    else\n      local temp=${TMPDIR:-/tmp}/fzf.zip\n      curl -fLo \"$temp\" $1 && unzip -o \"$temp\" && rm -f \"$temp\"\n    fi\n}\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "da42bed49ba667f4edac8a3628fa28e5cc6bbc20fc757fb7d1ddbddd9a531ec0",
+      "occurrences": [
+        {
+          "file": "install",
+          "start_line": 128,
+          "end_line": null,
+          "start_column": 47
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-12e807fdd24749f3a9e2aeed36901e34",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "install",
+        "start_line": 138,
+        "end_line": null,
+        "start_column": 45
+      },
+      "finding": "&& rm -",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "      wget -O - $1 | tar $tar_opts\n    else\n      local temp=${TMPDIR:-/tmp}/fzf.zip\n      wget -O \"$temp\" $1 && unzip -o \"$temp\" && rm -f \"$temp\"\n    fi\n}\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "da42bed49ba667f4edac8a3628fa28e5cc6bbc20fc757fb7d1ddbddd9a531ec0",
+      "occurrences": [
+        {
+          "file": "install",
+          "start_line": 138,
+          "end_line": null,
+          "start_column": 45
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-c707eb19486d4606aec69484af2c71ff",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "uninstall",
+        "start_line": 78,
+        "end_line": null,
+        "start_column": 29
+      },
+      "finding": "&& rm -",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "    if [ $? -eq 0 ]; then\n      temp=$(mktemp)\n      awk -v n=$line_no 'NR == n {next} {print}' \"$src\" > \"$temp\" &&\n        cat \"$temp\" > \"$src\" && rm -f \"$temp\" || break\n      echo \"      - Removed\"\n    else\n      echo \"      - Skipped\"",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "da42bed49ba667f4edac8a3628fa28e5cc6bbc20fc757fb7d1ddbddd9a531ec0",
+      "occurrences": [
+        {
+          "file": "uninstall",
+          "start_line": 78,
+          "end_line": null,
+          "start_column": 29
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-f59038c39248473ea467b466699b33e1",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "shell/completion.bash",
+        "start_line": 569,
+        "end_line": null,
+        "start_column": 10
+      },
+      "finding": "~/.ssh/known_hosts",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "            for (i = 1; i <= NF; i++)\n              print $i\n          }\n        ' ~/.ssh/known_hosts 2> /dev/null\n      ) \\\n      <(\n        __fzf_exec_awk '",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fcf0ed05374a439e54072eda4a93d37cfce27387dd8f232cd7ccfaaea74bc2e6",
+      "occurrences": [
+        {
+          "file": "shell/completion.bash",
+          "start_line": 569,
+          "end_line": null,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-06fea798a5b9498db005d33c5240de60",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "shell/completion.nu",
+        "start_line": 121,
+        "end_line": null,
+        "start_column": 37
+      },
+      "finding": "~/.ssh/known_hosts",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  let ssh_configs       = try { open ~/.ssh/config       | lines } catch { [] }\n  let ssh_configs_d     = try { open ~/.ssh/config.d/*   | lines } catch { [] }\n  let ssh_config_global = try { open /etc/ssh/ssh_config | lines } catch { [] }\n  let known_hosts       = try { open ~/.ssh/known_hosts  | lines } catch { [] }\n  let hosts_file        = try { open /etc/hosts          | lines } catch { [] }\n\n  [",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fcf0ed05374a439e54072eda4a93d37cfce27387dd8f232cd7ccfaaea74bc2e6",
+      "occurrences": [
+        {
+          "file": "shell/completion.nu",
+          "start_line": 121,
+          "end_line": null,
+          "start_column": 37
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-5f721f0fddab4dcaa8a4420b6e6108d1",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "shell/completion.zsh",
+        "start_line": 300,
+        "end_line": null,
+        "start_column": 10
+      },
+      "finding": "~/.ssh/known_hosts",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "            for (i = 1; i <= NF; i++)\n              print $i\n          }\n        ' ~/.ssh/known_hosts 2> /dev/null\n      ) \\\n      <(\n        __fzf_exec_awk '",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fcf0ed05374a439e54072eda4a93d37cfce27387dd8f232cd7ccfaaea74bc2e6",
+      "occurrences": [
+        {
+          "file": "shell/completion.zsh",
+          "start_line": 300,
+          "end_line": null,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-ce8acabde94942ce81e7284990443274",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "test/lib/common.rb",
+        "start_line": 78,
+        "end_line": null,
+        "start_column": 11
+      },
+      "finding": "rm -f ~/.local/share/fish/fzf_test_history",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "          File.open(\"#{confdir}/fish/conf.d/fzf.fish\", 'w') do |f|\n            f.puts ERB.new(FISH_TEMPLATE).result(binding)\n          end\n          \"rm -f ~/.local/share/fish/fzf_test_history; XDG_CONFIG_HOME=#{confdir} fish\"\n        end\n    end\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f291ab71e1af74fb37b79a64e8ebac06b40341ea36ccb2636c1a732b33b53f86",
+      "occurrences": [
+        {
+          "file": "test/lib/common.rb",
+          "start_line": 78,
+          "end_line": null,
+          "start_column": 11
+        }
+      ]
+    },
+    {
+      "id": "MP3",
+      "finding_id": "finding-66816cdd46ef49fa8cfc8928e91c650e",
+      "category": "Memory Poisoning",
+      "pattern": "Memory Manipulation",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "test/lib/common.rb",
+        "start_line": 127,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "Clear history",
+      "explanation": "Skill manipulates agent memory, state, or stored context. Memory corruption can alter personality, override safety rules, or cause unpredictable behavior.",
+      "remediation": "Protect agent memory and state from modification by untrusted content. Use read-only memory for critical instructions and validate all state changes.",
+      "code_snippet": "      send_keys 'function fish_prompt; end; clear', :Enter\n      self.until(&:empty?)\n    elsif shell == :nushell\n      # Clear history from previous tests to avoid contamination\n      FileUtils.rm_f('/tmp/fzf-nushell-xdg/nushell/history.txt')\n      # Wait for nushell to be ready by polling with a marker command.\n      # We use 'print \"fzf-ready\"' and check for a line that is exactly",
+      "intent": null,
+      "tags": [
+        "Memory Poisoning"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3e662721974a2ffe6f9372a1effaa8480c438e0e478d39ae326139cd38635db6",
+      "occurrences": [
+        {
+          "file": "test/lib/common.rb",
+          "start_line": 127,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-55547627ba4b48b194eca059c1eebf50",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/linux.yml",
+        "start_line": 37,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "\n    - name: Install packages\n      run: |\n        sudo install -d -m 0755 /etc/apt/keyrings\n        wget -qO- https://apt.fury.io/nushell/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/fury-nushell.gpg\n        echo \"deb [signed-by=/etc/apt/keyrings/fury-nushell.gpg] https://apt.fury.io/nushell/ /\" | sudo tee /etc/apt/sources.list.d/fury-nushell.list\n        sudo apt-get update",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/linux.yml",
+          "start_line": 37,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-7865b879b5f64ca483a2efcca77f5e21",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/linux.yml",
+        "start_line": 38,
+        "end_line": null,
+        "start_column": 56
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "    - name: Install packages\n      run: |\n        sudo install -d -m 0755 /etc/apt/keyrings\n        wget -qO- https://apt.fury.io/nushell/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/fury-nushell.gpg\n        echo \"deb [signed-by=/etc/apt/keyrings/fury-nushell.gpg] https://apt.fury.io/nushell/ /\" | sudo tee /etc/apt/sources.list.d/fury-nushell.list\n        sudo apt-get update\n        # Pinned: the Nushell scripts now require 0.116+, where an external",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/linux.yml",
+          "start_line": 38,
+          "end_line": null,
+          "start_column": 56
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-eecab4118f9d454aa390466149e503da",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/linux.yml",
+        "start_line": 39,
+        "end_line": null,
+        "start_column": 99
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "      run: |\n        sudo install -d -m 0755 /etc/apt/keyrings\n        wget -qO- https://apt.fury.io/nushell/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/fury-nushell.gpg\n        echo \"deb [signed-by=/etc/apt/keyrings/fury-nushell.gpg] https://apt.fury.io/nushell/ /\" | sudo tee /etc/apt/sources.list.d/fury-nushell.list\n        sudo apt-get update\n        # Pinned: the Nushell scripts now require 0.116+, where an external\n        # completer reaches the terminal through the @interactive attribute.",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/linux.yml",
+          "start_line": 39,
+          "end_line": null,
+          "start_column": 99
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-c265307cf5f040bfa98b623581ef7fce",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/linux.yml",
+        "start_line": 40,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "        sudo install -d -m 0755 /etc/apt/keyrings\n        wget -qO- https://apt.fury.io/nushell/gpg.key | sudo gpg --dearmor -o /etc/apt/keyrings/fury-nushell.gpg\n        echo \"deb [signed-by=/etc/apt/keyrings/fury-nushell.gpg] https://apt.fury.io/nushell/ /\" | sudo tee /etc/apt/sources.list.d/fury-nushell.list\n        sudo apt-get update\n        # Pinned: the Nushell scripts now require 0.116+, where an external\n        # completer reaches the terminal through the @interactive attribute.\n        # Before that (e.g. 0.115.0), completers run on a background thread, so",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/linux.yml",
+          "start_line": 40,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-2baf987047274247a4264159d81dcefb",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/linux.yml",
+        "start_line": 45,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "        # completer reaches the terminal through the @interactive attribute.\n        # Before that (e.g. 0.115.0), completers run on a background thread, so\n        # fzf never receives keystrokes. https://github.com/nushell/nushell/issues/18771\n        sudo apt-get install --yes zsh fish tmux shfmt nushell=0.116.1-0\n\n    - name: Install Ruby gems\n      run: bundle install",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/linux.yml",
+          "start_line": 45,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-5a1098516a594d058922b368336fa631",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 123,
+        "end_line": null,
+        "start_column": 49
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "> To set up shell integration (key bindings and fuzzy completion),\n> see [the instructions below](#setting-up-shell-integration).\n\nfzf is also available [via MacPorts][portfile]: `sudo port install fzf`\n\n[portfile]: https://github.com/macports/macports-ports/blob/master/sysutils/fzf/Portfile\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 123,
+          "end_line": null,
+          "start_column": 49
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-a16bf70dedc44037910ceb3153f16c36",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 139,
+        "end_line": null,
+        "start_column": 47
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "\n| Package Manager | Linux Distribution      | Command                            |\n| --------------- | ----------------------- | ---------------------------------- |\n| APK             | Alpine Linux            | `sudo apk add fzf`                 |\n| APT             | Debian 9+/Ubuntu 19.10+ | `sudo apt install fzf`             |\n| Conda           |                         | `conda install -c conda-forge fzf` |\n| DNF             | Fedora                  | `sudo dnf install fzf`             |",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 139,
+          "end_line": null,
+          "start_column": 47
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-f5c4df84824d4c928c98fdef88e83696",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 140,
+        "end_line": null,
+        "start_column": 47
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "| Package Manager | Linux Distribution      | Command                            |\n| --------------- | ----------------------- | ---------------------------------- |\n| APK             | Alpine Linux            | `sudo apk add fzf`                 |\n| APT             | Debian 9+/Ubuntu 19.10+ | `sudo apt install fzf`             |\n| Conda           |                         | `conda install -c conda-forge fzf` |\n| DNF             | Fedora                  | `sudo dnf install fzf`             |\n| Nix             | NixOS, etc.             | `nix-env -iA nixpkgs.fzf`          |",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 140,
+          "end_line": null,
+          "start_column": 47
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-ba4afcd8eccd4feeb019d7b970c8555d",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 142,
+        "end_line": null,
+        "start_column": 47
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "| APK             | Alpine Linux            | `sudo apk add fzf`                 |\n| APT             | Debian 9+/Ubuntu 19.10+ | `sudo apt install fzf`             |\n| Conda           |                         | `conda install -c conda-forge fzf` |\n| DNF             | Fedora                  | `sudo dnf install fzf`             |\n| Nix             | NixOS, etc.             | `nix-env -iA nixpkgs.fzf`          |\n| Pacman          | Arch Linux              | `sudo pacman -S fzf`               |\n| pkg             | FreeBSD                 | `pkg install fzf`                  |",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 142,
+          "end_line": null,
+          "start_column": 47
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-372f74afb5864911a33bccd2107193be",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 144,
+        "end_line": null,
+        "start_column": 47
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "| Conda           |                         | `conda install -c conda-forge fzf` |\n| DNF             | Fedora                  | `sudo dnf install fzf`             |\n| Nix             | NixOS, etc.             | `nix-env -iA nixpkgs.fzf`          |\n| Pacman          | Arch Linux              | `sudo pacman -S fzf`               |\n| pkg             | FreeBSD                 | `pkg install fzf`                  |\n| pkgin           | NetBSD                  | `pkgin install fzf`                |\n| pkg_add         | OpenBSD                 | `pkg_add fzf`                      |",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 144,
+          "end_line": null,
+          "start_column": 47
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-15f46b8ab83a4005b2a9f032e2641c33",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 150,
+        "end_line": null,
+        "start_column": 47
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "| pkg_add         | OpenBSD                 | `pkg_add fzf`                      |\n| Portage         | Gentoo                  | `emerge --ask app-shells/fzf`      |\n| Spack           |                         | `spack install fzf`                |\n| XBPS            | Void Linux              | `sudo xbps-install -S fzf`         |\n| Zypper          | openSUSE                | `sudo zypper install fzf`          |\n\n> [!IMPORTANT]",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 150,
+          "end_line": null,
+          "start_column": 47
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-c94f52b5ee9d4f4ab0347cad6078a6b1",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 151,
+        "end_line": null,
+        "start_column": 47
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "| Portage         | Gentoo                  | `emerge --ask app-shells/fzf`      |\n| Spack           |                         | `spack install fzf`                |\n| XBPS            | Void Linux              | `sudo xbps-install -S fzf`         |\n| Zypper          | openSUSE                | `sudo zypper install fzf`          |\n\n> [!IMPORTANT]\n> To set up shell integration (key bindings and fuzzy completion),",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 151,
+          "end_line": null,
+          "start_column": 47
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-898576a941cb41efbedf9ee82fa5c4e6",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 274,
+        "end_line": null,
+        "start_column": 13
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "\n- git: `cd ~/.fzf && git pull && ./install`\n- brew: `brew update; brew upgrade fzf`\n- macports: `sudo port upgrade fzf`\n- chocolatey: `choco upgrade fzf`\n- vim-plug: `:PlugUpdate fzf`\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 274,
+          "end_line": null,
+          "start_column": 13
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-069f7a4aae6c4e319df53fc6d522f616",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "shell/completion.nu",
+        "start_line": 392,
+        "end_line": null,
+        "start_column": 11
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "  if ($last_span | str ends-with $trigger) {\n    # --- Trigger Found ---\n\n    # Skip sudo to determine the actual command\n    let cmd_spans = if ($spans | first) == \"sudo\" { $spans | skip 1 } else { $spans }\n    let cmd_word = ($cmd_spans | first | default \"\")\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "shell/completion.nu",
+          "start_line": 392,
+          "end_line": null,
+          "start_column": 11
+        }
+      ]
+    },
+    {
+      "id": "EA1",
+      "finding_id": "finding-a6cd1554097c40d8b77aad82dc4c3525",
+      "category": "Excessive Agency",
+      "pattern": "Unrestricted Tool Access",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "ADVANCED.md",
+        "start_line": 585,
+        "end_line": null,
+        "start_column": 34
+      },
+      "finding": "run any command",
+      "explanation": "Skill grants unrestricted tool access without appropriate constraints. An agent with unfettered tool access can perform arbitrary actions including file modification, network requests, and code execution.",
+      "remediation": "Restrict tool access to only the tools required for the skill's stated purpose. Use an explicit allowlist rather than granting blanket access.",
+      "code_snippet": "- The preview window will *\"log tail\"* the pod\n    - Holding on to a large amount of log will consume a lot of memory. So we\n      limited the initial log amount with `--tail=10000`.\n- `execute` bindings allow you to run any command without leaving fzf\n    - Press enter key on a pod to `kubectl exec` into it\n    - Press CTRL-O to open the log in your editor\n- Press CTRL-R to reload the pod list",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "63b13bc7352fa9c6bdedae226041a9fdcd41290beb3a002160a4a7650e380f78",
+      "occurrences": [
+        {
+          "file": "ADVANCED.md",
+          "start_line": 585,
+          "end_line": null,
+          "start_column": 34
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-1f976ddf34d647ebb4bf3059c2142151",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 582,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "curl --unix-socket /tmp/fzf.sock http\n\n# POST\ncurl --unix-socket /tmp/fzf.sock http -d ",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "fzf --listen /tmp/fzf.sock --no-tmux\n\n# GET\ncurl --unix-socket /tmp/fzf.sock http\n\n# POST\ncurl --unix-socket /tmp/fzf.sock http -d up",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "579ae25a5c2f11236a6caba4c1107d1b455389480890197225da8243320debf7",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 582,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-e28287d0614049c9acd7b878eae0a907",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "man/man1/fzf.1",
+        "start_line": 1325,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "curl --unix-socket /tmp/fzf.sock http\n\n    # POST\n    curl --unix-socket /tmp/fzf.sock http -d ",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    fzf --listen=/tmp/fzf.sock\n\n    # GET\n    curl --unix-socket /tmp/fzf.sock http\n\n    # POST\n    curl --unix-socket /tmp/fzf.sock http -d up",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "579ae25a5c2f11236a6caba4c1107d1b455389480890197225da8243320debf7",
+      "occurrences": [
+        {
+          "file": "man/man1/fzf.1",
+          "start_line": 1325,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-3a07f8278c674179875646d4ef10884d",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 621,
+        "end_line": null
+      },
+      "finding": "U+0020 x89",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "The following actions were introduced to support working with raw mode:\n\n| Action        | Description                                                                                 |\n| :--           | :--                                                                                         |\n| `toggle-raw`  | Toggle raw mode                                                                             |\n| `enable-raw`  | Enable raw mode                                                                             |\n| `disable-raw` | Disable raw mode                                                                            |",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3648275818e2039de18def6778209e147631fe9ddf3e7be07a71795d111cd06c",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 621,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-6778bbb056eb45099c06f85e0a88ae03",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 1083,
+        "end_line": null
+      },
+      "finding": "U+0020 x83",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "Also, fzf now offers \"style presets\" for quick customization, which can be activated using the `--style` option.\n\n| Preset    | Screenshot                                                                             |\n| :---      | :---                                                                                   |\n| `default` | <img src=\"https://raw.githubusercontent.com/junegunn/i/master/fzf-style-default.png\"/> |\n| `full`    | <img src=\"https://raw.githubusercontent.com/junegunn/i/master/fzf-style-full.png\"/>    |\n| `minimal` | <img src=\"https://raw.githubusercontent.com/junegunn/i/master/fzf-style-minimal.png\"/> |",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d96191c882bbef56bdec8a780a83ec38d26e0883e5ef2b13675bd905d73e797d",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 1083,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-588cee5ea90447109d5e3984ea1f303c",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 462,
+        "end_line": null
+      },
+      "finding": "U+0020 x83",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "```\n\n| Preset    | Screenshot                                                                             |\n| :---      | :---                                                                                   |\n| `default` | <img src=\"https://raw.githubusercontent.com/junegunn/i/master/fzf-style-default.png\"/> |\n| `full`    | <img src=\"https://raw.githubusercontent.com/junegunn/i/master/fzf-style-full.png\"/>    |\n| `minimal` | <img src=\"https://raw.githubusercontent.com/junegunn/i/master/fzf-style-minimal.png\"/> |",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d96191c882bbef56bdec8a780a83ec38d26e0883e5ef2b13675bd905d73e797d",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 462,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-e371e7954f054374b89ac5cd84e23c98",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 1804,
+        "end_line": null,
+        "start_column": 2
+      },
+      "finding": "curl localhost:6266 -H \"x-api-key: $FZF_API_KEY\" -d ",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "  fzf --listen 6266\n\n  # Client\n  curl localhost:6266 -H \"x-api-key: $FZF_API_KEY\" -d 'change-query(yo)'\n  ```\n- Added `toggle-header` action\n- Added mouse events for `--bind`",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c1f3e7e7b7c6e766a7338c3fbabe2f740cd99723f2d1a87636a26b5c46332be7",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 1804,
+          "end_line": null,
+          "start_column": 2
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-cc46825636804f228b20bf847a45935f",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 1928,
+        "end_line": null,
+        "start_column": 2
+      },
+      "finding": "curl \"localhost:$(cat /tmp/fzf-port)\" -d ",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "  fzf --listen --bind 'start:execute-silent:echo $FZF_PORT > /tmp/fzf-port'\n\n  # Say hello\n  curl \"localhost:$(cat /tmp/fzf-port)\" -d 'preview:echo Hello, fzf is listening on $FZF_PORT.'\n  ```\n- A carriage return and a line feed character will be rendered as dim \u240d and\n  \u240a respectively.",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4b524f6bc3a34de5794521349b800b77593e7dbc2a2dd20091fe614ddd772b21",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 1928,
+          "end_line": null,
+          "start_column": 2
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-1a4830a496c54b1399a2413a1d9bce95",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 2000,
+        "end_line": null,
+        "start_column": 2
+      },
+      "finding": "curl -XPOST localhost:6266 -d ",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "  fzf --listen 6266\n\n  # Send actions to the server\n  curl -XPOST localhost:6266 -d 'reload(seq 100)+change-prompt(hundred> )'\n  ```\n- Added draggable scrollbar to the main search window and the preview window\n  ```sh",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "cce14c4dfb6dfe001a69226a27bccf4ecd24b3b9bb98519342280faf5772a103",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 2000,
+          "end_line": null,
+          "start_column": 2
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-b8511148d29643e48f8b961047459737",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 2052,
+        "end_line": null,
+        "start_column": 6
+      },
+      "finding": "curl localhost:6266 -d ",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    - Added `change-query(...)` action that simply changes the query string to the\n      given static string. This can be useful when used with `--listen`.\n      ```sh\n      curl localhost:6266 -d \"change-query:$(date)\"\n      ```\n    - Added `transform-prompt(...)` action for transforming the prompt string\n      using an external command",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c90b1c148e9ccd166d6cc3ca16b3038b654be0fd44f00be28c6e8b14b2061f8f",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 2052,
+          "end_line": null,
+          "start_column": 6
+        }
+      ]
+    },
+    {
+      "id": "MP2",
+      "finding_id": "finding-c45f2a1b0e74465fa5260f6a0865e87d",
+      "category": "Memory Poisoning",
+      "pattern": "Context Window Stuffing",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 2967,
+        "end_line": null,
+        "start_column": 38
+      },
+      "finding": "fill the window",
+      "explanation": "Skill attempts to fill the context window with filler content, displacing legitimate instructions and safety constraints. This can degrade agent performance or bypass safety boundaries.",
+      "remediation": "Implement context-window management that detects and rejects padding or stuffing attempts. Prioritize system instructions over user-injected content.",
+      "code_snippet": "\n0.16.1\n------\n- Fixed `--height` option to properly fill the window with the background\n  color\n- Added `half-page-up` and `half-page-down` actions\n- Added `-L` flag to the default find command",
+      "intent": null,
+      "tags": [
+        "Memory Poisoning"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4b7513be4668358e32339a9fd1b14ed69e45f3776d6106409cea6c800b944749",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 2967,
+          "end_line": null,
+          "start_column": 38
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-732c59208d674e999e3d75d580c8a916",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 893,
+        "end_line": null
+      },
+      "finding": "U+0020 x80",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "easier, fzf provides a set of \"scheme\"s for some common input types.\n\n| Scheme             | Description                                                                         |\n| :---               | :---                                                                                |\n| `--scheme=default` | Generic scheme designed to work well with any kind of input                         |\n| `--scheme=path`    | Suitable for file paths                                                             |\n| `--scheme=history` | Suitable for command history or any input where chronological ordering is important |",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3f3e1ea3b9bb019abcac6734c9b22d5bee43d8557659b3a3de1778e0068d058d",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 893,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-f07d32ecb6a74df0b48a5abfbd655bd1",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "man/man1/fzf.1",
+        "start_line": 1287,
+        "end_line": null,
+        "start_column": 5
+      },
+      "finding": "curl \\-XPOST localhost:6266 \\-d ",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "     fzf \\-\\-listen 6266\n\n     # Send action to the server\n     curl \\-XPOST localhost:6266 \\-d 'reload(seq 100)+change\\-prompt(hundred> )'\n\n     # Start HTTP server on port 6266 with remote connections allowed\n     # * Listening on non-localhost address requires using an API key",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "bbb30abccb916a274961799a68cc603fce636de628868d7fa8472464a71a30e5",
+      "occurrences": [
+        {
+          "file": "man/man1/fzf.1",
+          "start_line": 1287,
+          "end_line": null,
+          "start_column": 5
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-a2282f17b83e48d8a154008aabf7e429",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "man/man1/fzf.1",
+        "start_line": 1295,
+        "end_line": null,
+        "start_column": 5
+      },
+      "finding": "curl \\-XPOST localhost:6266 \\-H \"x\\-api\\-key: $FZF_API_KEY\" \\-d ",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "     fzf \\-\\-listen 0.0.0.0:6266\n\n     # Send an authenticated action\n     curl \\-XPOST localhost:6266 \\-H \"x\\-api\\-key: $FZF_API_KEY\" \\-d 'change\\-query(yo)'\n\n     # Choose port automatically and export it as $FZF_PORT to the child process\n     fzf \\-\\-listen \\-\\-bind 'start:execute\\-silent:echo $FZF_PORT > /tmp/fzf\\-port'",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "19097375acc3871ba88f5db7e497881f255167b4c4e3c8c37df70470d62c6333",
+      "occurrences": [
+        {
+          "file": "man/man1/fzf.1",
+          "start_line": 1295,
+          "end_line": null,
+          "start_column": 5
+        }
+      ]
+    },
+    {
+      "id": "EA1",
+      "finding_id": "finding-8eee9502054245cda53f6cb07104d884",
+      "category": "Excessive Agency",
+      "pattern": "Unrestricted Tool Access",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "man/man1/fzf.1",
+        "start_line": 2237,
+        "end_line": null,
+        "start_column": 40
+      },
+      "finding": "execute arbitrary commands",
+      "explanation": "Skill grants unrestricted tool access without appropriate constraints. An agent with unfettered tool access can perform arbitrary actions including file modification, network requests, and code execution.",
+      "remediation": "Restrict tool access to only the tools required for the skill's stated purpose. Use an explicit allowlist rather than granting blanket access.",
+      "code_snippet": "\n.SS COMMAND EXECUTION\n\nWith \\fBexecute(...)\\fR action, you can execute arbitrary commands without\nleaving fzf. For example, you can turn fzf into a simple file browser by\nbinding \\fBenter\\fR key to \\fBless\\fR command like follows.\n",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "259f23c42f25ef542c16bdb11c0292f1a67d32ddee1cef43c492abf7026ddf5d",
+      "occurrences": [
+        {
+          "file": "man/man1/fzf.1",
+          "start_line": 2237,
+          "end_line": null,
+          "start_column": 40
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-3fb9202b828e48f4b1a7a91c3533f2c3",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "shell/completion.nu",
+        "start_line": 222,
+        "end_line": null
+      },
+      "finding": "U+0020 x105",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "\n  # Use the 'walker_root' calculated at the beginning\n  let fzf_all_opts = [\"--scheme=path\", \"--walker\", $walker_type, \"--walker-root\", $walker_root_expanded] | append $fzf_opts_arg\n                                                                                                         | append $completion_type_opts\n\n  # Call FZF run\n  let fzf_selection = ( __fzf_comprun \"fzf-path-completion-walker\" $initial_query $fzf_all_opts ) | str trim",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e304272f338ca1b82ca4cc6e88c7693634b3d97c5a4d48d9819eb50b16c1af3a",
+      "occurrences": [
+        {
+          "file": "shell/completion.nu",
+          "start_line": 222,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-4b2028c3d15c4a548f4ea467918c8881",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.55,
+      "location": {
+        "file": "test/lib/common.rb",
+        "start_line": 164,
+        "end_line": null,
+        "start_column": 48
+      },
+      "finding": "restore the previous state",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "  # keystrokes via tmux, and fzf parses it like a real terminal mouse event.\n  #\n  # tmux's own mouse handling intercepts these sequences when `set -g mouse on`, so we toggle\n  # mouse off for the duration of the click and restore the previous state afterwards.\n  def click(col, row, button: 0)\n    prev = go(%w[show-options -gv mouse]).first\n    go(%w[set-option -g mouse off])",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "71158f6934fce4066a6043b5d0f322be234ee661f46442b16767324008e89f0d",
+      "occurrences": [
+        {
+          "file": "test/lib/common.rb",
+          "start_line": 164,
+          "end_line": null,
+          "start_column": 48
+        }
+      ]
+    },
+    {
+      "id": "AE4",
+      "finding_id": "finding-0cb8d8751e044a30a39c3d42920feda0",
+      "category": "analysis-evasion",
+      "pattern": null,
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "test/test_filter.rb",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": null,
+      "explanation": "Suspicious Unicode normalization or mixed-script content",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "artifact-integrity"
+      ],
+      "evidence": {},
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "test/test_filter.rb",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-c8513a69d98740b183bd15faee0f03cc",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "test/test_layout.rb",
+        "start_line": 1067,
+        "end_line": null
+      },
+      "finding": "U+0020 x86",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "                \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502   5/5   \u2502 \u2502 103   \u2502   2/2   \u2502 \u2502 103   \u2502 \u2502 101   \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 103  \u2502 \u2502 >      \u2502 \u2502   103  \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                        \u2502 >       \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 >       \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 102   \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2514\u2500\u2500\u2500\u2500\u2500 \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502   101\n                                                        \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502   2/2   \u2502 \u2502 103   \u2502 \u2502 101    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502   102\n                                                                                      \u2502 >       \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 102                        \u2502 \u2502 >      \u2502 \u2502   103\n                                                                                      \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 103                        \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                                                                          \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500                     \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                 ",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "48ab25c2cc5ab96339f21d4559fab9e1f1e714098be3927708c07563efb3fa74",
+      "occurrences": [
+        {
+          "file": "test/test_layout.rb",
+          "start_line": 1067,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-6bd13675039e438a96bdfe100b250fd1",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "test/test_layout.rb",
+        "start_line": 1068,
+        "end_line": null
+      },
+      "finding": "U+0020 x86",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "                                                        \u2502 >       \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 >       \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 102   \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2514\u2500\u2500\u2500\u2500\u2500 \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502   101\n                                                        \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502   2/2   \u2502 \u2502 103   \u2502 \u2502 101    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502   102\n                                                                                      \u2502 >       \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 102                        \u2502 \u2502 >      \u2502 \u2502   103\n                                                                                      \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 103                        \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                                                                          \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500                     \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                                                                          \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    BLOCK",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "48ab25c2cc5ab96339f21d4559fab9e1f1e714098be3927708c07563efb3fa74",
+      "occurrences": [
+        {
+          "file": "test/test_layout.rb",
+          "start_line": 1068,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-49dd014bcf0e4a2ba1dbfe1e52ef90d0",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "test/test_layout.rb",
+        "start_line": 1187,
+        "end_line": null
+      },
+      "finding": "U+0020 x86",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "                \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502   3/3   \u2502 \u2502 102   \u2502   1/1   \u2502 \u2502 102   \u2502 \u2502 >      \u2502 \u2502 102   \u2502   3/3   \u2502 \u2502 >\n                                                        \u2502 >       \u2502 \u2514\u2500HEAD\u2500 \u2502 >       \u2502 \u2514\u2500HEAD\u2500 \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2514\u2500HEAD\u2500 \u2502 >       \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                        \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502   1/1   \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                                                      \u2502 >       \u2502 \u2502 101                        \u2502 \u2502   101\n                                                                                      \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 102                        \u2502 \u2502   102\n                                                                                                \u2502 \u2514\u2500HEAD\u2500\u2500                     \u2502 \u2514\u2500HEAD\u2500\u2500\n                                                                                                \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500                     \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "48ab25c2cc5ab96339f21d4559fab9e1f1e714098be3927708c07563efb3fa74",
+      "occurrences": [
+        {
+          "file": "test/test_layout.rb",
+          "start_line": 1187,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-e6fdc84b493940c8ace791384f3c8f8d",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "test/test_layout.rb",
+        "start_line": 1188,
+        "end_line": null
+      },
+      "finding": "U+0020 x86",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "                                                        \u2502 >       \u2502 \u2514\u2500HEAD\u2500 \u2502 >       \u2502 \u2514\u2500HEAD\u2500 \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2514\u2500HEAD\u2500 \u2502 >       \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                        \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502   1/1   \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                                                      \u2502 >       \u2502 \u2502 101                        \u2502 \u2502   101\n                                                                                      \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 102                        \u2502 \u2502   102\n                                                                                                \u2502 \u2514\u2500HEAD\u2500\u2500                     \u2502 \u2514\u2500HEAD\u2500\u2500\n                                                                                                \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500                     \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    BLOCK",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "48ab25c2cc5ab96339f21d4559fab9e1f1e714098be3927708c07563efb3fa74",
+      "occurrences": [
+        {
+          "file": "test/test_layout.rb",
+          "start_line": 1188,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-3273c4b332ee447aa2a595a529494b2c",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "test/test_layout.rb",
+        "start_line": 1069,
+        "end_line": null
+      },
+      "finding": "U+0020 x106",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "                                                        \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502   2/2   \u2502 \u2502 103   \u2502 \u2502 101    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502   102\n                                                                                      \u2502 >       \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 102                        \u2502 \u2502 >      \u2502 \u2502   103\n                                                                                      \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 103                        \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                                                                          \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500                     \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                                                                          \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    BLOCK\n",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ef6ccd825bf3f8a2f54c415aafb941ab10ca4a7fa5f2ef276aea34be5e499618",
+      "occurrences": [
+        {
+          "file": "test/test_layout.rb",
+          "start_line": 1069,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-1a0a8e54c84e462d8a4018bf1d261202",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "test/test_layout.rb",
+        "start_line": 1070,
+        "end_line": null
+      },
+      "finding": "U+0020 x106",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "                                                                                      \u2502 >       \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 102                        \u2502 \u2502 >      \u2502 \u2502   103\n                                                                                      \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 103                        \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                                                                          \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500                     \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                                                                          \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    BLOCK\n\n    expects = []",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ef6ccd825bf3f8a2f54c415aafb941ab10ca4a7fa5f2ef276aea34be5e499618",
+      "occurrences": [
+        {
+          "file": "test/test_layout.rb",
+          "start_line": 1070,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-3c8bbff113ab46f29e213c01976546c7",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "test/test_layout.rb",
+        "start_line": 1127,
+        "end_line": null
+      },
+      "finding": "U+0020 x106",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "                \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502   3/3   \u2502 \u2502 102   \u2502   1/1   \u2502   1/1   \u2502   1/1   \u2502 \u2502 102   \u2502 \u2502 >      \u2502 \u2502 102   \u2502   3/3   \u2502 \u2502 >\n                                                        \u2502 >       \u2502 \u2514\u2500HEAD\u2500 \u2502 >       \u2502 >       \u2502 >       \u2502 \u2514\u2500HEAD\u2500 \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2514\u2500HEAD\u2500 \u2502 >       \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                        \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502   1/1   \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                                                                          \u2502 >       \u2502 \u2502 101                        \u2502 \u2502   101\n                                                                                                          \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 102                        \u2502 \u2502   102\n                                                                                                                    \u2502 \u2514\u2500HEAD\u2500\u2500                     \u2502 \u2514\u2500HEAD\u2500\u2500\n                                                           ",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ef6ccd825bf3f8a2f54c415aafb941ab10ca4a7fa5f2ef276aea34be5e499618",
+      "occurrences": [
+        {
+          "file": "test/test_layout.rb",
+          "start_line": 1127,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-b5c632e8573e4a318fa4e86e03af65fd",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "test/test_layout.rb",
+        "start_line": 1128,
+        "end_line": null
+      },
+      "finding": "U+0020 x106",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "                                                        \u2502 >       \u2502 \u2514\u2500HEAD\u2500 \u2502 >       \u2502 >       \u2502 >       \u2502 \u2514\u2500HEAD\u2500 \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2514\u2500HEAD\u2500 \u2502 >       \u2502 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                        \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502   1/1   \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                                                                          \u2502 >       \u2502 \u2502 101                        \u2502 \u2502   101\n                                                                                                          \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 102                        \u2502 \u2502   102\n                                                                                                                    \u2502 \u2514\u2500HEAD\u2500\u2500                     \u2502 \u2514\u2500HEAD\u2500\u2500\n                                                                                                                    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500                     \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    BLOCK",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ef6ccd825bf3f8a2f54c415aafb941ab10ca4a7fa5f2ef276aea34be5e499618",
+      "occurrences": [
+        {
+          "file": "test/test_layout.rb",
+          "start_line": 1128,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-6e744e0ede4f4e80af5e5a1367a21a3e",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "test/test_layout.rb",
+        "start_line": 1129,
+        "end_line": null
+      },
+      "finding": "U+0020 x116",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "                                                        \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502   1/1   \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                                                                          \u2502 >       \u2502 \u2502 101                        \u2502 \u2502   101\n                                                                                                          \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 102                        \u2502 \u2502   102\n                                                                                                                    \u2502 \u2514\u2500HEAD\u2500\u2500                     \u2502 \u2514\u2500HEAD\u2500\u2500\n                                                                                                                    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500                     \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    BLOCK\n",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f0d6b8de4fedebc5d2c53fc1cb81577a10f84cae523d00786ec0155afd5ebce4",
+      "occurrences": [
+        {
+          "file": "test/test_layout.rb",
+          "start_line": 1129,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-6285f6e0bd694d0398305e85f69c71dd",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "test/test_layout.rb",
+        "start_line": 1130,
+        "end_line": null
+      },
+      "finding": "U+0020 x116",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "                                                                                                          \u2502 >       \u2502 \u2502 101                        \u2502 \u2502   101\n                                                                                                          \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 102                        \u2502 \u2502   102\n                                                                                                                    \u2502 \u2514\u2500HEAD\u2500\u2500                     \u2502 \u2514\u2500HEAD\u2500\u2500\n                                                                                                                    \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500                     \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    BLOCK\n\n    expects = []",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f0d6b8de4fedebc5d2c53fc1cb81577a10f84cae523d00786ec0155afd5ebce4",
+      "occurrences": [
+        {
+          "file": "test/test_layout.rb",
+          "start_line": 1130,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-1434d9a8127e410bb9cf4a843b16eb92",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "test/test_layout.rb",
+        "start_line": 1189,
+        "end_line": null
+      },
+      "finding": "U+0020 x96",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "                                                        \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502   1/1   \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n                                                                                      \u2502 >       \u2502 \u2502 101                        \u2502 \u2502   101\n                                                                                      \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 102                        \u2502 \u2502   102\n                                                                                                \u2502 \u2514\u2500HEAD\u2500\u2500                     \u2502 \u2514\u2500HEAD\u2500\u2500\n                                                                                                \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500                     \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    BLOCK\n",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "54766a93d51a5b9fe826769327d9b9d85651cf261e40b5607a19f12aebd954b9",
+      "occurrences": [
+        {
+          "file": "test/test_layout.rb",
+          "start_line": 1189,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P9",
+      "finding_id": "finding-6ccec4c0e2054f42a8a5963264cb51c5",
+      "category": "Prompt Injection",
+      "pattern": "Whitespace Padding",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "test/test_layout.rb",
+        "start_line": 1190,
+        "end_line": null
+      },
+      "finding": "U+0020 x96",
+      "explanation": "Large whitespace padding was detected (a block of blank lines or a long run of spaces). This can push injected instructions below or to the right of the visible area so a human reviewer never sees them while the agent still reads them. Manual review of the hidden content is recommended.",
+      "remediation": "Remove the large whitespace padding (blank-line blocks or long space runs) and review any content hidden below or to the right of it. Keep skill files compact and reviewable so no instructions can be concealed off-screen.",
+      "code_snippet": "                                                                                      \u2502 >       \u2502 \u2502 101                        \u2502 \u2502   101\n                                                                                      \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500 \u2502 \u2502 102                        \u2502 \u2502   102\n                                                                                                \u2502 \u2514\u2500HEAD\u2500\u2500                     \u2502 \u2514\u2500HEAD\u2500\u2500\n                                                                                                \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500                     \u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\n    BLOCK\n\n    expects = []",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "54766a93d51a5b9fe826769327d9b9d85651cf261e40b5607a19f12aebd954b9",
+      "occurrences": [
+        {
+          "file": "test/test_layout.rb",
+          "start_line": 1190,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "EA3",
+      "finding_id": "finding-567274b8068546f8978eaef79e3037c7",
+      "category": "Excessive Agency",
+      "pattern": "Scope Creep",
+      "severity": "LOW",
+      "confidence": 0.7,
+      "location": {
+        "file": "ADVANCED.md",
+        "start_line": 199,
+        "end_line": null,
+        "start_column": 7
+      },
+      "finding": "not limited to",
+      "explanation": "Skill's behavior or capabilities extend beyond its stated purpose. Scope creep allows an agent to perform actions unrelated to its documented functionality, increasing the attack surface.",
+      "remediation": "Limit the skill's scope to its documented purpose. Remove instructions that enable the agent to perform actions outside its stated functionality.",
+      "code_snippet": "\n### Toggling between data sources\n\nYou're not limited to just one reload binding. Set up multiple bindings so\nyou can switch between data sources.\n\n```sh",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "943d9aae8743c129fe98eb6cc5e984f5e35ceba0b44ce4ca00f42b97f0bf3eaf",
+      "occurrences": [
+        {
+          "file": "ADVANCED.md",
+          "start_line": 199,
+          "end_line": null,
+          "start_column": 7
+        }
+      ]
+    },
+    {
+      "id": "EA3",
+      "finding_id": "finding-35cc046796a54f07b1878c5ead0d1594",
+      "category": "Excessive Agency",
+      "pattern": "Scope Creep",
+      "severity": "LOW",
+      "confidence": 0.7,
+      "location": {
+        "file": "man/man1/fzf-tmux.1",
+        "start_line": 17,
+        "end_line": null,
+        "start_column": 23
+      },
+      "finding": "NOT LIMITED TO",
+      "explanation": "Skill's behavior or capabilities extend beyond its stated purpose. Scope creep allows an agent to perform actions unrelated to its documented functionality, increasing the attack surface.",
+      "remediation": "Limit the skill's scope to its documented purpose. Remove instructions that enable the agent to perform actions outside its stated functionality.",
+      "code_snippet": "all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e89530c367266aa328ed88bf9475086c891da0ff38badf80bf35bae6b13345e0",
+      "occurrences": [
+        {
+          "file": "man/man1/fzf-tmux.1",
+          "start_line": 17,
+          "end_line": null,
+          "start_column": 23
+        }
+      ]
+    },
+    {
+      "id": "EA3",
+      "finding_id": "finding-2421d6ac68284591b56527a0fea1badf",
+      "category": "Excessive Agency",
+      "pattern": "Scope Creep",
+      "severity": "LOW",
+      "confidence": 0.7,
+      "location": {
+        "file": "man/man1/fzf.1",
+        "start_line": 17,
+        "end_line": null,
+        "start_column": 23
+      },
+      "finding": "NOT LIMITED TO",
+      "explanation": "Skill's behavior or capabilities extend beyond its stated purpose. Scope creep allows an agent to perform actions unrelated to its documented functionality, increasing the attack surface.",
+      "remediation": "Limit the skill's scope to its documented purpose. Remove instructions that enable the agent to perform actions outside its stated functionality.",
+      "code_snippet": "all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e89530c367266aa328ed88bf9475086c891da0ff38badf80bf35bae6b13345e0",
+      "occurrences": [
+        {
+          "file": "man/man1/fzf.1",
+          "start_line": 17,
+          "end_line": null,
+          "start_column": 23
+        }
+      ]
+    },
+    {
+      "id": "EA3",
+      "finding_id": "finding-a1deea34bf21466cbccdc26a5e24c328",
+      "category": "Excessive Agency",
+      "pattern": "Scope Creep",
+      "severity": "LOW",
+      "confidence": 0.7,
+      "location": {
+        "file": "plugin/fzf.vim",
+        "start_line": 17,
+        "end_line": null,
+        "start_column": 36
+      },
+      "finding": "NOT LIMITED TO",
+      "explanation": "Skill's behavior or capabilities extend beyond its stated purpose. Scope creep allows an agent to perform actions unrelated to its documented functionality, increasing the attack surface.",
+      "remediation": "Limit the skill's scope to its documented purpose. Remove instructions that enable the agent to perform actions outside its stated functionality.",
+      "code_snippet": "\" included in all copies or substantial portions of the Software.\n\"\n\" THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND,\n\" EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\n\" MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND\n\" NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE\n\" LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e89530c367266aa328ed88bf9475086c891da0ff38badf80bf35bae6b13345e0",
+      "occurrences": [
+        {
+          "file": "plugin/fzf.vim",
+          "start_line": 17,
+          "end_line": null,
+          "start_column": 36
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 163,
+    "scanned_components": 145,
+    "coverage_percent": 89.0,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 145,
+    "partially_inspected_files": 18,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "BUILD.md",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "CHANGELOG.md",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "Makefile",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "README.md",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "bin/fzf-tmux",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "bin/fzf-tmux",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "install",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "shell/completion.bash",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "shell/completion.nu",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "shell/completion.zsh",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "shell/completion.zsh",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "shell/key-bindings.fish",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "shell/key-bindings.zsh",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/algo/algo_test.go",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "src/options.go",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "src/terminal_test.go",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/terminal_test.go",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "src/tui/light_test.go",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/tui/tcell_test.go",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "test/test_core.rb",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "test/test_core.rb",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "test/test_shell_integration.rb",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 163,
+        "completed": 163,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 163,
+        "completed": 163,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "degraded",
+        "planned_work": 163,
+        "completed": 156,
+        "partial": 7,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "degraded",
+        "planned_work": 163,
+        "completed": 156,
+        "partial": 7,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 163,
+        "completed": 163,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "degraded",
+        "planned_work": 163,
+        "completed": 156,
+        "partial": 7,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "degraded",
+        "planned_work": 163,
+        "completed": 156,
+        "partial": 7,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "degraded",
+        "planned_work": 163,
+        "completed": 156,
+        "partial": 7,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "degraded",
+        "planned_work": 163,
+        "completed": 156,
+        "partial": 7,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 163,
+        "completed": 163,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "degraded",
+        "planned_work": 163,
+        "completed": 156,
+        "partial": 7,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "degraded",
+        "planned_work": 163,
+        "completed": 156,
+        "partial": 7,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "degraded",
+        "planned_work": 163,
+        "completed": 156,
+        "partial": 7,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "degraded",
+        "planned_work": 163,
+        "completed": 156,
+        "partial": 7,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 163,
+        "completed": 156,
+        "partial": 7,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "degraded",
+        "planned_work": 163,
+        "completed": 156,
+        "partial": 7,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 163,
+        "completed": 145,
+        "partial": 18,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 163,
+        "completed": 163,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_agent_snooping status: degraded.",
+      "Analyzer static_patterns_anti_refusal status: degraded.",
+      "Analyzer static_patterns_deserialization status: degraded.",
+      "Analyzer static_patterns_excessive_agency status: degraded.",
+      "Analyzer static_patterns_harmful_content status: degraded.",
+      "Analyzer static_patterns_memory_poisoning status: degraded.",
+      "Analyzer static_patterns_privilege_escalation status: degraded.",
+      "Analyzer static_patterns_prompt_injection status: degraded.",
+      "Analyzer static_patterns_rogue_agent status: degraded.",
+      "Analyzer static_patterns_ssrf status: degraded.",
+      "Analyzer static_patterns_supply_chain status: degraded.",
+      "Analyzer static_patterns_system_prompt_leakage status: degraded.",
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 76,
+    "findings_after_filtering": 76,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

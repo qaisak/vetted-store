@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "systematic-debugging",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\obra__superpowers\\superpowers-main\\skills\\systematic-debugging",
-    "scanned_at": "2026-10-31T21:51:56.557397+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/obra__superpowers/superpowers-main/skills/systematic-debugging",
+    "scanned_at": "2026-11-01T01:25:36.863271+00:00"
   },
   "risk_assessment": {
     "score": 77,
@@ -126,7 +126,7 @@
   "issues": [
     {
       "id": "PE3",
-      "finding_id": "finding-35a9564407e54307ae978dc0a3946519",
+      "finding_id": "finding-5ace5936b1e24ce3a8c3a27b15d47b6f",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -158,7 +158,7 @@
     },
     {
       "id": "PE3",
-      "finding_id": "finding-37866cd1a33f4f329a6a8b7919093cf5",
+      "finding_id": "finding-78bf0ebb3c7546f3b229301074df3bbb",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -190,7 +190,7 @@
     },
     {
       "id": "AE1",
-      "finding_id": "finding-8e283003d48e45c1bca92d8161c5be35",
+      "finding_id": "finding-d4aed30c76ee4a6faea7f69d60ad29dc",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -235,7 +235,7 @@
     },
     {
       "id": "E4",
-      "finding_id": "finding-5017377589bb4f56b559e4a59e19e97e",
+      "finding_id": "finding-34c703f2deb744238b2a67f9e8f16445",
       "category": "Data Exfiltration",
       "pattern": "Context Leakage",
       "severity": "HIGH",
@@ -267,7 +267,7 @@
     },
     {
       "id": "EA4",
-      "finding_id": "finding-361a53fc8da64df083ab8a3c024d927d",
+      "finding_id": "finding-b7fc42e019a340188d02d4013c31c72c",
       "category": "Excessive Agency",
       "pattern": "Unbounded Resource Access",
       "severity": "MEDIUM",

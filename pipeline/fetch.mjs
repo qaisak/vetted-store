@@ -49,6 +49,16 @@ const SKILL_REPOS = [
   { repo: 'Weizhena/Deep-Research-skills', max: 4 },
   { repo: 'LukasNiessen/terrashark', max: 3 },
   { repo: 'thedotmack/claude-mem', max: 4 },
+  // Added November 1, 2026: `pick` lists the skill folders to list, in order
+  { repo: 'kepano/obsidian-skills', pick: ['skills/obsidian-markdown', 'skills/obsidian-bases', 'skills/json-canvas', 'skills/obsidian-cli', 'skills/defuddle'] },
+  { repo: 'zarazhangrui/frontend-slides', pick: ['plugins/frontend-slides/skills/frontend-slides'] },
+  { repo: 'alirezarezvani/claude-skills', pick: ['productivity/meetings/skills/meetings', 'productivity/email/skills/inbox-triage', 'productivity/weekly-review/skills/weekly-review',
+    'marketing-skill/skills/copywriting', 'marketing-skill/skills/seo-audit', 'marketing-skill/skills/social-media-manager', 'marketing-skill/skills/cold-email',
+    'marketing-skill/skills/email-sequence', 'marketing-skill/skills/launch-strategy', 'business-operations/skills/process-mapper'] },
+  { repo: 'muratcankoylan/Agent-Skills-for-Context-Engineering', pick: ['skills/context-fundamentals', 'skills/context-compression', 'skills/multi-agent-patterns', 'skills/memory-systems', 'skills/evaluation'] },
+  { repo: 'czlonkowski/n8n-skills', pick: ['skills/n8n-workflow-patterns', 'skills/n8n-expression-syntax', 'skills/n8n-error-handling', 'skills/n8n-node-configuration'] },
+  { repo: 'SawyerHood/dev-browser', pick: ['skills/dev-browser'] },
+  { repo: 'lackeyjb/playwright-skill', pick: ['skills/playwright-skill'] },
 ];
 const MCP = [
   { repo: 'modelcontextprotocol/servers', sub: ['everything', 'fetch', 'filesystem', 'git', 'memory', 'sequentialthinking', 'time'] },
@@ -73,12 +83,18 @@ const MCP = [
   { repo: 'korotovsky/slack-mcp-server' },
   { repo: 'nickclyde/duckduckgo-mcp-server' },
   { repo: 'nspady/google-calendar-mcp' },
+  { repo: 'MarkusPfundstein/mcp-obsidian' },
+  { repo: 'Jpisnice/shadcn-ui-mcp-server' },
+  { repo: 'suekou/mcp-notion-server' },
+  { repo: 'kimtaeyoon83/mcp-server-youtube-transcript' },
+  { repo: 'vivekVells/mcp-pandoc' },
 ];
 const TOOLS = ['NVIDIA/SkillSpector', 'vercel-labs/skills', 'BurntSushi/ripgrep', 'sharkdp/fd', 'junegunn/fzf', 'jqlang/jq', 'cli/cli', 'astral-sh/uv',
   'sharkdp/bat', 'jesseduffield/lazygit', 'ollama/ollama', 'aquasecurity/trivy', 'semgrep/semgrep', 'gitleaks/gitleaks',
   // Community: individual developers
   'ajeetdsouza/zoxide', 'aristocratos/btop', 'dandavison/delta', 'bootandy/dust', 'sharkdp/hyperfine', 'casey/just', 'sxyazi/yazi',
-  'extrawurst/gitui', 'jdx/mise', 'jesseduffield/lazydocker', 'XAMPPRocky/tokei'];
+  'extrawurst/gitui', 'jdx/mise', 'jesseduffield/lazydocker', 'XAMPPRocky/tokei',
+  'yt-dlp/yt-dlp', 'Wilfred/difftastic', 'muesli/duf', 'ClementTsang/bottom', 'ducaale/xh', 'chmln/sd'];
 
 const meta = {}, scores = {}, hn = {}, avatars = {};
 async function repoMeta(repo) {
@@ -132,14 +148,26 @@ function installLines(readme, patterns) {
 
 const listings = [];
 
-for (const { repo, max, nvidia } of SKILL_REPOS) {
+// Where the git tree API isn't reachable, list SKILL.md files from a local clone: VETTED_SRC=<scan-root>
+function localSkillFiles(m) {
+  const base = process.env.VETTED_SRC && path.join(process.env.VETTED_SRC, 'src', m.full.replace('/', '__'), `${m.full.split('/')[1]}-${m.branch}`);
+  if (!base || !fs.existsSync(base)) return [];
+  const out = [];
+  const walk = d => { for (const e of fs.readdirSync(d, { withFileTypes: true })) { if (e.name === '.git' || e.name === 'node_modules') continue;
+    const f = path.join(d, e.name); if (e.isDirectory()) walk(f); else if (e.name === 'SKILL.md') out.push(path.relative(base, f).split(path.sep).join('/')); } };
+  walk(base);
+  return out.sort();
+}
+for (const { repo, max = 99, nvidia, pick } of SKILL_REPOS) {
   if (!want(repo)) continue;
   const m = await repoMeta(repo);
   if (!m) continue;
   const tree = await get(`https://api.github.com/repos/${m.full}/git/trees/${m.branch}?recursive=1`);
   const readme = await get(`https://raw.githubusercontent.com/${m.full}/${m.branch}/README.md`, { json: false });
-  const files = (tree?.tree || []).filter(t => t.type === 'blob' && /(^|\/)SKILL\.md$/.test(t.path)).map(t => t.path)
-    .filter(p => !/(^|\/)(test|tests|fixtures|examples?|template)s?\//i.test(p) || repo === 'anthropics/skills');
+  const all = tree ? tree.tree.filter(t => t.type === 'blob' && /(^|\/)SKILL\.md$/.test(t.path)).map(t => t.path) : localSkillFiles(m);
+  const files = pick ? pick.map(p => `${p}/SKILL.md`).filter(p => all.includes(p))
+    : all.filter(p => !/(^|\/)(test|tests|fixtures|examples?|template)s?\//i.test(p) || repo === 'anthropics/skills');
+  if (pick && files.length < pick.length) console.error('MISSING PICKS', repo, pick.filter(p => !all.includes(`${p}/SKILL.md`)));
   let n = 0;
   for (const p of files) {
     if (n >= max) break;

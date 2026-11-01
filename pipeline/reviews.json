@@ -193,5 +193,106 @@
   },
   "mcp-slack-mcp-server": {
     "shell": "Its npm package is a small launcher that runs the prebuilt Go binary for your platform (npm/slack-mcp-server/bin/index.js:64)."
+  },
+  "obra-brainstorming": {
+    "network": "Its optional \"visual companion\" serves a page on 127.0.0.1 behind a secret key, and the page talks back to it over a WebSocket (scripts/server.cjs, scripts/helper.js:80).",
+    "files": "The companion keeps its session files in a temporary folder (/tmp/brainstorm by default) and reads its own page template (scripts/server.cjs:93-202).",
+    "shell": "Opens your web browser on the companion page, only if you opt in with BRAINSTORM_OPEN (scripts/server.cjs:537-547).",
+    "env": "Port, host and folder settings for the companion (BRAINSTORM_* variables, scripts/server.cjs:85-104)."
+  },
+  "pbakaus-impeccable": {
+    "network": "Its live preview script runs in your own page and talks to Impeccable's server on localhost with a session token (scripts/live-browser.js:3947). It doesn't contact the internet."
+  },
+  "othmanadi-planning-with-files": {
+    "shell": "Runs its own helper scripts: a ledger summary shell script and a catch-up Python script that ship with the skill (scripts/inject-plan.py:1433, 1679).",
+    "env": "Reads where you are working (PWD) and a cache folder (XDG_CACHE_HOME) to find your plan files (scripts/inject-plan.py:192-301).",
+    "_findings": [
+      {
+        "match": "lsum_sh, ledger_dir",
+        "level": "benign",
+        "note": "SkillSpector traces this to hook input, but the folder passed here is a temporary folder the script creates itself (scripts/inject-plan.py:1378), handed to its own ledger-summary.sh as an argument list with no shell."
+      }
+    ]
+  },
+  "cathrynlavery-diagram-design": {
+    "browser": "Uses Playwright's headless browser to turn a finished diagram into a PNG (scripts/export_png.py:35). It doesn't browse the web."
+  },
+  "zarazhangrui-frontend-slides": {
+    "browser": "Uses Playwright's headless browser to export your slides to PDF (scripts/export-pdf.sh:193). It doesn't browse the web."
+  },
+  "thedotmack-agent-cost-report": {
+    "network": "Downloads public model prices from OpenRouter (scripts/acr/prices.py:14), checks your own OpenRouter key's usage if you set OPENROUTER_API_KEY (scripts/acr/measure.py:18), and the optional --classify pass described below.",
+    "shell": "Prints the report to PDF with headless Chrome (scripts/acr/render.py:571), and runs git and gh to count your merged pull requests (scripts/acr/wins.py:120-128).",
+    "_notices": [
+      {
+        "title": "Optional: sends transcript snippets to OpenRouter",
+        "where": [
+          [
+            "scripts/acr/classify.py",
+            47
+          ]
+        ],
+        "note": "Off by default. If you run it with --classify, it sends short snippets of your AI coding transcripts (the flagged message plus one before and after, scrubbed, up to 1,500 characters) to OpenRouter using your OPENROUTER_API_KEY, to label them. It caps that at $2 a run. Without --classify, nothing from your transcripts leaves your computer."
+      }
+    ]
+  },
+  "alirezarezvani-meetings": {
+    "files": "Its helper script reads the notes or file you pass it (scripts/action_item_extractor.py:222) and prints a report. Nothing else on disk."
+  },
+  "alirezarezvani-weekly-review": {
+    "files": "Its helper script reads the notes or file you pass it (scripts/commitment_auditor.py:161, scripts/open_loop_scanner.py:73) and prints a report. Nothing else on disk."
+  },
+  "alirezarezvani-copywriting": {
+    "files": "Its helper script reads the notes or file you pass it (scripts/headline_scorer.py:227) and prints a report. Nothing else on disk."
+  },
+  "alirezarezvani-seo-audit": {
+    "files": "Its helper script reads the notes or file you pass it (scripts/seo_checker.py:310) and prints a report. Nothing else on disk."
+  },
+  "alirezarezvani-cold-email": {
+    "files": "Its helper script reads the notes or file you pass it (scripts/email_sequence_analyzer.py:461) and prints a report. Nothing else on disk."
+  },
+  "alirezarezvani-email-sequence": {
+    "files": "Its helper script reads the notes or file you pass it (scripts/sequence_analyzer.py:279) and prints a report. Nothing else on disk."
+  },
+  "alirezarezvani-process-mapper": {
+    "files": "Its helper script reads the notes or file you pass it (scripts/process_documenter.py:76, cycle_time_analyzer.py:212, bottleneck_detector.py:66) and prints a report. Nothing else on disk."
+  },
+  "lackeyjb-playwright-skill": {
+    "files": "Saves the test scripts it writes to a folder you choose (PW_SCRIPT_DIR) and screenshots to an output folder (run.js:24, lib/helpers.js:59).",
+    "env": "Optional extra HTTP headers for the pages it tests, such as a test login header (PW_HEADER_NAME, PW_EXTRA_HEADERS in lib/helpers.js:8-14).",
+    "_findings": [
+      {
+        "match": "delete context",
+        "level": "benign",
+        "note": "Removes the \"mobile\" key from an options object before opening a browser context (lib/helpers.js:50). Not memory or data."
+      },
+      {
+        "match": "Code capability 'env'",
+        "level": "benign",
+        "note": "SkillSpector notes that the SKILL.md doesn't mention environment variables. They're the optional extra-header settings reviewed above."
+      }
+    ]
+  },
+  "mcp-mcp-notion-server": {
+    "files": "Reads its own bundled MCP App pages (Data Source Explorer, Page Workbench) from its install folder (src/apps/index.ts:65)."
+  },
+  "difftastic": {
+    "network": "False match: a minified video player on the project's website (homepage/), not part of the program.",
+    "shell": "Runs git check-attr to see whether Git marks a file as binary (src/gitattributes.rs:30)."
+  },
+  "yt-dlp": {
+    "secretFiles": "Only when you ask: --netrc reads site logins from your .netrc file, and --cookies-from-browser reads your browser's cookies (yt_dlp/cookies.py). Both are documented options for downloading from sites you're signed in to.",
+    "_notices": [
+      {
+        "title": "Can read your browser's cookies when you ask",
+        "where": [
+          [
+            "yt_dlp/cookies.py",
+            116
+          ]
+        ],
+        "note": "With --cookies-from-browser it reads and decrypts the cookie database of Chrome, Firefox, Safari or another browser you name, so downloads can use your signed-in sessions. Those cookies act as you on every site. It only does this when you pass that option; a plain download doesn't touch them."
+      }
+    ]
   }
 }

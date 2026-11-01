@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "brainstorming",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\obra__superpowers\\superpowers-main\\skills\\brainstorming",
-    "scanned_at": "2026-10-31T21:51:33.550622+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/obra__superpowers/superpowers-main/skills/brainstorming",
+    "scanned_at": "2026-11-01T01:23:19.043941+00:00"
   },
   "risk_assessment": {
     "score": 52,
@@ -96,7 +96,7 @@
   "issues": [
     {
       "id": "TM1",
-      "finding_id": "finding-5171e3eba0b24f04872d60a12513ba41",
+      "finding_id": "finding-5182b7ed7b5f43d4b351d396474f9a52",
       "category": "Tool Misuse",
       "pattern": "Tool Parameter Abuse",
       "severity": "HIGH",
@@ -128,7 +128,7 @@
     },
     {
       "id": "LP3",
-      "finding_id": "finding-685d509591964242b9e4fd231e86725f",
+      "finding_id": "finding-17779119d83146f7835aeabd098b682d",
       "category": "MCP Least Privilege",
       "pattern": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: env, network, shell.",
       "severity": "MEDIUM",
@@ -158,7 +158,7 @@
     },
     {
       "id": "RA2",
-      "finding_id": "finding-eb89738693f34d4abb8dc832556a4617",
+      "finding_id": "finding-889abc80d3b64983805290020ba65845",
       "category": "Rogue Agent",
       "pattern": "Session Persistence",
       "severity": "MEDIUM",
@@ -190,7 +190,7 @@
     },
     {
       "id": "RA2",
-      "finding_id": "finding-a50c6072a303423884801282b8ab79e1",
+      "finding_id": "finding-a2a0cad094064613b26045c6d8d999d7",
       "category": "Rogue Agent",
       "pattern": "Session Persistence",
       "severity": "MEDIUM",
@@ -222,7 +222,7 @@
     },
     {
       "id": "RA2",
-      "finding_id": "finding-4e3d9eb427404360aa5a680e52d3bf83",
+      "finding_id": "finding-4c0f74050cb644c1b8b0c34e54c487b6",
       "category": "Rogue Agent",
       "pattern": "Session Persistence",
       "severity": "MEDIUM",
@@ -254,7 +254,7 @@
     },
     {
       "id": "RA2",
-      "finding_id": "finding-76527f7205f4411ca3f894e87fb7ad04",
+      "finding_id": "finding-38da86501291461eb2b958042fdc1a51",
       "category": "Rogue Agent",
       "pattern": "Session Persistence",
       "severity": "MEDIUM",
@@ -286,7 +286,7 @@
     },
     {
       "id": "RA2",
-      "finding_id": "finding-3a3bd26617b94f05ab32d74e6e0d7fd5",
+      "finding_id": "finding-51b2e4147bf04c1c9c70154962485035",
       "category": "Rogue Agent",
       "pattern": "Session Persistence",
       "severity": "MEDIUM",

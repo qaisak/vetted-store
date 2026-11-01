@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "browser-testing-with-devtools",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\addyosmani__agent-skills\\agent-skills-main\\skills\\browser-testing-with-devtools",
-    "scanned_at": "2026-10-31T22:51:55.976456+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/addyosmani__agent-skills/agent-skills-main/skills/browser-testing-with-devtools",
+    "scanned_at": "2026-11-01T01:26:57.033173+00:00"
   },
   "risk_assessment": {
     "score": 47,
@@ -26,7 +26,7 @@
   "issues": [
     {
       "id": "P1",
-      "finding_id": "finding-f0fbf2249ebd4a02a30ba4c7d2cf809c",
+      "finding_id": "finding-1d22c73eb2b14e41919d9a28c8c01803",
       "category": "Prompt Injection",
       "pattern": "Instruction Override",
       "severity": "HIGH",
@@ -60,7 +60,7 @@
     },
     {
       "id": "YR4",
-      "finding_id": "finding-b86babbd58e74090a218f73ebe40b925",
+      "finding_id": "finding-5dc7e784b8b44634b0020584cda71844",
       "category": "YARA Match",
       "pattern": "YARA rule 'agent_skill_prompt_injection_hidden_instructions': Prompt injection or hidden instructions embedded in AI agent skill text [agent_skills]",
       "severity": "HIGH",
@@ -90,7 +90,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-1c3b8618da424e4ea7cfaddfab917611",
+      "finding_id": "finding-1d877d18831c4ac69df557b517e49a7c",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx install'.",
       "severity": "MEDIUM",

@@ -1,13 +1,13 @@
 {
   "skill": {
     "name": "finishing-a-development-branch",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\obra__superpowers\\superpowers-main\\skills\\finishing-a-development-branch",
-    "scanned_at": "2026-10-31T21:51:46.163563+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/obra__superpowers/superpowers-main/skills/finishing-a-development-branch",
+    "scanned_at": "2026-11-01T01:24:19.743367+00:00"
   },
   "risk_assessment": {
     "score": 17,
     "severity": "LOW",
-    "recommendation": "CAUTION",
+    "recommendation": "SAFE",
     "max_issue_severity": "HIGH"
   },
   "components": [
@@ -26,7 +26,7 @@
   "issues": [
     {
       "id": "TM1",
-      "finding_id": "finding-36768782a1944cbcb39555013289c412",
+      "finding_id": "finding-ef7f3a6c86884154a59a7a27c63e327d",
       "category": "Tool Misuse",
       "pattern": "Tool Parameter Abuse",
       "severity": "HIGH",
@@ -185,8 +185,8 @@
     "total_components": 1,
     "scanned_components": 1,
     "coverage_percent": 100.0,
-    "is_complete": false,
-    "status": "partial",
+    "is_complete": true,
+    "status": "complete_with_caveats",
     "execution_successful": true,
     "fully_inspected_files": 1,
     "partially_inspected_files": 0,
@@ -195,8 +195,8 @@
       {
         "outcome": "partial",
         "phase": "reference_resolution",
-        "reason_code": "referenced_uninspected",
-        "message": "A referenced artifact was not completely inspected.",
+        "reason_code": "reference_missing",
+        "message": "A local path-like reference does not match any bundled artifact, such as a file the skill writes at runtime.",
         "path": "SKILL.md",
         "start_line": 16,
         "end_line": 16,
@@ -498,8 +498,8 @@
         "line": 16,
         "column": 84,
         "evidence": "Run the project's full test suite (`npm test` / `cargo test` / `pytest` / `go test ./...`).",
-        "target_path": "...",
-        "status": "uninspected",
+        "target_path": null,
+        "status": "missing",
         "disposition": "partial",
         "reference_kind": "plain_path"
       }

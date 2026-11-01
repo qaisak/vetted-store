@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "using-superpowers",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\obra__superpowers\\superpowers-main\\skills\\using-superpowers",
-    "scanned_at": "2026-10-31T21:51:58.511247+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/obra__superpowers/superpowers-main/skills/using-superpowers",
+    "scanned_at": "2026-11-01T01:26:03.979938+00:00"
   },
   "risk_assessment": {
     "score": 49,
@@ -96,7 +96,7 @@
   "issues": [
     {
       "id": "AS1",
-      "finding_id": "finding-f5a41cfdad3d4a418a58f84477b5442d",
+      "finding_id": "finding-75424f677aac407ebe09496a40ffe0c7",
       "category": "Agent Snooping",
       "pattern": "Agent Config Directory Access",
       "severity": "HIGH",
@@ -128,7 +128,7 @@
     },
     {
       "id": "AS1",
-      "finding_id": "finding-a2eec3c35a3c45f68ac19c4492485157",
+      "finding_id": "finding-ac4fe304c6d645cf8655a599f967996c",
       "category": "Agent Snooping",
       "pattern": "Agent Config Directory Access",
       "severity": "HIGH",
@@ -160,7 +160,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-183a7ef4a7ae46208cf4b21be7164ffb",
+      "finding_id": "finding-57e3a5291d324ca5ac2d1e2f902f75ca",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -192,7 +192,7 @@
     },
     {
       "id": "MP2",
-      "finding_id": "finding-bc54999cea8c43389bf6dda934d16319",
+      "finding_id": "finding-4e253d3d25914491ab116804a492c58e",
       "category": "Memory Poisoning",
       "pattern": "Context Window Stuffing",
       "severity": "MEDIUM",

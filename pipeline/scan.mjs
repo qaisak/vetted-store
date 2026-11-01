@@ -9,7 +9,7 @@ import { spawn } from 'node:child_process';
 const TOOLS = process.argv.includes('--tools');
 const skipAt = process.argv.indexOf('--skip');   // --skip id,id: leave these to scan_scoped.mjs
 const SKIP = new Set(skipAt > 0 ? process.argv[skipAt + 1].split(',') : []);
-const [, , dataPath, root, conc = '6', only] = process.argv.filter((a, i) => a !== '--tools' && i !== skipAt && i !== skipAt + 1);
+const [, , dataPath, root, conc = '6', only] = process.argv.filter((a, i) => a !== '--tools' && !(skipAt > 0 && (i === skipAt || i === skipAt + 1)));
 const EXE = process.env.SKILLSPECTOR || 'skillspector';
 const d = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 const OUT = path.join(root, 'out');
@@ -26,7 +26,7 @@ for (const l of d.listings) {
   const base = path.join(root, 'src', m.full.replace('/', '__'), `${m.full.split('/')[1]}-${m.branch}`);
   const dir = l.path ? path.join(base, ...l.path.split('/')) : base;
   if (!fs.existsSync(dir)) { console.error('NO DIR', id, dir); continue; }
-  if ((only && id !== only) || SKIP.has(id)) continue;
+  if ((only && id !== only) || SKIP.has(id) || jobs.some(j => j.id === id)) continue;   // first listing with an id wins, as in build.mjs
   jobs.push({ id, dir });
 }
 
