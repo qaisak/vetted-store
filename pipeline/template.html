@@ -853,6 +853,7 @@ function pageJob(k) {
     for (const g of small) if (g !== big) { names.push(g[0].toLowerCase()); big[1] = big[1].concat(g[1]); groups.splice(groups.indexOf(g), 1); }
     big[0] = names.length > 1 ? `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}` : names[0];
   }
+  groups.sort((a, b) => b[1].length - a[1].length);   // the biggest shelf first, e.g. Apps on Everyday & home
   return `<div class="navbar"><div class="in"><a class="back" href="#browse">${ic('back', 2.4)}Browse</a></div></div>
   <div class="page" style="padding-top:12px">
     <div class="large-title"><div class="job-card" style="background:none;padding:0;margin-bottom:6px"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span><h1>${esc(title)}</h1></div><p>${esc(sub)}. ${byJob(k).length} listings, community projects first.</p></div>
@@ -1235,7 +1236,7 @@ function trendItems(rows) {
 }
 const trendRow = (x, i, word) => {
   const lead = x.ls[0], one = x.ls.length === 1, tag = one ? 'a' : 'button', attr = one ? `href="#${lead.id}"` : `data-seeall="${esc(x.r)}"`;
-  const line = `+${x.gain.toLocaleString('en-US')} stars ${word}`;
+  const line = `+${fmtK(x.gain)} stars`;   // the shelf title says which period
   return `<div class="row">${icon(lead, 64)}<span class="rank">${i + 1}</span><div class="row-body"><${tag} class="row-txt" ${attr}><b>${esc(one ? lead.n : niceRepo(x.r))}</b><span>${esc(line)}</span></${tag}>
     <div class="btn-col">${one ? getBtn(lead) + caption(lead) : `<button class="get" data-seeall="${esc(x.r)}" aria-label="See ${esc(niceRepo(x.r))}">SEE</button><span class="iap">${x.ls.length} listings</span>`}</div></div></div>`;
 };
