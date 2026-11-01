@@ -28,6 +28,7 @@ const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'ast
   'yt-dlp/yt-dlp': 'yt-dlp', 'Wilfred/difftastic': 'difftastic', 'muesli/duf': 'duf', 'ClementTsang/bottom': 'bottom', 'ducaale/xh': 'xh', 'chmln/sd': 'sd' };
 // Hand-written plain-language lines, job tags and setup level (pipeline/plain.json)
 const SOURCES = JSON.parse(fs.readFileSync(new URL('../data/sources.json', import.meta.url), 'utf8'));
+const VIDEOS = fs.existsSync(new URL('../data/videos.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../data/videos.json', import.meta.url), 'utf8')) : {};
 const PLAIN = JSON.parse(fs.readFileSync(new URL('./plain.json', import.meta.url), 'utf8'));
 // Install steps for MCP servers whose README gives a JSON config or several steps instead of one command.
 // Every command is the README's own, or its JSON config written as the equivalent `claude mcp add`.
@@ -99,8 +100,8 @@ for (const [repo, m] of Object.entries(d.repos)) {
   const urlRe = new RegExp('github\\.com/' + m.full.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(/|$|#|\\?)', 'i');
   R[m.full] = { st: m.stars, fk: m.forks, is: m.issues, lic: m.license, pu: m.pushed?.slice(0, 10), cr: m.created?.slice(0, 10), ar: m.archived, own: m.owner,
     org: m.ownerType === 'Organization', on: OWNER[m.owner] || m.owner, lang: m.language, br: m.branch,
-    sc: sc ? { s: sc.score, date: sc.date?.slice(0, 10), ch: sc.checks.filter(c => c.score >= 0).map(c => [c.name, c.score, c.reason]) } : null,
-    hn: (d.hn[repo] || []).filter(h => urlRe.test(h.url || '')).map(h => [h.title, h.url, h.points, h.comments, h.date, h.id]), fd: m.fetched || d.generated.slice(0, 10), cm: SOURCES[m.full]?.commit?.slice(0, 7) || null };
+    sc: sc === 'unchecked' ? 'u' : sc ? { s: sc.score, date: sc.date?.slice(0, 10), ch: sc.checks.filter(c => c.score >= 0).map(c => [c.name, c.score, c.reason]) } : null,
+    hn: d.hn[repo] === 'unchecked' ? null : (d.hn[repo] || []).filter(h => urlRe.test(h.url || '')).map(h => [h.title, h.url, h.points, h.comments, h.date, h.id]), fd: m.fetched || d.generated.slice(0, 10), cm: SOURCES[m.full]?.commit?.slice(0, 7) || null };
 }
 
 const L = [];
@@ -169,7 +170,8 @@ for (const l of d.listings) {
   }
   const name = l.kind === 'skill' ? l.name : l.kind === 'mcp' && l.path ? (SUB[l.slug] || l.name) : (NAME[repo] || l.name);
   L.push({ id, k: l.kind, n: name, sl: l.slug, t: tagline(desc), d: desc, r: repo, u: l.url, p: l.path, nv: !!l.nvidia, tr: TRUSTED.has(owner), g: glyphFor(l.slug + ' ' + desc + ' ' + repo), c: colorFor(id),
-    lines: l.lines || null, lic: l.license || null, inst, pl: PLAIN[id]?.[0] || null, jb: PLAIN[id]?.[1] || [], lv: PLAIN[id]?.[2] || null });
+    lines: l.lines || null, lic: l.license || null, inst, pl: PLAIN[id]?.[0] || null, jb: PLAIN[id]?.[1] || [], lv: PLAIN[id]?.[2] || null,
+    vd: (VIDEOS[l.kind === 'mcp' && l.path ? `${repo}:${l.path}` : repo] || []).map(v => [v.kind, v.url, v.label || null, v.id || null]) });
   if (!PLAIN[id]) console.error('NO PLAIN TEXT', id);
 }
 
@@ -203,4 +205,4 @@ const json = JSON.stringify(DATA).replace(/</g, '\\u003c');
 const tpl = fs.readFileSync(tplPath, 'utf8');
 fs.writeFileSync(outPath, tpl.replace('/*__DATA__*/null', json));
 console.error('listings', L.length, 'skills', L.filter(x => x.k === 'skill').length, 'mcp', L.filter(x => x.k === 'mcp').length, 'tools', L.filter(x => x.k === 'tool').length,
-  'scanned', Object.keys(SC).length, 'anth plugins mapped', Object.keys(anthPlugin).length, 'hn kept', Object.values(R).reduce((a, r) => a + r.hn.length, 0), 'bytes', fs.statSync(outPath).size);
+  'scanned', Object.keys(SC).length, 'anth plugins mapped', Object.keys(anthPlugin).length, 'hn kept', Object.values(R).reduce((a, r) => a + (r.hn?.length || 0), 0), 'bytes', fs.statSync(outPath).size);

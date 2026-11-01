@@ -322,6 +322,16 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .promise span { font-size: 14px; color: var(--label2); }
 @media (max-width: 760px) { .start { grid-template-columns: minmax(0, 1fr); } .job-grid { grid-template-columns: minmax(0, 1fr); } }
 
+/* Videos */
+#checks, #videos { scroll-margin-top: 64px; }
+.vids { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
+.vid { display: flex; gap: 12px; align-items: center; background: var(--bg2); border-radius: 14px; padding: 10px; color: var(--label); min-width: 0; }
+.vplay { width: 96px; aspect-ratio: 16 / 10; border-radius: 10px; display: grid; place-items: center; color: #FFFFFF; font-size: 28px; flex: none; }
+.vt { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.vt b { font-size: 14.5px; font-weight: 600; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.vt span { font-size: 12.5px; color: var(--label2); display: inline-flex; gap: 4px; align-items: center; }
+@media (max-width: 760px) { .vids { grid-template-columns: minmax(0, 1fr); } }
+
 /* Search */
 .search-field { position: relative; margin-bottom: 18px; display: block; }
 .search-field input { padding: 10px 12px 10px 34px; font-size: 17px; }
@@ -521,7 +531,7 @@ function trust(l) {
   if (mr) return mr.verdict === 'fits' ? { short: nn ? `Fits · ${nn} note${nn > 1 ? 's' : ''}` : 'Fits its purpose', cls: 'c-green', icon: 'shieldok' }
     : mr.verdict === 'review' ? { short: 'Does more than stated', cls: 'c-orange', icon: 'shieldq' } : { short: 'Flagged', cls: 'c-red', icon: 'shieldq' };
   if (sc) return { short: `Scan ${sc.s} · ${SEVW[sc.sev] || sc.sev}`, cls: SEVC[sc.sev] || 'c-gray', icon: sc.sev === 'LOW' ? 'shieldok' : 'shieldq' };
-  if (r.sc) return { short: `Scorecard ${r.sc.s.toFixed(1)}`, cls: r.sc.s >= 7 ? 'c-green' : 'c-blue', icon: 'gauge' };
+  if (r.sc && r.sc !== 'u') return { short: `Scorecard ${r.sc.s.toFixed(1)}`, cls: r.sc.s >= 7 ? 'c-green' : 'c-blue', icon: 'gauge' };
   return { short: 'Not scanned yet', cls: 'c-gray', icon: 'shieldq' };
 }
 function icon(l, size) {
@@ -614,6 +624,7 @@ function pageToday() {
     ${startHere()}
     <section class="shelf"><div class="shelf-head"><h2>Browse by job<span class="sub">Pick the work you do and see what helps</span></h2><a class="see-all" href="#browse">See All</a></div>
       <div class="job-grid">${JOBS.slice(0, 8).map(jobCard).join('')}</div></section>
+    ${(() => { const v = uniqueRepos(byStars(L.filter(l => l.vd?.length))).slice(0, 9); return v.length ? `<section class="shelf"><div class="shelf-head"><h2>Watch it in action<span class="sub">Demo videos from the developers themselves</span></h2></div>${ranked(v)}</section>` : ''; })()}
     <section class="shelf"><div class="shelf-head"><h2>Popular Community Apps<span class="sub">Built by independent developers · ranked by GitHub stars</span></h2><a class="see-all" href="#tools">See All</a></div>
       ${ranked(appsTop, true)}</section>
     <section class="shelf"><div class="shelf-head"><h2>Community Skills<span class="sub">The most-starred skill pack from each developer</span></h2><a class="see-all" href="#skills">See All</a></div>
@@ -842,13 +853,13 @@ function pageProduct(id) {
   const from = S.back?.startsWith('for-') ? JOB[S.back.slice(4)][1] : { today: 'Today', browse: 'Browse', skills: 'Skills', mcp: 'Connectors', tools: 'Apps', trusted: 'Trusted', search: 'Search' }[S.back || S.tab] || 'Today';
   const siblings = byRepo(l.r).filter(x => x.id !== l.id);
   const q = encodeURIComponent(l.k === 'skill' ? `${l.sl} ${r.on} skill` : l.k === 'mcp' ? `${l.n} MCP` : `${l.n} ${l.r.split('/')[1] === l.n.toLowerCase() ? '' : l.r.split('/')[1]}`.trim());
-  const checks = r.sc ? CHECK_ORDER.map(n => r.sc.ch.find(c => c[0] === n)).filter(Boolean).slice(0, 6) : [];
+  const checks = r.sc && r.sc !== 'u' ? CHECK_ORDER.map(n => r.sc.ch.find(c => c[0] === n)).filter(Boolean).slice(0, 6) : [];
   const barColor = s => s >= 8 ? 'var(--green)' : s >= 5 ? 'var(--blue)' : s >= 3 ? 'var(--orange)' : 'var(--red)';
   const lv = LEVEL[l.lv];
   return `<div class="navbar"><div class="in"><a class="back" href="#${S.back || S.tab}">${ic('back', 2.4)}${esc(from)}</a></div></div>
   <div class="page" style="padding-top:12px">
     <div class="product-head">${icon(l)}<div class="txt"><h1>${esc(l.n)}</h1><span class="sub">${esc(r.on)} · ${KIND[l.k]}</span>
-      <div class="acts">${getBtn(l, 'primary')}<a class="pill-link" href="${l.u}" target="_blank" rel="noopener">GitHub ${ic('ext')}</a></div></div></div>
+      <div class="acts">${getBtn(l, 'primary')}${l.vd?.length ? `<button class="pill-link" data-jump="videos">${ic('play')} Watch the demo</button>` : ''}<a class="pill-link" href="${l.u}" target="_blank" rel="noopener">GitHub ${ic('ext')}</a></div></div></div>
     ${l.pl ? `<div class="plain">${ic('bulb', 2)}<div><span class="lbl">What it helps you do</span><p>${esc(l.pl)}</p>
       <div class="check ${safety(l)[0]}">${ic(safety(l)[2], 2.2)}<b>${esc(safety(l)[1])}</b><button data-jump="checks">See what we checked</button></div>
       <div class="chips">${lv ? `<span class="${lv[1]}" title="${esc(lv[2])}">${lv[0]}</span>` : ''}${(l.jb || []).map(j => `<a href="#for-${j}">${esc(JOB[j][1])}</a>`).join('')}</div></div></div>` : ''}
@@ -876,7 +887,8 @@ function pageProduct(id) {
         <div class="t-card"><div class="top"><span class="${l.nv ? 'c-green' : 'c-gray'}">${ic(l.nv ? 'shieldok' : 'shieldq', 1.8)}</span><h3>${l.nv ? 'NVIDIA Verified' : 'Not NVIDIA verified'}</h3></div>
           <p>${l.nv ? 'Listed in NVIDIA\'s verified skills catalog. NVIDIA\'s pipeline scans, evaluates and signs skills before they are published there.' : `Not in NVIDIA's verified catalog. Use the SkillSpector command in Install to scan ${l.k === 'tool' ? 'skills and MCP servers' : 'it'} yourself.`}</p></div>
         <div class="t-card"><div class="top"><span class="c-blue">${ic('gauge', 1.8)}</span><h3>OpenSSF Scorecard</h3></div>
-          ${r.sc ? `<div class="score">${r.sc.s.toFixed(1)}<small> / 10</small></div><p>Automated checks of the repository's security practices, run ${fmtDate(r.sc.date)}.</p>
+          ${r.sc === 'u' ? `<p>We couldn't reach OpenSSF when we added this listing, so its Scorecard isn't checked yet. Open the viewer below to see it.</p>`
+          : r.sc ? `<div class="score">${r.sc.s.toFixed(1)}<small> / 10</small></div><p>Automated checks of the repository's security practices, run ${fmtDate(r.sc.date)}.</p>
             <ul class="checks">${checks.map(c => `<li><span>${c[0].replace(/-/g, ' ')}</span><span class="bar"><i style="width:${c[1] * 10}%;background:${barColor(c[1])}"></i></span><span class="n">${c[1]}</span></li>`).join('')}</ul>`
           : `<p>OpenSSF hasn't published Scorecard results for <span class="mono">${esc(l.r)}</span> yet. Newer AI repositories often aren't covered.</p>`}
           <a href="https://scorecard.dev/viewer/?uri=github.com/${l.r}" target="_blank" rel="noopener" style="font-size:13px">Open in Scorecard viewer ${ic('ext')}</a></div>
@@ -886,8 +898,11 @@ function pageProduct(id) {
       </div>
       <p class="note" style="color:var(--label2);font-size:13px;margin-top:10px">Stars show popularity, not safety. Scans read code but don't run it, and anything can change after the next commit.</p></section>
 
+    ${l.vd?.length ? `<section class="shelf" id="videos"><div class="shelf-head"><h2>Watch it in action<span class="sub">Videos the developer links in the project's own README</span></h2></div>
+      <div class="vids">${l.vd.map(([kind, url, label]) => `<a class="vid" href="${esc(url)}" target="_blank" rel="noopener"><span class="vplay" style="background:linear-gradient(155deg,${l.c[0]},${l.c[1]})">${ic('play', 1.6)}</span>
+        <span class="vt"><b>${esc(label || (kind === 'youtube' ? 'Video on YouTube' : 'Demo video'))}</b><span>${kind === 'youtube' ? 'YouTube' : 'Video on GitHub'} ${ic('ext')}</span></span></a>`).join('')}</div></section>` : ''}
     <section class="shelf"><div class="shelf-head"><h2>Discussions<span class="sub">Real threads that link to this repository</span></h2></div>
-      ${r.hn.length ? `<div class="hn-list">${r.hn.map(h => `<a class="hn" href="https://news.ycombinator.com/item?id=${h[5]}" target="_blank" rel="noopener">
+      ${r.hn === null ? `<p class="empty-note">We couldn't search Hacker News when we added this listing. Try the links below.</p>` : r.hn.length ? `<div class="hn-list">${r.hn.map(h => `<a class="hn" href="https://news.ycombinator.com/item?id=${h[5]}" target="_blank" rel="noopener">
         <span class="src"><span class="dotsrc" style="background:#FF6600"></span>Hacker News<span class="when">${fmtDate(h[4])}</span></span><b>${esc(h[0])}</b>
         <span class="foot"><span>${h[2]} points</span><span>${h[3]} comments</span></span></a>`).join('')}</div>`
         : `<p class="empty-note">No Hacker News threads link to this repository yet.</p>`}

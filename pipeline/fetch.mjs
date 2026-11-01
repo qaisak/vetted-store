@@ -22,8 +22,9 @@ async function get(url, { json = true, binary = false } = {}) {
     return binary ? buf : json ? JSON.parse(buf.toString()) : buf.toString();
   }
   let res;
-  try { res = await fetch(url, { headers: UA }); } catch (e) { console.error('ERR', url, e.message); return null; }
-  if (res.status === 403 || res.status === 429) { console.error('RATE', url, res.status); return null; }
+  get.failed = false;   // true when the host couldn't be reached or refused: "not checked", as opposed to "nothing there"
+  try { res = await fetch(url, { headers: UA }); } catch (e) { console.error('ERR', url, e.message); get.failed = true; return null; }
+  if (res.status === 403 || res.status === 429) { console.error('RATE', url, res.status); get.failed = true; return null; }
   if (!res.ok) { console.error('MISS', res.status, url); fs.writeFileSync(key, ''); return null; }
   const buf = Buffer.from(await res.arrayBuffer());
   fs.writeFileSync(key, buf);
@@ -108,9 +109,10 @@ async function repoMeta(repo) {
     fetched: new Date().toISOString().slice(0, 10) };
   if (m) {
     const sc = await get(`https://api.securityscorecards.dev/projects/github.com/${m.full_name}`);
-    scores[repo] = sc && { score: sc.score, date: sc.date, checks: (sc.checks || []).map(c => ({ name: c.name, score: c.score, reason: c.reason })) };
+    scores[repo] = !sc && get.failed ? 'unchecked' : sc && { score: sc.score, date: sc.date, checks: (sc.checks || []).map(c => ({ name: c.name, score: c.score, reason: c.reason })) };
     const h = await get(`https://hn.algolia.com/api/v1/search?query=${encodeURIComponent('github.com/' + m.full_name)}&restrictSearchableAttributes=url&tags=story&hitsPerPage=20`);
-    hn[repo] = (h?.hits || []).filter(x => (x.points || 0) >= 5).sort((a, b) => b.points - a.points).slice(0, 4)
+    if (!h && get.failed) hn[repo] = 'unchecked';
+    else hn[repo] = (h?.hits || []).filter(x => (x.points || 0) >= 5).sort((a, b) => b.points - a.points).slice(0, 4)
       .map(x => ({ id: x.objectID, title: x.title, url: x.url, points: x.points, comments: x.num_comments || 0, date: x.created_at?.slice(0, 10) }));
     if (!avatars[m.owner.login]) {
       const img = await get(`https://github.com/${m.owner.login}.png?size=96`, { binary: true })
