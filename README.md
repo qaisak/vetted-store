@@ -97,8 +97,8 @@ Things that couldn't be done from the build machine on November 1, 2026, or need
   Some listings added November 1 (CleanYourTV, Anatomy, Spotifast, Filee, Concat, REA, PdfCraft, PhotoCraft) were scanned without
   their tests, docs, examples or media folders; `*.exclude.txt` lists them and each page says so.
 - **Audience testing.** Instead of MiroFish (which needs an LLM API key and its own services this machine can't reach), eight
-  simulated users walked the site with headless screenshots: a non-technical user, a vibe coder, a developer, a marketer, a
-  small-business owner, a researcher, a designer and a security engineer. Their findings drove the one-verdict pages, the
+  simulated users walked the site with headless screenshots: a non-technical marketer, a low-tech small-business owner, a student
+  vibe coder, a skeptical security engineer, a Hacker News skeptic, a power developer, a designer and a data analyst. Their findings drove the one-verdict pages, the
   finding reviews, history-aware navigation, search fixes and the install sheet changes. Real user testing is still worth doing.
 - **Short videos.** Listings show demo videos their developers link in their READMEs (`pipeline/videos.mjs`). Curating third-party
   reels or TikToks would need a source and permission policy first.
