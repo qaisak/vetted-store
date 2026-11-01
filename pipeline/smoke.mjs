@@ -24,7 +24,9 @@ for (const [label, viewport, scheme] of [['desktop', { width: 1280, height: 860 
   await page.goto(url);
   await page.waitForSelector('#main .page');
   const ids = await page.evaluate(() => L.map(l => l.id));
-  const tabs = await page.evaluate(() => TABS.map(t => t[0]));
+  const tabs = await page.evaluate(() => [...TABS.map(t => t[0]), ...JOBS.map(j => 'for-' + j[0]), ...KITS.map(k => 'kit-' + k[0])]);
+  const missingKit = await page.evaluate(() => KITS.flatMap(k => k[5].map(([id]) => id).filter(id => !BY[id]).map(id => k[0] + ': ' + id)));
+  if (missingKit.length) fail(label, 'kit items not in the catalog: ' + missingKit.join(', '));
   const overflow = async where => {
     const o = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     if (o > 1) fail(`${label} ${where}`, `horizontal overflow ${o}px`);
@@ -77,7 +79,7 @@ for (const [label, viewport, scheme] of [['desktop', { width: 1280, height: 860 
     if (shots) await page.screenshot({ path: `${shots}/${label}-story-${s}.png` });
     await page.click('[data-closestory]');
   }
-  console.error(`${label}: ${tabs.length} tabs, ${ids.length} listings, ${stories.length} stories checked`);
+  console.error(`${label}: ${tabs.length} tabs, job and kit pages, ${ids.length} listings, ${stories.length} stories checked`);
   await ctx.close();
 }
 await browser.close();

@@ -322,6 +322,13 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .promise span { font-size: 14px; color: var(--label2); }
 @media (max-width: 760px) { .start { grid-template-columns: minmax(0, 1fr); } .job-grid { grid-template-columns: minmax(0, 1fr); } }
 
+/* Kits */
+.kit { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 30px; }
+.kit li { min-width: 0; padding-bottom: 6px; }
+.kit .row-txt span { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+.why-kit { font-size: 14px; color: var(--label); margin: -2px 0 10px 94px; }
+@media (max-width: 760px) { .kit { grid-template-columns: minmax(0, 1fr); } .why-kit { margin-left: 76px; } }
+
 /* Videos */
 #checks, #videos { scroll-margin-top: 64px; }
 .vids { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 12px; }
@@ -489,6 +496,64 @@ const JOBS = [
   ['science', 'Science & biotech', 'Proteins, DNA and molecules (NVIDIA)', 'flask', ['#047857', '#0D9488']],
 ];
 const JOB = Object.fromEntries(JOBS.map(j => [j[0], j]));
+// Hand-picked starter kits: [key, title, who it's for, glyph, colors, [[listing id, why it's in the kit]]]
+const KITS = [
+  ['vibe', 'Vibe coder\'s starter kit', 'Build an app with an AI assistant without it going off the rails', 'spark', ['#7C3AED', '#C026D3'], [
+    ['obra-brainstorming', 'Shapes the idea with you before any code gets written.'],
+    ['obra-writing-plans', 'Turns the idea into a step-by-step plan the assistant follows.'],
+    ['mcp-context7', 'Gives the assistant current docs, so it stops inventing APIs.'],
+    ['obra-systematic-debugging', 'When something breaks, finds the real cause instead of guessing.'],
+    ['obra-verification-before-completion', 'Stops it saying "done" until it has actually checked.'],
+    ['gitleaks', 'Before you share your code, checks you didn\'t save any passwords or API keys in it.']]],
+  ['marketing', 'Marketer\'s kit', 'Copy, ads, SEO and social, with an assistant that knows the playbook', 'megaphone', ['#EA580C', '#F59E0B'], [
+    ['alirezarezvani-copywriting', 'Headlines and landing-page copy, with headline options scored.'],
+    ['coreyhaines31-ad-creative', 'Ad variations for Google, Meta and LinkedIn.'],
+    ['coreyhaines31-ai-seo', 'Helps you show up in AI answers, not just Google.'],
+    ['alirezarezvani-social-media-manager', 'A content calendar across platforms.'],
+    ['blader-humanizer', 'Makes AI drafts sound like you wrote them.'],
+    ['mcp-mcp-server-youtube-transcript', 'Pulls a YouTube video\'s transcript so you can summarize or quote it.']]],
+  ['research', 'Researcher\'s kit', 'Find, read and summarize papers and the web', 'search', ['#0369A1', '#38BDF8'], [
+    ['mcp-zotero-mcp', 'Talks to your Zotero library: papers, notes and highlights.'],
+    ['mcp-arxiv-mcp-server', 'Searches arXiv and reads papers with you.'],
+    ['weizhena-research-deep', 'Researches every item on your list in depth.'],
+    ['mcp-markdownify-mcp', 'Turns PDFs, slides and web pages into text your assistant can read.'],
+    ['mcp-duckduckgo-mcp-server', 'Web search with no API key.'],
+    ['weizhena-research-report', 'Writes up the findings, leaving out what isn\'t certain.']]],
+  ['office', 'Office & notes kit', 'Your calendar, inbox, meetings and notes, with an assistant', 'brief', ['#4F46E5', '#6366F1'], [
+    ['mcp-google-calendar-mcp', 'Checks and moves events in Google Calendar.'],
+    ['alirezarezvani-meetings', 'Agendas, and action items with owners from messy notes.'],
+    ['alirezarezvani-inbox-triage', 'Sorts your inbox and drafts replies it never sends on its own.'],
+    ['alirezarezvani-weekly-review', 'A weekly reset: open loops, stalled projects, next week.'],
+    ['kepano-obsidian-markdown', 'Writes notes in Obsidian\'s format, with links between them.'],
+    ['mcp-mcp-notion-server', 'Reads and updates your Notion pages.']]],
+  ['design', 'Designer\'s kit', 'From Figma to working pages, plus visuals and slides', 'pen', ['#DB2777', '#F97316'], [
+    ['mcp-figma-context-mcp', 'Lets a coding assistant read your Figma file and build it.'],
+    ['pbakaus-impeccable', 'Critiques and polishes an interface.'],
+    ['anthropics-frontend-design', 'Pages that look designed, not templated.'],
+    ['zarazhangrui-frontend-slides', 'Animated slide decks, or a PowerPoint turned into one.'],
+    ['cathrynlavery-diagram-design', 'Clean flowcharts, timelines and architecture diagrams.'],
+    ['mcp-mcp-for-blender', 'Build 3D scenes in Blender from a chat.']]],
+  ['security', 'Security check kit', 'Check code, secrets and AI add-ons before they ship', 'shield', ['#B91C1C', '#EF4444'], [
+    ['skillspector', 'Scans a skill or connector for risky patterns before you install it.'],
+    ['gitleaks', 'Finds passwords and keys saved in code or Git history.'],
+    ['trivy', 'Scans containers and dependencies for known vulnerabilities.'],
+    ['semgrep', 'Finds bug and security patterns in source code.'],
+    ['openai-security-threat-model', 'Writes a threat model for your project.'],
+    ['lukasniessen-terrashark', 'Stops AI-written Terraform from leaking secrets or breaking infrastructure.']]],
+];
+const KIT = Object.fromEntries(KITS.map(k => [k[0], k]));
+const kitCard = ([k, t, sub, g, c, items]) => `<a class="job-card" href="#kit-${k}"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span>
+  <span style="min-width:0"><b>${esc(t)}</b><span class="s">${esc(sub)}</span></span><span class="n">${items.filter(([id]) => BY[id]).length}</span></a>`;
+function pageKit(k) {
+  const [, title, sub, g, c, items] = KIT[k];
+  const list = items.filter(([id]) => BY[id]);
+  return `<div class="navbar"><div class="in"><a class="back" href="#${S.back && !S.back.startsWith('kit-') ? S.back : 'browse'}">${ic('back', 2.4)}Back</a></div></div>
+  <div class="page" style="padding-top:12px">
+    <div class="large-title"><div class="job-card" style="background:none;padding:0;margin-bottom:6px"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span><h1>${esc(title)}</h1></div>
+      <p>${esc(sub)}. ${list.length} picks, in the order we'd add them. Each one is checked like everything else in the store.</p></div>
+    <ol class="kit">${list.map(([id, why], i) => `<li>${row(BY[id], i + 1).replace('<div class="row">', '<div class="row kit-row">')}<p class="why-kit">${esc(why)}</p></li>`).join('')}</ol>
+    ${dataNote()}</div>`;
+}
 const LEVEL = { 1: ['Easy setup', 'lv1', 'Nothing to sign up for: an upload or one copy-paste command'], 2: ['Some setup', 'lv2', 'A terminal command, and sometimes an account, key or extra app'],
   3: ['Technical', 'lv3', 'Needs developer tools, cloud accounts or specialist software'] };
 const plainOf = l => l.pl || l.t;
@@ -622,6 +687,8 @@ function pageToday() {
       ${s.wide && s.app ? `<div class="bottom frost">${icon(s.app, 48)}<div class="t"><b>${esc(s.app.n)}</b><span>${esc(plainOf(s.app))}</span></div><span class="get light" data-get="${s.app.id}">GET</span></div>`
         : `<div class="bottom">${s.lede || ''}</div>`}</button>`).join('')}</div>
     ${startHere()}
+    <section class="shelf"><div class="shelf-head"><h2>Starter kits<span class="sub">Hand-picked sets so you don't have to piece it together</span></h2><a class="see-all" href="#browse">See All</a></div>
+      <div class="job-grid">${KITS.map(kitCard).join('')}</div></section>
     <section class="shelf"><div class="shelf-head"><h2>Browse by job<span class="sub">Pick the work you do and see what helps</span></h2><a class="see-all" href="#browse">See All</a></div>
       <div class="job-grid">${JOBS.slice(0, 8).map(jobCard).join('')}</div></section>
     ${(() => { const v = uniqueRepos(byStars(L.filter(l => l.vd?.length))).slice(0, 9); return v.length ? `<section class="shelf"><div class="shelf-head"><h2>Watch it in action<span class="sub">Demo videos from the developers themselves</span></h2></div>${ranked(v)}</section>` : ''; })()}
@@ -663,6 +730,7 @@ function pageBrowse() {
         ['mcp', 'Connectors', 'Let your assistant use your apps (MCP servers)', 'mcp', ['#B45309', '#F59E0B'], L.filter(l => l.k === 'mcp').length],
         ['trusted', 'Trusted publishers', 'From Anthropic, OpenAI, NVIDIA, GitHub and more', 'building', ['#1D2B53', '#5E6EFF'], L.filter(l => l.tr).length]]
         .map(([h, t, sub, g, c, n]) => `<a class="job-card" href="#${h}"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span><span style="min-width:0"><b>${t}</b><span class="s">${sub}</span></span><span class="n">${n}</span></a>`).join('')}</div></section>
+    <section class="shelf"><div class="shelf-head"><h2>Starter kits<span class="sub">Hand-picked sets for getting started</span></h2></div><div class="job-grid">${KITS.map(kitCard).join('')}</div></section>
     ${startHere()}
     ${dataNote()}</div>`;
 }
@@ -850,7 +918,7 @@ const SOCIAL = [['YouTube', '#FF0033', q => `https://www.youtube.com/results?sea
 const CHECK_ORDER = ['Maintained', 'Code-Review', 'Vulnerabilities', 'Dangerous-Workflow', 'Token-Permissions', 'Branch-Protection', 'Security-Policy', 'Pinned-Dependencies', 'SAST', 'Signed-Releases'];
 function pageProduct(id) {
   const l = BY[id], r = repoOf(l), t = trust(l);
-  const from = S.back?.startsWith('for-') ? JOB[S.back.slice(4)][1] : { today: 'Today', browse: 'Browse', skills: 'Skills', mcp: 'Connectors', tools: 'Apps', trusted: 'Trusted', search: 'Search' }[S.back || S.tab] || 'Today';
+  const from = S.back?.startsWith('for-') ? JOB[S.back.slice(4)][1] : S.back?.startsWith('kit-') ? KIT[S.back.slice(4)][1] : { today: 'Today', browse: 'Browse', skills: 'Skills', mcp: 'Connectors', tools: 'Apps', trusted: 'Trusted', search: 'Search' }[S.back || S.tab] || 'Today';
   const siblings = byRepo(l.r).filter(x => x.id !== l.id);
   const q = encodeURIComponent(l.k === 'skill' ? `${l.sl} ${r.on} skill` : l.k === 'mcp' ? `${l.n} MCP` : `${l.n} ${l.r.split('/')[1] === l.n.toLowerCase() ? '' : l.r.split('/')[1]}`.trim());
   const checks = r.sc && r.sc !== 'u' ? CHECK_ORDER.map(n => r.sc.ch.find(c => c[0] === n)).filter(Boolean).slice(0, 6) : [];
@@ -938,15 +1006,16 @@ function chrome() {
   document.getElementById('tabbar').innerHTML = TABS.filter(t => MOBILE_TABS.includes(t[0])).map(([k, l, g]) => `<button data-tab="${k}" aria-current="${S.tab === k ? 'page' : 'false'}">${ic(g, 1.8)}${l}</button>`).join('');
 }
 function render() {
-  document.getElementById('main').innerHTML = S.detail ? pageProduct(S.detail) : S.job ? pageJob(S.job)
+  document.getElementById('main').innerHTML = S.detail ? pageProduct(S.detail) : S.job ? pageJob(S.job) : S.kit ? pageKit(S.kit)
     : { today: pageToday, browse: pageBrowse, skills: pageSkills, mcp: pageMcp, tools: pageTools, trusted: pageTrusted, search: pageSearch }[S.tab]();
   chrome();
 }
 function route() {
   const h = decodeURIComponent(location.hash.slice(1));
-  S.job = null;
+  S.job = null; S.kit = null;
   if (!BY[h]) S.back = h || 'today';
   if (BY[h]) { S.detail = h; if (!S.tab) S.tab = 'today'; }
+  else if (h.startsWith('kit-') && KIT[h.slice(4)]) { S.detail = null; S.kit = h.slice(4); S.tab = 'browse'; }
   else if (h.startsWith('for-') && JOB[h.slice(4)]) { S.detail = null; S.job = h.slice(4); S.tab = 'browse'; }
   else { S.detail = null; S.tab = TABS.some(t => t[0] === h) ? h : 'today'; }
   render();
