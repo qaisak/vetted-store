@@ -174,6 +174,13 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .copybox { display: flex; gap: 8px; align-items: center; background: var(--code); border: 1px solid var(--sep); border-radius: 10px; padding: 8px 8px 8px 12px; min-width: 0; }
 .copybox code { flex: 1; min-width: 0; font-family: var(--mono); font-size: 12.5px; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.45; }
 .dev-scan { margin-top: 4px; }
+details.full { margin-top: 30px; border-top: 1px solid var(--sep); }
+details.full > summary { list-style: none; cursor: pointer; display: flex; flex-direction: column; gap: 2px; padding: 16px 0 4px; }
+details.full > summary::-webkit-details-marker { display: none; }
+details.full > summary b { font-size: 20px; color: var(--blue); }
+details.full > summary b::after { content: " ›"; }
+details.full[open] > summary b::after { content: " ⌄"; }
+details.full > summary span { font-size: 14px; color: var(--label2); }
 .inst-grid > .dev-scan { grid-column: 1 / -1; }
 .dev-scan > summary { cursor: pointer; color: var(--blue); font-size: 14.5px; font-weight: 600; padding: 8px 0; }
 .dev-scan[open] > summary { margin-bottom: 6px; }
@@ -647,6 +654,25 @@ const owner = l => repoOf(l).own;
 const SEVC = { LOW: 'c-green', MEDIUM: 'c-blue', HIGH: 'c-orange', CRITICAL: 'c-red', INFO: 'c-gray' };
 const SEVW = { LOW: 'Low', MEDIUM: 'Medium', HIGH: 'High', CRITICAL: 'Critical', INFO: 'Info' };
 const scanOf = l => (D.SC || {})[l.id];
+// What a listing's code can reach, in plain words (from the Purpose Check)
+const REACH = { network: 'the internet', files: 'your files', shell: 'other programs', credentials: 'passwords and keys', secretFiles: 'secret files like SSH keys', browser: 'your browser' };
+function reachLine(l) {
+  const m = MRof(l);
+  if (!m || m.codeFree) return null;
+  const r = m.caps.filter(c => c.found && REACH[c.k]).map(c => REACH[c.k]);
+  return r.length ? `Can reach ${r.length > 1 ? r.slice(0, -1).join(', ') + ' and ' + r[r.length - 1] : r[0]}.` : 'Reaches nothing outside itself.';
+}
+// The verdict in one short line for the top of a listing; the full reasoning sits in "See the full check"
+function verdictShort(l) {
+  const v = verdict(l), rv = scanOf(l)?.rv, nt = NT(l), risks = nt.filter(x => x.lv !== 'note'), notes = nt.length - risks.length;
+  let line;
+  if (risks.length) line = 'Read the note below before installing.';
+  else if (['Does more than it says', 'Flagged', 'Looks harmful', 'Not scanned yet', 'Review in progress'].includes(v[2])) line = v[3];
+  else if (v[2] === 'Instructions only') line = 'Just text for your assistant. Nothing runs on your computer.';
+  else line = [reachLine(l), rv?.n ? `All ${rv.n.toLocaleString('en-US')} scanner warnings explained.` : 'No scanner warnings.'].filter(Boolean).join(' ');
+  if (!risks.length && notes) line += ` ${notes === 1 ? 'One thing' : notes + ' things'} worth knowing inside.`;
+  return [v[0], v[1], v[2], line];
+}
 // The short label under a listing's GET button. Risks and flags win over who published it.
 function trust(l) {
   const v = verdict(l), warns = NT(l).filter(x => x.lv === 'warn').length;
@@ -685,7 +711,7 @@ function toast(m) {
 }
 // The span of fetch dates: most listings were fetched with D.gen, later additions carry their own date
 function dataDates() { const last = Object.values(R).map(r => r.fd).filter(Boolean).sort().pop(); return last && last !== D.gen ? `${fmtDate(D.gen)} to ${fmtDate(last)}` : fmtDate(D.gen); }
-const dataNote = () => `<p class="data-note">Every listing is a real open-source project on GitHub, and every one is scanned with NVIDIA SkillSpector before it's listed. Projects from independent developers also get Vetted's Purpose Check. Stars, licenses and activity come from GitHub, security scores from OpenSSF Scorecard, discussions from Hacker News, and install steps from each project's own README. Data fetched ${dataDates()}. Vetted isn't affiliated with these projects.</p>`;
+const dataNote = () => `<p class="data-note">Real open-source projects from GitHub, each scanned and checked before it's listed. Data from ${dataDates()}. Vetted isn't affiliated with these projects. <button class="text-btn" style="font-size:12px" data-story="labels">How we check</button></p>`;
 
 // ---------- stories ----------
 const community = () => L.filter(l => !l.tr);
@@ -713,7 +739,7 @@ function stories() {
   const commScans = comm.map(l => scanOf(l)).filter(Boolean);
   if (spector && commScans.length) {
     const c = {}; for (const x of commScans) c[x.sev] = (c[x.sev] || 0) + 1;
-    out.push({ id: 'scan', eyebrow: 'Security Spotlight', title: 'Scanned with NVIDIA SkillSpector', lede: `${commScans.length} community projects scanned.`, g: ['#0B3D2E', '#1F9D6B'], glyph: 'shieldok',
+    out.push({ hidden: true, id: 'scan', eyebrow: 'Security Spotlight', title: 'Scanned with NVIDIA SkillSpector', lede: `${commScans.length} community projects scanned.`, g: ['#0B3D2E', '#1F9D6B'], glyph: 'shieldok',
       body: [`Skills run with your assistant's permissions, so a bad one can read files, leak data or run commands. NVIDIA's open-source <strong>SkillSpector</strong> flags prompt injection, data exfiltration, privilege escalation and other risky patterns.`,
         `NVIDIA's own research put numbers on it: in a subset of 31,132 skills they analyzed, 26.1% contained vulnerabilities and 5.2% showed likely malicious intent.`,
         `We ran SkillSpector ${esc(commScans[0].ver)} in static mode on <strong>${commScans.length} community projects</strong>: ${c.LOW || 0} scored low, ${c.MEDIUM || 0} medium, ${c.HIGH || 0} high and ${c.CRITICAL || 0} critical. Static mode can't judge intent, so those scores alone would scare you off almost anything.`,
@@ -735,12 +761,12 @@ function stories() {
       `<strong>About scanner flags</strong>: NVIDIA's SkillSpector raised ${ft.n.toLocaleString('en-US')} high-risk flags across the store. It can't judge intent, so ordinary code trips it. Each flag has a written status on its listing's page: ${ft.read.toLocaleString('en-US')} read line by line, ${ft.where.toLocaleString('en-US')} in tests or build files that don't run, ${ft.purpose.toLocaleString('en-US')} explained by what the project is for, ${ft.rule.toLocaleString('en-US')} known scanner false alarms and ${ft.cov.toLocaleString('en-US')} files it couldn't fully read${ft.open ? `; ${ft.open} are still waiting for a reviewer` : ''}.`,
       `No check is a guarantee. Code can change after we look at it, so the date and exact version we checked are on every page.`], apps: [] });
   const trustedList = L.filter(l => l.tr);
-  out.push({ id: 'trusted', eyebrow: 'Trusted Publishers', title: 'From Anthropic, OpenAI, NVIDIA and more', lede: `${trustedList.length} listings from ${new Set(trustedList.map(l => repoOf(l).on)).size} companies.`, g: ['#1D2B53', '#5E6EFF'], glyph: 'building',
+  out.push({ hidden: true, id: 'trusted', eyebrow: 'Trusted Publishers', title: 'From Anthropic, OpenAI, NVIDIA and more', lede: `${trustedList.length} listings from ${new Set(trustedList.map(l => repoOf(l).on)).size} companies.`, g: ['#1D2B53', '#5E6EFF'], glyph: 'building',
     body: [`Anthropic, OpenAI, NVIDIA, GitHub, Microsoft, Google and others publish skills, MCP servers and tools from their own GitHub organizations. That tells you who made them. It doesn't make them safe by itself.`,
       `Vetted lists them as Trusted publishers, and checks them anyway: ${trustedList.filter(l => scanOf(l)).length} of the ${trustedList.length} have a SkillSpector report on their page, with every high-risk flag explained. Where we found something you'd want to know, like a skill that prints your access token into the chat, it's at the top of the page.`],
     apps: pick(['anthropics-docx', 'openai-security-threat-model', 'mcp-github-mcp-server', 'mcp-playwright-mcp', 'skillspector', 'uv']).concat(L.filter(l => l.nv).slice(0, 2)) });
   const cm = byStars(comm.filter(l => l.k === 'mcp'));
-  if (cm.length) out.push({ id: 'mcp', eyebrow: 'Community Connectors', title: 'Connect your assistant to the apps you use', lede: 'Figma, Slack, Google Calendar, Blender and more.', g: ['#4A3210', '#D69A32'], glyph: 'mcp',
+  if (cm.length) out.push({ hidden: true, id: 'mcp', eyebrow: 'Community Connectors', title: 'Connect your assistant to the apps you use', lede: 'Figma, Slack, Google Calendar, Blender and more.', g: ['#4A3210', '#D69A32'], glyph: 'mcp',
     body: [`A skill teaches your assistant <strong>how</strong> to do something. A connector (an MCP server) gives it <strong>access</strong> to something: your Slack, a Figma file, your calendar, a 3D scene.`,
       `Because they reach real apps and accounts, each one here is Purpose-Checked: we list what it can access and flag anything its purpose doesn't explain.`], apps: cm });
   return out;
@@ -765,30 +791,21 @@ function pageToday() {
       ${s.wide && s.app ? `<div class="bottom frost">${icon(s.app, 48)}<div class="t"><b>${esc(s.app.n)}</b><span>${esc(plainOf(s.app))}</span></div><span class="get light" data-get="${s.app.id}">GET</span></div>`
         : `<div class="bottom">${s.lede || ''}</div>`}</button>`).join('')}</div>
     ${trendingToday()}
-    ${startHere()}
-    <section class="shelf"><div class="shelf-head"><h2>Starter kits<span class="sub">Six picks for one goal, in the order to add them</span></h2><a class="see-all" href="#browse">See All</a></div>
-      <div class="job-grid">${KITS.map(kitCard).join('')}</div></section>
-    <section class="shelf"><div class="shelf-head"><h2>Browse by job<span class="sub">Pick the work you do and see what helps</span></h2><a class="see-all" href="#browse">See All</a></div>
-      <div class="job-grid">${JOBS.slice(0, 8).map(jobCard).join('')}</div></section>
+    <section class="shelf"><div class="shelf-head"><h2>Browse by job</h2><a class="see-all" href="#browse">See All</a></div>
+      <div class="job-grid">${JOBS.slice(0, 6).map(jobCard).join('')}</div></section>
+    <section class="shelf"><div class="shelf-head"><h2>Starter kits<span class="sub">A few picks for one goal</span></h2><a class="see-all" href="#browse">See All</a></div>
+      <div class="job-grid">${KITS.slice(0, 4).map(kitCard).join('')}</div></section>
     ${(() => { const last = Object.values(R).map(r => r.fd).filter(Boolean).sort().pop(); if (!last || last === D.gen) return '';
       const all = L.filter(l => repoOf(l).fd === last && !l.tr), fresh = uniqueRepos(byStars(all), 2);
       return fresh.length ? `<section class="shelf"><div class="shelf-head"><h2>New in Vetted<span class="sub">${all.length} community listings added ${fmtDate(last)}</span></h2></div>${ranked(fresh.slice(0, 12))}</section>` : ''; })()}
-    ${risingShelf()}
     ${(() => { const v = uniqueRepos(byStars(L.filter(l => l.vd?.length))).slice(0, 9); return v.length ? `<section class="shelf"><div class="shelf-head"><h2>Watch it in action<span class="sub">Demo videos from the developers themselves</span></h2></div>${ranked(v)}</section>` : ''; })()}
-    <section class="shelf"><div class="shelf-head"><h2>Popular Community Apps<span class="sub">Built by independent developers · ranked by GitHub stars</span></h2><a class="see-all" href="#tools">See All</a></div>
-      ${ranked(appsTop, true)}</section>
-    <section class="shelf"><div class="shelf-head"><h2>Community Skills<span class="sub">The most-starred skill pack from each developer</span></h2><a class="see-all" href="#skills">See All</a></div>
-      ${ranked(skillsTop)}</section>
-    <section class="shelf"><div class="shelf-head"><h2>Community Connectors<span class="sub">Let your assistant use your apps · also called MCP servers</span></h2><a class="see-all" href="#mcp">See All</a></div>
-      ${ranked(mcpTop)}</section>
-    ${trustedShelf(null, 'From Trusted Publishers')}
     ${dataNote()}</div>`;
 }
 
 // What Vetted is, in one breath, with only claims the data backs
 function introText() {
   const nSC = L.filter(l => scanOf(l)).length, ft = flagTotals();
-  return `Vetted is a catalog of ${L.length} open-source AI skills, connectors and apps. ${nSC === L.length && !ft.open ? 'Every one is scanned for security problems, and a person explains every warning the scanner raises' : `${nSC} of them are scanned for security problems so far, and a person explains the warnings the scanner raises`}, so you can see what something can reach before you install it.`;
+  return `${L.length} open-source AI skills, connectors and apps${nSC === L.length && !ft.open ? ', each one checked' : ''}. See what it does and what it can reach before you install.`;
 }
 // New projects gaining stars fastest: created in the 120 days before the latest fetch, ranked by stars per day since
 function risingShelf() {
@@ -828,16 +845,15 @@ function startHere() {
 }
 function pageBrowse() {
   return `<div class="page">
-    <div class="large-title"><h1>Browse</h1><p>Find things by the work you do, or by what kind of thing they are. Every listing says in plain words what it helps with, how hard it is to set up, and what our checks found.</p></div>
+    <div class="large-title"><h1>Browse</h1><p>By the work you do, or by type.</p></div>
     <div class="job-grid">${JOBS.map(jobCard).join('')}</div>
     <section class="shelf"><div class="shelf-head"><h2>By type</h2></div>
       <div class="job-grid">${[['trending', 'Trending', 'What\'s catching on this week and month', 'pulse', ['#BE123C', '#F97316'], ''], ['tools', 'Apps', 'Programs you run on your computer', 'tool', ['#1D4ED8', '#3B82F6'], L.filter(l => l.k === 'tool').length],
-        ['skills', 'Skills', 'Teach your assistant a job', 'skill', ['#7C3AED', '#A855F7'], L.filter(l => l.k === 'skill').length],
-        ['mcp', 'Connectors', 'Let your assistant use your apps (MCP servers)', 'mcp', ['#B45309', '#F59E0B'], L.filter(l => l.k === 'mcp').length],
+        ['skills', 'Skills', 'Teach your AI assistant a job', 'skill', ['#7C3AED', '#A855F7'], L.filter(l => l.k === 'skill').length],
+        ['mcp', 'Connectors', 'Let your AI use your apps and accounts', 'mcp', ['#B45309', '#F59E0B'], L.filter(l => l.k === 'mcp').length],
         ['trusted', 'Trusted publishers', 'From Anthropic, OpenAI, NVIDIA, GitHub and more', 'building', ['#1D2B53', '#5E6EFF'], L.filter(l => l.tr).length]]
         .map(([h, t, sub, g, c, n]) => `<a class="job-card" href="#${h}"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span><span style="min-width:0"><b>${t}</b><span class="s">${sub}</span></span><span class="n">${n}</span></a>`).join('')}</div></section>
-    <section class="shelf"><div class="shelf-head"><h2>Starter kits<span class="sub">Hand-picked sets for getting started</span></h2></div><div class="job-grid">${KITS.map(kitCard).join('')}</div></section>
-    ${startHere()}
+    <section class="shelf"><div class="shelf-head"><h2>Starter kits</h2></div><div class="job-grid">${KITS.map(kitCard).join('')}</div></section>
     ${dataNote()}</div>`;
 }
 function pageJob(k) {
@@ -895,46 +911,48 @@ function pageSkills() {
   const byPrimary = {};
   for (const l of all) (byPrimary[(l.jb || [])[0] || 'other'] ??= []).push(l);
   const order = (list) => [...byStars(list.filter(l => !l.tr)), ...byStars(list.filter(l => l.tr))];
-  const shelves = JOBS.filter(([k]) => (byPrimary[k] || []).length >= 3);
+  const shelves = JOBS.filter(([k]) => (byPrimary[k] || []).length >= 3).sort((a, b) => byPrimary[b[0]].length - byPrimary[a[0]].length).slice(0, 6);
+  const otherJobs = JOBS.filter(([k]) => (byPrimary[k] || []).length >= 3 && !shelves.some(x => x[0] === k));
   const rest = JOBS.filter(([k]) => (byPrimary[k] || []).length < 3).flatMap(([k]) => byPrimary[k] || []).concat(byPrimary.other || []);
   // Developers who publish several skills, as a compact list
   const packs = Object.entries(all.reduce((a, l) => ((a[l.r] ??= []).push(l), a), {})).filter(([, v]) => v.length >= 3)
     .sort((a, b) => R[b[0]].st - R[a[0]].st);
   return `<div class="page">
-    <div class="large-title"><h1>Skills</h1><p>A skill is a set of instructions that teaches your AI assistant one job, like writing ad copy or reviewing code. ${all.length} skills: ${comm.length} from independent developers, ${all.length - comm.length} from companies. Every one is scanned before it's listed.</p></div>
-    ${jobChips('skill')}
+    <div class="large-title"><h1>Skills</h1><p>Teach your AI assistant one job, like writing ads or reviewing code. ${all.length} skills.</p></div>
     ${banners(uniqueRepos(byStars(comm)).slice(0, 4).map(l => ({ l, eb: (JOB[(l.jb || [])[0]] || [0, 'Skill'])[1] })))}
     ${shelves.map(([k, t]) => { const list = order(byPrimary[k]);
       return `<section class="shelf"><div class="shelf-head"><h2>${esc(t)}<span class="sub">${list.length} skill${list.length > 1 ? 's' : ''}</span></h2>${list.length > 9 ? `<a class="see-all" href="#for-${k}">See All</a>` : ''}</div>${ranked(list.slice(0, 9))}</section>`; }).join('')}
+    ${otherJobs.length ? `<section class="shelf"><div class="shelf-head"><h2>More jobs</h2></div><div class="chips">${otherJobs.map(([k, t]) => `<a href="#for-${k}">${esc(t)} · ${byPrimary[k].length}</a>`).join('')}</div></section>` : ''}
     ${rest.length ? `<section class="shelf"><div class="shelf-head"><h2>More skills</h2></div>${ranked(order(rest))}</section>` : ''}
-    <section class="shelf"><div class="shelf-head"><h2>Skill packs<span class="sub">Developers who publish several skills together</span></h2></div>
-      <div class="job-grid">${packs.map(([repo, list]) => `<button class="job-card" data-seeall="${esc(repo)}">${icon(list[0], 44)}<span style="min-width:0"><b>${esc(niceRepo(repo))}</b><span class="s">by ${esc(R[repo].on)} · ★ ${fmtK(R[repo].st)}</span></span><span class="n">${list.length}</span></button>`).join('')}</div></section>
+    <section class="shelf"><div class="shelf-head"><h2>Skill packs</h2></div>
+      <div class="job-grid">${packs.slice(0, 8).map(([repo, list]) => `<button class="job-card" data-seeall="${esc(repo)}">${icon(list[0], 44)}<span style="min-width:0"><b>${esc(niceRepo(repo))}</b><span class="s">by ${esc(R[repo].on)} · ★ ${fmtK(R[repo].st)}</span></span><span class="n">${list.length}</span></button>`).join('')}</div></section>
     ${dataNote()}</div>`;
 }
 
 function pageMcp() {
   const comm = byStars(community().filter(l => l.k === 'mcp'));
   return `<div class="page">
-    <div class="large-title"><h1>Connectors</h1><p>Also called MCP servers. They connect your AI assistant to real apps and accounts: Slack, Figma, Google Calendar, your browser, your files. Because they can reach your data, each community connector is checked against its own stated purpose: what it can access, and whether that matches what it says it's for.</p></div>
+    <div class="large-title"><h1>Connectors</h1><p>Let your AI assistant use your apps and accounts, like Slack, Figma or your calendar. Also called MCP servers.</p></div>
     ${jobChips('mcp')}
     ${banners(comm.slice(0, 4).map(l => ({ l, eb: 'Community · ' + repoOf(l).own })))}
-    <section class="shelf"><div class="shelf-head"><h2>Community Connectors<span class="sub">Built by independent developers · ranked by GitHub stars</span></h2></div>${ranked(comm, true)}</section>
+    <section class="shelf"><div class="shelf-head"><h2>Most popular<span class="sub">By GitHub stars</span></h2></div>${ranked(comm, true)}</section>
     ${trustedShelf('mcp', 'Connectors from Trusted Publishers')}
     ${dataNote()}</div>`;
 }
 function pageTools() {
   const comm = community().filter(l => l.k === 'tool');
   // Shelves by what people use them for; anything not placed here still shows under "More apps", so nothing goes missing
-  const SHELVES = [['Creative', 'Edit photos, video and PDFs on your computer', ['photocraft', 'compositor', 'concat', 'pdfcraft']],
-    ['Everyday', 'Convert, download, send and protect files; clean up your TV; play music', ['filee', 'yt-dlp', 'croc', 'age', 'cleanyourtv', 'spotifast', 'navi']],
+  const SHELVES = [['Creative', 'Photos, video, voice and PDFs', ['photocraft', 'lightcraft', 'upscayl', 'voicestudio', 'concat', 'compositor', 'pdfcraft', 'flameshot']],
+    ['Everyday', 'Send, convert, download and tidy up', ['localsend', 'filee', 'yt-dlp', 'krokiet-czkawka', 'syncthing', 'rustdesk', 'cleanyourtv', 'spotifast', 'croc', 'navi']],
+    ['Privacy & security', 'Passwords, ad blocking and leaked keys', ['keepassxc', 'ublock-origin', 'pi-hole', 'age', 'trufflehog']],
     ['Files & search', 'Find, view and manage files fast', ['ripgrep', 'fd', 'fzf', 'bat', 'zoxide', 'yazi', 'superfile', 'dust', 'duf', 'sd', 'tokei']],
     ['Data & APIs', 'Spreadsheets, databases, JSON and web APIs', ['visidata', 'harlequin', 'jq', 'xh', 'posting']],
-    ['Git & code', 'Commit, compare, catch leaked passwords and run your project', ['lazygit', 'gitui', 'delta', 'difftastic', 'gitleaks', 'just', 'mise', 'hyperfine']],
+    ['Git & code', 'Commit, compare and run your project', ['lazygit', 'gitui', 'delta', 'difftastic', 'gitleaks', 'just', 'mise', 'hyperfine']],
     ['System & servers', 'Watch your computer, containers and clusters', ['btop', 'bottom', 'glances', 'lazydocker', 'k9s']]].filter(([, , ids]) => pick(ids).filter(l => !l.tr).length >= 3);   // no near-empty shelves
   const placed = new Set(SHELVES.flatMap(x => x[2]));
   const rest = comm.filter(l => !placed.has(l.id));
   return `<div class="page">
-    <div class="large-title"><h1>Apps</h1><p>${comm.length} open-source apps from independent developers: desktop apps for photos, video, PDFs and files, plus tools for the terminal. Each one is Purpose-Checked and scanned: we read its code and compare what it can do with what it says it's for.</p></div>
+    <div class="large-title"><h1>Apps</h1><p>Free, open-source programs for your computer: photos, video, files and more.</p></div>
     ${jobChips('tool')}
     ${banners([{ l: BY['photocraft'], eb: 'Edit Photos' }, { l: BY['concat'], eb: 'Edit Video' }, { l: BY['filee'], eb: 'Convert Files' }, { l: BY['yt-dlp'], eb: 'Download Video' }])}
     ${SHELVES.map(([t, sub, ids]) => { const list = byStars(pick(ids).filter(l => !l.tr)); return list.length ? `<section class="shelf"><div class="shelf-head"><h2>${t}<span class="sub">${sub}</span></h2></div>${ranked(list, true)}</section>` : ''; }).join('')}
@@ -1026,9 +1044,17 @@ const pageSearch = () => `<div class="page"><div class="large-title"><h1>Search<
 // ---------- install blocks ----------
 const copyBox = cmd => `<div class="copybox"><code>${esc(cmd)}</code><button class="copy-btn" data-copy="${esc(cmd)}" aria-label="Copy command">${ic('copy')}</button></div>`;
 const AGENTS = [['claude-code', 'Claude Code'], ['codex', 'Codex'], ['cursor', 'Cursor']];
-function instCards(l) {
-  const scan = l.inst.filter(o => o.scan);
-  return l.inst.filter(o => !o.scan).map(o => {
+// Install cards in the order most people need them: downloads and the card for this computer first
+function instOrder(l) {
+  const cards = l.inst.filter(o => !o.scan);
+  const plat = (navigator.userAgentData?.platform || navigator.platform || '').toLowerCase();
+  const os = /mac/.test(plat) ? 'macOS' : /win/.test(plat) ? 'Windows' : /linux/.test(plat) ? 'Linux' : null;
+  const score = o => o.how === 'Download' || o.how === 'Add-on' ? 0 : os && o.to.includes(os) ? 1 : 2;
+  return l.k === 'tool' ? cards.map((o, i) => [o, i]).sort((a, b) => score(a[0]) - score(b[0]) || a[1] - b[1]).map(x => x[0]) : cards;
+}
+function instCards(l, show = 99) {
+  const scan = l.inst.filter(o => o.scan), all = instOrder(l), shown = all.length <= show + 1 ? all : all.slice(0, show), more = all.slice(shown.length);
+  const card = o => {
     const agent = S.agent;
     return `<div class="inst-card"><div class="h"><b>${esc(o.to)}</b><span class="how">${esc(o.how)}</span></div>
       ${o.agentCmd ? `<div class="seg" role="group" aria-label="Agent">${AGENTS.map(([k, n]) => `<button data-agent="${k}" aria-pressed="${agent === k}">${n}</button>`).join('')}</div>${copyBox(`${o.agentCmd} --agent ${agent}`)}` : ''}
@@ -1038,7 +1064,8 @@ function instCards(l) {
       ${o.dl ? `<a class="pill-link" href="${o.dl}" rel="noopener" style="align-self:flex-start">Download ZIP ${ic('ext')}</a>` : ''}
       ${o.link ? `<a class="pill-link" href="${o.link}" target="_blank" rel="noopener" style="align-self:flex-start">${esc(o.linkText || 'Open install guide')} ${ic('ext')}</a>` : ''}
       ${o.note ? `<span class="note">${esc(o.note)}</span>` : ''}</div>`;
-  }).join('') + (scan.length ? `<details class="dev-scan"><summary>For developers: run the security scan yourself</summary>${scan.map(o => `<div class="inst-card scan"><div class="h"><span class="c-green">${ic('shieldok', 2.2)}</span><b>Scan it yourself</b><span class="how">SkillSpector</span></div>
+  };
+  return shown.map(card).join('') + (more.length ? `<details class="dev-scan"><summary>Other ways to install (${more.length})</summary><div class="inst-grid">${more.map(card).join('')}</div></details>` : '') + (scan.length ? `<details class="dev-scan"><summary>For developers: run the security scan yourself</summary>${scan.map(o => `<div class="inst-card scan"><div class="h"><span class="c-green">${ic('shieldok', 2.2)}</span><b>Scan it yourself</b><span class="how">SkillSpector</span></div>
       ${o.cmds.map(copyBox).join('')}<span class="note">The same static scan we ran, with NVIDIA SkillSpector. No API key needed. ${BY['skillspector'] ? `<a href="#skillspector" data-closesheet>Install SkillSpector</a>` : ''}</span></div>`).join('')}</details>` : '');
 }
 // The install sheet's help line, from the cards it actually shows
@@ -1162,29 +1189,27 @@ function pageProduct(id) {
   <div class="page" style="padding-top:12px">
     <div class="product-head">${icon(l)}<div class="txt"><h1>${esc(l.n)}</h1><span class="sub">${esc(r.on)} · ${KIND[l.k]}</span>
       <div class="acts">${getBtn(l, 'primary')}${l.vd?.length ? `<button class="pill-link" data-jump="videos">${ic('play')} Watch the demo</button>` : ''}<a class="pill-link" href="${l.u}" target="_blank" rel="noopener">GitHub ${ic('ext')}</a></div></div></div>
-    ${l.pl ? `<div class="plain">${ic('bulb', 2)}<div><span class="lbl">What it helps you do</span><p>${esc(l.pl)}</p>
-      ${(v => `<div class="check ${v[0]}">${ic(v[1], 2.2)}<b>${esc(v[2])}</b><span class="vsub">${esc(v[3])}</span><span class="vbtns"><button data-jump="checks">See what we checked</button><button data-story="labels">What the labels mean</button></span></div>`)(verdict(l))}
-      <div class="chips">${lv ? `<span class="${lv[1]}" title="${esc(lv[2])}">${lv[0]}</span>` : ''}${(l.jb || []).map(j => `<a href="#for-${j}">${esc(JOB[j][1])}</a>`).join('')}</div></div></div>` : ''}
+    ${l.pl ? (v => `<div class="plain">${ic('bulb', 2)}<div><span class="lbl">What it helps you do</span><p>${esc(l.pl)}</p>
+      <div class="check ${v[0]}">${ic(v[1], 2.2)}<b>${esc(v[2])}</b><span class="vsub">${esc(v[3])}</span><span class="vbtns"><button data-jump="checks">See the full check</button></span></div>
+      <div class="chips">${lv ? `<span class="${lv[1]}" title="${esc(lv[2])}">${lv[0]}</span>` : ''}${(l.jb || []).map(j => `<a href="#for-${j}">${esc(JOB[j][1])}</a>`).join('')}</div></div></div>`)(verdictShort(l)) : ''}
+    ${NT(l).filter(x => x.lv !== 'note').map(n => `<div class="worth ${NT_LV[n.lv][0]}" style="margin-top:12px"><div class="cap-h"><b>${esc(n.t)}</b><span class="chip ${NT_LV[n.lv][1]}">${NT_LV[n.lv][2]}</span></div><p>${esc(n.n)}</p></div>`).join('')}
     <div class="strip">
       <div><span class="k">GitHub</span><span class="v">${ic('star', 2)}${fmtK(r.st)}</span><span class="c">stars${l.p ? ' (whole repo)' : ''}</span></div>
-      <div><span class="k">Trust</span><span class="v ${t.cls}">${ic(t.icon, 2.2)}</span><span class="c">${t.short}</span></div>
       <div><span class="k">Updated</span><span class="v">${ic('pulse', 2)}</span><span class="c">${ago(r.pu)}</span></div>
       <div><span class="k">License</span><span class="v">${ic('scale', 2)}</span><span class="c">${esc(l.lic && l.lic.length < 30 ? l.lic : r.lic || 'None listed')}</span></div>
       <div><span class="k">Publisher</span><span class="v">${ic(r.org ? 'building' : 'person', 2)}</span><span class="c">${r.org ? 'Organization' : 'Individual'}</span></div>
       ${l.lines ? `<div><span class="k">SKILL.md</span><span class="v">${l.lines}</span><span class="c">lines</span></div>` : r.lang ? `<div><span class="k">Language</span><span class="v">${ic('code', 2)}</span><span class="c">${esc(r.lang)}</span></div>` : ''}
     </div>
-    <div class="desc"><div><span class="lbl">From the developer</span><p class="${l.d.length > 280 ? 'clamp' : ''}">${esc(l.d)}</p>${l.d.length > 280 ? `<button class="more" data-unclamp>More</button>` : ''}</div>
-      <div class="dev"><div><a href="https://github.com/${l.r.split('/')[0]}" target="_blank" rel="noopener">${esc(r.on)}</a><span>Publisher</span></div>
-        <div><a href="${l.u}" target="_blank" rel="noopener" class="mono">${esc(l.r)}${l.p ? '/' + esc(l.p) : ''}</a><span>Source</span></div></div></div>
 
-    <section class="shelf"><div class="shelf-head"><h2>Install</h2></div><div class="inst-grid">${instCards(l)}</div></section>
-
-    ${l.tr ? `<section class="shelf"><div class="trusted-note">${ic('building', 1.8)}<div><b>Trusted publisher</b><p>Published by ${esc(r.on)} from its own GitHub organization, so you know who made it. That doesn't make it safe by itself, so Vetted checks it like every other listing${scanOf(l) ? '. The results are below' : ''}.</p></div></div></section>` : ''}
-    <div id="checks"></div>
+    <section class="shelf"><div class="shelf-head"><h2>Get it</h2></div><div class="inst-grid">${instCards(l, 2)}</div></section>
+    ${l.vd?.length ? `<section class="shelf" id="videos"><div class="shelf-head"><h2>Watch it in action<span class="sub">Videos the developer links in the project's own README</span></h2></div>
+      <div class="vids">${l.vd.map(([kind, url, label]) => `<a class="vid" href="${esc(url)}" target="_blank" rel="noopener"><span class="vplay" style="background:linear-gradient(155deg,${l.c[0]},${l.c[1]})">${ic('play', 1.6)}</span>
+        <span class="vt"><b>${esc(label || (kind === 'youtube' ? 'Video on YouTube' : 'Demo video'))}</b><span>${kind === 'youtube' ? 'YouTube' : 'Video on GitHub'} ${ic('ext')}</span></span></a>`).join('')}</div></section>` : ''}
+    <details class="full" id="checks"><summary><b>See the full check</b><span>What we found, the security scan, and the project's details</span></summary>
+    ${l.tr ? `<section class="shelf"><div class="trusted-note">${ic('building', 1.8)}<div><b>Trusted publisher</b><p>Published by ${esc(r.on)} from its own GitHub organization, so you know who made it. That doesn't make it safe by itself, so we check it like everything else.</p></div></div></section>` : ''}
     ${notesHTML(l)}
     ${purposeHTML(l)}
     ${reportHTML(l)}
-
     <section class="shelf"><div class="shelf-head"><h2>Trust &amp; Security</h2></div>
       <div class="trust-cards">
         <div class="t-card"><div class="top"><span class="${l.nv ? 'c-green' : 'c-gray'}">${ic(l.nv ? 'shieldok' : 'shieldq', 1.8)}</span><h3>${l.nv ? 'NVIDIA Verified' : 'Not NVIDIA verified'}</h3></div>
@@ -1201,9 +1226,11 @@ function pageProduct(id) {
       </div>
       <p class="note" style="color:var(--label2);font-size:13px;margin-top:10px">Stars show popularity, not safety. Scans read code but don't run it, and anything can change after the next commit.</p></section>
 
-    ${l.vd?.length ? `<section class="shelf" id="videos"><div class="shelf-head"><h2>Watch it in action<span class="sub">Videos the developer links in the project's own README</span></h2></div>
-      <div class="vids">${l.vd.map(([kind, url, label]) => `<a class="vid" href="${esc(url)}" target="_blank" rel="noopener"><span class="vplay" style="background:linear-gradient(155deg,${l.c[0]},${l.c[1]})">${ic('play', 1.6)}</span>
-        <span class="vt"><b>${esc(label || (kind === 'youtube' ? 'Video on YouTube' : 'Demo video'))}</b><span>${kind === 'youtube' ? 'YouTube' : 'Video on GitHub'} ${ic('ext')}</span></span></a>`).join('')}</div></section>` : ''}
+    <section class="shelf"><div class="shelf-head"><h2>From the developer</h2></div><div class="desc" style="margin-top:0"><div><span class="lbl">From the developer</span><p class="${l.d.length > 280 ? 'clamp' : ''}">${esc(l.d)}</p>${l.d.length > 280 ? `<button class="more" data-unclamp>More</button>` : ''}</div>
+      <div class="dev"><div><a href="https://github.com/${l.r.split('/')[0]}" target="_blank" rel="noopener">${esc(r.on)}</a><span>Publisher</span></div>
+        <div><a href="${l.u}" target="_blank" rel="noopener" class="mono">${esc(l.r)}${l.p ? '/' + esc(l.p) : ''}</a><span>Source</span></div></div></div>
+
+</section>
     <section class="shelf"><div class="shelf-head"><h2>Discussions<span class="sub">Real threads that link to this repository</span></h2></div>
       ${r.hn === null ? `<p class="empty-note">We couldn't search Hacker News when we added this listing. Try the links below.</p>` : r.hn.length ? `<div class="hn-list">${r.hn.map(h => `<a class="hn" href="https://news.ycombinator.com/item?id=${h[5]}" target="_blank" rel="noopener">
         <span class="src"><span class="dotsrc" style="background:#FF6600"></span>Hacker News<span class="when">${fmtDate(h[4])}</span></span><b>${esc(h[0])}</b>
@@ -1224,7 +1251,9 @@ function pageProduct(id) {
         <div><dt>Last commit</dt><dd>${fmtDate(r.pu)}</dd></div>
         <div><dt>Data fetched</dt><dd>${fmtDate(r.fd || D.gen)}</dd></div>
       </dl></section>
-    ${siblings.length ? `<section class="shelf"><div class="shelf-head"><h2>More from ${esc(l.r)}</h2>${siblings.length > 8 ? `<button class="see-all" data-seeall="${l.r}">See All</button>` : ''}</div><div class="scroller tiles">${siblings.slice(0, 16).map(tile).join('')}</div></section>` : ''}
+    <p class="caveat"><button class="text-btn" style="font-size:13px" data-story="labels">What the labels mean</button></p>
+    </details>
+    ${siblings.length ? `<section class="shelf"><div class="shelf-head"><h2>More from ${esc(niceRepo(l.r))}</h2>${siblings.length > 8 ? `<button class="see-all" data-seeall="${l.r}">See All</button>` : ''}</div><div class="scroller tiles">${siblings.slice(0, 16).map(tile).join('')}</div></section>` : ''}
     ${dataNote()}
   </div>`;
 }
@@ -1313,8 +1342,7 @@ function drawSheet() {
   document.getElementById('sheet-body').innerHTML = `<div class="sheet-bar"><span>Install</span><button class="text-btn" data-closesheet>Done</button></div>
     <div class="sheet-app">${icon(l, 60)}<div class="t"><b>${esc(l.n)}</b><span>${esc(repoOf(l).on)} · ★ ${fmtK(repoOf(l).st)}</span><span class="${t.cls}">${t.short}</span></div></div>
     ${(w => w.length ? `<div class="sheet-warn">${ic('shieldq', 2)}<div><b>Before you install: ${esc(w[0].t)}</b><p>${esc(w[0].n)}</p>${w.length > 1 ? `<p>${w.length - 1} more on its page.</p>` : ''}<a href="#${l.id}" data-closesheet>Read the full listing</a></div></div>` : '')(NT(l).filter(x => x.lv !== 'note'))}
-    <div class="group-label">Choose where to install</div>
-    <p class="sheet-help">${sheetHelp(l)}</p>${instCards(l)}
+    <div class="group-label">${{ skill: 'Pick where you use AI', mcp: 'Pick the AI app you use', tool: 'Pick your computer' }[l.k]}</div>${instCards(l, 2)}
     <a class="pill-link" href="#${l.id}" data-closesheet style="align-self:center">View full listing</a>`;
 }
 // The install sheet and stories each get a history entry, so the browser's Back button closes them
@@ -1365,7 +1393,7 @@ document.addEventListener('click', e => {
   }
   else if (d.suggest) { S.q = d.suggest; document.getElementById('side-q').value = S.q; render(); }
   else if ('unclamp' in d) { t.previousElementSibling.classList.remove('clamp'); t.remove(); }
-  else if (d.jump) { document.getElementById(d.jump)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  else if (d.jump) { const el = document.getElementById(d.jump); if (el?.tagName === 'DETAILS') el.open = true; el?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   else if (d.easy) { S.easy = d.easy === '1'; const y = scrollY; render(); scrollTo(0, y); }
   else if (d.seeall) { S.q = d.seeall; document.getElementById("side-q").value = S.q; go("search"); }
 });
