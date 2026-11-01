@@ -1131,9 +1131,9 @@ function purposeHTML(l) {
           <p class="pc-sub">${m.seriousCode} high or critical finding${m.seriousCode === 1 ? '' : 's'} in running code${m.seriousComment ? `, plus ${m.seriousComment} inside code comments (mostly comments describing attacks the code blocks)` : ''}.</p>
           ${Object.keys(m.other || {}).length ? `<ul class="caps">${Object.entries(m.other).map(([k, o]) => `<li class="cap"><div class="cap-h"><b>${esc(k)}</b><span class="chip ${o.note ? 'c-blue' : 'c-orange'}">${o.n} · ${o.note ? 'Reviewed: benign' : 'Not reviewed'}</span></div>${o.note ? `<p>${esc(o.note)}</p>` : ''}
             ${o.ex.map(e => `<a class="ev mono" href="${gh(e[0], e[1])}" target="_blank" rel="noopener"><span>${esc(e[0])}:${e[1]}</span></a>`).join('')}</li>`).join('')}</ul>` : ''}</div>
-        <div class="pc-card"><h3>Compared with other ${kindWord}</h3>
+        <div class="pc-card"><h3>Scanner flags compared with other ${kindWord}</h3>
           <div class="score">${m.findings.density}<small> per 1,000 lines</small></div>
-          <p class="pc-sub">Weighted high and critical findings in running code. ${m.findings.density === 0 ? `Tied for cleanest of the ${P.n} ${kindWord} with code.` : P.worse ? `Lower than ${P.worse} of the other ${P.n - 1}.` : `The highest of the ${P.n} checked.`} Median: ${P.median}.</p></div>` : ''}
+          <p class="pc-sub">High-risk scanner flags in running code, weighted by severity, before our review. ${m.findings.density === 0 ? `Tied for fewest of the ${P.n} ${kindWord} with code.` : P.worse ? `Fewer than ${P.worse} of the other ${P.n - 1}.` : `The most of the ${P.n} checked.`} Median: ${P.median}. Most flags turn out to be routine, so this shows how much code looks unusual to the scanner, not how safe it is.</p></div>` : ''}
       </div>
     </div>
     <p class="caveat">${m.hasScan ? 'SkillSpector\'s raw score below counts every file in the repository, including tests and docs. ' : ''}The Purpose Check counts only code that runs, and every mismatch was read line by line before being marked benign. Running it in a sandbox and watching what it does would be stronger still.</p>
