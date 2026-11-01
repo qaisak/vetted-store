@@ -3,12 +3,14 @@
 // (4) for MCP servers, extract tool definitions and check descriptions for tool poisoning,
 // (5) where a SkillSpector report exists, split its findings by where they live and compare with peers.
 // Usage: node purpose_analyze.mjs <data.json> <scan-root> <out.json>
+// If <out.json> exists, listings whose source isn't under <scan-root> keep their earlier result, so you can
+// check new listings without downloading every repository again.
 import fs from 'node:fs';
 import path from 'node:path';
 
 const [, , DATA, ROOT, OUT] = process.argv;
 const d = JSON.parse(fs.readFileSync(DATA, 'utf8'));
-const REVIEW_DATE = '2026-10-31';
+const REVIEW_DATE = '2026-10-31';   // a profile's own `date` wins (listings added later)
 
 const S = 'modelcontextprotocol__servers/servers-main/src/';
 // Hand-written profiles: purpose from each project's README, plus the access that purpose needs.
@@ -36,6 +38,25 @@ const PROFILES = {
   'mcp-markdownify-mcp': { purpose: 'Converts almost anything to Markdown: PDFs, Office files, images, audio, web pages and YouTube transcripts.', expect: { network: 'Fetches web pages and transcripts', files: 'Reads the files you convert', shell: 'Runs converter tools', env: 'Converter settings' } },
   'mcp-mcp-searxng': { purpose: 'Private web search through a SearXNG instance, and reads result pages.', expect: { network: 'Queries SearXNG and fetches pages', env: 'SearXNG URL and settings' } },
   'mcp-codebase-memory-mcp': { purpose: 'Indexes your codebase locally into a graph so agents can look up code, docs and structure.', expect: { files: 'Reads your code and stores its index', env: 'Index location and settings' } },
+  // Added November 1, 2026
+  'mcp-figma-context-mcp': { date: '2026-11-01', purpose: 'Gives coding agents the layout and styling data of your Figma designs so they can build them. Reads your files through the Figma API.',
+    expect: { network: 'Calls the Figma API', credentials: 'Needs your Figma access token', env: 'Token and port can come from environment variables', files: 'Downloads images from your Figma file into your project' } },
+  'mcp-ida-pro-mcp': { date: '2026-11-01', purpose: 'Lets the model reverse engineer programs in IDA Pro: read decompiled code and disassembly, rename and comment, and run IDAPython scripts.',
+    expect: { network: 'The MCP server talks to IDA over a local HTTP port', files: 'Opens the binaries and IDA databases you analyze', env: 'Connection and IDA settings' },
+    note: 'The author now recommends Hex-Rays\' official IDA MCP Server instead (README, October 2026). Needs a licensed IDA Pro 8.3 or newer; IDA Free isn\'t supported.' },
+  'mcp-mcp-chrome': { date: '2026-11-01', purpose: 'Lets the model drive your everyday Chrome, with your logins, through a browser extension: navigate, click, fill forms, take screenshots, read pages, history and bookmarks.',
+    expect: { browser: 'Controlling Chrome is its job', network: 'Serves MCP on a local port and has network tools for the pages you browse', files: 'Saves screenshots and its bridge settings', env: 'Runtime settings' } },
+  'mcp-desktopcommandermcp': { date: '2026-11-01', purpose: 'Gives the model a terminal and your files: run and manage commands and processes, and read, write, search and edit files, including Excel, PDF and Word.',
+    expect: { shell: 'Running your commands is its job', files: 'Reading and editing your files is its job', env: 'Passes your environment to the commands it runs', network: 'Its optional Remote MCP mode connects to its own relay service' } },
+  'mcp-google-workspace-mcp': { date: '2026-11-01', purpose: 'Connects the model to your Google Workspace: Gmail, Drive, Calendar, Docs, Sheets, Slides, Forms, Tasks, Contacts and Chat, signed in with OAuth.',
+    expect: { network: 'Calls Google\'s APIs', credentials: 'Signs in to your Google account with OAuth and keeps the tokens', files: 'Stores OAuth tokens and moves files to and from Drive', env: 'OAuth client and server settings come from environment variables' } },
+  'mcp-slack-mcp-server': { date: '2026-11-01', purpose: 'Reads and searches your Slack workspace (channels, threads, DMs, unread messages) and, only if you turn it on, posts messages.',
+    expect: { network: 'Calls Slack\'s API', credentials: 'Uses a Slack token you provide', env: 'Tokens and settings come from environment variables', files: 'Caches users and channels on disk' },
+    note: 'Its "stealth mode" signs in with session tokens (xoxc and the d cookie) that you copy out of your browser, and can mimic a browser\'s TLS handshake. Those tokens act as you, with everything your Slack account can see; check your workspace\'s policy first. Bot (xoxb) or user OAuth (xoxp) tokens are the safer options it also supports.' },
+  'mcp-duckduckgo-mcp-server': { date: '2026-11-01', purpose: 'Searches the web through DuckDuckGo and fetches result pages as clean text.',
+    expect: { network: 'Searching and fetching pages is its job', env: 'Proxy and backend settings' } },
+  'mcp-google-calendar-mcp': { date: '2026-11-01', purpose: 'Manages your Google Calendar: list, search, create, change and delete events, and check free/busy times across accounts.',
+    expect: { network: 'Calls the Google Calendar API', credentials: 'Signs in to your Google account with OAuth', files: 'Reads your OAuth client file and stores tokens', env: 'The credentials path comes from an environment variable' } },
 
   // Community command-line tools
   'ripgrep': { purpose: 'Searches the contents of files for a pattern, very fast.', expect: { files: 'Reads the files it searches', env: 'Config file location (RIPGREP_CONFIG_PATH)', shell: 'Can run decompression tools and --pre preprocessors' } },
@@ -106,7 +127,20 @@ function walk(dir, out = [], base = dir) {
   return out;
 }
 
-function extractTools(src, file) {
+// Tool names written as constants (Go `ToolX = "x"`, TS `KEY: 'x'`), collected across a listing's production files
+const CONST_RE = { go: /\b(\w+)\s*=\s*"([a-z][\w.-]*)"/g, ts: /\b(\w+):\s*['"`]([a-z][\w.-]*)['"`]/g };
+function constantsOf(srcs) {
+  const out = { go: {}, ts: {} };
+  for (const [f, src] of srcs) {
+    const k = /\.go$/.test(f) ? 'go' : /\.[cm]?[jt]sx?$/.test(f) ? 'ts' : null;
+    if (!k) continue;
+    let m; const re = new RegExp(CONST_RE[k]);
+    while ((m = re.exec(src))) out[k][m[1]] ??= m[2];
+  }
+  return out;
+}
+const stripLineComments = src => src.replace(/^\s*\/\/.*$/gm, '');
+function extractTools(src, file, consts = { go: {}, ts: {} }) {
   const tools = [];
   const add = (name, desc) => { if (name && !tools.some(t => t.name === name)) tools.push({ name, desc: (desc || '').replace(/\\n/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 400) }); };
   let m;
@@ -115,9 +149,15 @@ function extractTools(src, file) {
     while ((m = py.exec(src))) add(m[1].replace(/["']/g, '').replace(/^.*\.(\w+)\.value$/, (_, k) => k.toLowerCase()), m[2] || m[3] || m[4]);
     const deco = /@(?:mcp|server|app)\.tool\([^)]*\)\s*\n\s*(?:async\s+)?def\s+(\w+)\([^)]*\)[^:]*:\s*\n\s*(?:"""([\s\S]{0,600}?)"""|"([^"\n]{0,600})")?/g;
     while ((m = deco.exec(src))) add(m[1], m[2] || m[3]);
+    // @tool / @x.tool(...) followed by other decorators and a multi-line signature
+    const deco2 = /^@(?:\w+\.)?tool\b(?:\([\s\S]{0,800}?\))?[ \t]*\n(?:[ \t]*@[^\n]*\n){0,6}[ \t]*(?:async\s+)?def\s+(\w+)\s*\([\s\S]{0,2000}?\)\s*(?:->[^:\n]*)?:[ \t]*\n\s*(?:"{3}([\s\S]{0,600}?)"{3}|"([^"\n]{0,600})")?/gm;
+    while ((m = deco2.exec(src))) add(m[1], m[2] || m[3]);
     return tools;
   }
   if (/\.go$/.test(file)) {
+    src = stripLineComments(src);
+    const goC = /mcp\.NewTool\(\s*(\w+)\s*,[\s\S]{0,300}?mcp\.WithDescription\("((?:[^"\\]|\\.){0,600})"/g;
+    while ((m = goC.exec(src))) if (consts.go[m[1]]) add(consts.go[m[1]], m[2]);
     const go1 = /mcp\.NewTool\(\s*"([\w.-]+)"[\s\S]{0,300}?mcp\.WithDescription\((?:t\(\s*"[^"]*"\s*,\s*)?"((?:[^"\\]|\\.){0,600})"/g;
     while ((m = go1.exec(src))) add(m[1], m[2]);
     const go2 = /\bName:\s*"([\w-]+)",\s*\n\s*Description:\s*(?:t\(\s*"[^"]*",\s*)?"((?:[^"\\]|\\.){0,600})"/g;
@@ -125,6 +165,9 @@ function extractTools(src, file) {
     return tools;
   }
   if (!/\.[cm]?[jt]sx?$/.test(file)) return tools;
+  src = stripLineComments(src);
+  const tsC = /\bname:\s*(?:\w+\.)+(\w+)\s*,\s*\n?\s*description:\s*["'`]([\s\S]{0,600}?)["'`]\s*[,}]/g;
+  while ((m = tsC.exec(src))) if (consts.ts[m[1]]) add(consts.ts[m[1]], m[2]);
   const ts1 = /\.(?:registerTool|tool)\(\s*["'`]([\w.-]+)["'`]\s*,\s*(?:\{[\s\S]{0,400}?description:\s*)?["'`]([\s\S]{0,600}?)["'`]/g;
   while ((m = ts1.exec(src))) add(m[1], m[2]);
   const ts2 = /\bname:\s*["'`]([\w.-]+)["'`]\s*,[\s\S]{0,160}?description:\s*["'`]([\s\S]{0,600}?)["'`]\s*[,}][\s\S]{0,800}?\b(inputSchema|input_schema|annotations|handler)\b/g;
@@ -163,7 +206,9 @@ const TRUSTED = new Set(['anthropics', 'openai', 'NVIDIA', 'microsoft', 'github'
 const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'NVIDIA/SkillSpector': 'SkillSpector' };
 const idOf = (l, m) => (l.kind === 'skill' ? `${m.owner}-${l.slug}` : l.kind === 'mcp' ? `mcp-${l.slug}` : (NAME[m.full] || l.slug)).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
+const PREV = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, 'utf8')) : {};
 const results = {};
+const kept = [];
 for (const l of d.listings) {
   const m = d.repos[l.repo] || Object.values(d.repos).find(x => x?.full === l.repo);
   if (!m || l.slug === 'template-skill') continue;
@@ -172,7 +217,7 @@ for (const l of d.listings) {
   let prof = PROFILES[id];
   if (!prof && (trusted || l.kind !== 'skill')) continue;   // trusted skills and unprofiled tools are not checked
   const repoDir = path.join(ROOT, 'src', m.full.replace('/', '__'));
-  if (!fs.existsSync(repoDir)) continue;
+  if (!fs.existsSync(repoDir)) { if (PREV[id] && !results[id]) { results[id] = PREV[id]; kept.push(id); } continue; }
   const top = fs.readdirSync(repoDir)[0];
   const base = prof?.dir ? path.join(ROOT, 'src', ...prof.dir.split('/')) : path.join(repoDir, top, ...(l.path ? l.path.split('/') : []));
   if (!fs.existsSync(base)) { console.error('NO DIR', id, base); continue; }
@@ -188,6 +233,7 @@ for (const l of d.listings) {
   let loc = 0;
   const caps = {};
   let tools = [];
+  const srcs = [];
   for (const f of kinds.production) {
     let text;
     try { text = fs.readFileSync(path.join(base, f), 'utf8'); } catch (e) { continue; }
@@ -199,8 +245,10 @@ for (const l of d.listings) {
       for (let i = 0; i < lines.length && hits.length < 3; i++) if (c.re.test(lines[i]) && !commentRe.test(lines[i])) hits.push([f, i + 1, lines[i].trim().slice(0, 120)]);
       if (hits.length) { caps[k] ??= { files: 0, ex: [] }; caps[k].files++; if (caps[k].ex.length < 3) caps[k].ex.push(...hits.slice(0, 3 - caps[k].ex.length)); }
     }
-    if (l.kind === 'mcp') tools = tools.concat(extractTools(text, f).filter(t => !tools.some(x => x.name === t.name)));
+    if (l.kind === 'mcp') srcs.push([f, text]);
   }
+  const consts = constantsOf(srcs);
+  for (const [f, text] of srcs) tools = tools.concat(extractTools(text, f, consts).filter(t => !tools.some(x => x.name === t.name)));
   for (const t of tools) t.flags = POISON.filter(([re]) => re.test(t.desc) || re.test(t.name)).map(([, why]) => why);
 
   const repPath = path.join(ROOT, 'out', id + '.json');
@@ -230,7 +278,8 @@ for (const l of d.listings) {
   const fr = rev._findings || [];   // individual findings a reviewer read: benign, or a notice worth showing
   const reviewedFinding = s => fr.some(f => (s.snip || '').includes(f.match));
   const unexpectedSerious = seriousCode.filter(s => !reviewedFinding(s) && ((s.expected === false && !rev[s.cap]) || (s.cap === 'other' && !patKey(s))));
-  const notices = fr.filter(f => f.level === 'notice' && seriousCode.some(s => (s.snip || '').includes(f.match))).map(({ title, note, where }) => ({ title, note, where }));
+  const notices = fr.filter(f => f.level === 'notice' && seriousCode.some(s => (s.snip || '').includes(f.match))).map(({ title, note, where }) => ({ title, note, where }))
+    .concat((rev._notices || []).map(({ title, note, where }) => ({ title, note, where })));   // reviewer notices that don't hinge on a scan finding
   const other = {};
   for (const s of seriousCode.filter(s => s.cap === 'other' && !reviewedFinding(s))) {
     const k = patKey(s) || s.pat || s.cat;
@@ -238,7 +287,7 @@ for (const l of d.listings) {
     other[k].n++;
     if (other[k].ex.length < 2) other[k].ex.push([s.file, s.line]);
   }
-  results[id] = { kind: l.kind, purpose: prof.purpose, auto: !!prof.auto, note: prof.note || null, reviewNotes: rev, reviewDate: REVIEW_DATE,
+  results[id] = { kind: l.kind, purpose: prof.purpose, auto: !!prof.auto, note: prof.note || null, reviewNotes: rev, reviewDate: prof.date || REVIEW_DATE,
     files: { total: files.length, production: kinds.production.length, tests: kinds['tests & tooling'].length, docs: kinds.docs.length },
     loc, codeFree: kinds.production.length === 0, caps: capList, unexpected, reviewed: capList.filter(c => c.reviewed).map(c => c.k),
     tools: tools.slice(0, 80), toolCount: tools.length, poisoned: poisoned.length, hasScan: !!rep,
@@ -258,5 +307,6 @@ for (const r of Object.values(results)) {
 }
 fs.writeFileSync(OUT, JSON.stringify(results));
 const rows = Object.entries(results);
-console.error('checked', rows.length, Object.fromEntries(['fits', 'review', 'flag'].map(v => [v, rows.filter(([, r]) => r.verdict === v).length])), 'code-free skills', rows.filter(([, r]) => r.codeFree).length);
+if (kept.length) console.error('kept', kept.length, 'earlier results (no source under scan root)');
+console.error('checked', rows.length - kept.length, Object.fromEntries(['fits', 'review', 'flag'].map(v => [v, rows.filter(([, r]) => r.verdict === v).length])), 'code-free skills', rows.filter(([, r]) => r.codeFree).length);
 for (const [id, r] of rows) if (r.verdict !== 'fits') console.log(id.padEnd(34), r.verdict.padEnd(7), r.kind.padEnd(6), '| unexpected', r.unexpected.join(',') || '-', '| unexp serious', r.unexpectedSerious, '| poison', r.poisoned);

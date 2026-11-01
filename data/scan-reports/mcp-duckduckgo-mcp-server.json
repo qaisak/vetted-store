@@ -1,0 +1,1448 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/nickclyde__duckduckgo-mcp-server/duckduckgo-mcp-server-main",
+    "scanned_at": "2026-11-01T00:51:51.004256+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": ".github/workflows/docker.yml",
+      "type": "yaml",
+      "lines": 58,
+      "executable": false,
+      "size_bytes": 1517,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/python-publish.yml",
+      "type": "yaml",
+      "lines": 70,
+      "executable": false,
+      "size_bytes": 2218,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/test.yml",
+      "type": "yaml",
+      "lines": 35,
+      "executable": false,
+      "size_bytes": 1040,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 171,
+      "executable": false,
+      "size_bytes": 3415,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".python-version",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 7,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CLAUDE.md",
+      "type": "markdown",
+      "lines": 84,
+      "executable": false,
+      "size_bytes": 5578,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Dockerfile",
+      "type": "other",
+      "lines": 12,
+      "executable": false,
+      "size_bytes": 275,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1067,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 372,
+      "executable": false,
+      "size_bytes": 16193,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "SECURITY.md",
+      "type": "markdown",
+      "lines": 56,
+      "executable": false,
+      "size_bytes": 2451,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "pyproject.toml",
+      "type": "toml",
+      "lines": 59,
+      "executable": false,
+      "size_bytes": 2027,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/duckduckgo_mcp_server/__init__.py",
+      "type": "python",
+      "lines": 1,
+      "executable": true,
+      "size_bytes": 22,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/duckduckgo_mcp_server/server.py",
+      "type": "python",
+      "lines": 1767,
+      "executable": true,
+      "size_bytes": 73238,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/duckduckgo_mcp_server/test_e2e.py",
+      "type": "python",
+      "lines": 187,
+      "executable": true,
+      "size_bytes": 6808,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/duckduckgo_mcp_server/test_server.py",
+      "type": "python",
+      "lines": 1697,
+      "executable": true,
+      "size_bytes": 72446,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "uv.lock",
+      "type": "other",
+      "lines": 1114,
+      "executable": false,
+      "size_bytes": 181786,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "SSRF1",
+      "finding_id": "finding-a9d1071a672b42d39d9c5d98d13162f7",
+      "category": "Server-Side Request Forgery",
+      "pattern": "Cloud Metadata Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "README.md",
+        "start_line": 287,
+        "end_line": null,
+        "start_column": 58
+      },
+      "finding": "169.254.169.254",
+      "explanation": "Code accesses a cloud instance metadata endpoint (e.g. 169.254.169.254). A single request can return temporary IAM credentials, making this a high-value SSRF target for credential theft.",
+      "remediation": "Remove access to cloud metadata endpoints unless strictly required. If metadata is needed, restrict it (e.g. IMDSv2 with hop limit) and never expose returned credentials.",
+      "code_snippet": "Cleaned and formatted text content from the webpage. The parsed full page is cached in memory (default 5 minutes) so later pages via `start_index` do not re-download. Metadata includes `cache=hit` or `cache=miss` when the cache is enabled.\n\n> **SSRF protection:** By default `fetch_content` refuses URLs that resolve to\n> loopback, private (RFC1918), link-local (including the `169.254.169.254` cloud\n> metadata endpoint), reserved, multicast, or unspecified addresses, and it\n> re-validates every redirect hop. Only `http`/`https` URLs are allowed. For\n> trusted local deployments that need to fetch internal hosts, disable the guard",
+      "intent": null,
+      "tags": [
+        "Server-Side Request Forgery"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d61ab72824eae3143803cfed4f723d8454fedefdac1d6ad5c7f4299f9032a6ee",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 287,
+          "end_line": null,
+          "start_column": 58
+        }
+      ]
+    },
+    {
+      "id": "SSRF1",
+      "finding_id": "finding-24d98f65e5f34544a26e548b8566918b",
+      "category": "Server-Side Request Forgery",
+      "pattern": "Cloud Metadata Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/duckduckgo_mcp_server/test_server.py",
+        "start_line": 1286,
+        "end_line": null,
+        "start_column": 37
+      },
+      "finding": "169.254.169.254",
+      "explanation": "Code accesses a cloud instance metadata endpoint (e.g. 169.254.169.254). A single request can return temporary IAM credentials, making this a high-value SSRF target for credential theft.",
+      "remediation": "Remove access to cloud metadata endpoints unless strictly required. If metadata is needed, restrict it (e.g. IMDSv2 with hop limit) and never expose returned credentials.",
+      "code_snippet": "        self._assert_blocked(\"https://sub.localhost/\")\n\n    def test_rejects_cloud_metadata_ip(self):\n        self._assert_blocked(\"http://169.254.169.254/latest/meta-data/\")\n\n    def test_rejects_private_ips(self):\n        for host in (\"10.0.0.1\", \"192.168.1.1\", \"172.16.5.4\"):",
+      "intent": null,
+      "tags": [
+        "Server-Side Request Forgery"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d61ab72824eae3143803cfed4f723d8454fedefdac1d6ad5c7f4299f9032a6ee",
+      "occurrences": [
+        {
+          "file": "src/duckduckgo_mcp_server/test_server.py",
+          "start_line": 1286,
+          "end_line": null,
+          "start_column": 37
+        }
+      ]
+    },
+    {
+      "id": "SSRF1",
+      "finding_id": "finding-98783c2d06714ad8ae7bce3f60fc075b",
+      "category": "Server-Side Request Forgery",
+      "pattern": "Cloud Metadata Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "src/duckduckgo_mcp_server/test_server.py",
+        "start_line": 1332,
+        "end_line": null,
+        "start_column": 44
+      },
+      "finding": "169.254.169.254",
+      "explanation": "Code accesses a cloud instance metadata endpoint (e.g. 169.254.169.254). A single request can return temporary IAM credentials, making this a high-value SSRF target for credential theft.",
+      "remediation": "Remove access to cloud metadata endpoints unless strictly required. If metadata is needed, restrict it (e.g. IMDSv2 with hop limit) and never expose returned credentials.",
+      "code_snippet": "    def test_fetch_content_blocks_metadata_by_default(self):\n        fetcher = WebContentFetcher()\n        result = asyncio.run(\n            fetcher.fetch_and_parse(\"http://169.254.169.254/latest/meta-data/\", DummyCtx())\n        )\n        self.assertIn(\"Refusing to fetch\", result)\n",
+      "intent": null,
+      "tags": [
+        "Server-Side Request Forgery"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d61ab72824eae3143803cfed4f723d8454fedefdac1d6ad5c7f4299f9032a6ee",
+      "occurrences": [
+        {
+          "file": "src/duckduckgo_mcp_server/test_server.py",
+          "start_line": 1332,
+          "end_line": null,
+          "start_column": 44
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-eafb6dd06b7b4d83bd24ba3c59b27d9a",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "src/duckduckgo_mcp_server/test_server.py",
+        "start_line": 1313,
+        "end_line": null,
+        "start_column": 37
+      },
+      "finding": "/etc/passwd",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "        self._assert_blocked(\"<redacted-url>\")\n\n    def test_rejects_non_http_scheme(self):\n        self._assert_blocked(\"file:///etc/passwd\")\n        self._assert_blocked(\"ftp://example.com/x\")\n        self._assert_blocked(\"gopher://127.0.0.1/\")\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac75eea6ed115d0252fb13bbb10e9c4421764d5a7612787edcde6a78569d8f88",
+      "occurrences": [
+        {
+          "file": "src/duckduckgo_mcp_server/test_server.py",
+          "start_line": 1313,
+          "end_line": null,
+          "start_column": 37
+        }
+      ]
+    },
+    {
+      "id": "TM3",
+      "finding_id": "finding-e7f48dd2d7624e32ad9bf27229c7b9db",
+      "category": "Tool Misuse",
+      "pattern": "Unsafe Defaults",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "CLAUDE.md",
+        "start_line": 63,
+        "end_line": null,
+        "start_column": 168
+      },
+      "finding": "SSL_VERIFY=0",
+      "explanation": "Tool defaults are unsafe or overly permissive (e.g. disabled TLS verification, no authentication, world-writable permissions). Unsafe defaults widen the attack surface.",
+      "remediation": "Override unsafe defaults with secure settings (verify=True, auth required, restrictive permissions). Review and harden all tool configurations.",
+      "code_snippet": "D_HOSTS` / `DDG_ALLOWED_ORIGINS`: comma-separated Host/Origin allow-lists for the HTTP transports (DNS-rebinding protection). Needed behind a reverse proxy / in Docker to avoid `421 Misdirected Request`. Also `--allowed-hosts` / `--allowed-origins`, or `--disable-dns-rebinding-protection` (`DDG_DISABLE_DNS_REBINDING_PROTECTION`).\n- `DDG_CA_CERTS`: path to a PEM CA bundle for verifying TLS on outbound requests (needed behind TLS-intercepting proxies \u2014 httpx no longer reads `SSL_CERT_FILE`). `DDG_SSL_VERIFY=0` disables verification entirely (discouraged). Also `--ca-certs` / `--no-ssl-verify`. Applies to all four client sites (httpx + curl_cffi, search + fetch).\n- `DDG_RATE_LIMIT_STRATEGY`: `sliding` (default) or `token_bucket`. Also `--rate-limit-strategy`.\n- `DDG_SEARCH_RPM` / `DDG_FETCH_RPM` / `DDG_FETCH_HOST_RPM`: rate-limit caps (defaults 30 / 20 / 0; the per-host cap is opt-in). Also `--search-rpm` / `--fetch-rpm` / `--fetch-host-rpm`.\n- `DDG_CACHE_TTL` / `DDG_CACHE_MAX_ENTRIES`: i",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c7079216e01aec6b4eacd6c55fcc9f2da657037a986a801812ba9b06fae50f95",
+      "occurrences": [
+        {
+          "file": "CLAUDE.md",
+          "start_line": 63,
+          "end_line": null,
+          "start_column": 168
+        }
+      ]
+    },
+    {
+      "id": "TM3",
+      "finding_id": "finding-203797e674944769b493f8faf4715c62",
+      "category": "Tool Misuse",
+      "pattern": "Unsafe Defaults",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "README.md",
+        "start_line": 146,
+        "end_line": null,
+        "start_column": 45
+      },
+      "finding": "SSL_VERIFY=0",
+      "explanation": "Tool defaults are unsafe or overly permissive (e.g. disabled TLS verification, no authentication, world-writable permissions). Unsafe defaults widen the attack surface.",
+      "remediation": "Override unsafe defaults with secure settings (verify=True, auth required, restrictive permissions). Review and harden all tool configurations.",
+      "code_snippet": "\nOr set `DDG_CA_CERTS=/path/to/proxy-ca.pem`. The bundle is used by both the `search` and `fetch_content` tools, on the httpx and curl backends alike.\n\nAs a last resort, `--no-ssl-verify` (or `DDG_SSL_VERIFY=0`) disables certificate verification entirely. This exposes traffic to interception by anyone on the network path \u2014 prefer `--ca-certs`.\n\n### Backends (bypassing bot detection)\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c7079216e01aec6b4eacd6c55fcc9f2da657037a986a801812ba9b06fae50f95",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 146,
+          "end_line": null,
+          "start_column": 45
+        }
+      ]
+    },
+    {
+      "id": "TM3",
+      "finding_id": "finding-663a63e543534e4986ba49f32c753a9c",
+      "category": "Tool Misuse",
+      "pattern": "Unsafe Defaults",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "src/duckduckgo_mcp_server/server.py",
+        "start_line": 1448,
+        "end_line": null,
+        "start_column": 21
+      },
+      "finding": "SSL_VERIFY=0",
+      "explanation": "Tool defaults are unsafe or overly permissive (e.g. disabled TLS verification, no authentication, world-writable permissions). Unsafe defaults widen the attack surface.",
+      "remediation": "Override unsafe defaults with secure settings (verify=True, auth required, restrictive permissions). Review and harden all tool configurations.",
+      "code_snippet": "        help=(\n            \"Disable TLS certificate verification on outbound requests entirely. \"\n            \"Insecure; prefer --ca-certs with your proxy's CA bundle. Also settable \"\n            \"via DDG_SSL_VERIFY=0.\"\n        ),\n    )\n    parser.add_argument(",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c7079216e01aec6b4eacd6c55fcc9f2da657037a986a801812ba9b06fae50f95",
+      "occurrences": [
+        {
+          "file": "src/duckduckgo_mcp_server/server.py",
+          "start_line": 1448,
+          "end_line": null,
+          "start_column": 21
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-6f5bd28596b6453fa09e67179379985c",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx duckduckgo-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 12,
+        "end_line": null
+      },
+      "finding": "uvx duckduckgo-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ab44a1f5dd4253a04625964534c2b1cf5128b51e9f69ccc9206d8810fb2dba72",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 12,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-9a6b129ad14942c481e938a648ffdc88",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx duckduckgo-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 98,
+        "end_line": null
+      },
+      "finding": "uvx duckduckgo-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ab44a1f5dd4253a04625964534c2b1cf5128b51e9f69ccc9206d8810fb2dba72",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 98,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-d9d9e4b7ff3245c285f664159d592377",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx duckduckgo-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 106,
+        "end_line": null
+      },
+      "finding": "uvx duckduckgo-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ab44a1f5dd4253a04625964534c2b1cf5128b51e9f69ccc9206d8810fb2dba72",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 106,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-cbe87bea7d5e456eac537e3fab57cd94",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx duckduckgo-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 109,
+        "end_line": null
+      },
+      "finding": "uvx duckduckgo-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ab44a1f5dd4253a04625964534c2b1cf5128b51e9f69ccc9206d8810fb2dba72",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 109,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-495ee1e83b6c48d18d861b3ee70fcaeb",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx duckduckgo-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 117,
+        "end_line": null
+      },
+      "finding": "uvx duckduckgo-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ab44a1f5dd4253a04625964534c2b1cf5128b51e9f69ccc9206d8810fb2dba72",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 117,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-d30b34a446f14d43844767d949937504",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx duckduckgo-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 127,
+        "end_line": null
+      },
+      "finding": "uvx duckduckgo-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ab44a1f5dd4253a04625964534c2b1cf5128b51e9f69ccc9206d8810fb2dba72",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 127,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-78ff6b2e49a44fbc8a20c606bf77386c",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx duckduckgo-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 141,
+        "end_line": null
+      },
+      "finding": "uvx duckduckgo-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ab44a1f5dd4253a04625964534c2b1cf5128b51e9f69ccc9206d8810fb2dba72",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 141,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-6fd70deaa0ea4811a4b9db563c3a3a43",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx duckduckgo-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 178,
+        "end_line": null
+      },
+      "finding": "uvx duckduckgo-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ab44a1f5dd4253a04625964534c2b1cf5128b51e9f69ccc9206d8810fb2dba72",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 178,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-593b51b13d2344ebbb3a63268f0a4c7b",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx duckduckgo-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "README.md",
+        "start_line": 205,
+        "end_line": null
+      },
+      "finding": "uvx duckduckgo-mcp-server",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ab44a1f5dd4253a04625964534c2b1cf5128b51e9f69ccc9206d8810fb2dba72",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 205,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-db7fd2b6e31f43868a27a9220f8d67f5",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "README.md",
+        "start_line": 372,
+        "end_line": null,
+        "start_column": 23
+      },
+      "finding": "https://api.star-history.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "\n## Star History\n\n[![Star History Chart](https://api.star-history.com/svg?repos=nickclyde%2Fduckduckgo-mcp-server&type=Date%29%5D%28https%3A%2F%2Fstar-history.com%2F)",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c06eb9dcce566eface7ed9d9b8f4f843540932ec29c0a65432d0c0b18ac4cd96",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 372,
+          "end_line": null,
+          "start_column": 23
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-c5d2d59d92ee4452b447de308bc1f311",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "src/duckduckgo_mcp_server/server.py",
+        "start_line": 397,
+        "end_line": null,
+        "start_column": 33
+      },
+      "finding": "disable verification",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "                require the optional [browser] extra.\n            ssl_verify: TLS verification passed to the HTTP clients: True (default\n                trust store), a path to a CA bundle (e.g. a TLS-intercepting proxy's\n                CA), or False to disable verification.\n            requests_per_minute: Search rate-limit cap (default 30).\n            rate_limit_strategy: \"sliding\" (default) or \"token_bucket\".\n            ref_url_threshold: Result URLs longer than this many characters are",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c965b97a293cd08fda18fd08cbcdc4f12bc23abee2a3fed1ec06b78323b9a02e",
+      "occurrences": [
+        {
+          "file": "src/duckduckgo_mcp_server/server.py",
+          "start_line": 397,
+          "end_line": null,
+          "start_column": 33
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-b5a3aa08a93c4cf3b9d623407dce7d13",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "src/duckduckgo_mcp_server/server.py",
+        "start_line": 913,
+        "end_line": null,
+        "start_column": 33
+      },
+      "finding": "disable verification",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "                internal hosts.\n            ssl_verify: TLS verification passed to the HTTP clients: True (default\n                trust store), a path to a CA bundle (e.g. a TLS-intercepting proxy's\n                CA), or False to disable verification.\n            requests_per_minute: Global fetch rate-limit cap (default 20).\n            host_requests_per_minute: Optional per-host cap. 0 (default) disables it.\n            rate_limit_strategy: \"sliding\" (default) or \"token_bucket\".",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c965b97a293cd08fda18fd08cbcdc4f12bc23abee2a3fed1ec06b78323b9a02e",
+      "occurrences": [
+        {
+          "file": "src/duckduckgo_mcp_server/server.py",
+          "start_line": 913,
+          "end_line": null,
+          "start_column": 33
+        }
+      ]
+    },
+    {
+      "id": "TM3",
+      "finding_id": "finding-1ff12e80f9494ab4a8f6bb9c751e34c8",
+      "category": "Tool Misuse",
+      "pattern": "Unsafe Defaults",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "src/duckduckgo_mcp_server/test_server.py",
+        "start_line": 1616,
+        "end_line": null,
+        "start_column": 61
+      },
+      "finding": "ssl_verify=False",
+      "explanation": "Tool defaults are unsafe or overly permissive (e.g. disabled TLS verification, no authentication, world-writable permissions). Unsafe defaults widen the attack surface.",
+      "remediation": "Override unsafe defaults with secure settings (verify=True, auth required, restrictive permissions). Review and harden all tool configurations.",
+      "code_snippet": "        self.assertEqual(mock_cls.call_args.kwargs.get(\"verify\"), \"/etc/proxy-ca.pem\")\n\n    def test_fetcher_passes_verify_to_httpx_client(self):\n        fetcher = WebContentFetcher(allow_private_urls=True, ssl_verify=False)\n        mock_resp = MagicMock()\n        mock_resp.text = \"<html><body><p>ok</p></body></html>\"\n        mock_resp.status_code = 200",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "37d1087de3bec613537788ac5996d86bf2ebfdb8f6848419a8eee959b3d662ab",
+      "occurrences": [
+        {
+          "file": "src/duckduckgo_mcp_server/test_server.py",
+          "start_line": 1616,
+          "end_line": null,
+          "start_column": 61
+        }
+      ]
+    },
+    {
+      "id": "TM3",
+      "finding_id": "finding-366571288ce74d969319a6c98103ab3a",
+      "category": "Tool Misuse",
+      "pattern": "Unsafe Defaults",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/duckduckgo_mcp_server/test_server.py",
+        "start_line": 1616,
+        "end_line": null,
+        "start_column": 65
+      },
+      "finding": "verify=False",
+      "explanation": "Tool defaults are unsafe or overly permissive (e.g. disabled TLS verification, no authentication, world-writable permissions). Unsafe defaults widen the attack surface.",
+      "remediation": "Override unsafe defaults with secure settings (verify=True, auth required, restrictive permissions). Review and harden all tool configurations.",
+      "code_snippet": "        self.assertEqual(mock_cls.call_args.kwargs.get(\"verify\"), \"/etc/proxy-ca.pem\")\n\n    def test_fetcher_passes_verify_to_httpx_client(self):\n        fetcher = WebContentFetcher(allow_private_urls=True, ssl_verify=False)\n        mock_resp = MagicMock()\n        mock_resp.text = \"<html><body><p>ok</p></body></html>\"\n        mock_resp.status_code = 200",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "32c33b7fe49c4c187f8445a62c5d3de6aecd68ba73b07d6ad829e087de50536f",
+      "occurrences": [
+        {
+          "file": "src/duckduckgo_mcp_server/test_server.py",
+          "start_line": 1616,
+          "end_line": null,
+          "start_column": 65
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-538a7cd21fbd46fa882a0eed9ee61aaf",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server dependency without pinned version: 'pip install duckduckgo-mcp-server'.",
+      "severity": "LOW",
+      "confidence": 0.6,
+      "location": {
+        "file": "README.md",
+        "start_line": 29,
+        "end_line": null
+      },
+      "finding": "pip install duckduckgo-mcp-server",
+      "explanation": "pip install without ==version installs the latest release, which could include malicious changes.",
+      "remediation": "Pin the version: pip install package==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "301784c22a17aca10334489cc2ca9cee41e7b097a75603b1b2539354826af80a",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 29,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-c69968a0130c45448e46d716a98efceb",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server dependency without pinned version: 'pip install duckduckgo-mcp-server'.",
+      "severity": "LOW",
+      "confidence": 0.6,
+      "location": {
+        "file": "README.md",
+        "start_line": 158,
+        "end_line": null
+      },
+      "finding": "pip install duckduckgo-mcp-server",
+      "explanation": "pip install without ==version installs the latest release, which could include malicious changes.",
+      "remediation": "Pin the version: pip install package==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "301784c22a17aca10334489cc2ca9cee41e7b097a75603b1b2539354826af80a",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 158,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-17a41cced60f4835bd73e0f7fb8d419d",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server dependency without pinned version: 'pip install duckduckgo-mcp-server'.",
+      "severity": "LOW",
+      "confidence": 0.6,
+      "location": {
+        "file": "pyproject.toml",
+        "start_line": 25,
+        "end_line": null
+      },
+      "finding": "pip install duckduckgo-mcp-server",
+      "explanation": "pip install without ==version installs the latest release, which could include malicious changes.",
+      "remediation": "Pin the version: pip install package==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "301784c22a17aca10334489cc2ca9cee41e7b097a75603b1b2539354826af80a",
+      "occurrences": [
+        {
+          "file": "pyproject.toml",
+          "start_line": 25,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-552f498d31c34b9a9a9130c0bfb8232d",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (15 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "pyproject.toml",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "pyproject.toml",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-e55b68ae1b3a4e469e3ff16bb4b5ad16",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (15 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "uv.lock",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "uv.lock",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 16,
+    "scanned_components": 14,
+    "coverage_percent": 87.5,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 14,
+    "partially_inspected_files": 2,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "analyzer_runtime_error",
+        "message": "Analyzer failed after beginning applicable work.",
+        "path": "pyproject.toml",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_analyzer_runtime_error"
+        ],
+        "error_class": "ProxyError"
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "analyzer_runtime_error",
+        "message": "Analyzer failed after beginning applicable work.",
+        "path": "uv.lock",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_analyzer_runtime_error"
+        ],
+        "error_class": "ProxyError"
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 4,
+        "completed": 4,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 18,
+        "completed": 16,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 16,
+        "completed": 16,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_supply_chain status: degraded."
+    ],
+    "findings_before_filtering": 26,
+    "findings_after_filtering": 26,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

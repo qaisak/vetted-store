@@ -12,8 +12,26 @@
   },
   "mcp-mcp-for-blender": {
     "_findings": [
-      { "match": "compile(source", "level": "notice", "title": "Self-updates from the main branch", "where": [["addon.py", 6651], ["addon.py", 6694], ["addon.py", 6787]],
-        "note": "On startup the Blender add-on checks GitHub for a newer addon.py from the project's main branch, not from a signed or tagged release. It only installs when you click \"Update Addon\", syntax-checks the download first (compile() doesn't run it) and keeps a .bak of the old file. SkillSpector rates this critical. It isn't malicious, but clicking update means trusting whatever is on main at that moment. Set BLENDERMCP_NO_UPDATE_CHECK to turn the check off." }
+      {
+        "match": "compile(source",
+        "level": "notice",
+        "title": "Self-updates from the main branch",
+        "where": [
+          [
+            "addon.py",
+            6651
+          ],
+          [
+            "addon.py",
+            6694
+          ],
+          [
+            "addon.py",
+            6787
+          ]
+        ],
+        "note": "On startup the Blender add-on checks GitHub for a newer addon.py from the project's main branch, not from a signed or tagged release. It only installs when you click \"Update Addon\", syntax-checks the download first (compile() doesn't run it) and keeps a .bak of the old file. SkillSpector rates this critical. It isn't malicious, but clicking update means trusting whatever is on main at that moment. Set BLENDERMCP_NO_UPDATE_CHECK to turn the check off."
+      }
     ],
     "files": "The Blender add-on saves downloaded models and textures and imports them into your scene.",
     "shell": "Its setup command finds Blender and runs it to install the add-on.",
@@ -61,5 +79,107 @@
   },
   "mise": {
     "secretFiles": "Reads Docker registry credentials (~/.docker/config.json) to download tools from OCI registries. The .ssh matches checked are in tests."
+  },
+  "mcp-figma-context-mcp": {
+    "_notices": [
+      {
+        "title": "Sends usage telemetry by default",
+        "where": [
+          [
+            "src/telemetry/client.ts",
+            11
+          ],
+          [
+            "src/bin.ts",
+            58
+          ]
+        ],
+        "note": "It sends usage events to PostHog (us.i.posthog.com) unless you opt out: which tool ran, how long it took, response sizes, your MCP client's name and error messages, with your Figma token redacted. Turn it off with --no-telemetry, FRAMELINK_TELEMETRY=off or DO_NOT_TRACK=1."
+      }
+    ]
+  },
+  "mcp-ida-pro-mcp": {
+    "shell": "Starts IDA itself: one tool opens a file in a new IDA window (src/ida_pro_mcp/ida_mcp/discovery.py:252), and idalib mode runs its own worker processes on 127.0.0.1 (src/ida_pro_mcp/idalib_supervisor.py:279).",
+    "_findings": [
+      {
+        "match": "exec(",
+        "level": "notice",
+        "title": "Can run any Python inside IDA",
+        "where": [
+          [
+            "src/ida_pro_mcp/ida_mcp/api_python.py",
+            157
+          ],
+          [
+            "src/ida_pro_mcp/ida_mcp/api_python.py",
+            254
+          ]
+        ],
+        "note": "py_eval and py_exec_file run Python the model writes inside IDA, and that Python can do anything on your computer, not just read the database. That's the IDAPython feature it advertises, and SkillSpector rates it critical. In idalib mode these tools and the debugger tools stay off unless you start it with --unsafe (src/ida_pro_mcp/idalib_server.py:289). The IDA GUI plugin turns every tool on by default; switch the unsafe ones off on its configuration page."
+      },
+      {
+        "match": "eval(",
+        "level": "benign",
+        "note": "The same py_eval feature: it evaluates the last expression of the Python you send."
+      }
+    ]
+  },
+  "mcp-mcp-chrome": {
+    "shell": "Only in its optional agent chat (the Visual Editor for Claude Code and Codex): it opens your system's folder picker (app/native-server/src/agent/directory-picker.ts), runs the Codex CLI in the project you pick (agent/engines/codex.ts:166), and can open that folder in VS Code or a terminal (agent/open-project.ts). The browser tools don't run programs.",
+    "credentials": "A redaction list: it strips cookies, tokens and API keys from page and network output before the model sees it (app/chrome-extension/utils/output-sanitizer.ts). The agent chat can also read your local Claude Code Router config to route through it (agent/ccr-detector.ts).",
+    "_notices": [
+      {
+        "title": "Its agent chat skips permission prompts",
+        "where": [
+          [
+            "app/native-server/src/agent/engines/claude.ts",
+            469
+          ],
+          [
+            "app/native-server/src/agent/engines/codex.ts",
+            111
+          ]
+        ],
+        "note": "The optional agent chat in the side panel runs Claude Code with permission prompts off unless you pick another mode (bypassPermissions), and always runs Codex with --dangerously-bypass-approvals-and-sandbox, in the project folder you choose. Whatever the agent decides to do there happens without asking you. The browser tools work without this feature."
+      }
+    ]
+  },
+  "mcp-desktopcommandermcp": {
+    "credentials": "Signs in to its Remote MCP service with an OAuth device code and keeps that session token (src/remote-device/device-authenticator.ts). That's the optional remote mode; the local server needs no account.",
+    "browser": "Only for writing PDFs: md-to-pdf renders your Markdown in headless Chrome with a throwaway profile (src/tools/pdf/markdown.ts). It doesn't browse the web.",
+    "_notices": [
+      {
+        "title": "Sends usage telemetry by default",
+        "where": [
+          [
+            "src/utils/capture.ts",
+            61
+          ],
+          [
+            "src/utils/capture.ts",
+            255
+          ]
+        ],
+        "note": "It sends usage events to telemetry.desktopcommander.app unless you opt out: tool names, OS and versions, file extensions and sizes, and base command names. Its privacy policy says it never sends file paths, file contents or command arguments. Turn it off with \"telemetryEnabled\": false in ~/.desktop-commander/config.json, by asking the assistant to disable it, or with DESKTOP_COMMANDER_DISABLE_TELEMETRY=1."
+      }
+    ]
+  },
+  "mcp-google-workspace-mcp": {
+    "secretFiles": "A block list: before attaching or uploading a local file it refuses .ssh, .aws, .kube, .gnupg and gcloud folders, and files like .netrc, .npmrc and credentials.json (core/utils.py:330-370). Local files are limited to the folders in ALLOWED_FILE_DIRS.",
+    "_findings": [
+      {
+        "match": "upload session",
+        "level": "benign",
+        "note": "SkillSpector reads \"session\" as a leaked session. These lines are messages about Google Drive resumable uploads: when you turn on return_upload_url (offered only where local file access is off), the server hands your client Google's upload URL for that one file so the bytes go straight to Google (gdrive/drive_helpers.py:873, gdrive/drive_tools.py:2223). No sign-in token is included."
+      },
+      {
+        "match": "silently send",
+        "level": "benign",
+        "note": "A docstring and an error message saying Gmail \"would silently send from the default address\" if the From address isn't one of yours. The code refuses to send in that case (gmail/gmail_helpers.py:1745)."
+      }
+    ]
+  },
+  "mcp-slack-mcp-server": {
+    "shell": "Its npm package is a small launcher that runs the prebuilt Go binary for your platform (npm/slack-mcp-server/bin/index.js:64)."
   }
 }

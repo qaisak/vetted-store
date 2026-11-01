@@ -5,6 +5,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const OUT = process.argv[2];
+// --only owner/repo,owner/repo: fetch just those repos and merge them into the existing OUT file,
+// keeping every other listing (and its Scorecard and Hacker News data) exactly as it was.
+const onlyArg = process.argv.indexOf('--only');
+const ONLY = onlyArg > 0 ? new Set(process.argv[onlyArg + 1].split(',').map(s => s.trim().toLowerCase())) : null;
+const want = repo => !ONLY || ONLY.has(repo.toLowerCase());
 const CACHE = path.join(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Z]:)/, '$1')), 'cache');
 fs.mkdirSync(CACHE, { recursive: true });
 const UA = { 'User-Agent': 'vetted-prototype-builder', Accept: 'application/vnd.github+json' };
@@ -60,6 +65,14 @@ const MCP = [
   { repo: 'zcaceres/markdownify-mcp' },
   { repo: 'ihor-sokoliuk/mcp-searxng' },
   { repo: 'DeusData/codebase-memory-mcp' },
+  { repo: 'GLips/Figma-Context-MCP' },
+  { repo: 'mrexodia/ida-pro-mcp' },
+  { repo: 'hangwin/mcp-chrome' },
+  { repo: 'wonderwhy-er/DesktopCommanderMCP' },
+  { repo: 'taylorwilsdon/google_workspace_mcp' },
+  { repo: 'korotovsky/slack-mcp-server' },
+  { repo: 'nickclyde/duckduckgo-mcp-server' },
+  { repo: 'nspady/google-calendar-mcp' },
 ];
 const TOOLS = ['NVIDIA/SkillSpector', 'vercel-labs/skills', 'BurntSushi/ripgrep', 'sharkdp/fd', 'junegunn/fzf', 'jqlang/jq', 'cli/cli', 'astral-sh/uv',
   'sharkdp/bat', 'jesseduffield/lazygit', 'ollama/ollama', 'aquasecurity/trivy', 'semgrep/semgrep', 'gitleaks/gitleaks',
@@ -70,10 +83,13 @@ const TOOLS = ['NVIDIA/SkillSpector', 'vercel-labs/skills', 'BurntSushi/ripgrep'
 const meta = {}, scores = {}, hn = {}, avatars = {};
 async function repoMeta(repo) {
   if (meta[repo] !== undefined) return meta[repo];
-  const m = await get(`https://api.github.com/repos/${repo}`);
+  // The search API returns the same repository object; it's the fallback where /repos/ isn't reachable.
+  const m = await get(`https://api.github.com/repos/${repo}`)
+    || (await get(`https://api.github.com/search/repositories?q=repo:${repo}`))?.items?.find(i => i.full_name.toLowerCase() === repo.toLowerCase());
   meta[repo] = m && { full: m.full_name, desc: m.description, stars: m.stargazers_count, forks: m.forks_count, issues: m.open_issues_count,
     license: m.license?.spdx_id && m.license.spdx_id !== 'NOASSERTION' ? m.license.spdx_id : (m.license?.name || null), pushed: m.pushed_at, created: m.created_at,
-    archived: m.archived, topics: m.topics || [], branch: m.default_branch, owner: m.owner.login, ownerType: m.owner.type, homepage: m.homepage || null, language: m.language };
+    archived: m.archived, topics: m.topics || [], branch: m.default_branch, owner: m.owner.login, ownerType: m.owner.type, homepage: m.homepage || null, language: m.language,
+    fetched: new Date().toISOString().slice(0, 10) };
   if (m) {
     const sc = await get(`https://api.securityscorecards.dev/projects/github.com/${m.full_name}`);
     scores[repo] = sc && { score: sc.score, date: sc.date, checks: (sc.checks || []).map(c => ({ name: c.name, score: c.score, reason: c.reason })) };
@@ -81,8 +97,9 @@ async function repoMeta(repo) {
     hn[repo] = (h?.hits || []).filter(x => (x.points || 0) >= 5).sort((a, b) => b.points - a.points).slice(0, 4)
       .map(x => ({ id: x.objectID, title: x.title, url: x.url, points: x.points, comments: x.num_comments || 0, date: x.created_at?.slice(0, 10) }));
     if (!avatars[m.owner.login]) {
-      const img = await get(`https://github.com/${m.owner.login}.png?size=96`, { binary: true });
-      if (img) avatars[m.owner.login] = 'data:image/png;base64,' + img.toString('base64');
+      const img = await get(`https://github.com/${m.owner.login}.png?size=96`, { binary: true })
+        || await get(`${m.owner.avatar_url}${m.owner.avatar_url.includes('?') ? '&' : '?'}s=96`, { binary: true });
+      if (img) avatars[m.owner.login] = `data:image/${img[0] === 0xFF ? 'jpeg' : 'png'};base64,` + img.toString('base64');
     }
   }
   return meta[repo];
@@ -116,6 +133,7 @@ function installLines(readme, patterns) {
 const listings = [];
 
 for (const { repo, max, nvidia } of SKILL_REPOS) {
+  if (!want(repo)) continue;
   const m = await repoMeta(repo);
   if (!m) continue;
   const tree = await get(`https://api.github.com/repos/${m.full}/git/trees/${m.branch}?recursive=1`);
@@ -141,6 +159,7 @@ for (const { repo, max, nvidia } of SKILL_REPOS) {
 }
 
 for (const { repo, sub } of MCP) {
+  if (!want(repo)) continue;
   const m = await repoMeta(repo);
   if (!m) continue;
   const targets = sub ? sub.map(s => ({ s, readmePath: `src/${s}/README.md` })) : [{ s: null, readmePath: 'README.md' }];
@@ -161,6 +180,7 @@ for (const { repo, sub } of MCP) {
 }
 
 for (const repo of TOOLS) {
+  if (!want(repo)) continue;
   const m = await repoMeta(repo);
   if (!m) continue;
   const readme = await get(`https://raw.githubusercontent.com/${m.full}/${m.branch}/README.md`, { json: false });
@@ -172,6 +192,19 @@ for (const repo of TOOLS) {
     repo: m.full, path: '', url: `https://github.com/${m.full}`, install: inst });
 }
 
-const data = { generated: new Date().toISOString(), listings, repos: meta, scores, hn, avatars };
+let data = { generated: new Date().toISOString(), listings, repos: meta, scores, hn, avatars };
+if (ONLY) {
+  const old = JSON.parse(fs.readFileSync(OUT, 'utf8'));
+  const fresh = new Set(listings.map(l => l.repo.toLowerCase()));
+  // Keep the configured order: each repo's listings sit where that repo appears in the lists above.
+  // Renamed repos are listed under their new name, so map each listing back to the name it was configured under.
+  const order = [...SKILL_REPOS.map(x => x.repo), ...MCP.map(x => x.repo), ...TOOLS].map(r => r.toLowerCase());
+  const asConfigured = Object.fromEntries(Object.entries({ ...old.repos, ...meta }).filter(([, m]) => m).map(([k, m]) => [m.full.toLowerCase(), k.toLowerCase()]));
+  const pos = l => { const r = l.repo.toLowerCase(), i = order.indexOf(asConfigured[r] || r); return i < 0 ? order.length : i; };
+  const merged = [...old.listings.filter(l => !fresh.has(l.repo.toLowerCase())), ...listings].map((l, i) => [l, i])
+    .sort((a, b) => pos(a[0]) - pos(b[0]) || a[1] - b[1]).map(([l]) => l);
+  data = { generated: old.generated, updated: data.generated, listings: merged, repos: { ...old.repos, ...meta }, scores: { ...old.scores, ...scores },
+    hn: { ...old.hn, ...hn }, avatars: { ...old.avatars, ...avatars } };
+}
 fs.writeFileSync(OUT, JSON.stringify(data));
 console.error('listings', listings.length, 'repos', Object.keys(meta).length, 'avatars', Object.keys(avatars).length, 'bytes', fs.statSync(OUT).size);

@@ -148,7 +148,9 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .strip .v.c-green { color: var(--green); } .strip .v.c-blue { color: var(--blue); }
 .strip .c { font-size: 12px; color: var(--label2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
 .desc { margin-top: 26px; display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 30px; }
-.desc p { font-size: 15px; line-height: 1.55; max-width: 68ch; }
+.desc p { font-size: 15px; line-height: 1.55; max-width: 68ch; overflow-wrap: anywhere; }
+.desc > div { min-width: 0; }
+.desc .lbl { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--label2); margin-bottom: 4px; }
 .desc .dev a { font-size: 15px; display: block; overflow-wrap: anywhere; }
 .desc .dev span { font-size: 13px; color: var(--label2); display: block; }
 .desc .dev > div + div { margin-top: 12px; }
@@ -284,6 +286,38 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .info dt { font-size: 13px; color: var(--label2); }
 .info dd { margin: 2px 0 0; font-size: 15px; overflow-wrap: anywhere; }
 
+/* Plain words, setup level, jobs */
+.plain { margin-top: 18px; background: color-mix(in srgb, var(--blue) 8%, var(--bg2)); border-radius: 14px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; }
+.plain > .ic { font-size: 22px; color: var(--blue); margin-top: 2px; }
+.plain .check { margin-top: 10px; font-size: 14.5px; display: flex; gap: 6px; align-items: baseline; flex-wrap: wrap; }
+.plain .check b { font-weight: 600; }
+.plain .check button { color: var(--blue); font-size: 14px; font-weight: 600; }
+.plain .lbl { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--label2); }
+.plain p { font-size: 17px; line-height: 1.4; margin-top: 2px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.chips a, .chips span { font-size: 12.5px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: var(--card); color: var(--label); border: 1px solid var(--sep); }
+.chips .lv1 { color: var(--green); } .chips .lv2 { color: var(--blue); } .chips .lv3 { color: var(--orange); }
+.job-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 12px; }
+.job-card { display: flex; gap: 12px; align-items: center; background: var(--bg2); border-radius: 14px; padding: 14px; color: var(--label); min-width: 0; text-align: left; }
+.job-card .jg { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; color: #FFFFFF; flex: none; font-size: 22px; }
+.job-card b { display: block; font-size: 16px; }
+.job-card span.s { display: block; font-size: 13px; color: var(--label2); }
+.job-card .n { margin-left: auto; color: var(--label2); font-size: 13px; font-variant-numeric: tabular-nums; flex: none; }
+.start { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.start a { background: var(--bg2); border-radius: 14px; padding: 16px; color: var(--label); display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.start a .ic { font-size: 26px; color: var(--blue); }
+.start a b { font-size: 17px; }
+.start a span { font-size: 14px; color: var(--label2); line-height: 1.45; }
+.start a em { font-style: normal; font-size: 13px; color: var(--blue); font-weight: 600; margin-top: auto; }
+.filters { display: flex; gap: 8px; flex-wrap: wrap; margin: 4px 0 6px; }
+.filters button { padding: 6px 12px; border-radius: 999px; background: var(--fill); font-size: 14px; font-weight: 600; color: var(--label2); }
+.filters button[aria-pressed="true"] { background: var(--label); color: var(--bg); }
+.promise { display: flex; gap: 12px; align-items: center; background: color-mix(in srgb, var(--green) 10%, var(--bg2)); border-radius: 14px; padding: 14px 16px; margin-top: 18px; }
+.promise > .ic { font-size: 28px; color: var(--green); }
+.promise b { display: block; font-size: 16px; }
+.promise span { font-size: 14px; color: var(--label2); }
+@media (max-width: 760px) { .start { grid-template-columns: minmax(0, 1fr); } .job-grid { grid-template-columns: minmax(0, 1fr); } }
+
 /* Search */
 .search-field { position: relative; margin-bottom: 18px; display: block; }
 .search-field input { padding: 10px 12px 10px 34px; font-size: 17px; }
@@ -408,12 +442,50 @@ const G = {
   file: '<path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/>',
   code: '<path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/>',
   play: '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="M10 9v6l5-3z"/>',
+  brief: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/>',
+  megaphone: '<path d="M3 10v4h4l7 4V6L7 10z"/><path d="M17 9a4 4 0 0 1 0 6M7 14l1 5h3l-1-4"/>',
+  spark: '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/>',
+  grid: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
+  bulb: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',
 };
 const ic = (n, sw = 2, fill = 'none') => `<svg class="ic" viewBox="0 0 24 24" fill="${fill}" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${G[n] || G.skill}</svg>`;
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
 const L = D.L, R = D.R, BY = Object.fromEntries(L.map(l => [l.id, l]));
-const KIND = { skill: 'Agent Skill', mcp: 'MCP Server', tool: 'Developer Tool' };
+const KIND = { skill: 'Agent Skill', mcp: 'Connector (MCP server)', tool: 'App' };
+const KINDS = { skill: 'Skills', mcp: 'Connectors', tool: 'Apps' };
+// Jobs people do; each listing's tags are hand-written in pipeline/plain.json
+const JOBS = [
+  ['vibe', 'Building with AI', 'For vibe coders: plan, build and check apps with your assistant', 'spark', ['#7C3AED', '#C026D3']],
+  ['dev', 'Developers', 'Write, review, test and ship code', 'code', ['#2563EB', '#0EA5E9']],
+  ['design', 'Designers', 'Figma, interfaces, art and visuals', 'pen', ['#DB2777', '#F97316']],
+  ['marketing', 'Marketing & growth', 'Ads, SEO, analytics and app store listings', 'megaphone', ['#EA580C', '#F59E0B']],
+  ['writing', 'Writers', 'Drafting, editing and documentation', 'doc', ['#0F766E', '#14B8A6']],
+  ['office', 'Office & productivity', 'Docs, email, calendar, Slack and notes', 'brief', ['#4F46E5', '#6366F1']],
+  ['data', 'Data & spreadsheets', 'Excel, CSV, JSON and analysis', 'table', ['#15803D', '#22C55E']],
+  ['research', 'Research & study', 'Papers, web research and reports', 'search', ['#0369A1', '#38BDF8']],
+  ['security', 'Security', 'Scanners, secrets and threat models', 'shield', ['#B91C1C', '#EF4444']],
+  ['devops', 'Cloud & DevOps', 'Deploying, hosting and infrastructure', 'cloud', ['#334155', '#64748B']],
+  ['ai', 'AI & models', 'Run models, build agents, make skills', 'chip', ['#9333EA', '#6366F1']],
+  ['science', 'Science & biotech', 'Proteins, DNA and molecules (NVIDIA)', 'flask', ['#047857', '#0D9488']],
+];
+const JOB = Object.fromEntries(JOBS.map(j => [j[0], j]));
+const LEVEL = { 1: ['Easy setup', 'lv1', 'Built in, or one command with no accounts or keys'], 2: ['Some setup', 'lv2', 'A terminal command, and sometimes an account, key or extra app'],
+  3: ['Technical', 'lv3', 'Needs developer tools, cloud accounts or specialist software'] };
+const plainOf = l => l.pl || l.t;
+// One plain sentence about what our checks found, for the top of a listing: [color, text, icon]
+function safety(l) {
+  const m = (D.MR || {})[l.id], sc = (D.SC || {})[l.id];
+  if (m) {
+    const nn = m.notices?.length || 0, extra = nn ? ` ${nn} thing${nn > 1 ? 's' : ''} worth knowing.` : '';
+    if (m.codeFree && m.verdict === 'fits') return ['c-green', 'Our check: instructions only, no code that runs on your computer.' + extra, 'shieldok'];
+    return { fits: ['c-green', 'Our check: it does what it says, and nothing its purpose doesn\'t explain.' + extra, 'shieldok'],
+      review: ['c-orange', 'Our check: it can do more than it says. Read the unexpected items before installing.', 'shieldq'],
+      flag: ['c-red', 'Our check: flagged. It touches secret files or a tool hides instructions.', 'shieldq'] }[m.verdict];
+  }
+  if (sc) return [SEVC[sc.sev] || 'c-gray', `Our check: SkillSpector rates it ${(SEVW[sc.sev] || sc.sev).toLowerCase()} risk, with ${sc.n} finding${sc.n === 1 ? '' : 's'}.${sc.sev === 'HIGH' || sc.sev === 'CRITICAL' ? ' This automatic scan also flags routine steps, so read what it found.' : ''}`, sc.sev === 'LOW' ? 'shieldok' : 'shieldq'];
+  return ['c-gray', 'Not scanned yet.', 'shieldq'];
+}
 const GEN = new Date(D.gen + 'T00:00:00Z');
 const fmtK = n => n >= 1e6 ? (n / 1e6).toFixed(1).replace(/\.0$/, '') + 'M' : n >= 1000 ? (n / 1000).toFixed(n >= 1e4 ? 0 : 1).replace(/\.0$/, '') + 'K' : String(n);
 function ago(date) {
@@ -436,7 +508,8 @@ function trust(l) {
   if (l.tr) return { short: 'Trusted publisher', cls: 'c-blue', icon: 'building' };
   const mr = (D.MR || {})[l.id];
   if (mr && mr.codeFree && mr.verdict === 'fits') return { short: 'Instructions only', cls: 'c-green', icon: 'shieldok' };
-  if (mr) return mr.verdict === 'fits' ? { short: 'Fits its purpose', cls: 'c-green', icon: 'shieldok' }
+  const nn = mr?.notices?.length || 0;
+  if (mr) return mr.verdict === 'fits' ? { short: nn ? `Fits · ${nn} note${nn > 1 ? 's' : ''}` : 'Fits its purpose', cls: 'c-green', icon: 'shieldok' }
     : mr.verdict === 'review' ? { short: 'Does more than stated', cls: 'c-orange', icon: 'shieldq' } : { short: 'Flagged', cls: 'c-red', icon: 'shieldq' };
   if (sc) return { short: `Scan ${sc.s} · ${SEVW[sc.sev] || sc.sev}`, cls: SEVC[sc.sev] || 'c-gray', icon: sc.sev === 'LOW' ? 'shieldok' : 'shieldq' };
   if (r.sc) return { short: `Scorecard ${r.sc.s.toFixed(1)}`, cls: r.sc.s >= 7 ? 'c-green' : 'c-blue', icon: 'gauge' };
@@ -451,7 +524,7 @@ function icon(l, size) {
 const caption = l => { const t = trust(l); return `<span class="iap ${t.cls}">${t.short}</span>`; };
 const getBtn = (l, v = '') => `<button class="get ${v}" data-get="${l.id}" aria-label="Get ${esc(l.n)}">GET</button>`;
 const row = (l, rank) => `<div class="row">${icon(l, 64)}${rank ? `<span class="rank">${rank}</span>` : ''}
-  <div class="row-body"><a class="row-txt" href="#${l.id}"><b>${esc(l.n)}</b><span>${esc(l.t)}</span></a><div class="btn-col">${getBtn(l)}${caption(l)}</div></div></div>`;
+  <div class="row-body"><a class="row-txt" href="#${l.id}"><b>${esc(l.n)}</b><span>${esc(plainOf(l))}</span></a><div class="btn-col">${getBtn(l)}${caption(l)}</div></div></div>`;
 const tile = l => `<a class="tile" href="#${l.id}">${icon(l)}<b>${esc(l.n)}</b><span class="${trust(l).cls}">${trust(l).short}</span></a>`;
 const art = (g, glyph) => `<div class="art" style="background:linear-gradient(155deg,${g[0]},${g[1]})">
   <span class="orb" style="width:60%;aspect-ratio:1;left:-20%;top:-15%;background:radial-gradient(circle,rgba(255,255,255,.25),transparent 70%)"></span>
@@ -488,28 +561,28 @@ function stories() {
     body: [`Most great open-source tools are built by individuals, not companies. Vetted reads their code before you install it and asks one question: <strong>does it do more than its job needs?</strong>`,
       `A file finder that reads files is fine. A clock that reads your SSH keys is not. So each project gets a <strong>Purpose Check</strong>: what its code can actually do (network, files, running programs, secrets, browser), compared with what it says it's for.`,
       `So far that's ${checked.length} community projects: ${withCode.length} with code we read, and ${checked.length - withCode.length} skills that are instructions only. ${fits} fit their purpose${checked.length - fits ? `, and ${checked.length - fits} still need${checked.length - fits === 1 ? 's' : ''} a closer look` : ''}. Every mismatch we found (${reviewedN}) was read line by line, and the reason is written on its page.`,
-      `Skills and servers published by companies like Anthropic, OpenAI and NVIDIA sit under <strong>Trusted publishers</strong> instead.`], apps: featured });
+      `Skills and connectors published by companies like Anthropic, OpenAI and NVIDIA sit under <strong>Trusted publishers</strong>. We scan those too.`], apps: featured });
   const commScans = comm.map(l => scanOf(l)).filter(Boolean);
   if (spector && commScans.length) {
     const c = {}; for (const x of commScans) c[x.sev] = (c[x.sev] || 0) + 1;
-    out.push({ id: 'scan', eyebrow: 'Security Spotlight', title: 'Scanned with NVIDIA SkillSpector', lede: `${commScans.length} community skills and servers scanned.`, g: ['#0B3D2E', '#1F9D6B'], glyph: 'shieldok',
+    out.push({ id: 'scan', eyebrow: 'Security Spotlight', title: 'Scanned with NVIDIA SkillSpector', lede: `${commScans.length} community projects scanned.`, g: ['#0B3D2E', '#1F9D6B'], glyph: 'shieldok',
       body: [`Skills run with your assistant's permissions, so a bad one can read files, leak data or run commands. NVIDIA's open-source <strong>SkillSpector</strong> flags prompt injection, data exfiltration, privilege escalation and other risky patterns.`,
         `NVIDIA's own research put numbers on it: in a subset of 31,132 skills they analyzed, 26.1% contained vulnerabilities and 5.2% showed likely malicious intent.`,
-        `We ran SkillSpector ${esc(commScans[0].ver)} in static mode on <strong>${commScans.length} community skills and MCP servers</strong>: ${c.LOW || 0} scored low, ${c.MEDIUM || 0} medium, ${c.HIGH || 0} high and ${c.CRITICAL || 0} critical. Static mode can't judge intent, which is why the Purpose Check comes first on every page.`,
+        `We ran SkillSpector ${esc(commScans[0].ver)} in static mode on <strong>${commScans.length} community projects</strong>: ${c.LOW || 0} scored low, ${c.MEDIUM || 0} medium, ${c.HIGH || 0} high and ${c.CRITICAL || 0} critical. Static mode can't judge intent, which is why the Purpose Check comes first on every page.`,
         `Every listing also has a ready-to-copy SkillSpector command, so you can rerun the check yourself.`], apps: [spector, BY['gitleaks']].filter(Boolean) });
   }
   const trustedList = L.filter(l => l.tr);
   out.push({ id: 'trusted', eyebrow: 'Trusted Publishers', title: 'The big names, in one place', lede: `${trustedList.length} listings from ${new Set(trustedList.map(l => repoOf(l).on)).size} companies.`, g: ['#1D2B53', '#5E6EFF'], glyph: 'building',
     body: [`Anthropic, OpenAI, NVIDIA, GitHub, Microsoft, Google and others publish skills, MCP servers and tools from their own GitHub organizations, backed by their own security reviews and release processes.`,
-      `Vetted lists them as Trusted publishers and doesn't scan them up front. If you want a second opinion anyway, every listing has a "Scan anyway" section.`],
+      `Vetted lists them as Trusted publishers, and scans them anyway: ${trustedList.filter(l => scanOf(l)).length} of the ${trustedList.length} have a SkillSpector report on their page.`],
     apps: pick(['anthropics-docx', 'openai-security-threat-model', 'mcp-github-mcp-server', 'mcp-playwright-mcp', 'skillspector', 'uv']).concat(L.filter(l => l.nv).slice(0, 2)) });
   if (trivyHN) out.push({ id: 'trivy', eyebrow: 'Security News', title: 'Even security tools get hit', lede: `${trivyHN[2]} points on Hacker News.`, g: ['#3A0A14', '#C2364A'], glyph: 'shieldq',
     body: [`A Hacker News thread titled “${esc(trivyHN[0])}” (${trivyHN[2]} points, ${trivyHN[3]} comments, ${fmtDate(trivyHN[4])}) covered a compromise in the Trivy ecosystem's supply chain.`,
       `The lesson applies to skills too: check when the code last changed, prefer releases from the project's own organization, and rescan after updates.`,
       `<a href="https://news.ycombinator.com/item?id=${trivyHN[5]}" target="_blank" rel="noopener">Read the thread on Hacker News</a>`], apps: [BY['trivy']].filter(Boolean) });
   const cm = byStars(comm.filter(l => l.k === 'mcp'));
-  if (cm.length) out.push({ id: 'mcp', eyebrow: 'Community MCP Servers', title: 'Connect your assistant to the apps you use', lede: 'Blender, Zotero, Excel, n8n and more.', g: ['#4A3210', '#D69A32'], glyph: 'mcp',
-    body: [`A skill teaches your assistant <strong>how</strong> to do something. An MCP server gives it <strong>access</strong> to something: a 3D scene, your research library, a spreadsheet.`,
+  if (cm.length) out.push({ id: 'mcp', eyebrow: 'Community Connectors', title: 'Connect your assistant to the apps you use', lede: 'Figma, Slack, Google Calendar, Blender and more.', g: ['#4A3210', '#D69A32'], glyph: 'mcp',
+    body: [`A skill teaches your assistant <strong>how</strong> to do something. A connector (an MCP server) gives it <strong>access</strong> to something: your Slack, a Figma file, your calendar, a 3D scene.`,
       `Because they reach real apps and accounts, each one here is Purpose-Checked: we list what it can access and flag anything its purpose doesn't explain.`], apps: cm });
   return out;
 }
@@ -529,13 +602,60 @@ function pageToday() {
       <div class="copy"><span class="eyebrow">${s.eyebrow}</span><span class="title">${s.title}</span></div>
       ${s.wide && s.app ? `<div class="bottom frost">${icon(s.app, 48)}<div class="t"><b>${esc(s.app.n)}</b><span>${esc(s.app.t)}</span></div><span class="get light" data-get="${s.app.id}">GET</span></div>`
         : `<div class="bottom">${s.lede || ''}</div>`}</button>`).join('')}</div>
+    ${startHere()}
+    <section class="shelf"><div class="shelf-head"><h2>Browse by job<span class="sub">Pick the work you do and see what helps</span></h2><a class="see-all" href="#browse">See All</a></div>
+      <div class="job-grid">${JOBS.slice(0, 8).map(jobCard).join('')}</div></section>
     <section class="shelf"><div class="shelf-head"><h2>Popular Community Apps<span class="sub">Built by independent developers · ranked by GitHub stars</span></h2><a class="see-all" href="#tools">See All</a></div>
       ${ranked(appsTop, true)}</section>
     <section class="shelf"><div class="shelf-head"><h2>Community Skills<span class="sub">The most-starred skill pack from each developer</span></h2><a class="see-all" href="#skills">See All</a></div>
       ${ranked(skillsTop)}</section>
-    <section class="shelf"><div class="shelf-head"><h2>Community MCP Servers</h2><a class="see-all" href="#mcp">See All</a></div>
+    <section class="shelf"><div class="shelf-head"><h2>Community Connectors<span class="sub">Let your assistant use your apps · also called MCP servers</span></h2><a class="see-all" href="#mcp">See All</a></div>
       ${ranked(mcpTop)}</section>
     ${trustedShelf(null, 'From Trusted Publishers')}
+    ${dataNote()}</div>`;
+}
+
+// Says only what the data shows: how many listings really have a SkillSpector report
+function promiseText() {
+  const nSC = L.filter(l => scanOf(l)).length, comm = L.filter(l => !l.tr), commChecked = comm.filter(l => MRof(l) || scanOf(l)).length;
+  return `${nSC === L.length ? `Every one of the ${L.length} listings is` : `${nSC} of ${L.length} listings are`} scanned with NVIDIA SkillSpector${commChecked === comm.length ? ', and every community project also gets our Purpose Check' : ''}: we read what the code can actually do and compare it with what it says it's for. Anything that doesn't add up is read line by line, and what we found is written on its page.`;
+}
+const byJob = k => L.filter(l => (l.jb || []).includes(k));
+const jobCard = ([k, t, sub, g, c]) => `<a class="job-card" href="#for-${k}"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span>
+  <span style="min-width:0"><b>${esc(t)}</b><span class="s">${esc(sub)}</span></span><span class="n">${byJob(k).length}</span></a>`;
+function startHere() {
+  const n = k => L.filter(l => l.k === k).length;
+  return `<section class="shelf"><div class="shelf-head"><h2>New here? Start with this<span class="sub">Three kinds of things, explained without jargon</span></h2></div>
+    <div class="start">
+      <a href="#skills">${ic('skill', 1.8)}<b>Skills</b><span>Instructions that teach your AI assistant (Claude, ChatGPT's Codex, Cursor) how to do a specific job well, like making slide decks or reviewing code. Most are just text.</span><em>${n('skill')} skills →</em></a>
+      <a href="#mcp">${ic('mcp', 1.8)}<b>Connectors</b><span>Also called MCP servers. They let your assistant use your apps and accounts: Slack, Figma, Google Calendar, your browser. Because they can reach real data, check what each one can access.</span><em>${n('mcp')} connectors →</em></a>
+      <a href="#tools">${ic('tool', 1.8)}<b>Apps</b><span>Open-source programs you run on your own computer, mostly in the terminal: fast file search, visual Git, system monitors, security scanners.</span><em>${n('tool')} apps →</em></a>
+    </div>
+    <div class="promise">${ic('shieldok', 1.8)}<div><b>Checked before it's listed</b><span>${promiseText()}</span></div></div></section>`;
+}
+function pageBrowse() {
+  return `<div class="page">
+    <div class="large-title"><h1>Browse</h1><p>Find things by the work you do, or by what kind of thing they are. Every listing says in plain words what it helps with, how hard it is to set up, and what our checks found.</p></div>
+    <div class="job-grid">${JOBS.map(jobCard).join('')}</div>
+    <section class="shelf"><div class="shelf-head"><h2>By type</h2></div>
+      <div class="job-grid">${[['tools', 'Apps', 'Programs you run on your computer', 'tool', ['#1D4ED8', '#3B82F6'], L.filter(l => l.k === 'tool').length],
+        ['skills', 'Skills', 'Teach your assistant a job', 'skill', ['#7C3AED', '#A855F7'], L.filter(l => l.k === 'skill').length],
+        ['mcp', 'Connectors', 'Let your assistant use your apps (MCP servers)', 'mcp', ['#B45309', '#F59E0B'], L.filter(l => l.k === 'mcp').length],
+        ['trusted', 'Trusted publishers', 'From Anthropic, OpenAI, NVIDIA, GitHub and more', 'building', ['#1D2B53', '#5E6EFF'], L.filter(l => l.tr).length]]
+        .map(([h, t, sub, g, c, n]) => `<a class="job-card" href="#${h}"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span><span style="min-width:0"><b>${t}</b><span class="s">${sub}</span></span><span class="n">${n}</span></a>`).join('')}</div></section>
+    ${startHere()}
+    ${dataNote()}</div>`;
+}
+function pageJob(k) {
+  const [, title, sub, g, c] = JOB[k];
+  const all = byJob(k).filter(l => !S.easy || l.lv === 1);
+  const groups = ['skill', 'mcp', 'tool'].map(kind => [kind, byStars(all.filter(l => l.k === kind)).sort((a, b) => (a.tr - b.tr))]).filter(([, list]) => list.length);
+  return `<div class="navbar"><div class="in"><a class="back" href="#browse">${ic('back', 2.4)}Browse</a></div></div>
+  <div class="page" style="padding-top:12px">
+    <div class="large-title"><div class="job-card" style="background:none;padding:0;margin-bottom:6px"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span><h1>${esc(title)}</h1></div><p>${esc(sub)}. ${byJob(k).length} listings, community projects first.</p></div>
+    <div class="filters" role="group" aria-label="Filter"><button data-easy="0" aria-pressed="${!S.easy}">Everything</button><button data-easy="1" aria-pressed="${!!S.easy}">Easy setup only</button></div>
+    ${groups.length ? groups.map(([kind, list]) => `<section class="shelf"><div class="shelf-head"><h2>${KINDS[kind]}<span class="sub">${list.length} listing${list.length > 1 ? 's' : ''}</span></h2></div><div class="rowlist">${list.map(l => row(l)).join('')}</div></section>`).join('')
+      : `<p class="empty">Nothing with easy setup here yet.</p>`}
     ${dataNote()}</div>`;
 }
 
@@ -543,7 +663,7 @@ function repoTitle(repo) { const n = repo.split('/')[1].replace(/[-_]+/g, ' '); 
 function trustedShelf(kind, title) {
   const list = byStars(L.filter(l => l.tr && (!kind || l.k === kind)));
   if (!list.length) return '';
-  return `<section class="shelf"><div class="shelf-head"><h2>${title}<span class="sub">From companies' own GitHub organizations · not scanned up front</span></h2><a class="see-all" href="#trusted">See All</a></div>
+  return `<section class="shelf"><div class="shelf-head"><h2>${title}<span class="sub">From companies' own GitHub organizations · scanned like everything else</span></h2><a class="see-all" href="#trusted">See All</a></div>
     <div class="scroller tiles">${uniqueRepos(list, 2).slice(0, 16).map(tile).join('')}</div></section>`;
 }
 function ranked(list, numbered) {
@@ -571,10 +691,10 @@ function pageSkills() {
 function pageMcp() {
   const comm = byStars(community().filter(l => l.k === 'mcp'));
   return `<div class="page">
-    <div class="large-title"><h1>MCP Servers</h1><p>Servers that connect your assistant to real apps and accounts. Each community server is checked against its own stated purpose: what it can access, and whether that matches what it says it's for.</p></div>
+    <div class="large-title"><h1>Connectors</h1><p>Also called MCP servers. They connect your AI assistant to real apps and accounts: Slack, Figma, Google Calendar, your browser, your files. Because they can reach your data, each community connector is checked against its own stated purpose: what it can access, and whether that matches what it says it's for.</p></div>
     ${banners(comm.slice(0, 4).map(l => ({ l, eb: 'Community · ' + repoOf(l).own })))}
-    <section class="shelf"><div class="shelf-head"><h2>Community Servers<span class="sub">Built by independent developers · ranked by GitHub stars</span></h2></div>${ranked(comm, true)}</section>
-    ${trustedShelf('mcp', 'MCP Servers from Trusted Publishers')}
+    <section class="shelf"><div class="shelf-head"><h2>Community Connectors<span class="sub">Built by independent developers · ranked by GitHub stars</span></h2></div>${ranked(comm, true)}</section>
+    ${trustedShelf('mcp', 'Connectors from Trusted Publishers')}
     ${dataNote()}</div>`;
 }
 function pageTools() {
@@ -593,11 +713,11 @@ function pageTrusted() {
   for (const l of tr) (pubs[repoOf(l).on] ??= []).push(l);
   const order = Object.entries(pubs).sort((a, b) => Math.max(...b[1].map(l => repoOf(l).st)) - Math.max(...a[1].map(l => repoOf(l).st)));
   return `<div class="page">
-    <div class="large-title"><h1>Trusted Publishers</h1><p>${tr.length} listings from ${order.length} companies that publish from their own GitHub organizations and run their own security reviews. Vetted doesn't scan these up front; each listing still has a "Scan anyway" section.</p></div>
+    <div class="large-title"><h1>Trusted Publishers</h1><p>${tr.length} listings from ${order.length} companies that publish from their own GitHub organizations and run their own security reviews. Vetted scans them anyway: ${tr.filter(l => scanOf(l)).length} of the ${tr.length} have a SkillSpector report on their page.</p></div>
     ${order.map(([pub, list]) => `<section class="shelf"><div class="shelf-head"><h2>${esc(pub)}<span class="sub">${list.length} listing${list.length > 1 ? 's' : ''}</span></h2></div><div class="scroller tiles">${byStars(list).map(tile).join('')}</div></section>`).join('')}
     ${dataNote()}</div>`;
 }
-const searchHits = q => { q = q.trim().toLowerCase(); if (!q) return []; return byStars(L.filter(l => [l.n, l.sl, l.t, l.d, l.r, repoOf(l).on, KIND[l.k], l.nv ? 'nvidia verified' : ''].join(' ').toLowerCase().includes(q))); };
+const searchHits = q => { q = q.trim().toLowerCase(); if (!q) return []; return byStars(L.filter(l => [l.n, l.sl, l.t, l.d, l.pl, l.r, repoOf(l).on, KIND[l.k], KINDS[l.k], ...(l.jb || []).map(j => JOB[j]?.[1]), l.nv ? 'nvidia verified' : ''].join(' ').toLowerCase().includes(q))); };
 function resultsHTML() {
   const q = S.q.trim();
   if (!q) return `<h2 style="font-size:22px;margin-bottom:6px">Discover</h2><ul class="suggest">${['pdf', 'security', 'figma', 'deploy', 'browser', 'git', 'nvidia', 'test'].map(s => `<li><button data-suggest="${s}">${ic('search')}${s}</button></li>`).join('')}</ul>`;
@@ -708,15 +828,19 @@ const SOCIAL = [['YouTube', '#FF0033', q => `https://www.youtube.com/results?sea
 const CHECK_ORDER = ['Maintained', 'Code-Review', 'Vulnerabilities', 'Dangerous-Workflow', 'Token-Permissions', 'Branch-Protection', 'Security-Policy', 'Pinned-Dependencies', 'SAST', 'Signed-Releases'];
 function pageProduct(id) {
   const l = BY[id], r = repoOf(l), t = trust(l);
-  const from = { today: 'Today', skills: 'Skills', mcp: 'MCP Servers', tools: 'Apps', trusted: 'Trusted', search: 'Search' }[S.tab];
+  const from = S.back?.startsWith('for-') ? JOB[S.back.slice(4)][1] : { today: 'Today', browse: 'Browse', skills: 'Skills', mcp: 'Connectors', tools: 'Apps', trusted: 'Trusted', search: 'Search' }[S.back || S.tab] || 'Today';
   const siblings = byRepo(l.r).filter(x => x.id !== l.id);
   const q = encodeURIComponent(l.k === 'skill' ? `${l.sl} ${r.on} skill` : l.k === 'mcp' ? `${l.n} MCP` : `${l.n} ${l.r.split('/')[1] === l.n.toLowerCase() ? '' : l.r.split('/')[1]}`.trim());
   const checks = r.sc ? CHECK_ORDER.map(n => r.sc.ch.find(c => c[0] === n)).filter(Boolean).slice(0, 6) : [];
   const barColor = s => s >= 8 ? 'var(--green)' : s >= 5 ? 'var(--blue)' : s >= 3 ? 'var(--orange)' : 'var(--red)';
-  return `<div class="navbar"><div class="in"><a class="back" href="#${S.tab}">${ic('back', 2.4)}${from}</a></div></div>
+  const lv = LEVEL[l.lv];
+  return `<div class="navbar"><div class="in"><a class="back" href="#${S.back || S.tab}">${ic('back', 2.4)}${esc(from)}</a></div></div>
   <div class="page" style="padding-top:12px">
     <div class="product-head">${icon(l)}<div class="txt"><h1>${esc(l.n)}</h1><span class="sub">${esc(r.on)} · ${KIND[l.k]}</span>
       <div class="acts">${getBtn(l, 'primary')}<a class="pill-link" href="${l.u}" target="_blank" rel="noopener">GitHub ${ic('ext')}</a></div></div></div>
+    ${l.pl ? `<div class="plain">${ic('bulb', 2)}<div><span class="lbl">What it helps you do</span><p>${esc(l.pl)}</p>
+      <div class="check ${safety(l)[0]}">${ic(safety(l)[2], 2.2)}<b>${esc(safety(l)[1])}</b><button data-jump="checks">See what we checked</button></div>
+      <div class="chips">${lv ? `<span class="${lv[1]}" title="${esc(lv[2])}">${lv[0]}: ${esc(lv[2].toLowerCase())}</span>` : ''}${(l.jb || []).map(j => `<a href="#for-${j}">${esc(JOB[j][1])}</a>`).join('')}</div></div></div>` : ''}
     <div class="strip">
       <div><span class="k">GitHub</span><span class="v">${ic('star', 2)}${fmtK(r.st)}</span><span class="c">stars${l.p ? ' (whole repo)' : ''}</span></div>
       <div><span class="k">Trust</span><span class="v ${t.cls}">${ic(t.icon, 2.2)}</span><span class="c">${t.short}</span></div>
@@ -725,15 +849,16 @@ function pageProduct(id) {
       <div><span class="k">Publisher</span><span class="v">${ic(r.org ? 'building' : 'person', 2)}</span><span class="c">${r.org ? 'Organization' : 'Individual'}</span></div>
       ${l.lines ? `<div><span class="k">SKILL.md</span><span class="v">${l.lines}</span><span class="c">lines</span></div>` : r.lang ? `<div><span class="k">Language</span><span class="v">${ic('code', 2)}</span><span class="c">${esc(r.lang)}</span></div>` : ''}
     </div>
-    <div class="desc"><p>${esc(l.d)}</p>
+    <div class="desc"><div><span class="lbl">From the developer</span><p>${esc(l.d)}</p></div>
       <div class="dev"><div><a href="https://github.com/${l.r.split('/')[0]}" target="_blank" rel="noopener">${esc(r.on)}</a><span>Publisher</span></div>
         <div><a href="${l.u}" target="_blank" rel="noopener" class="mono">${esc(l.r)}${l.p ? '/' + esc(l.p) : ''}</a><span>Source</span></div></div></div>
 
     <section class="shelf"><div class="shelf-head"><h2>Install</h2></div><div class="inst-grid">${instCards(l)}</div></section>
 
-    ${l.tr ? `<section class="shelf"><div class="trusted-note">${ic('building', 1.8)}<div><b>Trusted publisher</b><p>Published by ${esc(r.on)} from its own GitHub organization. Companies like this run their own security reviews and release processes, so Vetted doesn't scan their listings up front.</p></div></div>
-      ${purposeHTML(l) || reportHTML(l) ? `<details class="scan-anyway"><summary>Scan anyway</summary>${purposeHTML(l)}${reportHTML(l)}</details>` : ''}</section>`
-      : `${purposeHTML(l)}\n${reportHTML(l)}`}
+    ${l.tr ? `<section class="shelf"><div class="trusted-note">${ic('building', 1.8)}<div><b>Trusted publisher</b><p>Published by ${esc(r.on)} from its own GitHub organization, which runs its own security reviews and release process. Vetted scans it anyway, like every other listing${scanOf(l) ? '. The results are below' : ''}.</p></div></div></section>` : ''}
+    <div id="checks"></div>
+    ${purposeHTML(l)}
+    ${reportHTML(l)}
 
     <section class="shelf"><div class="shelf-head"><h2>Trust &amp; Security</h2></div>
       <div class="trust-cards">
@@ -768,7 +893,7 @@ function pageProduct(id) {
         <div><dt>Stars</dt><dd>${r.st.toLocaleString('en-US')}</dd></div>
         <div><dt>Default branch</dt><dd class="mono">${esc(r.br)}</dd></div>
         <div><dt>Last commit</dt><dd>${fmtDate(r.pu)}</dd></div>
-        <div><dt>Data fetched</dt><dd>${fmtDate(D.gen)}</dd></div>
+        <div><dt>Data fetched</dt><dd>${fmtDate(r.fd || D.gen)}</dd></div>
       </dl></section>
     ${siblings.length ? `<section class="shelf"><div class="shelf-head"><h2>More from ${esc(l.r)}</h2>${siblings.length > 8 ? `<button class="see-all" data-seeall="${l.r}">See All</button>` : ''}</div><div class="scroller tiles">${siblings.slice(0, 16).map(tile).join('')}</div></section>` : ''}
     ${dataNote()}
@@ -776,23 +901,27 @@ function pageProduct(id) {
 }
 
 // ---------- routing ----------
-const S = { tab: 'today', detail: null, q: '', agent: 'claude-code' };
+const S = { tab: 'today', detail: null, job: null, easy: false, q: '', agent: 'claude-code' };
 try { const a = localStorage.getItem('vetted-agent'); if (AGENTS.some(x => x[0] === a)) S.agent = a; } catch (e) {}
-const TABS = [['today', 'Today', 'today'], ['tools', 'Apps', 'tool'], ['skills', 'Skills', 'skill'], ['mcp', 'MCP Servers', 'mcp'], ['trusted', 'Trusted', 'building'], ['search', 'Search', 'search']];
-const MOBILE_TABS = ['today', 'tools', 'skills', 'mcp', 'search'];
+const TABS = [['today', 'Today', 'today'], ['browse', 'Browse', 'grid'], ['tools', 'Apps', 'tool'], ['skills', 'Skills', 'skill'], ['mcp', 'Connectors', 'mcp'], ['trusted', 'Trusted', 'building'], ['search', 'Search', 'search']];
+const MOBILE_TABS = ['today', 'browse', 'skills', 'mcp', 'search'];
 const count = k => L.filter(l => l.k === k && !l.tr).length;
 function chrome() {
-  const n = { skills: count('skill'), mcp: count('mcp'), tools: count('tool'), trusted: L.filter(l => l.tr).length };
+  const n = { skills: L.filter(l => l.k === 'skill').length, mcp: L.filter(l => l.k === 'mcp').length, tools: L.filter(l => l.k === 'tool').length, trusted: L.filter(l => l.tr).length };
   document.getElementById('side-nav').innerHTML = TABS.filter(t => t[0] !== 'search').map(([k, l, g]) => `<button class="nav-item" data-tab="${k}" aria-current="${S.tab === k && !S.detail ? 'page' : 'false'}">${ic(g)}${l}${n[k] ? `<span class="n">${n[k]}</span>` : ''}</button>`).join('');
-  document.getElementById('tabbar').innerHTML = TABS.filter(t => MOBILE_TABS.includes(t[0])).map(([k, l, g]) => `<button data-tab="${k}" aria-current="${S.tab === k ? 'page' : 'false'}">${ic(g, 1.8)}${k === 'mcp' ? 'MCP' : l}</button>`).join('');
+  document.getElementById('tabbar').innerHTML = TABS.filter(t => MOBILE_TABS.includes(t[0])).map(([k, l, g]) => `<button data-tab="${k}" aria-current="${S.tab === k ? 'page' : 'false'}">${ic(g, 1.8)}${l}</button>`).join('');
 }
 function render() {
-  document.getElementById('main').innerHTML = S.detail ? pageProduct(S.detail) : { today: pageToday, skills: pageSkills, mcp: pageMcp, tools: pageTools, trusted: pageTrusted, search: pageSearch }[S.tab]();
+  document.getElementById('main').innerHTML = S.detail ? pageProduct(S.detail) : S.job ? pageJob(S.job)
+    : { today: pageToday, browse: pageBrowse, skills: pageSkills, mcp: pageMcp, tools: pageTools, trusted: pageTrusted, search: pageSearch }[S.tab]();
   chrome();
 }
 function route() {
   const h = decodeURIComponent(location.hash.slice(1));
+  S.job = null;
+  if (!BY[h]) S.back = h || 'today';
   if (BY[h]) { S.detail = h; if (!S.tab) S.tab = 'today'; }
+  else if (h.startsWith('for-') && JOB[h.slice(4)]) { S.detail = null; S.job = h.slice(4); S.tab = 'browse'; }
   else { S.detail = null; S.tab = TABS.some(t => t[0] === h) ? h : 'today'; }
   render();
 }
@@ -818,7 +947,7 @@ function openStory(id) {
 }
 
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-tab],[data-get],[data-story],[data-closestory],[data-closesheet],[data-copy],[data-agent],[data-suggest],[data-seeall],.story-ov .row-txt');
+  const t = e.target.closest('[data-tab],[data-get],[data-story],[data-closestory],[data-closesheet],[data-copy],[data-agent],[data-suggest],[data-seeall],[data-easy],[data-jump],.story-ov .row-txt');
   if (!t) return;
   const d = t.dataset;
   if (t.matches('.story-ov .row-txt')) { story.close(); return; }
@@ -838,6 +967,8 @@ document.addEventListener('click', e => {
     if (S.detail) { const y = scrollY; render(); scrollTo(0, y); }
   }
   else if (d.suggest) { S.q = d.suggest; render(); }
+  else if (d.jump) { document.getElementById(d.jump)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  else if (d.easy) { S.easy = d.easy === '1'; const y = scrollY; render(); scrollTo(0, y); }
   else if (d.seeall) { S.q = d.seeall; go('search'); }
 });
 document.addEventListener('input', e => {

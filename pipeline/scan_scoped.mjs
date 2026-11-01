@@ -6,10 +6,13 @@ import { spawn } from 'node:child_process';
 
 const ROOT = process.argv[2] || process.env.VETTED_SCAN_ROOT;
 const EXE = process.env.SKILLSPECTOR || 'skillspector';
-if (!ROOT) throw new Error('Usage: node scan_scoped.mjs <scan-root>');
-const JOBS = [
+if (!ROOT) throw new Error('Usage: node scan_scoped.mjs <scan-root> [<id> <repo-dir> <scope> ...]');
+// Default jobs, or triples from the command line: listing id, repo folder under <scan-root>, folder to scan inside it
+const ARGS = process.argv.slice(3);
+const JOBS = ARGS.length ? Array.from({ length: Math.floor(ARGS.length / 3) }, (_, i) => ({ id: ARGS[i * 3], dir: ARGS[i * 3 + 1], scope: ARGS[i * 3 + 2] })) : [
   { id: 'mcp-zotero-mcp', dir: 'src/54yyyu__zotero-mcp/zotero-mcp-main', scope: 'src/zotero_mcp' },
   { id: 'mcp-codebase-memory-mcp', dir: 'src/DeusData__codebase-memory-mcp/codebase-memory-mcp-main', scope: 'src' },
+  { id: 'mcp-mcp-chrome', dir: 'src/hangwin__mcp-chrome/mcp-chrome-master', scope: 'app' },
 ];
 
 await Promise.all(JOBS.map(({ id, dir, scope }) => new Promise(resolve => {

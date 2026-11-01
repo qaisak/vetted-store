@@ -20,7 +20,38 @@ const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'ast
   'czlonkowski/n8n-mcp': 'n8n MCP', 'ahujasid/mcp-for-blender': 'Blender MCP', '54yyyu/zotero-mcp': 'Zotero MCP', 'haris-musa/excel-mcp-server': 'Excel MCP Server',
   'blazickjp/arxiv-mcp-server': 'arXiv MCP Server', 'zcaceres/markdownify-mcp': 'Markdownify MCP', 'ihor-sokoliuk/mcp-searxng': 'SearXNG MCP', 'DeusData/codebase-memory-mcp': 'Codebase Memory MCP',
   'ajeetdsouza/zoxide': 'zoxide', 'aristocratos/btop': 'btop', 'dandavison/delta': 'delta', 'bootandy/dust': 'dust', 'sharkdp/hyperfine': 'hyperfine', 'casey/just': 'just',
-  'sxyazi/yazi': 'Yazi', 'gitui-org/gitui': 'gitui', 'jdx/mise': 'mise', 'jesseduffield/lazydocker': 'lazydocker', 'XAMPPRocky/tokei': 'tokei' };
+  'sxyazi/yazi': 'Yazi', 'gitui-org/gitui': 'gitui', 'jdx/mise': 'mise', 'jesseduffield/lazydocker': 'lazydocker', 'XAMPPRocky/tokei': 'tokei',
+  'GLips/Figma-Context-MCP': 'Framelink MCP for Figma', 'mrexodia/ida-pro-mcp': 'IDA Pro MCP', 'hangwin/mcp-chrome': 'Chrome MCP Server', 'wonderwhy-er/DesktopCommanderMCP': 'Desktop Commander',
+  'taylorwilsdon/google_workspace_mcp': 'Google Workspace MCP', 'korotovsky/slack-mcp-server': 'Slack MCP Server', 'nickclyde/duckduckgo-mcp-server': 'DuckDuckGo MCP Server',
+  'nspady/google-calendar-mcp': 'Google Calendar MCP' };
+// Hand-written plain-language lines, job tags and setup level (pipeline/plain.json)
+const PLAIN = JSON.parse(fs.readFileSync(new URL('./plain.json', import.meta.url), 'utf8'));
+// Install steps for MCP servers whose README gives a JSON config or several steps instead of one command.
+// Every command is the README's own, or its JSON config written as the equivalent `claude mcp add`.
+const MCP_INSTALL = {
+  'GLips/Figma-Context-MCP': [
+    { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add figma -- npx -y figma-developer-mcp --figma-api-key=YOUR-KEY --stdio'], note: 'Run in your terminal. Replace YOUR-KEY with a Figma personal access token. Same settings as the README\'s config.' },
+    { to: 'Codex', how: 'CLI', cmds: ['codex mcp add figma -- npx -y figma-developer-mcp --figma-api-key=YOUR-KEY --stdio'], note: 'Run in your terminal. Replace YOUR-KEY with a Figma personal access token.' }],
+  'mrexodia/ida-pro-mcp': [
+    { to: 'Claude Code', how: 'Plugin', cmds: ['claude plugin marketplace add mrexodia/claude-marketplace', 'claude plugin install ida-pro-mcp@mrexodia'], note: 'Run in your terminal. Needs IDA Pro 8.3 or newer with idalib activated, and uv.' },
+    { to: 'Codex', how: 'Plugin', cmds: ['codex plugin marketplace add mrexodia/codex-marketplace', 'codex plugin add ida-pro-mcp@mrexodia'], note: 'Run in your terminal. Same requirements.' }],
+  'hangwin/mcp-chrome': [
+    { to: 'Chrome', how: 'Extension + bridge', cmds: ['npm install -g mcp-chrome-bridge'], note: 'Then download the extension from the project\'s GitHub releases, load it at chrome://extensions with Developer mode on, and click Connect in it.' },
+    { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add --transport http chrome-mcp-server http://127.0.0.1:12306/mcp'], note: 'Connects to the extension\'s local server once it\'s running. Same address as the README\'s config.' }],
+  'wonderwhy-er/DesktopCommanderMCP': [
+    { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add --scope user desktop-commander -- npx -y @wonderwhy-er/desktop-commander@latest'], note: 'Run in your terminal.' },
+    { to: 'Codex', how: 'CLI', cmds: ['codex mcp add desktop-commander -- npx -y @wonderwhy-er/desktop-commander@latest'], note: 'Run in your terminal.' },
+    { to: 'Claude Desktop', how: 'Setup command', cmds: ['npx @wonderwhy-er/desktop-commander@latest setup'], note: 'Run in your terminal, then restart Claude.' }],
+  'taylorwilsdon/google_workspace_mcp': [
+    { to: 'Claude Code', how: 'Local server', cmds: ['uvx workspace-mcp --transport streamable-http --tool-tier core', 'claude mcp add --transport http workspace-mcp http://localhost:8000/mcp'], note: 'First create a Google OAuth client and set its ID and secret as the README explains. Start the server, then connect Claude Code.' }],
+  'korotovsky/slack-mcp-server': [
+    { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add slack -e SLACK_MCP_XOXP_TOKEN=xoxp-... -- npx -y slack-mcp-server@latest --transport stdio'], note: 'Replace xoxp-... with a Slack user OAuth token, the safer option its docs describe. Same settings as its config example.' }],
+  'nickclyde/duckduckgo-mcp-server': [
+    { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add ddg-search -- uvx duckduckgo-mcp-server'], note: 'Run in your terminal. No API key needed.' },
+    { to: 'Codex', how: 'CLI', cmds: ['codex mcp add ddg-search -- uvx duckduckgo-mcp-server'], note: 'Run in your terminal.' }],
+  'nspady/google-calendar-mcp': [
+    { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add google-calendar -e GOOGLE_OAUTH_CREDENTIALS=/path/to/gcp-oauth.keys.json -- npx -y @cocal/google-calendar-mcp'], note: 'First create a Google Cloud OAuth client (Desktop app) and download its keys file, as the README explains. Then ask your assistant to authenticate.' }],
+};
 // Companies whose own repositories are listed as "Trusted publisher" (no scan up front)
 const TRUSTED = new Set(['anthropics', 'openai', 'NVIDIA', 'microsoft', 'github', 'cli', 'modelcontextprotocol', 'ChromeDevTools', 'huggingface', 'vercel-labs', 'upstash', 'aquasecurity', 'semgrep', 'astral-sh', 'ollama']);
 OWNER.cli = 'GitHub'; OWNER.ChromeDevTools = 'Google Chrome';
@@ -55,7 +86,7 @@ for (const [repo, m] of Object.entries(d.repos)) {
   R[m.full] = { st: m.stars, fk: m.forks, is: m.issues, lic: m.license, pu: m.pushed?.slice(0, 10), cr: m.created?.slice(0, 10), ar: m.archived, own: m.owner,
     org: m.ownerType === 'Organization', on: OWNER[m.owner] || m.owner, lang: m.language, br: m.branch,
     sc: sc ? { s: sc.score, date: sc.date?.slice(0, 10), ch: sc.checks.filter(c => c.score >= 0).map(c => [c.name, c.score, c.reason]) } : null,
-    hn: (d.hn[repo] || []).filter(h => urlRe.test(h.url || '')).map(h => [h.title, h.url, h.points, h.comments, h.date, h.id]) };
+    hn: (d.hn[repo] || []).filter(h => urlRe.test(h.url || '')).map(h => [h.title, h.url, h.points, h.comments, h.date, h.id]), fd: m.fetched || d.generated.slice(0, 10) };
 }
 
 const L = [];
@@ -84,11 +115,13 @@ for (const l of d.listings) {
     inst.push({ scan: true, cmds: [`git clone --depth 1 https://github.com/${repo}`, `skillspector scan ${repoName}/${l.path} --no-llm`] });
   } else if (l.kind === 'mcp') {
     const run = l.npxPkg ? `npx -y ${l.npxPkg}${l.slug === 'filesystem' ? ' /path/to/allowed/folder' : ''}` : l.uvxPkg ? `uvx ${l.uvxPkg}` : null;
-    if (repo === 'ChromeDevTools/chrome-devtools-mcp') inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin marketplace add ChromeDevTools/chrome-devtools-mcp', '/plugin install chrome-devtools-mcp@chrome-devtools-plugins'], note: 'Run inside Claude Code.' });
+    if (MCP_INSTALL[repo]) inst.push(...MCP_INSTALL[repo], { to: 'Other clients', how: 'Install guide', link: `https://github.com/${repo}#readme`, note: 'Setup differs by client. Follow the project\'s README.' });
+    else if (repo === 'ChromeDevTools/chrome-devtools-mcp') inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin marketplace add ChromeDevTools/chrome-devtools-mcp', '/plugin install chrome-devtools-mcp@chrome-devtools-plugins'], note: 'Run inside Claude Code.' });
     else if (repo === 'upstash/context7') inst.push({ to: 'Claude Code', how: 'Setup CLI', cmds: ['npx ctx7 setup --claude'], note: 'Signs you in with OAuth and configures Context7. Needs Node.js 22.13 or newer.' });
     else if (l.install?.claude) inst.push({ to: 'Claude Code', how: 'CLI', cmds: [l.install.claude], note: repo === 'github/github-mcp-server' ? 'Needs Docker and a GitHub personal access token in $GITHUB_PAT.' : 'Run in your terminal.' });
     else if (run) inst.push({ to: 'Claude Code', how: 'CLI', cmds: [`claude mcp add ${l.slug} -- ${run}`], note: l.slug === 'filesystem' ? 'Run in your terminal. Replace the path with the folder it may access.' : 'Run in your terminal.' });
-    if (l.install?.codex) inst.push({ to: 'Codex', how: 'CLI', cmds: [l.install.codex], note: 'Run in your terminal.' });
+    if (MCP_INSTALL[repo]) {}
+    else if (l.install?.codex) inst.push({ to: 'Codex', how: 'CLI', cmds: [l.install.codex], note: 'Run in your terminal.' });
     else if (run) inst.push({ to: 'Codex', how: 'CLI', cmds: [`codex mcp add ${l.slug} ${run}`], note: 'Run in your terminal.' });
     if (repo === 'upstash/context7') inst.push({ to: 'Other agents', how: 'Setup CLI', cmds: ['npx ctx7 setup'], note: 'Interactive. Also supports --cursor and other flags.' });
     if (!inst.length) inst.push({ to: 'All clients', how: 'Install guide', link: `https://github.com/${repo}#readme`, note: 'Setup differs by client. Follow the project\'s README.' });
@@ -110,7 +143,8 @@ for (const l of d.listings) {
   }
   const name = l.kind === 'skill' ? l.name : l.kind === 'mcp' && l.path ? (SUB[l.slug] || l.name) : (NAME[repo] || l.name);
   L.push({ id, k: l.kind, n: name, sl: l.slug, t: tagline(desc), d: desc, r: repo, u: l.url, p: l.path, nv: !!l.nvidia, tr: TRUSTED.has(owner), g: glyphFor(l.slug + ' ' + desc + ' ' + repo), c: colorFor(id),
-    lines: l.lines || null, lic: l.license || null, inst });
+    lines: l.lines || null, lic: l.license || null, inst, pl: PLAIN[id]?.[0] || null, jb: PLAIN[id]?.[1] || [], lv: PLAIN[id]?.[2] || null });
+  if (!PLAIN[id]) console.error('NO PLAIN TEXT', id);
 }
 
 // SkillSpector static-scan reports, one JSON per listing id (from scan.mjs)

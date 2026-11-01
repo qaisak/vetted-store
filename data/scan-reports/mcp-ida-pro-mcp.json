@@ -1,0 +1,5345 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/mrexodia__ida-pro-mcp/ida-pro-mcp-main",
+    "scanned_at": "2026-11-01T00:50:34.885338+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "CRITICAL"
+  },
+  "components": [
+    {
+      "path": ".claude-plugin/plugin.json",
+      "type": "json",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 367,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".codex-plugin/mcp.json",
+      "type": "json",
+      "lines": 28,
+      "executable": false,
+      "size_bytes": 646,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".codex-plugin/plugin.json",
+      "type": "json",
+      "lines": 31,
+      "executable": false,
+      "size_bytes": 1021,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".editorconfig",
+      "type": "other",
+      "lines": 10,
+      "executable": false,
+      "size_bytes": 161,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/FUNDING.yml",
+      "type": "yaml",
+      "lines": 12,
+      "executable": false,
+      "size_bytes": 599,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/logo.png",
+      "type": "other",
+      "lines": 649,
+      "executable": false,
+      "size_bytes": 22423,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/idalib-tests.yml",
+      "type": "yaml",
+      "lines": 53,
+      "executable": false,
+      "size_bytes": 1628,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 39,
+      "executable": false,
+      "size_bytes": 359,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".kimi-plugin/plugin.json",
+      "type": "json",
+      "lines": 36,
+      "executable": false,
+      "size_bytes": 1008,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".python-version",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 5,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CLAUDE.md",
+      "type": "markdown",
+      "lines": 157,
+      "executable": false,
+      "size_bytes": 4255,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1071,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 433,
+      "executable": false,
+      "size_bytes": 20064,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "devdocs/test-framework.md",
+      "type": "markdown",
+      "lines": 695,
+      "executable": false,
+      "size_bytes": 16982,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "ida-plugin.json",
+      "type": "json",
+      "lines": 12,
+      "executable": false,
+      "size_bytes": 446,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "profiles/readonly.txt",
+      "type": "text",
+      "lines": 52,
+      "executable": false,
+      "size_bytes": 851,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "profiles/triage.txt",
+      "type": "text",
+      "lines": 20,
+      "executable": false,
+      "size_bytes": 341,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "pyproject.toml",
+      "type": "toml",
+      "lines": 60,
+      "executable": false,
+      "size_bytes": 1435,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/stress_search_cancellation.py",
+      "type": "python",
+      "lines": 531,
+      "executable": true,
+      "size_bytes": 23860,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/SKILL.md",
+      "type": "markdown",
+      "lines": 154,
+      "executable": false,
+      "size_bytes": 5007,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_auto.md",
+      "type": "markdown",
+      "lines": 46,
+      "executable": false,
+      "size_bytes": 1722,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_auto.rst",
+      "type": "other",
+      "lines": 421,
+      "executable": false,
+      "size_bytes": 10451,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_bitrange.md",
+      "type": "markdown",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 652,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_bitrange.rst",
+      "type": "other",
+      "lines": 126,
+      "executable": false,
+      "size_bytes": 2043,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_bytes.md",
+      "type": "markdown",
+      "lines": 107,
+      "executable": false,
+      "size_bytes": 4094,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_bytes.rst",
+      "type": "other",
+      "lines": 3571,
+      "executable": false,
+      "size_bytes": 95367,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_dbg.md",
+      "type": "markdown",
+      "lines": 107,
+      "executable": false,
+      "size_bytes": 3891,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_dbg.rst",
+      "type": "other",
+      "lines": 3086,
+      "executable": false,
+      "size_bytes": 76519,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_dirtree.md",
+      "type": "markdown",
+      "lines": 62,
+      "executable": false,
+      "size_bytes": 1983,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_dirtree.rst",
+      "type": "other",
+      "lines": 841,
+      "executable": false,
+      "size_bytes": 16884,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_diskio.md",
+      "type": "markdown",
+      "lines": 73,
+      "executable": false,
+      "size_bytes": 2303,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_diskio.rst",
+      "type": "other",
+      "lines": 324,
+      "executable": false,
+      "size_bytes": 7178,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_entry.md",
+      "type": "markdown",
+      "lines": 25,
+      "executable": false,
+      "size_bytes": 1030,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_entry.rst",
+      "type": "other",
+      "lines": 151,
+      "executable": false,
+      "size_bytes": 3867,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_expr.md",
+      "type": "markdown",
+      "lines": 84,
+      "executable": false,
+      "size_bytes": 3573,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_expr.rst",
+      "type": "other",
+      "lines": 829,
+      "executable": false,
+      "size_bytes": 19676,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_fixup.md",
+      "type": "markdown",
+      "lines": 64,
+      "executable": false,
+      "size_bytes": 2859,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_fixup.rst",
+      "type": "other",
+      "lines": 463,
+      "executable": false,
+      "size_bytes": 9765,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_fpro.md",
+      "type": "markdown",
+      "lines": 52,
+      "executable": false,
+      "size_bytes": 1687,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_fpro.rst",
+      "type": "other",
+      "lines": 204,
+      "executable": false,
+      "size_bytes": 3578,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_frame.md",
+      "type": "markdown",
+      "lines": 102,
+      "executable": false,
+      "size_bytes": 4895,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_frame.rst",
+      "type": "other",
+      "lines": 731,
+      "executable": false,
+      "size_bytes": 21758,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_funcs.md",
+      "type": "markdown",
+      "lines": 178,
+      "executable": false,
+      "size_bytes": 7691,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_funcs.rst",
+      "type": "other",
+      "lines": 1394,
+      "executable": false,
+      "size_bytes": 33777,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_gdl.md",
+      "type": "markdown",
+      "lines": 44,
+      "executable": false,
+      "size_bytes": 1556,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_gdl.rst",
+      "type": "other",
+      "lines": 639,
+      "executable": false,
+      "size_bytes": 12043,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_graph.md",
+      "type": "markdown",
+      "lines": 57,
+      "executable": false,
+      "size_bytes": 2078,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_graph.rst",
+      "type": "other",
+      "lines": 2189,
+      "executable": false,
+      "size_bytes": 41979,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_hexrays.md",
+      "type": "markdown",
+      "lines": 173,
+      "executable": false,
+      "size_bytes": 5605,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_hexrays.rst",
+      "type": "other",
+      "lines": 18292,
+      "executable": false,
+      "size_bytes": 380345,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_ida.md",
+      "type": "markdown",
+      "lines": 60,
+      "executable": false,
+      "size_bytes": 2651,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_ida.rst",
+      "type": "other",
+      "lines": 3579,
+      "executable": false,
+      "size_bytes": 70118,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_idaapi.md",
+      "type": "markdown",
+      "lines": 40,
+      "executable": false,
+      "size_bytes": 1284,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_idaapi.rst",
+      "type": "other",
+      "lines": 698,
+      "executable": false,
+      "size_bytes": 14777,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_idc.md",
+      "type": "markdown",
+      "lines": 12,
+      "executable": false,
+      "size_bytes": 381,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_idc.rst",
+      "type": "other",
+      "lines": 25,
+      "executable": false,
+      "size_bytes": 439,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_idd.md",
+      "type": "markdown",
+      "lines": 43,
+      "executable": false,
+      "size_bytes": 1485,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_idd.rst",
+      "type": "other",
+      "lines": 3237,
+      "executable": false,
+      "size_bytes": 66321,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_idp.md",
+      "type": "markdown",
+      "lines": 38,
+      "executable": false,
+      "size_bytes": 1419,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_idp.rst",
+      "type": "other",
+      "lines": 5636,
+      "executable": false,
+      "size_bytes": 136247,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_ieee.md",
+      "type": "markdown",
+      "lines": 27,
+      "executable": false,
+      "size_bytes": 1041,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_ieee.rst",
+      "type": "other",
+      "lines": 351,
+      "executable": false,
+      "size_bytes": 5248,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_kernwin.md",
+      "type": "markdown",
+      "lines": 57,
+      "executable": false,
+      "size_bytes": 2088,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_kernwin.rst",
+      "type": "other",
+      "lines": 10758,
+      "executable": false,
+      "size_bytes": 233636,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_libfuncs.md",
+      "type": "markdown",
+      "lines": 32,
+      "executable": false,
+      "size_bytes": 966,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_libfuncs.rst",
+      "type": "other",
+      "lines": 190,
+      "executable": false,
+      "size_bytes": 3090,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_lines.md",
+      "type": "markdown",
+      "lines": 35,
+      "executable": false,
+      "size_bytes": 1095,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_lines.rst",
+      "type": "other",
+      "lines": 954,
+      "executable": false,
+      "size_bytes": 16344,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_loader.md",
+      "type": "markdown",
+      "lines": 99,
+      "executable": false,
+      "size_bytes": 3635,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_loader.rst",
+      "type": "other",
+      "lines": 1000,
+      "executable": false,
+      "size_bytes": 21740,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_merge.md",
+      "type": "markdown",
+      "lines": 40,
+      "executable": false,
+      "size_bytes": 1361,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_merge.rst",
+      "type": "other",
+      "lines": 1078,
+      "executable": false,
+      "size_bytes": 25877,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_mergemod.md",
+      "type": "markdown",
+      "lines": 22,
+      "executable": false,
+      "size_bytes": 740,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_mergemod.rst",
+      "type": "other",
+      "lines": 59,
+      "executable": false,
+      "size_bytes": 3873,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_moves.md",
+      "type": "markdown",
+      "lines": 79,
+      "executable": false,
+      "size_bytes": 2770,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_moves.rst",
+      "type": "other",
+      "lines": 442,
+      "executable": false,
+      "size_bytes": 7591,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_nalt.md",
+      "type": "markdown",
+      "lines": 210,
+      "executable": false,
+      "size_bytes": 9519,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_nalt.rst",
+      "type": "other",
+      "lines": 2665,
+      "executable": false,
+      "size_bytes": 53610,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_name.md",
+      "type": "markdown",
+      "lines": 191,
+      "executable": false,
+      "size_bytes": 7202,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_name.rst",
+      "type": "other",
+      "lines": 1283,
+      "executable": false,
+      "size_bytes": 28608,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_netnode.md",
+      "type": "markdown",
+      "lines": 27,
+      "executable": false,
+      "size_bytes": 1158,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_netnode.rst",
+      "type": "other",
+      "lines": 527,
+      "executable": false,
+      "size_bytes": 12385,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_offset.md",
+      "type": "markdown",
+      "lines": 20,
+      "executable": false,
+      "size_bytes": 996,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_offset.rst",
+      "type": "other",
+      "lines": 187,
+      "executable": false,
+      "size_bytes": 7895,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_pro.md",
+      "type": "markdown",
+      "lines": 37,
+      "executable": false,
+      "size_bytes": 1341,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_pro.rst",
+      "type": "other",
+      "lines": 1931,
+      "executable": false,
+      "size_bytes": 32639,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_problems.md",
+      "type": "markdown",
+      "lines": 31,
+      "executable": false,
+      "size_bytes": 1206,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_problems.rst",
+      "type": "other",
+      "lines": 193,
+      "executable": false,
+      "size_bytes": 4171,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_range.md",
+      "type": "markdown",
+      "lines": 49,
+      "executable": false,
+      "size_bytes": 1881,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_range.rst",
+      "type": "other",
+      "lines": 550,
+      "executable": false,
+      "size_bytes": 10795,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_regfinder.md",
+      "type": "markdown",
+      "lines": 67,
+      "executable": false,
+      "size_bytes": 2745,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_regfinder.rst",
+      "type": "other",
+      "lines": 783,
+      "executable": false,
+      "size_bytes": 16527,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_registry.md",
+      "type": "markdown",
+      "lines": 41,
+      "executable": false,
+      "size_bytes": 1740,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_registry.rst",
+      "type": "other",
+      "lines": 250,
+      "executable": false,
+      "size_bytes": 6169,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_search.md",
+      "type": "markdown",
+      "lines": 41,
+      "executable": false,
+      "size_bytes": 1421,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_search.rst",
+      "type": "other",
+      "lines": 145,
+      "executable": false,
+      "size_bytes": 3201,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_segment.md",
+      "type": "markdown",
+      "lines": 129,
+      "executable": false,
+      "size_bytes": 4998,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_segment.rst",
+      "type": "other",
+      "lines": 1460,
+      "executable": false,
+      "size_bytes": 38823,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_segregs.md",
+      "type": "markdown",
+      "lines": 55,
+      "executable": false,
+      "size_bytes": 1862,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_segregs.rst",
+      "type": "other",
+      "lines": 226,
+      "executable": false,
+      "size_bytes": 6432,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_srclang.md",
+      "type": "markdown",
+      "lines": 42,
+      "executable": false,
+      "size_bytes": 1475,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_srclang.rst",
+      "type": "other",
+      "lines": 154,
+      "executable": false,
+      "size_bytes": 4343,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_strlist.md",
+      "type": "markdown",
+      "lines": 34,
+      "executable": false,
+      "size_bytes": 1049,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_strlist.rst",
+      "type": "other",
+      "lines": 112,
+      "executable": false,
+      "size_bytes": 2036,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_tryblks.md",
+      "type": "markdown",
+      "lines": 47,
+      "executable": false,
+      "size_bytes": 1457,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_tryblks.rst",
+      "type": "other",
+      "lines": 450,
+      "executable": false,
+      "size_bytes": 7582,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_typeinf.md",
+      "type": "markdown",
+      "lines": 265,
+      "executable": false,
+      "size_bytes": 7824,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_typeinf.rst",
+      "type": "other",
+      "lines": 10010,
+      "executable": false,
+      "size_bytes": 207037,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_ua.md",
+      "type": "markdown",
+      "lines": 78,
+      "executable": false,
+      "size_bytes": 2257,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_ua.rst",
+      "type": "other",
+      "lines": 1829,
+      "executable": false,
+      "size_bytes": 44630,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_undo.md",
+      "type": "markdown",
+      "lines": 27,
+      "executable": false,
+      "size_bytes": 768,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_undo.rst",
+      "type": "other",
+      "lines": 58,
+      "executable": false,
+      "size_bytes": 1179,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_xref.md",
+      "type": "markdown",
+      "lines": 62,
+      "executable": false,
+      "size_bytes": 1900,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/ida_xref.rst",
+      "type": "other",
+      "lines": 623,
+      "executable": false,
+      "size_bytes": 15328,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/idaapi.md",
+      "type": "markdown",
+      "lines": 11,
+      "executable": false,
+      "size_bytes": 317,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/idaapi.rst",
+      "type": "other",
+      "lines": 32,
+      "executable": false,
+      "size_bytes": 270,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/idadex.md",
+      "type": "markdown",
+      "lines": 59,
+      "executable": false,
+      "size_bytes": 2062,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/idadex.rst",
+      "type": "other",
+      "lines": 302,
+      "executable": false,
+      "size_bytes": 4035,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/idautils.md",
+      "type": "markdown",
+      "lines": 86,
+      "executable": false,
+      "size_bytes": 3227,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/idautils.rst",
+      "type": "other",
+      "lines": 472,
+      "executable": false,
+      "size_bytes": 10017,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/idc.md",
+      "type": "markdown",
+      "lines": 310,
+      "executable": false,
+      "size_bytes": 11096,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/idc.rst",
+      "type": "other",
+      "lines": 6504,
+      "executable": false,
+      "size_bytes": 121975,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/init.md",
+      "type": "markdown",
+      "lines": 28,
+      "executable": false,
+      "size_bytes": 752,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "skills/idapython/docs/init.rst",
+      "type": "other",
+      "lines": 109,
+      "executable": false,
+      "size_bytes": 1542,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/__init__.py",
+      "type": "python",
+      "lines": 0,
+      "executable": true,
+      "size_bytes": 0,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/__main__.py",
+      "type": "python",
+      "lines": 6,
+      "executable": true,
+      "size_bytes": 124,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp.py",
+      "type": "python",
+      "lines": 346,
+      "executable": true,
+      "size_bytes": 11466,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/__init__.py",
+      "type": "python",
+      "lines": 81,
+      "executable": true,
+      "size_bytes": 2185,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/_sigmaker.py",
+      "type": "python",
+      "lines": 1662,
+      "executable": true,
+      "size_bytes": 56249,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/api_analysis.py",
+      "type": "python",
+      "lines": 2597,
+      "executable": true,
+      "size_bytes": 84116,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/api_composite.py",
+      "type": "python",
+      "lines": 657,
+      "executable": true,
+      "size_bytes": 20932,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/api_core.py",
+      "type": "python",
+      "lines": 1145,
+      "executable": true,
+      "size_bytes": 35494,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/api_debug.py",
+      "type": "python",
+      "lines": 1003,
+      "executable": true,
+      "size_bytes": 30120,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/api_memory.py",
+      "type": "python",
+      "lines": 340,
+      "executable": true,
+      "size_bytes": 9583,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/api_modify.py",
+      "type": "python",
+      "lines": 1319,
+      "executable": true,
+      "size_bytes": 44398,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/api_python.py",
+      "type": "python",
+      "lines": 279,
+      "executable": true,
+      "size_bytes": 9345,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/api_resources.py",
+      "type": "python",
+      "lines": 292,
+      "executable": true,
+      "size_bytes": 8439,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/api_sigmaker.py",
+      "type": "python",
+      "lines": 347,
+      "executable": true,
+      "size_bytes": 11005,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/api_stack.py",
+      "type": "python",
+      "lines": 183,
+      "executable": true,
+      "size_bytes": 5502,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/api_survey.py",
+      "type": "python",
+      "lines": 444,
+      "executable": true,
+      "size_bytes": 12545,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/api_types.py",
+      "type": "python",
+      "lines": 1145,
+      "executable": true,
+      "size_bytes": 37567,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/compat.py",
+      "type": "python",
+      "lines": 350,
+      "executable": true,
+      "size_bytes": 10739,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/discovery.py",
+      "type": "python",
+      "lines": 287,
+      "executable": true,
+      "size_bytes": 8498,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/framework.py",
+      "type": "python",
+      "lines": 731,
+      "executable": true,
+      "size_bytes": 22159,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/http.py",
+      "type": "python",
+      "lines": 456,
+      "executable": true,
+      "size_bytes": 14919,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/mainthread.py",
+      "type": "python",
+      "lines": 160,
+      "executable": true,
+      "size_bytes": 4962,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/profile.py",
+      "type": "python",
+      "lines": 53,
+      "executable": true,
+      "size_bytes": 1659,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/rpc.py",
+      "type": "python",
+      "lines": 238,
+      "executable": true,
+      "size_bytes": 6677,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/sync.py",
+      "type": "python",
+      "lines": 354,
+      "executable": true,
+      "size_bytes": 13285,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/__init__.py",
+      "type": "python",
+      "lines": 21,
+      "executable": true,
+      "size_bytes": 673,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/mcp_mode.py",
+      "type": "python",
+      "lines": 214,
+      "executable": true,
+      "size_bytes": 6884,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_api_analysis.py",
+      "type": "python",
+      "lines": 932,
+      "executable": true,
+      "size_bytes": 31258,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_api_analysis_internals.py",
+      "type": "python",
+      "lines": 175,
+      "executable": true,
+      "size_bytes": 5886,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_api_composite.py",
+      "type": "python",
+      "lines": 540,
+      "executable": true,
+      "size_bytes": 17341,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_api_core.py",
+      "type": "python",
+      "lines": 603,
+      "executable": true,
+      "size_bytes": 19034,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_api_debug.py",
+      "type": "python",
+      "lines": 648,
+      "executable": true,
+      "size_bytes": 22288,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_api_memory.py",
+      "type": "python",
+      "lines": 370,
+      "executable": true,
+      "size_bytes": 11727,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_api_modify.py",
+      "type": "python",
+      "lines": 736,
+      "executable": true,
+      "size_bytes": 25337,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_api_python.py",
+      "type": "python",
+      "lines": 127,
+      "executable": true,
+      "size_bytes": 4197,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_api_resources.py",
+      "type": "python",
+      "lines": 176,
+      "executable": true,
+      "size_bytes": 5657,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_api_sigmaker.py",
+      "type": "python",
+      "lines": 317,
+      "executable": true,
+      "size_bytes": 11066,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_api_stack.py",
+      "type": "python",
+      "lines": 146,
+      "executable": true,
+      "size_bytes": 5077,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_api_survey.py",
+      "type": "python",
+      "lines": 204,
+      "executable": true,
+      "size_bytes": 7075,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_api_types.py",
+      "type": "python",
+      "lines": 641,
+      "executable": true,
+      "size_bytes": 21043,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_discovery.py",
+      "type": "python",
+      "lines": 191,
+      "executable": true,
+      "size_bytes": 6939,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_framework_helpers.py",
+      "type": "python",
+      "lines": 102,
+      "executable": true,
+      "size_bytes": 3060,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_http.py",
+      "type": "python",
+      "lines": 104,
+      "executable": true,
+      "size_bytes": 4227,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_installer.py",
+      "type": "python",
+      "lines": 74,
+      "executable": true,
+      "size_bytes": 2646,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_profile.py",
+      "type": "python",
+      "lines": 161,
+      "executable": true,
+      "size_bytes": 5278,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_server.py",
+      "type": "python",
+      "lines": 242,
+      "executable": true,
+      "size_bytes": 8679,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_tool_metadata.py",
+      "type": "python",
+      "lines": 310,
+      "executable": true,
+      "size_bytes": 10815,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_trace.py",
+      "type": "python",
+      "lines": 298,
+      "executable": true,
+      "size_bytes": 10065,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_typed_fixture.py",
+      "type": "python",
+      "lines": 247,
+      "executable": true,
+      "size_bytes": 8618,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/tests/test_utils.py",
+      "type": "python",
+      "lines": 172,
+      "executable": true,
+      "size_bytes": 6092,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/trace.py",
+      "type": "python",
+      "lines": 334,
+      "executable": true,
+      "size_bytes": 9873,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/utils.py",
+      "type": "python",
+      "lines": 1414,
+      "executable": true,
+      "size_bytes": 43332,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/zeromcp/__init__.py",
+      "type": "python",
+      "lines": 21,
+      "executable": true,
+      "size_bytes": 471,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/zeromcp/jsonrpc.py",
+      "type": "python",
+      "lines": 387,
+      "executable": true,
+      "size_bytes": 14931,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/ida_mcp/zeromcp/mcp.py",
+      "type": "python",
+      "lines": 1408,
+      "executable": true,
+      "size_bytes": 54147,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/idalib_server.py",
+      "type": "python",
+      "lines": 353,
+      "executable": true,
+      "size_bytes": 11186,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/idalib_session_manager.py",
+      "type": "python",
+      "lines": 197,
+      "executable": true,
+      "size_bytes": 7226,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/idalib_supervisor.py",
+      "type": "python",
+      "lines": 1544,
+      "executable": true,
+      "size_bytes": 60057,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/installer.py",
+      "type": "python",
+      "lines": 687,
+      "executable": true,
+      "size_bytes": 22236,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/installer_data.py",
+      "type": "python",
+      "lines": 518,
+      "executable": true,
+      "size_bytes": 17405,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/installer_tui.py",
+      "type": "python",
+      "lines": 180,
+      "executable": true,
+      "size_bytes": 5441,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/server.py",
+      "type": "python",
+      "lines": 357,
+      "executable": true,
+      "size_bytes": 11693,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/test.py",
+      "type": "python",
+      "lines": 205,
+      "executable": true,
+      "size_bytes": 6478,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/trace_dump.py",
+      "type": "python",
+      "lines": 55,
+      "executable": true,
+      "size_bytes": 1508,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/ida_pro_mcp/worker_lifecycle.py",
+      "type": "python",
+      "lines": 115,
+      "executable": true,
+      "size_bytes": 3879,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/_mcp_spec_support.py",
+      "type": "python",
+      "lines": 333,
+      "executable": true,
+      "size_bytes": 10547,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/binary_info.py",
+      "type": "python",
+      "lines": 206,
+      "executable": true,
+      "size_bytes": 6032,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/crackme03.elf",
+      "type": "other",
+      "lines": 52,
+      "executable": true,
+      "size_bytes": 16136,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_browser_transport_guards.py",
+      "type": "python",
+      "lines": 224,
+      "executable": true,
+      "size_bytes": 7516,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_discovery_wildcard_host.py",
+      "type": "python",
+      "lines": 90,
+      "executable": true,
+      "size_bytes": 3268,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_idalib_session_manager.py",
+      "type": "python",
+      "lines": 146,
+      "executable": true,
+      "size_bytes": 5063,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_idalib_supervisor.py",
+      "type": "python",
+      "lines": 1508,
+      "executable": true,
+      "size_bytes": 50013,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_installer_scope_messages.py",
+      "type": "python",
+      "lines": 38,
+      "executable": true,
+      "size_bytes": 1154,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_jsonrpc_union_params.py",
+      "type": "python",
+      "lines": 60,
+      "executable": true,
+      "size_bytes": 1700,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_mainthread_pump.py",
+      "type": "python",
+      "lines": 170,
+      "executable": true,
+      "size_bytes": 4880,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_mcp_spec_endpoints.py",
+      "type": "python",
+      "lines": 147,
+      "executable": true,
+      "size_bytes": 5016,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_mcp_spec_envelope.py",
+      "type": "python",
+      "lines": 172,
+      "executable": true,
+      "size_bytes": 5975,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_mcp_spec_http_e2e.py",
+      "type": "python",
+      "lines": 428,
+      "executable": true,
+      "size_bytes": 15749,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_mcp_spec_schema_generation.py",
+      "type": "python",
+      "lines": 365,
+      "executable": true,
+      "size_bytes": 11424,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_mcp_spec_tools_list.py",
+      "type": "python",
+      "lines": 204,
+      "executable": true,
+      "size_bytes": 6460,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_mcp_spec_truncation.py",
+      "type": "python",
+      "lines": 298,
+      "executable": true,
+      "size_bytes": 10506,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_no_protocol_stdout_prints.py",
+      "type": "python",
+      "lines": 26,
+      "executable": true,
+      "size_bytes": 895,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_output_schema.py",
+      "type": "python",
+      "lines": 309,
+      "executable": true,
+      "size_bytes": 10983,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_server_transport.py",
+      "type": "python",
+      "lines": 152,
+      "executable": true,
+      "size_bytes": 5620,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_worker_lifecycle.py",
+      "type": "python",
+      "lines": 119,
+      "executable": true,
+      "size_bytes": 3544,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/typed_fixture.c",
+      "type": "other",
+      "lines": 37,
+      "executable": false,
+      "size_bytes": 745,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/typed_fixture.elf",
+      "type": "other",
+      "lines": 39434,
+      "executable": true,
+      "size_bytes": 2418632,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "uv-package.sh",
+      "type": "shell",
+      "lines": 5,
+      "executable": true,
+      "size_bytes": 78,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "uv.lock",
+      "type": "other",
+      "lines": 873,
+      "executable": false,
+      "size_bytes": 158135,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "AST8",
+      "finding_id": "finding-5df6469dbbe2418ba291e802b4068fe0",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dangerous chain: exec() wrapping compile",
+      "severity": "CRITICAL",
+      "confidence": 0.95,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+        "start_line": 176,
+        "end_line": 180,
+        "start_column": 20,
+        "end_column": 21
+      },
+      "finding": "exec(\n                        compile(exec_tree, \"<string>\", \"exec\"),\n                        exec_globals,\n                        exec_locals,\n                    )",
+      "explanation": "A dangerous execution chain combines code execution (exec/eval) with a dynamic source (network, encoded data, dynamic import), creating a high-confidence attack vector.",
+      "remediation": "Remove the execution chain entirely. Never pass network data, decoded bytes, or dynamically imported code to exec()/eval(). Use structured data formats instead.",
+      "code_snippet": "                # Execute all statements except the last\n                if len(tree.body) > 1:\n                    exec_tree = ast.Module(body=tree.body[:-1], type_ignores=[])\n                    exec(\n                        compile(exec_tree, \"<string>\", \"exec\"),\n                        exec_globals,\n                        exec_locals,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5cc0f943c29ab16704a57d00bb0ab217473652241e225669d689b6ee6216105d",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+          "start_line": 176,
+          "end_line": 180,
+          "start_column": 20,
+          "end_column": 21
+        }
+      ]
+    },
+    {
+      "id": "AST8",
+      "finding_id": "finding-642f44baa26b4d9e9c599436ac7dd5df",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dangerous chain: eval() wrapping compile",
+      "severity": "CRITICAL",
+      "confidence": 0.95,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+        "start_line": 185,
+        "end_line": 185,
+        "start_column": 20,
+        "end_column": 78
+      },
+      "finding": "eval(compile(eval_tree, \"<string>\", \"eval\"), exec_globals)",
+      "explanation": "A dangerous execution chain combines code execution (exec/eval) with a dynamic source (network, encoded data, dynamic import), creating a high-confidence attack vector.",
+      "remediation": "Remove the execution chain entirely. Never pass network data, decoded bytes, or dynamically imported code to exec()/eval(). Use structured data formats instead.",
+      "code_snippet": "                # Eval only the last expression\n                eval_tree = ast.Expression(body=tree.body[-1].value)\n                result_value = str(\n                    eval(compile(eval_tree, \"<string>\", \"eval\"), exec_globals)\n                )\n            else:\n                # All statements (no trailing expression)",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fe864b86c0e2d11e5aed9f7f7170a5dbd5a3a70c671461268d35c522bfe24759",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+          "start_line": 185,
+          "end_line": 185,
+          "start_column": 20,
+          "end_column": 78
+        }
+      ]
+    },
+    {
+      "id": "AST8",
+      "finding_id": "finding-403a43e647654d84be5fa4f0fc9468ad",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dangerous chain: exec() wrapping compile",
+      "severity": "CRITICAL",
+      "confidence": 0.95,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+        "start_line": 254,
+        "end_line": 254,
+        "start_column": 8,
+        "end_column": 60
+      },
+      "finding": "exec(compile(code, file_path, \"exec\"), exec_globals)",
+      "explanation": "A dangerous execution chain combines code execution (exec/eval) with a dynamic source (network, encoded data, dynamic import), creating a high-confidence attack vector.",
+      "remediation": "Remove the execution chain entirely. Never pass network data, decoded bytes, or dynamically imported code to exec()/eval(). Use structured data formats instead.",
+      "code_snippet": "        with open(file_path, \"r\", encoding=\"utf-8\") as f:\n            code = f.read()\n\n        exec(compile(code, file_path, \"exec\"), exec_globals)\n\n        stdout_text = stdout_capture.getvalue()\n        stderr_text = stderr_capture.getvalue()",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ca0b21458b809c170e4584eabf8f32c8e9446ff6e120f287a01a8c4b8eefea14",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+          "start_line": 254,
+          "end_line": 254,
+          "start_column": 8,
+          "end_column": 60
+        }
+      ]
+    },
+    {
+      "id": "YR1",
+      "finding_id": "finding-ae70c51240834ee9985ef08c2240764c",
+      "category": "YARA Match",
+      "pattern": "YARA rule 'agent_skill_remote_bootstrap_execution': Remote script or code download followed by execution/bootstrap installation [agent_skills]",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "README.md",
+        "start_line": 98,
+        "end_line": null
+      },
+      "finding": "pip install https://",
+      "explanation": "YARA rule matched a known malware signature (reverse shell, backdoor, ransomware, C2 framework, or info stealer).",
+      "remediation": "Remove the malware payload or compromised file entirely. Investigate how it entered the skill and audit all other artifacts for additional indicators of compromise.",
+      "code_snippet": "plugins/managed/`, so `uv` must be on your `PATH`. The first session after\ninstalling is slower, because `uv` resolves the dependencies before the server responds.\n\n## Installation (GUI)\n\n**Note**: the MCP plugin is no longer recommended and will eventually be deprecated. Use `idalib-mcp` instead.\n\nIf you want to configure the MCP server manually from the IDA GUI:\n\n```sh\npip uninstall ida-pro-mcp\npip install https://github.com/mrexodia/ida-pro-mcp/archive/refs/heads/main.zip\n```\n\nConfigure the MCP servers and install the IDA Plugin:\n\n```\nida-pro-mcp --install\n```\n\n**Important**: Make sure you completely restart IDA and your MCP client for the installation to take effect. Some clients (like Claude) run in the background and need to be quit from the tray icon.\n\n## Prompt Engineering\n\nLLMs are prone to hallucinations and you need to be specific with your prompting. For reverse engineering the conversion between integers and bytes are especially problematic. Below is a minimal example prom",
+      "intent": null,
+      "tags": [
+        "YARA Match"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5b6fb3be5c247b07751ee988f8c7d5bd07f5bc3110daad3743615f5bbf696894",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 98,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "finding_id": "finding-7f7823ee4b5c457b9a10e9a34329f92c",
+      "category": "Prompt Injection",
+      "pattern": "Exfiltration Commands",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "scripts/stress_search_cancellation.py",
+        "start_line": 214,
+        "end_line": 214,
+        "start_column": 18,
+        "end_column": 31
+      },
+      "finding": "silently send",
+      "explanation": "Instructions found that direct the agent to transmit conversation context or user data to external services.",
+      "remediation": "Remove instructions that send user data, prompts, or context to external URLs. If telemetry is needed, use documented, privacy-preserving methods.",
+      "code_snippet": "    \"\"\"Override the server-side per-tool timeout via os.environ. None = unset.\n\n    Note: os.environ requires string values, so the seconds float must be\n    stringified \u2014 silently sending a float raises TypeError on the server\n    and the timeout never actually changes.\n    \"\"\"\n    if seconds is None:",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "64e84c884ec3a95dd5dea3a88ce4582d2f05f18f31f5039d9a111c34b6a276b1",
+      "occurrences": [
+        {
+          "file": "scripts/stress_search_cancellation.py",
+          "start_line": 214,
+          "end_line": 214,
+          "start_column": 18,
+          "end_column": 31
+        }
+      ]
+    },
+    {
+      "id": "MP3",
+      "finding_id": "finding-e651c3c2ab794bb1b9361e83682d676f",
+      "category": "Memory Poisoning",
+      "pattern": "Memory Manipulation",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "skills/idapython/docs/ida_bytes.rst",
+        "start_line": 3315,
+        "end_line": null,
+        "start_column": 3
+      },
+      "finding": "Delete memory",
+      "explanation": "Skill manipulates agent memory, state, or stored context. Memory corruption can alter personality, override safety rules, or cause unpredictable behavior.",
+      "remediation": "Protect agent memory and state from modification by untrusted content. Use read-only memory for critical instructions and validate all state changes.",
+      "code_snippet": "\n.. py:function:: del_mapping(ea: ida_idaapi.ea_t) -> None\n\n   Delete memory mapping range. \n           \n   :param ea: any address in the mapped range\n",
+      "intent": null,
+      "tags": [
+        "Memory Poisoning"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0381cb070cb656092f40e5a14b6ff3f89829371bf10af361c28e64a42c1bc97f",
+      "occurrences": [
+        {
+          "file": "skills/idapython/docs/ida_bytes.rst",
+          "start_line": 3315,
+          "end_line": null,
+          "start_column": 3
+        }
+      ]
+    },
+    {
+      "id": "P6",
+      "finding_id": "finding-8f31324651734dc1bebaaab5406219d0",
+      "category": "System Prompt Leakage",
+      "pattern": "Direct Prompt Extraction",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "skills/idapython/docs/ida_dbg.rst",
+        "start_line": 1161,
+        "end_line": null,
+        "start_column": 63
+      },
+      "finding": "return instruction",
+      "explanation": "Skill contains instructions that could directly expose system prompts, internal rules, or hidden instructions to users or external parties.",
+      "remediation": "Remove any instructions that reveal, print, or output system prompts or internal rules. System instructions should never be exposed to end users.",
+      "code_snippet": "\n.. py:function:: step_until_ret() -> bool\n\n   Execute instructions in the current thread until a function return instruction is executed (aka \"step out\"). Other threads are kept suspended. \\sq{Type, Asynchronous function - available as Request, Notification, dbg_step_until_ret} \n           \n\n",
+      "intent": null,
+      "tags": [
+        "System Prompt Leakage"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a7f19da5651d75dae4f2c50593c507ab94572430ace9ccded29966238c318153",
+      "occurrences": [
+        {
+          "file": "skills/idapython/docs/ida_dbg.rst",
+          "start_line": 1161,
+          "end_line": null,
+          "start_column": 63
+        }
+      ]
+    },
+    {
+      "id": "RA1",
+      "finding_id": "finding-e9fd3930dc1047b4b666fbbd8fb33293",
+      "category": "Rogue Agent",
+      "pattern": "Self-Modification",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "skills/idapython/docs/ida_fpro.md",
+        "start_line": 44,
+        "end_line": null,
+        "start_column": 22
+      },
+      "finding": "Overwrite existing file",
+      "explanation": "Skill modifies its own code, configuration, or behavior at runtime. Self-modification enables an agent to escalate privileges, disable safety constraints, or install persistent backdoors.",
+      "remediation": "Prevent the skill from modifying its own code, SKILL.md, or configuration files. Treat skill files as read-only at runtime.",
+      "code_snippet": "\n## Move Flags (QMOVE_*)\n- `QMOVE_CROSS_FS` - Allow cross-filesystem moves\n- `QMOVE_OVERWRITE` - Overwrite existing files\n- `QMOVE_OVR_RO` - Overwrite read-only files\n\n## Important",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ab825fad36644c7a7bb0fa0aa8ce605fb4ed63a23c0f134568b8dfd5c96f7cf8",
+      "occurrences": [
+        {
+          "file": "skills/idapython/docs/ida_fpro.md",
+          "start_line": 44,
+          "end_line": null,
+          "start_column": 22
+        }
+      ]
+    },
+    {
+      "id": "P6",
+      "finding_id": "finding-cf3bece03bf64842adefea960fbca2d0",
+      "category": "System Prompt Leakage",
+      "pattern": "Direct Prompt Extraction",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "skills/idapython/docs/ida_hexrays.rst",
+        "start_line": 11613,
+        "end_line": null,
+        "start_column": 3
+      },
+      "finding": "display instruction",
+      "explanation": "Skill contains instructions that could directly expose system prompts, internal rules, or hidden instructions to users or external parties.",
+      "remediation": "Remove any instructions that reveal, print, or output system prompts or internal rules. System instructions should never be exposed to end users.",
+      "code_snippet": "\n.. py:data:: MBA_INSGDL\n\n   display instruction in graphs\n\n\n.. py:data:: MBA_NICE",
+      "intent": null,
+      "tags": [
+        "System Prompt Leakage"
+      ],
+      "evidence": {},
+      "match_fingerprint": "b9b3bacd1bd84ccaef8322aacd34864572bc1c3bd15a00958b59bfae0975bc7a",
+      "occurrences": [
+        {
+          "file": "skills/idapython/docs/ida_hexrays.rst",
+          "start_line": 11613,
+          "end_line": null,
+          "start_column": 3
+        }
+      ]
+    },
+    {
+      "id": "RA1",
+      "finding_id": "finding-31d45d5a5741411ca2b6bcc31ac34081",
+      "category": "Rogue Agent",
+      "pattern": "Self-Modification",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "skills/idapython/docs/ida_hexrays.rst",
+        "start_line": 12133,
+        "end_line": null,
+        "start_column": 24
+      },
+      "finding": "overwrite existing file",
+      "explanation": "Skill modifies its own code, configuration, or behavior at runtime. Self-modification enables an agent to escalate privileges, disable safety constraints, or install persistent backdoors.",
+      "remediation": "Prevent the skill from modifying its own code, SKILL.md, or configuration files. Treat skill files as read-only at runtime.",
+      "code_snippet": "\n.. py:data:: VDRUN_NEWFILE\n\n   Create a new file or overwrite existing file.\n\n\n.. py:data:: VDRUN_APPEND",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7ba2b849c5dcccbb8994b775fe53f63f181b047f3264e45ac1a3bc5a39f8710e",
+      "occurrences": [
+        {
+          "file": "skills/idapython/docs/ida_hexrays.rst",
+          "start_line": 12133,
+          "end_line": null,
+          "start_column": 24
+        }
+      ]
+    },
+    {
+      "id": "AR2",
+      "finding_id": "finding-6a2b607673ca487baa2cc024733754e6",
+      "category": "Anti-Refusal",
+      "pattern": "Anti-Refusal Statement",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "skills/idapython/docs/ida_idd.rst",
+        "start_line": 1352,
+        "end_line": 1352,
+        "start_column": 3,
+        "end_column": 14
+      },
+      "finding": "do not warn",
+      "explanation": "Skill instructs the agent to omit warnings, disclaimers, or ethical commentary. Stripping safety caveats hides risk from the user and is a common jailbreak preamble.",
+      "remediation": "Remove instructions that suppress warnings, disclaimers, or ethical commentary. Let the agent surface safety-relevant caveats to the user.",
+      "code_snippet": "\n.. py:data:: EXC_SILENT\n\n   do not warn or log to the output window\n\n\n.. py:class:: regval_t(*args)",
+      "intent": null,
+      "tags": [
+        "Anti-Refusal"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4ed937199b44f5dfc20c35de3bf2b82dadee853999751b0fc6e43f45d9ab312b",
+      "occurrences": [
+        {
+          "file": "skills/idapython/docs/ida_idd.rst",
+          "start_line": 1352,
+          "end_line": 1352,
+          "start_column": 3,
+          "end_column": 14
+        }
+      ]
+    },
+    {
+      "id": "MP3",
+      "finding_id": "finding-6fe6434671ac46fa9b86cd2eb0e2e328",
+      "category": "Memory Poisoning",
+      "pattern": "Memory Manipulation",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "skills/idapython/docs/ida_name.rst",
+        "start_line": 476,
+        "end_line": null,
+        "start_column": 134
+      },
+      "finding": "new name is",
+      "explanation": "Skill manipulates agent memory, state, or stored context. Memory corruption can alter personality, override safety rules, or cause unpredictable behavior.",
+      "remediation": "Protect agent memory and state from modification by untrusted content. Use read-only memory for critical instructions and validate all state changes.",
+      "code_snippet": "\n.. py:data:: SN_MULTI\n\n   if the specified address already has a name, then add the new name as a regular comment \"Alternative name is ...\". Except when the new name is public and the old one is not or when the old name is weak and the new one is not. In these cases we act as if bit SN_MULTI_FORCE is specified. If the new name only slightly differs from the old one, for example, only by the initial underscore or the artificial suffix '_##', then we ignore it. \n           \n\n",
+      "intent": null,
+      "tags": [
+        "Memory Poisoning"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6dc45916f6adb511dc6f0ab430abfe197f01afac7967b7a62b1bc19330376850",
+      "occurrences": [
+        {
+          "file": "skills/idapython/docs/ida_name.rst",
+          "start_line": 476,
+          "end_line": null,
+          "start_column": 134
+        }
+      ]
+    },
+    {
+      "id": "MP3",
+      "finding_id": "finding-5152d57175eb45ff8944829ce5e51e28",
+      "category": "Memory Poisoning",
+      "pattern": "Memory Manipulation",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "skills/idapython/docs/ida_segment.rst",
+        "start_line": 1328,
+        "end_line": null,
+        "start_column": 23
+      },
+      "finding": "new name is",
+      "explanation": "Skill manipulates agent memory, state, or stored context. Memory corruption can alter personality, override safety rules, or cause unpredictable behavior.",
+      "remediation": "Protect agent memory and state from modification by untrusted content. Use read-only memory for critical instructions and validate all state changes.",
+      "code_snippet": "\n.. py:function:: set_segm_name(s: segment_t, name: str, flags: int = 0) -> int\n\n   Rename segment. The new name is validated (see validate_name). A segment always has a name. If you hadn't specified a name, the kernel will assign it \"seg###\" name where ### is segment number. \n           \n   :param s: pointer to segment (may be nullptr)\n   :param name: new segment name",
+      "intent": null,
+      "tags": [
+        "Memory Poisoning"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6dc45916f6adb511dc6f0ab430abfe197f01afac7967b7a62b1bc19330376850",
+      "occurrences": [
+        {
+          "file": "skills/idapython/docs/ida_segment.rst",
+          "start_line": 1328,
+          "end_line": null,
+          "start_column": 23
+        }
+      ]
+    },
+    {
+      "id": "MP3",
+      "finding_id": "finding-bd264671b1014904b16bd9efb7fda28c",
+      "category": "Memory Poisoning",
+      "pattern": "Memory Manipulation",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "skills/idapython/docs/ida_typeinf.rst",
+        "start_line": 9194,
+        "end_line": null,
+        "start_column": 3
+      },
+      "finding": "new name is",
+      "explanation": "Skill manipulates agent memory, state, or stored context. Memory corruption can alter personality, override safety rules, or cause unpredictable behavior.",
+      "remediation": "Protect agent memory and state from modification by untrusted content. Use read-only memory for critical instructions and validate all state changes.",
+      "code_snippet": "\n.. py:data:: TVIS_NAME\n\n   new name is present (only for funcargs and udt members)\n\n\n.. py:data:: TVIS_CMT",
+      "intent": null,
+      "tags": [
+        "Memory Poisoning"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6dc45916f6adb511dc6f0ab430abfe197f01afac7967b7a62b1bc19330376850",
+      "occurrences": [
+        {
+          "file": "skills/idapython/docs/ida_typeinf.rst",
+          "start_line": 9194,
+          "end_line": null,
+          "start_column": 3
+        }
+      ]
+    },
+    {
+      "id": "AR2",
+      "finding_id": "finding-8daa893019bb4c90adbc06362ddfff1c",
+      "category": "Anti-Refusal",
+      "pattern": "Anti-Refusal Statement",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "skills/idapython/docs/ida_typeinf.rst",
+        "start_line": 4151,
+        "end_line": 4151,
+        "start_column": 3,
+        "end_column": 13
+      },
+      "finding": "no warning",
+      "explanation": "Skill instructs the agent to omit warnings, disclaimers, or ethical commentary. Stripping safety caveats hides risk from the user and is a common jailbreak preamble.",
+      "remediation": "Remove instructions that suppress warnings, disclaimers, or ethical commentary. Let the agent surface safety-relevant caveats to the user.",
+      "code_snippet": "\n.. py:data:: HTI_NWR\n\n   no warning messages\n\n\n.. py:data:: HTI_NER",
+      "intent": null,
+      "tags": [
+        "Anti-Refusal"
+      ],
+      "evidence": {},
+      "match_fingerprint": "449e47b25897541aa26f8824417d1280ef58d2d29e5e3ba95502143b7207c9ec",
+      "occurrences": [
+        {
+          "file": "skills/idapython/docs/ida_typeinf.rst",
+          "start_line": 4151,
+          "end_line": 4151,
+          "start_column": 3,
+          "end_column": 13
+        }
+      ]
+    },
+    {
+      "id": "P6",
+      "finding_id": "finding-0e4620cad2f6460aa92287c39d5f128d",
+      "category": "System Prompt Leakage",
+      "pattern": "Direct Prompt Extraction",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "skills/idapython/docs/ida_ua.rst",
+        "start_line": 1535,
+        "end_line": null,
+        "start_column": 6
+      },
+      "finding": "Output instruction",
+      "explanation": "Skill contains instructions that could directly expose system prompts, internal rules, or hidden instructions to users or external parties.",
+      "remediation": "Remove any instructions that reveal, print, or output system prompts or internal rules. System instructions should never be exposed to end users.",
+      "code_snippet": "\n   .. py:method:: out_mnem(width: int = 8, postfix: str = None) -> None\n\n      Output instruction mnemonic for 'insn' using information in 'ph.instruc' array. This function outputs colored text. It should be called from processor_t::ev_out_insn() or processor_t::ev_out_mnem() handler. It will output at least one space after the instruction. mnemonic even if the specified 'width' is not enough. \n              \n      :param width: width of field with mnemonic. if < 0, then 'postfix' will be output before the mnemonic, i.e. as a prefix\n      :param postfix: optional postfix added to the instruction mnemonic",
+      "intent": null,
+      "tags": [
+        "System Prompt Leakage"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1199fe2b120087f9dd8433e2be3936f8aa504032cac6852006711c5847634528",
+      "occurrences": [
+        {
+          "file": "skills/idapython/docs/ida_ua.rst",
+          "start_line": 1535,
+          "end_line": null,
+          "start_column": 6
+        }
+      ]
+    },
+    {
+      "id": "P6",
+      "finding_id": "finding-c1d1a1811b95403c8ccef1aab937849b",
+      "category": "System Prompt Leakage",
+      "pattern": "Direct Prompt Extraction",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "skills/idapython/docs/ida_ua.rst",
+        "start_line": 1554,
+        "end_line": null,
+        "start_column": 6
+      },
+      "finding": "Output instruction",
+      "explanation": "Skill contains instructions that could directly expose system prompts, internal rules, or hidden instructions to users or external parties.",
+      "remediation": "Remove any instructions that reveal, print, or output system prompts or internal rules. System instructions should never be exposed to end users.",
+      "code_snippet": "\n   .. py:method:: out_mnemonic() -> None\n\n      Output instruction mnemonic using information in 'insn'. It should be called from processor_t::ev_out_insn() and it will call processor_t::ev_out_mnem() or out_mnem. This function outputs colored text. \n              \n\n",
+      "intent": null,
+      "tags": [
+        "System Prompt Leakage"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1199fe2b120087f9dd8433e2be3936f8aa504032cac6852006711c5847634528",
+      "occurrences": [
+        {
+          "file": "skills/idapython/docs/ida_ua.rst",
+          "start_line": 1554,
+          "end_line": null,
+          "start_column": 6
+        }
+      ]
+    },
+    {
+      "id": "P6",
+      "finding_id": "finding-9ead05554217474aa066b18f27832998",
+      "category": "System Prompt Leakage",
+      "pattern": "Direct Prompt Extraction",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "skills/idapython/docs/ida_ua.rst",
+        "start_line": 1642,
+        "end_line": null,
+        "start_column": 3
+      },
+      "finding": "Print instruction",
+      "explanation": "Skill contains instructions that could directly expose system prompts, internal rules, or hidden instructions to users or external parties.",
+      "remediation": "Remove any instructions that reveal, print, or output system prompts or internal rules. System instructions should never be exposed to end users.",
+      "code_snippet": "\n.. py:function:: print_insn_mnem(ea: ida_idaapi.ea_t) -> str\n\n   Print instruction mnemonics. \n           \n   :param ea: linear address of the instruction\n   :returns: success",
+      "intent": null,
+      "tags": [
+        "System Prompt Leakage"
+      ],
+      "evidence": {},
+      "match_fingerprint": "84f5741259235b4cb275eff278aac760268ed5bc4ac8bc8f340067ee69262158",
+      "occurrences": [
+        {
+          "file": "skills/idapython/docs/ida_ua.rst",
+          "start_line": 1642,
+          "end_line": null,
+          "start_column": 3
+        }
+      ]
+    },
+    {
+      "id": "AST1",
+      "finding_id": "finding-e2765a0f12b8486a99ebd367e7393f75",
+      "category": "Dangerous Code Execution",
+      "pattern": "exec() call detected",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+        "start_line": 157,
+        "end_line": 157,
+        "start_column": 12,
+        "end_column": 49
+      },
+      "finding": "exec(code, exec_globals, exec_locals)",
+      "explanation": "Direct exec() call allows arbitrary code execution. An attacker can inject code that runs with the full privileges of the process.",
+      "remediation": "Replace exec() with a safe alternative. If dynamic execution is required, use a sandboxed environment or restricted eval with __builtins__ disabled.",
+      "code_snippet": "            tree = ast.parse(code)\n        except SyntaxError:\n            # If parsing fails, fall back to direct exec\n            exec(code, exec_globals, exec_locals)\n            exec_globals.update(exec_locals)\n            if \"result\" in exec_locals:\n                result_value = str(exec_locals[\"result\"])",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ae5bae9d03095ba34972b5feeccf4144e7181a89ce5383b569219889e9ab8a40",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+          "start_line": 157,
+          "end_line": 157,
+          "start_column": 12,
+          "end_column": 49
+        }
+      ]
+    },
+    {
+      "id": "AST1",
+      "finding_id": "finding-5914b1016b8e402683b238edf949c794",
+      "category": "Dangerous Code Execution",
+      "pattern": "exec() call detected",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+        "start_line": 189,
+        "end_line": 189,
+        "start_column": 16,
+        "end_column": 53
+      },
+      "finding": "exec(code, exec_globals, exec_locals)",
+      "explanation": "Direct exec() call allows arbitrary code execution. An attacker can inject code that runs with the full privileges of the process.",
+      "remediation": "Replace exec() with a safe alternative. If dynamic execution is required, use a sandboxed environment or restricted eval with __builtins__ disabled.",
+      "code_snippet": "                )\n            else:\n                # All statements (no trailing expression)\n                exec(code, exec_globals, exec_locals)\n                exec_globals.update(exec_locals)\n                # Return 'result' variable if explicitly set\n                if \"result\" in exec_locals:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ae5bae9d03095ba34972b5feeccf4144e7181a89ce5383b569219889e9ab8a40",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+          "start_line": 189,
+          "end_line": 189,
+          "start_column": 16,
+          "end_column": 53
+        }
+      ]
+    },
+    {
+      "id": "AST2",
+      "finding_id": "finding-e413016926294605ae645cb44ff3c762",
+      "category": "Dangerous Code Execution",
+      "pattern": "eval() call detected",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+        "start_line": 170,
+        "end_line": 170,
+        "start_column": 35,
+        "end_column": 59
+      },
+      "finding": "eval(code, exec_globals)",
+      "explanation": "Direct eval() call evaluates arbitrary expressions. This can be exploited to execute malicious code or exfiltrate data.",
+      "remediation": "Replace eval() with ast.literal_eval() for data parsing, or use explicit parsing logic. Never evaluate untrusted strings.",
+      "code_snippet": "                pass\n            elif len(tree.body) == 1 and isinstance(tree.body[0], ast.Expr):\n                # Single expression - use eval\n                result_value = str(eval(code, exec_globals))\n            elif isinstance(tree.body[-1], ast.Expr):\n                # Multiple statements, last one is an expression (Jupyter-style)\n                # Execute all statements except the last",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c7c6a714c64119e99d95c39d222ec4a4a7b530554ea3678775efd926d4ca606b",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+          "start_line": 170,
+          "end_line": 170,
+          "start_column": 35,
+          "end_column": 59
+        }
+      ]
+    },
+    {
+      "id": "AST1",
+      "finding_id": "finding-dc3293a22a1042ebac8fb1c908907688",
+      "category": "Dangerous Code Execution",
+      "pattern": "exec() call detected",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+        "start_line": 176,
+        "end_line": 180,
+        "start_column": 20,
+        "end_column": 21
+      },
+      "finding": "exec(\n                        compile(exec_tree, \"<string>\", \"exec\"),\n                        exec_globals,\n                        exec_locals,\n                    )",
+      "explanation": "Direct exec() call allows arbitrary code execution. An attacker can inject code that runs with the full privileges of the process.",
+      "remediation": "Replace exec() with a safe alternative. If dynamic execution is required, use a sandboxed environment or restricted eval with __builtins__ disabled.",
+      "code_snippet": "                # Execute all statements except the last\n                if len(tree.body) > 1:\n                    exec_tree = ast.Module(body=tree.body[:-1], type_ignores=[])\n                    exec(\n                        compile(exec_tree, \"<string>\", \"exec\"),\n                        exec_globals,\n                        exec_locals,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ad038ad9bc1b9ad672a1f908f5470353e49b16c34f80e7687656e2546ca3b455",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+          "start_line": 176,
+          "end_line": 180,
+          "start_column": 20,
+          "end_column": 21
+        }
+      ]
+    },
+    {
+      "id": "AST2",
+      "finding_id": "finding-32de271dc6d1412d87301491c09517f2",
+      "category": "Dangerous Code Execution",
+      "pattern": "eval() call detected",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+        "start_line": 185,
+        "end_line": 185,
+        "start_column": 20,
+        "end_column": 78
+      },
+      "finding": "eval(compile(eval_tree, \"<string>\", \"eval\"), exec_globals)",
+      "explanation": "Direct eval() call evaluates arbitrary expressions. This can be exploited to execute malicious code or exfiltrate data.",
+      "remediation": "Replace eval() with ast.literal_eval() for data parsing, or use explicit parsing logic. Never evaluate untrusted strings.",
+      "code_snippet": "                # Eval only the last expression\n                eval_tree = ast.Expression(body=tree.body[-1].value)\n                result_value = str(\n                    eval(compile(eval_tree, \"<string>\", \"eval\"), exec_globals)\n                )\n            else:\n                # All statements (no trailing expression)",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "89db3ba1d311bdab32734cf38dea5bf4024d5162c8121a3284d5fd3b2809428b",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+          "start_line": 185,
+          "end_line": 185,
+          "start_column": 20,
+          "end_column": 78
+        }
+      ]
+    },
+    {
+      "id": "AST1",
+      "finding_id": "finding-c7b0c54227df41a78e35aa9c7ef1e731",
+      "category": "Dangerous Code Execution",
+      "pattern": "exec() call detected",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+        "start_line": 254,
+        "end_line": 254,
+        "start_column": 8,
+        "end_column": 60
+      },
+      "finding": "exec(compile(code, file_path, \"exec\"), exec_globals)",
+      "explanation": "Direct exec() call allows arbitrary code execution. An attacker can inject code that runs with the full privileges of the process.",
+      "remediation": "Replace exec() with a safe alternative. If dynamic execution is required, use a sandboxed environment or restricted eval with __builtins__ disabled.",
+      "code_snippet": "        with open(file_path, \"r\", encoding=\"utf-8\") as f:\n            code = f.read()\n\n        exec(compile(code, file_path, \"exec\"), exec_globals)\n\n        stdout_text = stdout_capture.getvalue()\n        stderr_text = stderr_capture.getvalue()",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "122701312a6a1ee4912a6f5264927fcc0230b8eb3920301f44683831dea1be3f",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+          "start_line": 254,
+          "end_line": 254,
+          "start_column": 8,
+          "end_column": 60
+        }
+      ]
+    },
+    {
+      "id": "AS2",
+      "finding_id": "finding-e529d0af6a4f49059c792e681c23b57e",
+      "category": "Agent Snooping",
+      "pattern": "MCP Config Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/profile.py",
+        "start_line": 1,
+        "end_line": null,
+        "start_column": 22
+      },
+      "finding": "list MCP tools",
+      "explanation": "Skill accesses MCP server configuration files (such as mcp.json or claude_desktop_config.json). MCP configs contain server URLs, authentication tokens, and tool definitions \u2014 reading them allows the skill to discover and potentially abuse other tool integrations.",
+      "remediation": "Remove all code or instructions that read MCP configuration files (such as mcp.json or claude_desktop_config.json). MCP server details should be managed by the agent runtime, not read by individual skills.",
+      "code_snippet": "\"\"\"Profile files whitelist MCP tools by name.\n\nFormat: one tool name per line; ``#`` starts a comment; blank lines are ignored.\nPassed to ``idalib-mcp --profile PATH`` or exported from ``/config.html``.",
+      "intent": null,
+      "tags": [
+        "Agent Snooping"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e8f4db13e4f3d6e9ef6c4a8c245a5d37b2d80586c9c6bfbb97cb92076e5b87e1",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/profile.py",
+          "start_line": 1,
+          "end_line": null,
+          "start_column": 22
+        }
+      ]
+    },
+    {
+      "id": "SC9",
+      "finding_id": "finding-db44be195fd74e8f9fb1ac4ae4b5e452",
+      "category": "Supply Chain",
+      "pattern": "Concealed Executable Artifact",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "location": {
+        "file": "tests/crackme03.elf",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "tests/crackme03.elf",
+      "explanation": "An executable artifact remains available under the skill install path but its content is outside analyzer coverage.",
+      "remediation": "Review the artifact provenance and the reason executable content is packaged in this location; keep executable files explicit and directly reviewable.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "supply-chain",
+        "concealed-executable",
+        "local-only"
+      ],
+      "evidence": {
+        "outer_path": "tests/crackme03.elf",
+        "nested_path": "tests/crackme03.elf",
+        "container_type": "filesystem",
+        "container_ancestry": [
+          "filesystem"
+        ],
+        "container_depth": 0,
+        "concealment": "binary_content",
+        "concealment_reasons": [
+          "binary_content"
+        ],
+        "local_only": true,
+        "referenced": false,
+        "excluded_from_analysis": true,
+        "partially_analyzed_executable": false,
+        "excluded_inspection_incomplete": false,
+        "inherited_exclusion_reason": "binary_content",
+        "inspection_limitation_reason": null
+      },
+      "match_fingerprint": "099f4b354d00cc6dca355028fc2f6a5db9f8dcdf7644739a1c190b10534de28f",
+      "occurrences": [
+        {
+          "file": "tests/crackme03.elf",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC9",
+      "finding_id": "finding-ed2dbb3a348b418c85bd1ae47c03d946",
+      "category": "Supply Chain",
+      "pattern": "Concealed Executable Artifact",
+      "severity": "HIGH",
+      "confidence": 1.0,
+      "location": {
+        "file": "tests/typed_fixture.elf",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "tests/typed_fixture.elf",
+      "explanation": "An executable artifact remains available under the skill install path but its content is outside analyzer coverage.",
+      "remediation": "Review the artifact provenance and the reason executable content is packaged in this location; keep executable files explicit and directly reviewable.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "supply-chain",
+        "concealed-executable",
+        "local-only"
+      ],
+      "evidence": {
+        "outer_path": "tests/typed_fixture.elf",
+        "nested_path": "tests/typed_fixture.elf",
+        "container_type": "filesystem",
+        "container_ancestry": [
+          "filesystem"
+        ],
+        "container_depth": 0,
+        "concealment": "binary_content",
+        "concealment_reasons": [
+          "binary_content"
+        ],
+        "local_only": true,
+        "referenced": false,
+        "excluded_from_analysis": true,
+        "partially_analyzed_executable": false,
+        "excluded_inspection_incomplete": false,
+        "inherited_exclusion_reason": "binary_content",
+        "inspection_limitation_reason": null
+      },
+      "match_fingerprint": "c6a39a472c7ff4b6569f7d701c5473342ceebf420c35958d62e6c71dc6c6709e",
+      "occurrences": [
+        {
+          "file": "tests/typed_fixture.elf",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-36aef01113ff44869af2f00481785914",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx -y @modelcontextprotocol/inspector'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 418,
+        "end_line": null
+      },
+      "finding": "npx -y @modelcontextprotocol/inspector",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d14c2877b02583cc060e89b02bec42e4792214da5aecced58bcc13eeacc61cd0",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 418,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-d60140d4ae2f46ad9d102ca11099fe1a",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx -y @modelcontextprotocol/inspector'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/ida_pro_mcp/server.py",
+        "start_line": 349,
+        "end_line": null
+      },
+      "finding": "npx -y @modelcontextprotocol/inspector",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d14c2877b02583cc060e89b02bec42e4792214da5aecced58bcc13eeacc61cd0",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/server.py",
+          "start_line": 349,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-b9132b5dccb44d699bc812fbc70527f8",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "scripts/stress_search_cancellation.py",
+        "start_line": 82,
+        "end_line": 87,
+        "start_column": 11,
+        "end_column": 5
+      },
+      "finding": "subprocess.Popen(\n        [\"uv\", \"run\", \"idalib-mcp\", \"--unsafe\", \"--port\", str(port), str(binary)],\n        stdout=log, stderr=subprocess.STDOUT,\n        # Own process group so we can SIGTERM the who",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    print(f\"  spawning: uv run idalib-mcp --unsafe --port={port} {binary}\")\n    log_path = Path(f\"/tmp/stress_idalib_{port}.log\")\n    log = open(log_path, \"wb\")\n    proc = subprocess.Popen(\n        [\"uv\", \"run\", \"idalib-mcp\", \"--unsafe\", \"--port\", str(port), str(binary)],\n        stdout=log, stderr=subprocess.STDOUT,\n        # Own process group so we can SIGTERM the whole tree on exit.",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "254c370920824b2e3034d8fd9fbe78f0c77bee8c801abda9e30c1cf64d9045f8",
+      "occurrences": [
+        {
+          "file": "scripts/stress_search_cancellation.py",
+          "start_line": 82,
+          "end_line": 87,
+          "start_column": 11,
+          "end_column": 5
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-89ce0551e03044a39a873ba78285b53f",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "scripts/stress_search_cancellation.py",
+        "start_line": 86,
+        "end_line": null,
+        "start_column": 22
+      },
+      "finding": "setsid ",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "        [\"uv\", \"run\", \"idalib-mcp\", \"--unsafe\", \"--port\", str(port), str(binary)],\n        stdout=log, stderr=subprocess.STDOUT,\n        # Own process group so we can SIGTERM the whole tree on exit.\n        preexec_fn=os.setsid if hasattr(os, \"setsid\") else None,\n    )\n    atexit.register(_kill_proc, proc)\n    print(f\"  log: {log_path}  pid: {proc.pid}\")",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "46970e2d8425d41998e9806d2cdacc2240e0e8354f4bd50fef102f0baaac0bfa",
+      "occurrences": [
+        {
+          "file": "scripts/stress_search_cancellation.py",
+          "start_line": 86,
+          "end_line": null,
+          "start_column": 22
+        }
+      ]
+    },
+    {
+      "id": "MP2",
+      "finding_id": "finding-72524756a888414cbac6c3da220756d5",
+      "category": "Memory Poisoning",
+      "pattern": "Context Window Stuffing",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "skills/idapython/docs/ida_kernwin.rst",
+        "start_line": 7184,
+        "end_line": null,
+        "start_column": 16
+      },
+      "finding": "pad window",
+      "explanation": "Skill attempts to fill the context window with filler content, displacing legitimate instructions and safety constraints. This can degrade agent performance or bypass safety boundaries.",
+      "remediation": "Implement context-window management that detects and rejects padding or stuffing attempts. Prioritize system instructions over user-injected content.",
+      "code_snippet": "\n.. py:function:: open_notepad_window() -> TWidget *\n\n   Open the notepad window (ui_open_builtin). \n           \n   :returns: pointer to resulting window\n",
+      "intent": null,
+      "tags": [
+        "Memory Poisoning"
+      ],
+      "evidence": {},
+      "match_fingerprint": "68c08f2b86d2632c91486821114aaa4408e88dbe7fb09dcda2d491dffc755f08",
+      "occurrences": [
+        {
+          "file": "skills/idapython/docs/ida_kernwin.rst",
+          "start_line": 7184,
+          "end_line": null,
+          "start_column": 16
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-e6a73c7078f5406b81fe80ecba8cb991",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "skills/idapython/docs/ida_loader.rst",
+        "start_line": 994,
+        "end_line": null,
+        "start_column": 311
+      },
+      "finding": "automatically delete",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "\n.. py:function:: extract_module_from_archive(fname: str, is_remote: bool = False) -> PyObject *\n\n   Extract a module for an archive file. Parse an archive file, show the list of modules to the user, allow him to select a module, extract the selected module to a file (if the extract module is an archive, repeat the process). This function can handle ZIP, AR, AIXAR, OMFLIB files. The temporary file will be automatically deleted by IDA at the end. \n           \n   :param is_remote: is the input file remote?\n   :returns: true: ok",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ee6af536eee1323b1733eced8f31a554eb978c75dd7c3210f0083aa6f84ed87a",
+      "occurrences": [
+        {
+          "file": "skills/idapython/docs/ida_loader.rst",
+          "start_line": 994,
+          "end_line": null,
+          "start_column": 311
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-02ac07c478fa4ac3b573431100a8cc69",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "skills/idapython/docs/ida_segment.rst",
+        "start_line": 1062,
+        "end_line": null,
+        "start_column": 71
+      },
+      "finding": "without asking",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "   :param newstart: new start address of the segment note that segment start address should be higher than segment base linear address.\n   :param mode: policy for destroying defined items\n   * 0: if it is necessary to destroy defined items, display a dialog box and ask confirmation\n   * 1: if it is necessary to destroy defined items, just destroy them without asking the user\n   * -1: if it is necessary to destroy defined items, don't destroy them (i.e. function will fail)\n   * -2: don't destroy defined items (function will succeed)\n   :returns: 1: ok",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8dc77d3dce9ba1f2672e813265a1b1a0c8594866ef38a4e978bf4f4451795465",
+      "occurrences": [
+        {
+          "file": "skills/idapython/docs/ida_segment.rst",
+          "start_line": 1062,
+          "end_line": null,
+          "start_column": 71
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-40b8a4e746084cc1b9e08a963ad2b573",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp.py",
+        "start_line": 228,
+        "end_line": 228,
+        "start_column": 11,
+        "end_column": 28
+      },
+      "finding": "__import__(\"sys\")",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "\n    def init(self):\n        hotkey = MCP.wanted_hotkey.replace(\"-\", \"+\")\n        if __import__(\"sys\").platform == \"darwin\":\n            hotkey = hotkey.replace(\"Alt\", \"Option\")\n\n        self.mcp: \"ida_mcp.rpc.McpServer | None\" = None",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6a96fe0078ca0cd95af3f67f1d0306aa4d7a1489613eb75736f8b36854e0f629",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp.py",
+          "start_line": 228,
+          "end_line": 228,
+          "start_column": 11,
+          "end_column": 28
+        }
+      ]
+    },
+    {
+      "id": "AST3",
+      "finding_id": "finding-8b7e332ad5c9474cad99efba8dea07d7",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic import via __import__()",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+        "start_line": 37,
+        "end_line": 37,
+        "start_column": 19,
+        "end_column": 42
+      },
+      "finding": "__import__(module_name)",
+      "explanation": "Dynamic __import__() can load arbitrary modules at runtime, bypassing static analysis and potentially importing malicious code.",
+      "remediation": "Use standard import statements instead of __import__(). If dynamic loading is needed, use importlib with an allowlist of permitted modules.",
+      "code_snippet": "    \"\"\"Build an execution context with all IDA modules available.\"\"\"\n    def lazy_import(module_name):\n        try:\n            return __import__(module_name)\n        except Exception:\n            return None\n",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5c39863d46429494a97f5a46a5ee777e1567beb2b0fe576905755586c40b268b",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+          "start_line": 37,
+          "end_line": 37,
+          "start_column": 19,
+          "end_column": 42
+        }
+      ]
+    },
+    {
+      "id": "AST6",
+      "finding_id": "finding-2d70979a7cf743cdbcdfe636b1580177",
+      "category": "Dangerous Code Execution",
+      "pattern": "compile() call detected",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+        "start_line": 177,
+        "end_line": 177,
+        "start_column": 24,
+        "end_column": 62
+      },
+      "finding": "compile(exec_tree, \"<string>\", \"exec\")",
+      "explanation": "compile() creates code objects from strings. When combined with exec()/eval(), it enables obfuscated code execution.",
+      "remediation": "Avoid compile() with dynamic strings. If code generation is needed, use templates or AST manipulation with strict validation.",
+      "code_snippet": "                if len(tree.body) > 1:\n                    exec_tree = ast.Module(body=tree.body[:-1], type_ignores=[])\n                    exec(\n                        compile(exec_tree, \"<string>\", \"exec\"),\n                        exec_globals,\n                        exec_locals,\n                    )",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "19e3999878b36e28b606be89694927e35110e423b9a83b9db8ef00ffc56f1b91",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+          "start_line": 177,
+          "end_line": 177,
+          "start_column": 24,
+          "end_column": 62
+        }
+      ]
+    },
+    {
+      "id": "AST6",
+      "finding_id": "finding-7d2ceff7591042599967a0db3a4612c1",
+      "category": "Dangerous Code Execution",
+      "pattern": "compile() call detected",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+        "start_line": 185,
+        "end_line": 185,
+        "start_column": 25,
+        "end_column": 63
+      },
+      "finding": "compile(eval_tree, \"<string>\", \"eval\")",
+      "explanation": "compile() creates code objects from strings. When combined with exec()/eval(), it enables obfuscated code execution.",
+      "remediation": "Avoid compile() with dynamic strings. If code generation is needed, use templates or AST manipulation with strict validation.",
+      "code_snippet": "                # Eval only the last expression\n                eval_tree = ast.Expression(body=tree.body[-1].value)\n                result_value = str(\n                    eval(compile(eval_tree, \"<string>\", \"eval\"), exec_globals)\n                )\n            else:\n                # All statements (no trailing expression)",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6e2c1fe8e34b84b0a55c8db3b533d883afd913355f40b16546610f4946e0836d",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+          "start_line": 185,
+          "end_line": 185,
+          "start_column": 25,
+          "end_column": 63
+        }
+      ]
+    },
+    {
+      "id": "AST6",
+      "finding_id": "finding-71330ac74c8543c4b10bae814ee48a0f",
+      "category": "Dangerous Code Execution",
+      "pattern": "compile() call detected",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+        "start_line": 254,
+        "end_line": 254,
+        "start_column": 13,
+        "end_column": 45
+      },
+      "finding": "compile(code, file_path, \"exec\")",
+      "explanation": "compile() creates code objects from strings. When combined with exec()/eval(), it enables obfuscated code execution.",
+      "remediation": "Avoid compile() with dynamic strings. If code generation is needed, use templates or AST manipulation with strict validation.",
+      "code_snippet": "        with open(file_path, \"r\", encoding=\"utf-8\") as f:\n            code = f.read()\n\n        exec(compile(code, file_path, \"exec\"), exec_globals)\n\n        stdout_text = stdout_capture.getvalue()\n        stderr_text = stderr_capture.getvalue()",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3cf137f15f47caf9108f0e73fbe5224685c410be462d95e9b6a867e803a3a079",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/api_python.py",
+          "start_line": 254,
+          "end_line": 254,
+          "start_column": 13,
+          "end_column": 45
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-aae489b34bbd4b98b651ee0088854233",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/discovery.py",
+        "start_line": 252,
+        "end_line": 256,
+        "start_column": 8,
+        "end_column": 9
+      },
+      "finding": "subprocess.Popen(\n            args,\n            creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP\n            if sys.platform == \"win32\" else 0,\n        )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "    before = {(i[\"host\"], i[\"port\"]) for i in discover_instances()}\n\n    try:\n        subprocess.Popen(\n            args,\n            creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP\n            if sys.platform == \"win32\" else 0,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "b2aace98759fb8c4b72e275282938bc4b503df55c30848df05a8ba899009effc",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/discovery.py",
+          "start_line": 252,
+          "end_line": 256,
+          "start_column": 8,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "TM3",
+      "finding_id": "finding-5d2dfd420641408aa5808288dc4cb8aa",
+      "category": "Tool Misuse",
+      "pattern": "Unsafe Defaults",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/http.py",
+        "start_line": 99,
+        "end_line": null,
+        "start_column": 20
+      },
+      "finding": "cors_policy()\n\n    def update_cors_policy(self):\n        match config_json_get(\"cors_policy\", DEFAULT_CORS_POLICY):\n            case \"unrestricted\":\n                self.mcp_server.cors_allowed_origin",
+      "explanation": "Tool defaults are unsafe or overly permissive (e.g. disabled TLS verification, no authentication, world-writable permissions). Unsafe defaults widen the attack surface.",
+      "remediation": "Override unsafe defaults with secure settings (verify=True, auth required, restrictive permissions). Review and harden all tool configurations.",
+      "code_snippet": "class IdaMcpHttpRequestHandler(McpHttpRequestHandler):\n    def __init__(self, request, client_address, server):\n        super().__init__(request, client_address, server)\n        self.update_cors_policy()\n\n    def update_cors_policy(self):\n        match config_json_get(\"cors_policy\", DEFAULT_CORS_POLICY):",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "77131587648a438bdae096cfae180e5188e80ad80df8f1c806d3f15973f87171",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/http.py",
+          "start_line": 99,
+          "end_line": null,
+          "start_column": 20
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-3466f7c06c8f49428950f69181ee62cd",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/tests/mcp_mode.py",
+        "start_line": 208,
+        "end_line": null,
+        "start_column": 45
+      },
+      "finding": "timeout=0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    while time.time() < deadline:\n        try:\n            req = urllib.request.Request(url, method=\"OPTIONS\")\n            with urllib.request.urlopen(req, timeout=0.2):\n                return\n        except urllib.error.HTTPError:\n            return",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e44269027db0b77c3f387ffaac96e37ae94b288abcfe941168fb22e5c43c7b09",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/tests/mcp_mode.py",
+          "start_line": 208,
+          "end_line": null,
+          "start_column": 45
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-ef38d1ed2de8436eb6febcd85a654a7d",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/tests/test_discovery.py",
+        "start_line": 102,
+        "end_line": null,
+        "start_column": 52
+      },
+      "finding": "timeout=0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "@test()\ndef test_probe_instance_unreachable():\n    \"\"\"probe_instance returns False for a port nothing listens on.\"\"\"\n    assert discovery.probe_instance(\"127.0.0.1\", 1, timeout=0.5) is False\n\n\n# ---------------------------------------------------------------------------",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e44269027db0b77c3f387ffaac96e37ae94b288abcfe941168fb22e5c43c7b09",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/tests/test_discovery.py",
+          "start_line": 102,
+          "end_line": null,
+          "start_column": 52
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-32800702c2a44b68b0ee3dc846297d3f",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/ida_pro_mcp/idalib_supervisor.py",
+        "start_line": 225,
+        "end_line": null,
+        "start_column": 76
+      },
+      "finding": "timeout=0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    def is_alive(self) -> bool:\n        if self.backend == \"gui\":\n            try:\n                return bool(_discovery.probe_instance(self.host, self.port, timeout=0.5))\n            except Exception:\n                return False\n        return self.process is not None and self.process.poll() is None",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e44269027db0b77c3f387ffaac96e37ae94b288abcfe941168fb22e5c43c7b09",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/idalib_supervisor.py",
+          "start_line": 225,
+          "end_line": null,
+          "start_column": 76
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-86e75d7a6cb5435ba404bcc6536803d5",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/ida_pro_mcp/idalib_supervisor.py",
+        "start_line": 1189,
+        "end_line": null,
+        "start_column": 87
+      },
+      "finding": "timeout=0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "                if key in adopted_path_keys:\n                    continue\n            try:\n                reachable = bool(_discovery.probe_instance(inst[\"host\"], inst[\"port\"], timeout=0.5))\n            except Exception:\n                reachable = False\n            backend = _discovered_instance_backend(inst)",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e44269027db0b77c3f387ffaac96e37ae94b288abcfe941168fb22e5c43c7b09",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/idalib_supervisor.py",
+          "start_line": 1189,
+          "end_line": null,
+          "start_column": 87
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-9a66c75321cc45c2ae7d57a0ebe9e47f",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/_mcp_spec_support.py",
+        "start_line": 266,
+        "end_line": null,
+        "start_column": 45
+      },
+      "finding": "timeout=0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    while time.time() < deadline:\n        try:\n            req = urllib.request.Request(url, method=\"OPTIONS\")\n            with urllib.request.urlopen(req, timeout=0.2):\n                return\n        except urllib.error.HTTPError:\n            return",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e44269027db0b77c3f387ffaac96e37ae94b288abcfe941168fb22e5c43c7b09",
+      "occurrences": [
+        {
+          "file": "tests/_mcp_spec_support.py",
+          "start_line": 266,
+          "end_line": null,
+          "start_column": 45
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-9317bdd0e1824c429c650a31a0784f29",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_mainthread_pump.py",
+        "start_line": 93,
+        "end_line": null,
+        "start_column": 56
+      },
+      "finding": "timeout=0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "        blocker.start()\n        time.sleep(0.05)\n        with pytest.raises(PumpBusyError, match=\"slow\"):\n            pump.submit(lambda: \"never\", label=\"quick\", timeout=0.2)\n    finally:\n        release.set()\n        pump.stop()",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e44269027db0b77c3f387ffaac96e37ae94b288abcfe941168fb22e5c43c7b09",
+      "occurrences": [
+        {
+          "file": "tests/test_mainthread_pump.py",
+          "start_line": 93,
+          "end_line": null,
+          "start_column": 56
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-8bc0279ccfe94bbdb49aad49b253ca7a",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_mainthread_pump.py",
+        "start_line": 111,
+        "end_line": null,
+        "start_column": 71
+      },
+      "finding": "timeout=0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "        blocker.start()\n        time.sleep(0.05)\n        with pytest.raises(PumpBusyError):\n            pump.submit(lambda: ran.append(\"late\"), label=\"abandoned\", timeout=0.2)\n        release.set()\n        time.sleep(0.2)\n        assert ran == []",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e44269027db0b77c3f387ffaac96e37ae94b288abcfe941168fb22e5c43c7b09",
+      "occurrences": [
+        {
+          "file": "tests/test_mainthread_pump.py",
+          "start_line": 111,
+          "end_line": null,
+          "start_column": 71
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-9cc3163ed0cc45898817696fb2d1fddb",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/tests/test_server.py",
+        "start_line": 37,
+        "end_line": null,
+        "start_column": 35
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "class _RecordingConnection:\n    calls = []\n\n    def __init__(self, host, port, timeout=None):\n        self.host = host\n        self.port = port\n        self.timeout = timeout",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/tests/test_server.py",
+          "start_line": 37,
+          "end_line": null,
+          "start_column": 35
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-81f1ef5231074ed795b7ba9259483a46",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_idalib_supervisor.py",
+        "start_line": 21,
+        "end_line": null,
+        "start_column": 19
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    def terminate(self):\n        self.returncode = 0\n\n    def wait(self, timeout=None):\n        return self.returncode\n\n    def kill(self):",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/test_idalib_supervisor.py",
+          "start_line": 21,
+          "end_line": null,
+          "start_column": 19
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-3f7d053540a944fab26496bac9753f01",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_idalib_supervisor.py",
+        "start_line": 49,
+        "end_line": null,
+        "start_column": 46
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "            process=_FakeProcess(),\n        )\n\n    def _worker_rpc(self, worker, payload, *, timeout=None):\n        method = payload.get(\"method\")\n        if method == \"tools/list\":\n            return {",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/test_idalib_supervisor.py",
+          "start_line": 49,
+          "end_line": null,
+          "start_column": 46
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-7786ff1c57ba49e0b896ef7608e6f1c4",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_idalib_supervisor.py",
+        "start_line": 76,
+        "end_line": null,
+        "start_column": 64
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "        self.forwarded.append(payload)\n        return {\"jsonrpc\": \"2.0\", \"id\": payload.get(\"id\"), \"result\": {\"ok\": True}}\n\n    def call_worker_tool(self, worker, name, arguments=None, *, timeout=None):\n        self.tool_calls.append((name, arguments))\n        if name == \"idb_open\":\n            assert arguments is not None",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/test_idalib_supervisor.py",
+          "start_line": 76,
+          "end_line": null,
+          "start_column": 64
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-56870470ca2c42fbab829b861401c5d9",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_idalib_supervisor.py",
+        "start_line": 102,
+        "end_line": null,
+        "start_column": 52
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    def _session_is_reachable(self, session):\n        return session.is_alive()\n\n    def _probe_session_health(self, session, *, tcp_timeout=None, rpc_timeout=None):\n        reachable = self._session_is_reachable(session)\n        return {\n            \"backend\": session.backend,",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/test_idalib_supervisor.py",
+          "start_line": 102,
+          "end_line": null,
+          "start_column": 52
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-878727a49cc24358930669d442ebbe9b",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_idalib_supervisor.py",
+        "start_line": 102,
+        "end_line": null,
+        "start_column": 70
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    def _session_is_reachable(self, session):\n        return session.is_alive()\n\n    def _probe_session_health(self, session, *, tcp_timeout=None, rpc_timeout=None):\n        reachable = self._session_is_reachable(session)\n        return {\n            \"backend\": session.backend,",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/test_idalib_supervisor.py",
+          "start_line": 102,
+          "end_line": null,
+          "start_column": 70
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-e4d6cec84ada4bb5b92c6b81dd6a04da",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_idalib_supervisor.py",
+        "start_line": 145,
+        "end_line": null,
+        "start_column": 39
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    class _FakeConnection:\n        instances = []\n\n        def __init__(self, host, port, timeout=None):\n            self.host = host\n            self.port = port\n            self.timeout = timeout",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/test_idalib_supervisor.py",
+          "start_line": 145,
+          "end_line": null,
+          "start_column": 39
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-b5a5c8d2d7c74411a668b2e32cba4bfa",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_idalib_supervisor.py",
+        "start_line": 212,
+        "end_line": null,
+        "start_column": 68
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    packed.write_bytes(b\"packed database\")\n\n    class _FailingSupervisor(_FakeSupervisor):\n        def call_worker_tool(self, worker, name, arguments=None, *, timeout=None):\n            assert arguments is not None\n            Path(arguments[\"input_path\"] + \".id1\").write_bytes(b\"incomplete\")\n            raise ConnectionResetError(10054, \"worker reset\")",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/test_idalib_supervisor.py",
+          "start_line": 212,
+          "end_line": null,
+          "start_column": 68
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-610dbae93ef444a796d501e870e14401",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_idalib_supervisor.py",
+        "start_line": 239,
+        "end_line": null,
+        "start_column": 68
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    existing.write_bytes(b\"existing database state\")\n\n    class _FailingSupervisor(_FakeSupervisor):\n        def call_worker_tool(self, worker, name, arguments=None, *, timeout=None):\n            assert arguments is not None\n            Path(arguments[\"input_path\"] + \".id1\").write_bytes(b\"incomplete\")\n            raise ConnectionResetError(10054, \"worker reset\")",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/test_idalib_supervisor.py",
+          "start_line": 239,
+          "end_line": null,
+          "start_column": 68
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-204611932d5c4687b02d6d5b65254fd8",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_idalib_supervisor.py",
+        "start_line": 1084,
+        "end_line": null,
+        "start_column": 68
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    sample.write_bytes(b\"x\")\n\n    class _SaveFailsSupervisor(_FakeSupervisor):\n        def call_worker_tool(self, worker, name, arguments=None, *, timeout=None):\n            if name == \"idb_save\":\n                self.tool_calls.append((name, arguments))\n                return {\"ok\": False, \"path\": None, \"error\": \"disk full\"}",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/test_idalib_supervisor.py",
+          "start_line": 1084,
+          "end_line": null,
+          "start_column": 68
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-13c821885f954e60b96f4fa21727485b",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_idalib_supervisor.py",
+        "start_line": 1194,
+        "end_line": null,
+        "start_column": 68
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    sample.write_bytes(b\"x\")\n\n    class _RaceSupervisor(_FakeSupervisor):\n        def call_worker_tool(self, worker, name, arguments=None, *, timeout=None):\n            result = super().call_worker_tool(worker, name, arguments)\n            if name == \"idb_open\":\n                existing = supmod.WorkerSession(",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/test_idalib_supervisor.py",
+          "start_line": 1194,
+          "end_line": null,
+          "start_column": 68
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-502b52ccf21c46379ea371113564f626",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_idalib_supervisor.py",
+        "start_line": 1223,
+        "end_line": null,
+        "start_column": 68
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    sample.write_bytes(b\"x\")\n\n    class _RaceSupervisor(_FakeSupervisor):\n        def call_worker_tool(self, worker, name, arguments=None, *, timeout=None):\n            result = super().call_worker_tool(worker, name, arguments)\n            if name == \"idb_open\":\n                existing = supmod.WorkerSession(",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/test_idalib_supervisor.py",
+          "start_line": 1223,
+          "end_line": null,
+          "start_column": 68
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-335015dc3e9047feace5fc5124fc735b",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_idalib_supervisor.py",
+        "start_line": 1273,
+        "end_line": null,
+        "start_column": 68
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "            self.spawned.append(worker)\n            return worker\n\n        def call_worker_tool(self, worker, name, arguments=None, *, timeout=None):\n            result = super().call_worker_tool(worker, name, arguments)\n            if name == \"idb_open\":\n                existing = supmod.WorkerSession(",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/test_idalib_supervisor.py",
+          "start_line": 1273,
+          "end_line": null,
+          "start_column": 68
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-92624266efba43d9b66eac088935093d",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_idalib_supervisor.py",
+        "start_line": 1383,
+        "end_line": null,
+        "start_column": 68
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "            self.spawned.append(worker)\n            return worker\n\n        def call_worker_tool(self, worker, name, arguments=None, *, timeout=None):\n            result = super().call_worker_tool(worker, name, arguments)\n            if name == \"idb_open\":\n                # Simulate: the session disappears while the reopen worker",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/test_idalib_supervisor.py",
+          "start_line": 1383,
+          "end_line": null,
+          "start_column": 68
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-13e40310823945eca16f9e2b0590d114",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_idalib_supervisor.py",
+        "start_line": 1480,
+        "end_line": null,
+        "start_column": 68
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    )\n\n    class _LosingSupervisor(_FakeSupervisor):\n        def call_worker_tool(self, worker, name, arguments=None, *, timeout=None):\n            if name == \"idb_open\":\n                # The winner registers while this open is in flight.\n                with self._lock:",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/test_idalib_supervisor.py",
+          "start_line": 1480,
+          "end_line": null,
+          "start_column": 68
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-58dcb627ba344b0fb6fa5de520a3a513",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/test_idalib_supervisor.py",
+        "start_line": 1501,
+        "end_line": null,
+        "start_column": 68
+      },
+      "finding": "timeout=None",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    binary.write_bytes(b\"\\x00\")\n\n    class _FailingOpen(_FakeSupervisor):\n        def call_worker_tool(self, worker, name, arguments=None, *, timeout=None):\n            if name == \"idb_open\":\n                raise RuntimeError(\"Failed to open database\")\n            return super().call_worker_tool(worker, name, arguments, timeout=timeout)",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "96a79e509b8d754aff4dd93672fc07ca9dcb0cb74efadaa0b7e578c0e57e8813",
+      "occurrences": [
+        {
+          "file": "tests/test_idalib_supervisor.py",
+          "start_line": 1501,
+          "end_line": null,
+          "start_column": 68
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-44d3eda557484e529869a08d4f40a710",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/ida_pro_mcp/idalib_supervisor.py",
+        "start_line": 94,
+        "end_line": null,
+        "start_column": 19
+      },
+      "finding": "TIMEOUT=0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "# binary can drive IDA's auto-analysis into an effectively unbounded loop; with\n# no limit this silently wedges the worker process (and the blocking supervisor\n# RPC waiting on it) forever, with no progress feedback and no recovery.\n# Set IDA_MCP_OPEN_TIMEOUT=0 to wait indefinitely (previous behavior).\nWORKER_OPEN_TIMEOUT_SEC = _env_float(\"IDA_MCP_OPEN_TIMEOUT\", 1800.0)\n\n",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d956b2f39a540da0bcbffa9ecf02b88cb9f2b000c5a0538061c12bb178d3b1cc",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/idalib_supervisor.py",
+          "start_line": 94,
+          "end_line": null,
+          "start_column": 19
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-bb9587a736b5460db8cffc61c74a40d6",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/ida_pro_mcp/idalib_supervisor.py",
+        "start_line": 279,
+        "end_line": 286,
+        "start_column": 18,
+        "end_column": 9
+      },
+      "finding": "subprocess.Popen(\n            cmd,\n            stdin=subprocess.DEVNULL,\n            stdout=subprocess.DEVNULL,\n            stderr=subprocess.DEVNULL,\n            creationflags=creationflags,\n        ",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "            creationflags = getattr(subprocess, \"CREATE_NEW_PROCESS_GROUP\", 0)\n        else:\n            start_new_session = True\n        process = subprocess.Popen(\n            cmd,\n            stdin=subprocess.DEVNULL,\n            stdout=subprocess.DEVNULL,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4429fd77d3a8c4939e94b2f8782a2350af2a701ac92aa362c6de1825d399582a",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/idalib_supervisor.py",
+          "start_line": 279,
+          "end_line": 286,
+          "start_column": 18,
+          "end_column": 9
+        }
+      ]
+    },
+    {
+      "id": "TT2",
+      "finding_id": "finding-2b6ea57a44bc40ca941233fbc1fe40dc",
+      "category": "Data Flow",
+      "pattern": "Tainted flow: 'destination' from os.environ (line 535, credential/environment) \u2192 shutil.copy (file write)",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "src/ida_pro_mcp/installer.py",
+        "start_line": 483,
+        "end_line": 483,
+        "start_column": 12,
+        "end_column": 44
+      },
+      "finding": "shutil.copy(source, destination)",
+      "explanation": "Data from a source is assigned to a variable that is later passed to a sink, creating a variable-mediated taint flow.",
+      "remediation": "Validate tainted variables before passing them to sinks. Use allowlists, type checks, or sanitization functions on data from external sources.",
+      "code_snippet": "        if os.path.isdir(source):\n            shutil.copytree(source, destination)\n        else:\n            shutil.copy(source, destination)\n    return True\n\n",
+      "intent": null,
+      "tags": [
+        "Data Flow"
+      ],
+      "evidence": {},
+      "match_fingerprint": "71f85e09d7040fa0e48e7b6eafbf15124e18140bef74cea0478f8de50542a1f5",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/installer.py",
+          "start_line": 483,
+          "end_line": 483,
+          "start_column": 12,
+          "end_column": 44
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-15640bf6ca3348b9bfe59a25d7676c2d",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (15 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "pyproject.toml",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "pyproject.toml",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-5190f8b0bb984eb3951fbb7abfc5a10b",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (15 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "uv.lock",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "uv.lock",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "EA3",
+      "finding_id": "finding-3e1255deba7349d98a21be94d24e4df7",
+      "category": "Excessive Agency",
+      "pattern": "Scope Creep",
+      "severity": "LOW",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/_sigmaker.py",
+        "start_line": 51,
+        "end_line": null,
+        "start_column": 23
+      },
+      "finding": "NOT LIMITED TO",
+      "explanation": "Skill's behavior or capabilities extend beyond its stated purpose. Scope creep allows an agent to perform actions unrelated to its documented functionality, increasing the attack surface.",
+      "remediation": "Limit the skill's scope to its documented purpose. Remove instructions that enable the agent to perform actions outside its stated functionality.",
+      "code_snippet": "copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e89530c367266aa328ed88bf9475086c891da0ff38badf80bf35bae6b13345e0",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/_sigmaker.py",
+          "start_line": 51,
+          "end_line": null,
+          "start_column": 23
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-2f19f8158e8b41d7ba5ce8ad88ba637c",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/compat.py",
+        "start_line": 124,
+        "end_line": 124,
+        "start_column": 13,
+        "end_column": 37
+      },
+      "finding": "getattr(mod, name, None)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "    candidates.append(ida_nalt)\n    candidates.append(idaapi)\n    for mod in candidates:\n        fn = getattr(mod, name, None)\n        if fn is not None:\n            return fn\n    raise AttributeError(",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4a944e58b86d5f98fee626a8a8a05c92c58b3ab5534f2df07f231ead82a2e998",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/compat.py",
+          "start_line": 124,
+          "end_line": 124,
+          "start_column": 13,
+          "end_column": 37
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-ba58e0c52fca4e1ab8d8402573b356c4",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/tests/mcp_mode.py",
+        "start_line": 110,
+        "end_line": 110,
+        "start_column": 15,
+        "end_column": 39
+      },
+      "finding": "getattr(mod, name, None)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "            mod = sys.modules.get(original.__module__)\n            if mod is None:\n                continue\n            if getattr(mod, name, None) is not original:\n                continue\n            proxy = self._make_proxy(name, original)\n            self._patched.append((mod, name, original))",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4a944e58b86d5f98fee626a8a8a05c92c58b3ab5534f2df07f231ead82a2e998",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/tests/mcp_mode.py",
+          "start_line": 110,
+          "end_line": 110,
+          "start_column": 15,
+          "end_column": 39
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-0b8a1e83abba42e18e350b48562fce2a",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/tests/test_api_debug.py",
+        "start_line": 12,
+        "end_line": 12,
+        "start_column": 19,
+        "end_column": 37
+      },
+      "finding": "getattr(obj, name)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "    def __init__(self, obj, name, value):\n        self.obj = obj\n        self.name = name\n        self.old = getattr(obj, name)\n        setattr(obj, name, value)\n\n    def restore(self):",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "dbf2e077567859ed17b563fc7624e3ac3cdb99b074b74debcc3c07974291af25",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/tests/test_api_debug.py",
+          "start_line": 12,
+          "end_line": 12,
+          "start_column": 19,
+          "end_column": 37
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-7f527f564c774a889e12308924ec1054",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/tests/test_api_debug.py",
+        "start_line": 213,
+        "end_line": 213,
+        "start_column": 12,
+        "end_column": 40
+      },
+      "finding": "getattr(hook, callback_name)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "\n        patch = _SavedAttr(api_debug.idc, \"batch\", fake_batch)\n        try:\n            getattr(hook, callback_name)(*args)\n            assert calls == [(\"batch\", 0)], (\n                f\"{callback_name}: expected batch(0), got {calls}\"\n            )",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c76d36086cfdb003e9653b0849c9377ec127df32a0754d61a829f794509a04b0",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/tests/test_api_debug.py",
+          "start_line": 213,
+          "end_line": 213,
+          "start_column": 12,
+          "end_column": 40
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-f6bfd6cbc5814668be8f99c1ed481288",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/tests/test_api_debug.py",
+        "start_line": 225,
+        "end_line": 225,
+        "start_column": 12,
+        "end_column": 40
+      },
+      "finding": "getattr(hook, callback_name)",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "            # Second invocation must be a no-op (idempotent).\n            calls.clear()\n            unhooked.clear()\n            getattr(hook, callback_name)(*args)\n            assert calls == []\n            assert unhooked == []\n        finally:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c76d36086cfdb003e9653b0849c9377ec127df32a0754d61a829f794509a04b0",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/tests/test_api_debug.py",
+          "start_line": 225,
+          "end_line": 225,
+          "start_column": 12,
+          "end_column": 40
+        }
+      ]
+    },
+    {
+      "id": "AST7",
+      "finding_id": "finding-22c90d5f45264d1ea15fe151f19a9cf3",
+      "category": "Dangerous Code Execution",
+      "pattern": "Dynamic attribute access via getattr()",
+      "severity": "LOW",
+      "confidence": 0.5,
+      "location": {
+        "file": "src/ida_pro_mcp/ida_mcp/utils.py",
+        "start_line": 959,
+        "end_line": 959,
+        "start_column": 16,
+        "end_column": 38
+      },
+      "finding": "getattr(item, key, \"\")",
+      "explanation": "Dynamic getattr() with a non-literal attribute name can access arbitrary object attributes, potentially bypassing access controls.",
+      "remediation": "Replace dynamic getattr() with explicit attribute access or a dictionary lookup with an allowlist of permitted attributes.",
+      "code_snippet": "        try:\n            v = item[key]\n        except Exception:\n            v = getattr(item, key, \"\")\n        return \"\" if v is None else str(v)\n\n    def matches(item) -> bool:",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "784edcf1dcf6a250d8078d2dee9cb327a36c81fffa0321cbe931f52c03899900",
+      "occurrences": [
+        {
+          "file": "src/ida_pro_mcp/ida_mcp/utils.py",
+          "start_line": 959,
+          "end_line": 959,
+          "start_column": 16,
+          "end_column": 38
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 210,
+    "scanned_components": 201,
+    "coverage_percent": 95.7,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 201,
+    "partially_inspected_files": 9,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "analyzer_runtime_error",
+        "message": "Analyzer failed after beginning applicable work.",
+        "path": "pyproject.toml",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_analyzer_runtime_error"
+        ],
+        "error_class": "ProxyError"
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "skills/idapython/docs/ida_gdl.rst",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "skills/idapython/docs/ida_ida.rst",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "skills/idapython/docs/ida_idp.rst",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "skills/idapython/docs/ida_merge.rst",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "skills/idapython/docs/ida_nalt.rst",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "skills/idapython/docs/ida_registry.rst",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "skills/idapython/docs/ida_segregs.rst",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "coverage_policy",
+        "reason_code": "excluded_executable_content",
+        "message": "Executable content was inventoried but excluded from content analysis.",
+        "path": "tests/crackme03.elf",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "coverage_policy",
+        "reason_code": "excluded_executable_content",
+        "message": "Executable content was inventoried but excluded from content analysis.",
+        "path": "tests/typed_fixture.elf",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "analyzer_runtime_error",
+        "message": "Analyzer failed after beginning applicable work.",
+        "path": "uv.lock",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_analyzer_runtime_error"
+        ],
+        "error_class": "ProxyError"
+      }
+    ],
+    "scope_exclusions": [
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": ".github/logo.png",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "tests/crackme03.elf",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "tests/typed_fixture.elf",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 213,
+        "completed": 213,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 85,
+        "completed": 85,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 85,
+        "completed": 85,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 213,
+        "completed": 213,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "degraded",
+        "planned_work": 210,
+        "completed": 209,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "degraded",
+        "planned_work": 210,
+        "completed": 209,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 210,
+        "completed": 210,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "degraded",
+        "planned_work": 210,
+        "completed": 209,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "degraded",
+        "planned_work": 210,
+        "completed": 209,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "degraded",
+        "planned_work": 210,
+        "completed": 209,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "degraded",
+        "planned_work": 210,
+        "completed": 209,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 210,
+        "completed": 210,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "degraded",
+        "planned_work": 210,
+        "completed": 209,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "degraded",
+        "planned_work": 210,
+        "completed": 209,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "degraded",
+        "planned_work": 210,
+        "completed": 209,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "degraded",
+        "planned_work": 210,
+        "completed": 209,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 214,
+        "completed": 211,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "degraded",
+        "planned_work": 210,
+        "completed": 209,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 210,
+        "completed": 203,
+        "partial": 7,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 213,
+        "completed": 213,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_agent_snooping status: degraded.",
+      "Analyzer static_patterns_anti_refusal status: degraded.",
+      "Analyzer static_patterns_deserialization status: degraded.",
+      "Analyzer static_patterns_excessive_agency status: degraded.",
+      "Analyzer static_patterns_harmful_content status: degraded.",
+      "Analyzer static_patterns_memory_poisoning status: degraded.",
+      "Analyzer static_patterns_privilege_escalation status: degraded.",
+      "Analyzer static_patterns_prompt_injection status: degraded.",
+      "Analyzer static_patterns_rogue_agent status: degraded.",
+      "Analyzer static_patterns_ssrf status: degraded.",
+      "Analyzer static_patterns_supply_chain status: degraded.",
+      "Analyzer static_patterns_system_prompt_leakage status: degraded.",
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 76,
+    "findings_after_filtering": 76,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}
