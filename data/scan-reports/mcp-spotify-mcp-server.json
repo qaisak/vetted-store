@@ -1,0 +1,2618 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/marcelmarais__spotify-mcp-server/spotify-mcp-server-main",
+    "scanned_at": "2026-11-01T02:15:15.764268+00:00"
+  },
+  "risk_assessment": {
+    "score": 66,
+    "severity": "HIGH",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": ".dockerignore",
+      "type": "other",
+      "lines": 28,
+      "executable": false,
+      "size_bytes": 542,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".env.example",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1007,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "type": "yaml",
+      "lines": 14,
+      "executable": false,
+      "size_bytes": 270,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "type": "yaml",
+      "lines": 86,
+      "executable": false,
+      "size_bytes": 2363,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 7,
+      "executable": false,
+      "size_bytes": 67,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Dockerfile",
+      "type": "other",
+      "lines": 50,
+      "executable": false,
+      "size_bytes": 1803,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1070,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 623,
+      "executable": false,
+      "size_bytes": 29253,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "biome.jsonc",
+      "type": "other",
+      "lines": 150,
+      "executable": false,
+      "size_bytes": 4524,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docker-compose.yml",
+      "type": "yaml",
+      "lines": 50,
+      "executable": false,
+      "size_bytes": 1940,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "package-lock.json",
+      "type": "json",
+      "lines": 996,
+      "executable": false,
+      "size_bytes": 32956,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "package.json",
+      "type": "json",
+      "lines": 40,
+      "executable": false,
+      "size_bytes": 1087,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "spotify-config.example.json",
+      "type": "json",
+      "lines": 8,
+      "executable": false,
+      "size_bytes": 275,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/albums.ts",
+      "type": "typescript",
+      "lines": 313,
+      "executable": true,
+      "size_bytes": 8477,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/auth.ts",
+      "type": "typescript",
+      "lines": 14,
+      "executable": true,
+      "size_bytes": 346,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/http.ts",
+      "type": "typescript",
+      "lines": 240,
+      "executable": true,
+      "size_bytes": 8025,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/index.ts",
+      "type": "typescript",
+      "lines": 49,
+      "executable": true,
+      "size_bytes": 1673,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/play.ts",
+      "type": "typescript",
+      "lines": 740,
+      "executable": true,
+      "size_bytes": 21448,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/playlist.ts",
+      "type": "typescript",
+      "lines": 321,
+      "executable": true,
+      "size_bytes": 9019,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/read.ts",
+      "type": "typescript",
+      "lines": 969,
+      "executable": true,
+      "size_bytes": 28817,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/request-context.ts",
+      "type": "typescript",
+      "lines": 21,
+      "executable": true,
+      "size_bytes": 774,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/server.ts",
+      "type": "typescript",
+      "lines": 20,
+      "executable": true,
+      "size_bytes": 503,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tool.ts",
+      "type": "typescript",
+      "lines": 37,
+      "executable": true,
+      "size_bytes": 1032,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/types.ts",
+      "type": "typescript",
+      "lines": 76,
+      "executable": true,
+      "size_bytes": 1528,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/utils.ts",
+      "type": "typescript",
+      "lines": 711,
+      "executable": true,
+      "size_bytes": 22767,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/auth.test.js",
+      "type": "javascript",
+      "lines": 125,
+      "executable": true,
+      "size_bytes": 4112,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/config-write.test.js",
+      "type": "javascript",
+      "lines": 127,
+      "executable": true,
+      "size_bytes": 4470,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/helpers.js",
+      "type": "javascript",
+      "lines": 140,
+      "executable": true,
+      "size_bytes": 4553,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/http.test.js",
+      "type": "javascript",
+      "lines": 197,
+      "executable": true,
+      "size_bytes": 5577,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/mcp.test.js",
+      "type": "javascript",
+      "lines": 131,
+      "executable": true,
+      "size_bytes": 4476,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/oauth.test.js",
+      "type": "javascript",
+      "lines": 517,
+      "executable": true,
+      "size_bytes": 17761,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "test/spotify-tools.test.js",
+      "type": "javascript",
+      "lines": 615,
+      "executable": true,
+      "size_bytes": 16636,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tsconfig.json",
+      "type": "json",
+      "lines": 15,
+      "executable": false,
+      "size_bytes": 340,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "PE3",
+      "finding_id": "finding-81af4295012d4f2a8255476cd455b4fb",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": ".env.example",
+        "start_line": 1,
+        "end_line": null,
+        "start_column": 10
+      },
+      "finding": ".env ",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "# Copy to .env (or export in your shell) before `docker compose up`.\n#\n# Only ONE value is relevant for the OAuth deployment:\n#",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "66ef81c27c03406fd9935e5fc86fc4126d7150c15b8d076fdc528d05cea7c7bf",
+      "occurrences": [
+        {
+          "file": ".env.example",
+          "start_line": 1,
+          "end_line": null,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-54ac011adbe74d94a998fe91e819627f",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "Dockerfile",
+        "start_line": 42,
+        "end_line": null,
+        "start_column": 56
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "#     interfaces.\n#   - MCP_AUTH=spotify makes the server an RFC 9728 protected resource whose\n#     authorization server is Spotify. The MCP client (e.g. MCPHub) performs\n#     the browser OAuth flow and presents the resulting access token as Bearer\n#     per request. This image therefore needs NO client secret, NO refresh\n#     token and NO spotify-config.json.\nENV MCP_TRANSPORT=http \\",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "Dockerfile",
+          "start_line": 42,
+          "end_line": null,
+          "start_column": 56
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-f7e700fd5ab94434a5cab2a7c67af473",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 388,
+        "end_line": null,
+        "start_column": 90
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "}\n```\n\n**Note**: The `expiresAt` field is a Unix timestamp (in milliseconds) indicating when the access token expires.\n\n7. **Automatic Token Refresh**: The server will automatically refresh the access token when it expires (typically after 1 hour). The refresh happens transparently using the `refreshToken`, so you don't need to re-authenticate manually. If the refresh fails, you'll need to run `npm run auth` again to re-authenticate.\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 388,
+          "end_line": null,
+          "start_column": 90
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-2ca04dda13884e90a96af02a63af6568",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 390,
+        "end_line": null,
+        "start_column": 74
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n**Note**: The `expiresAt` field is a Unix timestamp (in milliseconds) indicating when the access token expires.\n\n7. **Automatic Token Refresh**: The server will automatically refresh the access token when it expires (typically after 1 hour). The refresh happens transparently using the `refreshToken`, so you don't need to re-authenticate manually. If the refresh fails, you'll need to run `npm run auth` again to re-authenticate.\n\n## Integrating with Claude Desktop, Cursor, and VsCode [Via Cline model extension](https://marketplace.visualstudio.com/items/?itemName=saoudrizwan.claude-dev)\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 390,
+          "end_line": null,
+          "start_column": 74
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-b11acfa2901c42a3a2a9093b5daac069",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 448,
+        "end_line": null,
+        "start_column": 296
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "```\n\n- `POST /mcp` without an `Authorization: Bearer` header returns `401` with a `WWW-Authenticate` challenge pointing at `/.well-known/oauth-protected-resource`.\n- That metadata document advertises `https://accounts.spotify.com` as the authorization server (plus the full required scope set under `scopes_supported`), so clients with OAuth support (e.g. MCPHub) discover Spotify, run the authorization-code flow in the browser, and reconnect with the issued access token.\n- The Bearer token is used **per request** as the Spotify access token and is never written to `spotify-config.json` \u2014 no `npm run auth`, no stored refresh token, no token-refresh timer. Token rotation by the client is handled transparently.\n- On the first request of each new token (i.e. on rotation) the server validates it against Spotify (`GET /me`) and memoises the result. If Spotify rejects the token the server answers `401` with `WWW-Authenticate: Bearer error=\"invalid_token\"`, so the client knows to reauthorise. A ",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 448,
+          "end_line": null,
+          "start_column": 296
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-397400aea60a4e4e84886b940d36542c",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 449,
+        "end_line": null,
+        "start_column": 58
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "uthorization: Bearer` header returns `401` with a `WWW-Authenticate` challenge pointing at `/.well-known/oauth-protected-resource`.\n- That metadata document advertises `https://accounts.spotify.com` as the authorization server (plus the full required scope set under `scopes_supported`), so clients with OAuth support (e.g. MCPHub) discover Spotify, run the authorization-code flow in the browser, and reconnect with the issued access token.\n- The Bearer token is used **per request** as the Spotify access token and is never written to `spotify-config.json` \u2014 no `npm run auth`, no stored refresh token, no token-refresh timer. Token rotation by the client is handled transparently.\n- On the first request of each new token (i.e. on rotation) the server validates it against Spotify (`GET /me`) and memoises the result. If Spotify rejects the token the server answers `401` with `WWW-Authenticate: Bearer error=\"invalid_token\"`, so the client knows to reauthorise. A token is **not trusted forever**",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 449,
+          "end_line": null,
+          "start_column": 58
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-af5b5b39d20e42448c9940bf69db5184",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 603,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "`sha-<full-commit-SHA>` tags. Pin an image digest for immutable deployments.\n\nPublishing uses the automatic `GITHUB_TOKEN` with `packages: write`; no personal\naccess token is required. Enable Actions in new forks if prompted. After the\nfirst publication, make the package public in **Package settings \u2192 Change\nvisibility** to allow anonymous pulls. New GHCR packages are private by default\n([GitHub documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)).",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 603,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-073d29c4f2ea40849ec792c09b32e38d",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/http.ts",
+        "start_line": 161,
+        "end_line": null,
+        "start_column": 45
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "        res.end('Unauthorized');\n        return;\n      }\n      // The Bearer token is a valid Spotify access token issued to the\n      // MCP client by the authorization server; use it for this request's\n      // Spotify API calls and keep it out of the local config file.\n      void (async () => {",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "src/http.ts",
+          "start_line": 161,
+          "end_line": null,
+          "start_column": 45
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-a36b54a7d85d472bae257e46e148f16d",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/index.ts",
+        "start_line": 31,
+        "end_line": null,
+        "start_column": 61
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "const http = httpOptionsFromEnv();\nif (http) {\n  // Auth mode (MCP_AUTH=spotify): MCP clients (e.g. MCPHub) perform the\n  // Spotify OAuth flow themselves and present the resulting access token as\n  // Bearer. The token is used per request and never written to\n  // spotify-config.json. serveHttp resolves the protected-resource address\n  // once the socket binds (bound port) so metadata and 401 challenges agree.",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "src/index.ts",
+          "start_line": 31,
+          "end_line": null,
+          "start_column": 61
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-1e8e10a1e12b42619f1128687d1b4295",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/request-context.ts",
+        "start_line": 4,
+        "end_line": null,
+        "start_column": 23
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "import { AsyncLocalStorage } from 'node:async_hooks';\n\n/**\n * Per-request Spotify access token, set by the HTTP transport in auth mode\n * (MCP_AUTH=spotify). The Bearer token sent by the MCP client IS a valid\n * Spotify access token: the client (e.g. MCPHub) performs the Spotify OAuth\n * flow itself, so this process never needs the client secret or a",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "src/request-context.ts",
+          "start_line": 4,
+          "end_line": null,
+          "start_column": 23
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-7732df6c4ec04bb589b77706c9274a6f",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/request-context.ts",
+        "start_line": 6,
+        "end_line": null,
+        "start_column": 11
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "/**\n * Per-request Spotify access token, set by the HTTP transport in auth mode\n * (MCP_AUTH=spotify). The Bearer token sent by the MCP client IS a valid\n * Spotify access token: the client (e.g. MCPHub) performs the Spotify OAuth\n * flow itself, so this process never needs the client secret or a\n * refresh token.\n *",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "src/request-context.ts",
+          "start_line": 6,
+          "end_line": null,
+          "start_column": 11
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-4518f9562d1b4a3e911f1791cf423e0b",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/utils.ts",
+        "start_line": 160,
+        "end_line": null,
+        "start_column": 17
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "}\n\n/**\n * Refreshes the access token unless the config on disk no longer needs it.\n * Concurrent callers in this process share one in-flight refresh, so a rotated\n * refresh token is never spent twice.\n */",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "src/utils.ts",
+          "start_line": 160,
+          "end_line": null,
+          "start_column": 17
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-7494fe04c5894bb7b36a86b6ff7bb066",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/utils.ts",
+        "start_line": 215,
+        "end_line": null,
+        "start_column": 10
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  const accessToken = bearerToken ?? config?.accessToken;\n  if (!accessToken) {\n    throw new Error(\n      'No access token available. Run \"npm run auth\" to authenticate.',\n    );\n  }\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "src/utils.ts",
+          "start_line": 215,
+          "end_line": null,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-5c77989127af44d5a3549e9b0b358e71",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/utils.ts",
+        "start_line": 269,
+        "end_line": null,
+        "start_column": 13
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\nexport async function createSpotifyApi(): Promise<SpotifyApi> {\n  // HTTP auth mode: use the per-request Bearer token directly. It is a live\n  // Spotify access token, so there is nothing to refresh here. No refresh\n  // token is passed, which is fine: withAccessToken only uses it on 401.\n  const bearerToken = getSpotifyRequestToken();\n  if (bearerToken) {",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "src/utils.ts",
+          "start_line": 269,
+          "end_line": null,
+          "start_column": 13
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-2dd3179d852a4963ba95688be611b8b2",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/utils.ts",
+        "start_line": 315,
+        "end_line": null,
+        "start_column": 27
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    } catch (error) {\n      console.error('Failed to refresh token:', error);\n      throw new Error(\n        'Failed to refresh access token. Please run \"npm run auth\" to re-authenticate.',\n      );\n    }\n  }",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "src/utils.ts",
+          "start_line": 315,
+          "end_line": null,
+          "start_column": 27
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-5bc5870fa8be48ed9a521300dc4a6672",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/utils.ts",
+        "start_line": 453,
+        "end_line": null,
+        "start_column": 39
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "      );\n    }\n\n    throw new Error(`Failed to refresh access token: ${errorData}`);\n  }\n\n  const data = await response.json();",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "src/utils.ts",
+          "start_line": 453,
+          "end_line": null,
+          "start_column": 39
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-3f10f492ad5049938713bf0f5511cc91",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/utils.ts",
+        "start_line": 657,
+        "end_line": null,
+        "start_column": 49
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "}\n\n/**\n * Checks that a Bearer token is a valid Spotify access token by calling the\n * /me endpoint. Spotify issues opaque tokens without a JWKS, so audience\n * checks are not possible \u2014 this ping is the strongest validation available\n * without the client secret. It is used lazily by the HTTP transport only",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "src/utils.ts",
+          "start_line": 657,
+          "end_line": null,
+          "start_column": 49
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-778aab4379064d95ad6144c804bdb1ea",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/utils.ts",
+        "start_line": 671,
+        "end_line": null,
+        "start_column": 50
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    headers: { Authorization: `Bearer ${accessToken}` },\n  });\n  if (response.status === 401) {\n    const error = new Error('Spotify rejected the access token') as Error & {\n      status?: number;\n    };\n    error.status = 401;",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "src/utils.ts",
+          "start_line": 671,
+          "end_line": null,
+          "start_column": 50
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-104788261ef6400ba04b901fdb9906bb",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "test/oauth.test.js",
+        "start_line": 287,
+        "end_line": null,
+        "start_column": 41
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    resetTokenValidationCache();\n    return client.close();\n  });\n  // Simulate MCPHub refreshing: a fresh access token per request. The\n  // server must not cache the old one into the Spotify API client.\n  const transports = ['Bearer first-token', 'Bearer rotated-token'];\n  let i = 0;",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "test/oauth.test.js",
+          "start_line": 287,
+          "end_line": null,
+          "start_column": 41
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-68347b9ecb57495a92cb3959a7ceaef9",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "test/oauth.test.js",
+        "start_line": 432,
+        "end_line": null,
+        "start_column": 50
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    if (url.startsWith('https://api.spotify.com/v1/me/top/artists')) {\n      return new Response(\n        JSON.stringify({\n          error: { status: 401, message: 'Invalid access token' },\n        }),\n        { status: 401, headers: { 'Content-Type': 'application/json' } },\n      );",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "test/oauth.test.js",
+          "start_line": 432,
+          "end_line": null,
+          "start_column": 50
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-39fdfd077a5343fca17c2d887ec78dc9",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "test/oauth.test.js",
+        "start_line": 467,
+        "end_line": null,
+        "start_column": 58
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  });\n  assert.equal(second.status, 200);\n  // The Spotify 401 surfaces to the client (tool error), not a success.\n  assert.match(second.body, /Bad or expired token|Invalid access token/);\n\n  // 3. initialize again with the same token: it must NOT be trusted\n  // forever \u2014 the memo entry was evicted, so a second /me ping happens.",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "test/oauth.test.js",
+          "start_line": 467,
+          "end_line": null,
+          "start_column": 58
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-af51771e748e46659a0bb5b909cd1c58",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/utils.ts",
+        "start_line": 170,
+        "end_line": null,
+        "start_column": 9
+      },
+      "finding": "Access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "      const latest = loadSpotifyConfig();\n      if (!needsRefresh(latest, bufferMs)) return latest;\n      console.error(\n        'Access token expired or missing expiration time, refreshing...',\n      );\n      const now = Date.now();\n      const tokens = await refreshAccessToken(latest);",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3b44ed6c6dd5554cfb788a5fc40a816e8ca835abfc203917124861c340486044",
+      "occurrences": [
+        {
+          "file": "src/utils.ts",
+          "start_line": 170,
+          "end_line": null,
+          "start_column": 9
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-729a2fb4bfc6431bae640a38d96f187c",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/utils.ts",
+        "start_line": 178,
+        "end_line": null,
+        "start_column": 21
+      },
+      "finding": "Access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "      latest.expiresAt = now + tokens.expires_in * 1000;\n      saveSpotifyConfig(latest);\n      cachedSpotifyApi = null;\n      console.error('Access token refreshed successfully');\n      return latest;\n    })().finally(() => {\n      refreshInFlight = null;",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3b44ed6c6dd5554cfb788a5fc40a816e8ca835abfc203917124861c340486044",
+      "occurrences": [
+        {
+          "file": "src/utils.ts",
+          "start_line": 178,
+          "end_line": null,
+          "start_column": 21
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-c03ad527c97a4c47a89219718897556f",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/utils.ts",
+        "start_line": 562,
+        "end_line": null,
+        "start_column": 40
+      },
+      "finding": "Access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "            '<html><body><h1>Authentication Successful!</h1><p>You can now close this window and return to the application.</p></body></html>',\n          );\n          console.log(\n            'Authentication successful! Access token has been saved.',\n          );\n\n          server.close();",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3b44ed6c6dd5554cfb788a5fc40a816e8ca835abfc203917124861c340486044",
+      "occurrences": [
+        {
+          "file": "src/utils.ts",
+          "start_line": 562,
+          "end_line": null,
+          "start_column": 40
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-2b828392d4eb4925b4594cf0be0021cf",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/utils.ts",
+        "start_line": 636,
+        "end_line": null,
+        "start_column": 40
+      },
+      "finding": "Access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "          config.expiresAt = Date.now() + tokens.expires_in * 1000;\n          saveSpotifyConfig(config);\n          console.log(\n            'Authentication successful! Access token has been saved.',\n          );\n          server.close();\n          resolve();",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3b44ed6c6dd5554cfb788a5fc40a816e8ca835abfc203917124861c340486044",
+      "occurrences": [
+        {
+          "file": "src/utils.ts",
+          "start_line": 636,
+          "end_line": null,
+          "start_column": 40
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-68edc117de29457d8dbc3e4164ed4eba",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.85,
+      "location": {
+        "file": "README.md",
+        "start_line": 421,
+        "end_line": null,
+        "start_column": 7
+      },
+      "finding": "autoApprove",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "    \"spotify\": {\n      \"command\": \"node\",\n      \"args\": [\"~/../spotify-mcp-server/build/index.js\"],\n      \"autoApprove\": [\"getListeningHistory\", \"getNowPlaying\"]\n    }\n  }\n}",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "abd52bad0b9e5ede20e53845e54869fab17f717bfbf2b3a666543424e4c169b6",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 421,
+          "end_line": null,
+          "start_column": 7
+        }
+      ]
+    },
+    {
+      "id": "SSRF2",
+      "finding_id": "finding-69f966adfa384178a16d973cfabab544",
+      "category": "Server-Side Request Forgery",
+      "pattern": "Internal Network Request",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "docker-compose.yml",
+        "start_line": 41,
+        "end_line": null,
+        "start_column": 11
+      },
+      "finding": "fetch('http://127.0.0.1",
+      "explanation": "Code issues a request to a loopback, link-local, or private-range host. This can reach internal services not meant to be exposed and is a common SSRF pivot.",
+      "remediation": "Avoid requests to loopback/link-local/private hosts from skill code. If internal access is intended, document it and validate the target against an allowlist.",
+      "code_snippet": "          \"CMD\",\n          \"node\",\n          \"-e\",\n          \"fetch('http://127.0.0.1:3000/.well-known/oauth-protected-resource').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))\",\n        ]\n      interval: 30s\n      timeout: 5s",
+      "intent": null,
+      "tags": [
+        "Server-Side Request Forgery"
+      ],
+      "evidence": {},
+      "match_fingerprint": "75c2f7bda688c72b52137618e1930dcb4b123ab2d9f44b25cb33e139364b8083",
+      "occurrences": [
+        {
+          "file": "docker-compose.yml",
+          "start_line": 41,
+          "end_line": null,
+          "start_column": 11
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-4df21bd921624c238fb7d50855684b6f",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "src/utils.ts",
+        "start_line": 221,
+        "end_line": null,
+        "start_column": 13
+      },
+      "finding": "https://api.spotify.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "\n  // Build URL with query string\n  const cleanEndpoint = endpoint.startsWith('/') ? endpoint.slice(1) : endpoint;\n  let url = `https://api.spotify.com/v1/${cleanEndpoint}`;\n  if (query) {\n    const qs = new URLSearchParams();\n    for (const [k, v] of Object.entries(query)) {",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "435b42bed627f0041dd62685179ceb0e74a9a9ed22e45a194ddba0df3567d226",
+      "occurrences": [
+        {
+          "file": "src/utils.ts",
+          "start_line": 221,
+          "end_line": null,
+          "start_column": 13
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-770cecb91c314534adfa5e7d2385042e",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "src/utils.ts",
+        "start_line": 666,
+        "end_line": null,
+        "start_column": 32
+      },
+      "finding": "https://api.spotify.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": " * @throws an Error with status 401 if the token is rejected by Spotify.\n */\nexport async function validateSpotifyToken(accessToken: string): Promise<void> {\n  const response = await fetch('https://api.spotify.com/v1/me', {\n    method: 'GET',\n    headers: { Authorization: `Bearer ${accessToken}` },\n  });",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "435b42bed627f0041dd62685179ceb0e74a9a9ed22e45a194ddba0df3567d226",
+      "occurrences": [
+        {
+          "file": "src/utils.ts",
+          "start_line": 666,
+          "end_line": null,
+          "start_column": 32
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-10e3a27dc80e4565b1f4b35f0c129d9a",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "test/helpers.js",
+        "start_line": 86,
+        "end_line": null,
+        "start_column": 11
+      },
+      "finding": "https://api.spotify.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "      request.url,\n      step.url.startsWith('https:')\n        ? step.url\n        : `https://api.spotify.com/v1/${step.url}`,\n    );\n    assert.equal(request.method, step.method ?? 'GET');\n    assert.equal(",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "435b42bed627f0041dd62685179ceb0e74a9a9ed22e45a194ddba0df3567d226",
+      "occurrences": [
+        {
+          "file": "test/helpers.js",
+          "start_line": 86,
+          "end_line": null,
+          "start_column": 11
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-ae97ca67ee164c518c67df27ccc66983",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "test/oauth.test.js",
+        "start_line": 41,
+        "end_line": null,
+        "start_column": 33
+      },
+      "finding": "https://api.spotify.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "  const realFetch = globalThis.fetch;\n  t.mock.method(globalThis, 'fetch', async (input, options = {}) => {\n    const request = new Request(input, options);\n    if (!request.url.startsWith('https://api.spotify.com/')) {\n      return realFetch(input, options);\n    }\n    const body = await request.text();",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "435b42bed627f0041dd62685179ceb0e74a9a9ed22e45a194ddba0df3567d226",
+      "occurrences": [
+        {
+          "file": "test/oauth.test.js",
+          "start_line": 41,
+          "end_line": null,
+          "start_column": 33
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-929e829d3a7c461e8bb7178e8c8a53df",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "test/oauth.test.js",
+        "start_line": 46,
+        "end_line": null,
+        "start_column": 25
+      },
+      "finding": "https://api.spotify.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    }\n    const body = await request.text();\n    requests.push({ url: request.url, method: request.method, body });\n    if (request.url === 'https://api.spotify.com/v1/me') {\n      return new Response(JSON.stringify({ id: 'me' }), {\n        status: meStatus,\n        headers: { 'Content-Type': 'application/json' },",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "435b42bed627f0041dd62685179ceb0e74a9a9ed22e45a194ddba0df3567d226",
+      "occurrences": [
+        {
+          "file": "test/oauth.test.js",
+          "start_line": 46,
+          "end_line": null,
+          "start_column": 25
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-354f416644a649079f62f082c7e9f972",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "test/oauth.test.js",
+        "start_line": 58,
+        "end_line": null,
+        "start_column": 11
+      },
+      "finding": "https://api.spotify.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "      request.url,\n      step.url.startsWith('https:')\n        ? step.url\n        : `https://api.spotify.com/v1/${step.url}`,\n    );\n    assert.equal(request.method, step.method ?? 'GET');\n    assert.equal(",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "435b42bed627f0041dd62685179ceb0e74a9a9ed22e45a194ddba0df3567d226",
+      "occurrences": [
+        {
+          "file": "test/oauth.test.js",
+          "start_line": 58,
+          "end_line": null,
+          "start_column": 11
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-319f381d130f4e79ae3c25448b39ba85",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "test/oauth.test.js",
+        "start_line": 379,
+        "end_line": null,
+        "start_column": 33
+      },
+      "finding": "https://api.spotify.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "  });\n  assert.equal(response.status, 200);\n  assert.equal(requests.filter((r) => r.url.endsWith('/v1/me')).length, 1);\n  assert.equal(requests[0].url, 'https://api.spotify.com/v1/me');\n});\n\ntest('a Bearer token Spotify rejects gets 401 invalid_token', async (t) => {",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "435b42bed627f0041dd62685179ceb0e74a9a9ed22e45a194ddba0df3567d226",
+      "occurrences": [
+        {
+          "file": "test/oauth.test.js",
+          "start_line": 379,
+          "end_line": null,
+          "start_column": 33
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-37ea7a872af046968b41c27db359e172",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "test/oauth.test.js",
+        "start_line": 419,
+        "end_line": null,
+        "start_column": 25
+      },
+      "finding": "https://api.spotify.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "  const spotifyFetch = async (input, options = {}) => {\n    const request = new Request(input, options);\n    const url = request.url;\n    if (!url.startsWith('https://api.spotify.com/')) {\n      return realFetch(input, options);\n    }\n    requests.push(url);",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "435b42bed627f0041dd62685179ceb0e74a9a9ed22e45a194ddba0df3567d226",
+      "occurrences": [
+        {
+          "file": "test/oauth.test.js",
+          "start_line": 419,
+          "end_line": null,
+          "start_column": 25
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-accbae865c8e4f639d3f32567d0ea2c4",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "test/oauth.test.js",
+        "start_line": 423,
+        "end_line": null,
+        "start_column": 17
+      },
+      "finding": "https://api.spotify.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "      return realFetch(input, options);\n    }\n    requests.push(url);\n    if (url === 'https://api.spotify.com/v1/me') {\n      return new Response(JSON.stringify({ id: 'me' }), {\n        status: 200,\n        headers: { 'Content-Type': 'application/json' },",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "435b42bed627f0041dd62685179ceb0e74a9a9ed22e45a194ddba0df3567d226",
+      "occurrences": [
+        {
+          "file": "test/oauth.test.js",
+          "start_line": 423,
+          "end_line": null,
+          "start_column": 17
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-d60b8726879d45b18cae643353d0058a",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "test/oauth.test.js",
+        "start_line": 429,
+        "end_line": null,
+        "start_column": 24
+      },
+      "finding": "https://api.spotify.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "        headers: { 'Content-Type': 'application/json' },\n      });\n    }\n    if (url.startsWith('https://api.spotify.com/v1/me/top/artists')) {\n      return new Response(\n        JSON.stringify({\n          error: { status: 401, message: 'Invalid access token' },",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "435b42bed627f0041dd62685179ceb0e74a9a9ed22e45a194ddba0df3567d226",
+      "occurrences": [
+        {
+          "file": "test/oauth.test.js",
+          "start_line": 429,
+          "end_line": null,
+          "start_column": 24
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-878e27002ab947b7a3781cf99b7e3d99",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "test/oauth.test.js",
+        "start_line": 447,
+        "end_line": null,
+        "start_column": 31
+      },
+      "finding": "https://api.spotify.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    body: initialize,\n  });\n  assert.equal(first.status, 200);\n  assert.deepEqual(requests, ['https://api.spotify.com/v1/me']);\n\n  // 2. tools/call: Spotify 401s the already-validated token. The request\n  // must not be answered 200 with a silently failing tool; the token is",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "435b42bed627f0041dd62685179ceb0e74a9a9ed22e45a194ddba0df3567d226",
+      "occurrences": [
+        {
+          "file": "test/oauth.test.js",
+          "start_line": 447,
+          "end_line": null,
+          "start_column": 31
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-e96e5b90aa9f4a47b9bd2b3c0b63f53f",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "test/spotify-tools.test.js",
+        "start_line": 384,
+        "end_line": null,
+        "start_column": 17
+      },
+      "finding": "https://api.spotify.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "            { id: 'artist1', name: 'First Artist', genres: ['dubstep'] },\n            { id: 'artist2', name: 'Second Artist', popularity: 40 },\n          ],\n          next: 'https://api.spotify.com/v1/me/following?type=artist&after=artist2&limit=2',\n          cursors: { after: 'artist2' },\n          total: 3,\n        },",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "435b42bed627f0041dd62685179ceb0e74a9a9ed22e45a194ddba0df3567d226",
+      "occurrences": [
+        {
+          "file": "test/spotify-tools.test.js",
+          "start_line": 384,
+          "end_line": null,
+          "start_column": 17
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-106b192ae318416fb862ae3e0dedfe6d",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (9 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "package-lock.json",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "package-lock.json",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-8eac30ecd8284a1e8318011394f7d60f",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (9 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "package.json",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-3709718c741541e788f8af7fc535267d",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 25,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@modelcontextprotocol/node\": \"^2.1.1\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  \"license\": \"MIT\",\n  \"description\": \"A Model Context Protocol server for Spotify integration\",\n  \"dependencies\": {\n    \"@modelcontextprotocol/node\": \"^2.1.1\",\n    \"@modelcontextprotocol/server\": \"^2.3.1\",\n    \"@spotify/web-api-ts-sdk\": \"^1.2.0\",\n    \"open\": \"^11.0.4\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "51cd3916cceba83dc2dea84fc392739f2f27b410260092c248079800f2cc4fe1",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 25,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-50a471afa4f2498981c1eb8b39418949",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 26,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@modelcontextprotocol/server\": \"^2.3.1\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  \"description\": \"A Model Context Protocol server for Spotify integration\",\n  \"dependencies\": {\n    \"@modelcontextprotocol/node\": \"^2.1.1\",\n    \"@modelcontextprotocol/server\": \"^2.3.1\",\n    \"@spotify/web-api-ts-sdk\": \"^1.2.0\",\n    \"open\": \"^11.0.4\",\n    \"zod\": \"^4.6.7\"",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "5189fa7d2b107554b2a5e02e74314de961f45d381e89127188fda07f09d7f29d",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 26,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-9009fd3b8c414750bbe9657adcbc2b54",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 27,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@spotify/web-api-ts-sdk\": \"^1.2.0\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  \"dependencies\": {\n    \"@modelcontextprotocol/node\": \"^2.1.1\",\n    \"@modelcontextprotocol/server\": \"^2.3.1\",\n    \"@spotify/web-api-ts-sdk\": \"^1.2.0\",\n    \"open\": \"^11.0.4\",\n    \"zod\": \"^4.6.7\"\n  },",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "000b55cbc744e8f1561dc3c8cf1f4f394bb45889cb4b83a6bc47dd59e66e575f",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 27,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-9006ac408c654260ab4bed6fdf8267b8",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 28,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"open\": \"^11.0.4\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@modelcontextprotocol/node\": \"^2.1.1\",\n    \"@modelcontextprotocol/server\": \"^2.3.1\",\n    \"@spotify/web-api-ts-sdk\": \"^1.2.0\",\n    \"open\": \"^11.0.4\",\n    \"zod\": \"^4.6.7\"\n  },\n  \"devDependencies\": {",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4aac7a60d6da27bf2959d4b3878fa46ca1407ac7c3e7d5a59ad733c2ece8aef2",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 28,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-3b0a3fb0bfaf4c2387546646c985af3c",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 29,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"zod\": \"^4.6.7\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@modelcontextprotocol/server\": \"^2.3.1\",\n    \"@spotify/web-api-ts-sdk\": \"^1.2.0\",\n    \"open\": \"^11.0.4\",\n    \"zod\": \"^4.6.7\"\n  },\n  \"devDependencies\": {\n    \"@biomejs/biome\": \"^2.5.15\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4154b756008e6c87c08b1b92a972e8dd62ebb41a451d697d278b81aa28ff08e8",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 29,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-d44715fabc4a400398d2a7a3c6e52276",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 32,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@biomejs/biome\": \"^2.5.15\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"zod\": \"^4.6.7\"\n  },\n  \"devDependencies\": {\n    \"@biomejs/biome\": \"^2.5.15\",\n    \"@modelcontextprotocol/client\": \"^2.3.1\",\n    \"@types/node\": \"^26.6.5\",\n    \"typescript\": \"^7.0.2\"",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c350c214bf6ea0ffffe9a51b673f08caef6f379e63bbccb2eb4046beea5a5b42",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 32,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-6dac97efa1204a68bdd6365b2ae65830",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 33,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@modelcontextprotocol/client\": \"^2.3.1\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  },\n  \"devDependencies\": {\n    \"@biomejs/biome\": \"^2.5.15\",\n    \"@modelcontextprotocol/client\": \"^2.3.1\",\n    \"@types/node\": \"^26.6.5\",\n    \"typescript\": \"^7.0.2\"\n  },",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "0cb0ec42c38b56ef450584dcd4ea532e7d3db49daa2c4021079b7d4b733f2c01",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 33,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-d778522f446d4e7b93f3e64d4c401311",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 34,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@types/node\": \"^26.6.5\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  \"devDependencies\": {\n    \"@biomejs/biome\": \"^2.5.15\",\n    \"@modelcontextprotocol/client\": \"^2.3.1\",\n    \"@types/node\": \"^26.6.5\",\n    \"typescript\": \"^7.0.2\"\n  },\n  \"engines\": {",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "dbb6975cd1392a216ac5769e060699cd4f60df3fad6c64710d662a2d8606a2a0",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 34,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-bb247aa871b840ee902a25c14e33a3ab",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 35,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"typescript\": \"^7.0.2\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@biomejs/biome\": \"^2.5.15\",\n    \"@modelcontextprotocol/client\": \"^2.3.1\",\n    \"@types/node\": \"^26.6.5\",\n    \"typescript\": \"^7.0.2\"\n  },\n  \"engines\": {\n    \"node\": \">=26.8.1\"",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "50cabc64060ddb5e22fd6642b55c4228b70af019e40cfe5619c3e7866c21ca34",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 35,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 33,
+    "scanned_components": 19,
+    "coverage_percent": 57.6,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 19,
+    "partially_inspected_files": 14,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "README.md",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "analyzer_runtime_error",
+        "message": "Analyzer failed after beginning applicable work.",
+        "path": "package-lock.json",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_analyzer_runtime_error"
+        ],
+        "error_class": "ProxyError"
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "analyzer_runtime_error",
+        "message": "Analyzer failed after beginning applicable work.",
+        "path": "package.json",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_analyzer_runtime_error"
+        ],
+        "error_class": "ProxyError"
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/albums.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/http.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/play.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/read.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/utils.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "test/auth.test.js",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "test/config-write.test.js",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "test/helpers.js",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "test/http.test.js",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "test/oauth.test.js",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "test/spotify-tools.test.js",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "test/spotify-tools.test.js",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 33,
+        "completed": 33,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 33,
+        "completed": 33,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "degraded",
+        "planned_work": 33,
+        "completed": 31,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "degraded",
+        "planned_work": 33,
+        "completed": 31,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 33,
+        "completed": 33,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "degraded",
+        "planned_work": 33,
+        "completed": 31,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "degraded",
+        "planned_work": 33,
+        "completed": 31,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "degraded",
+        "planned_work": 33,
+        "completed": 31,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "degraded",
+        "planned_work": 33,
+        "completed": 31,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 33,
+        "completed": 33,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "degraded",
+        "planned_work": 33,
+        "completed": 31,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "degraded",
+        "planned_work": 33,
+        "completed": 31,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "degraded",
+        "planned_work": 33,
+        "completed": 31,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "degraded",
+        "planned_work": 33,
+        "completed": 31,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 35,
+        "completed": 31,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "degraded",
+        "planned_work": 33,
+        "completed": 31,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 33,
+        "completed": 21,
+        "partial": 12,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 33,
+        "completed": 33,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_agent_snooping status: degraded.",
+      "Analyzer static_patterns_anti_refusal status: degraded.",
+      "Analyzer static_patterns_deserialization status: degraded.",
+      "Analyzer static_patterns_excessive_agency status: degraded.",
+      "Analyzer static_patterns_harmful_content status: degraded.",
+      "Analyzer static_patterns_memory_poisoning status: degraded.",
+      "Analyzer static_patterns_privilege_escalation status: degraded.",
+      "Analyzer static_patterns_prompt_injection status: degraded.",
+      "Analyzer static_patterns_rogue_agent status: degraded.",
+      "Analyzer static_patterns_ssrf status: degraded.",
+      "Analyzer static_patterns_supply_chain status: degraded.",
+      "Analyzer static_patterns_system_prompt_leakage status: degraded.",
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 50,
+    "findings_after_filtering": 50,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

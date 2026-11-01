@@ -259,6 +259,8 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .chip { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; background: var(--fill); white-space: nowrap; }
 .ev { display: flex; flex-direction: column; gap: 2px; font-size: 11.5px; background: var(--code); border: 1px solid var(--sep); border-radius: 8px; padding: 6px 8px; min-width: 0; }
 .ev code { color: var(--label2); overflow-x: auto; white-space: pre; font-family: var(--mono); }
+.ev { max-width: 100%; } .ev span { overflow-wrap: anywhere; }
+.cap-h b { overflow-wrap: anywhere; min-width: 0; }
 .tools summary { cursor: pointer; color: var(--blue); font-size: 14px; font-weight: 600; }
 .tools ul { list-style: none; margin: 8px 0 0; padding: 0; max-height: 320px; overflow-y: auto; }
 .tools li { padding: 6px 0; border-top: 1px solid var(--sep); font-size: 13px; }
@@ -712,6 +714,9 @@ function pageToday() {
       <div class="job-grid">${KITS.map(kitCard).join('')}</div></section>
     <section class="shelf"><div class="shelf-head"><h2>Browse by job<span class="sub">Pick the work you do and see what helps</span></h2><a class="see-all" href="#browse">See All</a></div>
       <div class="job-grid">${JOBS.slice(0, 8).map(jobCard).join('')}</div></section>
+    ${(() => { const last = Object.values(R).map(r => r.fd).filter(Boolean).sort().pop(); if (!last || last === D.gen) return '';
+      const all = L.filter(l => repoOf(l).fd === last && !l.tr), fresh = uniqueRepos(byStars(all), 2);
+      return fresh.length ? `<section class="shelf"><div class="shelf-head"><h2>New in Vetted<span class="sub">${all.length} community listings added ${fmtDate(last)}</span></h2></div>${ranked(fresh.slice(0, 12))}</section>` : ''; })()}
     ${(() => { const v = uniqueRepos(byStars(L.filter(l => l.vd?.length))).slice(0, 9); return v.length ? `<section class="shelf"><div class="shelf-head"><h2>Watch it in action<span class="sub">Demo videos from the developers themselves</span></h2></div>${ranked(v)}</section>` : ''; })()}
     <section class="shelf"><div class="shelf-head"><h2>Popular Community Apps<span class="sub">Built by independent developers · ranked by GitHub stars</span></h2><a class="see-all" href="#tools">See All</a></div>
       ${ranked(appsTop, true)}</section>

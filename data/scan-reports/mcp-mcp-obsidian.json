@@ -2,7 +2,7 @@
   "skill": {
     "name": "unknown",
     "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/MarkusPfundstein__mcp-obsidian/mcp-obsidian-main",
-    "scanned_at": "2026-11-01T01:25:24.570974+00:00"
+    "scanned_at": "2026-11-01T02:14:08.931263+00:00"
   },
   "risk_assessment": {
     "score": 100,
@@ -276,7 +276,7 @@
   "issues": [
     {
       "id": "TT3",
-      "finding_id": "finding-a31f60f1157d47d5af8312e89d95e28d",
+      "finding_id": "finding-950bfce887274f648f84337ae0c63ec1",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'url' from os.getenv (line 56, credential/environment) \u2192 requests.get (network output)",
       "severity": "CRITICAL",
@@ -310,7 +310,7 @@
     },
     {
       "id": "TT3",
-      "finding_id": "finding-e4b529a713d84ffaa7422a6b8cc33cec",
+      "finding_id": "finding-2fc45c5bca7749a8b7862a0991bee215",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'url' from os.getenv (line 68, credential/environment) \u2192 requests.get (network output)",
       "severity": "CRITICAL",
@@ -344,7 +344,7 @@
     },
     {
       "id": "TT3",
-      "finding_id": "finding-42827286226b4865a71e4303a47ebc53",
+      "finding_id": "finding-8d84ffa092da4d65aea8a63ebf72f518",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'url' from os.getenv (line 79, credential/environment) \u2192 requests.get (network output)",
       "severity": "CRITICAL",
@@ -378,7 +378,7 @@
     },
     {
       "id": "TT3",
-      "finding_id": "finding-33a191d4e2e042c49a3618140ee84ba5",
+      "finding_id": "finding-c1181029c51e4789bf00b5e42c728751",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'url' from os.getenv (line 111, credential/environment) \u2192 requests.post (network output)",
       "severity": "CRITICAL",
@@ -412,7 +412,7 @@
     },
     {
       "id": "TT3",
-      "finding_id": "finding-b56fefcf812149f0be9791ab28584254",
+      "finding_id": "finding-176f0317876d46f68860cd271e9e6b94",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'url' from os.getenv (line 125, credential/environment) \u2192 requests.post (network output)",
       "severity": "CRITICAL",
@@ -446,7 +446,7 @@
     },
     {
       "id": "TT3",
-      "finding_id": "finding-548466bbc72847cc9d445d30a7fcd974",
+      "finding_id": "finding-83b5baabe6004e4d8b1dd5ba71fff7b3",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'url' from os.getenv (line 168, credential/environment) \u2192 requests.patch (network output)",
       "severity": "CRITICAL",
@@ -480,7 +480,7 @@
     },
     {
       "id": "TT3",
-      "finding_id": "finding-6af0cb025e9a4ca4b24b29885b5ae1e4",
+      "finding_id": "finding-9c79285b23204406aeffcfa337c4477f",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'url' from os.getenv (line 189, credential/environment) \u2192 requests.put (network output)",
       "severity": "CRITICAL",
@@ -514,7 +514,7 @@
     },
     {
       "id": "TT3",
-      "finding_id": "finding-2b6e5abe80114dba8be64dcf8f3db7aa",
+      "finding_id": "finding-6d55066a4f86410e9a1f72349b931c1e",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'url' from os.getenv (line 223, credential/environment) \u2192 requests.post (network output)",
       "severity": "CRITICAL",
@@ -548,7 +548,7 @@
     },
     {
       "id": "TT3",
-      "finding_id": "finding-650ca08b3de84b1fb97b008b49595ecd",
+      "finding_id": "finding-d852ac87c387434193f1a46a7f83146a",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'url' from os.getenv (line 276, credential/environment) \u2192 requests.get (network output)",
       "severity": "CRITICAL",
@@ -582,7 +582,7 @@
     },
     {
       "id": "TT3",
-      "finding_id": "finding-635bb3807ee044e0b6b623c5a0e6a0ac",
+      "finding_id": "finding-2f66eda8c05a4a3481b3370c73712748",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'url' from os.getenv (line 301, credential/environment) \u2192 requests.get (network output)",
       "severity": "CRITICAL",
@@ -616,7 +616,7 @@
     },
     {
       "id": "TT3",
-      "finding_id": "finding-e80dab6aee6d4a9789fd611cfd9cbf5d",
+      "finding_id": "finding-16ffd74ba4c348e5a3fb7b492716ed7f",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'url' from os.getenv (line 325, credential/environment) \u2192 requests.get (network output)",
       "severity": "CRITICAL",
@@ -650,7 +650,7 @@
     },
     {
       "id": "TT3",
-      "finding_id": "finding-e28ffee4a89949fd92ea8d4b4342ce8c",
+      "finding_id": "finding-e8d6918ad8814d1f926006c729e1dd26",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'url' from os.getenv (line 367, credential/environment) \u2192 requests.post (network output)",
       "severity": "CRITICAL",
@@ -684,7 +684,7 @@
     },
     {
       "id": "PE3",
-      "finding_id": "finding-539338fca30a46bd9e69d4b4ecd991d3",
+      "finding_id": "finding-1f06f1164d0145f59a6b4bcadc35528f",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -718,7 +718,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-dadb4f10cca94bf0ae6ec191cc6d3543",
+      "finding_id": "finding-1d1f075cb5de4158ae5a772e5a4cde91",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'uvx binaries'.",
       "severity": "MEDIUM",
@@ -748,7 +748,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-31dd9d9461de467bb2a7cd3d5054be8d",
+      "finding_id": "finding-af6c99431ff04ee09c83d3206efc78a7",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx @modelcontextprotocol/inspector'.",
       "severity": "MEDIUM",
@@ -778,7 +778,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-0a20b5a3ca4b43b0acf49e5e0d6d8090",
+      "finding_id": "finding-eb0649c6d44f47f7ac349a7d06c9c347",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -810,7 +810,7 @@
     },
     {
       "id": "SC4",
-      "finding_id": "finding-13f4659876044d7a8058769b2db97748",
+      "finding_id": "finding-3dd1182a61904cc98fbd27a01426fb68",
       "category": "Supply Chain",
       "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (15 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
       "severity": "LOW",
@@ -840,7 +840,7 @@
     },
     {
       "id": "SC4",
-      "finding_id": "finding-d5dc9e38cf5f4fbe97a9dfe362e49d5f",
+      "finding_id": "finding-8d5dd3497ea94c538f17b8008ef8f0bd",
       "category": "Supply Chain",
       "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (15 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
       "severity": "LOW",
@@ -870,7 +870,7 @@
     },
     {
       "id": "AST7",
-      "finding_id": "finding-6fba322140c44fc69f2c828ce3313049",
+      "finding_id": "finding-4b33e5c11a83481e856a996ff7d84d4d",
       "category": "Dangerous Code Execution",
       "pattern": "Dynamic attribute access via getattr()",
       "severity": "LOW",

@@ -85,7 +85,14 @@
     "secretFiles": "Supports SSH commit signing, which uses your SSH key. These lines are its signing tests."
   },
   "mise": {
-    "secretFiles": "Reads Docker registry credentials (~/.docker/config.json) to download tools from OCI registries. The .ssh matches checked are in tests."
+    "secretFiles": "Reads Docker registry credentials (~/.docker/config.json) to download tools from OCI registries. The .ssh matches checked are in tests.",
+    "_findings": [
+      {
+        "match": "curl https://mise.run | sh",
+        "level": "benign",
+        "note": "A hint mise prints, suggesting how to reinstall its official build (src/cli/version.rs:290). It shows you the command; it doesn't run it."
+      }
+    ]
   },
   "mcp-figma-context-mcp": {
     "_notices": [
@@ -300,10 +307,49 @@
         ],
         "note": "With --cookies-from-browser it reads and decrypts the cookie database of Chrome, Firefox, Safari or another browser you name, so downloads can use your signed-in sessions. Those cookies act as you on every site. It only does this when you pass that option; a plain download doesn't touch them."
       }
+    ],
+    "_findings": [
+      {
+        "match": "cookies.sqlite",
+        "level": "benign",
+        "note": "The --cookies-from-browser feature reading Firefox's cookie database when you ask (yt_dlp/cookies.py:231). Covered by the note above."
+      },
+      {
+        "match": "description",
+        "level": "benign",
+        "note": "Test data in its site extractors: each lists sample videos with their expected title and description (yt_dlp/extractor/). SkillSpector reads those as tool descriptions."
+      },
+      {
+        "match": "MIIBIjANBgkqhkiG9w0BAQEF",
+        "level": "benign",
+        "note": "A public key the New York Times' own player uses for its video API, built into the extractor (yt_dlp/extractor/nytimes.py:26). Not a secret of yours."
+      },
+      {
+        "match": "NzRmYTg5YjgxMWExY2JiNzUw",
+        "level": "benign",
+        "note": "The public app credentials of Vimeo's Android app, which yt-dlp presents to Vimeo (yt_dlp/extractor/vimeo.py:63). Not a secret of yours."
+      },
+      {
+        "match": "parameters =",
+        "level": "benign",
+        "note": "A Persian video title in test data contains a zero-width non-joiner, which is normal in Persian text (yt_dlp/extractor/telewebion.py:23). SkillSpector reads it as a hidden character."
+      },
+      {
+        "match": "Disregard previous",
+        "level": "benign",
+        "note": "Help text for --format-sort-reset: \"Disregard previous user specified sort order\" (yt_dlp/options.py:890)."
+      }
     ]
   },
   "mcp-spec-workflow-mcp": {
-    "shell": "Runs git rev-parse to find the root of your project and its worktrees (src/core/git-utils.ts:20, 47). Nothing else."
+    "shell": "Runs git rev-parse to find the root of your project and its worktrees (src/core/git-utils.ts:20, 47). Nothing else.",
+    "_findings": [
+      {
+        "match": "Enable debug mode",
+        "level": "benign",
+        "note": "A translated label in its VS Code extension's settings screen (vscode-extension/src/webview/i18n.ts:59)."
+      }
+    ]
   },
   "croc": {
     "shell": "Three features: croc ssh starts your login shell to share it (src/sshshare/terminal_unix.go:130-136), it copies the code phrase to your clipboard with clip, pbcopy or wl-copy (src/croc/croc.go:3948), and croc update runs the new version once to check it before replacing itself (src/cli/update.go:342).",
@@ -318,13 +364,52 @@
         ],
         "note": "Separate from sending files: croc ssh opens a shared terminal on your machine. Anyone with the read/write invitation can type commands as you, with your permissions, for as long as it runs. Share that invitation only with people you'd hand your keyboard to; the read-only invitation lets people watch without typing."
       }
+    ],
+    "_findings": [
+      {
+        "match": "getcroc.com | bash",
+        "level": "benign",
+        "note": "An upgrade hint croc prints (src/cli/update.go:283), and the same command in blog posts on its website (web/src/blog-posts.ts). It doesn't run it."
+      },
+      {
+        "match": "install.sh | sh",
+        "level": "benign",
+        "note": "Blog posts on croc's website comparing it with other file-transfer tools quote their installers (web/src/blog-posts.ts:2094-2107)."
+      },
+      {
+        "match": "sendme.sh | sh",
+        "level": "benign",
+        "note": "The same comparison blog post (web/src/blog-posts.ts:2134)."
+      },
+      {
+        "match": "description:",
+        "level": "benign",
+        "note": "Task descriptions in its browser app's menu (web/src/TaskLauncher.tsx:102), like \"Send to…\"."
+      },
+      {
+        "file": "web/src/protocol/unicode-casefold.ts",
+        "level": "benign",
+        "note": "A generated Unicode case-folding table for its browser app (web/src/protocol/unicode-casefold.ts). SkillSpector flags the unusual Unicode characters in it."
+      }
     ]
   },
   "visidata": {
     "credentials": "Only in optional extras you turn on yourself: a geocoding plugin that uses an API key you set (plugins/geocoding.py), and an experimental LLM command that sends the column text you analyze to Anthropic with your ANTHROPIC_API_KEY (visidata/experimental/llm.py:84). Neither loads unless you import it in your config."
   },
   "superfile": {
-    "network": "Checks GitHub for a newer release at most once a day and tells you if there is one (src/cmd/main.go:238-311). On by default; set auto_check_update = false in its config to turn it off."
+    "network": "Checks GitHub for a newer release at most once a day and tells you if there is one (src/cmd/main.go:238-311). On by default; set auto_check_update = false in its config to turn it off.",
+    "_findings": [
+      {
+        "match": ".env.local",
+        "level": "benign",
+        "note": "False match: its table of file icons includes .env.local (src/config/icon/icon.go:218)."
+      },
+      {
+        "match": "enable debug mode",
+        "level": "benign",
+        "note": "Documentation of a config option (src/internal/common/config_type.go:85)."
+      }
+    ]
   },
   "harlequin": {
     "shell": "Runs ssh only for optional SSH tunnels to a database, and ssh -V to report its version (src/harlequin/ssh.py:353, src/harlequin/hsql/modes/info.py:113). It also hands the terminal to an external program such as your editor when you ask (src/harlequin/external.py:98).",
@@ -435,6 +520,27 @@
         "match": "/etc/passwd",
         "level": "benign",
         "note": "When you open a shell in a container, it looks up your login shell in that container's /etc/passwd (pkg/gui/containers_panel.go:471). It reads nothing on your own computer."
+      }
+    ]
+  },
+  "mcp-airtable-mcp-server": {
+    "files": "Reads its own package.json to report its version (src/index.ts:6). Nothing else on disk."
+  },
+  "mcp-whatsapp-mcp": {
+    "_notices": [
+      {
+        "title": "Its bridge API has no password and is open to your network",
+        "where": [
+          [
+            "whatsapp-bridge/main.go",
+            681
+          ],
+          [
+            "whatsapp-bridge/main.go",
+            778
+          ]
+        ],
+        "note": "The WhatsApp bridge serves an API on port 8080 on every network interface, not just your own computer, and it doesn't ask for a password or check where a request comes from. While it runs, another device on the same network, or a web page you open, could send WhatsApp messages as you through /api/send. Run it only on a network you trust, and block port 8080 from other machines with your firewall."
       }
     ]
   }

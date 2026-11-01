@@ -2,7 +2,7 @@
   "skill": {
     "name": "unknown",
     "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/vivekVells__mcp-pandoc/mcp-pandoc-main",
-    "scanned_at": "2026-11-01T01:28:57.267149+00:00"
+    "scanned_at": "2026-11-01T02:16:41.741573+00:00"
   },
   "risk_assessment": {
     "score": 100,
@@ -2588,7 +2588,7 @@
   "issues": [
     {
       "id": "TM2",
-      "finding_id": "finding-eff6bd5780ca4c2da82a89f350a37a25",
+      "finding_id": "finding-925d3f8dc2ad404582fc4d6018115d00",
       "category": "Tool Misuse",
       "pattern": "Chaining Abuse",
       "severity": "HIGH",
@@ -2620,7 +2620,7 @@
     },
     {
       "id": "AR2",
-      "finding_id": "finding-91bd1552b7a741d8855d2c5c05d5ff19",
+      "finding_id": "finding-42f292d78b74421fa8da6acceee6c66c",
       "category": "Anti-Refusal",
       "pattern": "Anti-Refusal Statement",
       "severity": "HIGH",
@@ -2654,7 +2654,7 @@
     },
     {
       "id": "AR2",
-      "finding_id": "finding-99677c39922f414fb292ec8bb6488cb2",
+      "finding_id": "finding-abd5c2b907034c79bc04bdc5299dbba9",
       "category": "Anti-Refusal",
       "pattern": "Anti-Refusal Statement",
       "severity": "HIGH",
@@ -2688,7 +2688,7 @@
     },
     {
       "id": "E2",
-      "finding_id": "finding-e1d9cd68b5a64464aff45302775b640e",
+      "finding_id": "finding-77854ae5bc4d4b8da28038dff37dfe7e",
       "category": "Data Exfiltration",
       "pattern": "Env Variable Harvesting",
       "severity": "HIGH",
@@ -2720,7 +2720,7 @@
     },
     {
       "id": "PE2",
-      "finding_id": "finding-e502af7b2ac7473d9cfd4b5ef444c99d",
+      "finding_id": "finding-30d21e156e18455e94ed6e00f2d38275",
       "category": "Privilege Escalation",
       "pattern": "Sudo/Root Execution",
       "severity": "MEDIUM",
@@ -2752,7 +2752,7 @@
     },
     {
       "id": "PE2",
-      "finding_id": "finding-c32c2e2e41344a73b71d8d937d786696",
+      "finding_id": "finding-34a386f073e840df95fac8f7b8acb06d",
       "category": "Privilege Escalation",
       "pattern": "Sudo/Root Execution",
       "severity": "MEDIUM",
@@ -2784,7 +2784,7 @@
     },
     {
       "id": "PE2",
-      "finding_id": "finding-036168839885496d8a18ea1c9ad9526d",
+      "finding_id": "finding-316360e5730b40ba9dc24842f99b298c",
       "category": "Privilege Escalation",
       "pattern": "Sudo/Root Execution",
       "severity": "MEDIUM",
@@ -2816,7 +2816,7 @@
     },
     {
       "id": "PE2",
-      "finding_id": "finding-4cd8ff0d32c84fef8f222a2e4a866693",
+      "finding_id": "finding-ee204908f1c841a0974e886a9e7d4c64",
       "category": "Privilege Escalation",
       "pattern": "Sudo/Root Execution",
       "severity": "MEDIUM",
@@ -2848,7 +2848,7 @@
     },
     {
       "id": "PE2",
-      "finding_id": "finding-4e2284bbc5e04c93880f9c46e1f11c7c",
+      "finding_id": "finding-c5efe73b20f84ade9931ef32110212ca",
       "category": "Privilege Escalation",
       "pattern": "Sudo/Root Execution",
       "severity": "MEDIUM",
@@ -2880,7 +2880,7 @@
     },
     {
       "id": "PE2",
-      "finding_id": "finding-c1efdf06bb094e0e85cf9645977b95f6",
+      "finding_id": "finding-9c55c4d9541d4e79b87debeb5f6d7497",
       "category": "Privilege Escalation",
       "pattern": "Sudo/Root Execution",
       "severity": "MEDIUM",
@@ -2912,7 +2912,7 @@
     },
     {
       "id": "PE2",
-      "finding_id": "finding-43c7eb912de14d228d5db8ea1c4ac788",
+      "finding_id": "finding-c66a3ae62a96400698c58b76bd4f78d0",
       "category": "Privilege Escalation",
       "pattern": "Sudo/Root Execution",
       "severity": "MEDIUM",
@@ -2944,7 +2944,7 @@
     },
     {
       "id": "PE2",
-      "finding_id": "finding-2a4429ee079141fc84380825d3f5c2f3",
+      "finding_id": "finding-ff2864e6bede4427a58dffd262c1fcf5",
       "category": "Privilege Escalation",
       "pattern": "Sudo/Root Execution",
       "severity": "MEDIUM",
@@ -2976,7 +2976,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-4f920ec6dac54e989658dc19f1ea2b7e",
+      "finding_id": "finding-651871698639470e982cbf6e903b6934",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'uvx mcp-pandoc'.",
       "severity": "MEDIUM",
@@ -3006,7 +3006,7 @@
     },
     {
       "id": "PE2",
-      "finding_id": "finding-f8b4e4cdbf744f6482a75b1034d89d2c",
+      "finding_id": "finding-4803b7fde56c458aabc44eb9ffbcf984",
       "category": "Privilege Escalation",
       "pattern": "Sudo/Root Execution",
       "severity": "MEDIUM",
@@ -3040,7 +3040,7 @@
     },
     {
       "id": "PE2",
-      "finding_id": "finding-a1ac1bf4b86248c6b2681a91f409b90b",
+      "finding_id": "finding-c660370a4f8342b2a718ec435223ff14",
       "category": "Privilege Escalation",
       "pattern": "Sudo/Root Execution",
       "severity": "MEDIUM",
@@ -3074,7 +3074,7 @@
     },
     {
       "id": "PE2",
-      "finding_id": "finding-be9670a4c29f4561882fd54c314c2883",
+      "finding_id": "finding-162918d0e08e4f21a070c16d2512ef2c",
       "category": "Privilege Escalation",
       "pattern": "Sudo/Root Execution",
       "severity": "MEDIUM",
@@ -3108,7 +3108,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-d4a73e20f494442e91f682287d544d77",
+      "finding_id": "finding-1470282d55aa4752a0821893a62ae340",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx @modelcontextprotocol/inspector'.",
       "severity": "MEDIUM",
@@ -3138,7 +3138,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-941f9525f5964535a18140b6fa7532c5",
+      "finding_id": "finding-b46fc61dc81a4bf9b09a6400111e01aa",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx @modelcontextprotocol/inspector'.",
       "severity": "MEDIUM",
@@ -3168,7 +3168,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-798ed87f84ec42238c4e49a04b1defce",
+      "finding_id": "finding-d01b95c88b874f9da1655567b4441dc8",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx @modelcontextprotocol/inspector'.",
       "severity": "MEDIUM",
@@ -3198,7 +3198,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-477f942728784dacbd2cdfa0cf8994bd",
+      "finding_id": "finding-e4c8505fd0184e378bb6b9bb7a208d81",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx @modelcontextprotocol/inspector'.",
       "severity": "MEDIUM",
@@ -3228,7 +3228,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-a6feb4dca21f4ffcba38a21e564f7eb0",
+      "finding_id": "finding-70a1718d1b91491bafaf4a35a1fb4afd",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx -y @smithery/cli'.",
       "severity": "MEDIUM",
@@ -3258,7 +3258,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-8d164f8dc17847ca9d84e54cca841de2",
+      "finding_id": "finding-d610d7aa55034a4b8d1d09a003c5f979",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",
@@ -3292,7 +3292,7 @@
     },
     {
       "id": "EA3",
-      "finding_id": "finding-a6ed66e435b54a12b961e1189510499f",
+      "finding_id": "finding-273b1bf43f284e308dd5f7781b43cba7",
       "category": "Excessive Agency",
       "pattern": "Scope Creep",
       "severity": "LOW",
@@ -3324,7 +3324,7 @@
     },
     {
       "id": "TM1",
-      "finding_id": "finding-9445b52926ed4ad7946d0d9bedfb92f0",
+      "finding_id": "finding-c67df675a6b04f3d960e860dde4913cf",
       "category": "Tool Misuse",
       "pattern": "Tool Parameter Abuse",
       "severity": "LOW",
@@ -3356,7 +3356,7 @@
     },
     {
       "id": "TM1",
-      "finding_id": "finding-99991b8a16a044af89950eac7f8a56f5",
+      "finding_id": "finding-6cf94d4246f9460299a6cde07c74694c",
       "category": "Tool Misuse",
       "pattern": "Tool Parameter Abuse",
       "severity": "LOW",
@@ -3388,7 +3388,7 @@
     },
     {
       "id": "SC4",
-      "finding_id": "finding-ad3189c989244a45a5ea188a7d86976f",
+      "finding_id": "finding-c13cfbc955b542f6909133ac2d667d5d",
       "category": "Supply Chain",
       "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (15 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
       "severity": "LOW",
@@ -3418,7 +3418,7 @@
     },
     {
       "id": "SC4",
-      "finding_id": "finding-7fc5abbe02e441f9baf245458df7d026",
+      "finding_id": "finding-21db9cbc495e4a0ab3c9a848f56d42c1",
       "category": "Supply Chain",
       "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (15 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
       "severity": "LOW",

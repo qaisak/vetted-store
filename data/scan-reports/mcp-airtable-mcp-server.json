@@ -1,0 +1,1878 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/domdomegg__airtable-mcp-server/airtable-mcp-server-master",
+    "scanned_at": "2026-11-01T02:14:44.705337+00:00"
+  },
+  "risk_assessment": {
+    "score": 68,
+    "severity": "HIGH",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": ".github/workflows/auto-dependabot.yaml",
+      "type": "yaml",
+      "lines": 45,
+      "executable": false,
+      "size_bytes": 1415,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/ci.yaml",
+      "type": "yaml",
+      "lines": 131,
+      "executable": false,
+      "size_bytes": 4545,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 124,
+      "executable": false,
+      "size_bytes": 1914,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Dockerfile",
+      "type": "other",
+      "lines": 35,
+      "executable": false,
+      "size_bytes": 940,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1079,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 186,
+      "executable": false,
+      "size_bytes": 8561,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "build-mcpb.sh",
+      "type": "shell",
+      "lines": 45,
+      "executable": true,
+      "size_bytes": 1288,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "eslint.config.mjs",
+      "type": "javascript",
+      "lines": 6,
+      "executable": true,
+      "size_bytes": 166,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "icon.png",
+      "type": "other",
+      "lines": 103,
+      "executable": false,
+      "size_bytes": 2783,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "manifest.json",
+      "type": "json",
+      "lines": 115,
+      "executable": false,
+      "size_bytes": 3730,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "package-lock.json",
+      "type": "json",
+      "lines": 6603,
+      "executable": false,
+      "size_bytes": 231031,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "package.json",
+      "type": "json",
+      "lines": 47,
+      "executable": false,
+      "size_bytes": 1509,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "server.json",
+      "type": "json",
+      "lines": 59,
+      "executable": false,
+      "size_bytes": 2113,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "smithery.yaml",
+      "type": "yaml",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 591,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/airtableService.test.ts",
+      "type": "typescript",
+      "lines": 571,
+      "executable": true,
+      "size_bytes": 16536,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/airtableService.ts",
+      "type": "typescript",
+      "lines": 369,
+      "executable": true,
+      "size_bytes": 9670,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/e2e.test.ts",
+      "type": "typescript",
+      "lines": 532,
+      "executable": true,
+      "size_bytes": 14680,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/enhanceAirtableError.test.ts",
+      "type": "typescript",
+      "lines": 310,
+      "executable": true,
+      "size_bytes": 10367,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/enhanceAirtableError.ts",
+      "type": "typescript",
+      "lines": 76,
+      "executable": true,
+      "size_bytes": 2861,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/index.ts",
+      "type": "typescript",
+      "lines": 24,
+      "executable": true,
+      "size_bytes": 766,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/main.ts",
+      "type": "typescript",
+      "lines": 69,
+      "executable": true,
+      "size_bytes": 2612,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/mcpServer.test.ts",
+      "type": "typescript",
+      "lines": 449,
+      "executable": true,
+      "size_bytes": 10613,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/create-comment.ts",
+      "type": "typescript",
+      "lines": 50,
+      "executable": true,
+      "size_bytes": 1286,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/create-field.ts",
+      "type": "typescript",
+      "lines": 38,
+      "executable": true,
+      "size_bytes": 988,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/create-record.ts",
+      "type": "typescript",
+      "lines": 33,
+      "executable": true,
+      "size_bytes": 969,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/create-table.ts",
+      "type": "typescript",
+      "lines": 39,
+      "executable": true,
+      "size_bytes": 1131,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/delete-records.ts",
+      "type": "typescript",
+      "lines": 35,
+      "executable": true,
+      "size_bytes": 995,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/describe-table.ts",
+      "type": "typescript",
+      "lines": 70,
+      "executable": true,
+      "size_bytes": 1705,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/get-record.ts",
+      "type": "typescript",
+      "lines": 29,
+      "executable": true,
+      "size_bytes": 825,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/index.ts",
+      "type": "typescript",
+      "lines": 39,
+      "executable": true,
+      "size_bytes": 1715,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/list-bases.ts",
+      "type": "typescript",
+      "lines": 36,
+      "executable": true,
+      "size_bytes": 892,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/list-comments.ts",
+      "type": "typescript",
+      "lines": 50,
+      "executable": true,
+      "size_bytes": 1302,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/list-records.ts",
+      "type": "typescript",
+      "lines": 51,
+      "executable": true,
+      "size_bytes": 1885,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/list-tables.ts",
+      "type": "typescript",
+      "lines": 62,
+      "executable": true,
+      "size_bytes": 1518,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/schemas.ts",
+      "type": "typescript",
+      "lines": 31,
+      "executable": true,
+      "size_bytes": 1419,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/search-records.ts",
+      "type": "typescript",
+      "lines": 44,
+      "executable": true,
+      "size_bytes": 1308,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/types.ts",
+      "type": "typescript",
+      "lines": 5,
+      "executable": true,
+      "size_bytes": 119,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/update-field.ts",
+      "type": "typescript",
+      "lines": 42,
+      "executable": true,
+      "size_bytes": 1129,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/update-records.ts",
+      "type": "typescript",
+      "lines": 46,
+      "executable": true,
+      "size_bytes": 1223,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/update-table.ts",
+      "type": "typescript",
+      "lines": 37,
+      "executable": true,
+      "size_bytes": 1037,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/tools/upload-attachment.ts",
+      "type": "typescript",
+      "lines": 47,
+      "executable": true,
+      "size_bytes": 1717,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/types.ts",
+      "type": "typescript",
+      "lines": 603,
+      "executable": true,
+      "size_bytes": 22447,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/utils/response.ts",
+      "type": "typescript",
+      "lines": 8,
+      "executable": true,
+      "size_bytes": 296,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tsconfig.build.json",
+      "type": "json",
+      "lines": 10,
+      "executable": false,
+      "size_bytes": 151,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tsconfig.json",
+      "type": "json",
+      "lines": 6,
+      "executable": false,
+      "size_bytes": 126,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "YR4",
+      "finding_id": "finding-58c10f7163c64f6b8bb4f1bec30fec28",
+      "category": "YARA Match",
+      "pattern": "YARA rule 'agent_skill_mcp_tool_poisoning_metadata': MCP/tool metadata poisoning indicators in tool schemas or skill manifests [agent_skills]",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "README.md",
+        "start_line": 9,
+        "end_line": null
+      },
+      "finding": "parameters:; parameters:; parameters:; parameters:; parameters:; parameters:; parameters:; parameters:; parameters:; parameters:; parameters:; parameters:; parameters:; parameters:; eyJjb21tYW5kIjoibn",
+      "explanation": "YARA rule matched a hack tool or exploit indicator (offensive tools, reconnaissance, privilege escalation, or exploit frameworks).",
+      "remediation": "Remove offensive tool references and exploit code. Legitimate agent skills should not contain penetration testing tools, exploit frameworks, or reconnaissance utilities.",
+      "code_snippet": "# airtable-mcp-server\n\nA Model Context Protocol server that provides read and write access to Airtable databases. This server enables LLMs to inspect database schemas, then read and write records.\n\nhttps://github.com/user-attachments/assets/c8285e76-d0ed-4018-94c7-20535db6c944\n\n## Installation\n\nFollow the instructions on [install-mcp](https://adamjones.me/install-mcp/?config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsImFpcnRhYmxlLW1jcC1zZXJ2ZXIiXSwibmFtZSI6ImFpcnRhYmxlIiwiZW52Ijp7IkFJUlRBQkxFX0FQSV9LRVkiOiJwYXQxMjMuYWJjMTIzIn19), which generates the right config for your MCP client (Claude Code, Claude Desktop, Cursor, Cline, VS Code, and more).\n\nYou'll need an Airtable personal access token \u2014 [create one here](https://airtable.com/create/tokens/new) with scopes `schema.bases:read` and `data.records:read` (and optionally `schema.bases:write`, `data.records:write`, `data.recordComments:read`, `data.recordComments:write`), and access to the bases you want to use. It ",
+      "intent": null,
+      "tags": [
+        "YARA Match"
+      ],
+      "evidence": {},
+      "match_fingerprint": "39afae8165f812fb9b67c9e2241eec27cd2ab132d1e2f9cd37be274b45beb285",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 9,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-216a5ea41a95418ebd68a487785a53ae",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 11,
+        "end_line": null,
+        "start_column": 33
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\nFollow the instructions on [install-mcp](https://adamjones.me/install-mcp/?config=eyJjb21tYW5kIjoibnB4IiwiYXJncyI6WyIteSIsImFpcnRhYmxlLW1jcC1zZXJ2ZXIiXSwibmFtZSI6ImFpcnRhYmxlIiwiZW52Ijp7IkFJUlRBQkxFX0FQSV9LRVkiOiJwYXQxMjMuYWJjMTIzIn19), which generates the right config for your MCP client (Claude Code, Claude Desktop, Cursor, Cline, VS Code, and more).\n\nYou'll need an Airtable personal access token \u2014 [create one here](https://airtable.com/create/tokens/new) with scopes `schema.bases:read` and `data.records:read` (and optionally `schema.bases:write`, `data.records:write`, `data.recordComments:read`, `data.recordComments:write`), and access to the bases you want to use. It looks something like `pat123.abc123` (but longer). Set it as `AIRTABLE_API_KEY` (replacing the placeholder in the generated config).\n\n## Components\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 11,
+          "end_line": null,
+          "start_column": 33
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-c91fa312a17d4b9d89049eeb1c802202",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "manifest.json",
+        "start_line": 110,
+        "end_line": null,
+        "start_column": 45
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    \"api_key\": {\n      \"type\": \"string\",\n      \"title\": \"Airtable API Key\",\n      \"description\": \"Your Airtable personal access token. Should have at least schema.bases:read and data.records:read permissions, and optionally the corresponding write permissions.\",\n      \"sensitive\": true,\n      \"required\": true\n    }",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "manifest.json",
+          "start_line": 110,
+          "end_line": null,
+          "start_column": 45
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-3e07f5b7515d44349ce96c15ddb7dda6",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "server.json",
+        "start_line": 25,
+        "end_line": null,
+        "start_column": 44
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "      \"environmentVariables\": [\n        {\n          \"name\": \"AIRTABLE_API_KEY\",\n          \"description\": \"Airtable personal access token (e.g., pat123.abc123). Create at https://airtable.com/create/tokens/new with scopes: schema.bases:read, data.records:read, and optionally schema.bases:write and data.records:write.\",\n          \"isRequired\": true,\n          \"isSecret\": true\n        }",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "server.json",
+          "start_line": 25,
+          "end_line": null,
+          "start_column": 44
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-880e58afd9bd4b1ba8aa3697e88b0eb9",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "server.json",
+        "start_line": 40,
+        "end_line": null,
+        "start_column": 44
+      },
+      "finding": "access token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "      \"environmentVariables\": [\n        {\n          \"name\": \"AIRTABLE_API_KEY\",\n          \"description\": \"Airtable personal access token (e.g., pat123.abc123). Create at https://airtable.com/create/tokens/new with scopes: schema.bases:read, data.records:read, and optionally schema.bases:write and data.records:write.\",\n          \"isRequired\": true,\n          \"isSecret\": true\n        }",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "903a9f18e7222d4c1e39fcf76dec31bef3fd46b6332f4bc5bc823999d287548b",
+      "occurrences": [
+        {
+          "file": "server.json",
+          "start_line": 40,
+          "end_line": null,
+          "start_column": 44
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-42f907723f764fe3af2646006fc49c60",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/enhanceAirtableError.test.ts",
+        "start_line": 195,
+        "end_line": null,
+        "start_column": 46
+      },
+      "finding": "Access Tokens",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\t\t\t\tenhanceAirtableError(error, responseText, apiKey);\n\n\t\t\t\texpect(error.message).toContain('API key seems too short (10 characters)');\n\t\t\t\texpect(error.message).toContain('Personal Access Tokens are typically around 82 characters long');\n\t\t\t});\n\n\t\t\ttest('warns when API key is too long', () => {",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8962f8722be07452b125a42074670b0fad71a4ae4b34ebaf919061a53ecf2b56",
+      "occurrences": [
+        {
+          "file": "src/enhanceAirtableError.test.ts",
+          "start_line": 195,
+          "end_line": null,
+          "start_column": 46
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-c2e280e753be44869daa9203fa89eb04",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/enhanceAirtableError.test.ts",
+        "start_line": 211,
+        "end_line": null,
+        "start_column": 46
+      },
+      "finding": "Access Tokens",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\t\t\t\tenhanceAirtableError(error, responseText, apiKey);\n\n\t\t\t\texpect(error.message).toContain('API key seems too long (155 characters)');\n\t\t\t\texpect(error.message).toContain('Personal Access Tokens are typically around 82 characters long');\n\t\t\t});\n\n\t\t\ttest('does not warn for API key with appropriate length', () => {",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8962f8722be07452b125a42074670b0fad71a4ae4b34ebaf919061a53ecf2b56",
+      "occurrences": [
+        {
+          "file": "src/enhanceAirtableError.test.ts",
+          "start_line": 211,
+          "end_line": null,
+          "start_column": 46
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-9dce50cd5fee4e28a06cfaf79e315ac8",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/enhanceAirtableError.ts",
+        "start_line": 31,
+        "end_line": null,
+        "start_column": 92
+      },
+      "finding": "Access Tokens",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\tif (errorType === 'AUTHENTICATION_REQUIRED') {\n\t\tconst warnings = [\n\t\t\t...getApiKeyWarnings(apiKey),\n\t\t\t'Verify that the token hasn\\'t expired or been revoked. You can view and create Personal Access Tokens at https://airtable.com/create/tokens.',\n\t\t];\n\n\t\terror.message += `Suggestions: ${warnings.join(' ')}`;",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8962f8722be07452b125a42074670b0fad71a4ae4b34ebaf919061a53ecf2b56",
+      "occurrences": [
+        {
+          "file": "src/enhanceAirtableError.ts",
+          "start_line": 31,
+          "end_line": null,
+          "start_column": 92
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-2122c86ddffa4c728d35a3cd4ca78dad",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/enhanceAirtableError.ts",
+        "start_line": 65,
+        "end_line": null,
+        "start_column": 81
+      },
+      "finding": "Access Tokens",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n\t// Check length (typical PAT is around 82 characters)\n\tif (apiKey.length < 70) {\n\t\twarnings.push(`API key seems too short (${apiKey.length} characters). Personal Access Tokens are typically around 82 characters long. Make sure you've copied the API key correctly.`);\n\t} else if (apiKey.length > 100) {\n\t\twarnings.push(`API key seems too long (${apiKey.length} characters). Personal Access Tokens are typically around 82 characters long. Make sure you've copied the API key correctly.`);\n\t}",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8962f8722be07452b125a42074670b0fad71a4ae4b34ebaf919061a53ecf2b56",
+      "occurrences": [
+        {
+          "file": "src/enhanceAirtableError.ts",
+          "start_line": 65,
+          "end_line": null,
+          "start_column": 81
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-e951c9c447d44b5f9200fee37072e4fb",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/enhanceAirtableError.ts",
+        "start_line": 67,
+        "end_line": null,
+        "start_column": 80
+      },
+      "finding": "Access Tokens",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\tif (apiKey.length < 70) {\n\t\twarnings.push(`API key seems too short (${apiKey.length} characters). Personal Access Tokens are typically around 82 characters long. Make sure you've copied the API key correctly.`);\n\t} else if (apiKey.length > 100) {\n\t\twarnings.push(`API key seems too long (${apiKey.length} characters). Personal Access Tokens are typically around 82 characters long. Make sure you've copied the API key correctly.`);\n\t}\n\n\t// Check if it looks like an old-style API key (starts with 'key')",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8962f8722be07452b125a42074670b0fad71a4ae4b34ebaf919061a53ecf2b56",
+      "occurrences": [
+        {
+          "file": "src/enhanceAirtableError.ts",
+          "start_line": 67,
+          "end_line": null,
+          "start_column": 80
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-07989f9a8da64b11829e9785c9e7676e",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/enhanceAirtableError.ts",
+        "start_line": 72,
+        "end_line": null,
+        "start_column": 83
+      },
+      "finding": "Access Token",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n\t// Check if it looks like an old-style API key (starts with 'key')\n\tif (apiKey.startsWith('key')) {\n\t\twarnings.push('This appears to be an old-style API key. Please create a Personal Access Token at https://airtable.com/create/tokens instead.');\n\t}\n\n\treturn warnings;",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d791fddf2b521316d721148b0ff375b4cd22146833b76e12a6a85aae7e9ea3f2",
+      "occurrences": [
+        {
+          "file": "src/enhanceAirtableError.ts",
+          "start_line": 72,
+          "end_line": null,
+          "start_column": 83
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-f184fb78979d453e884bf19334255589",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx airtable-mcp-server'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 144,
+        "end_line": null
+      },
+      "finding": "npx airtable-mcp-server",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "2f144d8c690a5440a479edd9a802763fd9a1cf928b73d06e618ecfa105ba0c16",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 144,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-cb84278ae9bc47c6a8b702df5abcb2a2",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (9 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "package-lock.json",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "package-lock.json",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-f12342a16ff14e3482acf361e7970aa4",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (9 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "package.json",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-18fb7c441b7843bcb11fe4e285470636",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 32,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@modelcontextprotocol/sdk\": \"^1.24.3\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"prepublishOnly\": \"npm run clean && npm run build\"\n  },\n  \"dependencies\": {\n    \"@modelcontextprotocol/sdk\": \"^1.24.3\",\n    \"express\": \"^5.1.0\",\n    \"zod\": \"^4.1.13\"\n  },",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4986b1318f4e0e8836fd0db313dafaecf1f0ff41cf975b4312b6681e734d5e9a",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 32,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-6783129eaa624740b2a3a07e0efbe428",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 33,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"express\": \"^5.1.0\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  },\n  \"dependencies\": {\n    \"@modelcontextprotocol/sdk\": \"^1.24.3\",\n    \"express\": \"^5.1.0\",\n    \"zod\": \"^4.1.13\"\n  },\n  \"devDependencies\": {",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f86b75d8d4917dce77dfecee58d9e615e08f2cadada4cfbe233c8ae79c57ad61",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 33,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-54608085e6614ae189f55b2985b0d741",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 34,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"zod\": \"^4.1.13\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  \"dependencies\": {\n    \"@modelcontextprotocol/sdk\": \"^1.24.3\",\n    \"express\": \"^5.1.0\",\n    \"zod\": \"^4.1.13\"\n  },\n  \"devDependencies\": {\n    \"@tsconfig/node-lts\": \"^24.0.0\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a797f27c618f88148c2cfa9455e1e18b9802913b09231b8030e62f4f186210b3",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 34,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-d63d6eb3316640ed92e0b586641f88b2",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 37,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@tsconfig/node-lts\": \"^24.0.0\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"zod\": \"^4.1.13\"\n  },\n  \"devDependencies\": {\n    \"@tsconfig/node-lts\": \"^24.0.0\",\n    \"@types/express\": \"^5.0.3\",\n    \"@types/node\": \"^24.10.1\",\n    \"eslint\": \"^9.39.1\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "797b720e83b677c6b4363e6bc626d39d3a2f765c5b7fa24df012136719f59d4d",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 37,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-c8c009eacac24cd1bce95f5d7764b311",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 38,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@types/express\": \"^5.0.3\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  },\n  \"devDependencies\": {\n    \"@tsconfig/node-lts\": \"^24.0.0\",\n    \"@types/express\": \"^5.0.3\",\n    \"@types/node\": \"^24.10.1\",\n    \"eslint\": \"^9.39.1\",\n    \"eslint-config-domdomegg\": \"^2.0.9\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "22e6565bc08285e443af927b8603fb9890a32e4d86b39e53fe8da927ade932ad",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 38,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-00bc2172b2f4404c920222448eb133fb",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 39,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"@types/node\": \"^24.10.1\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "  \"devDependencies\": {\n    \"@tsconfig/node-lts\": \"^24.0.0\",\n    \"@types/express\": \"^5.0.3\",\n    \"@types/node\": \"^24.10.1\",\n    \"eslint\": \"^9.39.1\",\n    \"eslint-config-domdomegg\": \"^2.0.9\",\n    \"nodemon\": \"^3.1.11\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "667895fc8fb72ae3d2b87822ac5a20c4a166ee49e5ab49e02c5f3886c2255576",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 39,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-a856805e699e45fa95403f0491a39e83",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 40,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"eslint\": \"^9.39.1\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@tsconfig/node-lts\": \"^24.0.0\",\n    \"@types/express\": \"^5.0.3\",\n    \"@types/node\": \"^24.10.1\",\n    \"eslint\": \"^9.39.1\",\n    \"eslint-config-domdomegg\": \"^2.0.9\",\n    \"nodemon\": \"^3.1.11\",\n    \"tsconfig-domdomegg\": \"^1.0.0\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "de4f700d651938fe85709a6a8184c27df33fabfc9bc49025e106eb783281f9ba",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 40,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-1f4accdea1414ecea70469c658d0e184",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 41,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"eslint-config-domdomegg\": \"^2.0.9\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@types/express\": \"^5.0.3\",\n    \"@types/node\": \"^24.10.1\",\n    \"eslint\": \"^9.39.1\",\n    \"eslint-config-domdomegg\": \"^2.0.9\",\n    \"nodemon\": \"^3.1.11\",\n    \"tsconfig-domdomegg\": \"^1.0.0\",\n    \"typescript\": \"^5.9.3\",",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a90a5ad2d5f37f9b981607187dbd181a39d4bf43d70823ffab4047002624d0d3",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 41,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-ce8f14538d96411695fdf4a8fa545211",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 42,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"nodemon\": \"^3.1.11\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"@types/node\": \"^24.10.1\",\n    \"eslint\": \"^9.39.1\",\n    \"eslint-config-domdomegg\": \"^2.0.9\",\n    \"nodemon\": \"^3.1.11\",\n    \"tsconfig-domdomegg\": \"^1.0.0\",\n    \"typescript\": \"^5.9.3\",\n    \"vitest\": \"^4.0.15\"",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac725ee2f985e4e6f3a9a1ae7c3fcc500b006ad50f040302d856bcd56d12db5d",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 42,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-ccc1f16707fc4987bf4f64e7bd9603b7",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 43,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"tsconfig-domdomegg\": \"^1.0.0\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"eslint\": \"^9.39.1\",\n    \"eslint-config-domdomegg\": \"^2.0.9\",\n    \"nodemon\": \"^3.1.11\",\n    \"tsconfig-domdomegg\": \"^1.0.0\",\n    \"typescript\": \"^5.9.3\",\n    \"vitest\": \"^4.0.15\"\n  }",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f8d6481f207546c8b9a450c0e9b53ade1dac11cf6e573257409985a114cd594d",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 43,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-29a5e6e430b245eca9b36e991565cbf3",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 44,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"typescript\": \"^5.9.3\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"eslint-config-domdomegg\": \"^2.0.9\",\n    \"nodemon\": \"^3.1.11\",\n    \"tsconfig-domdomegg\": \"^1.0.0\",\n    \"typescript\": \"^5.9.3\",\n    \"vitest\": \"^4.0.15\"\n  }\n}",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4993dcaacb14b20c9ac6ba5a613068541b60a47d2d9ee23d0371edb262615c46",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 44,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC1",
+      "finding_id": "finding-f5b6e4def5ca4f53864c0e78b9d751a7",
+      "category": "Supply Chain",
+      "pattern": "Unpinned Dependencies",
+      "severity": "LOW",
+      "confidence": 0.4,
+      "location": {
+        "file": "package.json",
+        "start_line": 45,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "\"vitest\": \"^4.0.15\"",
+      "explanation": "Dependencies lack version pinning, allowing potential malicious package updates. Consider pinning versions.",
+      "remediation": "Pin all dependency versions in requirements.txt or pyproject.toml. Use exact versions (==) or compatible ranges. Run pip-audit regularly.",
+      "code_snippet": "    \"nodemon\": \"^3.1.11\",\n    \"tsconfig-domdomegg\": \"^1.0.0\",\n    \"typescript\": \"^5.9.3\",\n    \"vitest\": \"^4.0.15\"\n  }\n}",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "05f9140e4a2bbb136c227dbdda490ef3c4128ce968bf1adef1dda06585bc8f44",
+      "occurrences": [
+        {
+          "file": "package.json",
+          "start_line": 45,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 44,
+    "scanned_components": 39,
+    "coverage_percent": 88.6,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 39,
+    "partially_inspected_files": 5,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "analyzer_runtime_error",
+        "message": "Analyzer failed after beginning applicable work.",
+        "path": "package-lock.json",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_analyzer_runtime_error"
+        ],
+        "error_class": "ProxyError"
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "package-lock.json",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "output_limit",
+        "message": "Inspection reached its configured output limit.",
+        "path": "package-lock.json",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_output_limit"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "output_limit",
+        "message": "Inspection reached its configured output limit.",
+        "path": "package.json",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_output_limit"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/airtableService.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/e2e.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/enhanceAirtableError.test.ts",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "icon.png",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 45,
+        "completed": 45,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 45,
+        "completed": 45,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "degraded",
+        "planned_work": 44,
+        "completed": 43,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "degraded",
+        "planned_work": 44,
+        "completed": 43,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 44,
+        "completed": 44,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "degraded",
+        "planned_work": 44,
+        "completed": 43,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "degraded",
+        "planned_work": 44,
+        "completed": 43,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "degraded",
+        "planned_work": 44,
+        "completed": 43,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "degraded",
+        "planned_work": 44,
+        "completed": 43,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 44,
+        "completed": 44,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "degraded",
+        "planned_work": 44,
+        "completed": 43,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "degraded",
+        "planned_work": 44,
+        "completed": 43,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "degraded",
+        "planned_work": 44,
+        "completed": 43,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "degraded",
+        "planned_work": 44,
+        "completed": 43,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 48,
+        "completed": 44,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "degraded",
+        "planned_work": 44,
+        "completed": 43,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 44,
+        "completed": 40,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 45,
+        "completed": 45,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_agent_snooping status: degraded.",
+      "Analyzer static_patterns_anti_refusal status: degraded.",
+      "Analyzer static_patterns_deserialization status: degraded.",
+      "Analyzer static_patterns_excessive_agency status: degraded.",
+      "Analyzer static_patterns_harmful_content status: degraded.",
+      "Analyzer static_patterns_memory_poisoning status: degraded.",
+      "Analyzer static_patterns_privilege_escalation status: degraded.",
+      "Analyzer static_patterns_prompt_injection status: degraded.",
+      "Analyzer static_patterns_rogue_agent status: degraded.",
+      "Analyzer static_patterns_ssrf status: degraded.",
+      "Analyzer static_patterns_supply_chain status: degraded.",
+      "Analyzer static_patterns_system_prompt_leakage status: degraded.",
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 26,
+    "findings_after_filtering": 26,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

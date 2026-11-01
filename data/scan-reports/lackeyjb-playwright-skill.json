@@ -2,7 +2,7 @@
   "skill": {
     "name": "playwright-skill",
     "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/lackeyjb__playwright-skill/playwright-skill-main/skills/playwright-skill",
-    "scanned_at": "2026-11-01T01:24:19.836164+00:00"
+    "scanned_at": "2026-11-01T02:13:45.629211+00:00"
   },
   "risk_assessment": {
     "score": 100,
@@ -76,7 +76,7 @@
   "issues": [
     {
       "id": "AE1",
-      "finding_id": "finding-bdc7bdede3fe4dc9b108c6f07ac90208",
+      "finding_id": "finding-d0c4107665e44436810e8ad047f66fdc",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -121,7 +121,7 @@
     },
     {
       "id": "LP1",
-      "finding_id": "finding-239cfd7210a74d878d1776db0614719e",
+      "finding_id": "finding-19315ea16bb54813ba9c5bfd2e1bc63b",
       "category": "MCP Least Privilege",
       "pattern": "Code capability 'env' detected in lib/helpers.js but not covered by declared permissions.",
       "severity": "HIGH",
@@ -151,7 +151,7 @@
     },
     {
       "id": "MP3",
-      "finding_id": "finding-d2241fbab7554db88776ee0e2a34bdac",
+      "finding_id": "finding-ed75cc021b124480a5dc085ed02a9a7e",
       "category": "Memory Poisoning",
       "pattern": "Memory Manipulation",
       "severity": "HIGH",
@@ -183,7 +183,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-594b3d02865e44e18e6fd87dc291344e",
+      "finding_id": "finding-b78f7eadb17042d19665aff45385fa9c",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -213,7 +213,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-893bd19183ca46a7bada324f6dbb3686",
+      "finding_id": "finding-497b74ee382040fdb44491c9de3c5198",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -243,7 +243,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-fc9e234ba17d487eb7f293f8bdb3523d",
+      "finding_id": "finding-6d1cd6edb0da41d0a6834ca9bf4b486b",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -273,7 +273,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-2167bf264c1e4f0085f30e82fbb71eb3",
+      "finding_id": "finding-05ba775668db40b7abaab355d2cbc44e",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -303,7 +303,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-8509fff412424675923782d0bbb4a5f3",
+      "finding_id": "finding-d27d58f68d514e6ea85b521115513880",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -333,7 +333,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-da331b8ead834e6e93ed0cc897df801a",
+      "finding_id": "finding-bfbf8b3176224cb6a23b6405bcf62dfe",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -363,7 +363,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-172fff07ccf042199f626bfc4cd06b2b",
+      "finding_id": "finding-7df8287def7241048e3a8ab45f5167d1",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -393,7 +393,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-97c9ec71715048e99741602c6a9523fc",
+      "finding_id": "finding-975d56ca54ed498f81d1912b4861e797",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -423,7 +423,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-7f6090da68d84687ab66fc030e83530f",
+      "finding_id": "finding-1da2a61c71bb4d419eaa84ecb1405f73",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -453,7 +453,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-6e6d0dfd306c4cb294ddff2c9f79c559",
+      "finding_id": "finding-c9d6287761074d6aad3171c3fa363426",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -483,7 +483,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-7bd8e301bb1743aca0c45cba2b924c95",
+      "finding_id": "finding-2ed996235e3740b1860aa38fe863352d",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -513,7 +513,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-9cc52463f7eb413dbc33d3f02c829fc1",
+      "finding_id": "finding-80bab6f710b44e898ff6d13e6e4dd68f",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -543,7 +543,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-314b0538892d4199819dcdf3cad1d7fe",
+      "finding_id": "finding-30f500b5eb2448288f8c9edcdb4f86d3",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -575,7 +575,7 @@
     },
     {
       "id": "SC4",
-      "finding_id": "finding-a604eb22cb1e441d8c73df3d77d16a1c",
+      "finding_id": "finding-8d94e4edf45548dda282e21d90f52269",
       "category": "Supply Chain",
       "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (9 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
       "severity": "LOW",
@@ -605,7 +605,7 @@
     },
     {
       "id": "SC4",
-      "finding_id": "finding-46268883d9294f9cb1c74762943f6e89",
+      "finding_id": "finding-c09591ec4ade40c18243241662732d9f",
       "category": "Supply Chain",
       "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (9 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
       "severity": "LOW",
@@ -635,7 +635,7 @@
     },
     {
       "id": "SC1",
-      "finding_id": "finding-e81f6ec457984f0e856111777c543f4b",
+      "finding_id": "finding-8f7dbcf6fc8648e2a31e720ba84b2381",
       "category": "Supply Chain",
       "pattern": "Unpinned Dependencies",
       "severity": "LOW",

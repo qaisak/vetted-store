@@ -97,6 +97,10 @@ const MCP = [
   { repo: 'vivekVells/mcp-pandoc' },
   { repo: 'Pimzino/spec-workflow-mcp' },
   { repo: 'jae-jae/fetcher-mcp' },
+  { repo: 'lharries/whatsapp-mcp' },
+  { repo: 'chigwell/telegram-mcp' },
+  { repo: 'domdomegg/airtable-mcp-server' },
+  { repo: 'marcelmarais/spotify-mcp-server' },
 ];
 const TOOLS = ['NVIDIA/SkillSpector', 'vercel-labs/skills', 'BurntSushi/ripgrep', 'sharkdp/fd', 'junegunn/fzf', 'jqlang/jq', 'cli/cli', 'astral-sh/uv',
   'sharkdp/bat', 'jesseduffield/lazygit', 'ollama/ollama', 'aquasecurity/trivy', 'semgrep/semgrep', 'gitleaks/gitleaks',

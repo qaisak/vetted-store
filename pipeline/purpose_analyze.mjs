@@ -70,6 +70,15 @@ const PROFILES = {
     note: 'In its README the author says they\'re taking a break from the project for personal reasons (checked November 1, 2026).' },
   'mcp-fetcher-mcp': { date: '2026-11-01', purpose: 'Fetches web pages with a headless browser and returns their main content, so pages that need JavaScript work too.',
     expect: { browser: 'Uses a headless browser to load pages', network: 'Fetching pages is its job', files: 'Caches the browser it downloads', shell: 'Installs and starts the browser', env: 'Settings' } },
+  'mcp-whatsapp-mcp': { date: '2026-11-01', purpose: 'Lets the model search and read your personal WhatsApp messages and media, and send messages, through a local bridge linked to your account like WhatsApp Web.',
+    expect: { network: 'Connects to WhatsApp, and its two parts talk over a local port', files: 'Stores your messages and media in a local database', env: 'Settings', shell: 'Converts audio with ffmpeg to send voice messages' },
+    note: 'Its own README warns that, like many MCP servers, it is open to the "lethal trifecta": a message someone sends you could carry instructions that make your assistant leak private data. Last updated July 2025.' },
+  'mcp-telegram-mcp': { date: '2026-11-01', purpose: 'Lets the model read and manage your Telegram account (chats, messages, contacts, media, folders and admin actions), signed in as you with a session string.',
+    expect: { network: 'Connects to Telegram', credentials: 'Uses your Telegram API ID, hash and session string', env: 'Those credentials come from environment variables', files: 'Uploads and downloads media you choose' } },
+  'mcp-airtable-mcp-server': { date: '2026-11-01', purpose: 'Lets the model read your Airtable bases\' structure and read and write their records.',
+    expect: { network: 'Calls the Airtable API', credentials: 'Uses your Airtable personal access token', env: 'The token comes from an environment variable' } },
+  'mcp-spotify-mcp-server': { date: '2026-11-01', purpose: 'Lets the model control Spotify playback and search, and manage your playlists, with your Spotify account.',
+    expect: { network: 'Calls the Spotify API', credentials: 'Signs in to Spotify with OAuth and keeps the tokens', files: 'Stores its settings and tokens in a config file', env: 'Settings', shell: 'Opens your browser to sign in' } },
   'mcp-google-calendar-mcp': { date: '2026-11-01', purpose: 'Manages your Google Calendar: list, search, create, change and delete events, and check free/busy times across accounts.',
     expect: { network: 'Calls the Google Calendar API', credentials: 'Signs in to your Google account with OAuth', files: 'Reads your OAuth client file and stores tokens', env: 'The credentials path comes from an environment variable' } },
 
@@ -327,9 +336,10 @@ for (const l of d.listings) {
   const poisoned = tools.filter(t => t.flags.length);
   const patKey = s => Object.keys(OTHER_NOTES).find(k => (s.pat || '').startsWith(k));
   const fr = rev._findings || [];   // individual findings a reviewer read: benign, or a notice worth showing
-  const reviewedFinding = s => fr.some(f => (s.snip || '').includes(f.match));
+  // A review names a snippet to match, a file, or both (some findings come with an empty snippet)
+  const reviewedFinding = s => fr.some(f => (f.match || f.file) && (!f.match || (s.snip || '').includes(f.match)) && (!f.file || s.file === f.file));
   const unexpectedSerious = seriousCode.filter(s => !reviewedFinding(s) && ((s.expected === false && !rev[s.cap]) || (s.cap === 'other' && !patKey(s))));
-  const notices = fr.filter(f => f.level === 'notice' && seriousCode.some(s => (s.snip || '').includes(f.match))).map(({ title, note, where }) => ({ title, note, where }))
+  const notices = fr.filter(f => f.level === 'notice' && f.match && seriousCode.some(s => (s.snip || '').includes(f.match))).map(({ title, note, where }) => ({ title, note, where }))
     .concat((rev._notices || []).map(({ title, note, where }) => ({ title, note, where })));   // reviewer notices that don't hinge on a scan finding
   const other = {};
   for (const s of seriousCode.filter(s => s.cap === 'other' && !reviewedFinding(s))) {

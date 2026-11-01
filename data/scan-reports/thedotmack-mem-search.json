@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "mem-search",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\thedotmack__claude-mem\\claude-mem-main\\claude-mem-cursor\\skills\\mem-search",
-    "scanned_at": "2026-10-31T22:56:27.311537+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/thedotmack__claude-mem/claude-mem-main/claude-mem-cursor/skills/mem-search",
+    "scanned_at": "2026-11-01T02:07:55.542849+00:00"
   },
   "risk_assessment": {
     "score": 7,
@@ -26,7 +26,7 @@
   "issues": [
     {
       "id": "RP1",
-      "finding_id": "finding-5f37e28a400e46adb710aa03bb543517",
+      "finding_id": "finding-10f261a936b64575bcf634f291baa1cb",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx claude-mem'.",
       "severity": "MEDIUM",

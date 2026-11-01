@@ -1,12 +1,12 @@
 {
   "skill": {
     "name": "terrashark",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\LukasNiessen__terrashark\\terrashark-main",
-    "scanned_at": "2026-10-31T22:56:51.483373+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/LukasNiessen__terrashark/terrashark-main",
+    "scanned_at": "2026-11-01T02:06:50.923877+00:00"
   },
   "risk_assessment": {
-    "score": 88,
-    "severity": "CRITICAL",
+    "score": 60,
+    "severity": "HIGH",
     "recommendation": "DO_NOT_INSTALL",
     "max_issue_severity": "HIGH"
   },
@@ -746,7 +746,7 @@
   "issues": [
     {
       "id": "E4",
-      "finding_id": "finding-0836b47a853d45ac8c9d240ac003726b",
+      "finding_id": "finding-fc93a7679c7947ddae58c007365048b7",
       "category": "Data Exfiltration",
       "pattern": "Context Leakage",
       "severity": "HIGH",
@@ -778,7 +778,7 @@
     },
     {
       "id": "E4",
-      "finding_id": "finding-df098cbfc2ec48b88923443d1dffdc62",
+      "finding_id": "finding-3db5a26284934030848d014c26efbad9",
       "category": "Data Exfiltration",
       "pattern": "Context Leakage",
       "severity": "HIGH",
@@ -810,7 +810,7 @@
     },
     {
       "id": "E4",
-      "finding_id": "finding-e13f815b18f8436fb5b2dda7abaf6328",
+      "finding_id": "finding-902dcdd23cff4793a25544e43d857fe6",
       "category": "Data Exfiltration",
       "pattern": "Context Leakage",
       "severity": "HIGH",
@@ -841,98 +841,8 @@
       ]
     },
     {
-      "id": "SC4",
-      "finding_id": "finding-c845797c33524bb587eb1b8c358f342a",
-      "category": "Supply Chain",
-      "pattern": "Known Vulnerable Dependency: brace-expansion==1.1.18 \u2014 3 advisory(ies): CVE-2026-102276 (brace-expansion: DoS via uncontrolled recursion in parseCommaParts causing stack); CVE-2026-102277 (brace-expansion: Quadratic-time expansion of the `{a},b}` rewrite causes CPU den); CVE-2026-102278 (brace-expansion: DoS via uncontrolled recursion on nested brace groups causing s)",
-      "severity": "HIGH",
-      "confidence": 0.8,
-      "location": {
-        "file": "docs/package-lock.json",
-        "start_line": 328,
-        "end_line": null
-      },
-      "finding": "brace-expansion==1.1.18",
-      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
-      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
-      "code_snippet": null,
-      "intent": null,
-      "tags": [
-        "Supply Chain"
-      ],
-      "evidence": {},
-      "match_fingerprint": "639b642c27cb4c938ec9ee9130d7841f3530a296aaf92dc28aa64cf11e6db366",
-      "occurrences": [
-        {
-          "file": "docs/package-lock.json",
-          "start_line": 328,
-          "end_line": null
-        }
-      ]
-    },
-    {
-      "id": "SC4",
-      "finding_id": "finding-6eea859895eb4c1ab550fa0f120468bd",
-      "category": "Supply Chain",
-      "pattern": "Known Vulnerable Dependency: immutable==3.8.3 \u2014 2 advisory(ies): CVE-2026-59879 (Immutable.js `List` 32-bit trie overflow \u2192 unrecoverable DoS); CVE-2026-59880 (Immutable: Hash-collision algorithmic complexity denial of service in Immutable.)",
-      "severity": "HIGH",
-      "confidence": 0.8,
-      "location": {
-        "file": "docs/package-lock.json",
-        "start_line": 1445,
-        "end_line": null
-      },
-      "finding": "immutable==3.8.3",
-      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
-      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
-      "code_snippet": null,
-      "intent": null,
-      "tags": [
-        "Supply Chain"
-      ],
-      "evidence": {},
-      "match_fingerprint": "8fa55ecba27e3dbfbdbc8b3abedf95add270ab0af51a03facfe62cb9cbdb8ffc",
-      "occurrences": [
-        {
-          "file": "docs/package-lock.json",
-          "start_line": 1445,
-          "end_line": null
-        }
-      ]
-    },
-    {
-      "id": "SC4",
-      "finding_id": "finding-43d019857e6b4573a388edf6506fe8cb",
-      "category": "Supply Chain",
-      "pattern": "Known Vulnerable Dependency: undici==7.29.0 \u2014 16 advisory(ies): CVE-2026-84947 (undici vulnerable to response truncation via oversized chunked responses in the ); CVE-2026-84933 (undici vulnerable to cross-user cookie disclosure via Set-Cookie caching in shar); CVE-2026-109383 (undici vulnerable to TLS certificate validation bypass via dropped tls options i) +13 more",
-      "severity": "HIGH",
-      "confidence": 0.8,
-      "location": {
-        "file": "docs/package-lock.json",
-        "start_line": 2588,
-        "end_line": null
-      },
-      "finding": "undici==7.29.0",
-      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
-      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
-      "code_snippet": null,
-      "intent": null,
-      "tags": [
-        "Supply Chain"
-      ],
-      "evidence": {},
-      "match_fingerprint": "391161581d0316072974adfb6b95d2fab1919c91d2e3bb58dd066a1c5b9263ab",
-      "occurrences": [
-        {
-          "file": "docs/package-lock.json",
-          "start_line": 2588,
-          "end_line": null
-        }
-      ]
-    },
-    {
       "id": "EA2",
-      "finding_id": "finding-d59e2b44da5b44928ac59253716306ab",
+      "finding_id": "finding-55f7528031c74e82a018e9184fa650b7",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -964,7 +874,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-d3c4bc6380ff4a34a96383e75bf6c9e2",
+      "finding_id": "finding-58d1dcacd2a24403a1263f0989629dc7",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -996,7 +906,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-cd421d279bd644c99d361097e982dbcb",
+      "finding_id": "finding-26bacea3db9f44ed92052f383bb109cf",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1028,7 +938,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-fc78925c10204a87a9dacec9c2df0b40",
+      "finding_id": "finding-85f4a839f5f44faf90e8e7d0189a05c9",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1060,7 +970,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-e77178d04d6e42f6a3eff885c6efc07e",
+      "finding_id": "finding-591c4b41d3114341b9bb3c6e5961cb13",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1092,7 +1002,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-0a49863785564b90a171f24eb62fc7b6",
+      "finding_id": "finding-b91145a22217433ca3a7407446fb1bea",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1124,7 +1034,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-db010ee1319245bf84beccb0d971e707",
+      "finding_id": "finding-92a39ce8819a4cb3bee3546a8b71a5fb",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1156,7 +1066,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-38c315dfeb2c470ab1371e4c5c5dbaf4",
+      "finding_id": "finding-2db4125d3b984aa3af60b1912a1b28dd",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1188,7 +1098,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-a967f497ad5247d7b890037a414fbeab",
+      "finding_id": "finding-f53a9e59ef844ecbae024d2ec65a7810",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1219,68 +1129,8 @@
       ]
     },
     {
-      "id": "SC4",
-      "finding_id": "finding-dc54b79d6c164bce9ffbd69e74940d68",
-      "category": "Supply Chain",
-      "pattern": "Known Vulnerable Dependency: minimatch==3.1.5 \u2014 1 advisory(ies): CVE-2026-118764 (minimatch has potential denial of service via globparts amplification)",
-      "severity": "MEDIUM",
-      "confidence": 0.7,
-      "location": {
-        "file": "docs/package-lock.json",
-        "start_line": 1890,
-        "end_line": null
-      },
-      "finding": "minimatch==3.1.5",
-      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
-      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
-      "code_snippet": null,
-      "intent": null,
-      "tags": [
-        "Supply Chain"
-      ],
-      "evidence": {},
-      "match_fingerprint": "65d224f418a42d7f4a94609efd9e6118a45fafd8df514b0a32b0f583fcfd2db5",
-      "occurrences": [
-        {
-          "file": "docs/package-lock.json",
-          "start_line": 1890,
-          "end_line": null
-        }
-      ]
-    },
-    {
-      "id": "SC4",
-      "finding_id": "finding-4023b1de68014ca4b381a6fa23e0ac11",
-      "category": "Supply Chain",
-      "pattern": "Known Vulnerable Dependency: qs==6.15.2 \u2014 3 advisory(ies): CVE-2026-82417 (qs: Denial of Service via Attacker Controlled isBuffer); CVE-2026-110816 (qs : qs.stringify with arrayFormat 'comma' throws an uncaught TypeError on array); CVE-2026-82562 (qs array-limit bypass via bracket-key comma parsing)",
-      "severity": "MEDIUM",
-      "confidence": 0.7,
-      "location": {
-        "file": "docs/package-lock.json",
-        "start_line": 2154,
-        "end_line": null
-      },
-      "finding": "qs==6.15.2",
-      "explanation": "OSV returned vulnerability advisories matching the dependency's resolved version. Review the matched advisories to assess their impact.",
-      "remediation": "Review the matched advisories in OSV (osv.dev) for affected and fixed releases. If a fixed release is available, update to a release that addresses the matched advisories; otherwise remove or replace the affected dependency.",
-      "code_snippet": null,
-      "intent": null,
-      "tags": [
-        "Supply Chain"
-      ],
-      "evidence": {},
-      "match_fingerprint": "cba01c6ebd944d63a56a1975e5d1d9b6ddd2adbb19fce08cc2ed5d02c3cc8e9f",
-      "occurrences": [
-        {
-          "file": "docs/package-lock.json",
-          "start_line": 2154,
-          "end_line": null
-        }
-      ]
-    },
-    {
       "id": "EA3",
-      "finding_id": "finding-1d85081de8484b108b1a8ca864942d74",
+      "finding_id": "finding-e57ebafe4d2f4da8b50995ebc806e457",
       "category": "Excessive Agency",
       "pattern": "Scope Creep",
       "severity": "LOW",
@@ -1311,8 +1161,68 @@
       ]
     },
     {
+      "id": "SC4",
+      "finding_id": "finding-c9a9f00ea2ef449db0c7889db013c2a1",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (9 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "docs/package-lock.json",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "docs/package-lock.json",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-c283abe557394fc28e6729c762215681",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (9 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "docs/package.json",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "docs/package.json",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
       "id": "SC1",
-      "finding_id": "finding-74f1c50fc3da49849a4f3633a1f4558a",
+      "finding_id": "finding-2ff1355d3357474c81b26a295f9f814c",
       "category": "Supply Chain",
       "pattern": "Unpinned Dependencies",
       "severity": "LOW",
@@ -1344,7 +1254,7 @@
     },
     {
       "id": "SC1",
-      "finding_id": "finding-2e1c66747d82489ba2a9044bf1fdde9c",
+      "finding_id": "finding-2a0dbb6eb75f4ddcbb25d443760da7ee",
       "category": "Supply Chain",
       "pattern": "Unpinned Dependencies",
       "severity": "LOW",
@@ -1501,15 +1411,29 @@
   "execution_successful": true,
   "analysis_completeness": {
     "total_components": 72,
-    "scanned_components": 71,
-    "coverage_percent": 98.6,
+    "scanned_components": 70,
+    "coverage_percent": 97.2,
     "is_complete": false,
     "status": "partial",
     "execution_successful": true,
-    "fully_inspected_files": 71,
-    "partially_inspected_files": 1,
+    "fully_inspected_files": 70,
+    "partially_inspected_files": 2,
     "entirely_uninspected_files": 0,
     "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "analyzer_runtime_error",
+        "message": "Analyzer failed after beginning applicable work.",
+        "path": "docs/package-lock.json",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_analyzer_runtime_error"
+        ],
+        "error_class": "ProxyError"
+      },
       {
         "outcome": "partial",
         "phase": "static",
@@ -1538,15 +1462,16 @@
       {
         "outcome": "partial",
         "phase": "static",
-        "reason_code": "output_limit",
-        "message": "Inspection reached its configured output limit.",
-        "path": "docs/package-lock.json",
+        "reason_code": "analyzer_runtime_error",
+        "message": "Analyzer failed after beginning applicable work.",
+        "path": "docs/package.json",
         "start_line": null,
         "end_line": null,
         "fatal": false,
         "analyzers": [
-          "static_patterns_supply_chain_dependencies_output_limit"
-        ]
+          "static_patterns_supply_chain_dependencies_analyzer_runtime_error"
+        ],
+        "error_class": "ProxyError"
       }
     ],
     "scope_exclusions": [
@@ -1826,9 +1751,9 @@
       {
         "analyzer_id": "static_patterns_supply_chain",
         "status": "degraded",
-        "planned_work": 74,
+        "planned_work": 75,
         "completed": 72,
-        "partial": 2,
+        "partial": 3,
         "skipped": 0,
         "failed": 0,
         "unaccounted": 0
@@ -2071,8 +1996,8 @@
       "Analyzer static_patterns_system_prompt_leakage status: degraded.",
       "Analyzer static_patterns_tool_misuse status: degraded."
     ],
-    "findings_before_filtering": 20,
-    "findings_after_filtering": 20,
+    "findings_before_filtering": 17,
+    "findings_after_filtering": 17,
     "dependency_inspection": {
       "enabled": false,
       "status": "not_requested",

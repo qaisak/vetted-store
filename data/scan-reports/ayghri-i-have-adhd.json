@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "i-have-adhd",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\ayghri__i-have-adhd\\i-have-adhd-main\\skills\\i-have-adhd",
-    "scanned_at": "2026-10-31T22:56:15.952930+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/ayghri__i-have-adhd/i-have-adhd-main/.cursor/skills/i-have-adhd",
+    "scanned_at": "2026-11-01T02:20:00.136955+00:00"
   },
   "risk_assessment": {
     "score": 0,
@@ -17,26 +17,6 @@
       "lines": 142,
       "executable": false,
       "size_bytes": 7201,
-      "source_url": null,
-      "source_identity": null,
-      "source_digest": null
-    },
-    {
-      "path": "agents/gemini.toml",
-      "type": "toml",
-      "lines": 24,
-      "executable": false,
-      "size_bytes": 2157,
-      "source_url": null,
-      "source_identity": null,
-      "source_digest": null
-    },
-    {
-      "path": "agents/openai.yaml",
-      "type": "yaml",
-      "lines": 7,
-      "executable": false,
-      "size_bytes": 238,
       "source_url": null,
       "source_identity": null,
       "source_digest": null
@@ -169,13 +149,13 @@
   },
   "execution_successful": true,
   "analysis_completeness": {
-    "total_components": 3,
-    "scanned_components": 3,
+    "total_components": 1,
+    "scanned_components": 1,
     "coverage_percent": 100.0,
     "is_complete": true,
     "status": "complete_with_caveats",
     "execution_successful": true,
-    "fully_inspected_files": 3,
+    "fully_inspected_files": 1,
     "partially_inspected_files": 0,
     "entirely_uninspected_files": 0,
     "ledger_exceptions": [
@@ -205,8 +185,8 @@
       {
         "analyzer_id": "artifact_integrity",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -263,8 +243,8 @@
       {
         "analyzer_id": "mcp_rug_pull",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -331,8 +311,8 @@
       {
         "analyzer_id": "static_patterns_agent_snooping",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -341,8 +321,8 @@
       {
         "analyzer_id": "static_patterns_anti_refusal",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -351,8 +331,8 @@
       {
         "analyzer_id": "static_patterns_data_exfiltration",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -361,8 +341,8 @@
       {
         "analyzer_id": "static_patterns_deserialization",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -371,8 +351,8 @@
       {
         "analyzer_id": "static_patterns_excessive_agency",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -381,8 +361,8 @@
       {
         "analyzer_id": "static_patterns_harmful_content",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -391,8 +371,8 @@
       {
         "analyzer_id": "static_patterns_memory_poisoning",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -401,8 +381,8 @@
       {
         "analyzer_id": "static_patterns_output_handling",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -411,8 +391,8 @@
       {
         "analyzer_id": "static_patterns_privilege_escalation",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -421,8 +401,8 @@
       {
         "analyzer_id": "static_patterns_prompt_injection",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -431,8 +411,8 @@
       {
         "analyzer_id": "static_patterns_rogue_agent",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -441,8 +421,8 @@
       {
         "analyzer_id": "static_patterns_ssrf",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -451,8 +431,8 @@
       {
         "analyzer_id": "static_patterns_supply_chain",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -461,8 +441,8 @@
       {
         "analyzer_id": "static_patterns_system_prompt_leakage",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -471,8 +451,8 @@
       {
         "analyzer_id": "static_patterns_tool_misuse",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,
@@ -481,8 +461,8 @@
       {
         "analyzer_id": "static_yara",
         "status": "completed",
-        "planned_work": 3,
-        "completed": 3,
+        "planned_work": 1,
+        "completed": 1,
         "partial": 0,
         "skipped": 0,
         "failed": 0,

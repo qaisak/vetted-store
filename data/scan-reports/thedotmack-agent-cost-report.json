@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "Agent Cost Report",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\thedotmack__claude-mem\\claude-mem-main\\claude-mem-grok-bot\\skills\\agent-cost-report",
-    "scanned_at": "2026-10-31T22:57:12.620797+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/thedotmack__claude-mem/claude-mem-main/claude-mem-cursor/skills/agent-cost-report",
+    "scanned_at": "2026-11-01T02:20:49.666965+00:00"
   },
   "risk_assessment": {
     "score": 100,
@@ -536,7 +536,7 @@
   "issues": [
     {
       "id": "LP1",
-      "finding_id": "finding-fbc4fbe3480b49bcb3260403d1950f89",
+      "finding_id": "finding-dba3d53f125e47ef9ca139d913fce5eb",
       "category": "MCP Least Privilege",
       "pattern": "Code capability 'env' detected in scripts/acr/classify.py but not covered by declared permissions.",
       "severity": "HIGH",
@@ -566,7 +566,7 @@
     },
     {
       "id": "LP1",
-      "finding_id": "finding-071e05ec256d49358d46c21c6bd292f3",
+      "finding_id": "finding-7f779daac18e48e5838e6bedac71ff27",
       "category": "MCP Least Privilege",
       "pattern": "Code capability 'network' detected in scripts/acr/classify.py but not covered by declared permissions.",
       "severity": "HIGH",
@@ -596,7 +596,7 @@
     },
     {
       "id": "E2",
-      "finding_id": "finding-923cecf14fa84e98aae8d37b70b02652",
+      "finding_id": "finding-cfedc64006e4436793ed3b4df9011676",
       "category": "Data Exfiltration",
       "pattern": "Env Variable Harvesting",
       "severity": "HIGH",
@@ -628,7 +628,7 @@
     },
     {
       "id": "E2",
-      "finding_id": "finding-b5068a57f7b742d3bca02f72c125e6b4",
+      "finding_id": "finding-41769dbbb59542d8941b82f45d91c1ec",
       "category": "Data Exfiltration",
       "pattern": "Env Variable Harvesting",
       "severity": "HIGH",
@@ -660,7 +660,7 @@
     },
     {
       "id": "AST1",
-      "finding_id": "finding-ad3bf36b0792468280f13a26336eb19b",
+      "finding_id": "finding-5bf9d264c8a14ba19a005afacd28b208",
       "category": "Dangerous Code Execution",
       "pattern": "exec() call detected",
       "severity": "HIGH",
@@ -694,7 +694,7 @@
     },
     {
       "id": "E2",
-      "finding_id": "finding-2a1ff05108b7422b8d3a089f97f3efde",
+      "finding_id": "finding-1392fd488c2649a19f5d8e91ead259b5",
       "category": "Data Exfiltration",
       "pattern": "Env Variable Harvesting",
       "severity": "HIGH",
@@ -726,7 +726,7 @@
     },
     {
       "id": "E2",
-      "finding_id": "finding-52ff2b3a3e94470c8404ff0cb1dc21e1",
+      "finding_id": "finding-b40e57b0c72843e9a227e57f07629f27",
       "category": "Data Exfiltration",
       "pattern": "Env Variable Harvesting",
       "severity": "HIGH",
@@ -758,7 +758,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-90c887b527394f06ae6dae1a94dd8083",
+      "finding_id": "finding-9e4f62c0361e4e5abfeb17558ad05250",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -790,7 +790,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-6c6c506e4f4848bcb9f2026e4029cb7b",
+      "finding_id": "finding-a647eec652304bf19cfa23be994580d0",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",
@@ -824,7 +824,7 @@
     },
     {
       "id": "TT2",
-      "finding_id": "finding-ac2914e76bc34d01a046f945b559b5fd",
+      "finding_id": "finding-8472f2cee0204e4e971a53859a3b3a9b",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'cmd' from os.environ (line 546, credential/environment) \u2192 subprocess.Popen (code execution)",
       "severity": "MEDIUM",
@@ -858,7 +858,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-7c2f8d3d789948aebc5e2bffc25334b4",
+      "finding_id": "finding-9fe1824c57f244329ccdaaccaf5394a5",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",
@@ -892,7 +892,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-d4b8e3afbcd7416f998574a2e74f8801",
+      "finding_id": "finding-2824ba3f3b93408e8516c2b63a6cf247",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",
@@ -926,7 +926,7 @@
     },
     {
       "id": "EA4",
-      "finding_id": "finding-2062be191ef148c7b0a9a3cdc4dbea18",
+      "finding_id": "finding-b8c2997879b64f0da8cefe320f1ce59f",
       "category": "Excessive Agency",
       "pattern": "Unbounded Resource Access",
       "severity": "MEDIUM",
@@ -958,7 +958,7 @@
     },
     {
       "id": "EA4",
-      "finding_id": "finding-b9c8d3698d4f4895a01ec8b87fc46182",
+      "finding_id": "finding-a3c20cc1086249c984e928adda953db4",
       "category": "Excessive Agency",
       "pattern": "Unbounded Resource Access",
       "severity": "MEDIUM",
@@ -990,7 +990,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-59eb839a65ab4470881ead065ce185a6",
+      "finding_id": "finding-0d1fca22cee84164b1f558735e281f2c",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",
@@ -1024,7 +1024,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-e6cef9db84ee49d295d73dd94a4a0eae",
+      "finding_id": "finding-d124e8771e21419f9411e027af36873a",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",
@@ -1058,7 +1058,7 @@
     },
     {
       "id": "AST6",
-      "finding_id": "finding-b381466b7d974ee1a77c7f7d85c0a85a",
+      "finding_id": "finding-680c082ff57b47caa7a7da4899248545",
       "category": "Dangerous Code Execution",
       "pattern": "compile() call detected",
       "severity": "MEDIUM",
@@ -1092,7 +1092,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-4fe78605d17047159036de28195dcef1",
+      "finding_id": "finding-f8db33a31b81499f8a87c07eefa2bd44",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",
@@ -1126,7 +1126,7 @@
     },
     {
       "id": "EA4",
-      "finding_id": "finding-fe6b8e463dbe449eabcb6ff2afa42ced",
+      "finding_id": "finding-c8ddbad7df4b480a8647f5a69c12f798",
       "category": "Excessive Agency",
       "pattern": "Unbounded Resource Access",
       "severity": "MEDIUM",
@@ -1158,7 +1158,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-e1c2a9abe8e743e698222587a60e2098",
+      "finding_id": "finding-5440566b219f4d4bbb7652ec10d28464",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",
@@ -1192,7 +1192,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-f1d7cd2141ae4579a1fdf846f1d131f4",
+      "finding_id": "finding-9c7d304bceaf49ba93ef3b87a9d322bd",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",
@@ -1226,7 +1226,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-2e8db20397974c3692c22ab649db468f",
+      "finding_id": "finding-69916ec6844b42608a94d35f49303846",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",
@@ -1260,7 +1260,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-405531cd884a4c168b0146862d75e3c2",
+      "finding_id": "finding-ae6f3a53d419448eb7483ea01b2630e1",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",
@@ -1294,7 +1294,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-23515397f69442569bf775bf2b4da736",
+      "finding_id": "finding-45ff6cbd273c49eda3c979d714d826dd",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",
@@ -1328,7 +1328,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-8ffe5c40c2174b82bce4e9f42e2e26a4",
+      "finding_id": "finding-3cc56a93b4444f9695164646fe195436",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",
@@ -1362,7 +1362,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-53f529091a8f4cc6804e7e660ccbf315",
+      "finding_id": "finding-f7b3f1f2dc1c4b0297f21e671a2b863e",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",
@@ -1396,7 +1396,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-be59aa9bdf684ca4a6358df2ba34578e",
+      "finding_id": "finding-1a60dde1445e45bbb436ff7242fe2b20",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",

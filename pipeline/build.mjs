@@ -27,6 +27,7 @@ const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'ast
   'suekou/mcp-notion-server': 'Notion MCP Server', 'kimtaeyoon83/mcp-server-youtube-transcript': 'YouTube Transcript MCP', 'vivekVells/mcp-pandoc': 'Pandoc MCP',
   'Pimzino/spec-workflow-mcp': 'Spec Workflow MCP', 'jae-jae/fetcher-mcp': 'Fetcher MCP', 'schollz/croc': 'croc', 'FiloSottile/age': 'age', 'saulpw/visidata': 'VisiData',
   'derailed/k9s': 'k9s', 'nicolargo/glances': 'Glances', 'yorukot/superfile': 'superfile', 'darrenburns/posting': 'Posting', 'tconbeer/harlequin': 'Harlequin', 'denisidoro/navi': 'navi',
+  'lharries/whatsapp-mcp': 'WhatsApp MCP', 'chigwell/telegram-mcp': 'Telegram MCP', 'domdomegg/airtable-mcp-server': 'Airtable MCP Server', 'marcelmarais/spotify-mcp-server': 'Spotify MCP Server',
   'yt-dlp/yt-dlp': 'yt-dlp', 'Wilfred/difftastic': 'difftastic', 'muesli/duf': 'duf', 'ClementTsang/bottom': 'bottom', 'ducaale/xh': 'xh', 'chmln/sd': 'sd' };
 // Hand-written plain-language lines, job tags and setup level (pipeline/plain.json)
 const SOURCES = JSON.parse(fs.readFileSync(new URL('../data/sources.json', import.meta.url), 'utf8'));
@@ -72,6 +73,14 @@ const MCP_INSTALL = {
   'jae-jae/fetcher-mcp': [
     { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add fetcher -- npx -y fetcher-mcp'], note: 'Run in your terminal. It downloads a headless browser the first time.' },
     { to: 'Codex', how: 'CLI', cmds: ['codex mcp add fetcher -- npx -y fetcher-mcp'], note: 'Run in your terminal.' }],
+  'lharries/whatsapp-mcp': [
+    { to: 'All clients', how: 'Two parts', link: 'https://github.com/lharries/whatsapp-mcp#installation', note: 'Needs Go and uv. You run its WhatsApp bridge, scan a QR code with your phone to link it like WhatsApp Web, then add the server to your client as the README shows.' }],
+  'chigwell/telegram-mcp': [
+    { to: 'All clients', how: 'Install guide', link: 'https://github.com/chigwell/telegram-mcp#readme', note: 'Needs a Telegram API ID and hash from my.telegram.org, then a session string from its generator script. That session acts as your account.' }],
+  'domdomegg/airtable-mcp-server': [
+    { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add airtable -e AIRTABLE_API_KEY=your-token -- npx -y airtable-mcp-server'], note: 'Create an Airtable personal access token with only the scopes you need, as the README explains. Same settings as its install link.' }],
+  'marcelmarais/spotify-mcp-server': [
+    { to: 'All clients', how: 'Install guide', link: 'https://github.com/marcelmarais/spotify-mcp-server#readme', note: 'Needs a Spotify developer app (client ID and secret); you build it locally and sign in with Spotify once.' }],
   'nspady/google-calendar-mcp': [
     { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add google-calendar -e GOOGLE_OAUTH_CREDENTIALS=/path/to/gcp-oauth.keys.json -- npx -y @cocal/google-calendar-mcp'], note: 'First create a Google Cloud OAuth client (Desktop app) and download its keys file, as the README explains. Then ask your assistant to authenticate.' }],
 };

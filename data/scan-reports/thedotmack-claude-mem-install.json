@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "claude-mem-install",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\thedotmack__claude-mem\\claude-mem-main\\claude-mem-cursor\\skills\\install",
-    "scanned_at": "2026-10-31T22:56:25.708143+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/thedotmack__claude-mem/claude-mem-main/claude-mem-cursor/skills/install",
+    "scanned_at": "2026-11-01T02:07:51.061239+00:00"
   },
   "risk_assessment": {
     "score": 10,
@@ -26,7 +26,7 @@
   "issues": [
     {
       "id": "RP1",
-      "finding_id": "finding-9b7436d14d5349c1b8064e714cfa61f0",
+      "finding_id": "finding-ccaf7fccfb3b4f0ca1786fad72b1c4e7",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx claude-mem'.",
       "severity": "MEDIUM",
@@ -56,7 +56,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-41816ec2607e44bc8308bd348ad329cf",
+      "finding_id": "finding-04cfab5ca2184a88a809968cfb77b7b2",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx claude-mem'.",
       "severity": "MEDIUM",

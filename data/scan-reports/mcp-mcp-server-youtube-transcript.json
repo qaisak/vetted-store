@@ -2,7 +2,7 @@
   "skill": {
     "name": "unknown",
     "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/kimtaeyoon83__mcp-server-youtube-transcript/mcp-server-youtube-transcript-main",
-    "scanned_at": "2026-11-01T01:27:21.022768+00:00"
+    "scanned_at": "2026-11-01T02:15:43.483920+00:00"
   },
   "risk_assessment": {
     "score": 56,
@@ -136,7 +136,7 @@
   "issues": [
     {
       "id": "TM1",
-      "finding_id": "finding-f2743486459b46d3b5bb1b19ffef0e3a",
+      "finding_id": "finding-5bc7e2033c814c3e923486970381cf97",
       "category": "Tool Misuse",
       "pattern": "Tool Parameter Abuse",
       "severity": "HIGH",
@@ -168,7 +168,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-61584fe522a2476cb4f528826e1a8cb1",
+      "finding_id": "finding-c253e487343d4774888d6f872030025c",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx -y @smithery/cli'.",
       "severity": "MEDIUM",
@@ -198,7 +198,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-d3887d0dc8a543c8812f4402b18fdb7c",
+      "finding_id": "finding-19ad4a2ec0924d53884fa90bf0b0a340",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx @michaellatman/mcp-get'.",
       "severity": "MEDIUM",
@@ -228,7 +228,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-566c0acc35324516a564c89bea893f78",
+      "finding_id": "finding-a3eafd1d8334479b9ba75300221cffea",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx command.'.",
       "severity": "MEDIUM",
@@ -258,7 +258,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-20c2af81f8054918bea2948ce26cfbd2",
+      "finding_id": "finding-ce649116de774f539d28de4f285fbd3e",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx mcp-eval'.",
       "severity": "MEDIUM",
@@ -288,7 +288,7 @@
     },
     {
       "id": "SC5",
-      "finding_id": "finding-b4e0dd422b0e4b349fba0dda289afbed",
+      "finding_id": "finding-7467f19d03f5481da0f474c5e1c211ad",
       "category": "Supply Chain",
       "pattern": "Abandoned Dependency: md5 is unmaintained and no longer receives security updates",
       "severity": "MEDIUM",
@@ -318,7 +318,7 @@
     },
     {
       "id": "SC4",
-      "finding_id": "finding-d988e32b46204ea7879973fac04cfa98",
+      "finding_id": "finding-210c09a15c7f4669bb813a97bd540cf5",
       "category": "Supply Chain",
       "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (9 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
       "severity": "LOW",
@@ -348,7 +348,7 @@
     },
     {
       "id": "SC4",
-      "finding_id": "finding-2371a8ace3b64906a796e0154adf596f",
+      "finding_id": "finding-fac1032985ae46b4ac41c368b0fdb6f7",
       "category": "Supply Chain",
       "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (9 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
       "severity": "LOW",
@@ -378,7 +378,7 @@
     },
     {
       "id": "SC1",
-      "finding_id": "finding-9d25494c11064509bbf2414a479360d7",
+      "finding_id": "finding-cdc5ba32cf7c491f9cc324df362efdf8",
       "category": "Supply Chain",
       "pattern": "Unpinned Dependencies",
       "severity": "LOW",
@@ -410,7 +410,7 @@
     },
     {
       "id": "SC1",
-      "finding_id": "finding-0c71fd8f9c374ffe84c39d20bd5555b6",
+      "finding_id": "finding-00e436f98ab548ebb0f3962bf226a784",
       "category": "Supply Chain",
       "pattern": "Unpinned Dependencies",
       "severity": "LOW",
@@ -442,7 +442,7 @@
     },
     {
       "id": "SC1",
-      "finding_id": "finding-85e2e88ab0af44a5af8380e70c797f83",
+      "finding_id": "finding-4d80512d12204011b70761e6a2ef5ffa",
       "category": "Supply Chain",
       "pattern": "Unpinned Dependencies",
       "severity": "LOW",
@@ -474,7 +474,7 @@
     },
     {
       "id": "SC1",
-      "finding_id": "finding-82846a769b4e4ed9a996442a162c2128",
+      "finding_id": "finding-cbfaec74d2f6477eb0071002c8e9d2e0",
       "category": "Supply Chain",
       "pattern": "Unpinned Dependencies",
       "severity": "LOW",
@@ -506,7 +506,7 @@
     },
     {
       "id": "SC1",
-      "finding_id": "finding-aad79961ac5349269f9358fcc653dc3c",
+      "finding_id": "finding-62a3dec333904f8fb5211d97df3af80c",
       "category": "Supply Chain",
       "pattern": "Unpinned Dependencies",
       "severity": "LOW",
@@ -538,7 +538,7 @@
     },
     {
       "id": "SC1",
-      "finding_id": "finding-2222940388084c7ebf05fd7134249deb",
+      "finding_id": "finding-2beae499a1fe4962a32ddfe00637fbb9",
       "category": "Supply Chain",
       "pattern": "Unpinned Dependencies",
       "severity": "LOW",

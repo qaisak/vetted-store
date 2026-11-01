@@ -2,7 +2,7 @@
   "skill": {
     "name": "frontend-slides",
     "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/zarazhangrui__frontend-slides/frontend-slides-main/plugins/frontend-slides/skills/frontend-slides",
-    "scanned_at": "2026-11-01T01:23:43.848497+00:00"
+    "scanned_at": "2026-11-01T02:12:44.426046+00:00"
   },
   "risk_assessment": {
     "score": 100,
@@ -806,7 +806,7 @@
   "issues": [
     {
       "id": "AE1",
-      "finding_id": "finding-81bc548bcec64c43a18029f0765f5b36",
+      "finding_id": "finding-f813f0f76ff94eeaba57baf467feee5a",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -851,7 +851,7 @@
     },
     {
       "id": "AE1",
-      "finding_id": "finding-ce71da199fc04d89922da62977c11aac",
+      "finding_id": "finding-a84d70cb670140bea70a569f1e474e6c",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -896,7 +896,7 @@
     },
     {
       "id": "AE1",
-      "finding_id": "finding-9d99ab7c7df84091bf173fcbdd293d96",
+      "finding_id": "finding-11219f5bd5694190a0abb1280a957bbd",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -941,7 +941,7 @@
     },
     {
       "id": "AE1",
-      "finding_id": "finding-1e3a64c014274f0185c899a8e09177ab",
+      "finding_id": "finding-2b1f583a30804d6bbc253d9b08b4a85f",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -986,7 +986,7 @@
     },
     {
       "id": "AE1",
-      "finding_id": "finding-74cd472e28da4076b54d5e852e5cbcb2",
+      "finding_id": "finding-fe38011545eb4d229689c2153c0637e0",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -1031,7 +1031,7 @@
     },
     {
       "id": "AR2",
-      "finding_id": "finding-818dbb73cfb5460c9828351b85e618cc",
+      "finding_id": "finding-197f04e7cff3455ea8c104a692e67261",
       "category": "Anti-Refusal",
       "pattern": "Anti-Refusal Statement",
       "severity": "HIGH",
@@ -1065,7 +1065,7 @@
     },
     {
       "id": "AR2",
-      "finding_id": "finding-89081b2a03b0490c9297d57df93e3fbc",
+      "finding_id": "finding-3ae0fe335e4343128da91ea1d372600e",
       "category": "Anti-Refusal",
       "pattern": "Anti-Refusal Statement",
       "severity": "HIGH",
@@ -1099,7 +1099,7 @@
     },
     {
       "id": "P2",
-      "finding_id": "finding-21444967dac34d7299050bd991fffbe9",
+      "finding_id": "finding-cba128cec6ef4471a5bd7e9ff6448a6e",
       "category": "Prompt Injection",
       "pattern": "Hidden Instructions",
       "severity": "HIGH",
@@ -1133,7 +1133,7 @@
     },
     {
       "id": "TM2",
-      "finding_id": "finding-6317c32ae22743a39fe6ad1747c4c10d",
+      "finding_id": "finding-cfb56b80f8e9449980ed97fdf4533ff1",
       "category": "Tool Misuse",
       "pattern": "Chaining Abuse",
       "severity": "HIGH",
@@ -1165,7 +1165,7 @@
     },
     {
       "id": "TM2",
-      "finding_id": "finding-b60257e32dc04cbeae80356ece450593",
+      "finding_id": "finding-1a0819b0c3f84ff598c73578c0b52d18",
       "category": "Tool Misuse",
       "pattern": "Chaining Abuse",
       "severity": "HIGH",
@@ -1197,7 +1197,7 @@
     },
     {
       "id": "LP3",
-      "finding_id": "finding-21b3081e89fd45af876ccc6c1fe26e8c",
+      "finding_id": "finding-4f2d3ee596604fde844db2c7a54a8e18",
       "category": "MCP Least Privilege",
       "pattern": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: file_write.",
       "severity": "MEDIUM",
@@ -1227,7 +1227,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-a6e50176c02f4212b1b011d62d51094d",
+      "finding_id": "finding-2e7246286094452bbb357ef207b3e31b",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1259,7 +1259,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-54ff5bdc535b46d389cf57508e8c2751",
+      "finding_id": "finding-9d82e46c363a47a2a7d77bdb500f6b37",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1291,7 +1291,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-2ebc829da5a144e28460ec01259c56c2",
+      "finding_id": "finding-128fed903651497d8205cc4b9c6e6ca6",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1323,7 +1323,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-74fb4bf1aae044a08e89b6b34655240e",
+      "finding_id": "finding-5135d32575bb49a999769c793aed9f2c",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx vercel'.",
       "severity": "MEDIUM",
@@ -1353,7 +1353,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-5330d1516fe646938e2bb4c64ff14b72",
+      "finding_id": "finding-3b685a434fec4efd95f441d4bdcd4ede",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx vercel'.",
       "severity": "MEDIUM",
@@ -1383,7 +1383,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-8d12e43b8fca44919f856c42f988fc71",
+      "finding_id": "finding-af1852da7e4f4ea6a82e8d5bd73c198d",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -1413,7 +1413,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-5298177f41bf401b9c908a0d0538016b",
+      "finding_id": "finding-7ab81950798c4bb7b4ad940a7563d072",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -1443,7 +1443,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-9a3a337c2aa84a79bf662f2c86e299b0",
+      "finding_id": "finding-f00a6891931a49c6a860adcb2e5f4360",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -1473,7 +1473,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-54ab4d80736f4c96ad5061b45703d69b",
+      "finding_id": "finding-73be6a0169134e8eb15c1750d29030c5",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'Npx Npx'.",
       "severity": "MEDIUM",
@@ -1503,7 +1503,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-eaa467a6fe5948f69fac166b40315577",
+      "finding_id": "finding-fdddb07cb59f409698b48252a58907d3",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'Npx Npx'.",
       "severity": "MEDIUM",
@@ -1533,7 +1533,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-8c1419dc8f54413f8f1d71141daa4714",
+      "finding_id": "finding-54f848e1c72d4acfb41f546de6e121ef",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -1565,7 +1565,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-839c5b9f3b8143afad752641e8f5c06b",
+      "finding_id": "finding-73fa90bf99dd43588a2f0aeedd0199fe",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx --yes vercel'.",
       "severity": "MEDIUM",
@@ -1595,7 +1595,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-d4fe3a9c37e941978c24b3a66b3e91a3",
+      "finding_id": "finding-4feae1f7dd2246338952262e78833cb4",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx --yes vercel'.",
       "severity": "MEDIUM",
@@ -1625,7 +1625,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-b8833da3a764445ab31ea82d82588d7d",
+      "finding_id": "finding-3113e5b7489a4f159e7c359aa2417005",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1657,7 +1657,7 @@
     },
     {
       "id": "EA3",
-      "finding_id": "finding-7fc7bec2a36e48d786b915a61238703b",
+      "finding_id": "finding-0186d73fffdb48dbad9d4215149e4d98",
       "category": "Excessive Agency",
       "pattern": "Scope Creep",
       "severity": "LOW",
@@ -1689,7 +1689,7 @@
     },
     {
       "id": "EA3",
-      "finding_id": "finding-94041d41e0174f47a175f75d5748b2bf",
+      "finding_id": "finding-c8ea9a81fde7444ba5c75ecdcbde261d",
       "category": "Excessive Agency",
       "pattern": "Scope Creep",
       "severity": "LOW",
@@ -1721,7 +1721,7 @@
     },
     {
       "id": "EA3",
-      "finding_id": "finding-3cf72a28749c4815bc6c3aef01330b16",
+      "finding_id": "finding-5d62b7fc3d514134818f651074d6911a",
       "category": "Excessive Agency",
       "pattern": "Scope Creep",
       "severity": "LOW",
