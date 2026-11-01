@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "cloud-architect",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\Jeffallan__claude-skills\\claude-skills-main\\skills\\cloud-architect",
-    "scanned_at": "2026-10-31T22:56:09.107605+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/Jeffallan__claude-skills/claude-skills-main/skills/cloud-architect",
+    "scanned_at": "2026-11-01T01:54:11.347173+00:00"
   },
   "risk_assessment": {
     "score": 22,
@@ -76,7 +76,7 @@
   "issues": [
     {
       "id": "SSRF1",
-      "finding_id": "finding-a4fd81cecc94499e84ba81bc23269285",
+      "finding_id": "finding-7421c8e5420343fa960bbbb1ef0f5037",
       "category": "Server-Side Request Forgery",
       "pattern": "Cloud Metadata Access",
       "severity": "HIGH",

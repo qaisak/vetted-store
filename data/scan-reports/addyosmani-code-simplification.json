@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "code-simplification",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\addyosmani__agent-skills\\agent-skills-main\\skills\\code-simplification",
-    "scanned_at": "2026-10-31T22:51:55.994941+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/addyosmani__agent-skills/agent-skills-main/skills/code-simplification",
+    "scanned_at": "2026-11-01T01:27:39.932180+00:00"
   },
   "risk_assessment": {
     "score": 21,
@@ -26,7 +26,7 @@
   "issues": [
     {
       "id": "RA1",
-      "finding_id": "finding-af680d1998fb4a64a08031be1445d034",
+      "finding_id": "finding-984aae39d1a344138628dacd4cc9a081",
       "category": "Rogue Agent",
       "pattern": "Self-Modification",
       "severity": "HIGH",
@@ -58,7 +58,7 @@
     },
     {
       "id": "EA3",
-      "finding_id": "finding-a6a5c688d5e24bb59f7d5692b1c8cc19",
+      "finding_id": "finding-7d49f17d069c43a3832ce603fdbc177a",
       "category": "Excessive Agency",
       "pattern": "Scope Creep",
       "severity": "LOW",

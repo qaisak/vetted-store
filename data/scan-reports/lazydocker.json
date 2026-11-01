@@ -1,0 +1,1839 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/jesseduffield__lazydocker/lazydocker-master/pkg",
+    "scanned_at": "2026-11-01T02:03:12.917830+00:00"
+  },
+  "risk_assessment": {
+    "score": 80,
+    "severity": "HIGH",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": "app/app.go",
+      "type": "go",
+      "lines": 89,
+      "executable": true,
+      "size_bytes": 2368,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "cheatsheet/generate.go",
+      "type": "go",
+      "lines": 141,
+      "executable": true,
+      "size_bytes": 3392,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "cheatsheet/validate.go",
+      "type": "go",
+      "lines": 87,
+      "executable": true,
+      "size_bytes": 2201,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/container.go",
+      "type": "go",
+      "lines": 152,
+      "executable": true,
+      "size_bytes": 4497,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/container_stats.go",
+      "type": "go",
+      "lines": 188,
+      "executable": true,
+      "size_bytes": 7201,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/container_stats_test.go",
+      "type": "go",
+      "lines": 17,
+      "executable": true,
+      "size_bytes": 420,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/docker.go",
+      "type": "go",
+      "lines": 585,
+      "executable": true,
+      "size_bytes": 18270,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/docker_host_unix.go",
+      "type": "go",
+      "lines": 7,
+      "executable": true,
+      "size_bytes": 100,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/docker_host_windows.go",
+      "type": "go",
+      "lines": 5,
+      "executable": true,
+      "size_bytes": 82,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/docker_test.go",
+      "type": "go",
+      "lines": 91,
+      "executable": true,
+      "size_bytes": 3258,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/dummies.go",
+      "type": "go",
+      "lines": 52,
+      "executable": true,
+      "size_bytes": 1457,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/errors.go",
+      "type": "go",
+      "lines": 57,
+      "executable": true,
+      "size_bytes": 1338,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/image.go",
+      "type": "go",
+      "lines": 143,
+      "executable": true,
+      "size_bytes": 3511,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/network.go",
+      "type": "go",
+      "lines": 54,
+      "executable": true,
+      "size_bytes": 1263,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/os.go",
+      "type": "go",
+      "lines": 375,
+      "executable": true,
+      "size_bytes": 10540,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/os_default_platform.go",
+      "type": "go",
+      "lines": 18,
+      "executable": true,
+      "size_bytes": 297,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/os_test.go",
+      "type": "go",
+      "lines": 355,
+      "executable": true,
+      "size_bytes": 7045,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/os_windows.go",
+      "type": "go",
+      "lines": 9,
+      "executable": true,
+      "size_bytes": 133,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/project.go",
+      "type": "go",
+      "lines": 5,
+      "executable": true,
+      "size_bytes": 55,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/service.go",
+      "type": "go",
+      "lines": 84,
+      "executable": true,
+      "size_bytes": 2295,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/ssh/ssh.go",
+      "type": "go",
+      "lines": 159,
+      "executable": true,
+      "size_bytes": 4421,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/ssh/ssh_test.go",
+      "type": "go",
+      "lines": 109,
+      "executable": true,
+      "size_bytes": 2659,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "commands/volume.go",
+      "type": "go",
+      "lines": 56,
+      "executable": true,
+      "size_bytes": 1284,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "config/app_config.go",
+      "type": "go",
+      "lines": 614,
+      "executable": true,
+      "size_bytes": 23080,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "config/app_config_test.go",
+      "type": "go",
+      "lines": 98,
+      "executable": true,
+      "size_bytes": 2661,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "config/config_default_platform.go",
+      "type": "go",
+      "lines": 12,
+      "executable": true,
+      "size_bytes": 278,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "config/config_linux.go",
+      "type": "go",
+      "lines": 9,
+      "executable": true,
+      "size_bytes": 267,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "config/config_windows.go",
+      "type": "go",
+      "lines": 9,
+      "executable": true,
+      "size_bytes": 247,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/app_status_manager.go",
+      "type": "go",
+      "lines": 82,
+      "executable": true,
+      "size_bytes": 1714,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/arrangement.go",
+      "type": "go",
+      "lines": 227,
+      "executable": true,
+      "size_bytes": 6029,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/confirmation_panel.go",
+      "type": "go",
+      "lines": 154,
+      "executable": true,
+      "size_bytes": 4884,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/container_logs.go",
+      "type": "go",
+      "lines": 152,
+      "executable": true,
+      "size_bytes": 3708,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/containers_panel.go",
+      "type": "go",
+      "lines": 568,
+      "executable": true,
+      "size_bytes": 17486,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/custom_commands.go",
+      "type": "go",
+      "lines": 59,
+      "executable": true,
+      "size_bytes": 1986,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/filtering.go",
+      "type": "go",
+      "lines": 80,
+      "executable": true,
+      "size_bytes": 1701,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/focus.go",
+      "type": "go",
+      "lines": 146,
+      "executable": true,
+      "size_bytes": 3777,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/gocui.go",
+      "type": "go",
+      "lines": 45,
+      "executable": true,
+      "size_bytes": 1194,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/gui.go",
+      "type": "go",
+      "lines": 514,
+      "executable": true,
+      "size_bytes": 14426,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/images_panel.go",
+      "type": "go",
+      "lines": 221,
+      "executable": true,
+      "size_bytes": 6160,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/keybindings.go",
+      "type": "go",
+      "lines": 613,
+      "executable": true,
+      "size_bytes": 15439,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/layout.go",
+      "type": "go",
+      "lines": 135,
+      "executable": true,
+      "size_bytes": 3611,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/main_panel.go",
+      "type": "go",
+      "lines": 113,
+      "executable": true,
+      "size_bytes": 2552,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/menu_panel.go",
+      "type": "go",
+      "lines": 133,
+      "executable": true,
+      "size_bytes": 3512,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/networks_panel.go",
+      "type": "go",
+      "lines": 179,
+      "executable": true,
+      "size_bytes": 5621,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/options_menu_panel.go",
+      "type": "go",
+      "lines": 73,
+      "executable": true,
+      "size_bytes": 1804,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/panels.go",
+      "type": "go",
+      "lines": 7,
+      "executable": true,
+      "size_bytes": 134,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/panels/context_state.go",
+      "type": "go",
+      "lines": 69,
+      "executable": true,
+      "size_bytes": 2037,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/panels/filtered_list.go",
+      "type": "go",
+      "lines": 111,
+      "executable": true,
+      "size_bytes": 2160,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/panels/filtered_list_test.go",
+      "type": "go",
+      "lines": 183,
+      "executable": true,
+      "size_bytes": 4238,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/panels/list_panel.go",
+      "type": "go",
+      "lines": 42,
+      "executable": true,
+      "size_bytes": 954,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/panels/side_list_panel.go",
+      "type": "go",
+      "lines": 280,
+      "executable": true,
+      "size_bytes": 6201,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/presentation/container_stats.go",
+      "type": "go",
+      "lines": 146,
+      "executable": true,
+      "size_bytes": 3630,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/presentation/containers.go",
+      "type": "go",
+      "lines": 202,
+      "executable": true,
+      "size_bytes": 5315,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/presentation/images.go",
+      "type": "go",
+      "lines": 14,
+      "executable": true,
+      "size_bytes": 298,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/presentation/menu_items.go",
+      "type": "go",
+      "lines": 7,
+      "executable": true,
+      "size_bytes": 182,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/presentation/networks.go",
+      "type": "go",
+      "lines": 7,
+      "executable": true,
+      "size_bytes": 206,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/presentation/projects.go",
+      "type": "go",
+      "lines": 7,
+      "executable": true,
+      "size_bytes": 182,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/presentation/services.go",
+      "type": "go",
+      "lines": 43,
+      "executable": true,
+      "size_bytes": 1039,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/presentation/volumes.go",
+      "type": "go",
+      "lines": 7,
+      "executable": true,
+      "size_bytes": 200,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/project_panel.go",
+      "type": "go",
+      "lines": 239,
+      "executable": true,
+      "size_bytes": 7396,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/services_panel.go",
+      "type": "go",
+      "lines": 558,
+      "executable": true,
+      "size_bytes": 16154,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/sort_container_test.go",
+      "type": "go",
+      "lines": 148,
+      "executable": true,
+      "size_bytes": 2622,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/subprocess.go",
+      "type": "go",
+      "lines": 72,
+      "executable": true,
+      "size_bytes": 1488,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/tasks_adapter.go",
+      "type": "go",
+      "lines": 101,
+      "executable": true,
+      "size_bytes": 2754,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/theme.go",
+      "type": "go",
+      "lines": 19,
+      "executable": true,
+      "size_bytes": 639,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/types/types.go",
+      "type": "go",
+      "lines": 13,
+      "executable": true,
+      "size_bytes": 233,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/view_helpers.go",
+      "type": "go",
+      "lines": 382,
+      "executable": true,
+      "size_bytes": 9351,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/views.go",
+      "type": "go",
+      "lines": 224,
+      "executable": true,
+      "size_bytes": 6996,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/volumes_panel.go",
+      "type": "go",
+      "lines": 191,
+      "executable": true,
+      "size_bytes": 5726,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "gui/window.go",
+      "type": "go",
+      "lines": 16,
+      "executable": true,
+      "size_bytes": 416,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "i18n/chinese.go",
+      "type": "go",
+      "lines": 136,
+      "executable": true,
+      "size_bytes": 6841,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "i18n/dutch.go",
+      "type": "go",
+      "lines": 98,
+      "executable": true,
+      "size_bytes": 5157,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "i18n/english.go",
+      "type": "go",
+      "lines": 283,
+      "executable": true,
+      "size_bytes": 12709,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "i18n/french.go",
+      "type": "go",
+      "lines": 120,
+      "executable": true,
+      "size_bytes": 7241,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "i18n/german.go",
+      "type": "go",
+      "lines": 97,
+      "executable": true,
+      "size_bytes": 5433,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "i18n/i18n.go",
+      "type": "go",
+      "lines": 70,
+      "executable": true,
+      "size_bytes": 1690,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "i18n/polish.go",
+      "type": "go",
+      "lines": 97,
+      "executable": true,
+      "size_bytes": 4905,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "i18n/portuguese.go",
+      "type": "go",
+      "lines": 137,
+      "executable": true,
+      "size_bytes": 7842,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "i18n/spanish.go",
+      "type": "go",
+      "lines": 129,
+      "executable": true,
+      "size_bytes": 6996,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "i18n/turkish.go",
+      "type": "go",
+      "lines": 97,
+      "executable": true,
+      "size_bytes": 5386,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "log/log.go",
+      "type": "go",
+      "lines": 60,
+      "executable": true,
+      "size_bytes": 1379,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tasks/tasks.go",
+      "type": "go",
+      "lines": 144,
+      "executable": true,
+      "size_bytes": 3491,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "utils/utils.go",
+      "type": "go",
+      "lines": 412,
+      "executable": true,
+      "size_bytes": 11207,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "utils/utils_test.go",
+      "type": "go",
+      "lines": 321,
+      "executable": true,
+      "size_bytes": 5900,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "PE4",
+      "finding_id": "finding-c37bc17bce0342cbaa2b3999a9f24c78",
+      "category": "Privilege Escalation",
+      "pattern": "Docker Socket Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "commands/docker_host_unix.go",
+        "start_line": 6,
+        "end_line": null,
+        "start_column": 29
+      },
+      "finding": "/var/run/docker.sock",
+      "explanation": "Potential security issue detected. Manual review is recommended.",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": "package commands\n\nconst (\n\tdefaultDockerHost = \"unix:///var/run/docker.sock\"\n)",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "82774870748edc004b04ad4b6f08788d1a63a7390f4b4995a800bfe432879245",
+      "occurrences": [
+        {
+          "file": "commands/docker_host_unix.go",
+          "start_line": 6,
+          "end_line": null,
+          "start_column": 29
+        }
+      ]
+    },
+    {
+      "id": "PE4",
+      "finding_id": "finding-a55ef2a6ffc84bbc8ec5cc6bf31844d5",
+      "category": "Privilege Escalation",
+      "pattern": "Docker Socket Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "commands/ssh/ssh.go",
+        "start_line": 152,
+        "end_line": null,
+        "start_column": 60
+      },
+      "finding": "/var/run/docker.sock",
+      "explanation": "Potential security issue detected. Manual review is recommended.",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": "}\n\nfunc (self *SSHHandler) tunnelSSH(ctx context.Context, host, localSocket string) (*exec.Cmd, error) {\n\tcmd := exec.CommandContext(ctx, \"ssh\", \"-L\", localSocket+\":/var/run/docker.sock\", host, \"-N\")\n\tself.oSCommand.PrepareForChildren(cmd)\n\terr := self.startCmd(cmd)\n\tif err != nil {",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "82774870748edc004b04ad4b6f08788d1a63a7390f4b4995a800bfe432879245",
+      "occurrences": [
+        {
+          "file": "commands/ssh/ssh.go",
+          "start_line": 152,
+          "end_line": null,
+          "start_column": 60
+        }
+      ]
+    },
+    {
+      "id": "PE4",
+      "finding_id": "finding-ec860098c375404f93af313b3f99bb5a",
+      "category": "Privilege Escalation",
+      "pattern": "Docker Socket Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "commands/ssh/ssh_test.go",
+        "start_line": 67,
+        "end_line": null,
+        "start_column": 98
+      },
+      "finding": "/var/run/docker.sock",
+      "explanation": "Potential security issue detected. Manual review is recommended.",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": "\n\t\t\tstartCmdCount := 0\n\t\t\tstartCmd := func(cmd *exec.Cmd) error {\n\t\t\t\tassert.EqualValues(t, []string{\"ssh\", \"-L\", \"/tmp/lazydocker-ssh-tunnel-12345/dockerhost.sock:/var/run/docker.sock\", \"192.168.5.178\", \"-N\"}, cmd.Args)\n\n\t\t\t\tstartCmdCount++\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "82774870748edc004b04ad4b6f08788d1a63a7390f4b4995a800bfe432879245",
+      "occurrences": [
+        {
+          "file": "commands/ssh/ssh_test.go",
+          "start_line": 67,
+          "end_line": null,
+          "start_column": 98
+        }
+      ]
+    },
+    {
+      "id": "PE4",
+      "finding_id": "finding-2f4ea6c4e2f8439294543c74f674421d",
+      "category": "Privilege Escalation",
+      "pattern": "Docker Socket Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "i18n/chinese.go",
+        "start_line": 24,
+        "end_line": null,
+        "start_column": 61
+      },
+      "finding": "/var/run/docker.sock",
+      "explanation": "Potential security issue detected. Manual review is recommended.",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": "\t\tUnattachableContainerError:        \"\u5bb9\u5668\u4e0d\u652f\u6301 attaching\u3002\u60a8\u5fc5\u987b\u4f7f\u7528\u201c-it\u201d\u6807\u5fd7\u8fd0\u884c\u670d\u52a1\uff0c\u6216\u8005\u5728docker-compose.yml\u6587\u4ef6\u4e2d\u4f7f\u7528`stdin_open: true\uff0ctty: true`\",\n\t\tWaitingForContainerInfo:           \"\u5728 Docker \u7ed9\u6211\u4eec\u66f4\u591a\u5173\u4e8e\u5bb9\u5668\u7684\u4fe1\u606f\u4e4b\u524d\uff0c\u65e0\u6cd5\u7ee7\u7eed\u3002\u8bf7\u51e0\u5206\u949f\u540e\u91cd\u8bd5\u3002\",\n\t\tCannotAttachStoppedContainerError: \"\u60a8\u4e0d\u80fd attach \u5230\u5df2\u505c\u6b62\u7684\u5bb9\u5668\uff0c\u60a8\u9700\u8981\u5148\u542f\u52a8\u5b83\uff08\u60a8\u53ef\u4ee5\u7528 'r' \u952e\u6765\u6267\u884c\u6b64\u64cd\u4f5c\uff09\uff08\u662f\u7684\uff0c\u6211\u61d2\u5f97\u4e3a\u60a8\u81ea\u52a8\u6267\u884c\u6b64\u64cd\u4f5c\uff09\uff08\u5f88\u9177\u7684\u662f\uff0c\u6211\u53ef\u4ee5\u901a\u8fc7\u9519\u8bef\u6d88\u606f\u4e0e\u60a8\u8fdb\u884c\u4e00\u5bf9\u4e00\u7684\u901a\u8baf\uff09\",\n\t\tCannotAccessDockerSocketError:     \"\u65e0\u6cd5\u8bbf\u95ee Docker \u5957\u63a5\u5b57\uff1aunix:///var/run/docker.sock\\n\u8bf7\u4ee5 root \u7528\u6237\u8eab\u4efd\u8fd0\u884c lazydocker \u6216\u9605\u8bfbhttps://docs.docker.com/install/linux/linux-postinstall/\",\n\t\tCannotKillChildError:              \"\u7b49\u5f85\u4e09\u79d2\u949f\u4ee5\u505c\u6b62\u5b50\u8fdb\u7a0b\u3002\u53ef\u80fd\u6709\u4e00\u4e2a\u5b64\u513f\u8fdb\u7a0b\u5728\u60a8\u7684\u7cfb\u7edf\u4e0a\u7ee7\u7eed\u8fd0\u884c\u3002\",\n\n\t\tDonate:  \"\u6350\u8d60\",",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "82774870748edc004b04ad4b6f08788d1a63a7390f4b4995a800bfe432879245",
+      "occurrences": [
+        {
+          "file": "i18n/chinese.go",
+          "start_line": 24,
+          "end_line": null,
+          "start_column": 61
+        }
+      ]
+    },
+    {
+      "id": "PE4",
+      "finding_id": "finding-199ddd47c3f94aeebf8e70c1f1276426",
+      "category": "Privilege Escalation",
+      "pattern": "Docker Socket Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "i18n/dutch.go",
+        "start_line": 17,
+        "end_line": null,
+        "start_column": 81
+      },
+      "finding": "/var/run/docker.sock",
+      "explanation": "Potential security issue detected. Manual review is recommended.",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": "\t\tConnectionFailed:                  \"connectie naar de docker client mislukt. Het zou kunnen dat je de docker client moet herstarten\",\n\t\tUnattachableContainerError:        \"Container heeft geen ondersteuning voor vastmaken. Je zou de service met het '-it' argument kunnen draaien of stop dit in je `stdin_open: true, tty: true` docker-compose.yml\",\n\t\tCannotAttachStoppedContainerError: \"Je kan niet een vastgemaakte container stoppen, je moet het eerst starten (dit kan je doen met de 'r' toets) (ja ik ben te leu om dat voor je te doen automatisch)\",\n\t\tCannotAccessDockerSocketError:     \"Kan de docker socket niet bereiken: unix:///var/run/docker.sock\\nDraai lazydocker als root of lees https://docs.docker.com/install/linux/linux-postinstall/\",\n\n\t\tDonate:  \"Doneer\",\n\t\tConfirm: \"Bevestigen\",",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "82774870748edc004b04ad4b6f08788d1a63a7390f4b4995a800bfe432879245",
+      "occurrences": [
+        {
+          "file": "i18n/dutch.go",
+          "start_line": 17,
+          "end_line": null,
+          "start_column": 81
+        }
+      ]
+    },
+    {
+      "id": "PE4",
+      "finding_id": "finding-c16b290eb3dd4217b3317c078b360a71",
+      "category": "Privilege Escalation",
+      "pattern": "Docker Socket Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "i18n/english.go",
+        "start_line": 162,
+        "end_line": null,
+        "start_column": 76
+      },
+      "finding": "/var/run/docker.sock",
+      "explanation": "Potential security issue detected. Manual review is recommended.",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": "ontainerError:        \"Container does not support attaching. You must either run the service with the '-it' flag or use `stdin_open: true, tty: true` in the docker-compose.yml file\",\n\t\tWaitingForContainerInfo:           \"Cannot proceed until docker gives us more information about the container. Please retry in a few moments.\",\n\t\tCannotAttachStoppedContainerError: \"You cannot attach to a stopped container, you need to start it first (which you can actually do with the 'r' key) (yes I'm too lazy to do this automatically for you) (pretty cool that I get to communicate one-on-one with you in the form of an error message though)\",\n\t\tCannotAccessDockerSocketError:     \"Can't access docker socket at: unix:///var/run/docker.sock\\nRun lazydocker as root or read https://docs.docker.com/install/linux/linux-postinstall/\",\n\t\tCannotKillChildError:              \"Waited three seconds for child process to stop. There may be an orphan process that continues to run on your system.\",\n\n\t\tDonate:  \"Donate\",",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "82774870748edc004b04ad4b6f08788d1a63a7390f4b4995a800bfe432879245",
+      "occurrences": [
+        {
+          "file": "i18n/english.go",
+          "start_line": 162,
+          "end_line": null,
+          "start_column": 76
+        }
+      ]
+    },
+    {
+      "id": "PE4",
+      "finding_id": "finding-5fc7626d93d14ed2bca9e8852a406b6c",
+      "category": "Privilege Escalation",
+      "pattern": "Docker Socket Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "i18n/french.go",
+        "start_line": 22,
+        "end_line": null,
+        "start_column": 87
+      },
+      "finding": "/var/run/docker.sock",
+      "explanation": "Potential security issue detected. Manual review is recommended.",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": "\t\tWaitingForContainerInfo:    \"Le processus ne peut pas continuer avant que Docker ne fournisse plus d'informations. Veuillez r\u00e9essayer dans quelques instants.\",\n\n\t\tCannotAttachStoppedContainerError: \"Vous ne pouvez pas vous attacher \u00e0 un conteneur arr\u00eat\u00e9, vous devez le d\u00e9marrer en amont (ce que vous pouvez faire avec la touche 'r') (oui, je suis trop paresseux pour le faire automatiquement pour vous) (plut\u00f4t cool que je puisse communiquer en t\u00eate-\u00e0-t\u00eate avec vous au travers d'un message d'erreur, cependant)\",\n\t\tCannotAccessDockerSocketError:     \"Impossible d'acc\u00e9der au socket Docker \u00e0 : unix:///var/run/docker.sock\\nLancez lazydocker en tant que root ou alors lisez https://docs.docker.com/install/linux/linux-postinstall/\",\n\t\tCannotKillChildError:              \"Trois secondes se sont \u00e9coul\u00e9es depuis la demande d'arr\u00eat des processus enfants. Il se peut qu'un processus orphelin continue \u00e0 tourner sur votre syst\u00e8me.\",\n\n\t\tDonate:  \"Donner\",",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "82774870748edc004b04ad4b6f08788d1a63a7390f4b4995a800bfe432879245",
+      "occurrences": [
+        {
+          "file": "i18n/french.go",
+          "start_line": 22,
+          "end_line": null,
+          "start_column": 87
+        }
+      ]
+    },
+    {
+      "id": "PE4",
+      "finding_id": "finding-dfbb69a8d3e343889ee7ff78f8052733",
+      "category": "Privilege Escalation",
+      "pattern": "Docker Socket Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "i18n/german.go",
+        "start_line": 17,
+        "end_line": null,
+        "start_column": 82
+      },
+      "finding": "/var/run/docker.sock",
+      "explanation": "Potential security issue detected. Manual review is recommended.",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": "\t\tConnectionFailed:                  \"Verbindung zum Docker Client fehlgeschlagen. Du musst ggf. den Docker Client neustarten.\",\n\t\tUnattachableContainerError:        \"Der Container bietet keine Unterst\u00fctzung f\u00fcr das Anbinden. Du musst den Dienst entweder mit der '-it' Flagge benutzen oder `stdin_open: true, tty: true` in der docker-compose.yml Datei setzen.\",\n\t\tCannotAttachStoppedContainerError: \"Du kannst keinen angehaltenen Container anbinden. Du musst ihn erst starten (was du tun kannst, indem du 'r' dr\u00fcckst), (ja, ich bin zu faul um das zu automatisieren) (aber ist schon cool, dass ich so eine Konversation durch eine Fehlermeldung mit dir f\u00fchren kann)\",\n\t\tCannotAccessDockerSocketError:     \"Kann nicht auf den Socket zugreifen: unix:///var/run/docker.sock\\nF\u00fchre lazydocker als root aus oder lese https://docs.docker.com/install/linux/linux-postinstall/\",\n\n\t\tDonate:  \"Spenden\",\n\t\tConfirm: \"Best\u00e4tigen\",",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "82774870748edc004b04ad4b6f08788d1a63a7390f4b4995a800bfe432879245",
+      "occurrences": [
+        {
+          "file": "i18n/german.go",
+          "start_line": 17,
+          "end_line": null,
+          "start_column": 82
+        }
+      ]
+    },
+    {
+      "id": "PE4",
+      "finding_id": "finding-cbbd1506474848dd956a3983b48f0bc0",
+      "category": "Privilege Escalation",
+      "pattern": "Docker Socket Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "i18n/polish.go",
+        "start_line": 17,
+        "end_line": null,
+        "start_column": 78
+      },
+      "finding": "/var/run/docker.sock",
+      "explanation": "Potential security issue detected. Manual review is recommended.",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": "\t\tConnectionFailed:                  \"B\u0142\u0105d po\u0142\u0105czenia z Dockerem. By\u0107 mo\u017ce nale\u017cy go zrestartowa\u0107.\",\n\t\tUnattachableContainerError:        \"Kontener nie obs\u0142uguje przyczepiania (attach). Musisz albo u\u017cy\u0107 flag '-it', albo `stdin_open: true, tty: true` w pliku docker-compose.yml.\",\n\t\tCannotAttachStoppedContainerError: \"Nie mo\u017cna przyczepi\u0107 si\u0119 do zatrzymanego kontenera, nale\u017cy go najpierw uruchomi\u0107 (co mo\u017cna wykona\u0107 wciskaj\u0105c przycisk 'r')\",\n\t\tCannotAccessDockerSocketError:     \"Nie uda\u0142o si\u0119\u00a0uzyska\u0107 dost\u0119pu do unix:///var/run/docker.sock\\nUruchom program jako root lub przeczytaj https://docs.docker.com/install/linux/linux-postinstall/\",\n\n\t\tDonate:  \"Dotacja\",\n\t\tConfirm: \"Potwierd\u017a\",",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "82774870748edc004b04ad4b6f08788d1a63a7390f4b4995a800bfe432879245",
+      "occurrences": [
+        {
+          "file": "i18n/polish.go",
+          "start_line": 17,
+          "end_line": null,
+          "start_column": 78
+        }
+      ]
+    },
+    {
+      "id": "PE4",
+      "finding_id": "finding-160b622e73574559be12465772d9faba",
+      "category": "Privilege Escalation",
+      "pattern": "Docker Socket Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "i18n/portuguese.go",
+        "start_line": 24,
+        "end_line": null,
+        "start_column": 89
+      },
+      "finding": "/var/run/docker.sock",
+      "explanation": "Potential security issue detected. Manual review is recommended.",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": "i\u00e7o com a flag '-it' ou usar `stdin_open: true, tty: true` no arquivo docker-compose.yml\",\n\t\tWaitingForContainerInfo:           \"N\u00e3o \u00e9 poss\u00edvel prosseguir at\u00e9 que o Docker forne\u00e7a mais informa\u00e7\u00f5es sobre o cont\u00eainer. Por favor, tente novamente em alguns momentos.\",\n\t\tCannotAttachStoppedContainerError: \"Voc\u00ea n\u00e3o pode anexar a um cont\u00eainer parado, voc\u00ea precisa inici\u00e1-lo primeiro (o que voc\u00ea pode fazer com a tecla 'r') (sim, sou pregui\u00e7oso demais para fazer isso automaticamente para voc\u00ea) (ali\u00e1s, bem legal que eu posso me comunicar diretamente com voc\u00ea na forma de uma mensagem de erro)\",\n\t\tCannotAccessDockerSocketError:     \"N\u00e3o \u00e9 poss\u00edvel acessar o s\u00f4quete docker em: unix:///var/run/docker.sock\\nExecute o lazydocker como root ou leia https://docs.docker.com/install/linux/linux-postinstall/\",\n\t\tCannotKillChildError:              \"Tr\u00eas segundos foram esperarados para que os processos filhos parassem. Pode haver um processo \u00f3rf\u00e3o que continua em execu\u00e7\u00e3o em seu sistema.\",\n\n\t\tDonate:  \"Doar\",",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "82774870748edc004b04ad4b6f08788d1a63a7390f4b4995a800bfe432879245",
+      "occurrences": [
+        {
+          "file": "i18n/portuguese.go",
+          "start_line": 24,
+          "end_line": null,
+          "start_column": 89
+        }
+      ]
+    },
+    {
+      "id": "PE4",
+      "finding_id": "finding-dac6bc808c1540b6a5c676519dd0941d",
+      "category": "Privilege Escalation",
+      "pattern": "Docker Socket Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "i18n/spanish.go",
+        "start_line": 21,
+        "end_line": null,
+        "start_column": 84
+      },
+      "finding": "/var/run/docker.sock",
+      "explanation": "Potential security issue detected. Manual review is recommended.",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": "\t\tConnectionFailed:              \"Fall\u00f3 la conexi\u00f3n con el docker client. Quiz\u00e1 necesitas reiniciar tu docker client\",\n\t\tUnattachableContainerError:    \"Container does not support attaching. You must either run the service with the '-it' flag or use `stdin_open: true, tty: true` in the docker-compose.yml file\",\n\t\tWaitingForContainerInfo:       \"No podemos proceder hasta que docker nos de m\u00e1s informaci\u00f3n sobre el contenedor. Int\u00e9ntalo otra vez en unos segundos.\",\n\t\tCannotAccessDockerSocketError: \"No es posible acceder al docker socket en: unix:///var/run/docker.sock\\nEjecuta lazydocker como root o lee https://docs.docker.com/install/linux/linux-postinstall/\",\n\t\tCannotKillChildError:          \"Esperamos tres segundos a que el proceso hijo se detenga. Debe de haber un proceso hu\u00e9rfano que continua activo en tu sistema.\",\n\n\t\tDonate:  \"Donar\",",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "82774870748edc004b04ad4b6f08788d1a63a7390f4b4995a800bfe432879245",
+      "occurrences": [
+        {
+          "file": "i18n/spanish.go",
+          "start_line": 21,
+          "end_line": null,
+          "start_column": 84
+        }
+      ]
+    },
+    {
+      "id": "PE4",
+      "finding_id": "finding-3b287dd842a34e12a4eeb46517856985",
+      "category": "Privilege Escalation",
+      "pattern": "Docker Socket Access",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "i18n/turkish.go",
+        "start_line": 17,
+        "end_line": null,
+        "start_column": 82
+      },
+      "finding": "/var/run/docker.sock",
+      "explanation": "Potential security issue detected. Manual review is recommended.",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": "\t\tConnectionFailed:                  \"Docker ba\u011flant\u0131s\u0131 ba\u015far\u0131s\u0131z oldu. Docker' \u0131 yeniden ba\u015flatman\u0131z gerekebilir\",\n\t\tUnattachableContainerError:        \"Konteyner attaching modunda \u00e7al\u0131\u015fmay\u0131 desteklemiyor. Hizmeti '-it' opsiyonu ile \u00e7al\u0131\u015ft\u0131rman\u0131z veya docker-compose.yml dosyas\u0131nda `stdin_open: true, tty: true` kullanman\u0131z gerekir.\",\n\t\tCannotAttachStoppedContainerError: \"Durdurulan konteynera ba\u011flanamazs\u0131n\u0131z, ilk \u00f6nce ba\u015flatman\u0131z gerekir (asl\u0131nda ba\u015flatmay\u0131 r tu\u015fu ile yapabilirsiniz) (evet, senin i\u00e7in bunu otomatik olarak yapabilirim fakat \u00e7ok tembelim) (hata mesaj\u0131 ile seninle birebir ileti\u015fim kurmam \u00e7ok daha g\u00fczel)\",\n\t\tCannotAccessDockerSocketError:     \"Docker' a \u015fu adresten eri\u015filemiyor : unix:///var/run/docker.sock\\n lazydocker' \u0131 root(k\u00f6k kullan\u0131c\u0131) olarak \u00e7al\u0131\u015ft\u0131r veya \u015fu adresteki ad\u0131mlar\u0131 takip et : https://docs.docker.com/install/linux/linux-postinstall/\",\n\n\t\tDonate:  \"Ba\u011f\u0131\u015f\",\n\t\tConfirm: \"Onayla\",",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "82774870748edc004b04ad4b6f08788d1a63a7390f4b4995a800bfe432879245",
+      "occurrences": [
+        {
+          "file": "i18n/turkish.go",
+          "start_line": 17,
+          "end_line": null,
+          "start_column": 82
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-d122708ee225444fb2a1e0204853f6ae",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "gui/containers_panel.go",
+        "start_line": 471,
+        "end_line": null,
+        "start_column": 113
+      },
+      "finding": "/etc/passwd",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\t})\n\n\t// TODO: use SDK\n\tresolvedCommand := utils.ApplyTemplate(\"docker exec -it {{ .Container.ID }} /bin/sh -c 'eval $(grep ^$(id -un): /etc/passwd | cut -d : -f 7-)'\", commandObject)\n\t// attach and return the subprocess error\n\tcmd := gui.OSCommand.ExecutableFromString(resolvedCommand)\n\treturn gui.runSubprocess(cmd)",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac75eea6ed115d0252fb13bbb10e9c4421764d5a7612787edcde6a78569d8f88",
+      "occurrences": [
+        {
+          "file": "gui/containers_panel.go",
+          "start_line": 471,
+          "end_line": null,
+          "start_column": 113
+        }
+      ]
+    },
+    {
+      "id": "EA2",
+      "finding_id": "finding-42aa487372c54370ad665063aa21b0f6",
+      "category": "Excessive Agency",
+      "pattern": "Autonomous Decision Making",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "config/app_config.go",
+        "start_line": 32,
+        "end_line": null,
+        "start_column": 22
+      },
+      "finding": "no confirmation",
+      "explanation": "Skill enables autonomous high-impact decisions without human-in-the-loop verification. Critical operations (destructive commands, financial transactions, data deletion) should require explicit user confirmation.",
+      "remediation": "Add human-in-the-loop confirmation for destructive, irreversible, or high-impact operations. Never auto-execute commands that modify files, send data, or alter system state.",
+      "code_snippet": "\tGui GuiConfig `yaml:\"gui,omitempty\"`\n\n\t// ConfirmOnQuit when enabled prompts you to confirm you want to quit when you\n\t// hit esc or q when no confirmation panels are open\n\tConfirmOnQuit bool `yaml:\"confirmOnQuit,omitempty\"`\n\n\t// Logs determines how we render/filter a container's logs",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8d917baac03779a421e90f894620a765c8fd0787d50e2d8abf3d4267050d15a4",
+      "occurrences": [
+        {
+          "file": "config/app_config.go",
+          "start_line": 32,
+          "end_line": null,
+          "start_column": 22
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 84,
+    "scanned_components": 77,
+    "coverage_percent": 91.7,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 77,
+    "partially_inspected_files": 7,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "commands/os.go",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "gui/containers_panel.go",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "gui/images_panel.go",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "gui/networks_panel.go",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "gui/services_panel.go",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "gui/view_helpers.go",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "gui/volumes_panel.go",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 84,
+        "completed": 77,
+        "partial": 7,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 84,
+        "completed": 84,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 14,
+    "findings_after_filtering": 14,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

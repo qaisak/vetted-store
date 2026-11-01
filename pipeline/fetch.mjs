@@ -60,6 +60,12 @@ const SKILL_REPOS = [
   { repo: 'czlonkowski/n8n-skills', pick: ['skills/n8n-workflow-patterns', 'skills/n8n-expression-syntax', 'skills/n8n-error-handling', 'skills/n8n-node-configuration'] },
   { repo: 'SawyerHood/dev-browser', pick: ['skills/dev-browser'] },
   { repo: 'lackeyjb/playwright-skill', pick: ['skills/playwright-skill'] },
+  { repo: 'wshobson/agents', pick: ['plugins/startup-business-analyst/skills/startup-financial-modeling', 'plugins/startup-business-analyst/skills/market-sizing-analysis',
+    'plugins/startup-business-analyst/skills/competitive-landscape', 'plugins/business-analytics/skills/data-storytelling', 'plugins/business-analytics/skills/kpi-dashboard-design',
+    'plugins/hr-legal-compliance/skills/gdpr-data-handling', 'plugins/hr-legal-compliance/skills/employment-contract-templates', 'plugins/accessibility-compliance/skills/wcag-audit-patterns',
+    'plugins/incident-response/skills/postmortem-writing', 'plugins/avoid-ai-writing/skills/avoid-ai-writing', 'plugins/before-you-build/skills/before-you-build',
+    'plugins/payment-processing/skills/stripe-integration', 'plugins/developer-essentials/skills/sql-optimization-patterns', 'plugins/security-scanning/skills/stride-analysis-patterns',
+    'plugins/ui-design/skills/visual-design-foundations'] },
 ];
 const MCP = [
   { repo: 'modelcontextprotocol/servers', sub: ['everything', 'fetch', 'filesystem', 'git', 'memory', 'sequentialthinking', 'time'] },
@@ -89,20 +95,28 @@ const MCP = [
   { repo: 'suekou/mcp-notion-server' },
   { repo: 'kimtaeyoon83/mcp-server-youtube-transcript' },
   { repo: 'vivekVells/mcp-pandoc' },
+  { repo: 'Pimzino/spec-workflow-mcp' },
+  { repo: 'jae-jae/fetcher-mcp' },
 ];
 const TOOLS = ['NVIDIA/SkillSpector', 'vercel-labs/skills', 'BurntSushi/ripgrep', 'sharkdp/fd', 'junegunn/fzf', 'jqlang/jq', 'cli/cli', 'astral-sh/uv',
   'sharkdp/bat', 'jesseduffield/lazygit', 'ollama/ollama', 'aquasecurity/trivy', 'semgrep/semgrep', 'gitleaks/gitleaks',
   // Community: individual developers
   'ajeetdsouza/zoxide', 'aristocratos/btop', 'dandavison/delta', 'bootandy/dust', 'sharkdp/hyperfine', 'casey/just', 'sxyazi/yazi',
   'extrawurst/gitui', 'jdx/mise', 'jesseduffield/lazydocker', 'XAMPPRocky/tokei',
-  'yt-dlp/yt-dlp', 'Wilfred/difftastic', 'muesli/duf', 'ClementTsang/bottom', 'ducaale/xh', 'chmln/sd'];
+  'yt-dlp/yt-dlp', 'Wilfred/difftastic', 'muesli/duf', 'ClementTsang/bottom', 'ducaale/xh', 'chmln/sd',
+  'schollz/croc', 'FiloSottile/age', 'saulpw/visidata', 'derailed/k9s', 'nicolargo/glances', 'yorukot/superfile', 'darrenburns/posting', 'tconbeer/harlequin', 'denisidoro/navi'];
 
 const meta = {}, scores = {}, hn = {}, avatars = {};
 async function repoMeta(repo) {
   if (meta[repo] !== undefined) return meta[repo];
   // The search API returns the same repository object; it's the fallback where /repos/ isn't reachable.
-  const m = await get(`https://api.github.com/repos/${repo}`)
-    || (await get(`https://api.github.com/search/repositories?q=repo:${repo}`))?.items?.find(i => i.full_name.toLowerCase() === repo.toLowerCase());
+  const search = async () => {
+    let r = await get(`https://api.github.com/search/repositories?q=repo:${repo}`);
+    if (!r && get.failed) { console.error('waiting out the search rate limit'); await new Promise(res => setTimeout(res, 61000)); r = await get(`https://api.github.com/search/repositories?q=repo:${repo}`); }
+    if (!r && get.failed) console.error('FAILED (rate limit)', repo);
+    return r?.items?.find(i => i.full_name.toLowerCase() === repo.toLowerCase());
+  };
+  const m = await get(`https://api.github.com/repos/${repo}`) || await search();
   meta[repo] = m && { full: m.full_name, desc: m.description, stars: m.stargazers_count, forks: m.forks_count, issues: m.open_issues_count,
     license: m.license?.spdx_id && m.license.spdx_id !== 'NOASSERTION' ? m.license.spdx_id : (m.license?.name || null), pushed: m.pushed_at, created: m.created_at,
     archived: m.archived, topics: m.topics || [], branch: m.default_branch, owner: m.owner.login, ownerType: m.owner.type, homepage: m.homepage || null, language: m.language,

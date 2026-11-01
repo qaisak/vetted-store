@@ -1,0 +1,2064 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/sharkdp__hyperfine/hyperfine-master",
+    "scanned_at": "2026-11-01T01:43:20.051220+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": ".github/dependabot.yml",
+      "type": "yaml",
+      "lines": 13,
+      "executable": false,
+      "size_bytes": 285,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/CICD.yml",
+      "type": "yaml",
+      "lines": 363,
+      "executable": false,
+      "size_bytes": 15334,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 21,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CHANGELOG.md",
+      "type": "markdown",
+      "lines": 529,
+      "executable": false,
+      "size_bytes": 22149,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CITATION.cff",
+      "type": "other",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 477,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Cargo.lock",
+      "type": "other",
+      "lines": 1211,
+      "executable": false,
+      "size_bytes": 31497,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Cargo.toml",
+      "type": "toml",
+      "lines": 89,
+      "executable": false,
+      "size_bytes": 2277,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE-APACHE",
+      "type": "other",
+      "lines": 201,
+      "executable": false,
+      "size_bytes": 11357,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE-MIT",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1105,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 497,
+      "executable": false,
+      "size_bytes": 17214,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "build.rs",
+      "type": "rust",
+      "lines": 25,
+      "executable": true,
+      "size_bytes": 584,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "doc/execution-order.png",
+      "type": "other",
+      "lines": 2075,
+      "executable": false,
+      "size_bytes": 88282,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "doc/execution-order.svg",
+      "type": "other",
+      "lines": 957,
+      "executable": true,
+      "size_bytes": 48960,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "doc/histogram.png",
+      "type": "other",
+      "lines": 256,
+      "executable": false,
+      "size_bytes": 11108,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "doc/hyperfine.1",
+      "type": "other",
+      "lines": 405,
+      "executable": false,
+      "size_bytes": 13052,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "doc/whisker.png",
+      "type": "other",
+      "lines": 147,
+      "executable": false,
+      "size_bytes": 5217,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "pyproject.toml",
+      "type": "toml",
+      "lines": 36,
+      "executable": false,
+      "size_bytes": 873,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/README.md",
+      "type": "markdown",
+      "lines": 33,
+      "executable": false,
+      "size_bytes": 1270,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/advanced_statistics.py",
+      "type": "python",
+      "lines": 66,
+      "executable": true,
+      "size_bytes": 2062,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/plot_benchmark_comparison.py",
+      "type": "python",
+      "lines": 91,
+      "executable": true,
+      "size_bytes": 2615,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/plot_histogram.py",
+      "type": "python",
+      "lines": 131,
+      "executable": true,
+      "size_bytes": 3363,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/plot_parametrized.py",
+      "type": "python",
+      "lines": 123,
+      "executable": true,
+      "size_bytes": 3783,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/plot_progression.py",
+      "type": "python",
+      "lines": 95,
+      "executable": true,
+      "size_bytes": 2555,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/plot_utils.py",
+      "type": "python",
+      "lines": 74,
+      "executable": true,
+      "size_bytes": 2398,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/plot_whisker.py",
+      "type": "python",
+      "lines": 76,
+      "executable": true,
+      "size_bytes": 2465,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/ruff.toml",
+      "type": "toml",
+      "lines": 4,
+      "executable": false,
+      "size_bytes": 68,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "scripts/welch_ttest.py",
+      "type": "python",
+      "lines": 59,
+      "executable": true,
+      "size_bytes": 1675,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/benchmark/benchmark_result.rs",
+      "type": "rust",
+      "lines": 51,
+      "executable": true,
+      "size_bytes": 1864,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/benchmark/executor.rs",
+      "type": "rust",
+      "lines": 401,
+      "executable": true,
+      "size_bytes": 13067,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/benchmark/measurement.rs",
+      "type": "rust",
+      "lines": 183,
+      "executable": true,
+      "size_bytes": 5340,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/benchmark/mod.rs",
+      "type": "rust",
+      "lines": 469,
+      "executable": true,
+      "size_bytes": 15902,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/benchmark/scheduler.rs",
+      "type": "rust",
+      "lines": 156,
+      "executable": true,
+      "size_bytes": 4289,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cli.rs",
+      "type": "rust",
+      "lines": 459,
+      "executable": true,
+      "size_bytes": 21974,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/command.rs",
+      "type": "rust",
+      "lines": 688,
+      "executable": true,
+      "size_bytes": 22623,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/error.rs",
+      "type": "rust",
+      "lines": 66,
+      "executable": true,
+      "size_bytes": 2671,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/export/asciidoc.rs",
+      "type": "rust",
+      "lines": 76,
+      "executable": true,
+      "size_bytes": 1930,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/export/csv.rs",
+      "type": "rust",
+      "lines": 225,
+      "executable": true,
+      "size_bytes": 8748,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/export/json.rs",
+      "type": "rust",
+      "lines": 97,
+      "executable": true,
+      "size_bytes": 2512,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/export/json/metadata.rs",
+      "type": "rust",
+      "lines": 51,
+      "executable": true,
+      "size_bytes": 1396,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/export/markdown.rs",
+      "type": "rust",
+      "lines": 74,
+      "executable": true,
+      "size_bytes": 2195,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/export/markup.rs",
+      "type": "rust",
+      "lines": 111,
+      "executable": true,
+      "size_bytes": 3432,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/export/mod.rs",
+      "type": "rust",
+      "lines": 157,
+      "executable": true,
+      "size_bytes": 5112,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/export/orgmode.rs",
+      "type": "rust",
+      "lines": 51,
+      "executable": true,
+      "size_bytes": 1254,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/export/tests.rs",
+      "type": "rust",
+      "lines": 478,
+      "executable": true,
+      "size_bytes": 18934,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/main.rs",
+      "type": "rust",
+      "lines": 102,
+      "executable": true,
+      "size_bytes": 3488,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/metric.rs",
+      "type": "rust",
+      "lines": 505,
+      "executable": true,
+      "size_bytes": 17171,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/options.rs",
+      "type": "rust",
+      "lines": 538,
+      "executable": true,
+      "size_bytes": 17684,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/outlier_detection.rs",
+      "type": "rust",
+      "lines": 90,
+      "executable": true,
+      "size_bytes": 2603,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/output/mod.rs",
+      "type": "rust",
+      "lines": 13,
+      "executable": true,
+      "size_bytes": 361,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/output/progress_bar.rs",
+      "type": "rust",
+      "lines": 70,
+      "executable": true,
+      "size_bytes": 2679,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/output/report.rs",
+      "type": "rust",
+      "lines": 205,
+      "executable": true,
+      "size_bytes": 7342,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/output/warnings.rs",
+      "type": "rust",
+      "lines": 65,
+      "executable": true,
+      "size_bytes": 3466,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/parameter/mod.rs",
+      "type": "rust",
+      "lines": 23,
+      "executable": true,
+      "size_bytes": 579,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/parameter/range_step.rs",
+      "type": "rust",
+      "lines": 184,
+      "executable": true,
+      "size_bytes": 4652,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/parameter/tokenize.rs",
+      "type": "rust",
+      "lines": 60,
+      "executable": true,
+      "size_bytes": 1751,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/quantity/mod.rs",
+      "type": "rust",
+      "lines": 69,
+      "executable": true,
+      "size_bytes": 1938,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/quantity/statistics.rs",
+      "type": "rust",
+      "lines": 235,
+      "executable": true,
+      "size_bytes": 6848,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/shell_syntax.rs",
+      "type": "rust",
+      "lines": 265,
+      "executable": true,
+      "size_bytes": 9435,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/timer/linux_counters.rs",
+      "type": "rust",
+      "lines": 113,
+      "executable": true,
+      "size_bytes": 3763,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/timer/macos_counters.rs",
+      "type": "rust",
+      "lines": 55,
+      "executable": true,
+      "size_bytes": 1944,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/timer/mod.rs",
+      "type": "rust",
+      "lines": 128,
+      "executable": true,
+      "size_bytes": 3614,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/timer/unix_timer.rs",
+      "type": "rust",
+      "lines": 89,
+      "executable": true,
+      "size_bytes": 2569,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/timer/wall_clock_timer.rs",
+      "type": "rust",
+      "lines": 22,
+      "executable": true,
+      "size_bytes": 476,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/timer/windows_timer.rs",
+      "type": "rust",
+      "lines": 131,
+      "executable": true,
+      "size_bytes": 5126,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/exit_code.rs",
+      "type": "rust",
+      "lines": 22,
+      "executable": true,
+      "size_bytes": 743,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/mod.rs",
+      "type": "rust",
+      "lines": 3,
+      "executable": true,
+      "size_bytes": 74,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/number.rs",
+      "type": "rust",
+      "lines": 48,
+      "executable": true,
+      "size_bytes": 1102,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util/randomized_environment_offset.rs",
+      "type": "rust",
+      "lines": 8,
+      "executable": true,
+      "size_bytes": 391,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/common.rs",
+      "type": "rust",
+      "lines": 12,
+      "executable": true,
+      "size_bytes": 333,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/example_input_file.txt",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 28,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/execution_order_tests.rs",
+      "type": "rust",
+      "lines": 540,
+      "executable": true,
+      "size_bytes": 14911,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/integration_tests.rs",
+      "type": "rust",
+      "lines": 1389,
+      "executable": true,
+      "size_bytes": 41204,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/snapshots/integration_tests__json_export_basic.snap",
+      "type": "other",
+      "lines": 234,
+      "executable": false,
+      "size_bytes": 4998,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/snapshots/integration_tests__json_export_parameterized_with_reference.snap",
+      "type": "other",
+      "lines": 245,
+      "executable": false,
+      "size_bytes": 5219,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/snapshots/integration_tests__json_export_single_run.snap",
+      "type": "other",
+      "lines": 108,
+      "executable": false,
+      "size_bytes": 2181,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "TM2",
+      "finding_id": "finding-c188a1879eb545f6b9cecc5ee1a77284",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": ".github/workflows/CICD.yml",
+        "start_line": 105,
+        "end_line": null,
+        "start_column": 54
+      },
+      "finding": "; sudo",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "      shell: bash\n      run: |\n        case ${{ matrix.job.target }} in\n          arm-unknown-linux-*) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;\n          aarch64-unknown-linux-gnu) sudo apt-get -y update ; sudo apt-get -y install gcc-aarch64-linux-gnu ;;\n        esac\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c0adf908cd82687722d6cb827fde35437935fc8163e03280077d51c948872eec",
+      "occurrences": [
+        {
+          "file": ".github/workflows/CICD.yml",
+          "start_line": 105,
+          "end_line": null,
+          "start_column": 54
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-7c42f32602364780920517efc6ca650f",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": ".github/workflows/CICD.yml",
+        "start_line": 106,
+        "end_line": null,
+        "start_column": 60
+      },
+      "finding": "; sudo",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "      run: |\n        case ${{ matrix.job.target }} in\n          arm-unknown-linux-*) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;\n          aarch64-unknown-linux-gnu) sudo apt-get -y update ; sudo apt-get -y install gcc-aarch64-linux-gnu ;;\n        esac\n\n    - name: Install Rust toolchain",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c0adf908cd82687722d6cb827fde35437935fc8163e03280077d51c948872eec",
+      "occurrences": [
+        {
+          "file": ".github/workflows/CICD.yml",
+          "start_line": 106,
+          "end_line": null,
+          "start_column": 60
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-9d376225980e4bcf9e2f624104dd0389",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "README.md",
+        "start_line": 66,
+        "end_line": null,
+        "start_column": 13
+      },
+      "finding": "| sudo ",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "option to run a special command before *each* benchmark run. For example, to clear Linux filesystem caches,\nyou can run\n```sh\nsync; echo 3 | sudo tee /proc/sys/vm/drop_caches\n```\nTo use this specific command with hyperfine, call `sudo -v` to temporarily gain sudo permissions\nand then call:",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8f26f53bcbcfbd9fb11a52b90ffc7313a44714737c9e55dde0122f11bd18f036",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 66,
+          "end_line": null,
+          "start_column": 13
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-40ab69d6d60a49f2b2371613313a38eb",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": "README.md",
+        "start_line": 71,
+        "end_line": null,
+        "start_column": 37
+      },
+      "finding": "| sudo ",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "To use this specific command with hyperfine, call `sudo -v` to temporarily gain sudo permissions\nand then call:\n```sh\nhyperfine -S --prepare 'sync; echo 3 | sudo tee /proc/sys/vm/drop_caches' 'grep -R TODO *'\n```\n\n### Parameterized benchmarks",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8f26f53bcbcfbd9fb11a52b90ffc7313a44714737c9e55dde0122f11bd18f036",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 71,
+          "end_line": null,
+          "start_column": 37
+        }
+      ]
+    },
+    {
+      "id": "RA1",
+      "finding_id": "finding-7aa9269019834f4c8825eeef18f06a58",
+      "category": "Rogue Agent",
+      "pattern": "Self-Modification",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "README.md",
+        "start_line": 414,
+        "end_line": null,
+        "start_column": 10
+      },
+      "finding": "selfupdate",
+      "explanation": "Skill modifies its own code, configuration, or behavior at runtime. Self-modification enables an agent to escalate privileges, disable safety constraints, or install persistent backdoors.",
+      "remediation": "Prevent the skill from modifying its own code, SKILL.md, or configuration files. Treat skill files as read-only at runtime.",
+      "code_snippet": "\nOr you can install using [MacPorts](https://www.macports.org)\n```\nsudo port selfupdate\nsudo port install hyperfine\n```\n",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f76c9ecd5b9ae36fec8181519e550ec995f3023aab44e10d09868da85a5f0366",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 414,
+          "end_line": null,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "P1",
+      "finding_id": "finding-83d4c16ba356490e9b8c1cbb18aabb4d",
+      "category": "Prompt Injection",
+      "pattern": "Instruction Override",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/cli.rs",
+        "start_line": 452,
+        "end_line": 452,
+        "start_column": 19,
+        "end_column": 36
+      },
+      "finding": "Enable debug mode",
+      "explanation": "This pattern attempts to override system instructions or ignore safety constraints. Without LLM analysis, manual review is recommended.",
+      "remediation": "Remove or rewrite any text that instructs the agent to ignore prompts, override safety rules, or trust unverified content. Ensure skill content cannot be injected to alter agent behavior.",
+      "code_snippet": "            .long(\"debug-mode\")\n            .action(ArgAction::SetTrue)\n            .hide(true)\n            .help(\"Enable debug mode which does not actually run commands, but returns fake times when the command is 'sleep <time>'.\")\n        )\n}\n",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "29ec53f9068084dcaa2d39637c91b25f0cfa9c006878e7787d6eb5caa0ce177c",
+      "occurrences": [
+        {
+          "file": "src/cli.rs",
+          "start_line": 452,
+          "end_line": 452,
+          "start_column": 19,
+          "end_column": 36
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-cea953978b2744b6be69c5a94827845c",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "tests/integration_tests.rs",
+        "start_line": 354,
+        "end_line": null,
+        "start_column": 14
+      },
+      "finding": "rm -rf cache/",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "\n    let assert = hyperfine()\n        .current_dir(directory.path())\n        .arg(\"rm -rf cache/ && ./my_command\")\n        .assert()\n        .failure();\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c69f500f54ec93a50859f6d95686f947b776618ca10ac1b7952a9ac87dfdd169",
+      "occurrences": [
+        {
+          "file": "tests/integration_tests.rs",
+          "start_line": 354,
+          "end_line": null,
+          "start_column": 14
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-fb335678ca2b4c4788a0ccc0e7c16080",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "tests/integration_tests.rs",
+        "start_line": 359,
+        "end_line": null,
+        "start_column": 20
+      },
+      "finding": "rm -rf cache/",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "        .failure();\n\n    insta::assert_snapshot!(String::from_utf8_lossy(&assert.get_output().stderr), @\"\n    Error: Command 'rm -rf cache/ && ./my_command' contains unquoted shell syntax ('&&').\n    Explicitly choose how to execute it:\n      -S / --shell=default  Interpret shell syntax.\n      -N / --shell=none     Run directly, passing '&&' as a literal argument.",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c69f500f54ec93a50859f6d95686f947b776618ca10ac1b7952a9ac87dfdd169",
+      "occurrences": [
+        {
+          "file": "tests/integration_tests.rs",
+          "start_line": 359,
+          "end_line": null,
+          "start_column": 20
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-d7889867f50049e8818bfc25bdf4ea80",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/CICD.yml",
+        "start_line": 105,
+        "end_line": null,
+        "start_column": 31
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "      shell: bash\n      run: |\n        case ${{ matrix.job.target }} in\n          arm-unknown-linux-*) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;\n          aarch64-unknown-linux-gnu) sudo apt-get -y update ; sudo apt-get -y install gcc-aarch64-linux-gnu ;;\n        esac\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/CICD.yml",
+          "start_line": 105,
+          "end_line": null,
+          "start_column": 31
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-fe0960d08c414f899321f98bd0e95ff4",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/CICD.yml",
+        "start_line": 105,
+        "end_line": null,
+        "start_column": 56
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "      shell: bash\n      run: |\n        case ${{ matrix.job.target }} in\n          arm-unknown-linux-*) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;\n          aarch64-unknown-linux-gnu) sudo apt-get -y update ; sudo apt-get -y install gcc-aarch64-linux-gnu ;;\n        esac\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/CICD.yml",
+          "start_line": 105,
+          "end_line": null,
+          "start_column": 56
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-6a8290ec08024044826ec8075015fd21",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/CICD.yml",
+        "start_line": 106,
+        "end_line": null,
+        "start_column": 37
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "      run: |\n        case ${{ matrix.job.target }} in\n          arm-unknown-linux-*) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;\n          aarch64-unknown-linux-gnu) sudo apt-get -y update ; sudo apt-get -y install gcc-aarch64-linux-gnu ;;\n        esac\n\n    - name: Install Rust toolchain",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/CICD.yml",
+          "start_line": 106,
+          "end_line": null,
+          "start_column": 37
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-bb4fab717c9449dfb922887907bc7eed",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/CICD.yml",
+        "start_line": 106,
+        "end_line": null,
+        "start_column": 62
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "      run: |\n        case ${{ matrix.job.target }} in\n          arm-unknown-linux-*) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;\n          aarch64-unknown-linux-gnu) sudo apt-get -y update ; sudo apt-get -y install gcc-aarch64-linux-gnu ;;\n        esac\n\n    - name: Install Rust toolchain",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/CICD.yml",
+          "start_line": 106,
+          "end_line": null,
+          "start_column": 62
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-600b89969f76431cb1274318cc6cba9b",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 66,
+        "end_line": null,
+        "start_column": 15
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "option to run a special command before *each* benchmark run. For example, to clear Linux filesystem caches,\nyou can run\n```sh\nsync; echo 3 | sudo tee /proc/sys/vm/drop_caches\n```\nTo use this specific command with hyperfine, call `sudo -v` to temporarily gain sudo permissions\nand then call:",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 66,
+          "end_line": null,
+          "start_column": 15
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-7839ad92f1424118a1e1e851c0c0c1d1",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 68,
+        "end_line": null,
+        "start_column": 51
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "```sh\nsync; echo 3 | sudo tee /proc/sys/vm/drop_caches\n```\nTo use this specific command with hyperfine, call `sudo -v` to temporarily gain sudo permissions\nand then call:\n```sh\nhyperfine -S --prepare 'sync; echo 3 | sudo tee /proc/sys/vm/drop_caches' 'grep -R TODO *'",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 68,
+          "end_line": null,
+          "start_column": 51
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-19ccfdab5a1849f2adde27f211727b89",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 71,
+        "end_line": null,
+        "start_column": 39
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "To use this specific command with hyperfine, call `sudo -v` to temporarily gain sudo permissions\nand then call:\n```sh\nhyperfine -S --prepare 'sync; echo 3 | sudo tee /proc/sys/vm/drop_caches' 'grep -R TODO *'\n```\n\n### Parameterized benchmarks",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 71,
+          "end_line": null,
+          "start_column": 39
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-0853c45ca1a14bbfab1b544545d7782f",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 335,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "Alternatively, for the latest version, you can download the appropriate `.deb` package from the [Release page](https://github.com/sharkdp/hyperfine/releases) and install it via `dpkg`:\n```\nwget https://github.com/sharkdp/hyperfine/releases/download/v2.0.0/hyperfine_2.0.0_amd64.deb\nsudo dpkg -i hyperfine_2.0.0_amd64.deb\n```\n\n### On Fedora",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 335,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-facfcf5024ed483e9b7046d04eb156d9",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 414,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "\nOr you can install using [MacPorts](https://www.macports.org)\n```\nsudo port selfupdate\nsudo port install hyperfine\n```\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 414,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-7aa6e2221cd04048acc696dc73742039",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 415,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "Or you can install using [MacPorts](https://www.macports.org)\n```\nsudo port selfupdate\nsudo port install hyperfine\n```\n\n### On FreeBSD",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 415,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-39b4e8df99784f0f86ff68b230fd08ab",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 428,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "doas ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "### On OpenBSD\n\n```\ndoas pkg_add hyperfine\n```\n\n### On Windows",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "bfa59c362a0cbd9a623f88d41a9d86eda81cd67ede6dff5aee9f9c9e5a67fe34",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 428,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "EA3",
+      "finding_id": "finding-c9df915a4eae464aa28ca39245f2b43d",
+      "category": "Excessive Agency",
+      "pattern": "Scope Creep",
+      "severity": "LOW",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/CICD.yml",
+        "start_line": 289,
+        "end_line": null,
+        "start_column": 54
+      },
+      "finding": "NOT LIMITED\n          TO",
+      "explanation": "Skill's behavior or capabilities extend beyond its stated purpose. Scope creep allows an agent to perform actions unrelated to its documented functionality, increasing the attack surface.",
+      "remediation": "Limit the skill's scope to its documented purpose. Remove instructions that enable the agent to perform actions outside its stated functionality.",
+      "code_snippet": "          of the Software.\n          .\n          THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF\n          ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED\n          TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A\n          PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT\n          SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e89530c367266aa328ed88bf9475086c891da0ff38badf80bf35bae6b13345e0",
+      "occurrences": [
+        {
+          "file": ".github/workflows/CICD.yml",
+          "start_line": 289,
+          "end_line": null,
+          "start_column": 54
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-6e40caafbcb54a9b8828be8c9a277141",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (15 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "pyproject.toml",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "pyproject.toml",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 72,
+    "scanned_components": 67,
+    "coverage_percent": 93.1,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 67,
+    "partially_inspected_files": 5,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": ".github/workflows/CICD.yml",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "Cargo.lock",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "analyzer_runtime_error",
+        "message": "Analyzer failed after beginning applicable work.",
+        "path": "pyproject.toml",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_analyzer_runtime_error"
+        ],
+        "error_class": "ProxyError"
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/benchmark/mod.rs",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/metric.rs",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "doc/execution-order.png",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "doc/histogram.png",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "doc/whisker.png",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 75,
+        "completed": 75,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 8,
+        "completed": 8,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 75,
+        "completed": 75,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 72,
+        "completed": 72,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 72,
+        "completed": 72,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 73,
+        "completed": 71,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 71,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 72,
+        "completed": 68,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 75,
+        "completed": 75,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_agent_snooping status: degraded.",
+      "Analyzer static_patterns_anti_refusal status: degraded.",
+      "Analyzer static_patterns_deserialization status: degraded.",
+      "Analyzer static_patterns_excessive_agency status: degraded.",
+      "Analyzer static_patterns_harmful_content status: degraded.",
+      "Analyzer static_patterns_memory_poisoning status: degraded.",
+      "Analyzer static_patterns_privilege_escalation status: degraded.",
+      "Analyzer static_patterns_prompt_injection status: degraded.",
+      "Analyzer static_patterns_rogue_agent status: degraded.",
+      "Analyzer static_patterns_ssrf status: degraded.",
+      "Analyzer static_patterns_supply_chain status: degraded.",
+      "Analyzer static_patterns_system_prompt_leakage status: degraded.",
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 21,
+    "findings_after_filtering": 21,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "atlassian-mcp",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\Jeffallan__claude-skills\\claude-skills-main\\skills\\atlassian-mcp",
-    "scanned_at": "2026-10-31T22:55:55.990684+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/Jeffallan__claude-skills/claude-skills-main/skills/atlassian-mcp",
+    "scanned_at": "2026-11-01T01:53:44.756081+00:00"
   },
   "risk_assessment": {
     "score": 97,
@@ -76,7 +76,7 @@
   "issues": [
     {
       "id": "AE1",
-      "finding_id": "finding-22509a54db5045939c62799116cc98bf",
+      "finding_id": "finding-7b66a1cecdb34257b44d63fea02da1a3",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -121,7 +121,7 @@
     },
     {
       "id": "AE1",
-      "finding_id": "finding-5c7ac407f08f496092d6658f4a11ed70",
+      "finding_id": "finding-44d6199c7fbc472287c1fd2cf77a2b29",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -166,7 +166,7 @@
     },
     {
       "id": "PE3",
-      "finding_id": "finding-e76ca9c3f39a439aaf257c479eda4d6c",
+      "finding_id": "finding-d9e61fdc42f0446685d665ae83f03fa9",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -198,7 +198,7 @@
     },
     {
       "id": "PE3",
-      "finding_id": "finding-78cea1fc7a7e4de38c69b0bceffee1f9",
+      "finding_id": "finding-ed993563529a4fac8213d90599403583",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -232,7 +232,7 @@
     },
     {
       "id": "PE3",
-      "finding_id": "finding-d80b9704fe634da98e20ecfef5c5bf7e",
+      "finding_id": "finding-bb218cb0e6da47c0b30244e6886d66fa",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -266,7 +266,7 @@
     },
     {
       "id": "PE3",
-      "finding_id": "finding-0a22b3df0c0e466b87d6a260b9eeab24",
+      "finding_id": "finding-da69baf4e932442c95233a0d7c2a71ed",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -300,7 +300,7 @@
     },
     {
       "id": "PE3",
-      "finding_id": "finding-6a4090e555a54842bd612c0a3e526ec5",
+      "finding_id": "finding-89a61e519d9a4211a0805ffec8633362",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -332,7 +332,7 @@
     },
     {
       "id": "PE3",
-      "finding_id": "finding-2ea955f6b7be416e9ec9f19c01544b24",
+      "finding_id": "finding-91c7c9cb15f44d9799f7397d02c62ccd",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -364,7 +364,7 @@
     },
     {
       "id": "PE3",
-      "finding_id": "finding-165b03b664704425a878e0bdab57df83",
+      "finding_id": "finding-d09d2971c30a4e2f87fa66f3c1f50a40",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -396,7 +396,7 @@
     },
     {
       "id": "PE3",
-      "finding_id": "finding-68d490fe65664518bd659417b0f2b1c7",
+      "finding_id": "finding-a1b53b02934244f482953e86888fa678",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -428,7 +428,7 @@
     },
     {
       "id": "PE3",
-      "finding_id": "finding-af95899963ea47e889c80ca65476f5e4",
+      "finding_id": "finding-aaf7dcd95e754734bb9be548b9fb92a2",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -460,7 +460,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-24f2735f87d7478cb63cfc568d0e8264",
+      "finding_id": "finding-bc8a95c34880428786912160e6766979",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -492,7 +492,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-5562d2c91ead42a9b1a7709e78298434",
+      "finding_id": "finding-07702c11f5624ed081fbafa18ede879f",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -524,7 +524,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-9762f9ad7d984c3ea74faf1b4daa76bd",
+      "finding_id": "finding-513b406cf9984147887ad5a5b3c49c33",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -556,7 +556,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-72f45f4272e8488080bdbf1eb386ebbf",
+      "finding_id": "finding-5ee56dee0ade4b7f9b925d50d879cdad",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -588,7 +588,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-9ecc0751784f4a41b5fc933cb25378bf",
+      "finding_id": "finding-e1cb2eb7fe7c40e8941da234fbd5d644",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -620,7 +620,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-2163abe05d604be794615a2000583936",
+      "finding_id": "finding-685b50f509f845ff9209eaa65a0a9f0c",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -652,7 +652,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-abc2ea557ec249669e9195bb3b214a4a",
+      "finding_id": "finding-73bdc197f7ff40dcbf17ae3afba9ed05",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -684,7 +684,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-2712d42cf48a475fa83ab499e584e616",
+      "finding_id": "finding-ae425942bb324a139fa206b916439615",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -716,7 +716,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-5ee57a20c46a494181b3cec7dde81fe2",
+      "finding_id": "finding-ceff3967113c45958cb351ec211d71c1",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'uvx mcp-atlassian'.",
       "severity": "MEDIUM",
@@ -746,7 +746,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-b7c296bb43124edf951c1507172bb80c",
+      "finding_id": "finding-4b3157a92625428798696bd25dc99a23",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'uvx mcp-atlassian'.",
       "severity": "MEDIUM",
@@ -776,7 +776,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-46c8cbcacdb94009b8b2702a37996acd",
+      "finding_id": "finding-313fbd8ce99740e7b0bfbb2f2e8ab3b3",
       "category": "MCP Rug Pull",
       "pattern": "Docker image referenced without tag or digest: 'docker pull ghcr.io/sooperset/mcp-atlassian:latest'.",
       "severity": "MEDIUM",
@@ -806,7 +806,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-ee703f77e39246db9252b0f74cc25b5e",
+      "finding_id": "finding-721acf44a0ca4e99a0d9fc537d45f4e5",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx -y @xuandev/atlassian-mcp'.",
       "severity": "MEDIUM",
@@ -836,7 +836,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-68ba359987a249e09a61410fd40e23ce",
+      "finding_id": "finding-8d24637765734f6ab8d61f5ff0b6806c",
       "category": "MCP Rug Pull",
       "pattern": "MCP server dependency without pinned version: 'pip install mcp-atlassian'.",
       "severity": "LOW",

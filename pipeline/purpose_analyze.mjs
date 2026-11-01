@@ -65,6 +65,11 @@ const PROFILES = {
     expect: { network: 'Fetches captions from YouTube, and TwelveLabs if enabled', credentials: 'Optional TwelveLabs API key', env: 'The API key comes from an environment variable' } },
   'mcp-mcp-pandoc': { date: '2026-11-01', purpose: 'Converts documents between formats (Markdown, Word, HTML, PDF and more) with pandoc, reading and writing the files you name.',
     expect: { files: 'Reads and writes the documents it converts', shell: 'Runs pandoc', env: 'Settings' } },
+  'mcp-spec-workflow-mcp': { date: '2026-11-01', purpose: 'Guides spec-driven development: requirements, design and tasks as files in your project, with a web dashboard and VS Code extension for approvals.',
+    expect: { files: 'Writes specs and tasks into your project', network: 'Serves its dashboard on your computer', env: 'Settings' },
+    note: 'In its README the author says they\'re taking a break from the project for personal reasons (checked November 1, 2026).' },
+  'mcp-fetcher-mcp': { date: '2026-11-01', purpose: 'Fetches web pages with a headless browser and returns their main content, so pages that need JavaScript work too.',
+    expect: { browser: 'Uses a headless browser to load pages', network: 'Fetching pages is its job', files: 'Caches the browser it downloads', shell: 'Installs and starts the browser', env: 'Settings' } },
   'mcp-google-calendar-mcp': { date: '2026-11-01', purpose: 'Manages your Google Calendar: list, search, create, change and delete events, and check free/busy times across accounts.',
     expect: { network: 'Calls the Google Calendar API', credentials: 'Signs in to your Google account with OAuth', files: 'Reads your OAuth client file and stores tokens', env: 'The credentials path comes from an environment variable' } },
 
@@ -98,6 +103,24 @@ const PROFILES = {
     expect: { files: 'Reads system stats and its config', env: 'Config settings', shell: 'Can stop a process you pick' } },
   'xh': { date: '2026-11-01', purpose: 'Sends HTTP requests from the terminal, a friendlier curl for testing APIs.',
     expect: { network: 'Sending requests is its job', files: 'Saves downloads and sessions', env: 'Proxy and config settings', credentials: 'Sends the auth headers and tokens you give it', secretFiles: 'Can read logins from your .netrc file, like curl' } },
+  'croc': { date: '2026-11-01', purpose: 'Sends files and folders between two computers, end-to-end encrypted, using a short code phrase.',
+    expect: { network: 'Sending files over the internet through a relay is its job', files: 'Reads what you send and saves what you receive', env: 'Relay and config settings', credentials: 'Uses a code phrase and an optional relay password' } },
+  'age': { date: '2026-11-01', purpose: 'Encrypts and decrypts files with small keys or passphrases. A simple, modern alternative to GPG.',
+    expect: { files: 'Reads and writes the files you encrypt', credentials: 'Handles your encryption keys and passphrases', secretFiles: 'Can use your SSH keys to encrypt and decrypt, as documented', env: 'Settings', shell: 'Can call age plugins you install' } },
+  'visidata': { date: '2026-11-01', purpose: 'Explore, clean and summarize tabular data (CSV, Excel, JSON, databases) in a fast terminal spreadsheet.',
+    expect: { files: 'Opens and saves your data files', network: 'Can open data from URLs and databases you name', env: 'Config settings', shell: 'Can run commands you type and open your editor' } },
+  'k9s': { date: '2026-11-01', purpose: 'A terminal UI to watch and manage Kubernetes clusters.',
+    expect: { network: 'Talks to your Kubernetes cluster', files: 'Reads your kubeconfig and its own config', env: 'Kubernetes and config settings', shell: 'Runs kubectl and shells into containers when you ask', credentials: 'Uses your cluster credentials from kubeconfig', secretFiles: 'Reads your kubeconfig, which holds cluster credentials' } },
+  'glances': { date: '2026-11-01', purpose: 'A system monitor for your computer or servers, in the terminal or a web page, with optional exports to databases.',
+    expect: { files: 'Reads system stats and its config', network: 'Optional web interface, server mode and exports', env: 'Config settings', credentials: 'Optional passwords for its web and server modes', shell: 'Runs helper commands to read system info' } },
+  'superfile': { date: '2026-11-01', purpose: 'A modern terminal file manager with previews and plugins.',
+    expect: { files: 'Managing files is its job', shell: 'Opens files with your apps and editor', env: 'Config and editor settings' } },
+  'posting': { date: '2026-11-01', purpose: 'A terminal app for building and sending HTTP, GraphQL and gRPC requests and saving them in collections.',
+    expect: { network: 'Sending requests is its job', files: 'Saves your request collections', env: 'Variables you use in requests', credentials: 'Sends the auth headers and tokens you set' } },
+  'harlequin': { date: '2026-11-01', purpose: 'A SQL editor in the terminal for DuckDB, SQLite, Postgres and other databases.',
+    expect: { files: 'Opens database files and saves queries', network: 'Connects to the database servers you name', env: 'Config settings', credentials: 'Uses the database passwords you provide' } },
+  'navi': { date: '2026-11-01', purpose: 'An interactive cheat sheet for the command line: find a command, fill in the blanks, run it.',
+    expect: { shell: 'Runs the command you pick', files: 'Reads cheat sheet files', network: 'Downloads community cheat sheets when you ask', env: 'Shell and config settings' } },
   'sd': { date: '2026-11-01', purpose: 'Find and replace text in files, a simpler sed.',
     expect: { files: 'Reads and rewrites the files you name', env: 'Settings' } },
 };
@@ -135,7 +158,7 @@ const CAPS = {
   browser: { label: 'Controls a web browser', re: /\bplaywright\b|\bpuppeteer\b|chrome-remote-interface|devtools-protocol|\bCDPSession\b|launchPersistentContext|\bchromium\.launch/i },
 };
 
-const NONPROD = /(^|\/)(tests?|__tests__|e2e|specs?|fixtures?|testdata|test-data|tests-data|mocks?|__mocks__|examples?|demos?|playground|docs?|scripts|\.github|benchmarks?|benches|bench|dist|build|node_modules|coverage|third_party|vendor|vendored|xtask|fuzz|www)(\/|$)|\.(test|spec)\.[cm]?[jt]sx?$|_test\.go$|(^|\/)conftest\.py$|(^|\/)test_[^/]*\.py$|\.config\.[cm]?[jt]s$|(^|\/)(eslint|prettier|rollup|vitest|jest|playwright|puppeteer)\.config\.|\.d\.ts$|(^|\/)build\.rs$/i;
+const NONPROD = /(^|\/)(tests?|__tests__|e2e|specs?|fixtures?|testdata|test-data|tests-data|mocks?|__mocks__|examples?|demos?|playground|docs?|scripts|packaging|\.github|benchmarks?|benches|bench|dist|build|node_modules|coverage|third_party|vendor|vendored|xtask|fuzz|www)(\/|$)|\.(test|spec|vitest)\.[cm]?[jt]sx?$|_test\.go$|(^|\/)conftest\.py$|(^|\/)test_[^/]*\.py$|\.config\.[cm]?[jt]s$|(^|\/)(eslint|prettier|rollup|vitest|jest|playwright|puppeteer)\.config\.|\.d\.ts$|(^|\/)build\.rs$/i;
 const CODE = /\.(ts|tsx|js|mjs|cjs|py|go|rs|c|h|cc|cpp|hpp|sh)$/;
 // In a skill, scripts/ (and bin/, tools/) hold the code the agent runs, so they count as production code there.
 const NONPROD_SKILL = new RegExp(NONPROD.source.replace('|scripts|', '|'), 'i');

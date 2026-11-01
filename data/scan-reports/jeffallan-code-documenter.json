@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "code-documenter",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\Jeffallan__claude-skills\\claude-skills-main\\skills\\code-documenter",
-    "scanned_at": "2026-10-31T22:56:06.846190+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/Jeffallan__claude-skills/claude-skills-main/skills/code-documenter",
+    "scanned_at": "2026-11-01T01:54:17.969060+00:00"
   },
   "risk_assessment": {
     "score": 43,
@@ -106,7 +106,7 @@
   "issues": [
     {
       "id": "PE3",
-      "finding_id": "finding-676671b804a749458b241539a4eae238",
+      "finding_id": "finding-42ba46306fed41f78d72d7797844075c",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -140,7 +140,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-0e433129b02640239170d1c301b049a1",
+      "finding_id": "finding-8995d7b6e6fd41e5a4f690749bf19df3",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx @redocly/cli'.",
       "severity": "MEDIUM",
@@ -170,7 +170,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-631a5e6876fb4ae6a8a13e1097f6f88d",
+      "finding_id": "finding-56087e8ffa1f4c629814da1e4d159cb0",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -202,7 +202,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-d2949a1e70054572bafc6b930236bffd",
+      "finding_id": "finding-7389ab9876c54d5590b1de8ca2642ccb",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx create-docusaurus'.",
       "severity": "MEDIUM",
@@ -232,7 +232,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-3b2f5f5542ca4460bb92ca52f43739ec",
+      "finding_id": "finding-1ed98605a0af4fb1afb9692996152c74",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -264,7 +264,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-e622583ca9c9458a821f91486ac83a69",
+      "finding_id": "finding-661eac41e61941789b5ea6c8254bee88",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",

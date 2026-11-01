@@ -1,0 +1,3746 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/XAMPPRocky__tokei/tokei-master",
+    "scanned_at": "2026-11-01T01:48:45.108093+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": ".git-blame-ignore-revs",
+      "type": "other",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 96,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitattributes",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 36,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/FUNDING.yml",
+      "type": "yaml",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 66,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/mean_bean_ci.yml",
+      "type": "yaml",
+      "lines": 168,
+      "executable": false,
+      "size_bytes": 5638,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/mean_bean_deploy.yml",
+      "type": "yaml",
+      "lines": 194,
+      "executable": false,
+      "size_bytes": 6574,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/publish_image.yaml",
+      "type": "yaml",
+      "lines": 41,
+      "executable": false,
+      "size_bytes": 1172,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/release-plz.yaml",
+      "type": "yaml",
+      "lines": 28,
+      "executable": false,
+      "size_bytes": 596,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 37,
+      "executable": false,
+      "size_bytes": 593,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".mailmap",
+      "type": "other",
+      "lines": 4,
+      "executable": false,
+      "size_bytes": 280,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".tokeignore",
+      "type": "other",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 21,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CHANGELOG.md",
+      "type": "markdown",
+      "lines": 928,
+      "executable": false,
+      "size_bytes": 40872,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CODE_OF_CONDUCT.md",
+      "type": "markdown",
+      "lines": 46,
+      "executable": false,
+      "size_bytes": 3221,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "type": "markdown",
+      "lines": 216,
+      "executable": false,
+      "size_bytes": 5077,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Cargo.lock",
+      "type": "other",
+      "lines": 1888,
+      "executable": false,
+      "size_bytes": 48824,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Cargo.toml",
+      "type": "toml",
+      "lines": 92,
+      "executable": false,
+      "size_bytes": 2116,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Earthfile",
+      "type": "other",
+      "lines": 25,
+      "executable": false,
+      "size_bytes": 496,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENCE-APACHE",
+      "type": "other",
+      "lines": 13,
+      "executable": false,
+      "size_bytes": 551,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENCE-MIT",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1073,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 588,
+      "executable": false,
+      "size_bytes": 14595,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "benchmark.sh",
+      "type": "shell",
+      "lines": 49,
+      "executable": true,
+      "size_bytes": 997,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "build.rs",
+      "type": "rust",
+      "lines": 172,
+      "executable": true,
+      "size_bytes": 5130,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "ci/build.bash",
+      "type": "shell",
+      "lines": 22,
+      "executable": true,
+      "size_bytes": 564,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "ci/common.bash",
+      "type": "shell",
+      "lines": 6,
+      "executable": true,
+      "size_bytes": 110,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "ci/set_rust_version.bash",
+      "type": "shell",
+      "lines": 4,
+      "executable": true,
+      "size_bytes": 70,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "ci/test.bash",
+      "type": "shell",
+      "lines": 16,
+      "executable": true,
+      "size_bytes": 368,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "fuzz/.gitignore",
+      "type": "other",
+      "lines": 4,
+      "executable": false,
+      "size_bytes": 25,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "fuzz/Cargo.lock",
+      "type": "other",
+      "lines": 1165,
+      "executable": false,
+      "size_bytes": 29057,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "fuzz/Cargo.toml",
+      "type": "toml",
+      "lines": 33,
+      "executable": false,
+      "size_bytes": 584,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "fuzz/README.md",
+      "type": "markdown",
+      "lines": 30,
+      "executable": false,
+      "size_bytes": 1570,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "fuzz/fuzz_targets/parse_from_slice.rs",
+      "type": "rust",
+      "lines": 52,
+      "executable": true,
+      "size_bytes": 1757,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "fuzz/fuzz_targets/parse_from_slice_panic.rs",
+      "type": "rust",
+      "lines": 9,
+      "executable": true,
+      "size_bytes": 193,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "fuzz/fuzz_targets/parse_from_slice_total.rs",
+      "type": "rust",
+      "lines": 9,
+      "executable": true,
+      "size_bytes": 192,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "languages.json",
+      "type": "json",
+      "lines": 2124,
+      "executable": false,
+      "size_bytes": 58103,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cli.rs",
+      "type": "rust",
+      "lines": 478,
+      "executable": true,
+      "size_bytes": 16642,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cli_utils.rs",
+      "type": "rust",
+      "lines": 492,
+      "executable": true,
+      "size_bytes": 16014,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/config.rs",
+      "type": "rust",
+      "lines": 188,
+      "executable": true,
+      "size_bytes": 7250,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/consts.rs",
+      "type": "rust",
+      "lines": 27,
+      "executable": true,
+      "size_bytes": 610,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/input.rs",
+      "type": "rust",
+      "lines": 233,
+      "executable": true,
+      "size_bytes": 7134,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/language/embedding.rs",
+      "type": "rust",
+      "lines": 223,
+      "executable": true,
+      "size_bytes": 6847,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/language/language_type.rs",
+      "type": "rust",
+      "lines": 355,
+      "executable": true,
+      "size_bytes": 12648,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/language/language_type.tera.rs",
+      "type": "rust",
+      "lines": 480,
+      "executable": true,
+      "size_bytes": 16916,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/language/languages.rs",
+      "type": "rust",
+      "lines": 166,
+      "executable": true,
+      "size_bytes": 4569,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/language/mod.rs",
+      "type": "rust",
+      "lines": 176,
+      "executable": true,
+      "size_bytes": 5348,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/language/syntax.rs",
+      "type": "rust",
+      "lines": 683,
+      "executable": true,
+      "size_bytes": 24307,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/lib.rs",
+      "type": "rust",
+      "lines": 64,
+      "executable": true,
+      "size_bytes": 1693,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/main.rs",
+      "type": "rust",
+      "lines": 128,
+      "executable": true,
+      "size_bytes": 3960,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/sort.rs",
+      "type": "rust",
+      "lines": 61,
+      "executable": true,
+      "size_bytes": 1519,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/stats.rs",
+      "type": "rust",
+      "lines": 143,
+      "executable": true,
+      "size_bytes": 4038,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/utils/ext.rs",
+      "type": "rust",
+      "lines": 158,
+      "executable": true,
+      "size_bytes": 4332,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/utils/fs.rs",
+      "type": "rust",
+      "lines": 486,
+      "executable": true,
+      "size_bytes": 14082,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/utils/macros.rs",
+      "type": "rust",
+      "lines": 102,
+      "executable": true,
+      "size_bytes": 2138,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/utils/mod.rs",
+      "type": "rust",
+      "lines": 4,
+      "executable": true,
+      "size_bytes": 57,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/accuracy.rs",
+      "type": "rust",
+      "lines": 88,
+      "executable": true,
+      "size_bytes": 2486,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/Daml.daml",
+      "type": "other",
+      "lines": 42,
+      "executable": false,
+      "size_bytes": 1122,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/Dockerfile",
+      "type": "other",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 331,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/MSBuild.csproj",
+      "type": "other",
+      "lines": 12,
+      "executable": false,
+      "size_bytes": 356,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/Makefile",
+      "type": "other",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 374,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/Modelica.mo",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 386,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/NuGet.Config",
+      "type": "other",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 1181,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/PKGBUILD",
+      "type": "other",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 802,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/Rakefile",
+      "type": "other",
+      "lines": 10,
+      "executable": false,
+      "size_bytes": 144,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/SConstruct",
+      "type": "other",
+      "lines": 10,
+      "executable": true,
+      "size_bytes": 181,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/Snakefile",
+      "type": "other",
+      "lines": 67,
+      "executable": false,
+      "size_bytes": 1369,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/Tera.tera",
+      "type": "other",
+      "lines": 42,
+      "executable": false,
+      "size_bytes": 946,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/abnf.abnf",
+      "type": "other",
+      "lines": 11,
+      "executable": false,
+      "size_bytes": 268,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/alloy.als",
+      "type": "other",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 302,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/apl.apl",
+      "type": "other",
+      "lines": 10,
+      "executable": false,
+      "size_bytes": 198,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/arduino.ino",
+      "type": "other",
+      "lines": 23,
+      "executable": false,
+      "size_bytes": 364,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/arturo.art",
+      "type": "other",
+      "lines": 8,
+      "executable": false,
+      "size_bytes": 138,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/asciidoc.adoc",
+      "type": "other",
+      "lines": 20,
+      "executable": false,
+      "size_bytes": 234,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/asn1.asn1",
+      "type": "other",
+      "lines": 34,
+      "executable": false,
+      "size_bytes": 787,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/ats.dats",
+      "type": "other",
+      "lines": 42,
+      "executable": false,
+      "size_bytes": 942,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/awk.awk",
+      "type": "other",
+      "lines": 5,
+      "executable": true,
+      "size_bytes": 85,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/ballerina.bal",
+      "type": "other",
+      "lines": 40,
+      "executable": false,
+      "size_bytes": 1180,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/bazel.bzl",
+      "type": "other",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 323,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/bean.bean",
+      "type": "other",
+      "lines": 27,
+      "executable": false,
+      "size_bytes": 626,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/bicep.bicep",
+      "type": "other",
+      "lines": 50,
+      "executable": false,
+      "size_bytes": 1339,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/bitbake.bb",
+      "type": "other",
+      "lines": 23,
+      "executable": false,
+      "size_bytes": 524,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/blade.blade.php",
+      "type": "other",
+      "lines": 23,
+      "executable": true,
+      "size_bytes": 528,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/bqn.bqn",
+      "type": "other",
+      "lines": 10,
+      "executable": false,
+      "size_bytes": 194,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/brightscript.brs",
+      "type": "other",
+      "lines": 26,
+      "executable": false,
+      "size_bytes": 575,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/c.c",
+      "type": "other",
+      "lines": 50,
+      "executable": false,
+      "size_bytes": 873,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/c3.c3",
+      "type": "other",
+      "lines": 8,
+      "executable": false,
+      "size_bytes": 189,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/cairo.cairo",
+      "type": "other",
+      "lines": 51,
+      "executable": false,
+      "size_bytes": 895,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/cangjie.cj",
+      "type": "other",
+      "lines": 50,
+      "executable": false,
+      "size_bytes": 965,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/chapel.chpl",
+      "type": "other",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 411,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/cil.cil",
+      "type": "other",
+      "lines": 20,
+      "executable": false,
+      "size_bytes": 890,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/circom.circom",
+      "type": "other",
+      "lines": 34,
+      "executable": false,
+      "size_bytes": 673,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/clojure.clj",
+      "type": "other",
+      "lines": 19,
+      "executable": false,
+      "size_bytes": 287,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/clojurec.cljc",
+      "type": "other",
+      "lines": 19,
+      "executable": false,
+      "size_bytes": 287,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/clojurescript.cljs",
+      "type": "other",
+      "lines": 19,
+      "executable": false,
+      "size_bytes": 287,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/cmake.cmake",
+      "type": "other",
+      "lines": 25,
+      "executable": false,
+      "size_bytes": 933,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/codeql.ql",
+      "type": "other",
+      "lines": 40,
+      "executable": false,
+      "size_bytes": 754,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/cogent.cogent",
+      "type": "other",
+      "lines": 7,
+      "executable": false,
+      "size_bytes": 87,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/cpp.cpp",
+      "type": "other",
+      "lines": 46,
+      "executable": false,
+      "size_bytes": 711,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/cppm.cppm",
+      "type": "other",
+      "lines": 46,
+      "executable": false,
+      "size_bytes": 711,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/crystal.cr",
+      "type": "other",
+      "lines": 20,
+      "executable": false,
+      "size_bytes": 217,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/csharp.cs",
+      "type": "other",
+      "lines": 26,
+      "executable": false,
+      "size_bytes": 368,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/cuda.cu",
+      "type": "other",
+      "lines": 7,
+      "executable": false,
+      "size_bytes": 163,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/cue.cue",
+      "type": "other",
+      "lines": 12,
+      "executable": false,
+      "size_bytes": 236,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/cython.pyx",
+      "type": "other",
+      "lines": 29,
+      "executable": false,
+      "size_bytes": 451,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/d.d",
+      "type": "other",
+      "lines": 8,
+      "executable": false,
+      "size_bytes": 152,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/d2.d2",
+      "type": "other",
+      "lines": 15,
+      "executable": false,
+      "size_bytes": 210,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/dhall.dhall",
+      "type": "other",
+      "lines": 16,
+      "executable": false,
+      "size_bytes": 230,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/dreammaker.dm",
+      "type": "other",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 329,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/dust.dust",
+      "type": "other",
+      "lines": 10,
+      "executable": false,
+      "size_bytes": 346,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/ebuild.ebuild",
+      "type": "other",
+      "lines": 16,
+      "executable": false,
+      "size_bytes": 215,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/edgeql.edgeql",
+      "type": "other",
+      "lines": 28,
+      "executable": false,
+      "size_bytes": 520,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/edn.edn",
+      "type": "other",
+      "lines": 11,
+      "executable": false,
+      "size_bytes": 157,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/eight.8th",
+      "type": "other",
+      "lines": 22,
+      "executable": false,
+      "size_bytes": 331,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/elvish.elv",
+      "type": "other",
+      "lines": 16,
+      "executable": false,
+      "size_bytes": 240,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/emacs_dev_env.ede",
+      "type": "other",
+      "lines": 16,
+      "executable": false,
+      "size_bytes": 285,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/emacs_lisp.el",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 508,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/emojicode.\ud83c\udf47",
+      "type": "other",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 408,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/esdl.esdl",
+      "type": "other",
+      "lines": 20,
+      "executable": false,
+      "size_bytes": 495,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/example.umpl",
+      "type": "other",
+      "lines": 68,
+      "executable": false,
+      "size_bytes": 3339,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/factor.factor",
+      "type": "other",
+      "lines": 14,
+      "executable": false,
+      "size_bytes": 288,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/fennel.fnl",
+      "type": "other",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 474,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/flatbuffers.fbs",
+      "type": "other",
+      "lines": 34,
+      "executable": false,
+      "size_bytes": 588,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/forgecfg.cfg",
+      "type": "other",
+      "lines": 79,
+      "executable": false,
+      "size_bytes": 2990,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/fsharp.fs",
+      "type": "other",
+      "lines": 15,
+      "executable": false,
+      "size_bytes": 142,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/fstar.fst",
+      "type": "other",
+      "lines": 11,
+      "executable": false,
+      "size_bytes": 210,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/ftl.ftl",
+      "type": "other",
+      "lines": 10,
+      "executable": false,
+      "size_bytes": 204,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/futhark.fut",
+      "type": "other",
+      "lines": 8,
+      "executable": false,
+      "size_bytes": 125,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/gas.S",
+      "type": "other",
+      "lines": 67,
+      "executable": false,
+      "size_bytes": 1232,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/gdb.gdb",
+      "type": "other",
+      "lines": 15,
+      "executable": false,
+      "size_bytes": 284,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/gdshader.gdshader",
+      "type": "other",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 269,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/gherkin.feature",
+      "type": "other",
+      "lines": 13,
+      "executable": false,
+      "size_bytes": 446,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/gleam.gleam",
+      "type": "other",
+      "lines": 34,
+      "executable": false,
+      "size_bytes": 578,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/glimmer_js.gjs",
+      "type": "other",
+      "lines": 27,
+      "executable": false,
+      "size_bytes": 627,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/glimmer_ts.gts",
+      "type": "other",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 418,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/gml.gml",
+      "type": "other",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 215,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/go.go",
+      "type": "go",
+      "lines": 37,
+      "executable": true,
+      "size_bytes": 485,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/gohtml.gohtml",
+      "type": "other",
+      "lines": 41,
+      "executable": false,
+      "size_bytes": 790,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/graphql.gql",
+      "type": "other",
+      "lines": 89,
+      "executable": false,
+      "size_bytes": 1427,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/gwion.gw",
+      "type": "other",
+      "lines": 10,
+      "executable": true,
+      "size_bytes": 161,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/haml.haml",
+      "type": "other",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 305,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/hcl.tf",
+      "type": "other",
+      "lines": 22,
+      "executable": false,
+      "size_bytes": 263,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/headache.ha",
+      "type": "other",
+      "lines": 13,
+      "executable": false,
+      "size_bytes": 338,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/hex0.hex0",
+      "type": "other",
+      "lines": 154,
+      "executable": false,
+      "size_bytes": 6430,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/hex1.hex1",
+      "type": "other",
+      "lines": 589,
+      "executable": false,
+      "size_bytes": 24812,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/hex2.hex2",
+      "type": "other",
+      "lines": 110,
+      "executable": false,
+      "size_bytes": 5510,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/hicad.mac",
+      "type": "other",
+      "lines": 10,
+      "executable": false,
+      "size_bytes": 136,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/hledger.hledger",
+      "type": "other",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 751,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/hpp.hpp",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 249,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/html.html",
+      "type": "other",
+      "lines": 46,
+      "executable": false,
+      "size_bytes": 864,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/janet.janet",
+      "type": "other",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 264,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/java.java",
+      "type": "other",
+      "lines": 37,
+      "executable": false,
+      "size_bytes": 478,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/javascript.js",
+      "type": "javascript",
+      "lines": 33,
+      "executable": true,
+      "size_bytes": 437,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/jinja2.j2",
+      "type": "other",
+      "lines": 5,
+      "executable": false,
+      "size_bytes": 76,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/jq.jq",
+      "type": "other",
+      "lines": 11,
+      "executable": false,
+      "size_bytes": 275,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/jslt.jslt",
+      "type": "other",
+      "lines": 126,
+      "executable": false,
+      "size_bytes": 2903,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/jsonnet.jsonnet",
+      "type": "other",
+      "lines": 13,
+      "executable": false,
+      "size_bytes": 274,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/jupyter.ipynb",
+      "type": "other",
+      "lines": 3167,
+      "executable": false,
+      "size_bytes": 65154,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/justfile",
+      "type": "other",
+      "lines": 215,
+      "executable": false,
+      "size_bytes": 4509,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/k.k",
+      "type": "other",
+      "lines": 8,
+      "executable": false,
+      "size_bytes": 290,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/kaem.kaem",
+      "type": "other",
+      "lines": 43,
+      "executable": false,
+      "size_bytes": 1730,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/kakoune_script.kak",
+      "type": "other",
+      "lines": 13,
+      "executable": false,
+      "size_bytes": 226,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/koka.kk",
+      "type": "other",
+      "lines": 29,
+      "executable": false,
+      "size_bytes": 849,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/ksh.ksh",
+      "type": "other",
+      "lines": 17,
+      "executable": true,
+      "size_bytes": 296,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/kvlanguage.kv",
+      "type": "other",
+      "lines": 22,
+      "executable": false,
+      "size_bytes": 527,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/lalrpop.lalrpop",
+      "type": "other",
+      "lines": 37,
+      "executable": false,
+      "size_bytes": 860,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/linguafranca.lf",
+      "type": "other",
+      "lines": 36,
+      "executable": false,
+      "size_bytes": 788,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/liquid.liquid",
+      "type": "other",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 837,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/livescript.ls",
+      "type": "other",
+      "lines": 28,
+      "executable": false,
+      "size_bytes": 372,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/llvm.ll",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 380,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/logtalk.lgt",
+      "type": "other",
+      "lines": 65,
+      "executable": false,
+      "size_bytes": 1397,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/lolcode.lol",
+      "type": "other",
+      "lines": 26,
+      "executable": false,
+      "size_bytes": 399,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/m1.m1",
+      "type": "other",
+      "lines": 280,
+      "executable": false,
+      "size_bytes": 7816,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/m4.m4",
+      "type": "other",
+      "lines": 7,
+      "executable": false,
+      "size_bytes": 229,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/menhir.mly",
+      "type": "other",
+      "lines": 47,
+      "executable": false,
+      "size_bytes": 1037,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/meson.build",
+      "type": "other",
+      "lines": 12,
+      "executable": false,
+      "size_bytes": 202,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/metal.metal",
+      "type": "other",
+      "lines": 32,
+      "executable": false,
+      "size_bytes": 449,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/mlatu.mlt",
+      "type": "other",
+      "lines": 22,
+      "executable": false,
+      "size_bytes": 520,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/moduledef.def",
+      "type": "other",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 309,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/mojo.mojo",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 414,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/monkeyc.mc",
+      "type": "other",
+      "lines": 69,
+      "executable": false,
+      "size_bytes": 2097,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/nextflow.nf",
+      "type": "other",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 249,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/nqp.nqp",
+      "type": "other",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 547,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/odin.odin",
+      "type": "other",
+      "lines": 29,
+      "executable": false,
+      "size_bytes": 542,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/open_policy_agent.rego",
+      "type": "other",
+      "lines": 13,
+      "executable": false,
+      "size_bytes": 307,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/openscad.scad",
+      "type": "other",
+      "lines": 34,
+      "executable": false,
+      "size_bytes": 712,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/opentype.fea",
+      "type": "other",
+      "lines": 54,
+      "executable": false,
+      "size_bytes": 2064,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/org_mode.org",
+      "type": "other",
+      "lines": 13,
+      "executable": false,
+      "size_bytes": 186,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/pan.pan",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 630,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/pcss.pcss",
+      "type": "other",
+      "lines": 14,
+      "executable": false,
+      "size_bytes": 212,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/pest.pest",
+      "type": "other",
+      "lines": 9,
+      "executable": false,
+      "size_bytes": 259,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/phix.e",
+      "type": "other",
+      "lines": 40,
+      "executable": false,
+      "size_bytes": 790,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/plantuml.puml",
+      "type": "other",
+      "lines": 35,
+      "executable": false,
+      "size_bytes": 1027,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/pofile.po",
+      "type": "other",
+      "lines": 14,
+      "executable": false,
+      "size_bytes": 486,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/pofile_pot.pot",
+      "type": "other",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 407,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/poke.pk",
+      "type": "other",
+      "lines": 4,
+      "executable": false,
+      "size_bytes": 102,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/pony.pony",
+      "type": "other",
+      "lines": 12,
+      "executable": false,
+      "size_bytes": 182,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/postcss.sss",
+      "type": "other",
+      "lines": 27,
+      "executable": false,
+      "size_bytes": 340,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/powershell.ps1",
+      "type": "other",
+      "lines": 17,
+      "executable": true,
+      "size_bytes": 167,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/pug.pug",
+      "type": "other",
+      "lines": 13,
+      "executable": false,
+      "size_bytes": 249,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/puppet.pp",
+      "type": "other",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 306,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/pyret.arr",
+      "type": "other",
+      "lines": 22,
+      "executable": false,
+      "size_bytes": 268,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/python.py",
+      "type": "python",
+      "lines": 15,
+      "executable": true,
+      "size_bytes": 225,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/q.q",
+      "type": "other",
+      "lines": 14,
+      "executable": false,
+      "size_bytes": 368,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/qml.qml",
+      "type": "other",
+      "lines": 20,
+      "executable": false,
+      "size_bytes": 303,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/racket.rkt",
+      "type": "other",
+      "lines": 40,
+      "executable": false,
+      "size_bytes": 777,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/raku.raku",
+      "type": "other",
+      "lines": 49,
+      "executable": false,
+      "size_bytes": 784,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/razor.cshtml",
+      "type": "other",
+      "lines": 55,
+      "executable": false,
+      "size_bytes": 1462,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/razorcomponent.razor",
+      "type": "other",
+      "lines": 45,
+      "executable": false,
+      "size_bytes": 599,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/redscript.reds",
+      "type": "other",
+      "lines": 75,
+      "executable": false,
+      "size_bytes": 2181,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/renpy.rpy",
+      "type": "other",
+      "lines": 32,
+      "executable": false,
+      "size_bytes": 665,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/roc.roc",
+      "type": "other",
+      "lines": 36,
+      "executable": false,
+      "size_bytes": 593,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/ron.ron",
+      "type": "other",
+      "lines": 157,
+      "executable": false,
+      "size_bytes": 5181,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/rpmspec.spec",
+      "type": "other",
+      "lines": 42,
+      "executable": false,
+      "size_bytes": 461,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/ruby.rb",
+      "type": "ruby",
+      "lines": 20,
+      "executable": true,
+      "size_bytes": 199,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/ruby_env",
+      "type": "other",
+      "lines": 11,
+      "executable": true,
+      "size_bytes": 165,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/ruby_html.erb",
+      "type": "other",
+      "lines": 34,
+      "executable": false,
+      "size_bytes": 730,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/rust.rs",
+      "type": "rust",
+      "lines": 48,
+      "executable": true,
+      "size_bytes": 840,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/scheme.scm",
+      "type": "other",
+      "lines": 26,
+      "executable": false,
+      "size_bytes": 451,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/shaderlab.shader",
+      "type": "other",
+      "lines": 43,
+      "executable": false,
+      "size_bytes": 875,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/slang.slang",
+      "type": "other",
+      "lines": 15,
+      "executable": false,
+      "size_bytes": 275,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/slint.slint",
+      "type": "other",
+      "lines": 26,
+      "executable": false,
+      "size_bytes": 473,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/solidity.sol",
+      "type": "other",
+      "lines": 14,
+      "executable": false,
+      "size_bytes": 248,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/sql.sql",
+      "type": "other",
+      "lines": 12,
+      "executable": false,
+      "size_bytes": 337,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/srecode.srt",
+      "type": "other",
+      "lines": 37,
+      "executable": false,
+      "size_bytes": 652,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/stan.stan",
+      "type": "other",
+      "lines": 142,
+      "executable": false,
+      "size_bytes": 5873,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/stata.do",
+      "type": "other",
+      "lines": 16,
+      "executable": false,
+      "size_bytes": 251,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/stratego.str",
+      "type": "other",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 555,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/stylus.styl",
+      "type": "other",
+      "lines": 20,
+      "executable": false,
+      "size_bytes": 264,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/svelte.svelte",
+      "type": "other",
+      "lines": 41,
+      "executable": false,
+      "size_bytes": 452,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/swift.swift",
+      "type": "other",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 351,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/swig.i",
+      "type": "other",
+      "lines": 16,
+      "executable": false,
+      "size_bytes": 251,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/tact.tact",
+      "type": "other",
+      "lines": 20,
+      "executable": false,
+      "size_bytes": 366,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/templ.templ",
+      "type": "other",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 385,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/thrift.thrift",
+      "type": "other",
+      "lines": 38,
+      "executable": false,
+      "size_bytes": 832,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/tsx.tsx",
+      "type": "other",
+      "lines": 9,
+      "executable": true,
+      "size_bytes": 243,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/ttcn.ttcn3",
+      "type": "other",
+      "lines": 16,
+      "executable": false,
+      "size_bytes": 328,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/twig.twig",
+      "type": "other",
+      "lines": 16,
+      "executable": false,
+      "size_bytes": 642,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/typescript.ts",
+      "type": "typescript",
+      "lines": 33,
+      "executable": true,
+      "size_bytes": 457,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/typst.typ",
+      "type": "other",
+      "lines": 16,
+      "executable": false,
+      "size_bytes": 438,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/uiua.ua",
+      "type": "other",
+      "lines": 9,
+      "executable": false,
+      "size_bytes": 205,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/unison.u",
+      "type": "other",
+      "lines": 16,
+      "executable": false,
+      "size_bytes": 274,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/urweb.ur",
+      "type": "other",
+      "lines": 14,
+      "executable": false,
+      "size_bytes": 235,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/urweb_urp.urp",
+      "type": "other",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 64,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/urweb_urs.urs",
+      "type": "other",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 102,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/vb6_bas.bas",
+      "type": "other",
+      "lines": 12,
+      "executable": false,
+      "size_bytes": 274,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/vb6_cls.cls",
+      "type": "other",
+      "lines": 22,
+      "executable": false,
+      "size_bytes": 531,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/vb6_frm.frm",
+      "type": "other",
+      "lines": 34,
+      "executable": false,
+      "size_bytes": 861,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/vbscript.vbs",
+      "type": "other",
+      "lines": 8,
+      "executable": false,
+      "size_bytes": 141,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/velocity.vm",
+      "type": "other",
+      "lines": 11,
+      "executable": false,
+      "size_bytes": 346,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/vhdl.vhd",
+      "type": "other",
+      "lines": 34,
+      "executable": false,
+      "size_bytes": 632,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/visualbasic.vb",
+      "type": "other",
+      "lines": 7,
+      "executable": false,
+      "size_bytes": 118,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/vqe.qasm",
+      "type": "other",
+      "lines": 89,
+      "executable": false,
+      "size_bytes": 2685,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/vue.vue",
+      "type": "other",
+      "lines": 36,
+      "executable": false,
+      "size_bytes": 509,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/webassembly.wat",
+      "type": "other",
+      "lines": 10,
+      "executable": false,
+      "size_bytes": 289,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/wenyan.wy",
+      "type": "other",
+      "lines": 141,
+      "executable": false,
+      "size_bytes": 7477,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/wgsl.wgsl",
+      "type": "other",
+      "lines": 13,
+      "executable": false,
+      "size_bytes": 413,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/xsl.xsl",
+      "type": "other",
+      "lines": 13,
+      "executable": false,
+      "size_bytes": 261,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/xtend.xtend",
+      "type": "other",
+      "lines": 23,
+      "executable": false,
+      "size_bytes": 383,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/yaml.yaml",
+      "type": "yaml",
+      "lines": 34,
+      "executable": false,
+      "size_bytes": 676,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/zencode.zs",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 395,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/zig.zig",
+      "type": "other",
+      "lines": 11,
+      "executable": false,
+      "size_bytes": 233,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/data/zokrates.zok",
+      "type": "other",
+      "lines": 11,
+      "executable": false,
+      "size_bytes": 198,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/embedding/file_triggeringprincipal_frame_1.html",
+      "type": "other",
+      "lines": 27,
+      "executable": false,
+      "size_bytes": 823,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tokei.example.toml",
+      "type": "toml",
+      "lines": 8,
+      "executable": false,
+      "size_bytes": 314,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "RA1",
+      "finding_id": "finding-708bc31ed85648f58c90f17ea204d2b2",
+      "category": "Rogue Agent",
+      "pattern": "Self-Modification",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "README.md",
+        "start_line": 115,
+        "end_line": null,
+        "start_column": 10
+      },
+      "finding": "selfupdate",
+      "explanation": "Skill modifies its own code, configuration, or behavior at runtime. Self-modification enables an agent to escalate privileges, disable safety constraints, or install persistent backdoors.",
+      "remediation": "Prevent the skill from modifying its own code, SKILL.md, or configuration files. Treat skill files as read-only at runtime.",
+      "code_snippet": "# Homebrew\nbrew install tokei\n# MacPorts\nsudo port selfupdate\nsudo port install tokei\n```\n",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f76c9ecd5b9ae36fec8181519e550ec995f3023aab44e10d09868da85a5f0366",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 115,
+          "end_line": null,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "SC2",
+      "finding_id": "finding-3efdf1445a88402f92d0301d8528012a",
+      "category": "Supply Chain",
+      "pattern": "External Script Fetching",
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "tests/data/Dockerfile",
+        "start_line": 7,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "curl -sSf https://static.rust-lang.org/rustup.sh | sh",
+      "explanation": "Remote code is downloaded and executed. This bypasses code review and could introduce malicious code.",
+      "remediation": "Avoid downloading and executing remote scripts. Use trusted packages from PyPI/npm. If remote fetch is required, verify checksums and use HTTPS.",
+      "code_snippet": "\nMAINTAINER Somebody version: 2.2\n\nRUN curl -sSf https://static.rust-lang.org/rustup.sh | sh -s -- -y\n\n# this part is important\nVOLUME [\"/project\"]",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7677183e9f6263782f4508fce99d3bdfa7ca748665abda48061169680f80632f",
+      "occurrences": [
+        {
+          "file": "tests/data/Dockerfile",
+          "start_line": 7,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "finding_id": "finding-af5f02c470364a6da076fbaf9ac2f8f6",
+      "category": "Prompt Injection",
+      "pattern": "Hidden Instructions",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "tests/data/NuGet.Config",
+        "start_line": 5,
+        "end_line": 5,
+        "start_column": 4,
+        "end_column": 96
+      },
+      "finding": "<!-- defaultPushSource key works like the 'defaultPushSource' key of NuGet.Config files. -->",
+      "explanation": "Hidden instructions were detected in comments or invisible text. These could contain malicious directives. Manual review is recommended.",
+      "remediation": "Audit all comments and invisible characters. Remove any instructions that direct the agent to perform unauthorized actions. Use plain, reviewable content.",
+      "code_snippet": "\n<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<configuration>\n    <!-- defaultPushSource key works like the 'defaultPushSource' key of NuGet.Config files. -->\n    <!-- This can be used by administrators to prevent accidental publishing of packages to nuget.org. -->\n    <config>\n        <add key=\"defaultPushSource\" value=\"https://contoso.com/packages/\" />",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "399c24fd7f89734ba983a8feaa3de88c8eeaf230837c120dc0d6ba70303cb848",
+      "occurrences": [
+        {
+          "file": "tests/data/NuGet.Config",
+          "start_line": 5,
+          "end_line": 5,
+          "start_column": 4,
+          "end_column": 96
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "finding_id": "finding-32959bdc8fdf4a0db8b53b3b78ce2549",
+      "category": "Prompt Injection",
+      "pattern": "Hidden Instructions",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "tests/data/NuGet.Config",
+        "start_line": 11,
+        "end_line": 11,
+        "start_column": 4,
+        "end_column": 100
+      },
+      "finding": "<!-- Default Package Sources; works like the 'packageSources' section of NuGet.Config files. -->",
+      "explanation": "Hidden instructions were detected in comments or invisible text. These could contain malicious directives. Manual review is recommended.",
+      "remediation": "Audit all comments and invisible characters. Remove any instructions that direct the agent to perform unauthorized actions. Use plain, reviewable content.",
+      "code_snippet": "        <add key=\"defaultPushSource\" value=\"https://contoso.com/packages/\" />\n    </config>\n\n    <!-- Default Package Sources; works like the 'packageSources' section of NuGet.Config files. -->\n    <!-- This collection cannot be deleted or modified but can be disabled/enabled by users. -->\n    <packageSources>\n        <add key=\"Contoso Package Source\" value=\"https://contoso.com/packages/\" />",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a788607a7d591807a156dbb096e800c4cb7926116f9e532236da982d42a33dfe",
+      "occurrences": [
+        {
+          "file": "tests/data/NuGet.Config",
+          "start_line": 11,
+          "end_line": 11,
+          "start_column": 4,
+          "end_column": 100
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "finding_id": "finding-32806100fee54f89bf7cd4169cdde1a2",
+      "category": "Prompt Injection",
+      "pattern": "Hidden Instructions",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "tests/data/NuGet.Config",
+        "start_line": 19,
+        "end_line": 19,
+        "start_column": 4,
+        "end_column": 83
+      },
+      "finding": "<!-- Works like the 'disabledPackageSources' section of NuGet.Config files. -->",
+      "explanation": "Hidden instructions were detected in comments or invisible text. These could contain malicious directives. Manual review is recommended.",
+      "remediation": "Audit all comments and invisible characters. Remove any instructions that direct the agent to perform unauthorized actions. Use plain, reviewable content.",
+      "code_snippet": "    </packageSources>\n\n    <!-- Default Package Sources that are disabled by default. -->\n    <!-- Works like the 'disabledPackageSources' section of NuGet.Config files. -->\n    <!-- Sources cannot be modified or deleted either but can be enabled/disabled by users. -->\n    <disabledPackageSources>\n        <add key=\"nuget.org\" value=\"true\" />",
+      "intent": null,
+      "tags": [
+        "Prompt Injection"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7986e5e39cfe3946a8b90d072cfea1cbf257e676a908580764ca2305206de079",
+      "occurrences": [
+        {
+          "file": "tests/data/NuGet.Config",
+          "start_line": 19,
+          "end_line": 19,
+          "start_column": 4,
+          "end_column": 83
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-1016538a788548cd83565b9d6e94952a",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "tests/data/ksh.ksh",
+        "start_line": 5,
+        "end_line": null,
+        "start_column": 7
+      },
+      "finding": "/etc/passwd",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "# 17 lines, 11 code, 4 comments, 2 blanks\n\n# first comment\nfiles=\"/etc/passwd /etc/group /etc/hosts\"\nfor f in $files; do\n    if [ ! -f $f ]\n    then",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ac75eea6ed115d0252fb13bbb10e9c4421764d5a7612787edcde6a78569d8f88",
+      "occurrences": [
+        {
+          "file": "tests/data/ksh.ksh",
+          "start_line": 5,
+          "end_line": null,
+          "start_column": 7
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-c464b67adb19422cbe5c1c990b11fdb5",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 97,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "# Conda\nconda install -c conda-forge tokei\n# Fedora\nsudo dnf install tokei\n# FreeBSD\npkg install tokei\n# NetBSD",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 97,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-20772aa26b5249f6b808479a3c2a5b58",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 105,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "# Nix/NixOS\nnix-env -i tokei\n# OpenSUSE\nsudo zypper install tokei\n# Void Linux\nsudo xbps-install tokei\n```",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 105,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-60d18b4159454b2ebfcf57d339e1d069",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 107,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "# OpenSUSE\nsudo zypper install tokei\n# Void Linux\nsudo xbps-install tokei\n```\n\n#### macOS",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 107,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-c29d215575d24f218d6b2b07505c2555",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 115,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "# Homebrew\nbrew install tokei\n# MacPorts\nsudo port selfupdate\nsudo port install tokei\n```\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 115,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-98628c512d364d7cb2da72ca57098c9d",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 116,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "brew install tokei\n# MacPorts\nsudo port selfupdate\nsudo port install tokei\n```\n\n#### Windows",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 116,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-9d8cd9003e5b4f21be50b92237e06c6c",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker run --rm'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "README.md",
+        "start_line": 282,
+        "end_line": null
+      },
+      "finding": "docker run --rm",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "efc156300614fe5ffcf05d4db3303fe76bb02fad1f9d185be59396ae5dfd036c",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 282,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-2b9ba540d02041e1b1d24afc6e4d9788",
+      "category": "MCP Rug Pull",
+      "pattern": "Docker image referenced without tag or digest: 'docker run --rm'.",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "README.md",
+        "start_line": 287,
+        "end_line": null
+      },
+      "finding": "docker run --rm",
+      "explanation": "Docker image references without a specific tag (:latest is implicit) or digest (@sha256:...) can be silently replaced by a malicious image.",
+      "remediation": "Pin the image: image:tag or image@sha256:abc123",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "efc156300614fe5ffcf05d4db3303fe76bb02fad1f9d185be59396ae5dfd036c",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 287,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-6f51e4ca591546a687f2b3783871d1cf",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.5,
+      "location": {
+        "file": "tests/data/NuGet.Config",
+        "start_line": 15,
+        "end_line": null,
+        "start_column": 36
+      },
+      "finding": "https://api.nuget.org/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    <!-- This collection cannot be deleted or modified but can be disabled/enabled by users. -->\n    <packageSources>\n        <add key=\"Contoso Package Source\" value=\"https://contoso.com/packages/\" />\n        <add key=\"nuget.org\" value=\"https://api.nuget.org/v3/index.json\" />\n    </packageSources>\n\n    <!-- Default Package Sources that are disabled by default. -->",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3539a4f4211e2c8592f43bf90f4faee92456384756128564bc82228dcc3fe16c",
+      "occurrences": [
+        {
+          "file": "tests/data/NuGet.Config",
+          "start_line": 15,
+          "end_line": null,
+          "start_column": 36
+        }
+      ]
+    },
+    {
+      "id": "EA3",
+      "finding_id": "finding-c89d039375bc46f1bd4caa24d805cc77",
+      "category": "Excessive Agency",
+      "pattern": "Scope Creep",
+      "severity": "LOW",
+      "confidence": 0.7,
+      "location": {
+        "file": "LICENCE-MIT",
+        "start_line": 16,
+        "end_line": null,
+        "start_column": 23
+      },
+      "finding": "NOT LIMITED TO",
+      "explanation": "Skill's behavior or capabilities extend beyond its stated purpose. Scope creep allows an agent to perform actions unrelated to its documented functionality, increasing the attack surface.",
+      "remediation": "Limit the skill's scope to its documented purpose. Remove instructions that enable the agent to perform actions outside its stated functionality.",
+      "code_snippet": "all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e89530c367266aa328ed88bf9475086c891da0ff38badf80bf35bae6b13345e0",
+      "occurrences": [
+        {
+          "file": "LICENCE-MIT",
+          "start_line": 16,
+          "end_line": null,
+          "start_column": 23
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-cf13cbc2fef4418c9c101f8c016c7630",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "README.md",
+        "start_line": 282,
+        "end_line": null,
+        "start_column": 13
+      },
+      "finding": "rm -v /path/to/analyze:/src",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "\nOnce built, one can run the image with:\n```bash\ndocker run --rm -v /path/to/analyze:/src tokei .\n```\n\nOr, to simply analyze the current folder (linux):",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8f718a07e8ef19cccec6903509debef9068ff0652cc502eb7e989e3a16d046f1",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 282,
+          "end_line": null,
+          "start_column": 13
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-3de9f43053604ff89c213b516fdc5951",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "README.md",
+        "start_line": 287,
+        "end_line": null,
+        "start_column": 13
+      },
+      "finding": "rm -v $(pwd):/src",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "\nOr, to simply analyze the current folder (linux):\n```bash\ndocker run --rm -v $(pwd):/src tokei .\n```\n\n## Supported Languages",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "2dcf278bd5318867f0dc2419dec164dd060ef05f107cf830838f7adfa65dbd51",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 287,
+          "end_line": null,
+          "start_column": 13
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 261,
+    "scanned_components": 255,
+    "coverage_percent": 97.7,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 255,
+    "partially_inspected_files": 6,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "Cargo.lock",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "fuzz/Cargo.lock",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "languages.json",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "src/utils/fs.rs",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "tests/data/hex2.hex2",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "tests/data/pofile.po",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 261,
+        "completed": 261,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 1,
+        "completed": 1,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 261,
+        "completed": 261,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "degraded",
+        "planned_work": 261,
+        "completed": 258,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "degraded",
+        "planned_work": 261,
+        "completed": 258,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 261,
+        "completed": 261,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "degraded",
+        "planned_work": 261,
+        "completed": 258,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "degraded",
+        "planned_work": 261,
+        "completed": 258,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "degraded",
+        "planned_work": 261,
+        "completed": 258,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "degraded",
+        "planned_work": 261,
+        "completed": 258,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 261,
+        "completed": 261,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "degraded",
+        "planned_work": 261,
+        "completed": 258,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "degraded",
+        "planned_work": 261,
+        "completed": 258,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "degraded",
+        "planned_work": 261,
+        "completed": 258,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "degraded",
+        "planned_work": 261,
+        "completed": 258,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 261,
+        "completed": 258,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "degraded",
+        "planned_work": 261,
+        "completed": 258,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 261,
+        "completed": 255,
+        "partial": 6,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 261,
+        "completed": 261,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_agent_snooping status: degraded.",
+      "Analyzer static_patterns_anti_refusal status: degraded.",
+      "Analyzer static_patterns_deserialization status: degraded.",
+      "Analyzer static_patterns_excessive_agency status: degraded.",
+      "Analyzer static_patterns_harmful_content status: degraded.",
+      "Analyzer static_patterns_memory_poisoning status: degraded.",
+      "Analyzer static_patterns_privilege_escalation status: degraded.",
+      "Analyzer static_patterns_prompt_injection status: degraded.",
+      "Analyzer static_patterns_rogue_agent status: degraded.",
+      "Analyzer static_patterns_ssrf status: degraded.",
+      "Analyzer static_patterns_supply_chain status: degraded.",
+      "Analyzer static_patterns_system_prompt_leakage status: degraded.",
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 17,
+    "findings_after_filtering": 17,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

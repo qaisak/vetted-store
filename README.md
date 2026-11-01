@@ -20,6 +20,7 @@ The site is a single self-contained page: [`vetted-store.html`](vetted-store.htm
 | `pipeline/purpose_analyze.mjs` | The Purpose Check: production-code filter, capability detection, purpose profiles, tool extraction, peer comparison |
 | `pipeline/reviews.json` | Human reviews of every mismatch (benign reasons, and "worth knowing" notices) |
 | `pipeline/plain.json` | Hand-written plain-language line, job tags and setup level for every listing |
+| `pipeline/videos.mjs` | Collects demo videos each project links in its own README (`data/videos.json`) |
 | `pipeline/smoke.mjs` | Headless smoke test: every tab, job page, listing, install sheet and story, desktop and phone |
 | `pipeline/build.mjs` | Builds the data and writes `vetted-store.html` |
 | `data/data.json` | Fetched listings and repo data (October 31, 2026) |
@@ -52,6 +53,7 @@ node pipeline/build.mjs data/data.json pipeline/template.html vetted-store.html 
 4. **Purpose Check**: `node pipeline/purpose_analyze.mjs data/data.json <scan-root> data/purpose.json`. Listings whose source isn't
    under `<scan-root>` keep their earlier result, so you can check new listings alone.
 5. **Plain words**: add a line to `pipeline/plain.json` for every new listing (the build warns when one is missing).
+   **Videos**: `node pipeline/videos.mjs data/data.json data/videos.json`, then check each new link is a demo of the project.
 6. **Build** as above, pointing the scan-reports argument at `<scan-root>/out` or `data/scan-reports`.
 7. **Smoke test** before publishing: `node pipeline/smoke.mjs vetted-store.html` (uses the preinstalled Playwright).
 

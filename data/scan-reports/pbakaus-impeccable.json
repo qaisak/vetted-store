@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "impeccable",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\pbakaus__impeccable\\impeccable-main\\.dsh\\skills\\impeccable",
-    "scanned_at": "2026-10-31T22:55:11.605078+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/pbakaus__impeccable/impeccable-main/.dsh/skills/impeccable",
+    "scanned_at": "2026-11-01T01:48:42.084825+00:00"
   },
   "risk_assessment": {
     "score": 100,
@@ -596,7 +596,7 @@
   "issues": [
     {
       "id": "AE1",
-      "finding_id": "finding-caa6b98da5b643c89f8d0f5ba0151713",
+      "finding_id": "finding-14e0fdee9e194657ac8abc85ab4ba2e5",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -641,7 +641,7 @@
     },
     {
       "id": "AE1",
-      "finding_id": "finding-96e2ea588e9c4954a48569ff537a4bf1",
+      "finding_id": "finding-4b59ca1104e74268a9c1bb7a434ac4ee",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -686,7 +686,7 @@
     },
     {
       "id": "AE1",
-      "finding_id": "finding-e0e95e82e3e7476db77fa2018ea882ca",
+      "finding_id": "finding-af634b0d1583410385b9c334919d910b",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -731,7 +731,7 @@
     },
     {
       "id": "MP3",
-      "finding_id": "finding-74a34a6733b34440affc88fcc6e9c117",
+      "finding_id": "finding-0ea1b7f2013b422c8512637b597feb77",
       "category": "Memory Poisoning",
       "pattern": "Memory Manipulation",
       "severity": "HIGH",
@@ -763,7 +763,7 @@
     },
     {
       "id": "AR2",
-      "finding_id": "finding-f2fd79cc5d344b24b062ec52c347ff45",
+      "finding_id": "finding-9b5906120645420d87f733d2cbc2faf1",
       "category": "Anti-Refusal",
       "pattern": "Anti-Refusal Statement",
       "severity": "HIGH",
@@ -797,7 +797,7 @@
     },
     {
       "id": "AR2",
-      "finding_id": "finding-4e957b277136470e870951257e6f77b4",
+      "finding_id": "finding-9a291ef8389d4ebea7587a5e1f0521d1",
       "category": "Anti-Refusal",
       "pattern": "Anti-Refusal Statement",
       "severity": "HIGH",
@@ -831,7 +831,7 @@
     },
     {
       "id": "AS1",
-      "finding_id": "finding-2238fb734d364cfca56a1e1ba06cc851",
+      "finding_id": "finding-d4acbe23dc9c4c78955a741c5c7e79d3",
       "category": "Agent Snooping",
       "pattern": "Agent Config Directory Access",
       "severity": "HIGH",
@@ -863,7 +863,7 @@
     },
     {
       "id": "AS1",
-      "finding_id": "finding-9172ed04a81e407b85ea336753e41303",
+      "finding_id": "finding-7b822005cc5c4b16ac36c4fe56ac126c",
       "category": "Agent Snooping",
       "pattern": "Agent Config Directory Access",
       "severity": "HIGH",
@@ -895,7 +895,7 @@
     },
     {
       "id": "MP3",
-      "finding_id": "finding-46f285ad0460406ea3fbfbb08358e0b5",
+      "finding_id": "finding-7c105422aeb0448b9ceb6635f85cf0ec",
       "category": "Memory Poisoning",
       "pattern": "Memory Manipulation",
       "severity": "HIGH",
@@ -927,7 +927,7 @@
     },
     {
       "id": "AR2",
-      "finding_id": "finding-226b4e0cf9aa41f1b139921842d145e8",
+      "finding_id": "finding-fc9791f6c9824ceabf92ac5834348bac",
       "category": "Anti-Refusal",
       "pattern": "Anti-Refusal Statement",
       "severity": "HIGH",
@@ -961,7 +961,7 @@
     },
     {
       "id": "TM1",
-      "finding_id": "finding-462e312f4ae54f2f952e104b7c7c9992",
+      "finding_id": "finding-b560a5a5145345feb0c5b3fc3524d6c7",
       "category": "Tool Misuse",
       "pattern": "Tool Parameter Abuse",
       "severity": "HIGH",
@@ -993,7 +993,7 @@
     },
     {
       "id": "LP3",
-      "finding_id": "finding-444bf009f9a2450eb79855bb5705e88d",
+      "finding_id": "finding-7d1e1347a50e42ff89377da1326e644c",
       "category": "MCP Least Privilege",
       "pattern": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: network, shell.",
       "severity": "MEDIUM",
@@ -1023,7 +1023,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-832bc98c68b64bd2a116503f3d35f119",
+      "finding_id": "finding-9bc8cbdd92e04d0693f84eed698362b0",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1055,7 +1055,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-447dae9cfacf43688f6cde502c369b5c",
+      "finding_id": "finding-9a43fa934c744907bdec085f5e54b9ac",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1087,7 +1087,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-aa65c909357f48498006acb5099b118b",
+      "finding_id": "finding-fbeec0f3e3984e0f97ae3f7fdaaeb692",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1119,7 +1119,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-8309cb0194854733939de2dd89241000",
+      "finding_id": "finding-63ca10d54a504778b7c539e01949b8ef",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1151,7 +1151,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-5ff24a94fba3490b8798f5bf2676edb5",
+      "finding_id": "finding-eebfcd76d35146599d843c9f18e652b2",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1183,7 +1183,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-70005df1a80a4166ab3460db0fdf5d99",
+      "finding_id": "finding-c816e968dfdf4bbcad7e4fbf8e148f85",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1215,7 +1215,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-80066ee7b88d45bab5c0258b96260184",
+      "finding_id": "finding-0699efa8949b493487449b760e9ca092",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1247,7 +1247,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-c4286c0322a14e788160f0ddf8820028",
+      "finding_id": "finding-1f9afb92253a4cff93b5ae0d6f2b6d65",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1279,7 +1279,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-5d59f910e53841d398fda59cf257b9a4",
+      "finding_id": "finding-81c84493d6164e959e47e5758f5239d0",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1311,7 +1311,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-509497af423749b89d3f75dafb49ad99",
+      "finding_id": "finding-07119aee54bf4156b4283c68aff2e105",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1343,7 +1343,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-0e60c5581430468c83459bd0fd985839",
+      "finding_id": "finding-0fb90b7bcea14249a7b70147f37e4481",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx impeccable'.",
       "severity": "MEDIUM",
@@ -1373,7 +1373,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-fea2a8bc63ef44e8b5aef707c1684f60",
+      "finding_id": "finding-0ab5366a7ad847bc9fea49367a80a553",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx impeccable'.",
       "severity": "MEDIUM",
@@ -1403,7 +1403,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-3a2eafa5e005490c94a0078fba3f56b9",
+      "finding_id": "finding-1f0b7eed2ed946db914288326305bece",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1435,7 +1435,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-2e67c3bc5e0d42ef86d955bd474d3183",
+      "finding_id": "finding-6f08ef3e49f84e55904999f9ee108ce4",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1467,7 +1467,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-a77add3574b8470bbd5fd920468aa2f5",
+      "finding_id": "finding-1992c7a6dd5744c4b2dbf9e5167a8ebe",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1499,7 +1499,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-0a970da942f243d19c2dd04919facf43",
+      "finding_id": "finding-9bb02b34916d4f00a8b6f39ce1b44cbf",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1531,7 +1531,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-4a8e5264dd384bdab4f0c49f53f0b9bb",
+      "finding_id": "finding-064f7c64f7d5448a83fdd15c2ac9f98c",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -1563,7 +1563,7 @@
     },
     {
       "id": "MP1",
-      "finding_id": "finding-219e98a01ab14ca3bcbaefe73a38938c",
+      "finding_id": "finding-644d421771b6495ab31c19753426ef3d",
       "category": "Memory Poisoning",
       "pattern": "Persistent Context Injection",
       "severity": "MEDIUM",
@@ -1595,7 +1595,7 @@
     },
     {
       "id": "SSRF2",
-      "finding_id": "finding-45493712e8894ea49a768ea96d2c0af0",
+      "finding_id": "finding-eaddf8b75eba4ceeb82e81d76f2afe7c",
       "category": "Server-Side Request Forgery",
       "pattern": "Internal Network Request",
       "severity": "MEDIUM",
@@ -1627,7 +1627,7 @@
     },
     {
       "id": "SSRF2",
-      "finding_id": "finding-e8a61920fa6040aeb07ea660b3562438",
+      "finding_id": "finding-55e4c02f4af542f491479719e1ce4aaf",
       "category": "Server-Side Request Forgery",
       "pattern": "Internal Network Request",
       "severity": "MEDIUM",
@@ -1659,7 +1659,7 @@
     },
     {
       "id": "SSRF2",
-      "finding_id": "finding-b23a630dd8e346d58c2a474477038980",
+      "finding_id": "finding-c70b258c4a9c4863bef0c82070c0f50e",
       "category": "Server-Side Request Forgery",
       "pattern": "Internal Network Request",
       "severity": "MEDIUM",
@@ -1691,7 +1691,7 @@
     },
     {
       "id": "SSRF2",
-      "finding_id": "finding-72a621490830493db4c8f063567db037",
+      "finding_id": "finding-1b2bd6abcbb34691b38501abfc342936",
       "category": "Server-Side Request Forgery",
       "pattern": "Internal Network Request",
       "severity": "MEDIUM",
@@ -1723,7 +1723,7 @@
     },
     {
       "id": "SSRF2",
-      "finding_id": "finding-d6949f301dd34cc2b11920a1fa33c995",
+      "finding_id": "finding-1099668a3e3844ccbd2104149133deaf",
       "category": "Server-Side Request Forgery",
       "pattern": "Internal Network Request",
       "severity": "MEDIUM",
@@ -1755,7 +1755,7 @@
     },
     {
       "id": "SSRF2",
-      "finding_id": "finding-bb7804e52fc14911bdf0636401ebf37f",
+      "finding_id": "finding-8cd587410b854f468ab9ecb549e348a5",
       "category": "Server-Side Request Forgery",
       "pattern": "Internal Network Request",
       "severity": "MEDIUM",
@@ -1787,7 +1787,7 @@
     },
     {
       "id": "SSRF2",
-      "finding_id": "finding-8674bb6035084608aa218ee7d0f2ce7c",
+      "finding_id": "finding-e7ffa6d2363f4d63a1603b337cf72522",
       "category": "Server-Side Request Forgery",
       "pattern": "Internal Network Request",
       "severity": "MEDIUM",
@@ -1819,7 +1819,7 @@
     },
     {
       "id": "SSRF2",
-      "finding_id": "finding-0c23e77e475f4a07b53cb6703ca79a91",
+      "finding_id": "finding-c0b34cb5c8454d488742d9b4cc197c88",
       "category": "Server-Side Request Forgery",
       "pattern": "Internal Network Request",
       "severity": "MEDIUM",
@@ -1851,7 +1851,7 @@
     },
     {
       "id": "SSRF2",
-      "finding_id": "finding-90729a8bd2ea4cd5ad6e1b1849c3fc89",
+      "finding_id": "finding-dd4a66d8fffe4d709cb862e05f8a5f14",
       "category": "Server-Side Request Forgery",
       "pattern": "Internal Network Request",
       "severity": "MEDIUM",
@@ -1883,7 +1883,7 @@
     },
     {
       "id": "SSRF2",
-      "finding_id": "finding-cd770ac57a654045a7ded1394766c202",
+      "finding_id": "finding-35409e58de274842b7c4416d1f2a8e43",
       "category": "Server-Side Request Forgery",
       "pattern": "Internal Network Request",
       "severity": "MEDIUM",
@@ -1915,7 +1915,7 @@
     },
     {
       "id": "SSRF2",
-      "finding_id": "finding-deefa25870744f819cfd730c33509168",
+      "finding_id": "finding-3a5c1f692eb643c8a5d5fcd14ffd4623",
       "category": "Server-Side Request Forgery",
       "pattern": "Internal Network Request",
       "severity": "MEDIUM",
@@ -1947,7 +1947,7 @@
     },
     {
       "id": "SSRF2",
-      "finding_id": "finding-7a40511447ea4901bbb4da464c9f0709",
+      "finding_id": "finding-473b51a58e844e05b28beb64d47a6849",
       "category": "Server-Side Request Forgery",
       "pattern": "Internal Network Request",
       "severity": "MEDIUM",
@@ -1979,7 +1979,7 @@
     },
     {
       "id": "SSRF2",
-      "finding_id": "finding-a52d0d8fc52441389aaf62cd77fa5a37",
+      "finding_id": "finding-503f407daf6447e7b13a503ee500b315",
       "category": "Server-Side Request Forgery",
       "pattern": "Internal Network Request",
       "severity": "MEDIUM",
@@ -2011,7 +2011,7 @@
     },
     {
       "id": "SSRF2",
-      "finding_id": "finding-b3eb0efcaa5b4bf99cf78696915ecfe6",
+      "finding_id": "finding-c87fededd8c9490ebb6cd91a0dcd5201",
       "category": "Server-Side Request Forgery",
       "pattern": "Internal Network Request",
       "severity": "MEDIUM",
@@ -2043,7 +2043,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-b9c04a3fb8ba4fd5a5e8ad2f847c880e",
+      "finding_id": "finding-ee3da34586c4450ba4b0d7e944d35b2a",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -2075,7 +2075,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-013e6f5d0b3e4bccac3e79b5293fb73e",
+      "finding_id": "finding-29449d84a8f342cfb7014121c2b477d1",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",

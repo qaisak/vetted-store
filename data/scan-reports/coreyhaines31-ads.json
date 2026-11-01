@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "ads",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\coreyhaines31__marketingskills\\marketingskills-main\\skills\\ads",
-    "scanned_at": "2026-10-31T22:55:28.897773+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/coreyhaines31__marketingskills/marketingskills-main/skills/ads",
+    "scanned_at": "2026-11-01T01:49:55.640275+00:00"
   },
   "risk_assessment": {
     "score": 78,
@@ -196,7 +196,7 @@
   "issues": [
     {
       "id": "P1",
-      "finding_id": "finding-1dce161e81c64f669bd789cae937e52f",
+      "finding_id": "finding-d982788f6a954fc7bcc5b58a1863be9b",
       "category": "Prompt Injection",
       "pattern": "Instruction Override",
       "severity": "HIGH",
@@ -230,7 +230,7 @@
     },
     {
       "id": "MP3",
-      "finding_id": "finding-7c58643700b74d0ba07aea0496a7af6b",
+      "finding_id": "finding-c83d0684e27a45d98e7bda7a7b93bfa6",
       "category": "Memory Poisoning",
       "pattern": "Memory Manipulation",
       "severity": "HIGH",
@@ -262,7 +262,7 @@
     },
     {
       "id": "MP3",
-      "finding_id": "finding-5e4a139f278840edae6325dc0b5af83d",
+      "finding_id": "finding-ad61684130ad4f9ba945df4e82ddd72d",
       "category": "Memory Poisoning",
       "pattern": "Memory Manipulation",
       "severity": "HIGH",
@@ -294,7 +294,7 @@
     },
     {
       "id": "MP3",
-      "finding_id": "finding-04c38c0deb2441f9b2610d88ab5208da",
+      "finding_id": "finding-bcbf63db81bc406c8d07cd1e12c70e38",
       "category": "Memory Poisoning",
       "pattern": "Memory Manipulation",
       "severity": "HIGH",
@@ -326,7 +326,7 @@
     },
     {
       "id": "AR2",
-      "finding_id": "finding-cdd20936f61548dc911174433ac4b8bc",
+      "finding_id": "finding-11fffa3fe10d49e297ca66e59921f7fc",
       "category": "Anti-Refusal",
       "pattern": "Anti-Refusal Statement",
       "severity": "HIGH",

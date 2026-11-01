@@ -1,0 +1,4018 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/vivekVells__mcp-pandoc/mcp-pandoc-main",
+    "scanned_at": "2026-11-01T01:28:57.267149+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": ".github/ISSUE_TEMPLATE/bug_report.yml",
+      "type": "yaml",
+      "lines": 97,
+      "executable": false,
+      "size_bytes": 2810,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/ISSUE_TEMPLATE/config.yml",
+      "type": "yaml",
+      "lines": 8,
+      "executable": false,
+      "size_bytes": 386,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/pull_request_template.md",
+      "type": "markdown",
+      "lines": 65,
+      "executable": false,
+      "size_bytes": 1989,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "type": "yaml",
+      "lines": 102,
+      "executable": false,
+      "size_bytes": 2691,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 14,
+      "executable": false,
+      "size_bytes": 204,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".pre-commit-config.yaml",
+      "type": "yaml",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 363,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".python-version",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 5,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".yamllint.yaml",
+      "type": "yaml",
+      "lines": 20,
+      "executable": false,
+      "size_bytes": 280,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "AGENTS.md",
+      "type": "markdown",
+      "lines": 78,
+      "executable": false,
+      "size_bytes": 4178,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CHEATSHEET.md",
+      "type": "markdown",
+      "lines": 261,
+      "executable": false,
+      "size_bytes": 13882,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CLAUDE.md",
+      "type": "markdown",
+      "lines": 706,
+      "executable": false,
+      "size_bytes": 28061,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "type": "markdown",
+      "lines": 264,
+      "executable": false,
+      "size_bytes": 9932,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Dockerfile",
+      "type": "other",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 575,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1069,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "MCP_LOCAL_VALIDATION.md",
+      "type": "markdown",
+      "lines": 190,
+      "executable": false,
+      "size_bytes": 6562,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 435,
+      "executable": false,
+      "size_bytes": 15917,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "demo/convert-contents-tool.png",
+      "type": "other",
+      "lines": 3903,
+      "executable": false,
+      "size_bytes": 161851,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "demo/v1-demo-markdown-text-and-html.png",
+      "type": "other",
+      "lines": 16096,
+      "executable": false,
+      "size_bytes": 644827,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "demo/v1-demo-md-to-html-attached.png",
+      "type": "other",
+      "lines": 21412,
+      "executable": false,
+      "size_bytes": 823912,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "docs/audits/2026-08-agent-workflow-audit.md",
+      "type": "markdown",
+      "lines": 316,
+      "executable": false,
+      "size_bytes": 20051,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "examples/defaults/academic-pdf.yaml",
+      "type": "yaml",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 285,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "examples/defaults/basic-html.yaml",
+      "type": "yaml",
+      "lines": 10,
+      "executable": false,
+      "size_bytes": 241,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "pyproject.toml",
+      "type": "toml",
+      "lines": 44,
+      "executable": false,
+      "size_bytes": 974,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "smithery.yaml",
+      "type": "yaml",
+      "lines": 22,
+      "executable": false,
+      "size_bytes": 723,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/mcp_pandoc/__init__.py",
+      "type": "python",
+      "lines": 12,
+      "executable": true,
+      "size_bytes": 249,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/mcp_pandoc/server.py",
+      "type": "python",
+      "lines": 562,
+      "executable": true,
+      "size_bytes": 26079,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "testing/defaults/academic-pdf.yaml",
+      "type": "yaml",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 285,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "testing/defaults/basic-html.yaml",
+      "type": "yaml",
+      "lines": 10,
+      "executable": false,
+      "size_bytes": 241,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "testing/defaults/pdf_defaults.yaml",
+      "type": "yaml",
+      "lines": 11,
+      "executable": false,
+      "size_bytes": 206,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "testing/input/test.html",
+      "type": "other",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 432,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "testing/input/test.md",
+      "type": "markdown",
+      "lines": 34,
+      "executable": false,
+      "size_bytes": 670,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "testing/input/test.txt",
+      "type": "text",
+      "lines": 12,
+      "executable": false,
+      "size_bytes": 260,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "testing/output/test_output.docx",
+      "type": "docx",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 10787,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "testing/output/test_output.html",
+      "type": "other",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 104,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "testing/output/test_output.pdf",
+      "type": "other",
+      "lines": 328,
+      "executable": false,
+      "size_bytes": 10914,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "testing/test_defaults.yaml",
+      "type": "yaml",
+      "lines": 10,
+      "executable": false,
+      "size_bytes": 180,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/test.docx",
+      "type": "docx",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 10379,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/test.epub",
+      "type": "zip",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 4942,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/test.html",
+      "type": "other",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 74,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/test.ipynb",
+      "type": "other",
+      "lines": 15,
+      "executable": false,
+      "size_bytes": 211,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/test.md",
+      "type": "markdown",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 72,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/test.odt",
+      "type": "zip",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 7105,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/test.rst",
+      "type": "other",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 73,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/test.tex",
+      "type": "other",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 73,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/test.txt",
+      "type": "text",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 73,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/output/test.docx",
+      "type": "docx",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 10399,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/output/test.epub",
+      "type": "zip",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 4968,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/output/test.html",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 49,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/output/test.ipynb",
+      "type": "other",
+      "lines": 15,
+      "executable": false,
+      "size_bytes": 238,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/output/test.md",
+      "type": "markdown",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 18,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/output/test.odt",
+      "type": "zip",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 7187,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/output/test.pdf",
+      "type": "other",
+      "lines": 1376,
+      "executable": false,
+      "size_bytes": 50019,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/output/test.pptx",
+      "type": "pptx",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 27586,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/output/test.rst",
+      "type": "other",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 10,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/output/test.tex",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 88,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/output/test.txt",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 5,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_advanced_features.py",
+      "type": "python",
+      "lines": 860,
+      "executable": true,
+      "size_bytes": 31522,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_conversions.py",
+      "type": "python",
+      "lines": 76,
+      "executable": true,
+      "size_bytes": 3335,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_server_startup.py",
+      "type": "python",
+      "lines": 85,
+      "executable": true,
+      "size_bytes": 3292,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "uv.lock",
+      "type": "other",
+      "lines": 1032,
+      "executable": false,
+      "size_bytes": 161798,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "testing/output/test_output.docx!/[Content_Types].xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 1933,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "testing/output/test_output.docx",
+      "nested_path": "[Content_Types].xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "testing/output/test_output.docx!/_rels/.rels",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 722,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "testing/output/test_output.docx",
+      "nested_path": "_rels/.rels",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "testing/output/test_output.docx!/docProps/app.xml",
+      "type": "xml",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 724,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "testing/output/test_output.docx",
+      "nested_path": "docProps/app.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "testing/output/test_output.docx!/docProps/core.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 583,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "testing/output/test_output.docx",
+      "nested_path": "docProps/core.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "testing/output/test_output.docx!/docProps/custom.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 212,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "testing/output/test_output.docx",
+      "nested_path": "docProps/custom.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "testing/output/test_output.docx!/word/_rels/document.xml.rels",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 1203,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "testing/output/test_output.docx",
+      "nested_path": "word/_rels/document.xml.rels",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "testing/output/test_output.docx!/word/_rels/footnotes.xml.rels",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 124,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "testing/output/test_output.docx",
+      "nested_path": "word/_rels/footnotes.xml.rels",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "testing/output/test_output.docx!/word/comments.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 625,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "testing/output/test_output.docx",
+      "nested_path": "word/comments.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "testing/output/test_output.docx!/word/document.xml",
+      "type": "xml",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 2005,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "testing/output/test_output.docx",
+      "nested_path": "word/document.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "testing/output/test_output.docx!/word/fontTable.xml",
+      "type": "xml",
+      "lines": 52,
+      "executable": false,
+      "size_bytes": 2324,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "testing/output/test_output.docx",
+      "nested_path": "word/fontTable.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "testing/output/test_output.docx!/word/footnotes.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 843,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "testing/output/test_output.docx",
+      "nested_path": "word/footnotes.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "testing/output/test_output.docx!/word/numbering.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 4178,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "testing/output/test_output.docx",
+      "nested_path": "word/numbering.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "testing/output/test_output.docx!/word/settings.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 1320,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "testing/output/test_output.docx",
+      "nested_path": "word/settings.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "testing/output/test_output.docx!/word/styles.xml",
+      "type": "xml",
+      "lines": 659,
+      "executable": false,
+      "size_bytes": 27245,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "testing/output/test_output.docx",
+      "nested_path": "word/styles.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "testing/output/test_output.docx!/word/theme/theme1.xml",
+      "type": "xml",
+      "lines": 293,
+      "executable": false,
+      "size_bytes": 11370,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "testing/output/test_output.docx",
+      "nested_path": "word/theme/theme1.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "testing/output/test_output.docx!/word/webSettings.xml",
+      "type": "xml",
+      "lines": 5,
+      "executable": false,
+      "size_bytes": 199,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "testing/output/test_output.docx",
+      "nested_path": "word/webSettings.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.docx!/[Content_Types].xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 1933,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.docx",
+      "nested_path": "[Content_Types].xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.docx!/_rels/.rels",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 722,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.docx",
+      "nested_path": "_rels/.rels",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.docx!/docProps/app.xml",
+      "type": "xml",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 724,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.docx",
+      "nested_path": "docProps/app.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.docx!/docProps/core.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 583,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.docx",
+      "nested_path": "docProps/core.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.docx!/docProps/custom.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 212,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.docx",
+      "nested_path": "docProps/custom.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.docx!/word/_rels/document.xml.rels",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 1203,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.docx",
+      "nested_path": "word/_rels/document.xml.rels",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.docx!/word/_rels/footnotes.xml.rels",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 124,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.docx",
+      "nested_path": "word/_rels/footnotes.xml.rels",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.docx!/word/comments.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 625,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.docx",
+      "nested_path": "word/comments.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.docx!/word/document.xml",
+      "type": "xml",
+      "lines": 9,
+      "executable": false,
+      "size_bytes": 864,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.docx",
+      "nested_path": "word/document.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.docx!/word/fontTable.xml",
+      "type": "xml",
+      "lines": 52,
+      "executable": false,
+      "size_bytes": 2324,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.docx",
+      "nested_path": "word/fontTable.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.docx!/word/footnotes.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 843,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.docx",
+      "nested_path": "word/footnotes.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.docx!/word/numbering.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 1701,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.docx",
+      "nested_path": "word/numbering.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.docx!/word/settings.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 1320,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.docx",
+      "nested_path": "word/settings.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.docx!/word/styles.xml",
+      "type": "xml",
+      "lines": 659,
+      "executable": false,
+      "size_bytes": 27245,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.docx",
+      "nested_path": "word/styles.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.docx!/word/theme/theme1.xml",
+      "type": "xml",
+      "lines": 293,
+      "executable": false,
+      "size_bytes": 11370,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.docx",
+      "nested_path": "word/theme/theme1.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.docx!/word/webSettings.xml",
+      "type": "xml",
+      "lines": 5,
+      "executable": false,
+      "size_bytes": 199,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.docx",
+      "nested_path": "word/webSettings.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.epub!/EPUB/content.opf",
+      "type": "text",
+      "lines": 30,
+      "executable": false,
+      "size_bytes": 1753,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.epub",
+      "nested_path": "EPUB/content.opf",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.epub!/EPUB/nav.xhtml",
+      "type": "text",
+      "lines": 22,
+      "executable": false,
+      "size_bytes": 762,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.epub",
+      "nested_path": "EPUB/nav.xhtml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.epub!/EPUB/styles/stylesheet1.css",
+      "type": "text",
+      "lines": 221,
+      "executable": false,
+      "size_bytes": 3842,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.epub",
+      "nested_path": "EPUB/styles/stylesheet1.css",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.epub!/EPUB/text/ch001.xhtml",
+      "type": "text",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 491,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.epub",
+      "nested_path": "EPUB/text/ch001.xhtml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.epub!/EPUB/text/title_page.xhtml",
+      "type": "text",
+      "lines": 16,
+      "executable": false,
+      "size_bytes": 490,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.epub",
+      "nested_path": "EPUB/text/title_page.xhtml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.epub!/EPUB/toc.ncx",
+      "type": "text",
+      "lines": 26,
+      "executable": false,
+      "size_bytes": 740,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.epub",
+      "nested_path": "EPUB/toc.ncx",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.epub!/META-INF/com.apple.ibooks.display-options.xml",
+      "type": "xml",
+      "lines": 6,
+      "executable": false,
+      "size_bytes": 161,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.epub",
+      "nested_path": "META-INF/com.apple.ibooks.display-options.xml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.epub!/META-INF/container.xml",
+      "type": "xml",
+      "lines": 6,
+      "executable": false,
+      "size_bytes": 252,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.epub",
+      "nested_path": "META-INF/container.xml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.epub!/mimetype",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 20,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.epub",
+      "nested_path": "mimetype",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.odt!/META-INF/manifest.xml",
+      "type": "xml",
+      "lines": 8,
+      "executable": false,
+      "size_bytes": 693,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.odt",
+      "nested_path": "META-INF/manifest.xml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.odt!/content.xml",
+      "type": "xml",
+      "lines": 15,
+      "executable": false,
+      "size_bytes": 2331,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.odt",
+      "nested_path": "content.xml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.odt!/manifest.rdf",
+      "type": "text",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 899,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.odt",
+      "nested_path": "manifest.rdf",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.odt!/meta.xml",
+      "type": "xml",
+      "lines": 14,
+      "executable": false,
+      "size_bytes": 812,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.odt",
+      "nested_path": "meta.xml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.odt!/mimetype",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 39,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.odt",
+      "nested_path": "mimetype",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/fixtures/test.odt!/styles.xml",
+      "type": "xml",
+      "lines": 607,
+      "executable": false,
+      "size_bytes": 57355,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/fixtures/test.odt",
+      "nested_path": "styles.xml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/output/test.docx!/[Content_Types].xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 1933,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.docx",
+      "nested_path": "[Content_Types].xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/output/test.docx!/_rels/.rels",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 722,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.docx",
+      "nested_path": "_rels/.rels",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/output/test.docx!/docProps/app.xml",
+      "type": "xml",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 724,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.docx",
+      "nested_path": "docProps/app.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/output/test.docx!/docProps/core.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 583,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.docx",
+      "nested_path": "docProps/core.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/output/test.docx!/docProps/custom.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 212,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.docx",
+      "nested_path": "docProps/custom.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/output/test.docx!/word/_rels/document.xml.rels",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 1203,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.docx",
+      "nested_path": "word/_rels/document.xml.rels",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/output/test.docx!/word/_rels/footnotes.xml.rels",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 124,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.docx",
+      "nested_path": "word/_rels/footnotes.xml.rels",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/output/test.docx!/word/comments.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 625,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.docx",
+      "nested_path": "word/comments.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/output/test.docx!/word/document.xml",
+      "type": "xml",
+      "lines": 9,
+      "executable": false,
+      "size_bytes": 936,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.docx",
+      "nested_path": "word/document.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/output/test.docx!/word/fontTable.xml",
+      "type": "xml",
+      "lines": 52,
+      "executable": false,
+      "size_bytes": 2324,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.docx",
+      "nested_path": "word/fontTable.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/output/test.docx!/word/footnotes.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 843,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.docx",
+      "nested_path": "word/footnotes.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/output/test.docx!/word/numbering.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 1701,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.docx",
+      "nested_path": "word/numbering.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/output/test.docx!/word/settings.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 1320,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.docx",
+      "nested_path": "word/settings.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/output/test.docx!/word/styles.xml",
+      "type": "xml",
+      "lines": 659,
+      "executable": false,
+      "size_bytes": 27245,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.docx",
+      "nested_path": "word/styles.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/output/test.docx!/word/theme/theme1.xml",
+      "type": "xml",
+      "lines": 293,
+      "executable": false,
+      "size_bytes": 11370,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.docx",
+      "nested_path": "word/theme/theme1.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/output/test.docx!/word/webSettings.xml",
+      "type": "xml",
+      "lines": 5,
+      "executable": false,
+      "size_bytes": 199,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.docx",
+      "nested_path": "word/webSettings.xml",
+      "container_type": "docx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "docx"
+      ]
+    },
+    {
+      "path": "tests/output/test.epub!/EPUB/content.opf",
+      "type": "text",
+      "lines": 30,
+      "executable": false,
+      "size_bytes": 1753,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.epub",
+      "nested_path": "EPUB/content.opf",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/output/test.epub!/EPUB/nav.xhtml",
+      "type": "text",
+      "lines": 22,
+      "executable": false,
+      "size_bytes": 785,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.epub",
+      "nested_path": "EPUB/nav.xhtml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/output/test.epub!/EPUB/styles/stylesheet1.css",
+      "type": "text",
+      "lines": 221,
+      "executable": false,
+      "size_bytes": 3842,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.epub",
+      "nested_path": "EPUB/styles/stylesheet1.css",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/output/test.epub!/EPUB/text/ch001.xhtml",
+      "type": "text",
+      "lines": 17,
+      "executable": false,
+      "size_bytes": 516,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.epub",
+      "nested_path": "EPUB/text/ch001.xhtml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/output/test.epub!/EPUB/text/title_page.xhtml",
+      "type": "text",
+      "lines": 16,
+      "executable": false,
+      "size_bytes": 490,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.epub",
+      "nested_path": "EPUB/text/title_page.xhtml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/output/test.epub!/EPUB/toc.ncx",
+      "type": "text",
+      "lines": 26,
+      "executable": false,
+      "size_bytes": 740,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.epub",
+      "nested_path": "EPUB/toc.ncx",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/output/test.epub!/META-INF/com.apple.ibooks.display-options.xml",
+      "type": "xml",
+      "lines": 6,
+      "executable": false,
+      "size_bytes": 161,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.epub",
+      "nested_path": "META-INF/com.apple.ibooks.display-options.xml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/output/test.epub!/META-INF/container.xml",
+      "type": "xml",
+      "lines": 6,
+      "executable": false,
+      "size_bytes": 252,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.epub",
+      "nested_path": "META-INF/container.xml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/output/test.epub!/mimetype",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 20,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.epub",
+      "nested_path": "mimetype",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/output/test.odt!/META-INF/manifest.xml",
+      "type": "xml",
+      "lines": 8,
+      "executable": false,
+      "size_bytes": 693,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.odt",
+      "nested_path": "META-INF/manifest.xml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/output/test.odt!/content.xml",
+      "type": "xml",
+      "lines": 15,
+      "executable": false,
+      "size_bytes": 2412,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.odt",
+      "nested_path": "content.xml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/output/test.odt!/manifest.rdf",
+      "type": "text",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 899,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.odt",
+      "nested_path": "manifest.rdf",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/output/test.odt!/meta.xml",
+      "type": "xml",
+      "lines": 15,
+      "executable": false,
+      "size_bytes": 901,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.odt",
+      "nested_path": "meta.xml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/output/test.odt!/mimetype",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 39,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.odt",
+      "nested_path": "mimetype",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/output/test.odt!/styles.xml",
+      "type": "xml",
+      "lines": 607,
+      "executable": false,
+      "size_bytes": 57355,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.odt",
+      "nested_path": "styles.xml",
+      "container_type": "zip",
+      "container_depth": 1,
+      "container_ancestry": [
+        "zip"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/[Content_Types].xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 3334,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "[Content_Types].xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/_rels/.rels",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 727,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "_rels/.rels",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/docProps/app.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 1391,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "docProps/app.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/docProps/core.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 583,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "docProps/core.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/docProps/custom.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 212,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "docProps/custom.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/_rels/presentation.xml.rels",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 963,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/_rels/presentation.xml.rels",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/presProps.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 814,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/presProps.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/presentation.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 3675,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/presentation.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/_rels/slideLayout1.xml.rels",
+      "type": "text",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 311,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/_rels/slideLayout1.xml.rels",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/_rels/slideLayout10.xml.rels",
+      "type": "text",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 311,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/_rels/slideLayout10.xml.rels",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/_rels/slideLayout11.xml.rels",
+      "type": "text",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 311,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/_rels/slideLayout11.xml.rels",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/_rels/slideLayout2.xml.rels",
+      "type": "text",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 311,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/_rels/slideLayout2.xml.rels",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/_rels/slideLayout3.xml.rels",
+      "type": "text",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 311,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/_rels/slideLayout3.xml.rels",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/_rels/slideLayout4.xml.rels",
+      "type": "text",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 311,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/_rels/slideLayout4.xml.rels",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/_rels/slideLayout5.xml.rels",
+      "type": "text",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 311,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/_rels/slideLayout5.xml.rels",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/_rels/slideLayout6.xml.rels",
+      "type": "text",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 311,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/_rels/slideLayout6.xml.rels",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/_rels/slideLayout7.xml.rels",
+      "type": "text",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 311,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/_rels/slideLayout7.xml.rels",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/_rels/slideLayout8.xml.rels",
+      "type": "text",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 311,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/_rels/slideLayout8.xml.rels",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/_rels/slideLayout9.xml.rels",
+      "type": "text",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 311,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/_rels/slideLayout9.xml.rels",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/slideLayout1.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 4275,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/slideLayout1.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/slideLayout10.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 2886,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/slideLayout10.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/slideLayout11.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 3111,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/slideLayout11.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/slideLayout2.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 2831,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/slideLayout2.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/slideLayout3.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 4387,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/slideLayout3.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/slideLayout4.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 4485,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/slideLayout4.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/slideLayout5.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 6970,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/slideLayout5.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/slideLayout6.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 2192,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/slideLayout6.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/slideLayout7.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 1895,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/slideLayout7.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/slideLayout8.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 4652,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/slideLayout8.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideLayouts/slideLayout9.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 4601,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideLayouts/slideLayout9.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideMasters/_rels/slideMaster1.xml.rels",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 1984,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideMasters/_rels/slideMaster1.xml.rels",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slideMasters/slideMaster1.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 12012,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slideMasters/slideMaster1.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slides/_rels/slide1.xml.rels",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 293,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slides/_rels/slide1.xml.rels",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/slides/slide1.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 913,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/slides/slide1.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/tableStyles.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 182,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/tableStyles.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/theme/theme1.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 7655,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/theme/theme1.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/theme/theme2.xml",
+      "type": "xml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 6807,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/theme/theme2.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    },
+    {
+      "path": "tests/output/test.pptx!/ppt/viewProps.xml",
+      "type": "xml",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 1036,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null,
+      "outer_path": "tests/output/test.pptx",
+      "nested_path": "ppt/viewProps.xml",
+      "container_type": "pptx",
+      "container_depth": 1,
+      "container_ancestry": [
+        "pptx"
+      ]
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "TM2",
+      "finding_id": "finding-eff6bd5780ca4c2da82a89f350a37a25",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": ".github/workflows/ci.yml",
+        "start_line": 66,
+        "end_line": null,
+        "start_column": 31
+      },
+      "finding": "&& sudo",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "    # so we install it on Linux only rather than pay the cost on every runner.\n    - name: Install TeX Live (Linux only)\n      if: runner.os == 'Linux'\n      run: sudo apt-get update && sudo apt-get install -y texlive-xetex\n\n    - name: Install uv\n      run: pip install uv",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d54d4fa72a85501965b136126c5daeba7ca262314088bebfb309c2d7804c3dda",
+      "occurrences": [
+        {
+          "file": ".github/workflows/ci.yml",
+          "start_line": 66,
+          "end_line": null,
+          "start_column": 31
+        }
+      ]
+    },
+    {
+      "id": "AR2",
+      "finding_id": "finding-91bd1552b7a741d8855d2c5c05d5ff19",
+      "category": "Anti-Refusal",
+      "pattern": "Anti-Refusal Statement",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "docs/audits/2026-08-agent-workflow-audit.md",
+        "start_line": 157,
+        "end_line": 157,
+        "start_column": 105,
+        "end_column": 115
+      },
+      "finding": "no warning",
+      "explanation": "Skill instructs the agent to omit warnings, disclaimers, or ethical commentary. Stripping safety caveats hides risk from the user and is a common jailbreak preamble.",
+      "remediation": "Remove instructions that suppress warnings, disclaimers, or ethical commentary. Let the agent surface safety-relevant caveats to the user.",
+      "code_snippet": "\n`--extract-media` is not exposed and is reachable only through a `defaults_file`.\n\n**Impact.** An agent converting an inbound Word document receives broken image links **with no error and no warning**. It cannot detect that content is missing, so it reasons over an incomplete document and does not know it.\n\n**Evidence gap, from review.** This was reproduced with a synthetic one-pixel PNG embedded in a generated docx. No representative fixture is committed, so the result cannot be independently re-run. A real-world docx fixture should be added before designing the fix.\n",
+      "intent": null,
+      "tags": [
+        "Anti-Refusal"
+      ],
+      "evidence": {},
+      "match_fingerprint": "449e47b25897541aa26f8824417d1280ef58d2d29e5e3ba95502143b7207c9ec",
+      "occurrences": [
+        {
+          "file": "docs/audits/2026-08-agent-workflow-audit.md",
+          "start_line": 157,
+          "end_line": 157,
+          "start_column": 105,
+          "end_column": 115
+        }
+      ]
+    },
+    {
+      "id": "AR2",
+      "finding_id": "finding-99677c39922f414fb292ec8bb6488cb2",
+      "category": "Anti-Refusal",
+      "pattern": "Anti-Refusal Statement",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "src/mcp_pandoc/server.py",
+        "start_line": 231,
+        "end_line": 231,
+        "start_column": 48,
+        "end_column": 58
+      },
+      "finding": "no warning",
+      "explanation": "Skill instructs the agent to omit warnings, disclaimers, or ethical commentary. Stripping safety caveats hides risk from the user and is a common jailbreak preamble.",
+      "remediation": "Remove instructions that suppress warnings, disclaimers, or ethical commentary. Let the agent surface safety-relevant caveats to the user.",
+      "code_snippet": "\n        # Pandoc does not verify that the reference document matches the writer. A\n        # mismatch is silently ignored for docx output, and produces an unreadable\n        # file for odt output. Both exit 0 with no warning, so we reject it here.\n        expected_extension = f\".{output_format}\"\n        actual_extension = os.path.splitext(reference_doc)[1].lower()\n        if actual_extension != expected_extension:",
+      "intent": null,
+      "tags": [
+        "Anti-Refusal"
+      ],
+      "evidence": {},
+      "match_fingerprint": "449e47b25897541aa26f8824417d1280ef58d2d29e5e3ba95502143b7207c9ec",
+      "occurrences": [
+        {
+          "file": "src/mcp_pandoc/server.py",
+          "start_line": 231,
+          "end_line": 231,
+          "start_column": 48,
+          "end_column": 58
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "finding_id": "finding-e1d9cd68b5a64464aff45302775b640e",
+      "category": "Data Exfiltration",
+      "pattern": "Env Variable Harvesting",
+      "severity": "HIGH",
+      "confidence": 0.6,
+      "location": {
+        "file": "src/mcp_pandoc/server.py",
+        "start_line": 386,
+        "end_line": 386,
+        "start_column": 14
+      },
+      "finding": "os.environ.copy()",
+      "explanation": "Code enumerates, copies, or searches environment variables for secrets. Bulk environment access can collect credentials unrelated to the skill's stated purpose.",
+      "remediation": "Read only explicitly required environment variables by name. Avoid enumerating or copying the full environment, and never log or transmit credentials to untrusted destinations.",
+      "code_snippet": "            extra_args.extend([\"--defaults\", defaults_file_abs])\n\n        # Set environment variables for filters\n        env = os.environ.copy()\n        if output_file:\n            # Set PANDOC_OUTPUT_DIR to the directory of the output file\n            output_dir = os.path.dirname(os.path.abspath(output_file))",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "23b3d476caf63d859a2a3bade37548b7986b00b138b45df1b6a49782c4e2984b",
+      "occurrences": [
+        {
+          "file": "src/mcp_pandoc/server.py",
+          "start_line": 386,
+          "end_line": 386,
+          "start_column": 14
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-e502af7b2ac7473d9cfd4b5ef444c99d",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/ci.yml",
+        "start_line": 66,
+        "end_line": null,
+        "start_column": 11
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "    # so we install it on Linux only rather than pay the cost on every runner.\n    - name: Install TeX Live (Linux only)\n      if: runner.os == 'Linux'\n      run: sudo apt-get update && sudo apt-get install -y texlive-xetex\n\n    - name: Install uv\n      run: pip install uv",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/ci.yml",
+          "start_line": 66,
+          "end_line": null,
+          "start_column": 11
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-c32c2e2e41344a73b71d8d937d786696",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/ci.yml",
+        "start_line": 66,
+        "end_line": null,
+        "start_column": 34
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "    # so we install it on Linux only rather than pay the cost on every runner.\n    - name: Install TeX Live (Linux only)\n      if: runner.os == 'Linux'\n      run: sudo apt-get update && sudo apt-get install -y texlive-xetex\n\n    - name: Install uv\n      run: pip install uv",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/ci.yml",
+          "start_line": 66,
+          "end_line": null,
+          "start_column": 34
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-036168839885496d8a18ea1c9ad9526d",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "CHEATSHEET.md",
+        "start_line": 9,
+        "end_line": null,
+        "start_column": 54
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "\n| Component               | macOS                  | Ubuntu/Debian                        | Windows                                                               |\n| ----------------------- | ---------------------- | ------------------------------------ | --------------------------------------------------------------------- |\n| **Pandoc**              | `brew install pandoc`  | `sudo apt-get install pandoc`        | [Download installer](https://pandoc.org/installing.html)              |\n| **UV**                  | `brew install uv`      | `pip install uv`                     | `pip install uv`                                                      |\n| **TeX Live** (PDF only) | `brew install texlive` | `sudo apt-get install texlive-xetex` | [MiKTeX](https://miktex.org/) or [TeX Live](https://tug.org/texlive/) |\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "CHEATSHEET.md",
+          "start_line": 9,
+          "end_line": null,
+          "start_column": 54
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-4cd8ff0d32c84fef8f222a2e4a866693",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "CHEATSHEET.md",
+        "start_line": 11,
+        "end_line": null,
+        "start_column": 54
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "| ----------------------- | ---------------------- | ------------------------------------ | --------------------------------------------------------------------- |\n| **Pandoc**              | `brew install pandoc`  | `sudo apt-get install pandoc`        | [Download installer](https://pandoc.org/installing.html)              |\n| **UV**                  | `brew install uv`      | `pip install uv`                     | `pip install uv`                                                      |\n| **TeX Live** (PDF only) | `brew install texlive` | `sudo apt-get install texlive-xetex` | [MiKTeX](https://miktex.org/) or [TeX Live](https://tug.org/texlive/) |\n\n## \ud83d\udcca Supported Formats & Conversions\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "CHEATSHEET.md",
+          "start_line": 11,
+          "end_line": null,
+          "start_column": 54
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-4e2284bbc5e04c93880f9c46e1f11c7c",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "CONTRIBUTING.md",
+        "start_line": 34,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "brew install pandoc uv\n\n# Ubuntu/Debian\nsudo apt-get install pandoc\npip install uv\n\n# Windows",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "CONTRIBUTING.md",
+          "start_line": 34,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-c1efdf06bb094e0e85cf9645977b95f6",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "CONTRIBUTING.md",
+        "start_line": 50,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "brew install texlive\n\n# Ubuntu/Debian\nsudo apt-get install texlive-xetex\n\n# Windows\n# Install MiKTeX or TeX Live from:",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "CONTRIBUTING.md",
+          "start_line": 50,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-43c7eb912de14d228d5db8ea1c4ac788",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 198,
+        "end_line": null,
+        "start_column": 2
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "  brew install pandoc\n\n  # Ubuntu/Debian\n  sudo apt-get install pandoc\n\n  # Windows\n  # Download installer from: https://pandoc.org/installing.html",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 198,
+          "end_line": null,
+          "start_column": 2
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-2a4429ee079141fc84380825d3f5c2f3",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "src/mcp_pandoc/server.py",
+        "start_line": 50,
+        "end_line": null,
+        "start_column": 38
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "                \"\ud83d\udea8 CRITICAL REQUIREMENTS - PLEASE READ:\\n\"\n                \"1. PDF Conversion:\\n\"\n                \"   * You MUST install TeX Live BEFORE attempting PDF conversion:\\n\"\n                \"   * Ubuntu/Debian: `sudo apt-get install texlive-xetex`\\n\"\n                \"   * macOS: `brew install texlive`\\n\"\n                \"   * Windows: Install MiKTeX or TeX Live from https://miktex.org/ or https://tug.org/texlive/\\n\"\n                \"   * PDF conversion will FAIL without this installation\\n\\n\"",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "src/mcp_pandoc/server.py",
+          "start_line": 50,
+          "end_line": null,
+          "start_column": 38
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-4f920ec6dac54e989658dc19f1ea2b7e",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'uvx mcp-pandoc'.",
+      "severity": "MEDIUM",
+      "confidence": 0.65,
+      "location": {
+        "file": "AGENTS.md",
+        "start_line": 15,
+        "end_line": null
+      },
+      "finding": "uvx mcp-pandoc",
+      "explanation": "uvx/uv tool run commands without ==version create a rug-pull risk.",
+      "remediation": "Pin the version: uvx package-name==1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "9422c4fb93570c34b13c0e6a2f48ffa1bb82dcf98647a59d083c84c7ef393ee7",
+      "occurrences": [
+        {
+          "file": "AGENTS.md",
+          "start_line": 15,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-f8b4e4cdbf744f6482a75b1034d89d2c",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "CLAUDE.md",
+        "start_line": 70,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "```bash\n# Core dependencies (required)\nbrew install pandoc uv                    # macOS\nsudo apt-get install pandoc && pip install uv  # Ubuntu/Debian\n\n# PDF support (optional but recommended)\nbrew install texlive                      # macOS",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "CLAUDE.md",
+          "start_line": 70,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-a1ac1bf4b86248c6b2681a91f409b90b",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "CLAUDE.md",
+        "start_line": 74,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "\n# PDF support (optional but recommended)\nbrew install texlive                      # macOS\nsudo apt-get install texlive-xetex      # Ubuntu/Debian\n```\n\n### Development Workflow",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "CLAUDE.md",
+          "start_line": 74,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-be9670a4c29f4561882fd54c314c2883",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 228,
+        "end_line": null,
+        "start_column": 2
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "\n  ```bash\n  # Ubuntu/Debian\n  sudo apt-get install texlive-xetex\n\n  # macOS\n  brew install texlive",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation",
+        "contextual-triage",
+        "likely-benign-context"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 228,
+          "end_line": null,
+          "start_column": 2
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-d4a73e20f494442e91f682287d544d77",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx @modelcontextprotocol/inspector'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "CLAUDE.md",
+        "start_line": 97,
+        "end_line": null
+      },
+      "finding": "npx @modelcontextprotocol/inspector",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fa23549bff69cf1d0cc91c3c6865ab824c05e1e659d5db3cb893ae75f3af5fd4",
+      "occurrences": [
+        {
+          "file": "CLAUDE.md",
+          "start_line": 97,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-941f9525f5964535a18140b6fa7532c5",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx @modelcontextprotocol/inspector'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "CLAUDE.md",
+        "start_line": 315,
+        "end_line": null
+      },
+      "finding": "npx @modelcontextprotocol/inspector",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fa23549bff69cf1d0cc91c3c6865ab824c05e1e659d5db3cb893ae75f3af5fd4",
+      "occurrences": [
+        {
+          "file": "CLAUDE.md",
+          "start_line": 315,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-798ed87f84ec42238c4e49a04b1defce",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx @modelcontextprotocol/inspector'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "CONTRIBUTING.md",
+        "start_line": 175,
+        "end_line": null
+      },
+      "finding": "npx @modelcontextprotocol/inspector",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fa23549bff69cf1d0cc91c3c6865ab824c05e1e659d5db3cb893ae75f3af5fd4",
+      "occurrences": [
+        {
+          "file": "CONTRIBUTING.md",
+          "start_line": 175,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-477f942728784dacbd2cdfa0cf8994bd",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx @modelcontextprotocol/inspector'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 421,
+        "end_line": null
+      },
+      "finding": "npx @modelcontextprotocol/inspector",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "fa23549bff69cf1d0cc91c3c6865ab824c05e1e659d5db3cb893ae75f3af5fd4",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 421,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "RP1",
+      "finding_id": "finding-a6feb4dca21f4ffcba38a21e564f7eb0",
+      "category": "MCP Rug Pull",
+      "pattern": "MCP server referenced without pinned version: 'npx -y @smithery/cli'.",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 364,
+        "end_line": null
+      },
+      "finding": "npx -y @smithery/cli",
+      "explanation": "npx commands without a version suffix (e.g. @1.0.0) create a rug-pull risk if the upstream server is compromised and publishes a malicious update.",
+      "remediation": "Pin the version: npx @scope/server@1.2.3",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "ASI16"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ba2cb30b6404f319879fa5847b730496fd36da2ffee6eafc7a88f94fad30fcaa",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 364,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "AST4",
+      "finding_id": "finding-8d164f8dc17847ca9d84e54cca841de2",
+      "category": "Dangerous Code Execution",
+      "pattern": "subprocess module call",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "tests/test_advanced_features.py",
+        "start_line": 408,
+        "end_line": 412,
+        "start_column": 12,
+        "end_column": 13
+      },
+      "finding": "subprocess.run(\n                [\"pandoc\", \"--print-default-data-file\", \"reference.odt\"],\n                stdout=handle,\n                check=True,\n            )",
+      "explanation": "subprocess module calls execute external commands. Without careful input validation, this enables command injection.",
+      "remediation": "Use subprocess.run() with shell=False and an explicit argument list. Validate all inputs and avoid passing user-controlled data to commands.",
+      "code_snippet": "\n        default_ref = self._path(\"default_ref.odt\")\n        with open(default_ref, \"wb\") as handle:\n            subprocess.run(\n                [\"pandoc\", \"--print-default-data-file\", \"reference.odt\"],\n                stdout=handle,\n                check=True,",
+      "intent": null,
+      "tags": [
+        "Dangerous Code Execution"
+      ],
+      "evidence": {},
+      "match_fingerprint": "32771333d54b415028334e893ac91d195013701ed0129c70cfad9b4e82e6cf28",
+      "occurrences": [
+        {
+          "file": "tests/test_advanced_features.py",
+          "start_line": 408,
+          "end_line": 412,
+          "start_column": 12,
+          "end_column": 13
+        }
+      ]
+    },
+    {
+      "id": "EA3",
+      "finding_id": "finding-a6ed66e435b54a12b961e1189510499f",
+      "category": "Excessive Agency",
+      "pattern": "Scope Creep",
+      "severity": "LOW",
+      "confidence": 0.75,
+      "location": {
+        "file": "CLAUDE.md",
+        "start_line": 597,
+        "end_line": null,
+        "start_column": 60
+      },
+      "finding": "expand scope",
+      "explanation": "Skill's behavior or capabilities extend beyond its stated purpose. Scope creep allows an agent to perform actions unrelated to its documented functionality, increasing the attack surface.",
+      "remediation": "Limit the skill's scope to its documented purpose. Remove instructions that enable the agent to perform actions outside its stated functionality.",
+      "code_snippet": "\n#### Follow-up Protocol\n- **Response Timeline**: Set expectations for contributor response\n- **Re-review Focus**: Only verify requested changes, don't expand scope\n- **Approval Criteria**: Clear conditions for approval\n\n### \ud83d\udea8 Common Execution Failure Prevention",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8b2828280e0b08be4516f804153cc76a1c7a13894072cfd2e6ef96a3ebdb0ed1",
+      "occurrences": [
+        {
+          "file": "CLAUDE.md",
+          "start_line": 597,
+          "end_line": null,
+          "start_column": 60
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-9445b52926ed4ad7946d0d9bedfb92f0",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "Dockerfile",
+        "start_line": 11,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "rm -rf /",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "# Install system dependencies\nRUN apt-get update && \\\n    apt-get install -y texlive-xetex pandoc && \\\n    rm -rf /var/lib/apt/lists/*\n\n# Copy the application files\nCOPY . .",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "f3ff4d6cfbe1b7f6b23dd4d1379edae984c14738c5f5b14db40e215beb673f08",
+      "occurrences": [
+        {
+          "file": "Dockerfile",
+          "start_line": 11,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-99991b8a16a044af89950eac7f8a56f5",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "Dockerfile",
+        "start_line": 11,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "rm -rf /var/lib/apt/lists/*",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "# Install system dependencies\nRUN apt-get update && \\\n    apt-get install -y texlive-xetex pandoc && \\\n    rm -rf /var/lib/apt/lists/*\n\n# Copy the application files\nCOPY . .",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "95e9afa11fed54a53f28b6f446bbc3a2db2288e67b4d456b256a99ab81fe73f6",
+      "occurrences": [
+        {
+          "file": "Dockerfile",
+          "start_line": 11,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-ad3189c989244a45a5ea188a7d86976f",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (15 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "pyproject.toml",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "pyproject.toml",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC4",
+      "finding_id": "finding-7fc5abbe02e441f9baf245458df7d026",
+      "category": "Supply Chain",
+      "pattern": "\ud83d\udfe1 SC4: OSV.dev unreachable, using static fallback (15 packages). Results may be incomplete. Set SKILLSPECTOR_OSV_TIMEOUT to increase timeout or check network connectivity to api.osv.dev.",
+      "severity": "LOW",
+      "confidence": 1.0,
+      "location": {
+        "file": "uv.lock",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": "SC4 fallback active",
+      "explanation": "The live vulnerability lookup failed, and the limited static fallback database found no matching advisory. Vulnerability coverage is incomplete; this does not establish that the dependencies are vulnerable or safe.",
+      "remediation": "Retry the scan and verify dependency versions against current advisories before relying on the incomplete results. If the lookup timed out or the network was unavailable, check connectivity to api.osv.dev or adjust SKILLSPECTOR_OSV_TIMEOUT before retrying.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d72d6321240ae9d21e301fd977b7166e9da0b11fff924f75c5308492aaf1a953",
+      "occurrences": [
+        {
+          "file": "uv.lock",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 171,
+    "scanned_components": 169,
+    "coverage_percent": 98.8,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 169,
+    "partially_inspected_files": 2,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "analyzer_runtime_error",
+        "message": "Analyzer failed after beginning applicable work.",
+        "path": "pyproject.toml",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_analyzer_runtime_error"
+        ],
+        "error_class": "ProxyError"
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "analyzer_runtime_error",
+        "message": "Analyzer failed after beginning applicable work.",
+        "path": "uv.lock",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_supply_chain_dependencies_analyzer_runtime_error"
+        ],
+        "error_class": "ProxyError"
+      }
+    ],
+    "scope_exclusions": [
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "demo/convert-contents-tool.png",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "demo/v1-demo-markdown-text-and-html.png",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "demo/v1-demo-md-to-html-attached.png",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "cache",
+        "reason_code": "binary_text_projection",
+        "message": "Only bounded printable text was inspected; binary structure and behavior are outside scope.",
+        "path": "testing/output/test_output.pdf",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "cache",
+        "reason_code": "binary_text_projection",
+        "message": "Only bounded printable text was inspected; binary structure and behavior are outside scope.",
+        "path": "tests/output/test.pdf",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false
+      }
+    ],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 176,
+        "completed": 176,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "completed",
+        "planned_work": 5,
+        "completed": 5,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 176,
+        "completed": 176,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 173,
+        "completed": 173,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 173,
+        "completed": 173,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 173,
+        "completed": 173,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 173,
+        "completed": 173,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 173,
+        "completed": 173,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 173,
+        "completed": 173,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 173,
+        "completed": 173,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 173,
+        "completed": 173,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 173,
+        "completed": 173,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 173,
+        "completed": 173,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 173,
+        "completed": 173,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 173,
+        "completed": 173,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 175,
+        "completed": 173,
+        "partial": 2,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 173,
+        "completed": 173,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "completed",
+        "planned_work": 173,
+        "completed": 173,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 176,
+        "completed": 176,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_supply_chain status: degraded."
+    ],
+    "findings_before_filtering": 27,
+    "findings_after_filtering": 27,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

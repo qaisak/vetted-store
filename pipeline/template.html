@@ -487,6 +487,7 @@ const JOBS = [
   ['dev', 'Developers', 'Write, review, test and ship code', 'code', ['#2563EB', '#0EA5E9']],
   ['design', 'Designers', 'Figma, interfaces, art and visuals', 'pen', ['#DB2777', '#F97316']],
   ['marketing', 'Marketing & growth', 'Ads, SEO, analytics and app store listings', 'megaphone', ['#EA580C', '#F59E0B']],
+  ['business', 'Founders & business', 'Plans, numbers, pricing, launches and policies', 'gauge', ['#0E7490', '#06B6D4']],
   ['writing', 'Writers', 'Drafting, editing and documentation', 'doc', ['#0F766E', '#14B8A6']],
   ['office', 'Office & productivity', 'Docs, email, calendar, Slack and notes', 'brief', ['#4F46E5', '#6366F1']],
   ['data', 'Data & spreadsheets', 'Excel, CSV, JSON and analysis', 'table', ['#15803D', '#22C55E']],
@@ -534,6 +535,13 @@ const KITS = [
     ['zarazhangrui-frontend-slides', 'Animated slide decks, or a PowerPoint turned into one.'],
     ['cathrynlavery-diagram-design', 'Clean flowcharts, timelines and architecture diagrams.'],
     ['mcp-mcp-for-blender', 'Build 3D scenes in Blender from a chat.']]],
+  ['founder', 'Founder\'s kit', 'From idea to launch: risks, market, numbers, payments and launch day', 'gauge', ['#0E7490', '#06B6D4'], [
+    ['wshobson-before-you-build', 'Checks the idea for risks before you spend weeks building it.'],
+    ['wshobson-market-sizing-analysis', 'How big the market is, for your plan or pitch.'],
+    ['wshobson-competitive-landscape', 'Who you\'re up against and where you can stand out.'],
+    ['wshobson-startup-financial-modeling', 'A 3 to 5 year model of revenue, costs and cash.'],
+    ['wshobson-stripe-integration', 'Take payments: checkout and subscriptions with Stripe.'],
+    ['alirezarezvani-launch-strategy', 'Plans launch day, including Product Hunt, and checks you\'re ready.']]],
   ['security', 'Security check kit', 'Check code, secrets and AI add-ons before they ship', 'shield', ['#B91C1C', '#EF4444'], [
     ['skillspector', 'Scans a skill or connector for risky patterns before you install it.'],
     ['gitleaks', 'Finds passwords and keys saved in code or Git history.'],
@@ -685,7 +693,8 @@ function stories() {
 
 // ---------- pages ----------
 function pageToday() {
-  const d = GEN.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' });
+  const last = Object.values(R).map(r => r.fd).filter(Boolean).sort().pop() || D.gen;
+  const d = new Date(last + 'T00:00:00Z').toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric', timeZone: 'UTC' });
   const st = stories();
   const comm = community();
   const appsTop = byStars(comm.filter(l => l.k === 'tool')).slice(0, 9);
@@ -799,12 +808,21 @@ function pageMcp() {
     ${dataNote()}</div>`;
 }
 function pageTools() {
-  const g = ids => pick(ids).filter(l => !l.tr);
+  const comm = community().filter(l => l.k === 'tool');
+  // Shelves by what people use them for; anything not placed here still shows under "More apps", so nothing goes missing
+  const SHELVES = [['Everyday', 'Download, send and protect files', ['yt-dlp', 'croc', 'age', 'navi']],
+    ['Files & search', 'Find, view and manage files fast', ['ripgrep', 'fd', 'fzf', 'bat', 'zoxide', 'yazi', 'superfile', 'dust', 'duf', 'sd', 'tokei']],
+    ['Data & APIs', 'Spreadsheets, databases, JSON and web APIs', ['visidata', 'harlequin', 'jq', 'xh', 'posting']],
+    ['Git & code', 'Commit, compare and run your project', ['lazygit', 'gitui', 'delta', 'difftastic', 'just', 'mise', 'hyperfine']],
+    ['System & servers', 'Watch your computer, containers and clusters', ['btop', 'bottom', 'glances', 'lazydocker', 'k9s']],
+    ['Security', 'Catch leaked secrets', ['gitleaks']]];
+  const placed = new Set(SHELVES.flatMap(x => x[2]));
+  const rest = comm.filter(l => !placed.has(l.id));
   return `<div class="page">
-    <div class="large-title"><h1>Apps</h1><p>Open-source command-line apps built by independent developers. Each one is Purpose-Checked: we read its code and compare what it can do with what it says it's for.</p></div>
-    ${banners([{ l: BY['yazi'], eb: 'File Manager' }, { l: BY['lazygit'], eb: 'Git, Visually' }, { l: BY['btop'], eb: 'System Monitor' }, { l: BY['ripgrep'], eb: 'Search, Fast' }])}
-    <section class="shelf"><div class="shelf-head"><h2>Terminal Power Tools</h2></div>${ranked(byStars(g(['ripgrep', 'fd', 'fzf', 'bat', 'zoxide', 'yazi', 'dust', 'tokei', 'jq', 'btop'])), true)}</section>
-    <section class="shelf"><div class="shelf-head"><h2>Git &amp; Dev Workflow</h2></div>${ranked(byStars(g(['lazygit', 'gitui', 'delta', 'just', 'mise', 'hyperfine', 'lazydocker', 'gitleaks'])), true)}</section>
+    <div class="large-title"><h1>Apps</h1><p>${comm.length} open-source apps from independent developers, mostly for the terminal. Each one is Purpose-Checked and scanned: we read its code and compare what it can do with what it says it's for.</p></div>
+    ${banners([{ l: BY['yt-dlp'], eb: 'Download Anything' }, { l: BY['croc'], eb: 'Send Files' }, { l: BY['yazi'], eb: 'File Manager' }, { l: BY['lazygit'], eb: 'Git, Visually' }])}
+    ${SHELVES.map(([t, sub, ids]) => { const list = byStars(pick(ids).filter(l => !l.tr)); return list.length ? `<section class="shelf"><div class="shelf-head"><h2>${t}<span class="sub">${sub}</span></h2></div>${ranked(list, true)}</section>` : ''; }).join('')}
+    ${rest.length ? `<section class="shelf"><div class="shelf-head"><h2>More apps</h2></div>${ranked(byStars(rest), true)}</section>` : ''}
     ${trustedShelf('tool', 'Tools from Trusted Publishers')}
     ${dataNote()}</div>`;
 }
@@ -966,7 +984,7 @@ function pageProduct(id) {
     <div class="product-head">${icon(l)}<div class="txt"><h1>${esc(l.n)}</h1><span class="sub">${esc(r.on)} · ${KIND[l.k]}</span>
       <div class="acts">${getBtn(l, 'primary')}${l.vd?.length ? `<button class="pill-link" data-jump="videos">${ic('play')} Watch the demo</button>` : ''}<a class="pill-link" href="${l.u}" target="_blank" rel="noopener">GitHub ${ic('ext')}</a></div></div></div>
     ${l.pl ? `<div class="plain">${ic('bulb', 2)}<div><span class="lbl">What it helps you do</span><p>${esc(l.pl)}</p>
-      <div class="check ${safety(l)[0]}">${ic(safety(l)[2], 2.2)}<b>${esc(safety(l)[1])}</b><span style="grid-column:2;display:flex;gap:14px;flex-wrap:wrap"><button data-jump="checks">See what we checked</button><button data-story="labels">What the labels mean</button></span></div>
+      <div class="check ${safety(l)[0]}">${ic(safety(l)[2], 2.2)}<b>${esc(safety(l)[1])}</b><span style="grid-column:2;display:flex;column-gap:14px;row-gap:2px;flex-wrap:wrap"><button data-jump="checks">See what we checked</button><button data-story="labels">What the labels mean</button></span></div>
       <div class="chips">${lv ? `<span class="${lv[1]}" title="${esc(lv[2])}">${lv[0]}</span>` : ''}${(l.jb || []).map(j => `<a href="#for-${j}">${esc(JOB[j][1])}</a>`).join('')}</div></div></div>` : ''}
     <div class="strip">
       <div><span class="k">GitHub</span><span class="v">${ic('star', 2)}${fmtK(r.st)}</span><span class="c">stars${l.p ? ' (whole repo)' : ''}</span></div>
@@ -1067,7 +1085,7 @@ function drawSheet() {
   document.getElementById('sheet-body').innerHTML = `<div class="sheet-bar"><span>Install</span><button class="text-btn" data-closesheet>Done</button></div>
     <div class="sheet-app">${icon(l, 60)}<div class="t"><b>${esc(l.n)}</b><span>${esc(repoOf(l).on)} · ★ ${fmtK(repoOf(l).st)}</span><span class="${t.cls}">${t.short}</span></div></div>
     <div class="group-label">Choose where to install</div>
-    <p class="sheet-help">${l.k === 'skill' ? 'Use the Claude app? Pick <b>Claude app</b>: no terminal needed. ' : ''}${l.k === 'tool' ? 'Apps install from your computer\'s terminal (Terminal on Mac, PowerShell on Windows): paste the command for your system. ' : 'Claude Code, Codex and Cursor are AI coding assistants: paste the command into your terminal, or where the card says, into the assistant\'s chat. '}</p>${instCards(l)}
+    <p class="sheet-help">${l.k === 'skill' ? 'Use the Claude app? Pick <b>Claude app</b>: no terminal needed. ' : ''}${l.k === 'tool' ? (l.inst.some(o => o.cmds?.length) ? 'Apps install from your computer\'s terminal (Terminal on Mac, PowerShell on Windows): paste the command for your system. ' : 'This app has its own installers: follow its install guide for your system. ') : 'Claude Code, Codex and Cursor are AI coding assistants: paste the command into your terminal, or where the card says, into the assistant\'s chat. '}</p>${instCards(l)}
     <a class="pill-link" href="#${l.id}" data-closesheet style="align-self:center">View full listing</a>`;
 }
 function openSheet(id) { sheetId = id; drawSheet(); if (!sheet.open) sheet.showModal(); }

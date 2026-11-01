@@ -1,0 +1,3863 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/ducaale__xh/xh-master",
+    "scanned_at": "2026-11-01T01:30:50.307365+00:00"
+  },
+  "risk_assessment": {
+    "score": 100,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": ".github/workflows/ci.yaml",
+      "type": "yaml",
+      "lines": 96,
+      "executable": false,
+      "size_bytes": 2890,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/release.yaml",
+      "type": "yaml",
+      "lines": 148,
+      "executable": false,
+      "size_bytes": 4894,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 5,
+      "executable": false,
+      "size_bytes": 44,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CHANGELOG.md",
+      "type": "markdown",
+      "lines": 416,
+      "executable": false,
+      "size_bytes": 16995,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Cargo.lock",
+      "type": "other",
+      "lines": 3686,
+      "executable": false,
+      "size_bytes": 91630,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Cargo.toml",
+      "type": "toml",
+      "lines": 138,
+      "executable": false,
+      "size_bytes": 4866,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "FAQ.md",
+      "type": "markdown",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1696,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1071,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 237,
+      "executable": false,
+      "size_bytes": 12804,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "RELEASE-CHECKLIST.md",
+      "type": "markdown",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1266,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/README.md",
+      "type": "markdown",
+      "lines": 15,
+      "executable": false,
+      "size_bytes": 1171,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/syntax/basic/json.sublime-syntax",
+      "type": "other",
+      "lines": 42,
+      "executable": false,
+      "size_bytes": 1127,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/syntax/large/css.sublime-syntax",
+      "type": "other",
+      "lines": 2004,
+      "executable": false,
+      "size_bytes": 73723,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/syntax/large/html.sublime-syntax",
+      "type": "other",
+      "lines": 412,
+      "executable": false,
+      "size_bytes": 15541,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/syntax/large/js.sublime-syntax",
+      "type": "other",
+      "lines": 1496,
+      "executable": false,
+      "size_bytes": 45577,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/syntax/large/xml.sublime-syntax",
+      "type": "other",
+      "lines": 256,
+      "executable": false,
+      "size_bytes": 8253,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/themes/ansi.tmTheme",
+      "type": "other",
+      "lines": 181,
+      "executable": false,
+      "size_bytes": 6273,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/themes/fruity.tmTheme",
+      "type": "other",
+      "lines": 180,
+      "executable": false,
+      "size_bytes": 6194,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/themes/monokai.tmTheme",
+      "type": "other",
+      "lines": 202,
+      "executable": false,
+      "size_bytes": 6962,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/themes/solarized.tmTheme",
+      "type": "other",
+      "lines": 191,
+      "executable": false,
+      "size_bytes": 6572,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "assets/xh-demo.gif",
+      "type": "other",
+      "lines": 5507,
+      "executable": false,
+      "size_bytes": 267195,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "build.rs",
+      "type": "rust",
+      "lines": 63,
+      "executable": true,
+      "size_bytes": 1740,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "completions/_xh",
+      "type": "other",
+      "lines": 173,
+      "executable": false,
+      "size_bytes": 8001,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "completions/_xh.ps1",
+      "type": "other",
+      "lines": 167,
+      "executable": true,
+      "size_bytes": 20015,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "completions/xh.bash",
+      "type": "shell",
+      "lines": 194,
+      "executable": true,
+      "size_bytes": 8072,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "completions/xh.elv",
+      "type": "other",
+      "lines": 161,
+      "executable": false,
+      "size_bytes": 9136,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "completions/xh.fish",
+      "type": "other",
+      "lines": 150,
+      "executable": false,
+      "size_bytes": 7574,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "completions/xh.nu",
+      "type": "other",
+      "lines": 154,
+      "executable": false,
+      "size_bytes": 6905,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "doc/man-template.roff",
+      "type": "other",
+      "lines": 158,
+      "executable": false,
+      "size_bytes": 4028,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "doc/md-template.md",
+      "type": "markdown",
+      "lines": 162,
+      "executable": false,
+      "size_bytes": 3854,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "doc/xh.1",
+      "type": "other",
+      "lines": 576,
+      "executable": false,
+      "size_bytes": 13957,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "doc/xh.1.md",
+      "type": "markdown",
+      "lines": 406,
+      "executable": false,
+      "size_bytes": 13148,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "install.ps1",
+      "type": "other",
+      "lines": 66,
+      "executable": true,
+      "size_bytes": 2823,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "install.sh",
+      "type": "shell",
+      "lines": 91,
+      "executable": true,
+      "size_bytes": 2398,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/auth.rs",
+      "type": "rust",
+      "lines": 119,
+      "executable": true,
+      "size_bytes": 4156,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/buffer.rs",
+      "type": "rust",
+      "lines": 331,
+      "executable": true,
+      "size_bytes": 9827,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cli.rs",
+      "type": "rust",
+      "lines": 1941,
+      "executable": true,
+      "size_bytes": 62380,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/content_disposition.rs",
+      "type": "rust",
+      "lines": 186,
+      "executable": true,
+      "size_bytes": 6352,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/decoder.rs",
+      "type": "rust",
+      "lines": 527,
+      "executable": true,
+      "size_bytes": 18948,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/download.rs",
+      "type": "rust",
+      "lines": 322,
+      "executable": true,
+      "size_bytes": 10803,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/error_reporting.rs",
+      "type": "rust",
+      "lines": 78,
+      "executable": true,
+      "size_bytes": 2595,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/formatting/headers.rs",
+      "type": "rust",
+      "lines": 292,
+      "executable": true,
+      "size_bytes": 9075,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/formatting/mod.rs",
+      "type": "rust",
+      "lines": 178,
+      "executable": true,
+      "size_bytes": 6828,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/formatting/palette.rs",
+      "type": "rust",
+      "lines": 68,
+      "executable": true,
+      "size_bytes": 2193,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/generation.rs",
+      "type": "rust",
+      "lines": 467,
+      "executable": true,
+      "size_bytes": 16088,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/main.rs",
+      "type": "rust",
+      "lines": 805,
+      "executable": true,
+      "size_bytes": 30343,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/message_signature.rs",
+      "type": "rust",
+      "lines": 637,
+      "executable": true,
+      "size_bytes": 23578,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/middleware.rs",
+      "type": "rust",
+      "lines": 128,
+      "executable": true,
+      "size_bytes": 3364,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/nested_json.rs",
+      "type": "rust",
+      "lines": 454,
+      "executable": true,
+      "size_bytes": 14986,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/netrc.rs",
+      "type": "rust",
+      "lines": 469,
+      "executable": true,
+      "size_bytes": 15810,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/printer.rs",
+      "type": "rust",
+      "lines": 839,
+      "executable": true,
+      "size_bytes": 31346,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/redacted.rs",
+      "type": "rust",
+      "lines": 44,
+      "executable": true,
+      "size_bytes": 1130,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/redirect.rs",
+      "type": "rust",
+      "lines": 191,
+      "executable": true,
+      "size_bytes": 7130,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/request_items.rs",
+      "type": "rust",
+      "lines": 741,
+      "executable": true,
+      "size_bytes": 26224,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/session.rs",
+      "type": "rust",
+      "lines": 573,
+      "executable": true,
+      "size_bytes": 18700,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/to_curl.rs",
+      "type": "rust",
+      "lines": 584,
+      "executable": true,
+      "size_bytes": 20799,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/utils.rs",
+      "type": "rust",
+      "lines": 275,
+      "executable": true,
+      "size_bytes": 9248,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/cases/auth_message_signature.rs",
+      "type": "rust",
+      "lines": 708,
+      "executable": true,
+      "size_bytes": 23358,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/cases/compress_request_body.rs",
+      "type": "rust",
+      "lines": 234,
+      "executable": true,
+      "size_bytes": 6490,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/cases/download.rs",
+      "type": "rust",
+      "lines": 568,
+      "executable": true,
+      "size_bytes": 15049,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/cases/logging.rs",
+      "type": "rust",
+      "lines": 150,
+      "executable": true,
+      "size_bytes": 3726,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/cases/mod.rs",
+      "type": "rust",
+      "lines": 7,
+      "executable": true,
+      "size_bytes": 152,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/cases/unix_socket.rs",
+      "type": "rust",
+      "lines": 132,
+      "executable": true,
+      "size_bytes": 3574,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/cases/xml.rs",
+      "type": "rust",
+      "lines": 216,
+      "executable": true,
+      "size_bytes": 5576,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/cli.rs",
+      "type": "rust",
+      "lines": 3888,
+      "executable": true,
+      "size_bytes": 106897,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/certs/README.md",
+      "type": "markdown",
+      "lines": 14,
+      "executable": false,
+      "size_bytes": 401,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/certs/client.badssl.com.crt",
+      "type": "other",
+      "lines": 33,
+      "executable": false,
+      "size_bytes": 1972,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/certs/client.badssl.com.key",
+      "type": "other",
+      "lines": 27,
+      "executable": false,
+      "size_bytes": 1675,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/certs/wildcard-self-signed.pem",
+      "type": "other",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 1265,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/keys/rsa_private_key_pkcs8.pem",
+      "type": "other",
+      "lines": 28,
+      "executable": false,
+      "size_bytes": 1704,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/responses/README.md",
+      "type": "markdown",
+      "lines": 15,
+      "executable": false,
+      "size_bytes": 342,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/responses/hello_world.br",
+      "type": "other",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 17,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/responses/hello_world.gz",
+      "type": "other",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 48,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/responses/hello_world.zst",
+      "type": "other",
+      "lines": 3,
+      "executable": false,
+      "size_bytes": 25,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/fixtures/responses/hello_world.zz",
+      "type": "other",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 20,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/server/mod.rs",
+      "type": "rust",
+      "lines": 296,
+      "executable": true,
+      "size_bytes": 10174,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "PE3",
+      "finding_id": "finding-85c7183090ea4078ac3c6ff8ca7de3cc",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 158,
+        "end_line": null,
+        "start_column": 34
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "## [0.17.0] - 2022-11-08\n### Features\n- Add support for nested json syntax, see #217 (@ducaale)\n- Add Support for bearer auth in `.netrc`, see #267 (@porglezomp)\n- Support forcing ipv4/ipv6, see #276 (@zuisong)\n\n### Other",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 158,
+          "end_line": null,
+          "start_column": 34
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-1cf0bb0b73714687939297794e066da6",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 330,
+        "end_line": null,
+        "start_column": 43
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "- Add `--no-FLAG` variants of flags. This is useful for disabling any flags you might have in your\n  alias, see #86 (@blyxxyz)\n- Support non-standard HTTP methods, see #89 (@blyxxyz)\n- Add support for getting credentials from .netrc plus a `--ignore-netrc` flag to disable that\n  functionality, see #87 (@dwink)\n\n## [0.8.1] - 2021-03-01",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 330,
+          "end_line": null,
+          "start_column": 43
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-ae64a9cf1a104e548fe4b6aa4106498e",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "README.md",
+        "start_line": 107,
+        "end_line": null,
+        "start_column": 69
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "      --session-read-only <FILE>         Create or read a session without updating it from the request/response exchange\n  -A, --auth-type <AUTH_TYPE>            Specify the auth mechanism [possible values: basic, bearer, digest]\n  -a, --auth <USER[:PASS] | TOKEN>       Authenticate as USER with PASS (-A basic|digest) or with TOKEN (-A bearer)\n      --ignore-netrc                     Do not use credentials from .netrc\n      --offline                          Construct HTTP requests without sending them anywhere\n      --check-status                     (default) Exit with an error status code if the server replies with an error\n  -F, --follow                           Do follow redirects",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 107,
+          "end_line": null,
+          "start_column": 69
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-521d67cdb44f4905ba710412f510e7b6",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "completions/_xh",
+        "start_line": 83,
+        "end_line": null,
+        "start_column": 44
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "'--download[Download the body to a file instead of printing it]' \\\n'-c[Resume an interrupted download. Requires --download and --output]' \\\n'--continue[Resume an interrupted download. Requires --download and --output]' \\\n'--ignore-netrc[Do not use credentials from .netrc]' \\\n'--offline[Construct HTTP requests without sending them anywhere]' \\\n'--check-status[(default) Exit with an error status code if the server replies with an error]' \\\n'-F[Do follow redirects]' \\",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "completions/_xh",
+          "start_line": 83,
+          "end_line": null,
+          "start_column": 44
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-2dc58ef3e9df456cbb2de6f841f84b2e",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "completions/_xh.ps1",
+        "start_line": 86,
+        "end_line": null,
+        "start_column": 140
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "ameterName, 'Download the body to a file instead of printing it')\n            [CompletionResult]::new('-c', '-c', [CompletionResultType]::ParameterName, 'Resume an interrupted download. Requires --download and --output')\n            [CompletionResult]::new('--continue', '--continue', [CompletionResultType]::ParameterName, 'Resume an interrupted download. Requires --download and --output')\n            [CompletionResult]::new('--ignore-netrc', '--ignore-netrc', [CompletionResultType]::ParameterName, 'Do not use credentials from .netrc')\n            [CompletionResult]::new('--offline', '--offline', [CompletionResultType]::ParameterName, 'Construct HTTP requests without sending them anywhere')\n            [CompletionResult]::new('--check-status', '--check-status', [CompletionResultType]::ParameterName, '(default) Exit with an error status code if the server replies with an error')\n            [CompletionResult]::new('-F', '-F ', [CompletionResultType]::ParameterName, 'Do follow redirects')",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "completions/_xh.ps1",
+          "start_line": 86,
+          "end_line": null,
+          "start_column": 140
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-c8118f0608c241c788d41d56bd7d29e1",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "completions/xh.elv",
+        "start_line": 83,
+        "end_line": null,
+        "start_column": 61
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "            cand --download 'Download the body to a file instead of printing it'\n            cand -c 'Resume an interrupted download. Requires --download and --output'\n            cand --continue 'Resume an interrupted download. Requires --download and --output'\n            cand --ignore-netrc 'Do not use credentials from .netrc'\n            cand --offline 'Construct HTTP requests without sending them anywhere'\n            cand --check-status '(default) Exit with an error status code if the server replies with an error'\n            cand -F 'Do follow redirects'",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "completions/xh.elv",
+          "start_line": 83,
+          "end_line": null,
+          "start_column": 61
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-13b5df40927a49f99d16e811b97c5400",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "completions/xh.fish",
+        "start_line": 81,
+        "end_line": null,
+        "start_column": 63
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "complete -c xh -s x -l compress -d 'Content compressed (encoded) with Deflate algorithm'\ncomplete -c xh -s d -l download -d 'Download the body to a file instead of printing it'\ncomplete -c xh -s c -l continue -d 'Resume an interrupted download. Requires --download and --output'\ncomplete -c xh -l ignore-netrc -d 'Do not use credentials from .netrc'\ncomplete -c xh -l offline -d 'Construct HTTP requests without sending them anywhere'\ncomplete -c xh -l check-status -d '(default) Exit with an error status code if the server replies with an error'\ncomplete -c xh -s F -l follow -d 'Do follow redirects'",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "completions/xh.fish",
+          "start_line": 81,
+          "end_line": null,
+          "start_column": 63
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-067bd5f0a1034ab9b0ff5aa6af53886b",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "completions/xh.nu",
+        "start_line": 61,
+        "end_line": null,
+        "start_column": 60
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    --auth-type(-A): string@\"nu-complete xh auth_type\" # Specify the auth mechanism\n    --auth(-a): string        # Authenticate as USER with PASS (-A basic|digest) or with TOKEN (-A bearer)\n    --bearer: string          # Authenticate with a bearer token\n    --ignore-netrc            # Do not use credentials from .netrc\n    --unstable-m-sig-id: string # Message signature key identifier (RFC 9421)\n    --unstable-m-sig-key: string # Message signature key material (RFC 9421)\n    --unstable-m-sig-alg: string@\"nu-complete xh m_sig_alg\" # Message signature algorithm (RFC 9421)",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "completions/xh.nu",
+          "start_line": 61,
+          "end_line": null,
+          "start_column": 60
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-fd47dd08f8c942bc8b6785c5de9334d4",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "doc/man-template.roff",
+        "start_line": 98,
+        "end_line": null,
+        "start_column": 16
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "variables. \"*\" matches all host names.\n.TP\n.B NETRC\nLocation of the .netrc file.\n.TP\n.B NO_COLOR\nDisables output coloring. See <https://no-color.org>",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "doc/man-template.roff",
+          "start_line": 98,
+          "end_line": null,
+          "start_column": 16
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-ffc6c7c822004d5b97a5513ec25f2d08",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "doc/md-template.md",
+        "start_line": 84,
+        "end_line": null,
+        "start_column": 19
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  List of comma-separated hosts for which to ignore the other proxy environment variables. `*` matches all host names.\n\n- `NETRC`:\n  Location of the `.netrc` file.\n\n- `NO_COLOR`:\n  Disables output coloring. See <https://no-color.org>",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "doc/md-template.md",
+          "start_line": 84,
+          "end_line": null,
+          "start_column": 19
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-f75d7ce1177f40cab7f405489c2203d0",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "doc/xh.1",
+        "start_line": 297,
+        "end_line": null,
+        "start_column": 28
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n.TP 4\n\\fB\\-\\-ignore\\-netrc\\fR\nDo not use credentials from .netrc.\n\n.TP 4\n\\fB\\-\\-offline\\fR",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "doc/xh.1",
+          "start_line": 297,
+          "end_line": null,
+          "start_column": 28
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-c7a71b15b86d487699ce6feea273e91a",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "doc/xh.1",
+        "start_line": 516,
+        "end_line": null,
+        "start_column": 16
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "variables. \"*\" matches all host names.\n.TP\n.B NETRC\nLocation of the .netrc file.\n.TP\n.B NO_COLOR\nDisables output coloring. See <https://no-color.org>",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "doc/xh.1",
+          "start_line": 516,
+          "end_line": null,
+          "start_column": 16
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-7330a48ff4384e4eb8921fb6e753ec53",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "doc/xh.1.md",
+        "start_line": 190,
+        "end_line": null,
+        "start_column": 48
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  \n  TOKEN is expected if --auth-type=bearer.\n\n- `--ignore-netrc`: Do not use credentials from .netrc.\n\n- `--offline`: Construct HTTP requests without sending them anywhere.\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "doc/xh.1.md",
+          "start_line": 190,
+          "end_line": null,
+          "start_column": 48
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-f31e4b22df094ea29095e22496a5bfca",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "doc/xh.1.md",
+        "start_line": 328,
+        "end_line": null,
+        "start_column": 19
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  List of comma-separated hosts for which to ignore the other proxy environment variables. `*` matches all host names.\n\n- `NETRC`:\n  Location of the `.netrc` file.\n\n- `NO_COLOR`:\n  Disables output coloring. See <https://no-color.org>",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "doc/xh.1.md",
+          "start_line": 328,
+          "end_line": null,
+          "start_column": 19
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-1d645d63e6ca4d57a0998f0932c32e89",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "src/cli.rs",
+        "start_line": 264,
+        "end_line": null,
+        "start_column": 36
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "    #[clap(long, value_name = \"TOKEN\", hide = true)]\n    pub bearer: Option<SecretString>,\n\n    /// Do not use credentials from .netrc\n    #[clap(long)]\n    pub ignore_netrc: bool,\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "src/cli.rs",
+          "start_line": 264,
+          "end_line": null,
+          "start_column": 36
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-91b9673be9df4490a20249b90289d456",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "src/netrc.rs",
+        "start_line": 24,
+        "end_line": null,
+        "start_column": 21
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "//! from being used.)\n//!\n//! This implementation additionally handles entries with just a password and no login,\n//! to support using .netrc for bearer auth.\n//!\n//! This is too specialized for our use case to be a crate, but feel free to\n//! copy/paste into another project and modify.",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "src/netrc.rs",
+          "start_line": 24,
+          "end_line": null,
+          "start_column": 21
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-b7f68cf413a64af2b36c75642a425e1b",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "src/netrc.rs",
+        "start_line": 65,
+        "end_line": null,
+        "start_column": 26
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "        Some(path) => File::open(path).ok(),\n        None => {\n            let home_dir = get_home_dir()?;\n            for name in [\".netrc\", \"_netrc\"] {\n                let path = home_dir.join(name);\n                if let Ok(file) = File::open(path) {\n                    return Some(file);",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "src/netrc.rs",
+          "start_line": 65,
+          "end_line": null,
+          "start_column": 26
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-03e45cfdd5fa4d4c9104fb69cfdc0784",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "tests/cli.rs",
+        "start_line": 963,
+        "end_line": null,
+        "start_column": 62
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n#[test]\nfn netrc_env_no_bearer_auth_unless_specified() {\n    // Test that we don't pass an authorization header if the .netrc contains no username,\n    // and the --auth-type=bearer flag isn't explicitly specified.\n    let server = server::http(|req| async move {\n        assert!(req.headers().get(\"Authorization\").is_none());",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "tests/cli.rs",
+          "start_line": 963,
+          "end_line": null,
+          "start_column": 62
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-6bf72f3c5d724fc7a0f5d1898dc8a72e",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "tests/cli.rs",
+        "start_line": 982,
+        "end_line": null,
+        "start_column": 78
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n#[test]\nfn netrc_env_auth_type_bearer() {\n    // If we're using --auth-type=bearer, test that it's properly sent with a .netrc that\n    // contains only a password and no username.\n    let server = server::http(|req| async move {\n        assert_eq!(req.headers()[\"Authorization\"], \"Bearer pass\");",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "tests/cli.rs",
+          "start_line": 982,
+          "end_line": null,
+          "start_column": 78
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-806aefbb3152435480b780eb1e702648",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "tests/cli.rs",
+        "start_line": 1002,
+        "end_line": null,
+        "start_column": 24
+      },
+      "finding": ".netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "\n#[test]\nfn netrc_file_user_password_auth() {\n    for netrc_file in [\".netrc\", \"_netrc\"] {\n        let server = server::http(|req| async move {\n            assert_eq!(req.headers()[\"Authorization\"], \"Basic dXNlcjpwYXNz\");\n            hyper::Response::default()",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "a0de24714987e8ee8ad6b39e0fe5cd9cf88d0084409b8fb6b190fbb29638b0f0",
+      "occurrences": [
+        {
+          "file": "tests/cli.rs",
+          "start_line": 1002,
+          "end_line": null,
+          "start_column": 24
+        }
+      ]
+    },
+    {
+      "id": "RA1",
+      "finding_id": "finding-7f47297564784d83967c78ba3a209370",
+      "category": "Rogue Agent",
+      "pattern": "Self-Modification",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 386,
+        "end_line": null,
+        "start_column": 53
+      },
+      "finding": "overwrite existing file",
+      "explanation": "Skill modifies its own code, configuration, or behavior at runtime. Self-modification enables an agent to escalate privileges, disable safety constraints, or install persistent backdoors.",
+      "remediation": "Prevent the skill from modifying its own code, SKILL.md, or configuration files. Treat skill files as read-only at runtime.",
+      "code_snippet": "- Include User-Agent header in outgoing requests, see #33 (@blyxxyz)\n\n### Other\n- Ensure filename from `content-disposition` doesn't overwrite existing files,\n  isn't a hidden file, or doesn't end up outside the current directory,\n  see #37 (@blyxxyz)\n- Bubble errors up to main() instead of panicking see #37 (@blyxxyz)",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "7ba2b849c5dcccbb8994b775fe53f63f181b047f3264e45ac1a3bc5a39f8710e",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 386,
+          "end_line": null,
+          "start_column": 53
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-864d3ad4253c4824abbd3711394ff5f2",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 16,
+        "end_line": null,
+        "start_column": 73
+      },
+      "finding": "| sh",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "### via cURL (Linux & macOS)\n\n```\ncurl -sfL https://raw.githubusercontent.com/ducaale/xh/master/install.sh | sh\n```\n\n### via Powershell (Windows)",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1d8c5f437ab35a4780c77ab29ff51a050f9e7ead84a13d55decf93cd3c70c577",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 16,
+          "end_line": null,
+          "start_column": 73
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-074f8cbf2c414baf8ea9512191353a40",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "completions/_xh",
+        "start_line": 133,
+        "end_line": null,
+        "start_column": 1
+      },
+      "finding": "--no-check",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "'--no-unstable-m-sig-alg[]' \\\n'--no-unstable-m-sig-comp[]' \\\n'--no-offline[]' \\\n'--no-check-status[]' \\\n'--no-follow[]' \\\n'--no-max-redirects[]' \\\n'--no-timeout[]' \\",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "93305cee5f9705ebfca886511f8a57cf4bf605e56d05162e45d72b343ecf0b87",
+      "occurrences": [
+        {
+          "file": "completions/_xh",
+          "start_line": 133,
+          "end_line": null,
+          "start_column": 1
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-b99cc60c944a4393b0660fc927742ef4",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "completions/_xh.ps1",
+        "start_line": 136,
+        "end_line": null,
+        "start_column": 37
+      },
+      "finding": "--no-check",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "            [CompletionResult]::new('--no-unstable-m-sig-alg', '--no-unstable-m-sig-alg', [CompletionResultType]::ParameterName, 'no-unstable-m-sig-alg')\n            [CompletionResult]::new('--no-unstable-m-sig-comp', '--no-unstable-m-sig-comp', [CompletionResultType]::ParameterName, 'no-unstable-m-sig-comp')\n            [CompletionResult]::new('--no-offline', '--no-offline', [CompletionResultType]::ParameterName, 'no-offline')\n            [CompletionResult]::new('--no-check-status', '--no-check-status', [CompletionResultType]::ParameterName, 'no-check-status')\n            [CompletionResult]::new('--no-follow', '--no-follow', [CompletionResultType]::ParameterName, 'no-follow')\n            [CompletionResult]::new('--no-max-redirects', '--no-max-redirects', [CompletionResultType]::ParameterName, 'no-max-redirects')\n            [CompletionResult]::new('--no-timeout', '--no-timeout', [CompletionResultType]::ParameterName, 'no-timeout')",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "93305cee5f9705ebfca886511f8a57cf4bf605e56d05162e45d72b343ecf0b87",
+      "occurrences": [
+        {
+          "file": "completions/_xh.ps1",
+          "start_line": 136,
+          "end_line": null,
+          "start_column": 37
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-5f2c85ece38d4b66a700536f9e2cb30e",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "completions/xh.bash",
+        "start_line": 26,
+        "end_line": null,
+        "start_column": 1230
+      },
+      "finding": "--no-check",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": " --generate --help --no-json --no-form --no-multipart --no-raw --no-pretty --no-format-options --no-style --no-response-charset --no-response-mime --no-print --no-headers --no-body --no-meta --no-verbose --no-debug --no-all --no-history-print --no-quiet --no-stream --no-compress --no-output --no-download --no-continue --no-session --no-session-read-only --no-auth-type --no-auth --no-bearer --no-ignore-netrc --no-unstable-m-sig-id --no-unstable-m-sig-key --no-unstable-m-sig-alg --no-unstable-m-sig-comp --no-offline --no-check-status --no-follow --no-max-redirects --no-timeout --no-proxy --no-verify --no-cert --no-cert-key --no-ssl --no-native-tls --no-default-scheme --no-https --no-http-version --no-resolve --no-interface --no-ipv4 --no-ipv6 --no-unix-socket --no-ignore-stdin --no-curl --no-curl-long --no-generate --no-help --version\"\n            if [[ ${cur} == -* || ${COMP_CWORD} -eq 1 ]] ; then\n                COMPREPLY=( $(compgen -W \"${opts}\" -- \"${cur}\") )\n                return 0",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "93305cee5f9705ebfca886511f8a57cf4bf605e56d05162e45d72b343ecf0b87",
+      "occurrences": [
+        {
+          "file": "completions/xh.bash",
+          "start_line": 26,
+          "end_line": null,
+          "start_column": 1230
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-17e54948f4614f829772e6d73ae0808f",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "completions/xh.elv",
+        "start_line": 133,
+        "end_line": null,
+        "start_column": 17
+      },
+      "finding": "--no-check",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "            cand --no-unstable-m-sig-alg 'no-unstable-m-sig-alg'\n            cand --no-unstable-m-sig-comp 'no-unstable-m-sig-comp'\n            cand --no-offline 'no-offline'\n            cand --no-check-status 'no-check-status'\n            cand --no-follow 'no-follow'\n            cand --no-max-redirects 'no-max-redirects'\n            cand --no-timeout 'no-timeout'",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "93305cee5f9705ebfca886511f8a57cf4bf605e56d05162e45d72b343ecf0b87",
+      "occurrences": [
+        {
+          "file": "completions/xh.elv",
+          "start_line": 133,
+          "end_line": null,
+          "start_column": 17
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-529637bcfbfb452ea097b8cc3432aea6",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "completions/xh.nu",
+        "start_line": 124,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "--no-check",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "    --no-unstable-m-sig-alg\n    --no-unstable-m-sig-comp\n    --no-offline\n    --no-check-status\n    --no-follow\n    --no-max-redirects\n    --no-timeout",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "93305cee5f9705ebfca886511f8a57cf4bf605e56d05162e45d72b343ecf0b87",
+      "occurrences": [
+        {
+          "file": "completions/xh.nu",
+          "start_line": 124,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-174a49fdf871492a8bcf810f8f780f43",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "src/cli.rs",
+        "start_line": 1764,
+        "end_line": null,
+        "start_column": 26
+      },
+      "finding": "--no-check",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "        let cli = parse([\"--check-status\", \":\"]).unwrap();\n        assert_eq!(cli.check_status, Some(true));\n\n        let cli = parse([\"--no-check-status\", \":\"]).unwrap();\n        assert_eq!(cli.check_status, Some(false));\n\n        let cli = parse([\"--check-status\", \"--no-check-status\", \":\"]).unwrap();",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "93305cee5f9705ebfca886511f8a57cf4bf605e56d05162e45d72b343ecf0b87",
+      "occurrences": [
+        {
+          "file": "src/cli.rs",
+          "start_line": 1764,
+          "end_line": null,
+          "start_column": 26
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-053310c68f62458baca9160d8fdfc599",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "src/cli.rs",
+        "start_line": 1767,
+        "end_line": null,
+        "start_column": 44
+      },
+      "finding": "--no-check",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "        let cli = parse([\"--no-check-status\", \":\"]).unwrap();\n        assert_eq!(cli.check_status, Some(false));\n\n        let cli = parse([\"--check-status\", \"--no-check-status\", \":\"]).unwrap();\n        assert_eq!(cli.check_status, Some(false));\n\n        let cli = parse([\"--no-check-status\", \"--check-status\", \":\"]).unwrap();",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "93305cee5f9705ebfca886511f8a57cf4bf605e56d05162e45d72b343ecf0b87",
+      "occurrences": [
+        {
+          "file": "src/cli.rs",
+          "start_line": 1767,
+          "end_line": null,
+          "start_column": 44
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-b4b512f1dd7a40d688baa03d8615c9f4",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "src/cli.rs",
+        "start_line": 1770,
+        "end_line": null,
+        "start_column": 26
+      },
+      "finding": "--no-check",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "        let cli = parse([\"--check-status\", \"--no-check-status\", \":\"]).unwrap();\n        assert_eq!(cli.check_status, Some(false));\n\n        let cli = parse([\"--no-check-status\", \"--check-status\", \":\"]).unwrap();\n        assert_eq!(cli.check_status, Some(true));\n    }\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "93305cee5f9705ebfca886511f8a57cf4bf605e56d05162e45d72b343ecf0b87",
+      "occurrences": [
+        {
+          "file": "src/cli.rs",
+          "start_line": 1770,
+          "end_line": null,
+          "start_column": 26
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-5965627ca5cd478fbd7b6a469fb9bfd6",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "tests/cli.rs",
+        "start_line": 2516,
+        "end_line": null,
+        "start_column": 14
+      },
+      "finding": "--no-check",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "            \"--session={}\",\n            session_file.path().to_string_lossy()\n        ))\n        .arg(\"--no-check-status\")\n        .assert()\n        .success();\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "93305cee5f9705ebfca886511f8a57cf4bf605e56d05162e45d72b343ecf0b87",
+      "occurrences": [
+        {
+          "file": "tests/cli.rs",
+          "start_line": 2516,
+          "end_line": null,
+          "start_column": 14
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-e83cfc54651245169d4fee55c07aa8f7",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "tests/cli.rs",
+        "start_line": 2681,
+        "end_line": null,
+        "start_column": 14
+      },
+      "finding": "--no-check",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "            \"--session={}\",\n            session_file.path().to_string_lossy()\n        ))\n        .arg(\"--no-check-status\")\n        .assert()\n        .success();\n}",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "93305cee5f9705ebfca886511f8a57cf4bf605e56d05162e45d72b343ecf0b87",
+      "occurrences": [
+        {
+          "file": "tests/cli.rs",
+          "start_line": 2681,
+          "end_line": null,
+          "start_column": 14
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-c4857fa27b15450397ce61a833117579",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "tests/cli.rs",
+        "start_line": 2713,
+        "end_line": null,
+        "start_column": 14
+      },
+      "finding": "--no-check",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "            \"--session={}\",\n            session_file.path().to_string_lossy()\n        ))\n        .arg(\"--no-check-status\")\n        .assert()\n        .success();\n}",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "93305cee5f9705ebfca886511f8a57cf4bf605e56d05162e45d72b343ecf0b87",
+      "occurrences": [
+        {
+          "file": "tests/cli.rs",
+          "start_line": 2713,
+          "end_line": null,
+          "start_column": 14
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-c3cf0e25081c471daed84c3404a0ac43",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "tests/cli.rs",
+        "start_line": 2805,
+        "end_line": null,
+        "start_column": 14
+      },
+      "finding": "--no-check",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "            \"--session={}\",\n            session_file.path().to_string_lossy()\n        ))\n        .arg(\"--no-check-status\")\n        .assert()\n        .success();\n}",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "93305cee5f9705ebfca886511f8a57cf4bf605e56d05162e45d72b343ecf0b87",
+      "occurrences": [
+        {
+          "file": "tests/cli.rs",
+          "start_line": 2805,
+          "end_line": null,
+          "start_column": 14
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-f2ec37c28afb42e19543cf40ead9a488",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "tests/cli.rs",
+        "start_line": 2846,
+        "end_line": null,
+        "start_column": 14
+      },
+      "finding": "--no-check",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "            \"--session={}\",\n            session_file.path().to_string_lossy()\n        ))\n        .arg(\"--no-check-status\")\n        .arg(\"hello:people\")\n        .assert()\n        .success();",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "93305cee5f9705ebfca886511f8a57cf4bf605e56d05162e45d72b343ecf0b87",
+      "occurrences": [
+        {
+          "file": "tests/cli.rs",
+          "start_line": 2846,
+          "end_line": null,
+          "start_column": 14
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-1525e5672eb1442792d8f3329af7a37e",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "doc/man-template.roff",
+        "start_line": 117,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "~/.netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "{ \"default_options\": [\"--native-tls\", \"--style=solarized\"] }\n.RE\n.TP\n.IR ~/.netrc \", \" ~/_netrc\nAuto-login information file.\n.TP\n.I ~/.config/xh/sessions",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ea8aa89832e2aef0e67d668e985af0bc73931f4c2af2116f6b9f0ef6dd94878f",
+      "occurrences": [
+        {
+          "file": "doc/man-template.roff",
+          "start_line": 117,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-735e20c40fc24ff082ffd918006b7ede",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "doc/md-template.md",
+        "start_line": 103,
+        "end_line": null,
+        "start_column": 3
+      },
+      "finding": "~/.netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  { \"default_options\": [\"--native-tls\", \"--style=solarized\"] }\n  ```\n\n- `~/.netrc`, `~/_netrc`:\nAuto-login information file.\n\n- `~/.config/xh/sessions`:",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ea8aa89832e2aef0e67d668e985af0bc73931f4c2af2116f6b9f0ef6dd94878f",
+      "occurrences": [
+        {
+          "file": "doc/md-template.md",
+          "start_line": 103,
+          "end_line": null,
+          "start_column": 3
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-21261160fe044bb19917bf7763274983",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "doc/xh.1",
+        "start_line": 535,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "~/.netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "{ \"default_options\": [\"--native-tls\", \"--style=solarized\"] }\n.RE\n.TP\n.IR ~/.netrc \", \" ~/_netrc\nAuto-login information file.\n.TP\n.I ~/.config/xh/sessions",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ea8aa89832e2aef0e67d668e985af0bc73931f4c2af2116f6b9f0ef6dd94878f",
+      "occurrences": [
+        {
+          "file": "doc/xh.1",
+          "start_line": 535,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "PE3",
+      "finding_id": "finding-f192346d50584c0b907042c5008f6782",
+      "category": "Privilege Escalation",
+      "pattern": "Credential Access",
+      "severity": "HIGH",
+      "confidence": 0.8,
+      "location": {
+        "file": "doc/xh.1.md",
+        "start_line": 347,
+        "end_line": null,
+        "start_column": 3
+      },
+      "finding": "~/.netrc",
+      "explanation": "Code accesses credential files (SSH keys, AWS credentials, etc.). This could indicate credential theft attempts.",
+      "remediation": "Remove references to credential paths. Use environment variables or secrets managers. For docs, use placeholder paths (e.g., /path/to/config). Never load .env or token files in production code paths.",
+      "code_snippet": "  { \"default_options\": [\"--native-tls\", \"--style=solarized\"] }\n  ```\n\n- `~/.netrc`, `~/_netrc`:\nAuto-login information file.\n\n- `~/.config/xh/sessions`:",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "ea8aa89832e2aef0e67d668e985af0bc73931f4c2af2116f6b9f0ef6dd94878f",
+      "occurrences": [
+        {
+          "file": "doc/xh.1.md",
+          "start_line": 347,
+          "end_line": null,
+          "start_column": 3
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-c1d1eb28e57043279a7e442cadd67b75",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.65,
+      "location": {
+        "file": "src/to_curl.rs",
+        "start_line": 184,
+        "end_line": null,
+        "start_column": 30
+      },
+      "finding": "curl to guess, like we do\n    }\n    match args.verify.unwrap_or(Verify::Yes) {\n        Verify::CustomCaBundle(filename) => {\n            cmd.arg(\"--cacert\");\n            cmd.arg(filename);\n        }\n ",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "    }\n    if args.resume {\n        cmd.opt(\"-C\", \"--continue-at\");\n        cmd.arg(\"-\"); // Tell curl to guess, like we do\n    }\n    match args.verify.unwrap_or(Verify::Yes) {\n        Verify::CustomCaBundle(filename) => {",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "6a81e49afe2313ae69e82b52830fbd1e2675aa3181f99a29c2a43c9609c589fd",
+      "occurrences": [
+        {
+          "file": "src/to_curl.rs",
+          "start_line": 184,
+          "end_line": null,
+          "start_column": 30
+        }
+      ]
+    },
+    {
+      "id": "AE3",
+      "finding_id": "finding-c997c69ca50942ddbec25a6fa2e2b61e",
+      "category": "analysis-evasion",
+      "pattern": null,
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "tests/fixtures/responses/hello_world.br",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": null,
+      "explanation": "Text artifact contains embedded NUL bytes",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "artifact-integrity"
+      ],
+      "evidence": {},
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "tests/fixtures/responses/hello_world.br",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-79f37fe8a8f44f1c8baa5b0b1542718e",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/release.yaml",
+        "start_line": 104,
+        "end_line": null,
+        "start_column": 12
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "        if: matrix.job.os != 'windows-latest'\n        run: |\n          if [ \"${{ matrix.job.binutils }}\" != \"\" ]; then\n            sudo apt update\n            sudo apt -y install \"binutils-${{ matrix.job.binutils }}\"\n            \"${{ matrix.job.binutils }}-strip\" \"target/${{ matrix.job.target }}/release/xh\"\n          else",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/release.yaml",
+          "start_line": 104,
+          "end_line": null,
+          "start_column": 12
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-a448d45e86fc4090b365fbdad3c98288",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/release.yaml",
+        "start_line": 105,
+        "end_line": null,
+        "start_column": 12
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "        run: |\n          if [ \"${{ matrix.job.binutils }}\" != \"\" ]; then\n            sudo apt update\n            sudo apt -y install \"binutils-${{ matrix.job.binutils }}\"\n            \"${{ matrix.job.binutils }}-strip\" \"target/${{ matrix.job.target }}/release/xh\"\n          else\n            strip \"target/${{ matrix.job.target }}/release/xh\"",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/release.yaml",
+          "start_line": 105,
+          "end_line": null,
+          "start_column": 12
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-9fbe6482b47240f1989686cdc9943594",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 37,
+        "end_line": null,
+        "start_column": 52
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "| Android ([Magisk]/[KernelSU]) | MMRL\\*\\*       | `mmrl install xhhttp`                      |\n| Alpine Linux                  | apk\\*\\*\\*      | `apk add xh`                               |\n| Arch Linux                    | Pacman         | `pacman -S xh`                             |\n| Debian & Ubuntu               | Apt\\*\\*\\*\\*    | `sudo apt install xh`                      |\n| Fedora                        | Copr\\*\\*\\*\\*\\* | `sudo dnf install xh`                      |\n| FreeBSD                       | FreshPorts     | `pkg install xh`                           |\n| NetBSD                        | pkgsrc         | `pkgin install xh`                         |",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 37,
+          "end_line": null,
+          "start_column": 52
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-da4c89a57ddd4cbb89053a564a0d7682",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 38,
+        "end_line": null,
+        "start_column": 52
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "| Alpine Linux                  | apk\\*\\*\\*      | `apk add xh`                               |\n| Arch Linux                    | Pacman         | `pacman -S xh`                             |\n| Debian & Ubuntu               | Apt\\*\\*\\*\\*    | `sudo apt install xh`                      |\n| Fedora                        | Copr\\*\\*\\*\\*\\* | `sudo dnf install xh`                      |\n| FreeBSD                       | FreshPorts     | `pkg install xh`                           |\n| NetBSD                        | pkgsrc         | `pkgin install xh`                         |\n| Linux & macOS                 | Nixpkgs        | `nix-env -iA nixpkgs.xh`                   |",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 38,
+          "end_line": null,
+          "start_column": 52
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-40682c5199214c9db1a293b88e9cfdbd",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 45,
+        "end_line": null,
+        "start_column": 52
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "| Linux & macOS                 | [Flox]         | `flox install xh`                          |\n| Linux & macOS                 | Homebrew       | `brew install xh`                          |\n| Linux & macOS                 | [Hermit]       | `hermit install xh`                        |\n| macOS                         | MacPorts       | `sudo port install xh`                     |\n| Windows                       | Scoop          | `scoop install xh`                         |\n| Windows                       | Chocolatey     | `choco install xh`                         |\n| Windows                       | Winget         | `winget add ducaale.xh`                    |",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 45,
+          "end_line": null,
+          "start_column": 52
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-7b2262ccf7d5443c82f2abf34838c5c5",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 58,
+        "end_line": null,
+        "start_column": 33
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "\n\\*\\*\\*\\* Available since Debian 13 and Ubuntu 25.04. Built with native-tls only.\n\n\\*\\*\\*\\*\\* Enable COPR repo via `sudo dnf copr enable ducaale/xh`\n\n[Huber]: https://github.com/innobead/huber\n[Mise]: https://mise.jdx.dev",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 58,
+          "end_line": null,
+          "start_column": 33
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-5f9ac7b69864410683118e55d35c87b6",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "install.sh",
+        "start_line": 85,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "    mv xh-*/xh \"$xh_installdir/\"\n    ln -sf \"$xh_installdir/xh\" \"$xh_installdir/xhs\"\nelse\n    sudo mv xh-*/xh \"$xh_installdir/\"\n    sudo ln -sf \"$xh_installdir/xh\" \"$xh_installdir/xhs\"\nfi\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 85,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-c421d7e6bad640378eefad41aa5adda3",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "install.sh",
+        "start_line": 86,
+        "end_line": null,
+        "start_column": 4
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "    ln -sf \"$xh_installdir/xh\" \"$xh_installdir/xhs\"\nelse\n    sudo mv xh-*/xh \"$xh_installdir/\"\n    sudo ln -sf \"$xh_installdir/xh\" \"$xh_installdir/xhs\"\nfi\n\necho \"$(\"$xh_installdir\"/xh -V) has been installed to:\"",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 86,
+          "end_line": null,
+          "start_column": 4
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-c0c530fac7bb43e59710a104465327c9",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "CHANGELOG.md",
+        "start_line": 220,
+        "end_line": null,
+        "start_column": 9
+      },
+      "finding": "curl from `dev-dependencies` by replacing httpmock with hyper, see #190 (@ducaale)\n\n## [0.14.0] - 2021-11-15\n### Features\n- Add `--http-version` for forcing a specific http version, see #161 (@ducaale",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "\n### Other\n- Do not rebuild when no syntax or theme file has changed, see #194 (@blyxxyz)\n- Remove curl from `dev-dependencies` by replacing httpmock with hyper, see #190 (@ducaale)\n\n## [0.14.0] - 2021-11-15\n### Features",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "afc4b4d4b109ef8e7fec21958ad2ae2c18f7877d4927807c3272581de01c1982",
+      "occurrences": [
+        {
+          "file": "CHANGELOG.md",
+          "start_line": 220,
+          "end_line": null,
+          "start_column": 9
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-4f10f975ee8e44739ca56e0546fd94ec",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "Cargo.lock",
+        "start_line": 1934,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "plist",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "checksum = \"f6b464fbc74e149a392436b17d523f769e057cb6877f6a5c4618bc6f11800548\"\n\n[[package]]\nname = \"plist\"\nversion = \"1.8.0\"\nsource = \"registry+https://github.com/rust-lang/crates.io-index\"\nchecksum = \"740ebea15c5d1428f910cd1a5f52cebf8d25006245ed8ade92702f4943d91e07\"",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "92ac6668a75d0bc0e0c009eaa03caa4e6c179ffa107b611e1fe7194dd61864e6",
+      "occurrences": [
+        {
+          "file": "Cargo.lock",
+          "start_line": 1934,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-a6291f2f407d462892355f9c0b2e870e",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "Cargo.lock",
+        "start_line": 2850,
+        "end_line": null,
+        "start_column": 2
+      },
+      "finding": "plist",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": " \"fnv\",\n \"once_cell\",\n \"onig\",\n \"plist\",\n \"regex-syntax\",\n \"serde\",\n \"serde_derive\",",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "92ac6668a75d0bc0e0c009eaa03caa4e6c179ffa107b611e1fe7194dd61864e6",
+      "occurrences": [
+        {
+          "file": "Cargo.lock",
+          "start_line": 2850,
+          "end_line": null,
+          "start_column": 2
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-1007fdbdd0c84ac0bebd70807399b1ef",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "Cargo.toml",
+        "start_line": 86,
+        "end_line": null,
+        "start_column": 28
+      },
+      "finding": "plist",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "[build-dependencies.syntect]\nversion = \"5.1\"\ndefault-features = false\nfeatures = [\"dump-create\", \"plist-load\", \"regex-onig\", \"yaml-load\"]\n\n[dev-dependencies]\nassert_cmd = \"2.0.8\"",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "92ac6668a75d0bc0e0c009eaa03caa4e6c179ffa107b611e1fe7194dd61864e6",
+      "occurrences": [
+        {
+          "file": "Cargo.toml",
+          "start_line": 86,
+          "end_line": null,
+          "start_column": 28
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-38311c76547f47ffa0b5c89b108eb174",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "assets/themes/ansi.tmTheme",
+        "start_line": 2,
+        "end_line": null,
+        "start_column": 10
+      },
+      "finding": "plist",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n    <dict>\n        <!--",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "92ac6668a75d0bc0e0c009eaa03caa4e6c179ffa107b611e1fe7194dd61864e6",
+      "occurrences": [
+        {
+          "file": "assets/themes/ansi.tmTheme",
+          "start_line": 2,
+          "end_line": null,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-670d78f84bae420180579bcb4d59ede6",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "assets/themes/ansi.tmTheme",
+        "start_line": 3,
+        "end_line": null,
+        "start_column": 1
+      },
+      "finding": "plist",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n    <dict>\n        <!--\n        The colors in this theme are encoded as #RRGGBBAA where RR is an ANSI",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "92ac6668a75d0bc0e0c009eaa03caa4e6c179ffa107b611e1fe7194dd61864e6",
+      "occurrences": [
+        {
+          "file": "assets/themes/ansi.tmTheme",
+          "start_line": 3,
+          "end_line": null,
+          "start_column": 1
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-5c5a8b035235434dabd58951b065f891",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "assets/themes/ansi.tmTheme",
+        "start_line": 181,
+        "end_line": null,
+        "start_column": 2
+      },
+      "finding": "plist",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "            </dict>\n        </array>\n    </dict>\n</plist>",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "92ac6668a75d0bc0e0c009eaa03caa4e6c179ffa107b611e1fe7194dd61864e6",
+      "occurrences": [
+        {
+          "file": "assets/themes/ansi.tmTheme",
+          "start_line": 181,
+          "end_line": null,
+          "start_column": 2
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-375cc1bbfcc341159a2c6b87c55cf71d",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "assets/themes/fruity.tmTheme",
+        "start_line": 2,
+        "end_line": null,
+        "start_column": 10
+      },
+      "finding": "plist",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n    <dict>\n        <!--",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "92ac6668a75d0bc0e0c009eaa03caa4e6c179ffa107b611e1fe7194dd61864e6",
+      "occurrences": [
+        {
+          "file": "assets/themes/fruity.tmTheme",
+          "start_line": 2,
+          "end_line": null,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-e0a6d9e91afa4baf95d6d39faa39aa89",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "assets/themes/fruity.tmTheme",
+        "start_line": 3,
+        "end_line": null,
+        "start_column": 1
+      },
+      "finding": "plist",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n    <dict>\n        <!--\n        The colors in this theme are encoded as #RRGGBBAA where RR is an ANSI",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "92ac6668a75d0bc0e0c009eaa03caa4e6c179ffa107b611e1fe7194dd61864e6",
+      "occurrences": [
+        {
+          "file": "assets/themes/fruity.tmTheme",
+          "start_line": 3,
+          "end_line": null,
+          "start_column": 1
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-a6918f5fb0b24cc2aaf4cd385f1b7bd2",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "assets/themes/fruity.tmTheme",
+        "start_line": 180,
+        "end_line": null,
+        "start_column": 2
+      },
+      "finding": "plist",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "            </dict>\n        </array>\n    </dict>\n</plist>",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "92ac6668a75d0bc0e0c009eaa03caa4e6c179ffa107b611e1fe7194dd61864e6",
+      "occurrences": [
+        {
+          "file": "assets/themes/fruity.tmTheme",
+          "start_line": 180,
+          "end_line": null,
+          "start_column": 2
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-247ffe66385845a18cc44b6f9da3b9e6",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "assets/themes/monokai.tmTheme",
+        "start_line": 2,
+        "end_line": null,
+        "start_column": 10
+      },
+      "finding": "plist",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n    <dict>\n        <!--",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "92ac6668a75d0bc0e0c009eaa03caa4e6c179ffa107b611e1fe7194dd61864e6",
+      "occurrences": [
+        {
+          "file": "assets/themes/monokai.tmTheme",
+          "start_line": 2,
+          "end_line": null,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-72d2503dc2c547aa955770cfe669b450",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "assets/themes/monokai.tmTheme",
+        "start_line": 3,
+        "end_line": null,
+        "start_column": 1
+      },
+      "finding": "plist",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n    <dict>\n        <!--\n        The colors in this theme are encoded as #RRGGBBAA where RR is an ANSI",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "92ac6668a75d0bc0e0c009eaa03caa4e6c179ffa107b611e1fe7194dd61864e6",
+      "occurrences": [
+        {
+          "file": "assets/themes/monokai.tmTheme",
+          "start_line": 3,
+          "end_line": null,
+          "start_column": 1
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-c402a2fe04c6456f985326b072b1be76",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "assets/themes/monokai.tmTheme",
+        "start_line": 202,
+        "end_line": null,
+        "start_column": 2
+      },
+      "finding": "plist",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "            </dict>\n        </array>\n    </dict>\n</plist>",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "92ac6668a75d0bc0e0c009eaa03caa4e6c179ffa107b611e1fe7194dd61864e6",
+      "occurrences": [
+        {
+          "file": "assets/themes/monokai.tmTheme",
+          "start_line": 202,
+          "end_line": null,
+          "start_column": 2
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-e93caa7c732541d2a6f67c21bbd6b1ad",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "assets/themes/solarized.tmTheme",
+        "start_line": 2,
+        "end_line": null,
+        "start_column": 10
+      },
+      "finding": "plist",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n    <dict>\n        <!--",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "92ac6668a75d0bc0e0c009eaa03caa4e6c179ffa107b611e1fe7194dd61864e6",
+      "occurrences": [
+        {
+          "file": "assets/themes/solarized.tmTheme",
+          "start_line": 2,
+          "end_line": null,
+          "start_column": 10
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-ed98fe81fa6047f1a4fda9a4d08a4911",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "assets/themes/solarized.tmTheme",
+        "start_line": 3,
+        "end_line": null,
+        "start_column": 1
+      },
+      "finding": "plist",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n    <dict>\n        <!--\n        The colors in this theme are encoded as #RRGGBBAA where RR is an ANSI",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "92ac6668a75d0bc0e0c009eaa03caa4e6c179ffa107b611e1fe7194dd61864e6",
+      "occurrences": [
+        {
+          "file": "assets/themes/solarized.tmTheme",
+          "start_line": 3,
+          "end_line": null,
+          "start_column": 1
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-0399f3a54c4e42e3843e2836d0d0a0d5",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "assets/themes/solarized.tmTheme",
+        "start_line": 191,
+        "end_line": null,
+        "start_column": 2
+      },
+      "finding": "plist",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "            </dict>\n        </array>\n    </dict>\n</plist>",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "92ac6668a75d0bc0e0c009eaa03caa4e6c179ffa107b611e1fe7194dd61864e6",
+      "occurrences": [
+        {
+          "file": "assets/themes/solarized.tmTheme",
+          "start_line": 191,
+          "end_line": null,
+          "start_column": 2
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-a2064dd0142b403d8be8654b361b2608",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "assets/themes/ansi.tmTheme",
+        "start_line": 2,
+        "end_line": null,
+        "start_column": 38
+      },
+      "finding": "PLIST",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n    <dict>\n        <!--",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "07df7bb8d6a078b920c75dec8f277dea2977922de74c3b05355577cbdb1facca",
+      "occurrences": [
+        {
+          "file": "assets/themes/ansi.tmTheme",
+          "start_line": 2,
+          "end_line": null,
+          "start_column": 38
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-bded65aef2ea4ba5ad8a827dedd92509",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "assets/themes/fruity.tmTheme",
+        "start_line": 2,
+        "end_line": null,
+        "start_column": 38
+      },
+      "finding": "PLIST",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n    <dict>\n        <!--",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "07df7bb8d6a078b920c75dec8f277dea2977922de74c3b05355577cbdb1facca",
+      "occurrences": [
+        {
+          "file": "assets/themes/fruity.tmTheme",
+          "start_line": 2,
+          "end_line": null,
+          "start_column": 38
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-a27ce0336750481db48e935adbe192d7",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "assets/themes/monokai.tmTheme",
+        "start_line": 2,
+        "end_line": null,
+        "start_column": 38
+      },
+      "finding": "PLIST",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n    <dict>\n        <!--",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "07df7bb8d6a078b920c75dec8f277dea2977922de74c3b05355577cbdb1facca",
+      "occurrences": [
+        {
+          "file": "assets/themes/monokai.tmTheme",
+          "start_line": 2,
+          "end_line": null,
+          "start_column": 38
+        }
+      ]
+    },
+    {
+      "id": "RA2",
+      "finding_id": "finding-028f105b8bbe4ed0a18eb1b5b3e9468d",
+      "category": "Rogue Agent",
+      "pattern": "Session Persistence",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "assets/themes/solarized.tmTheme",
+        "start_line": 2,
+        "end_line": null,
+        "start_column": 38
+      },
+      "finding": "PLIST",
+      "explanation": "Skill establishes unauthorized persistence across sessions via cron jobs, startup scripts, or state files. Session persistence allows an attacker to maintain access beyond the current interaction.",
+      "remediation": "Remove any persistence mechanisms (cron jobs, startup scripts, state files). Skills should not maintain state across sessions without explicit user consent.",
+      "code_snippet": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE plist PUBLIC \"-//Apple//DTD PLIST 1.0//EN\" \"http://www.apple.com/DTDs/PropertyList-1.0.dtd\">\n<plist version=\"1.0\">\n    <dict>\n        <!--",
+      "intent": null,
+      "tags": [
+        "Rogue Agent"
+      ],
+      "evidence": {},
+      "match_fingerprint": "07df7bb8d6a078b920c75dec8f277dea2977922de74c3b05355577cbdb1facca",
+      "occurrences": [
+        {
+          "file": "assets/themes/solarized.tmTheme",
+          "start_line": 2,
+          "end_line": null,
+          "start_column": 38
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-594aee14c5e54ec889c84d43a58aad6f",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "completions/xh.fish",
+        "start_line": 90,
+        "end_line": null,
+        "start_column": 18
+      },
+      "finding": "curl -d 'Print a translation to a curl command'\ncomplete -c xh -l curl-long -d 'Use the long versions of curl\\'s flags'\ncomplete -c xh -l help -d 'Print help'\ncomplete -c xh -l no-json\ncomplete -c xh ",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "complete -c xh -s 4 -l ipv4 -d 'Resolve hostname to ipv4 addresses only'\ncomplete -c xh -s 6 -l ipv6 -d 'Resolve hostname to ipv6 addresses only'\ncomplete -c xh -s I -l ignore-stdin -d 'Do not attempt to read stdin'\ncomplete -c xh -l curl -d 'Print a translation to a curl command'\ncomplete -c xh -l curl-long -d 'Use the long versions of curl\\'s flags'\ncomplete -c xh -l help -d 'Print help'\ncomplete -c xh -l no-json",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "abd3a2b8b25792f59da6f9afa642aaea7e506f100a63e6344dd20e0f9ef78154",
+      "occurrences": [
+        {
+          "file": "completions/xh.fish",
+          "start_line": 90,
+          "end_line": null,
+          "start_column": 18
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-0f04b0cb29dd4de199b401af1cff9265",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "install.ps1",
+        "start_line": 4,
+        "end_line": null,
+        "start_column": 47
+      },
+      "finding": "https://api.github.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12\n\n$ProgressPreference = 'SilentlyContinue'\n$release = Invoke-RestMethod -Method Get -Uri \"https://api.github.com/repos/ducaale/xh/releases/latest\"\n$asset = $release.assets | Where-Object name -like *x86_64-pc-windows*.zip\n$destdir = \"$home\\bin\"\n$zipfile = \"$env:TEMP\\$( $asset.name )\"",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "061abab0022b7a79cdf98b2721e4ad6d47cd4ad12584ecf052130ef51f05d966",
+      "occurrences": [
+        {
+          "file": "install.ps1",
+          "start_line": 4,
+          "end_line": null,
+          "start_column": 47
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-1ff1fc0da7b64d8dbbf21c5c7070c045",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "install.sh",
+        "start_line": 34,
+        "end_line": null,
+        "start_column": 17
+      },
+      "finding": "https://api.github.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "\necho \"Detected target: $target\"\n\nreleases=$(fetch https://api.github.com/repos/ducaale/xh/releases/latest)\nurl=$(echo \"$releases\" | grep -wo -m1 \"https://.*$target.tar.gz\" || true)\nif ! test \"$url\"; then\n    echo \"Could not find release info\"",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "061abab0022b7a79cdf98b2721e4ad6d47cd4ad12584ecf052130ef51f05d966",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 34,
+          "end_line": null,
+          "start_column": 17
+        }
+      ]
+    },
+    {
+      "id": "TM3",
+      "finding_id": "finding-d8e0288b316f4cbba8654b5fe65f5267",
+      "category": "Tool Misuse",
+      "pattern": "Unsafe Defaults",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "src/main.rs",
+        "start_line": 193,
+        "end_line": null,
+        "start_column": 12
+      },
+      "finding": "auth = None",
+      "explanation": "Tool defaults are unsafe or overly permissive (e.g. disabled TLS verification, no authentication, world-writable permissions). Unsafe defaults widen the attack surface.",
+      "remediation": "Override unsafe defaults with secure settings (verify=True, auth required, restrictive permissions). Review and harden all tool configurations.",
+      "code_snippet": "\n    let mut failure_code = None;\n    let mut resume: Option<u64> = None;\n    let mut auth = None;\n    let mut save_auth_in_session = true;\n\n    let verify = args.verify.unwrap_or_else(|| {",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "d1e3d9615ea23cbfe51d1758d539e511e720e7d1aa668c80ce66a6b6f129db94",
+      "occurrences": [
+        {
+          "file": "src/main.rs",
+          "start_line": 193,
+          "end_line": null,
+          "start_column": 12
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-3aa80f8e04124911827ad23c47571fda",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "src/to_curl.rs",
+        "start_line": 428,
+        "end_line": null,
+        "start_column": 30
+      },
+      "finding": "curl 7.18.0 (January 28 2008), *probably* old enough\n                    // Otherwise passing --multipart helps\n                    cmd.arg(\"--data-urlencode\");\n                    // Encoding this is",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "                }\n                for (key, value) in items {\n                    // More faithful than -F, but doesn't have a short version\n                    // New in curl 7.18.0 (January 28 2008), *probably* old enough\n                    // Otherwise passing --multipart helps\n                    cmd.arg(\"--data-urlencode\");\n                    // Encoding this is tricky: --data-urlencode expects name",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "561a1cffee177d6e4c36049cfe6394fbbb6465bc8a1aefcb6883e25c6bcb70aa",
+      "occurrences": [
+        {
+          "file": "src/to_curl.rs",
+          "start_line": 428,
+          "end_line": null,
+          "start_column": 30
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-85a29288b6064ce79a21add48480254a",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/cli.rs",
+        "start_line": 592,
+        "end_line": null,
+        "start_column": 18
+      },
+      "finding": "timeout=0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    server.disable_hit_checks();\n\n    get_command()\n        .args([\"--timeout=0.1\", &server.base_url()])\n        .assert()\n        .code(2)\n        .stderr(contains(\"operation timed out\"));",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e44269027db0b77c3f387ffaac96e37ae94b288abcfe941168fb22e5c43c7b09",
+      "occurrences": [
+        {
+          "file": "tests/cli.rs",
+          "start_line": 592,
+          "end_line": null,
+          "start_column": 18
+        }
+      ]
+    },
+    {
+      "id": "EA4",
+      "finding_id": "finding-c9df0b5a22c24e319baa9c878db817ed",
+      "category": "Excessive Agency",
+      "pattern": "Unbounded Resource Access",
+      "severity": "MEDIUM",
+      "confidence": 0.75,
+      "location": {
+        "file": "tests/cli.rs",
+        "start_line": 606,
+        "end_line": null,
+        "start_column": 18
+      },
+      "finding": "timeout=0",
+      "explanation": "Skill allows unbounded resource consumption (API calls, storage, compute). Without rate limits or quotas, a compromised or misbehaving agent can cause denial-of-service or cost overruns.",
+      "remediation": "Set explicit rate limits, timeouts, and resource quotas for API calls, file operations, and compute. Implement circuit breakers for runaway loops.",
+      "code_snippet": "    });\n\n    get_command()\n        .args([\"--timeout=0\", &server.base_url()])\n        .assert()\n        .success();\n}",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e44269027db0b77c3f387ffaac96e37ae94b288abcfe941168fb22e5c43c7b09",
+      "occurrences": [
+        {
+          "file": "tests/cli.rs",
+          "start_line": 606,
+          "end_line": null,
+          "start_column": 18
+        }
+      ]
+    },
+    {
+      "id": "AE4",
+      "finding_id": "finding-81a582a9af87477ebc24a1ff6338a060",
+      "category": "analysis-evasion",
+      "pattern": null,
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "tests/fixtures/responses/hello_world.br",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": null,
+      "explanation": "Suspicious Unicode normalization or mixed-script content",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "artifact-integrity"
+      ],
+      "evidence": {},
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "tests/fixtures/responses/hello_world.br",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC2",
+      "finding_id": "finding-32db108bce664b3f95dfa8f3fada1f55",
+      "category": "Supply Chain",
+      "pattern": "External Script Fetching",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "README.md",
+        "start_line": 13,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "cURL (Linux & macOS)\n\n```\ncurl -sfL https://raw.githubusercontent.com/ducaale/xh/master/install.sh | sh",
+      "explanation": "Remote code is downloaded and executed. This bypasses code review and could introduce malicious code.",
+      "remediation": "Avoid downloading and executing remote scripts. Use trusted packages from PyPI/npm. If remote fetch is required, verify checksums and use HTTPS.",
+      "code_snippet": "\n## Installation\n\n### via cURL (Linux & macOS)\n\n```\ncurl -sfL https://raw.githubusercontent.com/ducaale/xh/master/install.sh | sh",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c0010ca22874ed4990f1db83c13b62e3e334cc00e0cb8d4f4006dd5e9e723cac",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 13,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 72,
+    "scanned_components": 69,
+    "coverage_percent": 95.8,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 69,
+    "partially_inspected_files": 3,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "assets/syntax/large/xml.sublime-syntax",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/generation.rs",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/nested_json.rs",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [
+      {
+        "outcome": "out_of_scope",
+        "phase": "cache",
+        "reason_code": "binary_text_projection",
+        "message": "Only bounded printable text was inspected; binary structure and behavior are outside scope.",
+        "path": "assets/xh-demo.gif",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "discovery",
+        "reason_code": "not_regular_file",
+        "message": "Inventoried path is no longer a regular file.",
+        "path": "assets/xhs",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "discovery",
+        "reason_code": "not_regular_file",
+        "message": "Inventoried path is no longer a regular file.",
+        "path": "assets/xhs.1.gz",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "tests/fixtures/responses/hello_world.gz",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "tests/fixtures/responses/hello_world.zst",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "out_of_scope",
+        "phase": "static",
+        "reason_code": "binary_content",
+        "message": "Binary content is unsupported by this analyzer.",
+        "path": "tests/fixtures/responses/hello_world.zz",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_data_exfiltration",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_output_handling",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 76,
+        "completed": 76,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 76,
+        "completed": 76,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "completed",
+        "planned_work": 73,
+        "completed": 73,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 73,
+        "completed": 70,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 76,
+        "completed": 76,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 78,
+    "findings_after_filtering": 78,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

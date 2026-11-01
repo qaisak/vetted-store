@@ -69,7 +69,14 @@
     "secretFiles": "False match: a file-icon table includes .npmrc."
   },
   "gitleaks": {
-    "network": "Its optional --diagnostics mode serves profiling data on localhost:6060."
+    "network": "Its optional --diagnostics mode serves profiling data on localhost:6060.",
+    "_findings": [
+      {
+        "match": "Description:;",
+        "level": "benign",
+        "note": "The rule definitions gitleaks uses to detect secrets: each has a description and a fake example token to test the rule (cmd/generate/config/rules/). SkillSpector reads those examples as hidden data."
+      }
+    ]
   },
   "dust": {
     "shell": "False match: it starts a progress thread (std::thread::spawn), not a program."
@@ -292,6 +299,142 @@
           ]
         ],
         "note": "With --cookies-from-browser it reads and decrypts the cookie database of Chrome, Firefox, Safari or another browser you name, so downloads can use your signed-in sessions. Those cookies act as you on every site. It only does this when you pass that option; a plain download doesn't touch them."
+      }
+    ]
+  },
+  "mcp-spec-workflow-mcp": {
+    "shell": "Runs git rev-parse to find the root of your project and its worktrees (src/core/git-utils.ts:20, 47). Nothing else."
+  },
+  "croc": {
+    "shell": "Three features: croc ssh starts your login shell to share it (src/sshshare/terminal_unix.go:130-136), it copies the code phrase to your clipboard with clip, pbcopy or wl-copy (src/croc/croc.go:3948), and croc update runs the new version once to check it before replacing itself (src/cli/update.go:342).",
+    "_notices": [
+      {
+        "title": "croc ssh shares a live terminal on your computer",
+        "where": [
+          [
+            "src/sshshare/terminal_unix.go",
+            130
+          ]
+        ],
+        "note": "Separate from sending files: croc ssh opens a shared terminal on your machine. Anyone with the read/write invitation can type commands as you, with your permissions, for as long as it runs. Share that invitation only with people you'd hand your keyboard to; the read-only invitation lets people watch without typing."
+      }
+    ]
+  },
+  "visidata": {
+    "credentials": "Only in optional extras you turn on yourself: a geocoding plugin that uses an API key you set (plugins/geocoding.py), and an experimental LLM command that sends the column text you analyze to Anthropic with your ANTHROPIC_API_KEY (visidata/experimental/llm.py:84). Neither loads unless you import it in your config."
+  },
+  "superfile": {
+    "network": "Checks GitHub for a newer release at most once a day and tells you if there is one (src/cmd/main.go:238-311). On by default; set auto_check_update = false in its config to turn it off."
+  },
+  "harlequin": {
+    "shell": "Runs ssh only for optional SSH tunnels to a database, and ssh -V to report its version (src/harlequin/ssh.py:353, src/harlequin/hsql/modes/info.py:113). It also hands the terminal to an external program such as your editor when you ask (src/harlequin/external.py:98).",
+    "secretFiles": "False match: a docstring explaining that forwards declared in ~/.ssh/config are handled by ssh itself (src/harlequin/ssh.py:15). Harlequin doesn't read your SSH files."
+  },
+  "posting": {
+    "shell": "Opens a request body or script in your editor or pager when you ask, through a temporary file (internal/ui/external.go:40). The older Python version kept in src/ does the same (src/posting/widgets/text_area.py:249, request/request_scripts.py:99)."
+  },
+  "mcp-mcp-server-youtube-transcript": {
+    "_findings": [
+      {
+        "match": "/shorts/",
+        "level": "benign",
+        "note": "A comment in its URL parser: it strips \"/shorts/\" to get a Shorts video's ID (src/index.ts:132)."
+      }
+    ]
+  },
+  "mcp-fetcher-mcp": {
+    "_findings": [
+      {
+        "match": "enable debug mode",
+        "level": "benign",
+        "note": "A tool option, \"Whether to enable debug mode (showing browser window)\" (src/tools/fetchUrl.ts:65). It just shows the browser."
+      }
+    ]
+  },
+  "ripgrep": {
+    "_findings": [
+      {
+        "match": ".env",
+        "level": "benign",
+        "note": "False match: \".env\" in ripgrep's list of file types you can filter by (crates/ignore/src/default_types.rs:253). It doesn't read .env files for secrets."
+      }
+    ]
+  },
+  "jq": {
+    "_findings": [
+      {
+        "match": "rm -rf ${cwd}/build/ios",
+        "level": "benign",
+        "note": "A build script for iOS that cleans its own build folders (compile-ios.sh:104). Not part of the jq program."
+      }
+    ]
+  },
+  "btop": {
+    "_findings": [
+      {
+        "match": "/etc/passwd",
+        "level": "benign",
+        "note": "Reads /etc/passwd to show user names instead of numbers in the process list (src/linux/btop_collect.cpp:340), like top does. That file holds no passwords on modern systems."
+      },
+      {
+        "match": "swap memory",
+        "level": "benign",
+        "note": "Text in its settings and menu about showing swap memory (src/btop_config.cpp:210)."
+      }
+    ]
+  },
+  "delta": {
+    "_findings": [
+      {
+        "match": ".env",
+        "level": "benign",
+        "note": "False match: a field named env in its settings code (src/config.rs:195)."
+      }
+    ]
+  },
+  "hyperfine": {
+    "_findings": [
+      {
+        "match": "Enable debug mode",
+        "level": "benign",
+        "note": "Help text for a command-line option (src/cli.rs:452)."
+      }
+    ]
+  },
+  "just": {
+    "_findings": [
+      {
+        "match": ".env",
+        "level": "benign",
+        "note": "Loads your project's .env file into recipes when you turn on dotenv-load, a documented feature (src/load_dotenv.rs:74)."
+      }
+    ]
+  },
+  "xh": {
+    "_findings": [
+      {
+        "match": "--no-check",
+        "level": "benign",
+        "note": "Tests of its --check-status option, inside the source file (src/cli.rs:1764)."
+      },
+      {
+        "match": "curl to guess",
+        "level": "benign",
+        "note": "Its --curl option prints the equivalent curl command, including -k when you turned verification off (src/to_curl.rs:184). It doesn't run curl."
+      }
+    ]
+  },
+  "lazydocker": {
+    "_findings": [
+      {
+        "match": "/var/run/docker.sock",
+        "level": "benign",
+        "note": "Managing Docker is its job: it connects to Docker through its local socket (pkg/commands/docker_host_unix.go:6). When DOCKER_HOST points at an ssh:// address it forwards the remote Docker socket over ssh (pkg/commands/ssh/ssh.go:152). The other matches are translated error messages that mention the socket (pkg/i18n/)."
+      },
+      {
+        "match": "/etc/passwd",
+        "level": "benign",
+        "note": "When you open a shell in a container, it looks up your login shell in that container's /etc/passwd (pkg/gui/containers_panel.go:471). It reads nothing on your own computer."
       }
     ]
   }

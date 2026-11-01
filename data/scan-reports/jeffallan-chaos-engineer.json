@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "chaos-engineer",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\Jeffallan__claude-skills\\claude-skills-main\\skills\\chaos-engineer",
-    "scanned_at": "2026-10-31T22:55:55.658724+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/Jeffallan__claude-skills/claude-skills-main/skills/chaos-engineer",
+    "scanned_at": "2026-11-01T01:53:52.157475+00:00"
   },
   "risk_assessment": {
     "score": 82,
@@ -76,7 +76,7 @@
   "issues": [
     {
       "id": "AE1",
-      "finding_id": "finding-047abefdd5154554a623b95d522e938b",
+      "finding_id": "finding-1a65507d98844371859207e353454906",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -121,7 +121,7 @@
     },
     {
       "id": "PE3",
-      "finding_id": "finding-0d3c1a33e70b4652a277922c869e4fd4",
+      "finding_id": "finding-9eac99bc519e46e781caa4260725b0a0",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -153,7 +153,7 @@
     },
     {
       "id": "PE3",
-      "finding_id": "finding-71a8da0848f3407badcc5a406d0d7d53",
+      "finding_id": "finding-e073b557091d4fcc84701e6debe28465",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -185,7 +185,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-094eb861042f44a9b03fe3dcd71a2ccf",
+      "finding_id": "finding-3591cc13214d4c7180f411b3487f745c",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -217,7 +217,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-afe8554a84a94ff1baf32445627e9ae6",
+      "finding_id": "finding-dd87c0d69a1b49d585673b99572af217",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -249,7 +249,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-eb4e6329e7454fb5932d6fe68c73d44b",
+      "finding_id": "finding-0c1085763f7e46b2b91bd62ff26d71d7",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -281,7 +281,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-04966b740b7c41c0afb247b62cc27d17",
+      "finding_id": "finding-214cddd8ca354c34ae06d7bf45ad0875",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -313,7 +313,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-4037e03008854fd0998bf6e48ce40f8c",
+      "finding_id": "finding-e4230ebc79204bed8aa721c81dfbdd6d",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -345,7 +345,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-fb2c9fc8a83e404f9e7e8d2b060e71f0",
+      "finding_id": "finding-c16e09f2a5454e8989bcf1ddddca5fa1",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -377,7 +377,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-7585487a64924c02b6c04bfb5fcf4e35",
+      "finding_id": "finding-80edc328d568433294aa0c4213696dab",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -409,7 +409,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-af21aa944bbb41a4871a18f7bff7b188",
+      "finding_id": "finding-46a4eb24c6e94f3f8bdf4e6d3b54e304",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -441,7 +441,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-0a01ad7b7cbb416785a44d53b9a01da4",
+      "finding_id": "finding-202fb376c2ca4efca4bb78bebc5f8b2e",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -473,7 +473,7 @@
     },
     {
       "id": "PE2",
-      "finding_id": "finding-382b101032d845689a0e59b9896b34d6",
+      "finding_id": "finding-887c4b830675466984fc404690f82d3a",
       "category": "Privilege Escalation",
       "pattern": "Sudo/Root Execution",
       "severity": "MEDIUM",
@@ -505,7 +505,7 @@
     },
     {
       "id": "RA2",
-      "finding_id": "finding-18fe862e4a814e069aa4f899c18f9739",
+      "finding_id": "finding-b0c7ea8c0df74ff3a282f62718e93c30",
       "category": "Rogue Agent",
       "pattern": "Session Persistence",
       "severity": "MEDIUM",

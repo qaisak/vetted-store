@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "ad-creative",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\coreyhaines31__marketingskills\\marketingskills-main\\skills\\ad-creative",
-    "scanned_at": "2026-10-31T22:55:33.231703+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/coreyhaines31__marketingskills/marketingskills-main/skills/ad-creative",
+    "scanned_at": "2026-11-01T01:49:29.379060+00:00"
   },
   "risk_assessment": {
     "score": 100,
@@ -156,7 +156,7 @@
   "issues": [
     {
       "id": "P5",
-      "finding_id": "finding-6b9262660776484c8f16b8d59cc41be8",
+      "finding_id": "finding-407fe2dc3c134923941e87dfdedd6cb6",
       "category": "Prompt Injection",
       "pattern": "Harmful Content Injection",
       "severity": "CRITICAL",
@@ -190,7 +190,7 @@
     },
     {
       "id": "P5",
-      "finding_id": "finding-b01f96f7815046aa8e56f4324af926d7",
+      "finding_id": "finding-efe3dd8c6ee542bba199a3a2a851662b",
       "category": "Prompt Injection",
       "pattern": "Harmful Content Injection",
       "severity": "CRITICAL",
@@ -224,7 +224,7 @@
     },
     {
       "id": "P5",
-      "finding_id": "finding-0057a33536df4f3688b105abc6d1ef3a",
+      "finding_id": "finding-0e2808ddea39446d811f3934555cab06",
       "category": "Prompt Injection",
       "pattern": "Harmful Content Injection",
       "severity": "CRITICAL",
@@ -258,7 +258,7 @@
     },
     {
       "id": "P5",
-      "finding_id": "finding-8607ce1eadbb4505ba9817f7a65700c6",
+      "finding_id": "finding-365e6b36f32546d6b0ae49ef9a1372b4",
       "category": "Prompt Injection",
       "pattern": "Harmful Content Injection",
       "severity": "CRITICAL",
@@ -292,7 +292,7 @@
     },
     {
       "id": "P5",
-      "finding_id": "finding-bd8f06fbab0247028602076b76ea691d",
+      "finding_id": "finding-ae65b7de2ae84fa28866f48a2e4a608a",
       "category": "Prompt Injection",
       "pattern": "Harmful Content Injection",
       "severity": "CRITICAL",
@@ -326,7 +326,7 @@
     },
     {
       "id": "P5",
-      "finding_id": "finding-03a5de5b5b6a448899e856a16b728109",
+      "finding_id": "finding-ecbc4530310a434ba58e108814915a6e",
       "category": "Prompt Injection",
       "pattern": "Harmful Content Injection",
       "severity": "CRITICAL",
@@ -360,7 +360,7 @@
     },
     {
       "id": "AE1",
-      "finding_id": "finding-db9dcc90eb72429db3e16db5886f653c",
+      "finding_id": "finding-ca94783294804d45a205a23b48c332dd",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -405,7 +405,7 @@
     },
     {
       "id": "AE1",
-      "finding_id": "finding-2a96408f77ea44f9b01010747952b85a",
+      "finding_id": "finding-21e3a4b36b254fe5a5d5663f0d5a6492",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -450,7 +450,7 @@
     },
     {
       "id": "AR2",
-      "finding_id": "finding-40c92b64d0f3412d9cc876a2a3b538b4",
+      "finding_id": "finding-4ab9eb7015514ac1a0087456737927f2",
       "category": "Anti-Refusal",
       "pattern": "Anti-Refusal Statement",
       "severity": "HIGH",
@@ -484,7 +484,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-2c2ecad6625743c0afd490ed21147851",
+      "finding_id": "finding-2a37dd79ee5049ccab68447526917dcf",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -516,7 +516,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-46ef5607c64a42268d8bf91c090e96df",
+      "finding_id": "finding-13014c110c5a433ba72b139dae680fbb",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -548,7 +548,7 @@
     },
     {
       "id": "E1",
-      "finding_id": "finding-2e0597a0cfe4474587fa22d9b15d167b",
+      "finding_id": "finding-b5b39780ad724535864b919b9e1fd75b",
       "category": "Data Exfiltration",
       "pattern": "External Transmission",
       "severity": "MEDIUM",
@@ -580,7 +580,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-1e069075545c4f5fa132e1052835d5b1",
+      "finding_id": "finding-d6d270d461274c33802af3eaf759073d",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx create-video'.",
       "severity": "MEDIUM",
@@ -610,7 +610,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-2b17c7c4f561460fa219eb64a6a60310",
+      "finding_id": "finding-1e94fecfe8fe4fdbab303166ba59de0e",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx remotion'.",
       "severity": "MEDIUM",
@@ -640,7 +640,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-63670bc1d5d94f699c095c71048e6a12",
+      "finding_id": "finding-9e85dd4f9099403c82c3e702a0867015",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx remotion'.",
       "severity": "MEDIUM",

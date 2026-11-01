@@ -1,0 +1,2015 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/ajeetdsouza__zoxide/zoxide-main",
+    "scanned_at": "2026-11-01T01:31:59.272592+00:00"
+  },
+  "risk_assessment": {
+    "score": 80,
+    "severity": "HIGH",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": ".cargo/config.toml",
+      "type": "toml",
+      "lines": 7,
+      "executable": false,
+      "size_bytes": 256,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".envrc",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 8,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitattributes",
+      "type": "other",
+      "lines": 5,
+      "executable": false,
+      "size_bytes": 204,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/CODE_OF_CONDUCT.md",
+      "type": "markdown",
+      "lines": 128,
+      "executable": false,
+      "size_bytes": 5218,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/dependabot.yml",
+      "type": "yaml",
+      "lines": 6,
+      "executable": false,
+      "size_bytes": 113,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/cd.yml",
+      "type": "yaml",
+      "lines": 23,
+      "executable": false,
+      "size_bytes": 570,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/ci.yml",
+      "type": "yaml",
+      "lines": 57,
+      "executable": false,
+      "size_bytes": 1570,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/no-response.yml",
+      "type": "yaml",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 615,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/release.yml",
+      "type": "yaml",
+      "lines": 126,
+      "executable": false,
+      "size_bytes": 4034,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".github/workflows/winget.yml",
+      "type": "yaml",
+      "lines": 13,
+      "executable": false,
+      "size_bytes": 308,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 14,
+      "executable": false,
+      "size_bytes": 175,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "CHANGELOG.md",
+      "type": "markdown",
+      "lines": 636,
+      "executable": false,
+      "size_bytes": 18539,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Cargo.lock",
+      "type": "other",
+      "lines": 1177,
+      "executable": false,
+      "size_bytes": 29905,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Cargo.toml",
+      "type": "toml",
+      "lines": 109,
+      "executable": false,
+      "size_bytes": 2499,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Cross.toml",
+      "type": "toml",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 48,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE",
+      "type": "other",
+      "lines": 7,
+      "executable": false,
+      "size_bytes": 1053,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 553,
+      "executable": false,
+      "size_bytes": 23511,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "build.rs",
+      "type": "rust",
+      "lines": 46,
+      "executable": true,
+      "size_bytes": 1475,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "contrib/completions/README.md",
+      "type": "markdown",
+      "lines": 5,
+      "executable": false,
+      "size_bytes": 107,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "contrib/completions/_zoxide",
+      "type": "other",
+      "lines": 326,
+      "executable": false,
+      "size_bytes": 9371,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "contrib/completions/_zoxide.ps1",
+      "type": "other",
+      "lines": 184,
+      "executable": true,
+      "size_bytes": 14120,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "contrib/completions/zoxide.bash",
+      "type": "shell",
+      "lines": 348,
+      "executable": true,
+      "size_bytes": 11864,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "contrib/completions/zoxide.elv",
+      "type": "other",
+      "lines": 162,
+      "executable": false,
+      "size_bytes": 5860,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "contrib/completions/zoxide.fish",
+      "type": "other",
+      "lines": 95,
+      "executable": false,
+      "size_bytes": 9496,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "contrib/completions/zoxide.nu",
+      "type": "other",
+      "lines": 135,
+      "executable": false,
+      "size_bytes": 4224,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "contrib/completions/zoxide.ts",
+      "type": "typescript",
+      "lines": 393,
+      "executable": true,
+      "size_bytes": 9318,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "contrib/logo-dark.svg",
+      "type": "other",
+      "lines": 6,
+      "executable": true,
+      "size_bytes": 1398,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "contrib/logo-light.svg",
+      "type": "other",
+      "lines": 6,
+      "executable": true,
+      "size_bytes": 1390,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "contrib/tutorial.gif",
+      "type": "other",
+      "lines": 18938,
+      "executable": false,
+      "size_bytes": 627065,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "init.fish",
+      "type": "other",
+      "lines": 5,
+      "executable": false,
+      "size_bytes": 160,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "install.sh",
+      "type": "shell",
+      "lines": 466,
+      "executable": true,
+      "size_bytes": 13975,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "justfile",
+      "type": "other",
+      "lines": 39,
+      "executable": false,
+      "size_bytes": 1478,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "man/man1/zoxide-add.1",
+      "type": "other",
+      "lines": 24,
+      "executable": false,
+      "size_bytes": 900,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "man/man1/zoxide-import.1",
+      "type": "other",
+      "lines": 35,
+      "executable": false,
+      "size_bytes": 822,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "man/man1/zoxide-init.1",
+      "type": "other",
+      "lines": 119,
+      "executable": false,
+      "size_bytes": 2796,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "man/man1/zoxide-query.1",
+      "type": "other",
+      "lines": 33,
+      "executable": false,
+      "size_bytes": 884,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "man/man1/zoxide-remove.1",
+      "type": "other",
+      "lines": 18,
+      "executable": false,
+      "size_bytes": 555,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "man/man1/zoxide.1",
+      "type": "other",
+      "lines": 134,
+      "executable": false,
+      "size_bytes": 4178,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "rustfmt.toml",
+      "type": "toml",
+      "lines": 8,
+      "executable": false,
+      "size_bytes": 221,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "shell.nix",
+      "type": "other",
+      "lines": 58,
+      "executable": false,
+      "size_bytes": 1390,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cmd/add.rs",
+      "type": "rust",
+      "lines": 46,
+      "executable": true,
+      "size_bytes": 1353,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cmd/cmd.rs",
+      "type": "rust",
+      "lines": 211,
+      "executable": true,
+      "size_bytes": 4837,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cmd/edit.rs",
+      "type": "rust",
+      "lines": 84,
+      "executable": true,
+      "size_bytes": 2368,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cmd/import.rs",
+      "type": "rust",
+      "lines": 25,
+      "executable": true,
+      "size_bytes": 867,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cmd/init.rs",
+      "type": "rust",
+      "lines": 32,
+      "executable": true,
+      "size_bytes": 1233,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cmd/mod.rs",
+      "type": "rust",
+      "lines": 28,
+      "executable": true,
+      "size_bytes": 518,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cmd/query.rs",
+      "type": "rust",
+      "lines": 122,
+      "executable": true,
+      "size_bytes": 4099,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cmd/remove.rs",
+      "type": "rust",
+      "lines": 23,
+      "executable": true,
+      "size_bytes": 583,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/config.rs",
+      "type": "rust",
+      "lines": 62,
+      "executable": true,
+      "size_bytes": 1866,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/db/dir.rs",
+      "type": "rust",
+      "lines": 69,
+      "executable": true,
+      "size_bytes": 1594,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/db/mod.rs",
+      "type": "rust",
+      "lines": 358,
+      "executable": true,
+      "size_bytes": 12379,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/db/stream.rs",
+      "type": "rust",
+      "lines": 211,
+      "executable": true,
+      "size_bytes": 6048,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/error.rs",
+      "type": "rust",
+      "lines": 29,
+      "executable": true,
+      "size_bytes": 707,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/import.rs",
+      "type": "rust",
+      "lines": 82,
+      "executable": true,
+      "size_bytes": 2582,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/import/atuin.rs",
+      "type": "rust",
+      "lines": 117,
+      "executable": true,
+      "size_bytes": 3989,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/import/autojump.rs",
+      "type": "rust",
+      "lines": 124,
+      "executable": true,
+      "size_bytes": 3863,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/import/fasd.rs",
+      "type": "rust",
+      "lines": 39,
+      "executable": true,
+      "size_bytes": 1101,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/import/z.rs",
+      "type": "rust",
+      "lines": 103,
+      "executable": true,
+      "size_bytes": 3112,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/import/z_lua.rs",
+      "type": "rust",
+      "lines": 108,
+      "executable": true,
+      "size_bytes": 3415,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/import/zsh_z.rs",
+      "type": "rust",
+      "lines": 42,
+      "executable": true,
+      "size_bytes": 1292,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/main.rs",
+      "type": "rust",
+      "lines": 35,
+      "executable": true,
+      "size_bytes": 767,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/shell.rs",
+      "type": "rust",
+      "lines": 346,
+      "executable": true,
+      "size_bytes": 11297,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/util.rs",
+      "type": "rust",
+      "lines": 380,
+      "executable": true,
+      "size_bytes": 12638,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "templates/bash.txt",
+      "type": "text",
+      "lines": 218,
+      "executable": false,
+      "size_bytes": 6976,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "templates/elvish.txt",
+      "type": "text",
+      "lines": 120,
+      "executable": false,
+      "size_bytes": 2939,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "templates/fish.txt",
+      "type": "text",
+      "lines": 145,
+      "executable": false,
+      "size_bytes": 4326,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "templates/nushell.txt",
+      "type": "text",
+      "lines": 107,
+      "executable": false,
+      "size_bytes": 2724,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "templates/posix.txt",
+      "type": "text",
+      "lines": 148,
+      "executable": false,
+      "size_bytes": 3489,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "templates/powershell.txt",
+      "type": "text",
+      "lines": 163,
+      "executable": false,
+      "size_bytes": 4969,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "templates/tcsh.txt",
+      "type": "text",
+      "lines": 82,
+      "executable": false,
+      "size_bytes": 2377,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "templates/xonsh.txt",
+      "type": "text",
+      "lines": 177,
+      "executable": false,
+      "size_bytes": 4764,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "templates/zsh.txt",
+      "type": "text",
+      "lines": 186,
+      "executable": false,
+      "size_bytes": 5361,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/completions.rs",
+      "type": "rust",
+      "lines": 59,
+      "executable": true,
+      "size_bytes": 1603,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "zoxide.plugin.zsh",
+      "type": "shell",
+      "lines": 5,
+      "executable": true,
+      "size_bytes": 167,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "TM2",
+      "finding_id": "finding-1128ad0829574341af0e0b35ea0d3a9e",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 102,
+        "end_line": null,
+        "start_column": 85
+      },
+      "finding": "| sh",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "   > The recommended way to install zoxide is via the install script:\n   >\n   > ```sh\n   > curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh\n   > ```\n   >\n   > Or, you can use a package manager:",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1d8c5f437ab35a4780c77ab29ff51a050f9e7ead84a13d55decf93cd3c70c577",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 102,
+          "end_line": null,
+          "start_column": 85
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-850b4c248e4b40ceb9f8110c01c93c22",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 149,
+        "end_line": null,
+        "start_column": 85
+      },
+      "finding": "| sh",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "   > Or, run this command in your terminal:\n   >\n   > ```sh\n   > curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh\n   > ```\n\n   </details>",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1d8c5f437ab35a4780c77ab29ff51a050f9e7ead84a13d55decf93cd3c70c577",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 149,
+          "end_line": null,
+          "start_column": 85
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-93fabaaeb668466bb5009c6aad543e05",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 178,
+        "end_line": null,
+        "start_column": 85
+      },
+      "finding": "| sh",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "   > If you're using Cygwin, Git Bash, or MSYS2, you can also use the install script:\n   >\n   > ```sh\n   > curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh\n   > ```\n\n   </details>",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1d8c5f437ab35a4780c77ab29ff51a050f9e7ead84a13d55decf93cd3c70c577",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 178,
+          "end_line": null,
+          "start_column": 85
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-c0d0877504344afe86ce7b5e2b7888bf",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 198,
+        "end_line": null,
+        "start_column": 83
+      },
+      "finding": "| bash",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "   > Or, run this command in your terminal:\n   >\n   > ```sh\n   > curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash\n   > ```\n\n   </details>",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "04c6c3d162d775e86218721a59c0fde586c2bacf502ea9bb612977f2736a0c66",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 198,
+          "end_line": null,
+          "start_column": 83
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-48a94ace9a024525a04bff35e8f76fdc",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 215,
+        "end_line": null,
+        "start_column": 83
+      },
+      "finding": "| bash",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "   > Or, run this command in your terminal:\n   >\n   > ```sh\n   > curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash\n   > ```\n\n   </details>",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "04c6c3d162d775e86218721a59c0fde586c2bacf502ea9bb612977f2736a0c66",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 215,
+          "end_line": null,
+          "start_column": 83
+        }
+      ]
+    },
+    {
+      "id": "TM1",
+      "finding_id": "finding-b9e431ce660a4ba8b267192a25abd944",
+      "category": "Tool Misuse",
+      "pattern": "Tool Parameter Abuse",
+      "severity": "HIGH",
+      "confidence": 0.85,
+      "location": {
+        "file": "README.md",
+        "start_line": 329,
+        "end_line": null,
+        "start_column": 6
+      },
+      "finding": "rm ~/.zcompdump*",
+      "explanation": "Tool parameters are crafted to achieve unintended or unsafe behavior. Parameter abuse can bypass intended safety checks (e.g. shell=True, --force, dangerous glob patterns).",
+      "remediation": "Validate all tool parameters against an allowlist. Reject dangerous parameter values (shell=True, --force, -rf /) and use safe defaults.",
+      "code_snippet": "   >\n   > For completions to work, the above line must be added _after_ `compinit` is\n   > called. You may have to rebuild your completions cache by running\n   > `rm ~/.zcompdump*; compinit`.\n\n   </details>\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e1344223f766262a34493fe95600c7a161e8b343d0557b69b7b00f36d46a33f3",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 329,
+          "end_line": null,
+          "start_column": 6
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-2ea564920822414f867a44abe28745bd",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "install.sh",
+        "start_line": 57,
+        "end_line": null,
+        "start_column": 15
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "    esac\n\n    # Install binary.\n    ensure try_sudo mkdir -p -- \"${_ZOXIDE_BIN_DIR}\"\n    ensure try_sudo cp -- \"${_bin_name}\" \"${_ZOXIDE_BIN_DIR}/${_bin_name}\"\n    ensure try_sudo chmod +x \"${_ZOXIDE_BIN_DIR}/${_bin_name}\"\n    echo \"Installed zoxide to ${_ZOXIDE_BIN_DIR}\"",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 57,
+          "end_line": null,
+          "start_column": 15
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-1cce577687104288a6a51570345fc0ee",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "install.sh",
+        "start_line": 58,
+        "end_line": null,
+        "start_column": 15
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "\n    # Install binary.\n    ensure try_sudo mkdir -p -- \"${_ZOXIDE_BIN_DIR}\"\n    ensure try_sudo cp -- \"${_bin_name}\" \"${_ZOXIDE_BIN_DIR}/${_bin_name}\"\n    ensure try_sudo chmod +x \"${_ZOXIDE_BIN_DIR}/${_bin_name}\"\n    echo \"Installed zoxide to ${_ZOXIDE_BIN_DIR}\"\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 58,
+          "end_line": null,
+          "start_column": 15
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-55f3724cd7a740e8b5bfb69e852ef4ac",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "install.sh",
+        "start_line": 59,
+        "end_line": null,
+        "start_column": 15
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "    # Install binary.\n    ensure try_sudo mkdir -p -- \"${_ZOXIDE_BIN_DIR}\"\n    ensure try_sudo cp -- \"${_bin_name}\" \"${_ZOXIDE_BIN_DIR}/${_bin_name}\"\n    ensure try_sudo chmod +x \"${_ZOXIDE_BIN_DIR}/${_bin_name}\"\n    echo \"Installed zoxide to ${_ZOXIDE_BIN_DIR}\"\n\n    # Install manpages.",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 59,
+          "end_line": null,
+          "start_column": 15
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-8406c2e921224ace92a56bdc5a3fe789",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "install.sh",
+        "start_line": 63,
+        "end_line": null,
+        "start_column": 15
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "    echo \"Installed zoxide to ${_ZOXIDE_BIN_DIR}\"\n\n    # Install manpages.\n    ensure try_sudo mkdir -p -- \"${_ZOXIDE_MAN_DIR}/man1\"\n    ensure try_sudo cp -- \"man/man1/\"* \"${_ZOXIDE_MAN_DIR}/man1/\"\n    echo \"Installed manpages to ${_ZOXIDE_MAN_DIR}\"\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 63,
+          "end_line": null,
+          "start_column": 15
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-cb22f1839a154db6877c2f9bf70c72a8",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "install.sh",
+        "start_line": 64,
+        "end_line": null,
+        "start_column": 15
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "\n    # Install manpages.\n    ensure try_sudo mkdir -p -- \"${_ZOXIDE_MAN_DIR}/man1\"\n    ensure try_sudo cp -- \"man/man1/\"* \"${_ZOXIDE_MAN_DIR}/man1/\"\n    echo \"Installed manpages to ${_ZOXIDE_MAN_DIR}\"\n\n    # Print success message and check $PATH.",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 64,
+          "end_line": null,
+          "start_column": 15
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-0ba10103805d497d87ead85e0b0b9983",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "install.sh",
+        "start_line": 124,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "sudo     ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "      --arch     Override the architecture identified by the installer [current: ${_arch}]\n      --bin-dir  Override the installation directory [default: ${_ZOXIDE_BIN_DIR_DEFAULT}]\n      --man-dir  Override the manpage installation directory [default: ${_ZOXIDE_MAN_DIR_DEFAULT}]\n      --sudo     Override the command used to elevate to root privileges [default: ${_ZOXIDE_SUDO_DEFAULT}]\n  -h, --help     Print help\"\n}\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 124,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-aff88ea9f93942e4bc962ee1f8568753",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "install.sh",
+        "start_line": 178,
+        "end_line": null,
+        "start_column": 9
+      },
+      "finding": "sudo\n    ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "        return 0\n    fi\n\n    need_sudo\n    \"${_ZOXIDE_SUDO}\" \"$@\"\n}\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 178,
+          "end_line": null,
+          "start_column": 9
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-288f186bcf84435d940ce801f7ad583b",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "install.sh",
+        "start_line": 192,
+        "end_line": null,
+        "start_column": 13
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "    fi\n\n    if ! \"${_ZOXIDE_SUDO}\" -v; then\n        err \"sudo permissions not granted, aborting installation\"\n    fi\n}\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 192,
+          "end_line": null,
+          "start_column": 13
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-eb833816a7164b1696ef7a2a96d9a8cf",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "install.sh",
+        "start_line": 140,
+        "end_line": null,
+        "start_column": 25
+      },
+      "finding": "https://api.github.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    fi\n    need_cmd grep\n\n    local _releases_url=\"https://api.github.com/repos/ajeetdsouza/zoxide/releases/latest\"\n    local _releases\n    case \"${_dld}\" in\n    curl) _releases=\"$(curl -sL \"${_releases_url}\")\" ||",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "061abab0022b7a79cdf98b2721e4ad6d47cd4ad12584ecf052130ef51f05d966",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 140,
+          "end_line": null,
+          "start_column": 25
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-4fd302f19a114569a775fd61f1a603ae",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "install.sh",
+        "start_line": 188,
+        "end_line": null,
+        "start_column": 18
+      },
+      "finding": "run this script as root",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "could not find the command \\`${_ZOXIDE_SUDO}\\` needed to get permissions for install.\n\nIf you are on Windows, please run your shell as an administrator, then rerun this script.\nOtherwise, please run this script as root, or install \\`sudo\\`.\"\n    fi\n\n    if ! \"${_ZOXIDE_SUDO}\" -v; then",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "53f623f563b99d7411f6dc1da4fa5fa5402cc2e601ae68c914266a7f5568e1c9",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 188,
+          "end_line": null,
+          "start_column": 18
+        }
+      ]
+    },
+    {
+      "id": "EA3",
+      "finding_id": "finding-09133373603042d39e55d2310f3cacaf",
+      "category": "Excessive Agency",
+      "pattern": "Scope Creep",
+      "severity": "LOW",
+      "confidence": 0.7,
+      "location": {
+        "file": "LICENSE",
+        "start_line": 7,
+        "end_line": null,
+        "start_column": 98
+      },
+      "finding": "NOT LIMITED TO",
+      "explanation": "Skill's behavior or capabilities extend beyond its stated purpose. Scope creep allows an agent to perform actions unrelated to its documented functionality, increasing the attack surface.",
+      "remediation": "Limit the skill's scope to its documented purpose. Remove instructions that enable the agent to perform actions outside its stated functionality.",
+      "code_snippet": "\nThe above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.",
+      "intent": null,
+      "tags": [
+        "Excessive Agency"
+      ],
+      "evidence": {},
+      "match_fingerprint": "e89530c367266aa328ed88bf9475086c891da0ff38badf80bf35bae6b13345e0",
+      "occurrences": [
+        {
+          "file": "LICENSE",
+          "start_line": 7,
+          "end_line": null,
+          "start_column": 98
+        }
+      ]
+    },
+    {
+      "id": "SC2",
+      "finding_id": "finding-fa18a129d50249f4996ad97a1eef79ab",
+      "category": "Supply Chain",
+      "pattern": "External Script Fetching",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "README.md",
+        "start_line": 102,
+        "end_line": null,
+        "start_column": 5
+      },
+      "finding": "curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh",
+      "explanation": "Remote code is downloaded and executed. This bypasses code review and could introduce malicious code.",
+      "remediation": "Avoid downloading and executing remote scripts. Use trusted packages from PyPI/npm. If remote fetch is required, verify checksums and use HTTPS.",
+      "code_snippet": "   > The recommended way to install zoxide is via the install script:\n   >\n   > ```sh\n   > curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh\n   > ```\n   >\n   > Or, you can use a package manager:",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4864587bd0b798383e79f1b4f0fe820b2c895045e781e43c7b8cd591ab217120",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 102,
+          "end_line": null,
+          "start_column": 5
+        }
+      ]
+    },
+    {
+      "id": "SC2",
+      "finding_id": "finding-2179c917925f43e2b6d2e7185f999c58",
+      "category": "Supply Chain",
+      "pattern": "External Script Fetching",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "README.md",
+        "start_line": 149,
+        "end_line": null,
+        "start_column": 5
+      },
+      "finding": "curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh",
+      "explanation": "Remote code is downloaded and executed. This bypasses code review and could introduce malicious code.",
+      "remediation": "Avoid downloading and executing remote scripts. Use trusted packages from PyPI/npm. If remote fetch is required, verify checksums and use HTTPS.",
+      "code_snippet": "   > Or, run this command in your terminal:\n   >\n   > ```sh\n   > curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh\n   > ```\n\n   </details>",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4864587bd0b798383e79f1b4f0fe820b2c895045e781e43c7b8cd591ab217120",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 149,
+          "end_line": null,
+          "start_column": 5
+        }
+      ]
+    },
+    {
+      "id": "SC2",
+      "finding_id": "finding-fd52549fe1a346a880cbd14cda06e611",
+      "category": "Supply Chain",
+      "pattern": "External Script Fetching",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "README.md",
+        "start_line": 178,
+        "end_line": null,
+        "start_column": 5
+      },
+      "finding": "curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh",
+      "explanation": "Remote code is downloaded and executed. This bypasses code review and could introduce malicious code.",
+      "remediation": "Avoid downloading and executing remote scripts. Use trusted packages from PyPI/npm. If remote fetch is required, verify checksums and use HTTPS.",
+      "code_snippet": "   > If you're using Cygwin, Git Bash, or MSYS2, you can also use the install script:\n   >\n   > ```sh\n   > curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh\n   > ```\n\n   </details>",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "4864587bd0b798383e79f1b4f0fe820b2c895045e781e43c7b8cd591ab217120",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 178,
+          "end_line": null,
+          "start_column": 5
+        }
+      ]
+    },
+    {
+      "id": "SC2",
+      "finding_id": "finding-fe99c3f053b544aa9ee3d061642e2943",
+      "category": "Supply Chain",
+      "pattern": "External Script Fetching",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "README.md",
+        "start_line": 198,
+        "end_line": null,
+        "start_column": 5
+      },
+      "finding": "curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash",
+      "explanation": "Remote code is downloaded and executed. This bypasses code review and could introduce malicious code.",
+      "remediation": "Avoid downloading and executing remote scripts. Use trusted packages from PyPI/npm. If remote fetch is required, verify checksums and use HTTPS.",
+      "code_snippet": "   > Or, run this command in your terminal:\n   >\n   > ```sh\n   > curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash\n   > ```\n\n   </details>",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8f0158762ca8bd3e2af1c5fd96b8ea7afc4ad8ba822dc2e81690c34a66c75d83",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 198,
+          "end_line": null,
+          "start_column": 5
+        }
+      ]
+    },
+    {
+      "id": "SC2",
+      "finding_id": "finding-97fba878f74b44dba17caf4204dfa857",
+      "category": "Supply Chain",
+      "pattern": "External Script Fetching",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "README.md",
+        "start_line": 215,
+        "end_line": null,
+        "start_column": 5
+      },
+      "finding": "curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash",
+      "explanation": "Remote code is downloaded and executed. This bypasses code review and could introduce malicious code.",
+      "remediation": "Avoid downloading and executing remote scripts. Use trusted packages from PyPI/npm. If remote fetch is required, verify checksums and use HTTPS.",
+      "code_snippet": "   > Or, run this command in your terminal:\n   >\n   > ```sh\n   > curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | bash\n   > ```\n\n   </details>",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8f0158762ca8bd3e2af1c5fd96b8ea7afc4ad8ba822dc2e81690c34a66c75d83",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 215,
+          "end_line": null,
+          "start_column": 5
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 73,
+    "scanned_components": 69,
+    "coverage_percent": 94.5,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 69,
+    "partially_inspected_files": 4,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "CHANGELOG.md",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "contrib/completions/_zoxide.ps1",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "contrib/completions/zoxide.bash",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "zoxide.plugin.zsh",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [
+      {
+        "outcome": "out_of_scope",
+        "phase": "cache",
+        "reason_code": "binary_text_projection",
+        "message": "Only bounded printable text was inspected; binary structure and behavior are outside scope.",
+        "path": "contrib/tutorial.gif",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false
+      }
+    ],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 74,
+        "completed": 74,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 74,
+        "completed": 74,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "degraded",
+        "planned_work": 74,
+        "completed": 71,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "degraded",
+        "planned_work": 74,
+        "completed": 71,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 74,
+        "completed": 74,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "degraded",
+        "planned_work": 74,
+        "completed": 71,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "degraded",
+        "planned_work": 74,
+        "completed": 71,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "degraded",
+        "planned_work": 74,
+        "completed": 71,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "degraded",
+        "planned_work": 74,
+        "completed": 71,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 74,
+        "completed": 74,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "degraded",
+        "planned_work": 74,
+        "completed": 71,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "degraded",
+        "planned_work": 74,
+        "completed": 71,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "degraded",
+        "planned_work": 74,
+        "completed": 71,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "degraded",
+        "planned_work": 74,
+        "completed": 71,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 74,
+        "completed": 71,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "degraded",
+        "planned_work": 74,
+        "completed": 71,
+        "partial": 3,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 74,
+        "completed": 70,
+        "partial": 4,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 74,
+        "completed": 74,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_agent_snooping status: degraded.",
+      "Analyzer static_patterns_anti_refusal status: degraded.",
+      "Analyzer static_patterns_deserialization status: degraded.",
+      "Analyzer static_patterns_excessive_agency status: degraded.",
+      "Analyzer static_patterns_harmful_content status: degraded.",
+      "Analyzer static_patterns_memory_poisoning status: degraded.",
+      "Analyzer static_patterns_privilege_escalation status: degraded.",
+      "Analyzer static_patterns_prompt_injection status: degraded.",
+      "Analyzer static_patterns_rogue_agent status: degraded.",
+      "Analyzer static_patterns_ssrf status: degraded.",
+      "Analyzer static_patterns_supply_chain status: degraded.",
+      "Analyzer static_patterns_system_prompt_leakage status: degraded.",
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 22,
+    "findings_after_filtering": 22,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}

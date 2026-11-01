@@ -25,6 +25,8 @@ const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'ast
   'taylorwilsdon/google_workspace_mcp': 'Google Workspace MCP', 'korotovsky/slack-mcp-server': 'Slack MCP Server', 'nickclyde/duckduckgo-mcp-server': 'DuckDuckGo MCP Server',
   'nspady/google-calendar-mcp': 'Google Calendar MCP', 'MarkusPfundstein/mcp-obsidian': 'Obsidian MCP', 'Jpisnice/shadcn-ui-mcp-server': 'shadcn/ui MCP Server',
   'suekou/mcp-notion-server': 'Notion MCP Server', 'kimtaeyoon83/mcp-server-youtube-transcript': 'YouTube Transcript MCP', 'vivekVells/mcp-pandoc': 'Pandoc MCP',
+  'Pimzino/spec-workflow-mcp': 'Spec Workflow MCP', 'jae-jae/fetcher-mcp': 'Fetcher MCP', 'schollz/croc': 'croc', 'FiloSottile/age': 'age', 'saulpw/visidata': 'VisiData',
+  'derailed/k9s': 'k9s', 'nicolargo/glances': 'Glances', 'yorukot/superfile': 'superfile', 'darrenburns/posting': 'Posting', 'tconbeer/harlequin': 'Harlequin', 'denisidoro/navi': 'navi',
   'yt-dlp/yt-dlp': 'yt-dlp', 'Wilfred/difftastic': 'difftastic', 'muesli/duf': 'duf', 'ClementTsang/bottom': 'bottom', 'ducaale/xh': 'xh', 'chmln/sd': 'sd' };
 // Hand-written plain-language lines, job tags and setup level (pipeline/plain.json)
 const SOURCES = JSON.parse(fs.readFileSync(new URL('../data/sources.json', import.meta.url), 'utf8'));
@@ -64,6 +66,12 @@ const MCP_INSTALL = {
     { to: 'Codex', how: 'CLI', cmds: ['codex mcp add youtube-transcript -- npx -y @kimtaeyoon83/mcp-server-youtube-transcript'], note: 'Run in your terminal.' }],
   'vivekVells/mcp-pandoc': [
     { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add pandoc -- uvx mcp-pandoc'], note: 'Needs pandoc installed on your computer (pandoc.org). Same settings as the README\'s config.' }],
+  'Pimzino/spec-workflow-mcp': [
+    { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add spec-workflow -- npx -y @pimzino/spec-workflow-mcp@latest /path/to/your/project'], note: 'Replace the path with your project folder. Same settings as the README\'s config.' },
+    { to: 'Dashboard', how: 'Optional', cmds: ['npx -y @pimzino/spec-workflow-mcp@latest --dashboard'], note: 'Opens its web dashboard for reviewing and approving specs.' }],
+  'jae-jae/fetcher-mcp': [
+    { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add fetcher -- npx -y fetcher-mcp'], note: 'Run in your terminal. It downloads a headless browser the first time.' },
+    { to: 'Codex', how: 'CLI', cmds: ['codex mcp add fetcher -- npx -y fetcher-mcp'], note: 'Run in your terminal.' }],
   'nspady/google-calendar-mcp': [
     { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add google-calendar -e GOOGLE_OAUTH_CREDENTIALS=/path/to/gcp-oauth.keys.json -- npx -y @cocal/google-calendar-mcp'], note: 'First create a Google Cloud OAuth client (Desktop app) and download its keys file, as the README explains. Then ask your assistant to authenticate.' }],
 };
@@ -98,7 +106,9 @@ for (const [repo, m] of Object.entries(d.repos)) {
   if (!m) continue;
   const sc = d.scores[repo];
   const urlRe = new RegExp('github\\.com/' + m.full.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(/|$|#|\\?)', 'i');
-  R[m.full] = { st: m.stars, fk: m.forks, is: m.issues, lic: m.license, pu: m.pushed?.slice(0, 10), cr: m.created?.slice(0, 10), ar: m.archived, own: m.owner,
+  // Licenses GitHub can't classify, read from the repository's own license file (checked November 1, 2026)
+  const LICENSE_FIX = { 'muesli/duf': 'MIT', 'nicolargo/glances': 'LGPL-3.0' };
+  R[m.full] = { st: m.stars, fk: m.forks, is: m.issues, lic: LICENSE_FIX[m.full] || m.license, pu: m.pushed?.slice(0, 10), cr: m.created?.slice(0, 10), ar: m.archived, own: m.owner,
     org: m.ownerType === 'Organization', on: OWNER[m.owner] || m.owner, lang: m.language, br: m.branch,
     sc: sc === 'unchecked' ? 'u' : sc ? { s: sc.score, date: sc.date?.slice(0, 10), ch: sc.checks.filter(c => c.score >= 0).map(c => [c.name, c.score, c.reason]) } : null,
     hn: d.hn[repo] === 'unchecked' ? null : (d.hn[repo] || []).filter(h => urlRe.test(h.url || '')).map(h => [h.title, h.url, h.points, h.comments, h.date, h.id]), fd: m.fetched || d.generated.slice(0, 10), cm: SOURCES[m.full]?.commit?.slice(0, 7) || null };
@@ -119,7 +129,7 @@ for (const l of d.listings) {
     // Claude app (claude.ai, desktop, mobile): upload the skill folder as a ZIP in Customize > Skills
     // (support.claude.com/en/articles/12512180, checked November 1, 2026). Anthropic's own skills are built in.
     const folder = l.path.split('/').pop();
-    if (owner !== 'anthropics') inst.push({ to: 'Claude app', how: 'Upload', dl: `https://github.com/${repo}/archive/refs/heads/${m.branch}.zip`,
+    inst.push({ to: 'Claude app', how: 'Upload', dl: `https://github.com/${repo}/archive/refs/heads/${m.branch}.zip`,
       steps: ['Download the project as a ZIP with the button below, and unzip it.', `Find the folder ${repoName}-${m.branch}/${l.path}.`,
         ...(folder !== l.slug ? [`Rename that folder to ${l.slug} (the upload needs the folder named like the skill).`] : []),
         `Zip just that folder.`, 'In Claude, open Customize → Skills, click +, choose Create skill, then Upload a skill, and pick your ZIP.'],
@@ -127,7 +137,7 @@ for (const l of d.listings) {
     if (owner === 'anthropics') {
       const plug = anthPlugin[l.path];
       if (plug) inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin marketplace add anthropics/skills', `/plugin install ${plug}@anthropic-agent-skills`], note: `Run inside Claude Code. Installs the ${plug} bundle, which includes this skill.` });
-      inst.unshift({ to: 'Claude app', how: 'Built in', text: 'Already in Claude. Turn it on in Customize → Skills.', note: 'Needs "Code execution and file creation" turned on in Settings → Capabilities.' });
+      inst.unshift({ to: 'Claude app', how: 'Example skill', text: 'Anthropic\'s example skills can be turned on in Customize → Skills. If this one isn\'t listed there, upload it with the steps below.', note: 'Needs "Code execution and file creation" turned on in Settings → Capabilities.' });
     }
     if (owner === 'obra') inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin install superpowers@claude-plugins-official'], note: 'Run inside Claude Code. Installs the whole Superpowers pack.' });
     if (owner === 'huggingface') inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin marketplace add huggingface/skills'], note: 'Run inside Claude Code, then choose plugins from /plugin.' });
@@ -153,8 +163,13 @@ for (const l of d.listings) {
     // Commands copied from each README where the line-matcher missed them (checked November 1, 2026)
     const TOOL_INSTALL = { 'Wilfred/difftastic': { brew: 'brew install difftastic', winget: 'winget install difftastic', scoop: 'scoop install difftastic' },
       'muesli/duf': { brew: 'brew install duf', scoop: 'scoop install duf', apt: 'apt install duf' }, 'chmln/sd': { cargo: 'cargo install sd' },
-      'ducaale/xh': { brew: 'brew install xh', scoop: 'scoop install xh', cargo: 'cargo install xh --locked' } };
-    const i = { ...(l.install || {}), ...(TOOL_INSTALL[repo] || {}) };
+      'ducaale/xh': { brew: 'brew install xh', scoop: 'scoop install xh', cargo: 'cargo install xh --locked' },
+      'FiloSottile/age': { brew: 'brew install age', winget: 'winget install --id FiloSottile.age', apt: 'apt install age' },
+      'darrenburns/posting': { brew: 'brew install darrenburns/homebrew/posting@beta', go: 'go install github.com/darrenburns/posting/v3/cmd/posting@latest' },
+      'nicolargo/glances': { pipx: "pipx install 'glances[all]'", pip: 'pip install glances' },
+      'tconbeer/harlequin': { brew: 'brew install harlequin', uvTool: 'uv tool install harlequin' },
+      'denisidoro/navi': { brew: 'brew install navi' } };
+    const i = Object.fromEntries(Object.entries({ ...(l.install || {}), ...(TOOL_INSTALL[repo] || {}) }).map(([k, v]) => [k, v.replace(/\s+#.*$/, '')]));   // drop trailing shell comments
     if (repo === 'ollama/ollama') delete i.pip;
     if (repo === 'astral-sh/uv') delete i.uvTool;
     if (repo === 'aristocratos/btop') delete i.brew;   // README line lists build dependencies, not an install

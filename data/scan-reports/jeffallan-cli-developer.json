@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "cli-developer",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\Jeffallan__claude-skills\\claude-skills-main\\skills\\cli-developer",
-    "scanned_at": "2026-10-31T22:55:57.407810+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/Jeffallan__claude-skills/claude-skills-main/skills/cli-developer",
+    "scanned_at": "2026-11-01T01:54:00.773197+00:00"
   },
   "risk_assessment": {
     "score": 100,
@@ -76,7 +76,7 @@
   "issues": [
     {
       "id": "AE1",
-      "finding_id": "finding-6877581867d54e879b8f53806423e3be",
+      "finding_id": "finding-d53fadea8fd248f3ad56bce36e95f04b",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -121,7 +121,7 @@
     },
     {
       "id": "AE1",
-      "finding_id": "finding-a92f8b44b19645a5a3a3395da1eef2db",
+      "finding_id": "finding-bd817e29c8bf461d8904eef10cbbb3d5",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -166,7 +166,7 @@
     },
     {
       "id": "PE3",
-      "finding_id": "finding-d32c4b35da444018b8cf177b4fc631bc",
+      "finding_id": "finding-f79d733f7ffe4bc0acb32a97c6dc84ee",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -198,7 +198,7 @@
     },
     {
       "id": "RA1",
-      "finding_id": "finding-35e2c86b89094052b2bfaeabc9bcc5da",
+      "finding_id": "finding-ecb25fc37bc54ee38572edaa4217fd72",
       "category": "Rogue Agent",
       "pattern": "Self-Modification",
       "severity": "HIGH",
@@ -230,7 +230,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-aa6f7d4dd87447d3b42f9c0b94e5d7b1",
+      "finding_id": "finding-db46dcb074274ce998ab0056998af579",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -262,7 +262,7 @@
     },
     {
       "id": "EA2",
-      "finding_id": "finding-fbe4771783e4458b82c8a45927245cef",
+      "finding_id": "finding-c38697dd4c91476b8f2a45a0f96ff734",
       "category": "Excessive Agency",
       "pattern": "Autonomous Decision Making",
       "severity": "MEDIUM",
@@ -294,7 +294,7 @@
     },
     {
       "id": "PE2",
-      "finding_id": "finding-383c4ed0c6f0467a9cb47ebe464822bb",
+      "finding_id": "finding-8b8869aeb9294aec82a6b37ddb01ac4d",
       "category": "Privilege Escalation",
       "pattern": "Sudo/Root Execution",
       "severity": "MEDIUM",
@@ -326,7 +326,7 @@
     },
     {
       "id": "PE2",
-      "finding_id": "finding-9bb678c4847e430c829b68dfe397762a",
+      "finding_id": "finding-0fffa9d9bc504e11a0068508ed145420",
       "category": "Privilege Escalation",
       "pattern": "Sudo/Root Execution",
       "severity": "MEDIUM",
@@ -358,7 +358,7 @@
     },
     {
       "id": "PE2",
-      "finding_id": "finding-79d9097455614520a63796ea5d0c91a9",
+      "finding_id": "finding-e77b888909af4d3a9532739c878be7e1",
       "category": "Privilege Escalation",
       "pattern": "Sudo/Root Execution",
       "severity": "MEDIUM",
@@ -390,7 +390,7 @@
     },
     {
       "id": "PE2",
-      "finding_id": "finding-cae8b58dc19841eeb6c9d016b449c817",
+      "finding_id": "finding-d47de5fdb979444d8d2173fe71d8345b",
       "category": "Privilege Escalation",
       "pattern": "Sudo/Root Execution",
       "severity": "MEDIUM",

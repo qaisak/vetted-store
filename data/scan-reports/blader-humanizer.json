@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "humanizer",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\blader__humanizer\\humanizer-main",
-    "scanned_at": "2026-10-31T22:52:10.558606+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/blader__humanizer/humanizer-main",
+    "scanned_at": "2026-11-01T01:28:35.982310+00:00"
   },
   "risk_assessment": {
     "score": 49,
@@ -156,7 +156,7 @@
   "issues": [
     {
       "id": "AR2",
-      "finding_id": "finding-85d2fb0a725c44bab116e2f0845b1f92",
+      "finding_id": "finding-b8380e8846634ca6a75461fc885e7b9d",
       "category": "Anti-Refusal",
       "pattern": "Anti-Refusal Statement",
       "severity": "HIGH",
@@ -190,7 +190,7 @@
     },
     {
       "id": "AR2",
-      "finding_id": "finding-e70a8b58c5d04a75a228fddbb83a4434",
+      "finding_id": "finding-317424bd20134d0bb863f1fd40f086e0",
       "category": "Anti-Refusal",
       "pattern": "Anti-Refusal Statement",
       "severity": "HIGH",
@@ -224,7 +224,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-48ea76dc83424985a020a6181f5a0f38",
+      "finding_id": "finding-c72a41b598004af4ac88062c937d31b6",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx skills'.",
       "severity": "MEDIUM",
@@ -254,7 +254,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-f130d386eb5843fa9a4405cd139abc1b",
+      "finding_id": "finding-fea629dcf2f34856a115e33d3082a0a8",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx skills'.",
       "severity": "MEDIUM",
@@ -284,7 +284,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-3966aaffb29949af8fa83de311efd8c1",
+      "finding_id": "finding-b437b219a62d4161976abe7e351f57ae",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx skills'.",
       "severity": "MEDIUM",
@@ -314,7 +314,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-e75868b9af4f4630934060e61bc8985b",
+      "finding_id": "finding-14263b80a32f4f1789e12344476012c5",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx skills'.",
       "severity": "MEDIUM",
@@ -344,7 +344,7 @@
     },
     {
       "id": "LP3",
-      "finding_id": "finding-52b106b5e2a848a3a7af1c8d4c143b5b",
+      "finding_id": "finding-845008aeba35434ea1d79b5134b7d315",
       "category": "MCP Least Privilege",
       "pattern": "Skill declares no tool scope ('permissions' or 'allowed-tools') but code capabilities were detected: file_read.",
       "severity": "MEDIUM",

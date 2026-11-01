@@ -1,5 +1,5 @@
 {
-  "_about": "Hand-written plain-language summaries, written from each project's own description and README. [what it helps you do, jobs it's for, setup: 1 easy, 2 some setup, 3 technical]. Jobs: dev, vibe, design, marketing, writing, research, data, office, security, devops, ai, science.",
+  "_about": "Hand-written plain-language summaries, written from each project's own description and README. [what it helps you do, jobs it's for, setup: 1 easy, 2 some setup, 3 technical]. Jobs: dev, vibe, design, marketing, business, writing, research, data, office, security, devops, ai, science.",
   "anthropics-academy-guide": [
     "Points you to Claude Academy courses and tutorials when you ask how to use Claude.",
     [
@@ -1010,7 +1010,8 @@
     "Plans A/B tests and experiments, and helps read the results.",
     [
       "marketing",
-      "data"
+      "data",
+      "business"
     ],
     1
   ],
@@ -1055,14 +1056,16 @@
     "Works out which marketing actually brings in customers and revenue.",
     [
       "marketing",
-      "data"
+      "data",
+      "business"
     ],
     1
   ],
   "coreyhaines31-churn-prevention": [
     "Plans ways to keep customers: cancellation flows, save offers, failed-payment recovery.",
     [
-      "marketing"
+      "marketing",
+      "business"
     ],
     1
   ],
@@ -1716,7 +1719,8 @@
   "alirezarezvani-launch-strategy": [
     "Plans a product or feature launch, including Product Hunt day, and checks if you're ready.",
     [
-      "marketing"
+      "marketing",
+      "business"
     ],
     1
   ],
@@ -1724,7 +1728,8 @@
     "Maps a business process step by step and finds where work gets stuck.",
     [
       "office",
-      "data"
+      "data",
+      "business"
     ],
     1
   ],
@@ -1906,5 +1911,211 @@
       "dev"
     ],
     2
+  ],
+  "mcp-spec-workflow-mcp": [
+    "Has your coding assistant plan features as specs you approve step by step, with a dashboard to review them.",
+    [
+      "vibe",
+      "dev"
+    ],
+    2
+  ],
+  "mcp-fetcher-mcp": [
+    "Lets your assistant read web pages that need JavaScript, using a hidden browser.",
+    [
+      "research",
+      "dev"
+    ],
+    2
+  ],
+  "croc": [
+    "Sends a file or folder to another computer with a short code phrase, encrypted end to end.",
+    [
+      "office",
+      "dev"
+    ],
+    2
+  ],
+  "age": [
+    "Locks files with encryption so only the right person can open them. Simpler than GPG.",
+    [
+      "security",
+      "dev"
+    ],
+    2
+  ],
+  "visidata": [
+    "Opens big spreadsheets and CSV files in the terminal to explore, clean and summarize them fast.",
+    [
+      "data",
+      "research"
+    ],
+    2
+  ],
+  "k9s": [
+    "A live dashboard for Kubernetes clusters in your terminal.",
+    [
+      "devops",
+      "dev"
+    ],
+    3
+  ],
+  "glances": [
+    "Shows how your computer or server is doing: CPU, memory, disks, network, in the terminal or a browser.",
+    [
+      "devops",
+      "dev"
+    ],
+    2
+  ],
+  "superfile": [
+    "A good-looking file manager in the terminal, with previews.",
+    [
+      "dev"
+    ],
+    2
+  ],
+  "posting": [
+    "Builds and sends requests to web APIs from the terminal, and saves them for later.",
+    [
+      "dev"
+    ],
+    2
+  ],
+  "harlequin": [
+    "A SQL editor in the terminal for DuckDB, SQLite, Postgres and more.",
+    [
+      "data",
+      "dev"
+    ],
+    2
+  ],
+  "navi": [
+    "An interactive cheat sheet: find the command you need, fill in the blanks, run it.",
+    [
+      "dev"
+    ],
+    2
+  ],
+  "wshobson-startup-financial-modeling": [
+    "Builds a 3 to 5 year financial model for a startup: revenue, costs, cash flow and scenarios.",
+    [
+      "business",
+      "data"
+    ],
+    1
+  ],
+  "wshobson-market-sizing-analysis": [
+    "Estimates how big your market is (TAM, SAM, SOM) for a pitch or plan.",
+    [
+      "business",
+      "marketing"
+    ],
+    1
+  ],
+  "wshobson-competitive-landscape": [
+    "Maps your competitors and finds where you can stand out.",
+    [
+      "business",
+      "marketing"
+    ],
+    1
+  ],
+  "wshobson-data-storytelling": [
+    "Turns numbers into a clear story for a report or presentation.",
+    [
+      "data",
+      "writing",
+      "business"
+    ],
+    1
+  ],
+  "wshobson-kpi-dashboard-design": [
+    "Helps pick the right metrics and lay out a dashboard people actually read.",
+    [
+      "data",
+      "business"
+    ],
+    1
+  ],
+  "wshobson-gdpr-data-handling": [
+    "Helps handle EU personal data the GDPR way: consent, deletion requests, privacy by design. Not legal advice.",
+    [
+      "security",
+      "business",
+      "dev"
+    ],
+    1
+  ],
+  "wshobson-employment-contract-templates": [
+    "Drafts offer letters, employment contracts and HR policies from templates. Have a lawyer check them.",
+    [
+      "office",
+      "business"
+    ],
+    1
+  ],
+  "wshobson-wcag-audit-patterns": [
+    "Checks a website for accessibility problems (WCAG 2.2) and explains how to fix them.",
+    [
+      "design",
+      "dev"
+    ],
+    1
+  ],
+  "wshobson-postmortem-writing": [
+    "Writes a blameless postmortem after an outage: timeline, root cause, action items.",
+    [
+      "writing",
+      "devops"
+    ],
+    1
+  ],
+  "wshobson-avoid-ai-writing": [
+    "Finds and rewrites the phrases that make text sound machine-written.",
+    [
+      "writing",
+      "marketing"
+    ],
+    1
+  ],
+  "wshobson-before-you-build": [
+    "Reviews the risks of a product idea before you build it: who it's for, what could go wrong.",
+    [
+      "business",
+      "vibe"
+    ],
+    1
+  ],
+  "wshobson-stripe-integration": [
+    "Helps add Stripe payments to an app: checkout, subscriptions and webhooks.",
+    [
+      "dev",
+      "vibe",
+      "business"
+    ],
+    1
+  ],
+  "wshobson-sql-optimization-patterns": [
+    "Speeds up slow database queries: indexes, query plans and rewrites.",
+    [
+      "data",
+      "dev"
+    ],
+    1
+  ],
+  "wshobson-stride-analysis-patterns": [
+    "Walks through the STRIDE method to find security threats in a system.",
+    [
+      "security"
+    ],
+    1
+  ],
+  "wshobson-visual-design-foundations": [
+    "Typography, color, spacing and icons: the basics for a consistent visual style.",
+    [
+      "design"
+    ],
+    1
   ]
 }

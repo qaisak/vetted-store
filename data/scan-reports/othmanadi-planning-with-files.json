@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "planning-with-files",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\OthmanAdi__planning-with-files\\planning-with-files-master\\.codex\\skills\\planning-with-files",
-    "scanned_at": "2026-10-31T22:56:07.706437+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/OthmanAdi__planning-with-files/planning-with-files-master/.codex/skills/planning-with-files",
+    "scanned_at": "2026-11-01T01:53:17.150359+00:00"
   },
   "risk_assessment": {
     "score": 100,
@@ -286,7 +286,7 @@
   "issues": [
     {
       "id": "TT5",
-      "finding_id": "finding-a1986e73e453420ea7dfe157fde96abc",
+      "finding_id": "finding-297fbeee25df4327a5d6f8cdaf39b24d",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'ledger_dir' from sys.stdin.read (line 1344, user input) \u2192 subprocess.run (code execution)",
       "severity": "CRITICAL",
@@ -320,7 +320,7 @@
     },
     {
       "id": "AE1",
-      "finding_id": "finding-3ea5e24dd6834d2dadbb6850320479c8",
+      "finding_id": "finding-0361dda5190448509416eb0f916eb6d9",
       "category": "analysis-evasion",
       "pattern": "Incomplete referenced artifact analysis",
       "severity": "HIGH",
@@ -365,7 +365,7 @@
     },
     {
       "id": "TM1",
-      "finding_id": "finding-7611d0ecc9564ef6b9a23b1cb8d8355c",
+      "finding_id": "finding-1f1d390c2afe4e69a328c3fd28cf794a",
       "category": "Tool Misuse",
       "pattern": "Tool Parameter Abuse",
       "severity": "HIGH",
@@ -397,7 +397,7 @@
     },
     {
       "id": "TM1",
-      "finding_id": "finding-185b46a3866e4f41a479ade494674f44",
+      "finding_id": "finding-cfa3128f426949048252c587740894fe",
       "category": "Tool Misuse",
       "pattern": "Tool Parameter Abuse",
       "severity": "HIGH",
@@ -429,7 +429,7 @@
     },
     {
       "id": "LP1",
-      "finding_id": "finding-62bd38efbe7e466daa96e167231c6625",
+      "finding_id": "finding-5273d552ac3740659cf88be1f4247a37",
       "category": "MCP Least Privilege",
       "pattern": "Code capability 'env' detected in scripts/inject-plan.py but not covered by declared permissions.",
       "severity": "HIGH",
@@ -459,7 +459,7 @@
     },
     {
       "id": "LP1",
-      "finding_id": "finding-ce79a6992cfc4ebdb990084faedf969a",
+      "finding_id": "finding-7bca0b6d40bf43e2ab57d8cb8ff6ff41",
       "category": "MCP Least Privilege",
       "pattern": "Code capability 'network' detected in scripts/session-catchup.py but not covered by declared permissions.",
       "severity": "HIGH",
@@ -489,7 +489,7 @@
     },
     {
       "id": "E4",
-      "finding_id": "finding-136ab79807f941fdbc6f852bd0a9ef45",
+      "finding_id": "finding-0cc8624032b949ca8725368b1297e2eb",
       "category": "Data Exfiltration",
       "pattern": "Context Leakage",
       "severity": "HIGH",
@@ -521,7 +521,7 @@
     },
     {
       "id": "AS3",
-      "finding_id": "finding-a0ac7f14ec4a4a95a6a2ad571b489c10",
+      "finding_id": "finding-06dd791f8fa2426980c5d2379db855dd",
       "category": "Agent Snooping",
       "pattern": "Skill Enumeration",
       "severity": "MEDIUM",
@@ -553,7 +553,7 @@
     },
     {
       "id": "TT2",
-      "finding_id": "finding-4844422e5c244779b857814ca8d8580d",
+      "finding_id": "finding-3a5f9e07831d4a518d8cc6fa8a07a3a8",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'ledger_dir' from sys.stdin.read (line 1378, user input) \u2192 open (file write)",
       "severity": "MEDIUM",
@@ -587,7 +587,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-5eb993a0fe0345cfadd9209ff84e1ff1",
+      "finding_id": "finding-f230daf4ece3465f96775b63b06e9010",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",
@@ -621,7 +621,7 @@
     },
     {
       "id": "TT2",
-      "finding_id": "finding-2fa395ee3f2648d0b0b6818fe323742c",
+      "finding_id": "finding-eec0d510d89f4253b1970eb33d2a2611",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'marker' from os.environ.get (line 1659, credential/environment) \u2192 open (file write)",
       "severity": "MEDIUM",
@@ -655,7 +655,7 @@
     },
     {
       "id": "AST4",
-      "finding_id": "finding-e6ea8eba16024d30a4cbcc91bbb78b1e",
+      "finding_id": "finding-ca644d6359bc4f10b2f32e0ca1e93f9f",
       "category": "Dangerous Code Execution",
       "pattern": "subprocess module call",
       "severity": "MEDIUM",
@@ -689,7 +689,7 @@
     },
     {
       "id": "TT2",
-      "finding_id": "finding-62ce35bd08f24ad68c88416d607a6cd0",
+      "finding_id": "finding-a678e8a27b464e95868b5873f6846996",
       "category": "Data Flow",
       "pattern": "Tainted flow: 'shell_pwd()' from os.environ.get (line 194, credential/environment) \u2192 subprocess.run (code execution)",
       "severity": "MEDIUM",
@@ -723,7 +723,7 @@
     },
     {
       "id": "OH3",
-      "finding_id": "finding-eb0763d9a90b41f38d06bbb76a94b989",
+      "finding_id": "finding-941a35c06edb484f96e6b931695e1561",
       "category": "Output Handling",
       "pattern": "Unbounded Output",
       "severity": "MEDIUM",

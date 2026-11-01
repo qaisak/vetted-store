@@ -14,7 +14,7 @@
     "commit": "f48e71751e00bc09725c7e173423cff4f2ccd12a",
     "committed": "2026-01-06",
     "scanned": "2026-11-01",
-    "scope": "app (the whole repository timed out; release zips and a bundled ONNX Runtime left out)"
+    "scope": "app"
   },
   "wonderwhy-er/DesktopCommanderMCP": {
     "commit": "9a171d1dae74de94bf07e6e13878006fb69fa600",
@@ -194,7 +194,8 @@
   "NVIDIA/SkillSpector": {
     "commit": "6d0b7c849949cab9181e57798247f89e48ce5d6a",
     "committed": "2026-10-31",
-    "scanned": "2026-11-01"
+    "scanned": "2026-11-01",
+    "scope": "src"
   },
   "vercel-labs/skills": {
     "commit": "92a9a34ac3bf88e695e468b90c7bf32f163d32c8",
@@ -224,7 +225,8 @@
   "cli/cli": {
     "commit": "9490d204a2ba95434153dedce99898ce9f281426",
     "committed": "2026-10-30",
-    "scanned": "2026-11-01"
+    "scanned": "2026-11-01",
+    "scope": "pkg/cmd"
   },
   "astral-sh/uv": {
     "commit": "564a2074b02eb9de5aaaa9491ed74357ade0332f",
@@ -309,11 +311,72 @@
   "jesseduffield/lazydocker": {
     "commit": "7e7aadc2071d58031bf2daafca1fbd4093efc23f",
     "committed": "2026-04-19",
-    "scanned": "2026-11-01"
+    "scanned": "2026-11-01",
+    "scope": "pkg"
   },
   "XAMPPRocky/tokei": {
     "commit": "c14f744716272fadeb27a74443cdffa0af35f82f",
     "committed": "2026-09-06",
+    "scanned": "2026-11-01"
+  },
+  "schollz/croc": {
+    "commit": "3b49e0370820de01bb3e8b9cda0b7ea2aed2be0b",
+    "committed": "2026-10-31",
+    "scanned": "2026-11-01"
+  },
+  "FiloSottile/age": {
+    "commit": "b74dce4cdbe35b5e5f66c06d9612b72f89028758",
+    "committed": "2026-08-29",
+    "scanned": "2026-11-01"
+  },
+  "saulpw/visidata": {
+    "commit": "5f67ff8af28c59a8f7429e396601606f2ac8dd47",
+    "committed": "2026-10-28",
+    "scanned": "2026-11-01"
+  },
+  "derailed/k9s": {
+    "commit": "e30d604b274b9fcf9a7ec6128a744c99ef4b8216",
+    "committed": "2026-10-31",
+    "scanned": "2026-11-01"
+  },
+  "nicolargo/glances": {
+    "commit": "1137886a6853326fbcec5ef08a823b0ba9d8dcba",
+    "committed": "2026-10-31",
+    "scanned": "2026-11-01"
+  },
+  "yorukot/superfile": {
+    "commit": "e5f3327caf9decf79b7d19a75a77a6eceff5b396",
+    "committed": "2026-10-30",
+    "scanned": "2026-11-01"
+  },
+  "darrenburns/posting": {
+    "commit": "32c45669032342cf9b95d5758af47a0d93de0ad7",
+    "committed": "2026-10-15",
+    "scanned": "2026-11-01"
+  },
+  "tconbeer/harlequin": {
+    "commit": "ad3ecef4ff12bc4c89b15fb9c6a628c424afb6e2",
+    "committed": "2026-10-27",
+    "scanned": "2026-11-01"
+  },
+  "denisidoro/navi": {
+    "commit": "7cc5d42b22f223bd205b85f61cc75ba6fd2c54c7",
+    "committed": "2026-10-16",
+    "scanned": "2026-11-01"
+  },
+  "Pimzino/spec-workflow-mcp": {
+    "commit": "d38e82eaa8a6a2f5480285fa1feb8cf8378c86e0",
+    "committed": "2026-07-03",
+    "scanned": "2026-11-01"
+  },
+  "jae-jae/fetcher-mcp": {
+    "commit": "8754aff66e3d9207502207bf82a493f45f556bb8",
+    "committed": "2026-01-14",
+    "scanned": "2026-11-01"
+  },
+  "wshobson/agents": {
+    "commit": "7e2fb559cf4b824b27f1fec49fe88f7511066d26",
+    "committed": "2026-10-30",
     "scanned": "2026-11-01"
   }
 }

@@ -1,8 +1,8 @@
 {
   "skill": {
     "name": "ci-cd-and-automation",
-    "source": "C:\\Users\\qaisa\\.local\\share\\vetted-scan\\src\\addyosmani__agent-skills\\agent-skills-main\\skills\\ci-cd-and-automation",
-    "scanned_at": "2026-10-31T22:51:55.714624+00:00"
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/addyosmani__agent-skills/agent-skills-main/skills/ci-cd-and-automation",
+    "scanned_at": "2026-11-01T01:27:16.196105+00:00"
   },
   "risk_assessment": {
     "score": 27,
@@ -26,7 +26,7 @@
   "issues": [
     {
       "id": "PE3",
-      "finding_id": "finding-b23915371b014f2c8f9079b5db31bb23",
+      "finding_id": "finding-0b4a1ed2aba745c4ac414aa1a6909054",
       "category": "Privilege Escalation",
       "pattern": "Credential Access",
       "severity": "HIGH",
@@ -58,7 +58,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-a8a06c3d33164f03bcf05cbaf25406ba",
+      "finding_id": "finding-838ba3a8a32746ebb705668e958a465e",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx tsc'.",
       "severity": "MEDIUM",
@@ -88,7 +88,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-8f3e340f6d91433f8a0eef62d7ffa3d5",
+      "finding_id": "finding-5f5cb624ef754e00b41ae2bd870545d1",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx tsc'.",
       "severity": "MEDIUM",
@@ -118,7 +118,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-ba55e4579323470baa85140849d8f0b8",
+      "finding_id": "finding-e21513b1db0f483b8990a544598911e2",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx prisma'.",
       "severity": "MEDIUM",
@@ -148,7 +148,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-d87297f08a5246f0988009672254845b",
+      "finding_id": "finding-f34648b82be444feb14c4b3929751bed",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -178,7 +178,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-0362670dfab84f439f5586e2a58001e6",
+      "finding_id": "finding-77edd2ca08064a7d8c3361207b86fcc5",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx playwright'.",
       "severity": "MEDIUM",
@@ -208,7 +208,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-cae831922dad4956b0f5bd25f98710f1",
+      "finding_id": "finding-9d592370652c4ceb9a6e50b0fa5c2d3f",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx vercel'.",
       "severity": "MEDIUM",
@@ -238,7 +238,7 @@
     },
     {
       "id": "RP1",
-      "finding_id": "finding-46af1b6698e042e5917a3fe2cc348091",
+      "finding_id": "finding-3361d91dc53c40bb8f387d43c1699b55",
       "category": "MCP Rug Pull",
       "pattern": "MCP server referenced without pinned version: 'npx vercel'.",
       "severity": "MEDIUM",

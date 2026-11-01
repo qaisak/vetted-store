@@ -1,0 +1,1736 @@
+{
+  "skill": {
+    "name": "unknown",
+    "source": "/tmp/claude-0/-home-user-vetted-store/c66a1718-5793-5bf7-b477-f507a785a784/scratchpad/scan/src/bootandy__dust/dust-master",
+    "scanned_at": "2026-11-01T01:42:04.969748+00:00"
+  },
+  "risk_assessment": {
+    "score": 88,
+    "severity": "CRITICAL",
+    "recommendation": "DO_NOT_INSTALL",
+    "max_issue_severity": "HIGH"
+  },
+  "components": [
+    {
+      "path": ".github/workflows/CICD.yml",
+      "type": "yaml",
+      "lines": 235,
+      "executable": false,
+      "size_bytes": 10384,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".gitignore",
+      "type": "other",
+      "lines": 12,
+      "executable": false,
+      "size_bytes": 186,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": ".pre-commit-config.yaml",
+      "type": "yaml",
+      "lines": 11,
+      "executable": false,
+      "size_bytes": 266,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Cargo.lock",
+      "type": "other",
+      "lines": 1130,
+      "executable": false,
+      "size_bytes": 29211,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "Cargo.toml",
+      "type": "toml",
+      "lines": 104,
+      "executable": false,
+      "size_bytes": 2239,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "LICENSE",
+      "type": "other",
+      "lines": 201,
+      "executable": false,
+      "size_bytes": 11345,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "README.md",
+      "type": "markdown",
+      "lines": 176,
+      "executable": false,
+      "size_bytes": 7721,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "build.rs",
+      "type": "rust",
+      "lines": 28,
+      "executable": true,
+      "size_bytes": 762,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "ci/before_deploy.ps1",
+      "type": "other",
+      "lines": 23,
+      "executable": true,
+      "size_bytes": 571,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "ci/before_deploy.sh",
+      "type": "shell",
+      "lines": 34,
+      "executable": true,
+      "size_bytes": 712,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "ci/how2publish.txt",
+      "type": "text",
+      "lines": 21,
+      "executable": false,
+      "size_bytes": 554,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "ci/install.sh",
+      "type": "shell",
+      "lines": 28,
+      "executable": true,
+      "size_bytes": 781,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "ci/script.sh",
+      "type": "shell",
+      "lines": 25,
+      "executable": true,
+      "size_bytes": 521,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "completions/_dust",
+      "type": "other",
+      "lines": 129,
+      "executable": false,
+      "size_bytes": 7786,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "completions/_dust.ps1",
+      "type": "other",
+      "lines": 105,
+      "executable": true,
+      "size_bytes": 13249,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "completions/dust.bash",
+      "type": "shell",
+      "lines": 215,
+      "executable": true,
+      "size_bytes": 7566,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "completions/dust.elv",
+      "type": "other",
+      "lines": 99,
+      "executable": false,
+      "size_bytes": 7289,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "completions/dust.fish",
+      "type": "other",
+      "lines": 52,
+      "executable": false,
+      "size_bytes": 4522,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "config/config.toml",
+      "type": "toml",
+      "lines": 36,
+      "executable": false,
+      "size_bytes": 773,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "install.sh",
+      "type": "shell",
+      "lines": 233,
+      "executable": true,
+      "size_bytes": 6641,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "man-page/dust.1",
+      "type": "other",
+      "lines": 176,
+      "executable": false,
+      "size_bytes": 6332,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "media/demo.gif",
+      "type": "other",
+      "lines": 14035,
+      "executable": false,
+      "size_bytes": 333476,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/cli.rs",
+      "type": "rust",
+      "lines": 264,
+      "executable": true,
+      "size_bytes": 7892,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/config.rs",
+      "type": "rust",
+      "lines": 525,
+      "executable": true,
+      "size_bytes": 18258,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/dir_walker.rs",
+      "type": "rust",
+      "lines": 879,
+      "executable": true,
+      "size_bytes": 33680,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/display.rs",
+      "type": "rust",
+      "lines": 755,
+      "executable": true,
+      "size_bytes": 25475,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/display_node.rs",
+      "type": "rust",
+      "lines": 58,
+      "executable": true,
+      "size_bytes": 1913,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/filter.rs",
+      "type": "rust",
+      "lines": 221,
+      "executable": true,
+      "size_bytes": 6984,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/filter_type.rs",
+      "type": "rust",
+      "lines": 143,
+      "executable": true,
+      "size_bytes": 4381,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/main.rs",
+      "type": "rust",
+      "lines": 478,
+      "executable": true,
+      "size_bytes": 14660,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/node.rs",
+      "type": "rust",
+      "lines": 131,
+      "executable": true,
+      "size_bytes": 3598,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/platform.rs",
+      "type": "rust",
+      "lines": 243,
+      "executable": true,
+      "size_bytes": 9410,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/progress.rs",
+      "type": "rust",
+      "lines": 161,
+      "executable": true,
+      "size_bytes": 5116,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "src/utils.rs",
+      "type": "rust",
+      "lines": 198,
+      "executable": true,
+      "size_bytes": 6487,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_dir/many/a_file",
+      "type": "other",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 0,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_dir/many/hello_file",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 6,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_dir2/dir/hello",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 5,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_dir2/dir_name_clash",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 5,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_dir2/dir_substring/hello",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 6,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_dir2/long_dir_name_what_a_very_long_dir_name_what_happens_when_this_goes_over_80_characters_i_wonder",
+      "type": "other",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 0,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_dir_files_from/a_file",
+      "type": "other",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 0,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_dir_files_from/files0_from.txt",
+      "type": "text",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 70,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_dir_files_from/files_from.txt",
+      "type": "text",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 70,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_dir_files_from/hello_file",
+      "type": "other",
+      "lines": 1,
+      "executable": false,
+      "size_bytes": 6,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_dir_hidden_entries/.hidden_file",
+      "type": "other",
+      "lines": 2,
+      "executable": false,
+      "size_bytes": 18,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_dir_hidden_entries/.secret",
+      "type": "other",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 0,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_dir_matching/andy/dup_name/hello",
+      "type": "other",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 0,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_dir_matching/dave/dup_name/hello",
+      "type": "other",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 0,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_dir_unicode/\u30e9\u30a6\u30c8\u306f\u96e3\u3057\u3044\u3067\u3059\uff01.japan",
+      "type": "other",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 0,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_dir_unicode/\ud83d\udc69.unicode",
+      "type": "other",
+      "lines": 0,
+      "executable": false,
+      "size_bytes": 0,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_exact_output.rs",
+      "type": "rust",
+      "lines": 327,
+      "executable": true,
+      "size_bytes": 13038,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/test_flags.rs",
+      "type": "rust",
+      "lines": 451,
+      "executable": true,
+      "size_bytes": 14542,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tests.rs",
+      "type": "rust",
+      "lines": 1,
+      "executable": true,
+      "size_bytes": 1,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    },
+    {
+      "path": "tests/tests_symlinks.rs",
+      "type": "rust",
+      "lines": 168,
+      "executable": true,
+      "size_bytes": 5519,
+      "source_url": null,
+      "source_identity": null,
+      "source_digest": null
+    }
+  ],
+  "structured_summaries": [],
+  "issues": [
+    {
+      "id": "TM2",
+      "finding_id": "finding-bad6066a754448bcbdd1f57d45d68f19",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": ".github/workflows/CICD.yml",
+        "start_line": 90,
+        "end_line": null,
+        "start_column": 64
+      },
+      "finding": "; sudo",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "        shell: bash\n        run: |\n          case ${{ matrix.job.target }} in\n            arm-unknown-linux-gnueabihf) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;\n            aarch64-unknown-linux-gnu) sudo apt-get -y update ; sudo apt-get -y install binutils-aarch64-linux-gnu ;;\n          esac\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c0adf908cd82687722d6cb827fde35437935fc8163e03280077d51c948872eec",
+      "occurrences": [
+        {
+          "file": ".github/workflows/CICD.yml",
+          "start_line": 90,
+          "end_line": null,
+          "start_column": 64
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-1903766ed2394c079a295d26f4fe0bb3",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.75,
+      "location": {
+        "file": ".github/workflows/CICD.yml",
+        "start_line": 91,
+        "end_line": null,
+        "start_column": 62
+      },
+      "finding": "; sudo",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "        run: |\n          case ${{ matrix.job.target }} in\n            arm-unknown-linux-gnueabihf) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;\n            aarch64-unknown-linux-gnu) sudo apt-get -y update ; sudo apt-get -y install binutils-aarch64-linux-gnu ;;\n          esac\n\n      - name: Initialize workflow variables",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "c0adf908cd82687722d6cb827fde35437935fc8163e03280077d51c948872eec",
+      "occurrences": [
+        {
+          "file": ".github/workflows/CICD.yml",
+          "start_line": 91,
+          "end_line": null,
+          "start_column": 62
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-d3d055547f084c80aa77819dcdc40ba5",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 37,
+        "end_line": null,
+        "start_column": 88
+      },
+      "finding": "| sh",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "\n### Quick Install (Linux, macOS, Windows) \n```bash\ncurl -sSfL https://raw.githubusercontent.com/bootandy/dust/refs/heads/master/install.sh | sh\n```\n\n### Cargo <a href=\"https://repology.org/project/du-dust/versions\"><img src=\"https://repology.org/badge/vertical-allrepos/du-dust.svg\" alt=\"Packaging status\" align=\"right\"></a>",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1d8c5f437ab35a4780c77ab29ff51a050f9e7ead84a13d55decf93cd3c70c577",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 37,
+          "end_line": null,
+          "start_column": 88
+        }
+      ]
+    },
+    {
+      "id": "TM2",
+      "finding_id": "finding-bd679ec9d685463380969006cb21fcf1",
+      "category": "Tool Misuse",
+      "pattern": "Chaining Abuse",
+      "severity": "HIGH",
+      "confidence": 0.7,
+      "location": {
+        "file": "install.sh",
+        "start_line": 3,
+        "end_line": null,
+        "start_column": 84
+      },
+      "finding": "| sh\n",
+      "explanation": "Tool calls are chained to bypass individual safety checks or escalate capabilities beyond what any single tool call would allow.",
+      "remediation": "Limit tool chaining depth and validate the output of each tool before passing it to the next. Require explicit user approval for multi-step chains.",
+      "code_snippet": "#!/usr/bin/env bash\n# dust installer script\n# Usage: curl -sSfL https://raw.githubusercontent.com/bootandy/dust/main/install.sh | sh\n\nset -e\n",
+      "intent": null,
+      "tags": [
+        "Tool Misuse"
+      ],
+      "evidence": {},
+      "match_fingerprint": "1d8c5f437ab35a4780c77ab29ff51a050f9e7ead84a13d55decf93cd3c70c577",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 3,
+          "end_line": null,
+          "start_column": 84
+        }
+      ]
+    },
+    {
+      "id": "AE3",
+      "finding_id": "finding-e63817c6b1214fb4a9535df164288507",
+      "category": "analysis-evasion",
+      "pattern": null,
+      "severity": "HIGH",
+      "confidence": 0.9,
+      "location": {
+        "file": "tests/test_dir_files_from/files0_from.txt",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": null,
+      "explanation": "Text artifact contains embedded NUL bytes",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "artifact-integrity"
+      ],
+      "evidence": {},
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "tests/test_dir_files_from/files0_from.txt",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-48cc5bda8bf64b738893a4a5fb43b42e",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/CICD.yml",
+        "start_line": 90,
+        "end_line": null,
+        "start_column": 41
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "        shell: bash\n        run: |\n          case ${{ matrix.job.target }} in\n            arm-unknown-linux-gnueabihf) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;\n            aarch64-unknown-linux-gnu) sudo apt-get -y update ; sudo apt-get -y install binutils-aarch64-linux-gnu ;;\n          esac\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/CICD.yml",
+          "start_line": 90,
+          "end_line": null,
+          "start_column": 41
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-835218fbe5c249b6b7978808b1c53f61",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/CICD.yml",
+        "start_line": 90,
+        "end_line": null,
+        "start_column": 66
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "        shell: bash\n        run: |\n          case ${{ matrix.job.target }} in\n            arm-unknown-linux-gnueabihf) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;\n            aarch64-unknown-linux-gnu) sudo apt-get -y update ; sudo apt-get -y install binutils-aarch64-linux-gnu ;;\n          esac\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/CICD.yml",
+          "start_line": 90,
+          "end_line": null,
+          "start_column": 66
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-97845e15fcde4486aa483e8047ca4944",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/CICD.yml",
+        "start_line": 91,
+        "end_line": null,
+        "start_column": 39
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "        run: |\n          case ${{ matrix.job.target }} in\n            arm-unknown-linux-gnueabihf) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;\n            aarch64-unknown-linux-gnu) sudo apt-get -y update ; sudo apt-get -y install binutils-aarch64-linux-gnu ;;\n          esac\n\n      - name: Initialize workflow variables",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/CICD.yml",
+          "start_line": 91,
+          "end_line": null,
+          "start_column": 39
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-0fb0e81b9104443cb778060dca0c0f62",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": ".github/workflows/CICD.yml",
+        "start_line": 91,
+        "end_line": null,
+        "start_column": 64
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "        run: |\n          case ${{ matrix.job.target }} in\n            arm-unknown-linux-gnueabihf) sudo apt-get -y update ; sudo apt-get -y install gcc-arm-linux-gnueabihf ;;\n            aarch64-unknown-linux-gnu) sudo apt-get -y update ; sudo apt-get -y install binutils-aarch64-linux-gnu ;;\n          esac\n\n      - name: Initialize workflow variables",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": ".github/workflows/CICD.yml",
+          "start_line": 91,
+          "end_line": null,
+          "start_column": 64
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-139bedad3aca4a47931babe4e9f1be58",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 56,
+        "end_line": null,
+        "start_column": 3
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "\n#### DNF (Fedora Linux)\n\n- `sudo dnf install du-dust`\n\n#### [Snap](https://ubuntu.com/core/services/guide/snaps-intro) Ubuntu and [supported systems](https://snapcraft.io/docs/installing-snapd)\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 56,
+          "end_line": null,
+          "start_column": 3
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-d6db4046535d43afb397e3749a7d10e8",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "README.md",
+        "start_line": 94,
+        "end_line": null,
+        "start_column": 33
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "\n- Download Linux/Mac binary from [Releases](https://github.com/bootandy/dust/releases)\n- unzip file: `tar -xvf _downloaded_file.tar.gz`\n- move file to executable path: `sudo mv dust /usr/local/bin/`\n\n## Overview\n",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 94,
+          "end_line": null,
+          "start_column": 33
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-f8962053c1294a96b934e77b9b1ed97f",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "install.sh",
+        "start_line": 176,
+        "end_line": null,
+        "start_column": 19
+      },
+      "finding": "sudo\n        ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "        cp \"$BINARY_PATH\" \"$INSTALL_DIR/\" || error \"Installation failed\"\n        chmod +x \"$INSTALL_DIR/$BINARY_NAME\" || true\n    else\n        # Try with sudo\n        warn \"Installing with sudo (requires administrator privileges)...\"\n        sudo cp \"$BINARY_PATH\" \"$INSTALL_DIR/\" || error \"Installation failed\"\n        sudo chmod +x \"$INSTALL_DIR/$BINARY_NAME\" || true",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 176,
+          "end_line": null,
+          "start_column": 19
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-9c3ca79d3eba4aaab5ddbbc708cf6964",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "install.sh",
+        "start_line": 177,
+        "end_line": null,
+        "start_column": 30
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "        chmod +x \"$INSTALL_DIR/$BINARY_NAME\" || true\n    else\n        # Try with sudo\n        warn \"Installing with sudo (requires administrator privileges)...\"\n        sudo cp \"$BINARY_PATH\" \"$INSTALL_DIR/\" || error \"Installation failed\"\n        sudo chmod +x \"$INSTALL_DIR/$BINARY_NAME\" || true\n    fi",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 177,
+          "end_line": null,
+          "start_column": 30
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-f4451537d72f4e5aa210e1e3561e5c09",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "install.sh",
+        "start_line": 178,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "    else\n        # Try with sudo\n        warn \"Installing with sudo (requires administrator privileges)...\"\n        sudo cp \"$BINARY_PATH\" \"$INSTALL_DIR/\" || error \"Installation failed\"\n        sudo chmod +x \"$INSTALL_DIR/$BINARY_NAME\" || true\n    fi\n    ",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 178,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    },
+    {
+      "id": "PE2",
+      "finding_id": "finding-9846bd3d42c048758009f9f0c5a9b2e3",
+      "category": "Privilege Escalation",
+      "pattern": "Sudo/Root Execution",
+      "severity": "MEDIUM",
+      "confidence": 0.7,
+      "location": {
+        "file": "install.sh",
+        "start_line": 179,
+        "end_line": null,
+        "start_column": 8
+      },
+      "finding": "sudo ",
+      "explanation": "Commands invoke sudo or root privileges. Verify this elevated access is necessary and justified.",
+      "remediation": "Avoid sudo/root unless strictly required. Prefer least-privilege patterns. If elevation is needed, document the justification and scope.",
+      "code_snippet": "        # Try with sudo\n        warn \"Installing with sudo (requires administrator privileges)...\"\n        sudo cp \"$BINARY_PATH\" \"$INSTALL_DIR/\" || error \"Installation failed\"\n        sudo chmod +x \"$INSTALL_DIR/$BINARY_NAME\" || true\n    fi\n    \n    # Clean up",
+      "intent": null,
+      "tags": [
+        "Privilege Escalation"
+      ],
+      "evidence": {},
+      "match_fingerprint": "16746f7044f347c6322d4c5b879b3fb06b2f205cbf1c9a209b43d52b34b3afd7",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 179,
+          "end_line": null,
+          "start_column": 8
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-60f79cbf0e164322b1e9df363c37b319",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "install.sh",
+        "start_line": 57,
+        "end_line": null,
+        "start_column": 29
+      },
+      "finding": "https://api.github.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "    \n    # Try using curl\n    if command -v curl >/dev/null 2>&1; then\n        VERSION=$(curl -sSf \"https://api.github.com/repos/$REPO/releases/latest\" | grep '\"tag_name\"' | sed -E 's/.*\"v?([^\"]+)\".*/\\1/')\n    # Try using wget\n    elif command -v wget >/dev/null 2>&1; then\n        VERSION=$(wget -qO- \"https://api.github.com/repos/$REPO/releases/latest\" | grep '\"tag_name\"' | sed -E 's/.*\"v?([^\"]+)\".*/\\1/')",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "061abab0022b7a79cdf98b2721e4ad6d47cd4ad12584ecf052130ef51f05d966",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 57,
+          "end_line": null,
+          "start_column": 29
+        }
+      ]
+    },
+    {
+      "id": "E1",
+      "finding_id": "finding-0d8ce7ce595145c093e4462e0ca1c7bd",
+      "category": "Data Exfiltration",
+      "pattern": "External Transmission",
+      "severity": "MEDIUM",
+      "confidence": 0.6,
+      "location": {
+        "file": "install.sh",
+        "start_line": 60,
+        "end_line": null,
+        "start_column": 29
+      },
+      "finding": "https://api.github.com/",
+      "explanation": "Data is being sent to an external URL. This could be legitimate telemetry or data exfiltration. Manual review is recommended.",
+      "remediation": "Verify the destination URL is trusted and necessary. Remove or replace with documented APIs. Ensure no secrets, tokens, or PII are transmitted.",
+      "code_snippet": "        VERSION=$(curl -sSf \"https://api.github.com/repos/$REPO/releases/latest\" | grep '\"tag_name\"' | sed -E 's/.*\"v?([^\"]+)\".*/\\1/')\n    # Try using wget\n    elif command -v wget >/dev/null 2>&1; then\n        VERSION=$(wget -qO- \"https://api.github.com/repos/$REPO/releases/latest\" | grep '\"tag_name\"' | sed -E 's/.*\"v?([^\"]+)\".*/\\1/')\n    else\n        error \"Neither curl nor wget is available. Please install one of them.\"\n    fi",
+      "intent": null,
+      "tags": [
+        "Data Exfiltration"
+      ],
+      "evidence": {},
+      "match_fingerprint": "061abab0022b7a79cdf98b2721e4ad6d47cd4ad12584ecf052130ef51f05d966",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 60,
+          "end_line": null,
+          "start_column": 29
+        }
+      ]
+    },
+    {
+      "id": "AE4",
+      "finding_id": "finding-6807d7a1f4c3485cb4ffdf729ddef7a9",
+      "category": "analysis-evasion",
+      "pattern": null,
+      "severity": "MEDIUM",
+      "confidence": 0.8,
+      "location": {
+        "file": "tests/test_dir_files_from/files0_from.txt",
+        "start_line": 1,
+        "end_line": null
+      },
+      "finding": null,
+      "explanation": "Suspicious Unicode normalization or mixed-script content",
+      "remediation": "Review the flagged content for security risks. Ensure no credentials, secrets, or sensitive data are exposed.",
+      "code_snippet": null,
+      "intent": null,
+      "tags": [
+        "artifact-integrity"
+      ],
+      "evidence": {},
+      "match_fingerprint": null,
+      "occurrences": [
+        {
+          "file": "tests/test_dir_files_from/files0_from.txt",
+          "start_line": 1,
+          "end_line": null
+        }
+      ]
+    },
+    {
+      "id": "SC2",
+      "finding_id": "finding-93cd7aeee8814369a92547f9b2b91634",
+      "category": "Supply Chain",
+      "pattern": "External Script Fetching",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "README.md",
+        "start_line": 37,
+        "end_line": null,
+        "start_column": 0
+      },
+      "finding": "curl -sSfL https://raw.githubusercontent.com/bootandy/dust/refs/heads/master/install.sh | sh",
+      "explanation": "Remote code is downloaded and executed. This bypasses code review and could introduce malicious code.",
+      "remediation": "Avoid downloading and executing remote scripts. Use trusted packages from PyPI/npm. If remote fetch is required, verify checksums and use HTTPS.",
+      "code_snippet": "\n### Quick Install (Linux, macOS, Windows) \n```bash\ncurl -sSfL https://raw.githubusercontent.com/bootandy/dust/refs/heads/master/install.sh | sh\n```\n\n### Cargo <a href=\"https://repology.org/project/du-dust/versions\"><img src=\"https://repology.org/badge/vertical-allrepos/du-dust.svg\" alt=\"Packaging status\" align=\"right\"></a>",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "3966baa032ec5f47753fc8599aa3971b73fefb899ab7a8310b75d9cd87756e32",
+      "occurrences": [
+        {
+          "file": "README.md",
+          "start_line": 37,
+          "end_line": null,
+          "start_column": 0
+        }
+      ]
+    },
+    {
+      "id": "SC2",
+      "finding_id": "finding-d5832e218dca44d3b70074246c4c2584",
+      "category": "Supply Chain",
+      "pattern": "External Script Fetching",
+      "severity": "LOW",
+      "confidence": 0.15,
+      "location": {
+        "file": "install.sh",
+        "start_line": 3,
+        "end_line": null,
+        "start_column": 9
+      },
+      "finding": "curl -sSfL https://raw.githubusercontent.com/bootandy/dust/main/install.sh | sh",
+      "explanation": "Remote code is downloaded and executed. This bypasses code review and could introduce malicious code.",
+      "remediation": "Avoid downloading and executing remote scripts. Use trusted packages from PyPI/npm. If remote fetch is required, verify checksums and use HTTPS.",
+      "code_snippet": "#!/usr/bin/env bash\n# dust installer script\n# Usage: curl -sSfL https://raw.githubusercontent.com/bootandy/dust/main/install.sh | sh\n\nset -e\n",
+      "intent": null,
+      "tags": [
+        "Supply Chain"
+      ],
+      "evidence": {},
+      "match_fingerprint": "8eee383cb2b8c3f5996617103631c15817e8ee51d2312b5a16661c5235ba6625",
+      "occurrences": [
+        {
+          "file": "install.sh",
+          "start_line": 3,
+          "end_line": null,
+          "start_column": 9
+        }
+      ]
+    }
+  ],
+  "suppressed_count": 0,
+  "suppressed": [],
+  "metadata": {
+    "has_executable_scripts": true,
+    "skillspector_version": "2.12.0",
+    "llm_requested": false,
+    "llm_available": false,
+    "meta_analysis_applied": false,
+    "inference_usage": [],
+    "llm_provenance": {
+      "schema_version": 1,
+      "provider": {
+        "configured_adapter": "unknown",
+        "resolved_adapter": "unknown",
+        "effective_adapter": "not_applicable",
+        "effective_adapters": [],
+        "service": "unknown",
+        "routing": {
+          "deployment_override": null,
+          "deployment_source": "unknown",
+          "api_version": null,
+          "api_version_source": "unknown"
+        }
+      },
+      "analyzers": [
+        {
+          "analyzer_id": "mcp_tool_poisoning",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_developer_intent",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_quality_policy",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "semantic_security_discovery",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        },
+        {
+          "analyzer_id": "meta_analyzer",
+          "model": "z-ai/glm-5.3",
+          "model_source": "resolved_configuration",
+          "analyzer_revision": {
+            "value": "2.12.0",
+            "source": "skillspector_package",
+            "source_revision": {
+              "value": "unknown",
+              "source": "unknown"
+            }
+          }
+        }
+      ],
+      "sampling": {
+        "temperature": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "seed": {
+          "requested": null,
+          "source": "unset",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        },
+        "reasoning_effort": {
+          "requested": null,
+          "source": "provider_default",
+          "forwarded_to_client": null,
+          "adapter_support": false,
+          "provider_support": "unknown"
+        }
+      },
+      "determinism": {
+        "classification": "not_applicable",
+        "control_status": "not_applied",
+        "provider_guarantee": false,
+        "reason": "LLM analysis was not executed for this scan."
+      }
+    },
+    "filtering_mode": "heuristic"
+  },
+  "execution_successful": true,
+  "analysis_completeness": {
+    "total_components": 53,
+    "scanned_components": 48,
+    "coverage_percent": 90.6,
+    "is_complete": false,
+    "status": "partial",
+    "execution_successful": true,
+    "fully_inspected_files": 48,
+    "partially_inspected_files": 5,
+    "entirely_uninspected_files": 0,
+    "ledger_exceptions": [
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": ".github/workflows/CICD.yml",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "ci/install.sh",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "man-page/dust.1",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "obfuscated_instruction_text",
+        "message": "Obfuscated instruction text could not be fully evaluated by the deterministic layer.",
+        "path": "src/config.rs",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_agent_snooping",
+          "static_patterns_anti_refusal",
+          "static_patterns_deserialization",
+          "static_patterns_excessive_agency",
+          "static_patterns_harmful_content",
+          "static_patterns_memory_poisoning",
+          "static_patterns_privilege_escalation",
+          "static_patterns_prompt_injection",
+          "static_patterns_rogue_agent",
+          "static_patterns_ssrf",
+          "static_patterns_supply_chain",
+          "static_patterns_system_prompt_leakage",
+          "static_patterns_tool_misuse"
+        ]
+      },
+      {
+        "outcome": "partial",
+        "phase": "static",
+        "reason_code": "static_parse_limit",
+        "message": "A security-relevant expression exceeded a bounded static parser's span limit.",
+        "path": "src/dir_walker.rs",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false,
+        "analyzers": [
+          "static_patterns_tool_misuse"
+        ]
+      }
+    ],
+    "scope_exclusions": [
+      {
+        "outcome": "out_of_scope",
+        "phase": "cache",
+        "reason_code": "binary_text_projection",
+        "message": "Only bounded printable text was inspected; binary structure and behavior are outside scope.",
+        "path": "media/demo.gif",
+        "start_line": null,
+        "end_line": null,
+        "fatal": false
+      }
+    ],
+    "analyzer_statuses": [
+      {
+        "analyzer_id": "artifact_integrity",
+        "status": "completed",
+        "planned_work": 54,
+        "completed": 54,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "behavioral_ast",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "behavioral_taint_tracking",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "bundled_execution_surface",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "no_applicable_files",
+        "message": "No files matched this analyzer's applicability contract."
+      },
+      {
+        "analyzer_id": "mcp_least_privilege",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "mcp_rug_pull",
+        "status": "completed",
+        "planned_work": 54,
+        "completed": 54,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "mcp_tool_poisoning",
+        "status": "not_applicable",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "manifest_absent",
+        "message": "No compatible manifest was present for this analyzer."
+      },
+      {
+        "analyzer_id": "meta_analyzer",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_developer_intent",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_quality_policy",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "semantic_security_discovery",
+        "status": "disabled",
+        "planned_work": 0,
+        "completed": 0,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0,
+        "reason_code": "disabled_by_configuration",
+        "message": "Analyzer was disabled by the requested configuration."
+      },
+      {
+        "analyzer_id": "static_patterns_agent_snooping",
+        "status": "degraded",
+        "planned_work": 54,
+        "completed": 53,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_anti_refusal",
+        "status": "degraded",
+        "planned_work": 54,
+        "completed": 53,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_data_exfiltration",
+        "status": "completed",
+        "planned_work": 54,
+        "completed": 54,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_deserialization",
+        "status": "degraded",
+        "planned_work": 54,
+        "completed": 53,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_excessive_agency",
+        "status": "degraded",
+        "planned_work": 54,
+        "completed": 53,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_harmful_content",
+        "status": "degraded",
+        "planned_work": 54,
+        "completed": 53,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_memory_poisoning",
+        "status": "degraded",
+        "planned_work": 54,
+        "completed": 53,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_output_handling",
+        "status": "completed",
+        "planned_work": 54,
+        "completed": 54,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_privilege_escalation",
+        "status": "degraded",
+        "planned_work": 54,
+        "completed": 53,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_prompt_injection",
+        "status": "degraded",
+        "planned_work": 54,
+        "completed": 53,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_rogue_agent",
+        "status": "degraded",
+        "planned_work": 54,
+        "completed": 53,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_ssrf",
+        "status": "degraded",
+        "planned_work": 54,
+        "completed": 53,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_supply_chain",
+        "status": "degraded",
+        "planned_work": 54,
+        "completed": 53,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_system_prompt_leakage",
+        "status": "degraded",
+        "planned_work": 54,
+        "completed": 53,
+        "partial": 1,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_patterns_tool_misuse",
+        "status": "degraded",
+        "planned_work": 54,
+        "completed": 49,
+        "partial": 5,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      },
+      {
+        "analyzer_id": "static_yara",
+        "status": "completed",
+        "planned_work": 54,
+        "completed": 54,
+        "partial": 0,
+        "skipped": 0,
+        "failed": 0,
+        "unaccounted": 0
+      }
+    ],
+    "references": [],
+    "limitations": [
+      "Analyzer static_patterns_agent_snooping status: degraded.",
+      "Analyzer static_patterns_anti_refusal status: degraded.",
+      "Analyzer static_patterns_deserialization status: degraded.",
+      "Analyzer static_patterns_excessive_agency status: degraded.",
+      "Analyzer static_patterns_harmful_content status: degraded.",
+      "Analyzer static_patterns_memory_poisoning status: degraded.",
+      "Analyzer static_patterns_privilege_escalation status: degraded.",
+      "Analyzer static_patterns_prompt_injection status: degraded.",
+      "Analyzer static_patterns_rogue_agent status: degraded.",
+      "Analyzer static_patterns_ssrf status: degraded.",
+      "Analyzer static_patterns_supply_chain status: degraded.",
+      "Analyzer static_patterns_system_prompt_leakage status: degraded.",
+      "Analyzer static_patterns_tool_misuse status: degraded."
+    ],
+    "findings_before_filtering": 20,
+    "findings_after_filtering": 20,
+    "dependency_inspection": {
+      "enabled": false,
+      "status": "not_requested",
+      "mode": "static_local",
+      "locked_entries": 0,
+      "inspected_artifacts": 0,
+      "artifacts": []
+    }
+  }
+}
