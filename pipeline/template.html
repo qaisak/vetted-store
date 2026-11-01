@@ -782,16 +782,18 @@ function ranked(list, numbered) {
 }
 function banners(items) {
   return `<div class="scroller banners">${items.filter(x => x.l).map(({ l, eb, line }) => `<a class="banner" href="#${l.id}">
-    <span class="eb">${eb}</span><span class="bt">${esc(l.n)}</span><span class="bs">${esc(line || l.t)}</span>
+    <span class="eb">${eb}</span><span class="bt">${esc(l.n)}</span><span class="bs">${esc(line || plainOf(l))}</span>
     <span class="bart" style="background:linear-gradient(155deg,${l.c[1]},${l.c[0]})">
       <svg class="glyph-art" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" style="opacity:.25;width:46%;right:4%;bottom:-6%">${G[l.g]}</svg>
       <span class="bline">${icon(l, 40)}<span>★ ${fmtK(repoOf(l).st)} · ${trust(l).short}</span></span></span></a>`).join('')}</div>`;
 }
+const jobChips = kind => `<div class="chips" style="margin:-6px 0 14px">${JOBS.filter(([k]) => L.some(l => l.k === kind && (l.jb || []).includes(k))).map(([k, t]) => `<a href="#for-${k}">${esc(t)}</a>`).join('')}</div>`;
 function pageSkills() {
   const comm = community().filter(l => l.k === 'skill');
   const repos = [...new Set(byStars(comm).map(l => l.r))];
   return `<div class="page">
     <div class="large-title"><h1>Skills</h1><p>Instruction packs that teach Claude, Codex and other agents how to do specific jobs. ${comm.length} community skills from ${repos.length} independent developers, each Purpose-Checked and scanned with SkillSpector.</p></div>
+    ${jobChips('skill')}
     ${banners(uniqueRepos(byStars(comm)).slice(0, 4).map(l => ({ l, eb: 'Community · ' + repoOf(l).own })))}
     ${repos.map(repo => { const list = byRepo(repo);
       return `<section class="shelf"><div class="shelf-head"><h2>${esc(repoTitle(repo))}<span class="sub">by ${esc(repo.split('/')[0])} · ★ ${fmtK(R[repo].st)} on GitHub</span></h2>${list.length > 6 ? `<button class="see-all" data-seeall="${repo}">See All</button>` : ''}</div>${ranked(list.slice(0, 12))}</section>`; }).join('')}
@@ -802,6 +804,7 @@ function pageMcp() {
   const comm = byStars(community().filter(l => l.k === 'mcp'));
   return `<div class="page">
     <div class="large-title"><h1>Connectors</h1><p>Also called MCP servers. They connect your AI assistant to real apps and accounts: Slack, Figma, Google Calendar, your browser, your files. Because they can reach your data, each community connector is checked against its own stated purpose: what it can access, and whether that matches what it says it's for.</p></div>
+    ${jobChips('mcp')}
     ${banners(comm.slice(0, 4).map(l => ({ l, eb: 'Community · ' + repoOf(l).own })))}
     <section class="shelf"><div class="shelf-head"><h2>Community Connectors<span class="sub">Built by independent developers · ranked by GitHub stars</span></h2></div>${ranked(comm, true)}</section>
     ${trustedShelf('mcp', 'Connectors from Trusted Publishers')}
@@ -820,6 +823,7 @@ function pageTools() {
   const rest = comm.filter(l => !placed.has(l.id));
   return `<div class="page">
     <div class="large-title"><h1>Apps</h1><p>${comm.length} open-source apps from independent developers, mostly for the terminal. Each one is Purpose-Checked and scanned: we read its code and compare what it can do with what it says it's for.</p></div>
+    ${jobChips('tool')}
     ${banners([{ l: BY['yt-dlp'], eb: 'Download Anything' }, { l: BY['croc'], eb: 'Send Files' }, { l: BY['yazi'], eb: 'File Manager' }, { l: BY['lazygit'], eb: 'Git, Visually' }])}
     ${SHELVES.map(([t, sub, ids]) => { const list = byStars(pick(ids).filter(l => !l.tr)); return list.length ? `<section class="shelf"><div class="shelf-head"><h2>${t}<span class="sub">${sub}</span></h2></div>${ranked(list, true)}</section>` : ''; }).join('')}
     ${rest.length ? `<section class="shelf"><div class="shelf-head"><h2>More apps</h2></div>${ranked(byStars(rest), true)}</section>` : ''}
