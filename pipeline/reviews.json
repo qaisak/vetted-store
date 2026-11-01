@@ -936,17 +936,80 @@
   "wheresryan22-anatomy": {
     "network": "Only to a headless Chrome it starts on your own computer, through Chrome's local debugging port on 127.0.0.1, to screenshot and check the illustration it drew (scripts/capture.mjs:147, scripts/drive.mjs:145).",
     "env": "Finds Chrome through CHROME_PATH or its usual install folders (scripts/capture.mjs:78).",
-    "browser": "Launches headless Chrome or Playwright's Chromium to render and screenshot the illustration (scripts/capture.mjs:92-126). It doesn't browse the web."
+    "browser": "Launches headless Chrome or Playwright's Chromium to render and screenshot the illustration (scripts/capture.mjs:92-126). It doesn't browse the web.",
+    "_findings": [
+      {
+        "match": "~/.codex/config.toml",
+        "file": "README.md",
+        "level": "benign",
+        "note": "README.md:173 is a setup tip for Codex users: let the skill's headless Chrome check run by allowing writes to /tmp and network inside Codex's sandbox. Approvals stay 'on-request', so Codex still asks before risky commands.",
+        "date": "2026-11-01"
+      }
+    ]
   },
   "lemomo-ai-lemo-opuscar": {
-    "browser": "Its setup script installs a headless Chromium (scripts/setup.sh:71) to render the films it makes into video. It doesn't browse the web."
+    "browser": "Its setup script installs a headless Chromium (scripts/setup.sh:71) to render the films it makes into video. It doesn't browse the web.",
+    "_findings": [
+      {
+        "match": "; rm -",
+        "file": "scripts/setup.sh",
+        "level": "benign",
+        "note": "scripts/setup.sh:73 deletes the skill's own Python environment (.venv in its library folder) only when it's broken, then builds a fresh one. It touches nothing else.",
+        "date": "2026-11-01"
+      }
+    ]
   },
   "mcp-rea": {
     "credentials": "A redaction list: names like accesstoken, apikey and bearer that it strips from environment reports so they don't end up in its output (src/application/environment/environmentBuildReport.ts:28).",
     "secretFiles": "A list of config file names (.npmrc, .nvmrc, .editorconfig) it uses to classify files in a project it analyzes (src/domain/referenceSourceClassification.ts:145). It doesn't read your own .npmrc."
   },
   "cleanyourtv": {
-    "credentials": "Only in its optional smart-home add-on for the TV, which uses the Home Assistant token you give it (addons/smart-home/.../HaClient.java:56)."
+    "credentials": "Only in its optional smart-home add-on for the TV, which uses the Home Assistant token you give it (addons/smart-home/.../HaClient.java:56).",
+    "_findings": [
+      {
+        "match": "log dialog",
+        "file": "addons/jewish-calendar/app/src/main/java/com/lionlev/tv/jewishcalendar/CalendarActivity.java",
+        "level": "benign",
+        "note": "The scanner matched the words 'log dialog' inside 'AlertDialog dialog': Android code that draws a settings window on the TV screen (e.g. WeatherActivity.java:235, MainActivity.java:3876). Nothing is logged or sent.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "log dialog",
+        "file": "addons/weather/app/src/main/java/io/github/sumyabazar1/weather/WeatherActivity.java",
+        "level": "benign",
+        "note": "The scanner matched the words 'log dialog' inside 'AlertDialog dialog': Android code that draws a settings window on the TV screen (e.g. WeatherActivity.java:235, MainActivity.java:3876). Nothing is logged or sent.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "log dialog",
+        "file": "launcher/app/src/main/java/com/gathin/tvhome/MainActivity.java",
+        "level": "benign",
+        "note": "The scanner matched the words 'log dialog' inside 'AlertDialog dialog': Android code that draws a settings window on the TV screen (e.g. WeatherActivity.java:235, MainActivity.java:3876). Nothing is logged or sent.",
+        "date": "2026-11-01"
+      }
+    ],
+    "_notices": [
+      {
+        "title": "Your assistant changes system apps on your TV",
+        "level": "notice",
+        "note": "It has your coding assistant connect to the TV with USB or Wi-Fi debugging, save a backup and a restore script, then turn off preinstalled apps (it never uninstalls system apps) and set its own home screen. The prompt closes debugging at the end; check it did.",
+        "where": [
+          [
+            "PROMPT.md",
+            51
+          ],
+          [
+            "PROMPT.md",
+            63
+          ],
+          [
+            "PROMPT.md",
+            84
+          ]
+        ],
+        "date": "2026-11-01"
+      }
+    ]
   },
   "photocraft": {
     "shell": "Desktop integration helpers: it reads your light or dark mode setting (apps/photocraft/src/appearance.rs:47), finds fonts with fc-match, opens an SVG in your chosen editor (src/external_svg.rs:121), and restarts itself after updates. The shell and cmd calls the scanner also sees are in tests inside source files."
@@ -3675,6 +3738,17 @@
         "file": "scripts/image_gen.py",
         "level": "benign",
         "note": "Returns the user's image prompt text, optionally adding structured sections (scripts/image_gen.py:81, 198). Normal input handling, not prompt leakage.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "aicodeking-leanrea": {
+    "_findings": [
+      {
+        "match": "; rm -",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:29 empties the skill's own scratch folder ($TMPDIR/re/asar) before unpacking the Electron app you asked it to inspect. Only that temporary folder is deleted.",
         "date": "2026-11-01"
       }
     ]
