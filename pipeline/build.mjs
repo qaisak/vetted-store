@@ -13,7 +13,7 @@ for (const p of marketplace?.plugins || []) for (const s of p.skills || []) anth
 
 const OWNER = { anthropics: 'Anthropic', openai: 'OpenAI', NVIDIA: 'NVIDIA', huggingface: 'Hugging Face', 'vercel-labs': 'Vercel Labs', modelcontextprotocol: 'Model Context Protocol',
   github: 'GitHub', microsoft: 'Microsoft', upstash: 'Upstash', ChromeDevTools: 'Chrome DevTools', jqlang: 'jq', cli: 'GitHub', 'astral-sh': 'Astral', ollama: 'Ollama',
-  aquasecurity: 'Aqua Security', semgrep: 'Semgrep', gitleaks: 'Gitleaks' };
+  aquasecurity: 'Aqua Security', semgrep: 'Semgrep', gitleaks: 'Gitleaks', cloudflare: 'Cloudflare', 'heygen-com': 'HeyGen' };
 const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'astral-sh/uv': 'uv', 'jqlang/jq': 'jq', 'sharkdp/fd': 'fd', 'sharkdp/bat': 'bat', 'junegunn/fzf': 'fzf',
   'BurntSushi/ripgrep': 'ripgrep', 'jesseduffield/lazygit': 'lazygit', 'ollama/ollama': 'Ollama', 'aquasecurity/trivy': 'Trivy', 'semgrep/semgrep': 'Semgrep', 'gitleaks/gitleaks': 'Gitleaks',
   'NVIDIA/SkillSpector': 'SkillSpector', 'github/github-mcp-server': 'GitHub MCP Server', 'microsoft/playwright-mcp': 'Playwright MCP', 'upstash/context7': 'Context7',
@@ -31,6 +31,7 @@ const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'ast
   'lharries/whatsapp-mcp': 'WhatsApp MCP', 'chigwell/telegram-mcp': 'Telegram MCP', 'domdomegg/airtable-mcp-server': 'Airtable MCP Server', 'marcelmarais/spotify-mcp-server': 'Spotify MCP Server',
   'morluto/rea': 'REA: Reverse Engineer Anything', 'Gathin23/cleanyourtv': 'CleanYourTV', 'storytold/photocraft': 'PhotoCraft', 'storytold/pdfcraft': 'PdfCraft',
   'KnifeLemon/Filee': 'Filee', 'robbietilton/Compositor': 'Compositor', 'jub0t/Concat': 'Concat', 'crmne/spotifast': 'Spotifast',
+  'mksglu/context-mode': 'context-mode', 'debpalash/VoiceStudio': 'VoiceStudio', 'storytold/lightcraft': 'LightCraft',
   'yt-dlp/yt-dlp': 'yt-dlp', 'Wilfred/difftastic': 'difftastic', 'muesli/duf': 'duf', 'ClementTsang/bottom': 'bottom', 'ducaale/xh': 'xh', 'chmln/sd': 'sd' };
 // Hand-written plain-language lines, job tags and setup level (pipeline/plain.json)
 const SOURCES = JSON.parse(fs.readFileSync(new URL('../data/sources.json', import.meta.url), 'utf8'));
@@ -84,13 +85,17 @@ const MCP_INSTALL = {
     { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add airtable -e AIRTABLE_API_KEY=your-token -- npx -y airtable-mcp-server'], note: 'Create an Airtable personal access token with only the scopes you need, as the README explains. Same settings as its install link.' }],
   'marcelmarais/spotify-mcp-server': [
     { to: 'All clients', how: 'Install guide', link: 'https://github.com/marcelmarais/spotify-mcp-server#readme', note: 'Needs a Spotify developer app (client ID and secret); you build it locally and sign in with Spotify once.' }],
+  // README install section, checked November 1, 2026
+  'mksglu/context-mode': [
+    { to: 'Claude Code', how: 'Plugin', cmds: ['/plugin marketplace add mksglu/context-mode', '/plugin install context-mode@context-mode'], note: 'Run inside Claude Code, then restart it. The plugin adds hooks that route large tool output through context-mode automatically.' },
+    { to: 'Claude Code', how: 'Connector only', cmds: ['claude mcp add context-mode -- npx -y context-mode'], note: 'Run in your terminal. Gives the same tools without the hooks, so your assistant uses them only when it chooses to.' }],
   'morluto/rea': [
     { to: 'Your agent', how: 'Setup command', cmds: ['npx rea-agents setup'], note: 'From the README. Registers REA with your agent (Claude Code, Codex and others) and installs its workflow instructions. Needs Node.js 22.' }],
   'nspady/google-calendar-mcp': [
     { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add google-calendar -e GOOGLE_OAUTH_CREDENTIALS=/path/to/gcp-oauth.keys.json -- npx -y @cocal/google-calendar-mcp'], note: 'First create a Google Cloud OAuth client (Desktop app) and download its keys file, as the README explains. Then ask your assistant to authenticate.' }],
 };
 // Companies whose own repositories are listed as "Trusted publisher" (no scan up front)
-const TRUSTED = new Set(['anthropics', 'openai', 'NVIDIA', 'microsoft', 'github', 'cli', 'modelcontextprotocol', 'ChromeDevTools', 'huggingface', 'vercel-labs', 'upstash', 'aquasecurity', 'semgrep', 'astral-sh', 'ollama']);
+const TRUSTED = new Set(['anthropics', 'openai', 'NVIDIA', 'microsoft', 'github', 'cli', 'modelcontextprotocol', 'ChromeDevTools', 'huggingface', 'vercel-labs', 'upstash', 'aquasecurity', 'semgrep', 'astral-sh', 'ollama', 'cloudflare', 'heygen-com']);
 OWNER.cli = 'GitHub'; OWNER.ChromeDevTools = 'Google Chrome';
 const SUB = { everything: 'Everything (test server)', sequentialthinking: 'Sequential Thinking' };
 const DESC_FIX = { everything: 'Reference test server that exercises every MCP feature (tools, prompts, resources and more). Built for people developing MCP clients, not for daily use.' };
@@ -129,7 +134,7 @@ for (const [repo, m] of Object.entries(d.repos)) {
   const sc = d.scores[repo];
   const urlRe = new RegExp('github\\.com/' + m.full.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(/|$|#|\\?)', 'i');
   // Licenses GitHub can't classify, read from the repository's own license file (checked November 1, 2026)
-  const LICENSE_FIX = { 'muesli/duf': 'MIT', 'nicolargo/glances': 'LGPL-3.0', 'Gathin23/cleanyourtv': 'MIT' };
+  const LICENSE_FIX = { 'muesli/duf': 'MIT', 'nicolargo/glances': 'LGPL-3.0', 'Gathin23/cleanyourtv': 'MIT', 'mksglu/context-mode': 'Elastic License 2.0' };
   R[m.full] = { st: m.stars, fk: m.forks, is: m.issues, lic: LICENSE_FIX[m.full] || m.license, pu: m.pushed?.slice(0, 10), cr: m.created?.slice(0, 10), ar: m.archived, own: m.owner,
     org: m.ownerType === 'Organization', on: OWNER[m.owner] || m.owner, lang: m.language, br: m.branch,
     sc: sc === 'unchecked' ? 'u' : sc ? { s: sc.score, date: sc.date?.slice(0, 10), ch: sc.checks.filter(c => c.score >= 0).map(c => [c.name, c.score, c.reason]) } : null,
@@ -200,7 +205,8 @@ for (const l of d.listings) {
     if (repo === 'vercel-labs/skills') delete i.npx;
     // Desktop apps: installers on each project's releases page (checked in their READMEs, November 1, 2026)
     const DESKTOP = { 'storytold/photocraft': 'macOS, Windows, Linux', 'storytold/pdfcraft': 'macOS, Windows, Linux', 'KnifeLemon/Filee': 'Windows, macOS, Linux',
-      'robbietilton/Compositor': 'macOS', 'jub0t/Concat': 'Windows, macOS, Linux', 'crmne/spotifast': 'Linux, macOS, Windows' };
+      'robbietilton/Compositor': 'macOS', 'jub0t/Concat': 'Windows, macOS, Linux', 'crmne/spotifast': 'Linux, macOS, Windows',
+      'debpalash/VoiceStudio': 'macOS, Windows, Linux', 'storytold/lightcraft': 'Windows, macOS, Linux' };
     if (DESKTOP[repo]) inst.push({ to: DESKTOP[repo], how: 'Download', link: `https://github.com/${repo}/releases/latest`, linkText: 'Download from GitHub', note: 'Pick the installer for your computer from the latest release.' });
     if (repo === 'Gathin23/cleanyourtv') inst.push({ to: 'With a coding assistant', how: 'Prompt', cmds: ['git clone https://github.com/Gathin23/cleanyourtv'], note: 'Open that folder in Claude Code or Codex, paste PROMPT.md and fill in your TV model. Your computer needs Python 3, a JDK (17 to 22) and the Android SDK, as the README explains. Turn on USB debugging on the TV first.' },
       { to: 'Android phone only', how: 'Separate app', link: 'https://cleanyour.tv/app', linkText: 'Open the phone app page', note: 'A community-built phone app by another developer. Vetted hasn\'t checked it.' });

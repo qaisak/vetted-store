@@ -1019,7 +1019,27 @@
     "secretFiles": "For signing PDFs with a digital ID: it uses certificates stored in your macOS Keychain through Apple's Security framework, the private key never leaves the Keychain, and macOS asks you to allow it (crates/sign/src/keychain.rs)."
   },
   "concat": {
-    "credentials": "Protects its optional local control server with a random 128-bit token that every connection must present, even from your own computer (src/crates/concat-server/src/grpc.rs:164, lib.rs:23)."
+    "credentials": "Protects its optional local control server with a random 128-bit token that every connection must present, even from your own computer (src/crates/concat-server/src/grpc.rs:164, lib.rs:23).",
+    "_findings": [
+      {
+        "file": "src/patches/whisper-rs-sys/whisper.cpp/ggml/src/ggml-backend.cpp",
+        "level": "benign",
+        "note": "A comment in the bundled whisper.cpp speech-to-text library (ggml-backend.cpp:1725): it resets the engine's working memory before the next run. Ordinary memory management, nothing to do with an AI's memory.",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "src/patches/whisper-rs-sys/whisper.cpp/src/openvino/whisper-openvino-encoder.cpp",
+        "level": "benign",
+        "note": "Bundled whisper.cpp code (whisper-openvino-encoder.cpp:44) freeing a speech-recognition object when it's done. Ordinary memory management.",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "src/patches/whisper-rs-sys/whisper.cpp/src/whisper.cpp",
+        "level": "benign",
+        "note": "Bundled whisper.cpp code (whisper.cpp:3843) freeing the speech recognizer's state when it's done. Ordinary memory management.",
+        "date": "2026-11-01"
+      }
+    ]
   },
   "spotifast": {
     "secretFiles": "Stores your Spotify login in your system's secure store (macOS Keychain, Windows Credential Manager or the Linux secret service) instead of a plain file (src/credentials.rs:287).",
@@ -3765,6 +3785,46 @@
         "file": "SKILL.md",
         "level": "benign",
         "note": "SKILL.md:29 empties the skill's own scratch folder ($TMPDIR/re/asar) before unpacking the Electron app you asked it to inspect. Only that temporary folder is deleted.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "filee": {
+    "_findings": [
+      {
+        "file": "src/Filee.Core/Web/WebFormats.cs",
+        "level": "benign",
+        "note": "WebFormats.cs:186 strips the invisible byte-order mark (U+FEFF) some editors put at the start of a file, so a web file is read correctly. Text clean-up, not hidden instructions.",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "src/Filee.Engines/Geo/GeoCsvFormat.cs",
+        "level": "benign",
+        "note": "GeoCsvFormat.cs:28 strips the invisible byte-order mark (U+FEFF) from a CSV's first header, so column names match. Text clean-up, not hidden instructions.",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "src/Filee.Engines/Models3D/FbxParser.cs",
+        "level": "benign",
+        "note": "FbxParser.cs:60 and 384 skip the invisible byte-order mark (U+FEFF) at the start of a 3D model file while reading it. Text clean-up, not hidden instructions.",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "src/Filee.Engines/Subtitles/SccReader.cs",
+        "level": "benign",
+        "note": "SccReader.cs:20 ignores the invisible byte-order mark (U+FEFF) when checking that a subtitle file is in SCC format. Text clean-up, not hidden instructions.",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "src/Filee.Engines/Subtitles/SubtitleReader.cs",
+        "level": "benign",
+        "note": "SubtitleReader.cs:105, 144, 260 and 323 strip the invisible byte-order mark (U+FEFF) from subtitle files as they're read. Text clean-up, not hidden instructions.",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "src/Filee.Engines/Subtitles/SubtitleModel.cs",
+        "level": "benign",
+        "note": "SubtitleModel.cs:295 removes invisible direction marks and zero-width spaces from subtitle text when converting it. It deletes hidden characters rather than adding them.",
         "date": "2026-11-01"
       }
     ]

@@ -70,6 +70,13 @@ const SKILL_REPOS = [
   { repo: 'wheresryan22/anatomy', pick: [''] },
   { repo: 'lemomo-ai/lemo-opuscar', pick: ['plugin/skills/lemo-opuscar'] },
   { repo: 'aicodeking/leanrea', pick: ['leanrea'] },
+  // GitHub's monthly trending list, November 1, 2026
+  { repo: 'Nutlope/hallmark', pick: ['skills/hallmark'] },
+  { repo: 'Leonxlnx/taste-skill', pick: ['skills/taste-skill'] },
+  { repo: 'AgriciDaniel/claude-seo', pick: ['skills/seo', 'skills/seo-audit', 'skills/seo-local'] },
+  { repo: 'earthtojake/text-to-cad', pick: ['skills/cad'] },
+  { repo: 'cloudflare/security-audit-skill', pick: ['skills/security-audit'] },
+  { repo: 'heygen-com/hyperframes', pick: ['skills/hyperframes'] },
 ];
 const MCP = [
   { repo: 'modelcontextprotocol/servers', sub: ['everything', 'fetch', 'filesystem', 'git', 'memory', 'sequentialthinking', 'time'] },
@@ -106,6 +113,7 @@ const MCP = [
   { repo: 'domdomegg/airtable-mcp-server' },
   { repo: 'marcelmarais/spotify-mcp-server' },
   { repo: 'morluto/rea' },
+  { repo: 'mksglu/context-mode' },
 ];
 const TOOLS = ['NVIDIA/SkillSpector', 'vercel-labs/skills', 'BurntSushi/ripgrep', 'sharkdp/fd', 'junegunn/fzf', 'jqlang/jq', 'cli/cli', 'astral-sh/uv',
   'sharkdp/bat', 'jesseduffield/lazygit', 'ollama/ollama', 'aquasecurity/trivy', 'semgrep/semgrep', 'gitleaks/gitleaks',
@@ -115,7 +123,9 @@ const TOOLS = ['NVIDIA/SkillSpector', 'vercel-labs/skills', 'BurntSushi/ripgrep'
   'yt-dlp/yt-dlp', 'Wilfred/difftastic', 'muesli/duf', 'ClementTsang/bottom', 'ducaale/xh', 'chmln/sd',
   'schollz/croc', 'FiloSottile/age', 'saulpw/visidata', 'derailed/k9s', 'nicolargo/glances', 'yorukot/superfile', 'darrenburns/posting', 'tconbeer/harlequin', 'denisidoro/navi',
   // Trending, added November 1, 2026
-  'Gathin23/cleanyourtv', 'storytold/photocraft', 'storytold/pdfcraft', 'KnifeLemon/Filee', 'robbietilton/Compositor', 'jub0t/Concat', 'crmne/spotifast'];
+  'Gathin23/cleanyourtv', 'storytold/photocraft', 'storytold/pdfcraft', 'KnifeLemon/Filee', 'robbietilton/Compositor', 'jub0t/Concat', 'crmne/spotifast',
+  // GitHub's monthly trending list, November 1, 2026
+  'debpalash/VoiceStudio', 'storytold/lightcraft'];
 
 const meta = {}, scores = {}, hn = {}, avatars = {};
 async function repoMeta(repo) {

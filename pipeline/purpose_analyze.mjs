@@ -145,6 +145,13 @@ const PROFILES = {
     expect: { files: 'Opens and saves your images', network: 'Checks for updates', env: 'Settings' } },
   'concat': { date: '2026-11-01', purpose: 'A free video editor that runs on your computer, a CapCut alternative, with optional AI captions, voices and cutouts whose models download once.',
     expect: { files: 'Opens your footage and saves projects and exports', network: 'Downloads its AI models once and checks for updates', shell: 'Runs ffmpeg and its local AI helpers', env: 'Settings' } },
+  // GitHub's monthly trending list; purposes from each README, November 1, 2026
+  'mcp-context-mode': { date: '2026-11-01', purpose: 'Keeps an AI coding agent\'s context small: runs commands and code in a separate process, indexes the output and web pages into a local search database, and keeps session memory. Its README says nothing leaves your machine.',
+    expect: { shell: 'Runs commands and code for your assistant in a separate process', files: 'Indexes files you point it at into a local database in your home folder', network: 'Fetches the web pages you ask it to index', env: 'Settings' } },
+  'voicestudio': { date: '2026-11-01', purpose: 'A desktop app for voice cloning, dubbing, dictation, transcription and audiobooks, with the speech models running on your own computer.',
+    expect: { network: 'Downloads the speech models you choose, and checks for updates', files: 'Reads your recordings and text and saves the audio it makes', shell: 'Runs its local speech engines and tools such as ffmpeg', env: 'Settings' } },
+  'lightcraft': { date: '2026-11-01', purpose: 'A non-destructive photo editor for RAW photos, written in Rust, for Windows, macOS and Linux, with a browser version.',
+    expect: { files: 'Reads your photos and library and writes edits and exports', network: 'Downloads optional AI models you install', env: 'Settings', shell: 'Opens files and folders in your system apps' } },
   'spotifast': { date: '2026-11-01', purpose: 'A lightweight desktop app for your Spotify library: local playback and Spotify Connect.',
     expect: { network: 'Talks to Spotify', credentials: 'Signs in to your Spotify account', files: 'Caches music data and stores its settings', env: 'Settings', shell: 'Opens your browser to sign in' } },
   'sd': { date: '2026-11-01', purpose: 'Find and replace text in files, a simpler sed.',
