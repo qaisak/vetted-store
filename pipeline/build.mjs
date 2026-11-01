@@ -34,6 +34,7 @@ const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'ast
   'mksglu/context-mode': 'context-mode', 'debpalash/VoiceStudio': 'VoiceStudio', 'storytold/lightcraft': 'LightCraft',
   'localsend/localsend': 'LocalSend', 'upscayl/upscayl': 'Upscayl', 'qarmin/czkawka': 'Krokiet (Czkawka)', 'flameshot-org/flameshot': 'Flameshot',
   'keepassxreboot/keepassxc': 'KeePassXC', 'syncthing/syncthing': 'Syncthing', 'trufflesecurity/trufflehog': 'TruffleHog',
+  'gorhill/uBlock': 'uBlock Origin', 'pi-hole/pi-hole': 'Pi-hole', 'rustdesk/rustdesk': 'RustDesk',
   'yt-dlp/yt-dlp': 'yt-dlp', 'Wilfred/difftastic': 'difftastic', 'muesli/duf': 'duf', 'ClementTsang/bottom': 'bottom', 'ducaale/xh': 'xh', 'chmln/sd': 'sd' };
 // Hand-written plain-language lines, job tags and setup level (pipeline/plain.json)
 const SOURCES = JSON.parse(fs.readFileSync(new URL('../data/sources.json', import.meta.url), 'utf8'));
@@ -137,7 +138,7 @@ for (const [repo, m] of Object.entries(d.repos)) {
   const urlRe = new RegExp('github\\.com/' + m.full.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(/|$|#|\\?)', 'i');
   // Licenses GitHub can't classify, read from the repository's own license file (checked November 1, 2026)
   const LICENSE_FIX = { 'muesli/duf': 'MIT', 'nicolargo/glances': 'LGPL-3.0', 'Gathin23/cleanyourtv': 'MIT', 'mksglu/context-mode': 'Elastic License 2.0',
-    'qarmin/czkawka': 'MIT (library), GPL-3.0 (apps)', 'keepassxreboot/keepassxc': 'GPL-2.0 or GPL-3.0' };
+    'qarmin/czkawka': 'MIT (library), GPL-3.0 (apps)', 'keepassxreboot/keepassxc': 'GPL-2.0 or GPL-3.0', 'pi-hole/pi-hole': 'EUPL' };
   R[m.full] = { st: m.stars, fk: m.forks, is: m.issues, lic: LICENSE_FIX[m.full] || m.license, pu: m.pushed?.slice(0, 10), cr: m.created?.slice(0, 10), ar: m.archived, own: m.owner,
     org: m.ownerType === 'Organization', on: OWNER[m.owner] || m.owner, lang: m.language, br: m.branch,
     sc: sc === 'unchecked' ? 'u' : sc ? { s: sc.score, date: sc.date?.slice(0, 10), ch: sc.checks.filter(c => c.score >= 0).map(c => [c.name, c.score, c.reason]) } : null,
@@ -209,13 +210,19 @@ for (const l of d.listings) {
     if (repo === 'aristocratos/btop') delete i.brew;   // README line lists build dependencies, not an install
     if (i.cargo && /--path/.test(i.cargo)) delete i.cargo;
     if (repo === 'vercel-labs/skills') delete i.npx;
+    if (repo === 'pi-hole/pi-hole') delete i.curl;   // shown on its own card with the README's caveat
     // Desktop apps: installers on each project's releases page (checked in their READMEs, November 1, 2026)
     const DESKTOP = { 'storytold/photocraft': 'macOS, Windows, Linux', 'storytold/pdfcraft': 'macOS, Windows, Linux', 'KnifeLemon/Filee': 'Windows, macOS, Linux',
       'robbietilton/Compositor': 'macOS', 'jub0t/Concat': 'Windows, macOS, Linux', 'crmne/spotifast': 'Linux, macOS, Windows',
       'debpalash/VoiceStudio': 'macOS, Windows, Linux', 'storytold/lightcraft': 'Windows, macOS, Linux',
       'localsend/localsend': 'Windows, macOS, Linux, Android', 'upscayl/upscayl': 'Windows, macOS, Linux', 'qarmin/czkawka': 'Windows, macOS, Linux',
-      'flameshot-org/flameshot': 'Windows, Linux', 'keepassxreboot/keepassxc': 'Windows, macOS, Linux', 'syncthing/syncthing': 'Windows, macOS, Linux and more' };
+      'flameshot-org/flameshot': 'Windows, Linux', 'keepassxreboot/keepassxc': 'Windows, macOS, Linux', 'syncthing/syncthing': 'Windows, macOS, Linux and more',
+      'rustdesk/rustdesk': 'Windows, macOS, Linux, Android' };
     if (DESKTOP[repo]) inst.push({ to: DESKTOP[repo], how: 'Download', link: `https://github.com/${repo}/releases/latest`, linkText: 'Download from GitHub', note: 'Pick the installer for your computer from the latest release.' });
+    // Browser extension and home-server installs, from each README (November 1, 2026)
+    if (repo === 'gorhill/uBlock') inst.push({ to: 'Firefox', how: 'Add-on', link: 'https://addons.mozilla.org/addon/ublock-origin/', linkText: 'Get it from Firefox Add-ons' },
+      { to: 'Microsoft Edge', how: 'Add-on', link: 'https://microsoftedge.microsoft.com/addons/detail/ublock-origin/odfafepnkmbhccpbejgmiehpchacaeak', linkText: 'Get it from Edge Add-ons', note: 'Google Chrome no longer allows it, as its README notes.' });
+    if (repo === 'pi-hole/pi-hole') inst.push({ to: 'A Linux computer or Raspberry Pi on your network', how: 'Install script', cmds: ['curl -sSL https://install.pi-hole.net | bash'], note: 'From the README. It runs the installer straight from the internet; the README also shows how to download and read it first. Then point your router\'s DNS at it.' });
     if (repo === 'Gathin23/cleanyourtv') inst.push({ to: 'With a coding assistant', how: 'Prompt', cmds: ['git clone https://github.com/Gathin23/cleanyourtv'], note: 'Open that folder in Claude Code or Codex, paste PROMPT.md and fill in your TV model. Your computer needs Python 3, a JDK (17 to 22) and the Android SDK, as the README explains. Turn on USB debugging on the TV first.' },
       { to: 'Android phone only', how: 'Separate app', link: 'https://cleanyour.tv/app', linkText: 'Open the phone app page', note: 'A community-built phone app by another developer. Vetted hasn\'t checked it.' });
     const mac = [i.brew].filter(Boolean), win = [i.winget, i.scoop, i.ps].filter(Boolean), any = [i.apt, i.curl, i.uvTool, i.pipx, i.cargo, i.npm, i.go, i.pip].filter(Boolean);

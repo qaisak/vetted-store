@@ -4147,14 +4147,407 @@
         ],
         "date": "2026-11-01"
       }
+    ],
+    "_findings": [
+      {
+        "match": "~/.gemini/settings.json",
+        "file": "src/adapters/detect.ts",
+        "level": "benign",
+        "note": "Comments and paths for registering its hooks with Gemini CLI, which keeps hook settings in ~/.gemini/settings.json (src/adapters/gemini-cli/index.ts:16). This is how it installs itself there.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.gemini/settings.json",
+        "file": "src/adapters/gemini-cli/hooks.ts",
+        "level": "benign",
+        "note": "Comments and paths for registering its hooks with Gemini CLI, which keeps hook settings in ~/.gemini/settings.json (src/adapters/gemini-cli/index.ts:16). This is how it installs itself there.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.gemini/settings.json",
+        "file": "src/adapters/gemini-cli/index.ts",
+        "level": "benign",
+        "note": "Comments and paths for registering its hooks with Gemini CLI, which keeps hook settings in ~/.gemini/settings.json (src/adapters/gemini-cli/index.ts:16). This is how it installs itself there.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.gemini/config",
+        "file": "hooks/antigravity-cli/posttooluse.mjs",
+        "level": "benign",
+        "note": "Paths for registering its hooks with Google's Antigravity CLI, which reads ~/.gemini/config/hooks.json (src/adapters/antigravity-cli/index.ts:44). This is how it installs itself there.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.gemini/config",
+        "file": "hooks/security.bundle.mjs",
+        "level": "benign",
+        "note": "Paths for registering its hooks with Google's Antigravity CLI, which reads ~/.gemini/config/hooks.json (src/adapters/antigravity-cli/index.ts:44). This is how it installs itself there.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.gemini/config",
+        "file": "src/adapters/antigravity-cli/index.ts",
+        "level": "benign",
+        "note": "Paths for registering its hooks with Google's Antigravity CLI, which reads ~/.gemini/config/hooks.json (src/adapters/antigravity-cli/index.ts:44). This is how it installs itself there.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.gemini/config",
+        "file": "src/adapters/detect.ts",
+        "level": "benign",
+        "note": "Paths for registering its hooks with Google's Antigravity CLI, which reads ~/.gemini/config/hooks.json (src/adapters/antigravity-cli/index.ts:44). This is how it installs itself there.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.gemini/config",
+        "file": "src/cli.ts",
+        "level": "benign",
+        "note": "Paths for registering its hooks with Google's Antigravity CLI, which reads ~/.gemini/config/hooks.json (src/adapters/antigravity-cli/index.ts:44). This is how it installs itself there.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.claude/settings.json",
+        "file": "bin/statusline.mjs",
+        "level": "notice",
+        "title": "Adds its own hook to Claude Code settings",
+        "note": "It registers a hook in ~/.claude/settings.json and, each time it starts, rewrites that hook's entry if its Node path has gone stale (hooks/cache-heal-utils.mjs:19, start.mjs:310). Other settings are left alone.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.claude/settings.json",
+        "file": "hooks/cache-heal-utils.mjs",
+        "level": "notice",
+        "title": "Adds its own hook to Claude Code settings",
+        "note": "It registers a hook in ~/.claude/settings.json and, each time it starts, rewrites that hook's entry if its Node path has gone stale (hooks/cache-heal-utils.mjs:19, start.mjs:310). Other settings are left alone.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.claude/settings.json",
+        "file": "src/adapters/claude-code/hooks.ts",
+        "level": "notice",
+        "title": "Adds its own hook to Claude Code settings",
+        "note": "It registers a hook in ~/.claude/settings.json and, each time it starts, rewrites that hook's entry if its Node path has gone stale (hooks/cache-heal-utils.mjs:19, start.mjs:310). Other settings are left alone.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.claude/settings.json",
+        "file": "src/adapters/types.ts",
+        "level": "notice",
+        "title": "Adds its own hook to Claude Code settings",
+        "note": "It registers a hook in ~/.claude/settings.json and, each time it starts, rewrites that hook's entry if its Node path has gone stale (hooks/cache-heal-utils.mjs:19, start.mjs:310). Other settings are left alone.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.claude/settings.json",
+        "file": "src/security.ts",
+        "level": "notice",
+        "title": "Adds its own hook to Claude Code settings",
+        "note": "It registers a hook in ~/.claude/settings.json and, each time it starts, rewrites that hook's entry if its Node path has gone stale (hooks/cache-heal-utils.mjs:19, start.mjs:310). Other settings are left alone.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "~/.claude/settings.json",
+        "file": "start.mjs",
+        "level": "notice",
+        "title": "Adds its own hook to Claude Code settings",
+        "note": "It registers a hook in ~/.claude/settings.json and, each time it starts, rewrites that hook's entry if its Node path has gone stale (hooks/cache-heal-utils.mjs:19, start.mjs:310). Other settings are left alone.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "curl -fsSL https://bun.sh/install | bash",
+        "file": "src/cli.ts",
+        "level": "benign",
+        "note": "Error text suggesting how to fix a too-old runtime: install Bun with its official script (src/cli.ts:748, src/server.ts:4976). It only prints the command; it never runs it.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "curl -fsSL https://bun.sh/install | bash",
+        "file": "src/server.ts",
+        "level": "benign",
+        "note": "Error text suggesting how to fix a too-old runtime: install Bun with its official script (src/cli.ts:748, src/server.ts:4976). It only prints the command; it never runs it.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "tools:",
+        "file": "src/adapters/pi/mcp-bridge.ts",
+        "level": "benign",
+        "note": "src/adapters/pi/mcp-bridge.ts:667 is the standard MCP handshake (protocol version, tools capability) for connecting to the Pi agent. The words 'tools' and 'description' are protocol fields, not hidden instructions.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Extract context",
+        "file": "src/session/extract.ts",
+        "level": "benign",
+        "note": "src/session/extract.ts:880 pulls the text around a search match out of a tool's response to show you. It stays on your machine.",
+        "date": "2026-11-01"
+      }
     ]
   },
   "voicestudio": {
     "credentials": "Access control for its optional server mode: API keys, short-lived sessions and a PIN for other devices (backend/api/dependencies.py). The server only listens on your own computer unless you change it (backend/main.py:2228).",
     "secretFiles": "Two places, neither touching your files: the release build signs the app with the developer's keychain (electron/omnivoice-tts-bundle.mjs:135), and the iPhone app saves its server login in the iOS Keychain.",
-    "browser": "Only a list of links to other tools shown in the app, such as Playwright MCP (electron/src/shared/config/integration-catalog.js:95). It doesn't drive a browser."
+    "browser": "Only a list of links to other tools shown in the app, such as Playwright MCP (electron/src/shared/config/integration-catalog.js:95). It doesn't drive a browser.",
+    "_findings": [
+      {
+        "match": "istory",
+        "file": "backend/api/routers/dub_core.py",
+        "level": "benign",
+        "note": "Code and comments for the Clear history button in the dubbing view, which deletes your past dubbing jobs from its local list (backend/services/dub_pipeline.py:599-615, routers/dub_core.py:652). Nothing to do with AI memory.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "istory",
+        "file": "backend/services/dub_pipeline.py",
+        "level": "benign",
+        "note": "Code and comments for the Clear history button in the dubbing view, which deletes your past dubbing jobs from its local list (backend/services/dub_pipeline.py:599-615, routers/dub_core.py:652). Nothing to do with AI memory.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "--device /dev/",
+        "file": "backend/core/device_caps.py",
+        "level": "benign",
+        "note": "backend/core/device_caps.py:377 and 411 are troubleshooting messages: when a GPU exists but can't be opened inside a container, it tells you which --device flag to add. It changes nothing itself.",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "electron/src/shared/components/settings/models/useModelDownloads.js",
+        "level": "benign",
+        "note": "useModelDownloads.js:225 uses an invisible NUL character as a separator inside its own download-tracking keys. Bookkeeping, not hidden text.",
+        "date": "2026-11-01"
+      }
+    ]
   },
   "lightcraft": {
-    "credentials": "Model downloads can send an access token you put in an environment variable, only over HTTPS and only to the download's original host, never after a redirect (crates/fetch/src/lib.rs:277-281)."
+    "credentials": "Model downloads can send an access token you put in an environment variable, only over HTTPS and only to the download's original host, never after a redirect (crates/fetch/src/lib.rs:277-281).",
+    "_findings": [
+      {
+        "match": "new name is",
+        "file": "crates/engine/src/cmd/keywords.rs",
+        "level": "benign",
+        "note": "crates/engine/src/cmd/keywords.rs:359 is help text for setting a keyword shortcut on photo keywords ('a new name is listed'). Nothing to do with AI memory.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Clear History",
+        "file": "crates/engine/src/cmd/develop.rs",
+        "level": "benign",
+        "note": "The editor's Clear History command, which drops earlier editing steps and keeps your current settings (crates/engine/src/cmd/develop.rs:1211). A normal photo-editor feature.",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "crates/meta/src/exif.rs",
+        "level": "benign",
+        "note": "crates/meta/src/exif.rs:548 is a test feeding an invisible NUL character to the photo-metadata reader to check it handles bad input. Test code.",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "crates/meta/src/tags.rs",
+        "level": "benign",
+        "note": "crates/meta/src/tags.rs:451 is test data: camera makers' names end with an invisible NUL byte in real photo files, as in 'NIKON CORPORATION'. Test code.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "trailofbits-supply-chain-risk-auditor": {
+    "network": "Looks up your project's dependency names on public services to check them: OSV, npm, PyPI, the Go module proxy, deps.dev, GitHub and OpenSSF Scorecard (scripts/sources.py:304-614). That lookup is the audit.",
+    "credentials": "Sends a GitHub token you provide only to GitHub's API, to avoid rate limits when it checks repositories (scripts/sources.py:558).",
+    "_findings": [
+      {
+        "file": "scripts/collect.py",
+        "level": "benign",
+        "note": "The scanner notes that scripts/collect.py uses the network without a declared permission list. It queries public package and advisory services, which is the audit itself (see What it can do).",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "scripts/test_collect.py",
+        "level": "benign",
+        "note": "scripts/test_collect.py is the skill's test file; line 894 copies the environment to set PYTHONPATH so the tests can import its scripts. It doesn't run when you use the skill.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "upscayl": {
+    "credentials": "A Firebase web key, which is public by design, used only to save your name and email if you join the Upscayl Cloud waitlist form (renderer/firebase.ts, components/upscayl-cloud-modal.tsx). Upscaling itself runs on your computer."
+  },
+  "syncthing": {
+    "secretFiles": "Only in the project's release build script: it unlocks the maintainers' code-signing keychain to sign macOS builds (build.go:1316). The app you install doesn't run it.",
+    "_findings": [
+      {
+        "match": "send session",
+        "file": "cmd/strelaysrv/listener.go",
+        "level": "benign",
+        "note": "cmd/strelaysrv/listener.go:345 is a log message in the relay server program, which passes encrypted traffic between devices that can't reach each other. Ordinary networking.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "trufflehog": {
+    "secretFiles": "When you scan a Docker image without giving a token, it uses your existing Docker login to pull the image (main.go:1142, pkg/engine/docker.go:25). Reading secrets in what you scan is what it's for.",
+    "_findings": [
+      {
+        "match": "collect thread",
+        "file": "pkg/sources/github/graphql.go",
+        "level": "benign",
+        "note": "pkg/sources/github/graphql.go:229 collects the review-comment threads of a GitHub pull request so they can be scanned for leaked keys, when you ask it to scan a repository's comments.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "krokiet-czkawka": {
+    "network": "Only in misc/flathub.sh, a maintainers' script for packaging the app on Flathub. The app's own code showed no network access."
+  },
+  "trailofbits-sharp-edges": {
+    "_findings": [
+      {
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md lists the kinds of dangerous design the skill looks for, such as 'boolean defaults that disable security features' (SKILL.md:84) and a checklist item 'error paths don't bypass security' (291). Things to find, not instructions to do.",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "references/lang-php.md",
+        "level": "benign",
+        "note": "A reference guide of dangerous PHP patterns, each marked DANGEROUS with a fix, such as preg_replace with /e running attacker code (lang-php.md:98) and shell commands built from input (170). Examples to spot, never run.",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "references/case-studies.md",
+        "level": "benign",
+        "note": "Case studies of real vulnerabilities; lines 186 and 210 show the attacker's payload (e.g. a pickle that runs rm -rf /) to explain the bug. Examples in documentation, never run.",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "references/config-patterns.md",
+        "level": "benign",
+        "note": "A guide to dangerous configuration patterns; /etc/passwd, /etc/shadow and rm -rf / appear as attacker inputs in the examples (config-patterns.md:197-285). Documentation, never run.",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "references/lang-python.md",
+        "level": "benign",
+        "note": "A guide to dangerous Python APIs, such as subprocess with shell=True and an f-string command an attacker can turn into rm -rf / (lang-python.md:55, 243-244), each with the safe fix. Examples, never run.",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "references/lang-ruby.md",
+        "level": "benign",
+        "note": "A guide to dangerous Ruby APIs; lines 109 and 206 show attacker inputs (rm -rf /, /etc/passwd) for command and path injection, followed by the fix. Examples, never run.",
+        "date": "2026-11-01"
+      },
+      {
+        "file": "references/lang-java.md",
+        "level": "benign",
+        "note": "A guide to dangerous Java APIs; line 232 uses /etc/passwd as an example path-traversal input. Documentation only.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "trailofbits-agentic-actions-auditor": {
+    "_findings": [
+      {
+        "file": "references/vector-f-subshell-expansion.md",
+        "level": "benign",
+        "note": "references/vector-f-subshell-expansion.md:51 shows an example attack (an injected curl ... | sh and /etc/passwd read) that the auditor teaches you to detect in GitHub Actions. Documentation, never run.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "localsend": {
+    "_findings": [
+      {
+        "match": "pload session",
+        "file": "cli/src/app/receive.rs",
+        "level": "benign",
+        "note": "LocalSend's own file-transfer sessions: code and comments for accepting, tracking and finishing a transfer between your devices (e.g. packages/core/src/http/server/v2.rs:47). Nothing leaks.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "pload session",
+        "file": "packages/core/src/http/client/v2.rs",
+        "level": "benign",
+        "note": "LocalSend's own file-transfer sessions: code and comments for accepting, tracking and finishing a transfer between your devices (e.g. packages/core/src/http/server/v2.rs:47). Nothing leaks.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "pload session",
+        "file": "packages/core/src/http/server/common/session.rs",
+        "level": "benign",
+        "note": "LocalSend's own file-transfer sessions: code and comments for accepting, tracking and finishing a transfer between your devices (e.g. packages/core/src/http/server/v2.rs:47). Nothing leaks.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "pload session",
+        "file": "packages/core/src/http/server/mod.rs",
+        "level": "benign",
+        "note": "LocalSend's own file-transfer sessions: code and comments for accepting, tracking and finishing a transfer between your devices (e.g. packages/core/src/http/server/v2.rs:47). Nothing leaks.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "pload session",
+        "file": "packages/core/src/http/server/v2.rs",
+        "level": "benign",
+        "note": "LocalSend's own file-transfer sessions: code and comments for accepting, tracking and finishing a transfer between your devices (e.g. packages/core/src/http/server/v2.rs:47). Nothing leaks.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "pload session",
+        "file": "packages/localsend_isolates/rust/src/api/server.rs",
+        "level": "benign",
+        "note": "LocalSend's own file-transfer sessions: code and comments for accepting, tracking and finishing a transfer between your devices (e.g. packages/core/src/http/server/v2.rs:47). Nothing leaks.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "send session",
+        "file": "packages/core/src/http/server/v2.rs",
+        "level": "benign",
+        "note": "Code naming LocalSend's own sending sessions between your devices (packages/core/src/http/server/v2.rs:114). Ordinary file-transfer logic.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "send session",
+        "file": "packages/localsend_isolates/rust/src/api/server.rs",
+        "level": "benign",
+        "note": "Code naming LocalSend's own sending sessions between your devices (packages/core/src/http/server/v2.rs:114). Ordinary file-transfer logic.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "/etc/passwd",
+        "file": "packages/core/src/util/filename.rs",
+        "level": "benign",
+        "note": "packages/core/src/util/filename.rs:181 and 318 document and test a protection: a received file named ../../etc/passwd is saved only as 'passwd', so a sender can't write outside your download folder.",
+        "date": "2026-11-01"
+      }
+    ]
+  },
+  "keepassxc": {
+    "_findings": [
+      {
+        "file": "release-tool.py",
+        "level": "benign",
+        "note": "release-tool.py is the maintainers' script for building releases; lines 217-225 run build commands in Docker with the extra rights AppImage packaging needs. Not part of the app you install.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "delete history",
+        "file": "src/core/Entry.cpp",
+        "level": "benign",
+        "note": "src/core/Entry.cpp:926 frees an old version of a password entry from memory when its history is trimmed. Ordinary memory management.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "Clear history",
+        "file": "src/gui/MainWindow.cpp",
+        "level": "benign",
+        "note": "src/gui/MainWindow.cpp:243 is the File menu's 'Clear history' item, which empties the list of recently opened databases.",
+        "date": "2026-11-01"
+      },
+      {
+        "match": "delete memory",
+        "file": "src/streams/qtiocompressor.cpp",
+        "level": "benign",
+        "note": "src/streams/qtiocompressor.cpp:100 is a comment: compression uses KeePassXC's own memory routine that wipes data when freed, so passwords don't linger in memory. A protection.",
+        "date": "2026-11-01"
+      }
+    ]
   }
 }

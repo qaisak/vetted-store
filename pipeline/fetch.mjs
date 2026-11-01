@@ -132,7 +132,8 @@ const TOOLS = ['NVIDIA/SkillSpector', 'vercel-labs/skills', 'BurntSushi/ripgrep'
   // GitHub's monthly trending list, November 1, 2026
   'debpalash/VoiceStudio', 'storytold/lightcraft',
   // Filling thin job categories (everyday and security), November 1, 2026
-  'localsend/localsend', 'upscayl/upscayl', 'qarmin/czkawka', 'flameshot-org/flameshot', 'keepassxreboot/keepassxc', 'syncthing/syncthing', 'trufflesecurity/trufflehog'];
+  'localsend/localsend', 'upscayl/upscayl', 'qarmin/czkawka', 'flameshot-org/flameshot', 'keepassxreboot/keepassxc', 'syncthing/syncthing', 'trufflesecurity/trufflehog',
+  'gorhill/uBlock', 'pi-hole/pi-hole', 'rustdesk/rustdesk'];
 
 const meta = {}, scores = {}, hn = {}, avatars = {};
 async function repoMeta(repo) {

@@ -167,6 +167,12 @@ const PROFILES = {
     expect: { network: 'Connects to your other devices, and uses discovery and relay servers to find them', files: 'Reads and writes the folders you choose to sync', env: 'Settings', credentials: 'Keeps its device keys and web interface login', shell: 'Can run a versioning command you configure' } },
   'trufflehog': { date: '2026-11-01', purpose: 'Finds leaked credentials in Git repositories, files, cloud storage and other sources, and checks whether they still work.',
     expect: { network: 'Clones repositories and checks found keys against the services they belong to', files: 'Reads the code and files you scan', credentials: 'Uses keys it finds to test whether they still work, and the access tokens you give it for sources', env: 'Settings and tokens', shell: 'Runs git' } },
+  'ublock-origin': { date: '2026-11-01', purpose: 'A browser extension that blocks ads, trackers, popups and malware sites using filter lists.',
+    expect: { network: 'Downloads and updates its filter lists', browser: 'Runs inside your browser and filters the pages you visit', files: 'Stores its settings and filter lists in the browser', env: 'Build settings' } },
+  'pi-hole': { date: '2026-11-01', purpose: 'Blocks ads and trackers for every device on your home network by answering their DNS lookups, on a small Linux computer or Raspberry Pi.',
+    expect: { network: 'Answers DNS for your network and downloads block lists', shell: 'Installs and manages system services and packages', files: 'Writes its settings, block lists and logs', env: 'Settings', credentials: 'Keeps the web interface password' } },
+  'rustdesk': { date: '2026-11-01', purpose: 'Remote desktop: see and control another computer, or let someone help you on yours, through RustDesk servers or your own.',
+    expect: { network: 'Connects to the other computer, through RustDesk\'s public servers or your own', credentials: 'Keeps your device ID, password and session keys', files: 'Transfers the files you send and stores its settings', shell: 'Runs services and helpers to control the screen and input', env: 'Settings', secretFiles: 'Stores its own keys and password in its config folder' } },
   'spotifast': { date: '2026-11-01', purpose: 'A lightweight desktop app for your Spotify library: local playback and Spotify Connect.',
     expect: { network: 'Talks to Spotify', credentials: 'Signs in to your Spotify account', files: 'Caches music data and stores its settings', env: 'Settings', shell: 'Opens your browser to sign in' } },
   'sd': { date: '2026-11-01', purpose: 'Find and replace text in files, a simpler sed.',
@@ -284,7 +290,7 @@ const SEV_W = { CRITICAL: 10, HIGH: 5, MEDIUM: 2, LOW: 0.5, INFO: 0 };
 // A serious finding whose pattern isn't listed here counts as "needs a closer look".
 
 const TRUSTED = new Set(['anthropics', 'openai', 'NVIDIA', 'microsoft', 'github', 'cli', 'modelcontextprotocol', 'ChromeDevTools', 'huggingface', 'vercel-labs', 'upstash', 'aquasecurity', 'semgrep', 'astral-sh', 'ollama']);
-const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'NVIDIA/SkillSpector': 'SkillSpector' };
+const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'NVIDIA/SkillSpector': 'SkillSpector', 'qarmin/czkawka': 'Krokiet (Czkawka)' };
 const idOf = (l, m) => (l.kind === 'skill' ? `${m.owner}-${l.slug}` : l.kind === 'mcp' ? `mcp-${l.slug}` : (NAME[m.full] || l.slug)).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 const PREV = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, 'utf8')) : {};
