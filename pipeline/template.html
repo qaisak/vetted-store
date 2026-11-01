@@ -293,7 +293,7 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .plain > .ic { font-size: 22px; color: var(--blue); margin-top: 2px; }
 .plain .check { margin-top: 10px; font-size: 14.5px; display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 6px; row-gap: 2px; align-items: start; }
 .plain .check .ic { margin-top: 3px; }
-.plain .check button { grid-column: 2; justify-self: start; }
+.plain .check button { justify-self: start; }
 .plain .check b { font-weight: 600; }
 .plain .check button { color: var(--blue); font-size: 14px; font-weight: 600; }
 .plain .lbl { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .03em; color: var(--label2); }
@@ -375,6 +375,7 @@ dialog.story-ov { width: min(720px, 100vw); height: 100dvh; border-radius: 0; ba
 dialog.story-ov[open] { animation: grow .38s cubic-bezier(.2,.8,.2,1); }
 @keyframes grow { from { transform: scale(0.92); opacity: 0; } }
 .story-ov .hero { position: relative; aspect-ratio: 4 / 3; max-width: 100%; color: #FFFFFF; overflow: hidden; padding: calc(24px + env(safe-area-inset-top, 0px)) 22px 22px; display: flex; flex-direction: column; }
+.story-ov .hero .art { position: absolute; inset: 0; }
 .story-ov .hero .copy { position: relative; display: flex; flex-direction: column; gap: 6px; }
 .story-ov .hero .eyebrow { font-size: 13px; font-weight: 600; opacity: 0.8; text-transform: uppercase; }
 .story-ov .hero .title { font-size: 34px; font-weight: 800; line-height: 1.05; max-width: 15ch; }
@@ -655,6 +656,15 @@ function stories() {
         `We ran SkillSpector ${esc(commScans[0].ver)} in static mode on <strong>${commScans.length} community projects</strong>: ${c.LOW || 0} scored low, ${c.MEDIUM || 0} medium, ${c.HIGH || 0} high and ${c.CRITICAL || 0} critical. Static mode can't judge intent, which is why the Purpose Check comes first on every page.`,
         `Every listing also has a ready-to-copy SkillSpector command, so you can rerun the check yourself.`], apps: [spector, BY['gitleaks']].filter(Boolean) });
   }
+  const cnt = f => L.filter(f).length, M = l => MRof(l);
+  out.push({ id: 'labels', hidden: true, eyebrow: 'Safety Labels', title: 'What our checks mean', lede: 'Every label, in plain words.', g: ['#0F3D3E', '#2A9D8F'], glyph: 'shieldok',
+    body: [`<strong>Instructions only</strong> (${cnt(l => M(l)?.codeFree && M(l).verdict === 'fits')}): a skill that is just text for your assistant. Nothing in it runs on your computer, so it can only do what your assistant is already allowed to do.`,
+      `<strong>Fits its purpose</strong> (${cnt(l => M(l) && !M(l).codeFree && M(l).verdict === 'fits' && !M(l).notices?.length)}): we read what its code can do (internet, files, running programs, secrets, browser) and all of it is explained by what it says it's for. Anything that looked off was read line by line, and the reason is on its page.`,
+      `<strong>Fits, with notes</strong> (${cnt(l => M(l)?.verdict === 'fits' && M(l).notices?.length)}): it fits, but there's something you'd want to know first, like usage data sent by default or an optional feature that shares data. The note says how to turn it off.`,
+      `<strong>Does more than stated</strong> (${cnt(l => M(l)?.verdict === 'review')}) and <strong>Flagged</strong> (${cnt(l => M(l)?.verdict === 'flag')}): its code can do things its purpose doesn't explain, or it touches secret files or hides instructions. Read the details before installing.`,
+      `<strong>Trusted publisher</strong> (${cnt(l => l.tr)}): from a company's own GitHub organization, like Anthropic, OpenAI or NVIDIA. We still scan these with SkillSpector and show what it found.`,
+      `<strong>SkillSpector risk</strong>: NVIDIA's automatic scanner rates every listing low, medium, high or critical. It can't judge intent, so routine steps like deleting a temporary file count as high. That's why we read the code ourselves when something looks off.`,
+      `No scan is a guarantee. Code can change after we check it, so the date and exact version we checked are on every page.`], apps: [] });
   const trustedList = L.filter(l => l.tr);
   out.push({ id: 'trusted', eyebrow: 'Trusted Publishers', title: 'The big names, in one place', lede: `${trustedList.length} listings from ${new Set(trustedList.map(l => repoOf(l).on)).size} companies.`, g: ['#1D2B53', '#5E6EFF'], glyph: 'building',
     body: [`Anthropic, OpenAI, NVIDIA, GitHub, Microsoft, Google and others publish skills, MCP servers and tools from their own GitHub organizations, backed by their own security reviews and release processes.`,
@@ -682,7 +692,7 @@ function pageToday() {
   return `<div class="page">
     <div class="date-eyebrow">${d}</div>
     <div class="large-title"><h1>Today</h1></div>
-    <div class="today">${st.map(s => `<button class="story ${s.wide ? 'wide' : ''}" data-story="${s.id}">${art(s.g, s.glyph)}
+    <div class="today">${st.filter(s => !s.hidden).map(s => `<button class="story ${s.wide ? 'wide' : ''}" data-story="${s.id}">${art(s.g, s.glyph)}
       <div class="copy"><span class="eyebrow">${s.eyebrow}</span><span class="title">${s.title}</span></div>
       ${s.wide && s.app ? `<div class="bottom frost">${icon(s.app, 48)}<div class="t"><b>${esc(s.app.n)}</b><span>${esc(plainOf(s.app))}</span></div><span class="get light" data-get="${s.app.id}">GET</span></div>`
         : `<div class="bottom">${s.lede || ''}</div>`}</button>`).join('')}</div>
@@ -718,7 +728,8 @@ function startHere() {
       <a href="#mcp">${ic('mcp', 1.8)}<b>Connectors</b><span>Also called MCP servers. They let your assistant use your apps and accounts: Slack, Figma, Google Calendar, your browser. Because they can reach real data, check what each one can access.</span><em>${n('mcp')} connectors →</em></a>
       <a href="#tools">${ic('tool', 1.8)}<b>Apps</b><span>Open-source programs you run on your own computer, mostly in the terminal: fast file search, visual Git, system monitors, security scanners.</span><em>${n('tool')} apps →</em></a>
     </div>
-    <div class="promise">${ic('shieldok', 1.8)}<div><b>Checked before it's listed</b><span>${promiseText()}</span></div></div></section>`;
+    <div class="promise">${ic('shieldok', 1.8)}<div><b>Checked before it's listed</b><span>${promiseText()}</span>
+      <button class="text-btn" style="font-size:14px;font-weight:600;margin-top:6px;display:block" data-story="labels">What our safety labels mean</button></div></div></section>`;
 }
 function pageBrowse() {
   return `<div class="page">
@@ -953,7 +964,7 @@ function pageProduct(id) {
     <div class="product-head">${icon(l)}<div class="txt"><h1>${esc(l.n)}</h1><span class="sub">${esc(r.on)} · ${KIND[l.k]}</span>
       <div class="acts">${getBtn(l, 'primary')}${l.vd?.length ? `<button class="pill-link" data-jump="videos">${ic('play')} Watch the demo</button>` : ''}<a class="pill-link" href="${l.u}" target="_blank" rel="noopener">GitHub ${ic('ext')}</a></div></div></div>
     ${l.pl ? `<div class="plain">${ic('bulb', 2)}<div><span class="lbl">What it helps you do</span><p>${esc(l.pl)}</p>
-      <div class="check ${safety(l)[0]}">${ic(safety(l)[2], 2.2)}<b>${esc(safety(l)[1])}</b><button data-jump="checks">See what we checked</button></div>
+      <div class="check ${safety(l)[0]}">${ic(safety(l)[2], 2.2)}<b>${esc(safety(l)[1])}</b><span style="grid-column:2;display:flex;gap:14px;flex-wrap:wrap"><button data-jump="checks">See what we checked</button><button data-story="labels">What the labels mean</button></span></div>
       <div class="chips">${lv ? `<span class="${lv[1]}" title="${esc(lv[2])}">${lv[0]}</span>` : ''}${(l.jb || []).map(j => `<a href="#for-${j}">${esc(JOB[j][1])}</a>`).join('')}</div></div></div>` : ''}
     <div class="strip">
       <div><span class="k">GitHub</span><span class="v">${ic('star', 2)}${fmtK(r.st)}</span><span class="c">stars${l.p ? ' (whole repo)' : ''}</span></div>

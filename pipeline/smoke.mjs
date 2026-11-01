@@ -74,7 +74,8 @@ for (const [label, viewport, scheme] of [['desktop', { width: 1280, height: 860 
   if (!stories.length) fail(label, 'no stories on Today');
   for (const s of stories) {
     await page.click(`[data-story="${s}"]`);
-    const ok = await page.evaluate(() => document.getElementById('story').open && document.querySelectorAll('#story .article p').length > 0);
+    const ok = await page.evaluate(() => document.getElementById('story').open && document.querySelectorAll('#story .article p').length > 0
+      && document.querySelector('#story .hero .art').getBoundingClientRect().height > 100);   // the hero art must fill the header, or its white title is invisible
     if (!ok) fail(`${label} story ${s}`, 'did not open');
     if (shots) await page.screenshot({ path: `${shots}/${label}-story-${s}.png` });
     await page.click('[data-closestory]');
