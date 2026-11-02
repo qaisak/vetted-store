@@ -26,12 +26,13 @@ The site is a single self-contained page: [`vetted-store.html`](vetted-store.htm
 | `pipeline/finding-rules.json` | The two scanner rules that say nothing about a listing on their own, with the reason |
 | `pipeline/open_findings.mjs` | Lists the high or critical findings that have no review yet, for reviewers |
 | `pipeline/merge_reviews.mjs` | Merges reviewers' verdicts into `reviews.json`, pinned to the files they were written for |
+| `pipeline/install_hooks.mjs` | Finds npm lifecycle scripts (preinstall, install, postinstall) that run on their own at install (`data/install-hooks.json`) |
 | `pipeline/purpose_analyze.mjs` | The Purpose Check: production-code filter, capability detection, purpose profiles, tool extraction, peer comparison |
 | `pipeline/reviews.json` | Written reviews: capability notes, per-finding verdicts (`_findings`: benign, notice, warning, concern) and listing notes (`_notices`) |
 | `pipeline/plain.json` | Hand-written plain-language line, job tags and setup level for every listing |
 | `pipeline/videos.mjs` | Collects demo videos each project links in its own README (`data/videos.json`) |
 | `pipeline/smoke.mjs` | Headless smoke test: every tab, job page, listing, install sheet and story, desktop and phone |
-| `pipeline/flows.cjs` | Headless checks of navigation (Back closes sheets, scroll restore) and search (aliases, typos, pasted links) |
+| `pipeline/flows.cjs` | Headless checks of navigation, search, the Digest, Make it yours, install sheets per computer, My list, shared lists and setup links |
 | `pipeline/build.mjs` | Builds the data and writes `vetted-store.html` |
 | `data/data.json` | Fetched listings and repo data (October 31, 2026) |
 | `data/purpose.json` | Purpose Check results |
@@ -66,6 +67,8 @@ node pipeline/build.mjs data/data.json pipeline/template.html vetted-store.html 
    `-folder,folder` in place of `<folder>` (the page names the skipped folders). Set `SKILLSPECTOR` if the executable isn't on your PATH.
 4. **Purpose Check**: `node pipeline/purpose_analyze.mjs data/data.json <scan-root> data/purpose.json`. Listings whose source isn't
    under `<scan-root>` keep their earlier result, so you can check new listings alone.
+4a. **Install hooks**: `node pipeline/install_hooks.mjs` reads each connector's and app's package.json at the scanned commit. Findings in
+   those scripts, and in the files they run, are never filed as "doesn't run": they stay open until someone reads them.
 4b. **Review every high or critical finding** no rule explains: `node pipeline/open_findings.mjs data/data.json data/scan-reports data/purpose.json open.json`
    lists them with file, line and matched text. Read each line in its repository, then write verdicts
    (`[{id, match, file?, level: benign|notice|warning|concern, title?, note}]`) and merge them with
@@ -90,7 +93,12 @@ node pipeline/build.mjs data/data.json pipeline/template.html vetted-store.html 
 - Each is compared with the project's purpose profile (hand-written for apps and MCP servers, inferred from the description for skills).
 - Every mismatch, and every serious SkillSpector finding that isn't explained by the purpose, must have a written review in `reviews.json`. Otherwise the listing shows "Does more than stated".
 - Things a user should know even when nothing is wrong (telemetry that's on by default, an agent that skips permission prompts) go in
-  `_notices` in `reviews.json` and show as "Worth knowing" on the listing.
+  `_notices` in `reviews.json` and show as "Worth knowing" on the listing, and on the "What we caught" page.
+- Who does what, as the site says: SkillSpector scans; scripts sort each flag by where it sits (tests and docs don't run, install
+  hooks do) and by what the project is for; Claude, an AI model, reads the rest line by line and writes the reason down.
+  Generic notes for prompt-text rules apply only to app and connector code; a skill's findings are always read.
+- Labels use one scale: No issues found (green), things to know (blue), risks (orange), flagged or harmful (red). Who published a
+  listing is shown separately on every row.
 
 ## Open items
 
@@ -108,7 +116,18 @@ Things that couldn't be done from the build machine on November 1, 2026, or need
 - **Audience testing.** Instead of MiroFish (which needs an LLM API key and its own services this machine can't reach), eight
   simulated users walked the site with headless screenshots: a non-technical marketer, a low-tech small-business owner, a student
   vibe coder, a skeptical security engineer, a Hacker News skeptic, a power developer, a designer and a data analyst. Their findings drove the one-verdict pages, the
-  finding reviews, history-aware navigation, search fixes and the install sheet changes. Real user testing is still worth doing.
+  finding reviews, history-aware navigation, search fixes and the install sheet changes. A second round on November 2 (a senior
+  developer, a VC, a small-business owner, a vibe coder, a non-technical school administrator and a product lead) drove the honest
+  "who checks what" wording, the install-hook reviews, one label scale, installs that follow your setup, What we caught, My list and
+  setup links. Real user testing is still worth doing.
+- **Links with a #page.** Share buttons and setup links use the artifact's address plus `#listing` or `#setup?…`. Whether claude.ai
+  passes the part after `#` to the page hasn't been checked from here; if it doesn't, shared links open on Today.
+- **Request a check.** Searching for something not listed offers to ask your own assistant to check it. There's nowhere to send a
+  request to Vetted yet: that needs a decision on where requests should go (a GitHub issue, a form or a shared database).
+- **Publisher-run Purpose Checks.** Listings from companies have the scan and written reviews but not the "what it uses, and why"
+  table, which only community projects have so far.
+- **Pinned installs.** Installs get the newest version, and each install sheet says which commit was checked. Pinning installs to that
+  commit, with checksums, would close the gap.
 - **Social signals on the Trending page.** Hacker News search (`hn.algolia.com`) and Reddit (`www.reddit.com`) were blocked by
   the build environment's network policy on November 1, so Trending uses GitHub's trending lists, star growth and the Hacker News
   threads collected earlier. Allow those hosts in the environment's network settings to add live discussion counts.
