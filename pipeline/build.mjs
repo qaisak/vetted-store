@@ -189,8 +189,9 @@ for (const l of d.listings) {
     else if (l.install?.claude) inst.push({ to: 'Claude Code', how: 'CLI', cmds: [l.install.claude], note: repo === 'github/github-mcp-server' ? 'Needs Docker and a GitHub personal access token in $GITHUB_PAT.' : 'Run in your terminal.' });
     else if (run) inst.push({ to: 'Claude Code', how: 'CLI', cmds: [`claude mcp add ${l.slug} -- ${run}`], note: l.slug === 'filesystem' ? 'Run in your terminal. Replace the path with the folder it may access.' : 'Run in your terminal.' });
     if (MCP_INSTALL[repo]) {}
-    else if (l.install?.codex) inst.push({ to: 'Codex', how: 'CLI', cmds: [l.install.codex], note: 'Run in your terminal.' });
-    else if (run) inst.push({ to: 'Codex', how: 'CLI', cmds: [`codex mcp add ${l.slug} ${run}`], note: 'Run in your terminal.' });
+    // Codex reads everything after "--" as the server's own command, so a flag like npx's -y can't be taken for one of Codex's
+    else if (l.install?.codex) inst.push({ to: 'Codex', how: 'CLI', cmds: [/ -- /.test(l.install.codex) ? l.install.codex : l.install.codex.replace(/^(codex mcp add \S+) /, '$1 -- ')], note: 'Run in your terminal.' });
+    else if (run) inst.push({ to: 'Codex', how: 'CLI', cmds: [`codex mcp add ${l.slug} -- ${run}`], note: 'Run in your terminal.' });
     if (repo === 'upstash/context7') inst.push({ to: 'Other agents', how: 'Setup CLI', cmds: ['npx ctx7 setup'], note: 'Interactive. Also supports --cursor and other flags.' });
     if (!inst.length) inst.push({ to: 'All clients', how: 'Install guide', link: `https://github.com/${repo}#readme`, note: 'Setup differs by client. Follow the project\'s README.' });
     inst.push({ scan: true, cmds: [`skillspector scan https://github.com/${repo} --no-llm`] });
@@ -206,7 +207,14 @@ for (const l of d.listings) {
       'denisidoro/navi': { brew: 'brew install navi' },
       // LocalSend's README links its Homebrew cask and winget package (the fetched brew line is its separate command-line tool)
       'localsend/localsend': { brew: 'brew install --cask localsend', winget: 'winget install LocalSend.LocalSend' },
-      'flameshot-org/flameshot': { brew: 'brew tap flameshot-org/flameshot && brew trust --cask flameshot-org/flameshot/flameshot-org-flameshot && brew install flameshot-org-flameshot', apt: 'apt install flameshot' } };
+      'flameshot-org/flameshot': { brew: 'brew tap flameshot-org/flameshot && brew trust --cask flameshot-org/flameshot/flameshot-org-flameshot && brew install flameshot-org-flameshot', apt: 'apt install flameshot' },
+      // Package-manager lines from each README's install section (read November 2, 2026)
+      'junegunn/fzf': { brew: 'brew install fzf', winget: 'winget install fzf', scoop: 'scoop install fzf', apt: 'sudo apt install fzf', dnf: 'sudo dnf install fzf', pacman: 'sudo pacman -S fzf' },
+      'derailed/k9s': { brew: 'brew install derailed/k9s/k9s', winget: 'winget install k9s', scoop: 'scoop install k9s', pacman: 'pacman -S k9s', dnf: 'dnf install k9s', snap: 'snap install k9s --devmode', go: 'go install github.com/derailed/k9s@latest' },
+      'gitui-org/gitui': { brew: 'brew install gitui', winget: 'winget install gitui', scoop: 'scoop install gitui', pacman: 'sudo pacman -S gitui', dnf: 'sudo dnf install gitui' },
+      'BurntSushi/ripgrep': { brew: 'brew install ripgrep', winget: 'winget install BurntSushi.ripgrep.MSVC', scoop: 'scoop install ripgrep', apt: 'sudo apt-get install ripgrep', dnf: 'sudo dnf install ripgrep', pacman: 'sudo pacman -S ripgrep' },
+      'dandavison/delta': { brew: 'brew install git-delta', winget: 'winget install dandavison.delta', scoop: 'scoop install delta', dnf: 'dnf install git-delta', pacman: 'pacman -S git-delta', cargo: 'cargo install git-delta' },
+      'gitleaks/gitleaks': { brew: 'brew install gitleaks', docker: 'docker pull ghcr.io/gitleaks/gitleaks:latest' } };
     const i = Object.fromEntries(Object.entries({ ...(l.install || {}), ...(TOOL_INSTALL[repo] || {}) }).map(([k, v]) => [k, v.replace(/\s+#.*$/, '')]));   // drop trailing shell comments
     if (repo === 'ollama/ollama') delete i.pip;
     if (repo === 'astral-sh/uv') delete i.uvTool;
@@ -214,6 +222,7 @@ for (const l of d.listings) {
     if (i.cargo && /--path/.test(i.cargo)) delete i.cargo;
     if (repo === 'vercel-labs/skills') delete i.npx;
     if (repo === 'pi-hole/pi-hole') delete i.curl;   // shown on its own card with the README's caveat
+    if (repo === 'derailed/k9s') delete i.curl;      // a third-party webinstall script; its README lists package managers for every system
     // Desktop apps: installers on each project's releases page (checked in their READMEs, November 1, 2026)
     const DESKTOP = { 'storytold/photocraft': 'macOS, Windows, Linux', 'storytold/pdfcraft': 'macOS, Windows, Linux', 'KnifeLemon/Filee': 'Windows, macOS, Linux',
       'robbietilton/Compositor': 'macOS', 'jub0t/Concat': 'Windows, macOS, Linux', 'crmne/spotifast': 'Linux, macOS, Windows',
@@ -228,10 +237,17 @@ for (const l of d.listings) {
     if (repo === 'pi-hole/pi-hole') inst.push({ to: 'A Linux computer or Raspberry Pi on your network', how: 'Install script', cmds: ['curl -sSL https://install.pi-hole.net | bash'], note: 'From the README. It runs the installer straight from the internet; the README also shows how to download and read it first. Then point your router\'s DNS at it.' });
     if (repo === 'Gathin23/cleanyourtv') inst.push({ to: 'With a coding assistant', how: 'Prompt', cmds: ['git clone https://github.com/Gathin23/cleanyourtv'], note: 'Open that folder in Claude Code or Codex, paste PROMPT.md and fill in your TV model. Your computer needs Python 3, a JDK (17 to 22) and the Android SDK, as the README explains. Turn on USB debugging on the TV first.' },
       { to: 'Android phone only', how: 'Separate app', link: 'https://cleanyour.tv/app', linkText: 'Open the phone app page', note: 'A community-built phone app by another developer. Vetted hasn\'t checked it.' });
-    const mac = [i.brew].filter(Boolean), win = [i.winget, i.scoop, i.ps].filter(Boolean), any = [i.apt, i.curl, i.uvTool, i.pipx, i.cargo, i.npm, i.go, i.pip].filter(Boolean);
-    if (mac.length) inst.push({ to: 'macOS', how: 'Homebrew', cmds: mac });
-    if (win.length) inst.push({ to: 'Windows', how: win[0].startsWith('winget') ? 'winget' : win[0].startsWith('scoop') ? 'Scoop' : 'PowerShell', cmds: win });
-    if (any.length) inst.push({ to: 'Linux & others', how: 'Terminal', cmds: any });
+    // One card per system; several commands on a card are alternatives (alt), so the page says "any one of these"
+    const mac = [i.brew].filter(Boolean), win = [i.winget, i.scoop, i.ps].filter(Boolean), lin = [i.apt, i.dnf, i.pacman, i.snap].filter(Boolean),
+      script = [i.curl].filter(Boolean), dev = [i.uvTool, i.pipx, i.cargo, i.npm, i.go, i.pip].filter(Boolean);
+    if (mac.length) inst.push({ to: 'macOS', how: 'Homebrew', cmds: mac, alt: true });
+    if (win.length) inst.push({ to: 'Windows', how: win[0].startsWith('winget') ? 'winget' : win[0].startsWith('scoop') ? 'Scoop' : 'PowerShell', cmds: win, alt: true });
+    if (lin.length) inst.push({ to: 'Linux', how: 'Package manager', cmds: lin, alt: true, note: 'Use the one for your Linux: apt on Debian and Ubuntu, dnf on Fedora, pacman on Arch.' });
+    if (script.length) inst.push({ to: lin.length ? 'macOS & Linux (install script)' : 'macOS & Linux', how: 'Install script', cmds: script });
+    if (i.docker) inst.push({ to: 'Any computer with Docker', how: 'Docker', cmds: [i.docker] });
+    if (dev.length) inst.push({ to: 'Any computer with developer tools', how: 'From source', cmds: dev, alt: true, note: 'Needs the matching language tools (Rust, Go, Python or Node).' });
+    if (repo === 'gitleaks/gitleaks') inst.push({ to: 'Windows, Linux', how: 'Download', link: 'https://github.com/gitleaks/gitleaks/releases/latest', linkText: 'Download from GitHub', note: 'Its README points to ready-made binaries for many systems on the releases page.' });
+    if (repo === 'dandavison/delta') inst.push({ to: 'All platforms', how: 'Note', text: 'The package is called git-delta in most package managers, but the command it installs is delta.' });
     if (repo === 'vercel-labs/skills') inst.push({ to: 'Any agent', how: 'npx', cmds: ['npx skills add vercel-labs/agent-skills'], note: 'No install needed. Runs through npx; this example adds Vercel\'s skills.' });
     if (repo === 'cli/cli') inst.push({ to: 'Coding agents', how: 'Agent skill', cmds: ['gh skill install cli/cli gh --scope user'], note: 'Installs the gh agent skill. Install GitHub CLI itself first.' });
     if (!inst.length || repo === 'cli/cli' || repo === 'jqlang/jq') if (!DESKTOP[repo]) inst.push({ to: 'All platforms', how: 'Install guide', link: repo === 'jqlang/jq' ? 'https://github.com/jqlang/jq/releases' : repo === 'cli/cli' ? 'https://github.com/cli/cli#installation' : repo === 'yt-dlp/yt-dlp' ? 'https://github.com/yt-dlp/yt-dlp#installation' : `https://github.com/${repo}#readme`, note: repo === 'jqlang/jq' ? 'Download the binary for your platform from the releases page.' : 'Follow the project\'s install guide.' });

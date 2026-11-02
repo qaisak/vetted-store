@@ -315,6 +315,20 @@ details.full > summary span { font-size: 14px; color: var(--label2); }
 .raw b { color: var(--label); font-weight: 600; }
 @media (max-width: 1000px) { .rep { grid-template-columns: minmax(0, 1fr); } }
 
+.uses { margin-top: 12px; }
+.uses ul { list-style: none; margin: 6px 0 0; padding: 0; display: grid; grid-template-columns: max-content 1fr; gap: 6px 14px; }
+.uses li { display: contents; font-size: 14px; }
+.uses li b { font-weight: 600; font-size: 14px; color: var(--label); }
+.uses li span { font-size: 14px; color: var(--label2); }
+.plain .also-chk, .also-chk { margin: 8px 0 0; font-size: 13px; line-height: 1.4; color: var(--label2); }
+.also-chk .text-btn { font-size: 13px; }
+.row-txt .by { display: flex; align-items: center; gap: 3px; font-style: normal; font-size: 12px; color: var(--label2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-top: 1px; }
+.row-txt .by .ic { width: 11px; height: 11px; flex: none; }
+.raw-d { margin-top: 12px; }
+.sheet-note { display: flex; gap: 10px; align-items: flex-start; padding: 12px 14px; border-radius: 12px; background: var(--fill); font-size: 14px; color: var(--label); }
+.sheet-note p { margin: 0; } .sheet-note .ic { flex: none; color: var(--blue); margin-top: 2px; }
+.ver-note { margin: 4px 2px 0; font-size: 12px; color: var(--label2); }
+.raw-d > summary { cursor: pointer; font-size: 13px; color: var(--label2); font-weight: 600; }
 /* Trusted publisher */
 .trusted-note { display: flex; gap: 14px; align-items: flex-start; background: color-mix(in srgb, var(--blue) 9%, var(--bg2)); border-radius: 14px; padding: 16px; }
 .trusted-note > .ic { font-size: 30px; color: var(--blue); flex: none; }
@@ -585,6 +599,9 @@ const G = {
   spark: '<path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5L18 18M6 18l2.5-2.5M15.5 8.5L18 6"/>',
   grid: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
   bulb: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',
+  info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/>',
+  heart: '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
+  share: '<path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/>',
 };
 const ic = (n, sw = 2, fill = 'none') => `<svg class="ic" viewBox="0 0 24 24" fill="${fill}" stroke="currentColor" stroke-width="${sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${G[n] || G.skill}</svg>`;
 const esc = s => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -722,13 +739,24 @@ const SEVC = { LOW: 'c-green', MEDIUM: 'c-blue', HIGH: 'c-orange', CRITICAL: 'c-
 const SEVW = { LOW: 'Low', MEDIUM: 'Medium', HIGH: 'High', CRITICAL: 'Critical', INFO: 'Info' };
 const scanOf = l => (D.SC || {})[l.id];
 // What a listing's code can reach, in plain words (from the Purpose Check)
-const REACH = { network: 'the internet', files: 'your files', shell: 'other programs', credentials: 'passwords and keys', secretFiles: 'secret files like SSH keys', browser: 'your browser' };
-function reachLine(l) {
+const REACH = { network: 'the internet', files: 'your files', shell: 'other programs', credentials: 'keys and sign-ins', secretFiles: 'secret files like SSH keys', browser: 'your browser' };
+const REACH_UI = { network: 'Internet', files: 'Your files', shell: 'Other programs', credentials: 'Keys and sign-ins', secretFiles: 'Secret files', browser: 'Your browser' };
+const andList = a => a.length > 1 ? a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1] : a[0] || '';
+// What a listing's code uses, each with the reason its purpose gives ([label, why]), and what a reviewer read and explained
+function usesOf(l) {
   const m = MRof(l);
   if (!m || m.codeFree) return null;
-  const r = m.caps.filter(c => c.found && REACH[c.k]).map(c => REACH[c.k]);
-  return r.length ? `Can reach ${r.length > 1 ? r.slice(0, -1).join(', ') + ' and ' + r[r.length - 1] : r[0]}.` : 'Reaches nothing outside itself.';
+  const found = m.caps.filter(c => c.found && REACH_UI[c.k]);
+  return { used: found.filter(c => c.expected).map(c => [c.k, REACH_UI[c.k], c.why]), checked: found.filter(c => !c.expected && c.reviewed).map(c => [c.k, REACH_UI[c.k], c.reviewed]) };
 }
+function reachLine(l) {
+  const u = usesOf(l);
+  if (!u) return null;
+  return u.used.length ? `Uses ${andList(u.used.map(([k, , why]) => `${REACH[k]} (${why.charAt(0).toLowerCase() + why.slice(1)})`))}.` : 'Uses nothing outside itself.';
+}
+const usesHTML = l => { const u = usesOf(l); if (!u || (!u.used.length && !u.checked.length)) return '';
+  return `<div class="uses"><span class="lbl">What it uses, and why</span><ul>${u.used.map(([k, t, why]) => `<li><b>${esc(t)}</b><span>${esc(why)}</span></li>`).join('')}</ul>
+    ${u.checked.length ? `<p class="also-chk">Also checked and explained: ${esc(andList(u.checked.map(c => c[1].toLowerCase())))}. <button class="text-btn" data-jump="checks">Why</button></p>` : ''}</div>`; };
 // The verdict in one short line for the top of a listing; the full reasoning sits in "See the full check"
 function verdictShort(l) {
   const v = verdict(l), rv = scanOf(l)?.rv, nt = NT(l), risks = nt.filter(x => x.lv !== 'note'), notes = nt.length - risks.length;
@@ -736,23 +764,25 @@ function verdictShort(l) {
   if (risks.length) line = 'Read the note below before installing.';
   else if (['Does more than it says', 'Flagged', 'Looks harmful', 'Not scanned yet', 'Review in progress'].includes(v[2])) line = v[3];
   else if (v[2] === 'Instructions only') line = 'Just text for your assistant. Nothing runs on your computer.';
-  else line = [reachLine(l), rv?.n ? `All ${rv.n.toLocaleString('en-US')} scanner warnings explained.` : 'No scanner warnings.'].filter(Boolean).join(' ');
+  else if (v[2] === 'Fits its purpose') line = 'It does what it says, and nothing in its code needs your attention.';
+  else line = 'The scan found nothing that needs your attention.';
   if (!risks.length && notes) line += ` ${notes === 1 ? 'One thing' : notes + ' things'} worth knowing inside.`;
   return [v[0], v[1], v[2], line];
 }
 // The short label under a listing's GET button. Risks and flags win over who published it.
+// One scale, like a traffic light: green nothing to do, blue read a note, orange a real risk, red don't. Who published it is shown separately.
 function trust(l) {
-  const v = verdict(l), warns = NT(l).filter(x => x.lv === 'warn').length;
+  const v = verdict(l), nt = NT(l), warns = nt.filter(x => x.lv === 'warn').length, notes = nt.filter(x => x.lv === 'note').length;
   if (v[2] === 'Looks harmful' || v[2] === 'Flagged') return { short: v[2], cls: 'c-red', icon: 'shieldq' };
   if (v[2] === 'Does more than it says') return { short: 'Does more than stated', cls: 'c-orange', icon: 'shieldq' };
   if (warns) return { short: warns === 1 ? '1 risk to know' : `${warns} risks to know`, cls: 'c-orange', icon: 'shieldq' };
-  if (l.nv) return { short: 'NVIDIA Verified', cls: 'c-green', icon: 'shieldok' };
-  if (l.tr) return { short: 'Trusted publisher', cls: 'c-blue', icon: 'building' };
   if (v[2] === 'Not scanned yet' || v[2] === 'Review in progress') return { short: v[2], cls: 'c-gray', icon: 'shieldq' };
-  if (v[2] === 'Instructions only') return { short: 'Instructions only', cls: 'c-green', icon: 'shieldok' };
-  const nn = NT(l).length;
-  return { short: v[2] === 'Fits its purpose' && nn ? `Fits · ${nn} note${nn > 1 ? 's' : ''}` : v[2], cls: 'c-green', icon: 'shieldok' };
+  if (notes) return { short: notes === 1 ? '1 thing to know' : `${notes} things to know`, cls: 'c-blue', icon: 'shieldok' };
+  if (l.nv) return { short: 'NVIDIA Verified', cls: 'c-green', icon: 'shieldok' };
+  return { short: 'No issues found', cls: 'c-green', icon: 'shieldok' };
 }
+// Who published it, for every row: the GitHub owner's display name, with a building for a company's own organization
+const byLine = l => { const r = repoOf(l); return `<i class="by">${l.tr ? ic('building', 2) : ''}${esc(r.on)}</i>`; };
 function icon(l, size) {
   const av = D.AV[owner(l)];
   const st = size ? `width:${size}px;height:${size}px;` : '';
@@ -762,7 +792,7 @@ function icon(l, size) {
 const caption = l => { const t = trust(l); return `<span class="iap ${t.cls}">${t.short}</span>`; };
 const getBtn = (l, v = '') => `<button class="get ${v}" data-get="${l.id}" aria-label="Get ${esc(l.n)}">GET</button>`;
 const row = (l, rank) => `<div class="row">${icon(l, 64)}${rank ? `<span class="rank">${rank}</span>` : ''}
-  <div class="row-body"><a class="row-txt" href="#${l.id}"><b>${esc(l.n)}</b><span>${esc(plainOf(l))}</span></a><div class="btn-col">${getBtn(l)}${caption(l)}</div></div></div>`;
+  <div class="row-body"><a class="row-txt" href="#${l.id}"><b>${esc(l.n)}</b><span>${esc(plainOf(l))}</span>${byLine(l)}</a><div class="btn-col">${getBtn(l)}${caption(l)}</div></div></div>`;
 const tile = l => `<a class="tile" href="#${l.id}">${icon(l)}<b>${esc(l.n)}</b><span class="${trust(l).cls}">${trust(l).short}</span></a>`;
 const art = (g, glyph) => `<div class="art" style="background:linear-gradient(155deg,${g[0]},${g[1]})">
   <span class="orb" style="width:60%;aspect-ratio:1;left:-20%;top:-15%;background:radial-gradient(circle,rgba(255,255,255,.25),transparent 70%)"></span>
@@ -778,7 +808,7 @@ function toast(m) {
 }
 // The span of fetch dates: most listings were fetched with D.gen, later additions carry their own date
 function dataDates() { const last = Object.values(R).map(r => r.fd).filter(Boolean).sort().pop(); return last && last !== D.gen ? `${fmtDate(D.gen)} to ${fmtDate(last)}` : fmtDate(D.gen); }
-const dataNote = () => `<p class="data-note">Real open-source projects from GitHub, each scanned and checked before it's listed. Data from ${dataDates()}. Vetted isn't affiliated with these projects. <button class="text-btn" style="font-size:12px" data-story="labels">How we check</button></p>`;
+const dataNote = () => `<p class="data-note">Real projects from GitHub, each scanned and checked before it's listed. Data from ${dataDates()}. Vetted isn't affiliated with these projects. <button class="text-btn" style="font-size:12px" data-story="labels">How we check</button></p>`;
 
 // ---------- stories ----------
 const community = () => L.filter(l => !l.tr);
@@ -801,7 +831,7 @@ function stories() {
     body: [`AI add-ons and open-source apps can go online, read your files, run other programs and use your passwords. Most places that list them don't tell you which ones do what.`,
       `We read each project's code and list exactly what it can reach: <strong>the internet, your files, other programs, passwords and keys, and your browser</strong>. Then we compare that with what the project says it's for.`,
       `If a note-taking skill could read your SSH keys, its page would say so in orange. If an app sends usage data unless you switch it off, its page says so and tells you how to switch it off.`,
-      `The automatic scanner raises a lot of alarms, most of them about ordinary code. So a person explains every high-risk flag before a listing gets its label: ${ft.n.toLocaleString('en-US')} so far${ft.open ? `, ${ft.open} still waiting` : ''}, each with the reason on the listing's page.`,
+      `The automatic scanner raises a lot of alarms, most of them about ordinary code. So every high-risk flag gets a written reason before a listing gets its label: ${ft.n.toLocaleString('en-US')} so far${ft.open ? `, ${ft.open} still waiting` : ''}. Rules settle the clear cases, like a flag in a test file. Claude, an AI model, reads the rest line by line. Each reason is on the listing's page.`,
       `Right now: ${L.length} listings, every one scanned with NVIDIA's SkillSpector. ${checked.length} projects from independent developers also got the Purpose Check; ${noted} of them have something worth knowing before you install, written at the top of their page.`], apps: featured });
   const commScans = comm.map(l => scanOf(l)).filter(Boolean);
   if (spector && commScans.length) {
@@ -810,27 +840,28 @@ function stories() {
       body: [`Skills run with your assistant's permissions, so a bad one can read files, leak data or run commands. NVIDIA's open-source <strong>SkillSpector</strong> flags prompt injection, data exfiltration, privilege escalation and other risky patterns.`,
         `NVIDIA's own research put numbers on it: in a subset of 31,132 skills they analyzed, 26.1% contained vulnerabilities and 5.2% showed likely malicious intent.`,
         `We ran SkillSpector ${esc(commScans[0].ver)} in static mode on <strong>${commScans.length} community projects</strong>: ${c.LOW || 0} scored low, ${c.MEDIUM || 0} medium, ${c.HIGH || 0} high and ${c.CRITICAL || 0} critical. Static mode can't judge intent, so those scores alone would scare you off almost anything.`,
-        `That's why we explain every high-risk flag ourselves, across all ${L.filter(l => scanOf(l)).length} scanned listings: ${(ft => `${ft.read.toLocaleString('en-US')} read line by line, ${ft.where.toLocaleString('en-US')} in tests or build files that don't run, ${ft.purpose.toLocaleString('en-US')} explained by what the project is for, ${ft.rule.toLocaleString('en-US')} known scanner false alarms`)(flagTotals())}. The reason for each one is on the listing's page.`,
+        `That's why every high-risk flag gets a written reason, across all ${L.filter(l => scanOf(l)).length} scanned listings: ${(ft => `${ft.read.toLocaleString('en-US')} read line by line, ${ft.where.toLocaleString('en-US')} in tests or build files that don't run, ${ft.purpose.toLocaleString('en-US')} explained by what the project is for, ${ft.rule.toLocaleString('en-US')} known scanner false alarms`)(flagTotals())}. The reason for each one is on the listing's page.`,
         `Every listing also has a ready-to-copy SkillSpector command, so you can rerun the check yourself.`], apps: [spector, BY['gitleaks']].filter(Boolean) });
   }
   const cnt = f => L.filter(f).length, M = l => MRof(l);
-  const lab = {}; for (const l of L) { const k = trust(l).short.replace(/^Fits · .*/, 'Fits · notes').replace(/^\d+ risks? to know$/, 'risk'); lab[k] = (lab[k] || 0) + 1; }
+  const lab = {}; for (const l of L) { const k = trust(l).short.replace(/^\d+ things? to know$/, 'notes').replace(/^\d+ risks? to know$/, 'risk'); lab[k] = (lab[k] || 0) + 1; }
   const nn = k => lab[k] || 0;
   out.push({ id: 'labels', hidden: true, eyebrow: 'Safety Labels', title: 'What our checks mean', lede: 'Every label, in plain words.', g: ['#0F3D3E', '#2A9D8F'], glyph: 'shieldok',
-    body: [`Every listing gets one label, shown under its GET button. Here is what each one means and how many listings have it right now.`,
-      `<strong>Instructions only</strong> (${nn('Instructions only')}): a skill that is just text for your assistant. Nothing in it runs on your computer, so it can only do what your assistant is already allowed to do.`,
-      `<strong>Fits its purpose</strong> (${nn('Fits its purpose')}): a project from an independent developer. We listed what its code can reach (the internet, your files, other programs, passwords and keys, your browser) and all of it is explained by what it says it's for.`,
-      `<strong>Fits · notes</strong> (${nn('Fits · notes')}): it fits, but there's something you'd want to know first, like usage data sent by default. The note is at the top of its page and says how to turn it off.`,
+    body: [`Every listing gets one label, shown under its GET button. Green means nothing needs your attention, blue means read a note first, orange means a real risk, red means don't. Here is each one and how many listings have it right now.`,
+      `<strong>No issues found</strong> (${nn('No issues found')}): every high-risk flag the scanner raised has a written reason, and nothing needs your attention. For projects from independent developers, the Purpose Check also found nothing their purpose doesn't explain. Skills marked "Instructions only" on their page are just text for your assistant: nothing in them runs on your computer.`,
+      `<strong>Things to know</strong> (${nn('notes')}): nothing harmful, but something you'd want to know first, like usage data sent by default. The note is at the top of its page and says how to turn it off.`,
       `<strong>Risk to know</strong> (${nn('risk')}): a real weakness or risky default, like a local server any device on your network can use. Not malicious, but read the note before installing. It also shows in the install sheet.`,
       ...(nn('Does more than stated') + nn('Flagged') + nn('Looks harmful') ? [`<strong>Does more than stated</strong> (${nn('Does more than stated')}), <strong>Flagged</strong> (${nn('Flagged')}) and <strong>Looks harmful</strong> (${nn('Looks harmful')}): its code can do things its purpose doesn't explain, touches secret files, hides instructions or looks deliberately harmful.`] : []),
-      `<strong>Trusted publisher</strong> (${nn('Trusted publisher')}) and <strong>NVIDIA Verified</strong> (${nn('NVIDIA Verified')}): from a company's own GitHub organization, like Anthropic, OpenAI or NVIDIA. We scan these too and explain every high-risk flag.`,
+      `<strong>NVIDIA Verified</strong> (${nn('NVIDIA Verified')}): in NVIDIA's verified skills catalog, which NVIDIA scans and signs. We scan these too.`,
+      `<strong>Who published it</strong>: every row says who made it. A building icon means it comes from a company's own GitHub organization, like Anthropic, OpenAI or NVIDIA (${L.filter(l => l.tr).length} listings). That tells you who made it, not that it's safe, so they get the same scan.`,
       ...(nn('Not scanned yet') + nn('Review in progress') ? [`<strong>Not scanned yet</strong> (${nn('Not scanned yet')}) and <strong>Review in progress</strong> (${nn('Review in progress')}): just added. The label changes once the scan and review are done.`] : []),
       `<strong>About scanner flags</strong>: NVIDIA's SkillSpector raised ${ft.n.toLocaleString('en-US')} high-risk flags across the store. It can't judge intent, so ordinary code trips it. Each flag has a written status on its listing's page: ${ft.read.toLocaleString('en-US')} read line by line, ${ft.where.toLocaleString('en-US')} in tests or build files that don't run, ${ft.purpose.toLocaleString('en-US')} explained by what the project is for, ${ft.rule.toLocaleString('en-US')} known scanner false alarms and ${ft.cov.toLocaleString('en-US')} files it couldn't fully read${ft.open ? `; ${ft.open} are still waiting for a reviewer` : ''}.`,
-      `No check is a guarantee. Code can change after we look at it, so the date and exact version we checked are on every page.`], apps: [] });
+      `<strong>Who does what</strong>: NVIDIA's SkillSpector scans the code. Our scripts list what the code can reach and sort each flag by where it sits (tests and docs don't run) and what the project is for. Claude, an AI model, reads everything else line by line and writes down the reason. Purposes come from each project's own README.`,
+      `No check is a guarantee. Code can change after we look at it, and installs get the latest version, so the date and exact commit we checked are on every page.`], apps: [] });
   const trustedList = L.filter(l => l.tr);
-  out.push({ hidden: true, id: 'trusted', eyebrow: 'Trusted Publishers', title: 'From Anthropic, OpenAI, NVIDIA and more', lede: `${trustedList.length} listings from ${new Set(trustedList.map(l => repoOf(l).on)).size} companies.`, g: ['#1D2B53', '#5E6EFF'], glyph: 'building',
+  out.push({ hidden: true, id: 'trusted', eyebrow: 'From companies', title: 'From Anthropic, OpenAI, NVIDIA and more', lede: `${trustedList.length} listings from ${new Set(trustedList.map(l => repoOf(l).on)).size} companies.`, g: ['#1D2B53', '#5E6EFF'], glyph: 'building',
     body: [`Anthropic, OpenAI, NVIDIA, GitHub, Microsoft, Google and others publish skills, MCP servers and tools from their own GitHub organizations. That tells you who made them. It doesn't make them safe by itself.`,
-      `Vetted lists them as Trusted publishers, and checks them anyway: ${trustedList.filter(l => scanOf(l)).length} of the ${trustedList.length} have a SkillSpector report on their page, with every high-risk flag explained. Where we found something you'd want to know, like a skill that prints your access token into the chat, it's at the top of the page.`],
+      `Vetted shows who made them, and checks them anyway: ${trustedList.filter(l => scanOf(l)).length} of the ${trustedList.length} have a SkillSpector report on their page, with a written reason for every high-risk flag. Where we found something you'd want to know, like a skill that prints your access token into the chat, it's at the top of the page.`],
     apps: pick(['anthropics-docx', 'openai-security-threat-model', 'mcp-github-mcp-server', 'mcp-playwright-mcp', 'skillspector', 'uv']).concat(L.filter(l => l.nv).slice(0, 2)) });
   const cm = byStars(comm.filter(l => l.k === 'mcp'));
   if (cm.length) out.push({ hidden: true, id: 'mcp', eyebrow: 'Community Connectors', title: 'Connect your assistant to the apps you use', lede: 'Figma, Slack, Google Calendar, Blender and more.', g: ['#4A3210', '#D69A32'], glyph: 'mcp',
@@ -874,7 +905,7 @@ function pageToday() {
 // What Vetted is, in one breath, with only claims the data backs
 function introText() {
   const nSC = L.filter(l => scanOf(l)).length, ft = flagTotals();
-  return `${L.length} open-source AI skills, connectors and apps${nSC === L.length && !ft.open ? ', each one checked' : ''}. See what it does and what it can reach before you install.`;
+  return `${L.length} AI skills, connectors and apps from GitHub${nSC === L.length && !ft.open ? ', each one checked' : ''}. See what each one does and what it can reach before you install it.`;
 }
 // New projects gaining stars fastest: created in the 120 days before the latest fetch, ranked by stars per day since
 function risingShelf() {
@@ -889,7 +920,7 @@ function risingShelf() {
 function promiseText() {
   const nSC = L.filter(l => scanOf(l)).length, comm = L.filter(l => !l.tr), commChecked = comm.filter(l => MRof(l)).length;
   const ft = flagTotals();
-  return `${nSC === L.length ? `All ${L.length} listings get` : `${nSC} of ${L.length} listings have`} an automatic security scan (NVIDIA SkillSpector). The scanner can't tell ordinary code from harmful code, so a person explains ${ft.open ? `its high-risk flags (${(ft.n - ft.open).toLocaleString('en-US')} of ${ft.n.toLocaleString('en-US')} so far)` : `every high-risk flag it raises (${ft.n.toLocaleString('en-US')} so far)`}. ${commChecked === comm.length ? 'Projects from independent developers also get' : `${commChecked} projects from independent developers also have`} our Purpose Check: we list what the code can reach and compare it with what the project says it's for. Anything you'd want to know is at the top of its page.`;
+  return `${nSC === L.length ? `All ${L.length} listings get` : `${nSC} of ${L.length} listings have`} an automatic security scan (NVIDIA SkillSpector). The scanner can't tell ordinary code from harmful code, so ${ft.open ? `its high-risk flags get a written reason (${(ft.n - ft.open).toLocaleString('en-US')} of ${ft.n.toLocaleString('en-US')} so far)` : `every high-risk flag it raises gets a written reason (${ft.n.toLocaleString('en-US')} so far)`}: from rules for clear cases like test files, or from Claude, an AI model, reading the code line by line. ${commChecked === comm.length ? 'Projects from independent developers also get' : `${commChecked} projects from independent developers also have`} our Purpose Check: we list what the code can reach and compare it with what the project says it's for. Anything you'd want to know is at the top of its page.`;
 }
 // Store-wide count of high-risk scanner flags by how each was explained
 function flagTotals() {
@@ -920,7 +951,7 @@ function pageBrowse() {
       <div class="job-grid">${[['trending', 'Trending', 'What\'s catching on this week and month', 'pulse', ['#BE123C', '#F97316'], ''], ['tools', 'Apps', 'Programs you run on your computer', 'tool', ['#1D4ED8', '#3B82F6'], L.filter(l => l.k === 'tool').length],
         ['skills', 'Skills', 'Teach your AI assistant a job', 'skill', ['#7C3AED', '#A855F7'], L.filter(l => l.k === 'skill').length],
         ['mcp', 'Connectors', 'Let your AI use your apps and accounts', 'mcp', ['#B45309', '#F59E0B'], L.filter(l => l.k === 'mcp').length],
-        ['trusted', 'Trusted publishers', 'From Anthropic, OpenAI, NVIDIA, GitHub and more', 'building', ['#1D2B53', '#5E6EFF'], L.filter(l => l.tr).length]]
+        ['trusted', 'From companies', 'From Anthropic, OpenAI, NVIDIA, GitHub and more', 'building', ['#1D2B53', '#5E6EFF'], L.filter(l => l.tr).length]]
         .map(([h, t, sub, g, c, n]) => `<a class="job-card" href="#${h}"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span><span style="min-width:0"><b>${t}</b><span class="s">${sub}</span></span><span class="n">${n}</span></a>`).join('')}</div></section>
     <section class="shelf"><div class="shelf-head"><h2>Starter kits</h2></div><div class="job-grid">${KITS.map(kitCard).join('')}</div></section>
     ${dataNote()}</div>`;
@@ -1039,7 +1070,7 @@ function pageTrusted() {
   for (const l of tr) (pubs[repoOf(l).on] ??= []).push(l);
   const order = Object.entries(pubs).sort((a, b) => Math.max(...b[1].map(l => repoOf(l).st)) - Math.max(...a[1].map(l => repoOf(l).st)));
   return `<div class="page">
-    <div class="large-title"><h1>Trusted Publishers</h1><p>${tr.length} listings from ${order.length} companies that publish from their own GitHub organizations, so you know who made them. That doesn't make them safe by itself, so Vetted checks them like everything else: each is scanned, and every high-risk warning is explained on its page.</p></div>
+    <div class="large-title"><h1>From companies</h1><p>${tr.length} listings from ${order.length} companies that publish from their own GitHub organizations, so you know who made them. That doesn't make them safe by itself, so Vetted checks them like everything else: each is scanned, and every high-risk flag has a written reason on its page.</p></div>
     ${order.filter(([, list]) => list.length >= 3).map(([pub, list]) => `<section class="shelf"><div class="shelf-head"><h2>${esc(pub)}<span class="sub">${list.length} listings</span></h2></div><div class="scroller tiles">${byStars(list).map(tile).join('')}</div></section>`).join('')}
     ${(small => small.length ? `<section class="shelf"><div class="shelf-head"><h2>More companies<span class="sub">${small.map(([pub]) => esc(pub)).join(', ')}</span></h2></div><div class="scroller tiles">${byStars(small.flatMap(([, list]) => list)).map(tile).join('')}</div></section>` : '')(order.filter(([, list]) => list.length < 3))}
     ${dataNote()}</div>`;
@@ -1117,28 +1148,42 @@ const pageSearch = () => `<div class="page"><div class="large-title"><h1>Search<
 // ---------- install blocks ----------
 const copyBox = cmd => `<div class="copybox"><code>${esc(cmd)}</code><button class="copy-btn" data-copy="${esc(cmd)}" aria-label="Copy command">${ic('copy')}</button></div>`;
 const AGENTS = [['claude-code', 'Claude Code'], ['codex', 'Codex'], ['cursor', 'Cursor']];
+// The viewer's computer: their choice in Make it yours, else what the browser says
+const myOS = () => { const plat = (navigator.userAgentData?.platform || navigator.platform || '').toLowerCase();
+  return FOCUS.os || (/mac/.test(plat) ? 'macOS' : /win/.test(plat) ? 'Windows' : /linux/.test(plat) ? 'Linux' : null); };
+const OS_RE = /macOS|Windows|Linux|Android/;
+// Does an install card fit the viewer's AI and computer? Cards that don't fit move under "Other ways to install".
+function cardFits(o, l) {
+  const want = FOCUS.ai.map(a => AI_TO[a]).filter(Boolean), agents = want.filter(w => w !== 'Claude app');
+  if (l.k !== 'tool' && want.length && !(want.some(w => o.to.includes(w)) || (agents.length && (o.agentCmd || /^(All clients|Any agent|Other agents|Your agent|Other clients)/.test(o.to))))) return false;
+  if (l.k === 'tool' && FOCUS.os && OS_RE.test(o.to) && !o.to.includes(FOCUS.os)) return false;
+  return true;
+}
 // Install cards in the order most people need them: downloads and the card for this computer first
 function instOrder(l) {
-  const cards = l.inst.filter(o => !o.scan);
-  const plat = (navigator.userAgentData?.platform || navigator.platform || '').toLowerCase();
-  const os = FOCUS.os || (/mac/.test(plat) ? 'macOS' : /win/.test(plat) ? 'Windows' : /linux/.test(plat) ? 'Linux' : null);
-  const want = FOCUS.ai.map(a => AI_TO[a]).filter(Boolean);
-  const score = o => (want.length && !want.some(w => o.to.includes(w) || (w !== 'Claude app' && o.agentCmd)) ? 10 : 0)
-    + (l.k === 'tool' ? (o.how === 'Download' || o.how === 'Add-on' ? 0 : os && o.to.includes(os) ? 1 : 2) : 0);
+  let cards = l.inst.filter(o => !o.scan);
+  // Anthropic's built-in example skills: one Claude app card, with the upload steps for when it isn't listed
+  const app = cards.filter(o => o.to === 'Claude app');
+  if (app.length === 2) cards = cards.filter(o => o !== app[1]).map(o => o === app[0] ? { ...app[0], more: app[1] } : o);
+  const os = myOS();
+  const score = o => (cardFits(o, l) ? 0 : 10) + (l.k === 'tool' ? (o.how === 'Download' || o.how === 'Add-on' ? 0 : os && o.to.includes(os) ? 1 : !OS_RE.test(o.to) ? 2 : 3) : 0);
   return cards.map((o, i) => [o, i]).sort((a, b) => score(a[0]) - score(b[0]) || a[1] - b[1]).map(x => x[0]);
 }
+// Cards that fit come first; the rest, and anything past `show`, fold under "Other ways to install"
 function instCards(l, show = 99) {
-  const scan = l.inst.filter(o => o.scan), all = instOrder(l), shown = all.length <= show + 1 ? all : all.slice(0, show), more = all.slice(shown.length);
+  const scan = l.inst.filter(o => o.scan), all = instOrder(l), fit = all.filter(o => cardFits(o, l));
+  const lead = fit.length ? fit : all, shown = lead.length <= show + 1 ? lead : lead.slice(0, show), more = all.filter(o => !shown.includes(o));
   const card = o => {
     const agent = S.agent;
     return `<div class="inst-card"><div class="h"><b>${esc(o.to)}</b><span class="how">${esc(o.how)}</span></div>
       ${o.agentCmd ? `<div class="seg" role="group" aria-label="Agent">${AGENTS.map(([k, n]) => `<button data-agent="${k}" aria-pressed="${agent === k}">${n}</button>`).join('')}</div>${copyBox(`${o.agentCmd} --agent ${agent}`)}` : ''}
-      ${(o.cmds || []).map(copyBox).join('')}
+      ${o.alt && o.cmds?.length > 1 ? `<span class="note">Any one of these:</span>` : ''}${(o.cmds || []).map(copyBox).join('')}
       ${o.text ? `<span class="note" style="color:var(--label)">${esc(o.text)}</span>` : ''}
       ${o.steps ? `<ol class="steps">${o.steps.map(x => `<li>${esc(x)}</li>`).join('')}</ol>` : ''}
       ${o.dl ? `<a class="pill-link" href="${o.dl}" rel="noopener" style="align-self:flex-start">Download ZIP ${ic('ext')}</a>` : ''}
       ${o.link ? `<a class="pill-link" href="${o.link}" target="_blank" rel="noopener" style="align-self:flex-start">${esc(o.linkText || 'Open install guide')} ${ic('ext')}</a>` : ''}
-      ${o.note ? `<span class="note">${esc(o.note)}</span>` : ''}</div>`;
+      ${o.note ? `<span class="note">${esc(o.note)}</span>` : ''}
+      ${o.more ? `<details class="dev-scan"><summary>If it isn't listed there</summary><ol class="steps">${o.more.steps.map(x => `<li>${esc(x)}</li>`).join('')}</ol>${o.more.dl ? `<a class="pill-link" href="${o.more.dl}" rel="noopener" style="align-self:flex-start">Download ZIP ${ic('ext')}</a>` : ''}</details>` : ''}</div>`;
   };
   return shown.map(card).join('') + (more.length ? `<details class="dev-scan"><summary>Other ways to install (${more.length})</summary><div class="inst-grid">${more.map(card).join('')}</div></details>` : '') + (scan.length ? `<details class="dev-scan"><summary>For developers: run the security scan yourself</summary>${scan.map(o => `<div class="inst-card scan"><div class="h"><span class="c-green">${ic('shieldok', 2.2)}</span><b>Scan it yourself</b><span class="how">SkillSpector</span></div>
       ${o.cmds.map(copyBox).join('')}<span class="note">The same static scan we ran, with NVIDIA SkillSpector. No API key needed. ${BY['skillspector'] ? `<a href="#skillspector" data-closesheet>Install SkillSpector</a>` : ''}</span></div>`).join('')}</details>` : '');
@@ -1171,11 +1216,41 @@ function claudePrompt(repo, l) {
     'Only if you found a risk, add the file and line in brackets.',
     ...(v ? [`Vetted's check said "${v[2]}"${risk ? ` (${NT(l).filter(x => x.lv !== 'note').map(x => x.t).join('; ')})` : ''}. Say so if you disagree.`] : [])].join('\n');
 }
-const askCard = (repo, l) => { const pr = claudePrompt(repo, l);
-  return `<div class="inst-card ask"><div class="h"><span class="c-blue">${ic('spark', 2)}</span><b>Ask your Claude: is it safe?</b></div>
-    <span class="note">Get a verdict and the reason in a few lines, from your own Claude.</span>
-    <div class="ask-btns"><a class="get primary" href="https://claude.ai/new" target="_blank" rel="noopener" data-copy="${esc(pr)}" data-copymsg="Question copied. Paste it into Claude.">Copy and open Claude</a>
+// Which assistant to ask, from Make it yours: [name, link that opens it with the question, or null to paste into its chat]
+function askTarget() {
+  const a = FOCUS.ai, claude = a.some(x => x.startsWith('claude'));
+  if (a.length === 1 && a[0] === 'none') return null;
+  if (a.includes('chatgpt') && !claude) return ['ChatGPT', q => `https://chatgpt.com/?q=${q}`];
+  if (a.length && !claude) return [AI_TO[a.find(x => AI_TO[x])] || 'your assistant', null];
+  return ['Claude', q => `https://claude.ai/new?q=${q}`];
+}
+const askCard = (repo, l) => { const t = askTarget(); if (!t) return ''; const pr = claudePrompt(repo, l), who = t[0] === 'Claude' ? 'your Claude' : t[0];
+  return `<div class="inst-card ask"><div class="h"><span class="c-blue">${ic('spark', 2)}</span><b>Double-check with ${esc(who)}</b></div>
+    <span class="note">A second opinion on your own ${esc(t[0])} plan: is it safe, and why, in a few lines.</span>
+    <div class="ask-btns">${t[1] ? `<a class="get primary" href="${t[1](encodeURIComponent(pr))}" target="_blank" rel="noopener" data-copy="${esc(pr)}" data-copymsg="Question copied too, in case ${esc(t[0])} opens empty.">Ask ${esc(t[0])}</a>`
+      : `<button class="get primary" data-copy="${esc(pr)}" data-copymsg="Question copied. Paste it into ${esc(t[0])}'s chat.">Copy the question</button>`}
       <details class="ask-q"><summary>Show the question</summary><code class="snip" style="white-space:pre-wrap">${esc(pr)}</code></details></div></div>`; };
+
+// The install sheet's heading when the viewer said where they use AI or which computer they have
+function forYouLabel(l) {
+  if (l.k === 'tool') return FOCUS.os ? `For ${OS_OPTS.find(o => o[0] === FOCUS.os)[1]}` : null;
+  const names = FOCUS.ai.map(a => AI_OPTS.find(o => o[0] === a)?.[1]).filter(n => n && n !== "I don't use one");
+  return names.length ? `For ${andList(names)}` : null;
+}
+// Connectors have no one-click install in the Claude app; ChatGPT isn't covered by these steps
+function noAppNote(l) {
+  if (l.k === 'tool') return '';
+  const a = FOCUS.ai, only = x => a.length && a.every(y => x.includes(y));
+  if (l.k === 'mcp' && a.includes('claude-app') && !l.inst.some(o => /Claude app|Claude Desktop/.test(o.to)))
+    return `<div class="sheet-note">${ic('info', 2)}<p><b>No one-click install in the Claude app.</b> The Claude desktop app can run connectors like this one if you add it to its config file (Settings → Developer → Edit Config), using the project's README. Claude Code is quicker.</p></div>`;
+  if (only(['chatgpt', 'none']) && a.includes('chatgpt')) return `<div class="sheet-note">${ic('info', 2)}<p>These steps are for Claude, Codex and Cursor. For ChatGPT, check the project's README.</p></div>`;
+  return '';
+}
+// Installs get the newest version; say which one we checked
+function versionNote(l) {
+  const r = repoOf(l), sc = scanOf(l);
+  return sc ? `<p class="ver-note">Installs get the newest version. We checked ${r.cm ? `commit <a class="mono" href="https://github.com/${l.r}/tree/${r.cm}" target="_blank" rel="noopener">${r.cm}</a>` : 'the version on GitHub'} on ${fmtDate(sc.at)}.</p>` : '';
+}
 
 // ---------- SkillSpector report ----------
 const recWord = r => ({ DO_NOT_INSTALL: 'Do not install', INSTALL: 'Install', SAFE_TO_INSTALL: 'Safe to install', SAFE: 'Safe to install', REVIEW: 'Review before installing',
@@ -1201,17 +1276,17 @@ function reportHTML(l) {
   const rv = sc.rv, r = repoOf(l);
   const maxed = L.filter(x => scanOf(x)?.s >= 100).length, scanned = L.filter(x => scanOf(x)).length;
   const ex = ['ripgrep', 'jq'].map(id => BY[id]).filter(x => x && x.id !== l.id && scanOf(x)?.s >= 100);
-  const rows = [[rv.read, 'read line by line by a reviewer, with the reason written down'], [rv.where, 'in tests, docs or build files that don\'t run when you use it'],
+  const rows = [[rv.read, 'read line by line by an AI reviewer (Claude), with the reason written down'], [rv.where, 'in tests, docs or build files that don\'t run when you use it'],
     [rv.purpose, 'explained by what it\'s for, like a downloader using the internet'], [rv.rule, 'known scanner false alarms, like a rule that flags every script file'],
     [rv.cov, 'files the scanner couldn\'t fully read, so it couldn\'t judge them'], [rv.open, 'not reviewed yet']].filter(x => x[0]);
   const pointed = rv.note + rv.warn + rv.bad;
   return `<section class="shelf"><div class="shelf-head"><h2>Security scan<span class="sub">NVIDIA SkillSpector ${esc(sc.ver)} · static scan · ${fmtDate(sc.at)}${r.cm ? ` · commit <a href="https://github.com/${l.r}/tree/${r.cm}" target="_blank" rel="noopener" class="mono">${r.cm}</a>` : ''}${sc.scope ? ` · scanned ${esc(sc.scope)}/ only (the whole repository is too large)` : ''}${sc.skipped ? ` · scanned everything except ${sc.skipped.map(x => esc(x) + '/').join(', ').replace(/, ([^,]*)$/, ' and $1')}, to fit the scan's time limit` : ''}</span></h2></div>
     <div class="rv"><div class="rv-h">${!rv.n ? 'No high-risk flags' : `${rv.n} high-risk flag${rv.n === 1 ? '' : 's'}, ${rv.open ? `${rv.n - rv.open} explained so far` : rv.n === 1 ? 'explained' : 'every one explained'}`}</div>
       ${rows.length ? `<ul class="rv-list">${rows.map(([n, t]) => `<li><b>${n.toLocaleString('en-US')}</b><span>${t}</span></li>`).join('')}</ul>` : `<p class="pc-sub">The scanner found ${sc.n ? `only medium or low-risk patterns (${sc.n})` : 'nothing'} in this listing.</p>`}
-      ${pointed ? `<p class="pc-sub" style="margin-top:10px">${pointed === 1 ? 'One flag points' : pointed + ' flags point'} to something you should know. ${NT(l).length === 1 ? 'It\'s' : 'They\'re'} summed up under Before you install.</p>` : rv.read ? `<p class="pc-sub" style="margin-top:10px">None of the flags our reviewer read is harmful.</p>` : ''}</div>
-    <div class="raw"><span>Before our review, SkillSpector's automatic verdict</span><span><b>${SEVW[sc.sev] || esc(sc.sev)} risk</b>, score ${sc.s} of 100 (higher is riskier)</span><span>Its call: <b>${esc(recWord(sc.rec))}</b></span>
+      ${pointed ? `<p class="pc-sub" style="margin-top:10px">${pointed === 1 ? 'One flag points' : pointed + ' flags point'} to something you should know. ${NT(l).length === 1 ? 'It\'s' : 'They\'re'} summed up under Before you install.</p>` : rv.read ? `<p class="pc-sub" style="margin-top:10px">None of the flags our AI reviewer read is harmful.</p>` : ''}</div>
+    <details class="raw-d"><summary>SkillSpector's own score, before the flags were explained</summary><div class="raw"><span>The scanner's automatic verdict, which can't judge intent</span><span><b>${SEVW[sc.sev] || esc(sc.sev)} risk</b>, score ${sc.s} of 100 (higher is riskier)</span><span>Its call: <b>${esc(recWord(sc.rec))}</b></span>
       <span>${['CRITICAL', 'HIGH', 'MEDIUM', 'LOW'].map(k => `${sc.by[k] || 0} ${SEVW[k].toLowerCase()}`).join(' · ')}</span><span>${sc.files} files</span></div>
-    <p class="caveat">SkillSpector's static mode matches 71 risk patterns without judging intent, so ordinary software scores high: it gives its maximum score to ${maxed} of the ${scanned} listings here${ex.length ? `, including ${ex.map(x => `${esc(x.n)} (${fmtK(repoOf(x).st)} GitHub stars)`).join(' and ')}` : ''}. That's why a person explains every high-risk flag before a listing gets its label. SkillSpector's optional AI review judges intent too, but needs your own API key.</p>
+    <p class="caveat">SkillSpector's static mode matches 71 risk patterns without judging intent, so ordinary software scores high: it gives its maximum score to ${maxed} of the ${scanned} listings here${ex.length ? `, including ${ex.map(x => `${esc(x.n)} (${fmtK(repoOf(x).st)} GitHub stars)`).join(' and ')}` : ''}. That's why every high-risk flag gets a written reason before a listing gets its label. SkillSpector's optional AI review judges intent too, but needs your own API key.</p></details>
     ${sc.top.length ? `<div class="findings">${sc.top.map(f => `<div class="fd"><div class="fh"><span class="sev ${SEVC[f[0]] || ''}">${esc(f[0])}</span><b>${esc(f[2])}</b>${stChip(f)}<span class="pid mono">${esc(f[1])}</span></div>
       <div class="pat">${esc(f[3])}</div>${f[4] ? `<a class="loc mono" href="${ghFile(l, f[4], f[5])}" target="_blank" rel="noopener">${esc(f[4])}${f[5] ? ':' + f[5] : ''}</a>` : ''}
       ${f[6] ? `<code class="snip">${esc(f[6])}</code>` : ''}${f[10] ? `<p class="ours"><span>Our review:</span> ${esc(f[10])}</p>` : ''}${f[7] ? `<p class="why">SkillSpector: ${esc(f[7])}</p>` : ''}
@@ -1278,7 +1353,7 @@ const SOCIAL = [['YouTube', '#FF0033', q => `https://www.youtube.com/results?sea
 const CHECK_ORDER = ['Maintained', 'Code-Review', 'Vulnerabilities', 'Dangerous-Workflow', 'Token-Permissions', 'Branch-Protection', 'Security-Policy', 'Pinned-Dependencies', 'SAST', 'Signed-Releases'];
 function pageProduct(id) {
   const l = BY[id], r = repoOf(l), t = trust(l);
-  const from = S.back?.startsWith('for-') ? JOB[S.back.slice(4)][1] : S.back?.startsWith('kit-') ? KIT[S.back.slice(4)][1] : S.back?.startsWith('digest-') ? 'Digest' : { today: 'Today', trending: 'Trending', digest: 'Digest', browse: 'Browse', skills: 'Skills', mcp: 'Connectors', tools: 'Apps', trusted: 'Trusted', search: 'Search' }[S.back || S.tab] || 'Today';
+  const from = S.back?.startsWith('for-') ? JOB[S.back.slice(4)][1] : S.back?.startsWith('kit-') ? KIT[S.back.slice(4)][1] : S.back?.startsWith('digest-') ? 'Digest' : { today: 'Today', trending: 'Trending', digest: 'Digest', browse: 'Browse', skills: 'Skills', mcp: 'Connectors', tools: 'Apps', trusted: 'From companies', search: 'Search' }[S.back || S.tab] || 'Today';
   const siblings = byRepo(l.r).filter(x => x.id !== l.id);
   const q = encodeURIComponent(l.k === 'skill' ? `${l.sl} ${r.on} skill` : l.k === 'mcp' ? `${l.n} MCP` : `${l.n} ${l.r.split('/')[1] === l.n.toLowerCase() ? '' : l.r.split('/')[1]}`.trim());
   const checks = r.sc && r.sc !== 'u' ? CHECK_ORDER.map(n => r.sc.ch.find(c => c[0] === n)).filter(Boolean).slice(0, 6) : [];
@@ -1286,16 +1361,17 @@ function pageProduct(id) {
   const lv = LEVEL[l.lv];
   return `<div class="navbar"><div class="in"><a class="back" href="#${S.back || S.tab}">${ic('back', 2.4)}${esc(from)}</a></div></div>
   <div class="page" style="padding-top:12px">
-    <div class="product-head">${icon(l)}<div class="txt"><h1>${esc(l.n)}</h1><span class="sub">${esc(r.on)} · ${KIND[l.k]}</span>
+    <div class="product-head">${icon(l)}<div class="txt"><h1>${esc(l.n)}</h1><span class="sub">${l.tr ? ic('building', 2) + ' ' : ''}${esc(r.on)}${l.tr ? ' (company)' : ''} · ${KIND[l.k]}</span>
       <div class="acts">${getBtn(l, 'primary')}${l.vd?.length ? `<button class="pill-link" data-jump="videos">${ic('play')} Watch the demo</button>` : ''}<a class="pill-link" href="${l.u}" target="_blank" rel="noopener">GitHub ${ic('ext')}</a></div></div></div>
     ${l.pl ? (v => `<div class="plain">${ic('bulb', 2)}<div><span class="lbl">What it helps you do</span><p>${esc(l.pl)}</p>
       <div class="check ${v[0]}">${ic(v[1], 2.2)}<b>${esc(v[2])}</b><span class="vsub">${esc(v[3])}</span><span class="vbtns"><button data-jump="checks">See the full check</button></span></div>
+      ${usesHTML(l)}
       <div class="chips">${lv ? `<span class="${lv[1]}" title="${esc(lv[2])}">${lv[0]}</span>` : ''}${(l.jb || []).map(j => `<a href="#for-${j}">${esc(JOB[j][1])}</a>`).join('')}</div></div></div>`)(verdictShort(l)) : ''}
     ${NT(l).filter(x => x.lv !== 'note').map(n => `<div class="worth ${NT_LV[n.lv][0]}" style="margin-top:12px"><div class="cap-h"><b>${esc(n.t)}</b><span class="chip ${NT_LV[n.lv][1]}">${NT_LV[n.lv][2]}</span></div><p>${esc(n.n)}</p></div>`).join('')}
     <div class="strip">
       <div><span class="k">GitHub</span><span class="v">${ic('star', 2)}${fmtK(r.st)}</span><span class="c">stars${l.p ? ' (whole repo)' : ''}</span></div>
       <div><span class="k">Updated</span><span class="v">${ic('pulse', 2)}</span><span class="c">${ago(r.pu)}</span></div>
-      <div><span class="k">License</span><span class="v">${ic('scale', 2)}</span><span class="c">${esc(l.lic && l.lic.length < 30 ? l.lic : r.lic || 'None listed')}</span></div>
+      <div><span class="k">License</span><span class="v">${ic('scale', 2)}</span>${(lic => lic ? `<span class="c">${esc(lic)}</span>` : `<span class="c c-orange" title="The author hasn't said how you may reuse it">None listed</span>`)(l.lic && l.lic.length < 30 ? l.lic : r.lic)}</div>
       <div><span class="k">Publisher</span><span class="v">${ic(r.org ? 'building' : 'person', 2)}</span><span class="c">${r.org ? 'Organization' : 'Individual'}</span></div>
       ${l.lines ? `<div><span class="k">SKILL.md</span><span class="v">${l.lines}</span><span class="c">lines</span></div>` : r.lang ? `<div><span class="k">Language</span><span class="v">${ic('code', 2)}</span><span class="c">${esc(r.lang)}</span></div>` : ''}
     </div>
@@ -1305,7 +1381,7 @@ function pageProduct(id) {
       <div class="vids">${l.vd.map(([kind, url, label]) => `<a class="vid" href="${esc(url)}" target="_blank" rel="noopener"><span class="vplay" style="background:linear-gradient(155deg,${l.c[0]},${l.c[1]})">${ic('play', 1.6)}</span>
         <span class="vt"><b>${esc(label || (kind === 'youtube' ? 'Video on YouTube' : 'Demo video'))}</b><span>${kind === 'youtube' ? 'YouTube' : 'Video on GitHub'} ${ic('ext')}</span></span></a>`).join('')}</div></section>` : ''}
     <details class="full" id="checks"><summary><b>See the full check</b><span>What we found, the security scan, and the project's details</span></summary>
-    ${l.tr ? `<section class="shelf"><div class="trusted-note">${ic('building', 1.8)}<div><b>Trusted publisher</b><p>Published by ${esc(r.on)} from its own GitHub organization, so you know who made it. That doesn't make it safe by itself, so we check it like everything else.</p></div></div></section>` : ''}
+    ${l.tr ? `<section class="shelf"><div class="trusted-note">${ic('building', 1.8)}<div><b>From a company</b><p>Published by ${esc(r.on)} from its own GitHub organization, so you know who made it. That doesn't make it safe by itself, so we check it like everything else.</p></div></div></section>` : ''}
     ${notesHTML(l)}
     ${purposeHTML(l)}
     ${reportHTML(l)}
@@ -1365,7 +1441,7 @@ let FOCUS = { ...FOCUS0 }, SHOW_ALL = false;
 try { const f = JSON.parse(localStorage.getItem('vetted-focus') || 'null'); if (f && typeof f === 'object') FOCUS = { ...FOCUS0, ...f }; } catch (e) {}
 const saveFocus = () => { try { localStorage.setItem('vetted-focus', JSON.stringify(FOCUS)); } catch (e) {} };
 const KIND_OPTS = [['tool', 'Apps', 'Programs for your computer'], ['skill', 'Skills', 'Teach your AI a job'], ['mcp', 'Connectors', 'Let your AI use your apps']];
-const AI_OPTS = [['claude-app', 'Claude app'], ['claude-code', 'Claude Code'], ['codex', 'Codex'], ['cursor', 'Cursor'], ['none', "I don't use one"]];
+const AI_OPTS = [['claude-app', 'Claude app'], ['claude-code', 'Claude Code'], ['codex', 'Codex'], ['cursor', 'Cursor'], ['chatgpt', 'ChatGPT'], ['none', "I don't use one"]];
 const AI_TO = { 'claude-app': 'Claude app', 'claude-code': 'Claude Code', codex: 'Codex', cursor: 'Cursor' };
 const OS_OPTS = [['macOS', 'Mac'], ['Windows', 'Windows'], ['Linux', 'Linux']];
 const LEVEL_OPTS = [[1, 'One-step only', 'A download, an upload or one paste'], [2, 'Some setup', 'A command, maybe an account or key'], [3, 'Anything', 'Technical setup is fine']];
@@ -1551,9 +1627,9 @@ function pageIssue(id) {
 }
 
 // ---------- routing ----------
-const S = { tab: 'today', detail: null, job: null, easy: false, q: '', agent: 'claude-code' };
+const S = { tab: 'today', detail: null, job: null, easy: false, q: '', agent: FOCUS.ai.find(a => AGENTS.some(x => x[0] === a)) || 'claude-code' };
 try { const a = localStorage.getItem('vetted-agent'); if (AGENTS.some(x => x[0] === a)) S.agent = a; } catch (e) {}
-const TABS = [['today', 'Today', 'today'], ['trending', 'Trending', 'pulse'], ['digest', 'Digest', 'book'], ['browse', 'Browse', 'grid'], ['tools', 'Apps', 'tool'], ['skills', 'Skills', 'skill'], ['mcp', 'Connectors', 'mcp'], ['trusted', 'Trusted', 'building'], ['search', 'Search', 'search']];
+const TABS = [['today', 'Today', 'today'], ['trending', 'Trending', 'pulse'], ['digest', 'Digest', 'book'], ['browse', 'Browse', 'grid'], ['tools', 'Apps', 'tool'], ['skills', 'Skills', 'skill'], ['mcp', 'Connectors', 'mcp'], ['trusted', 'Companies', 'building'], ['search', 'Search', 'search']];
 const MOBILE_TABS = ['today', 'browse', 'tools', 'skills', 'mcp', 'search'];
 const count = k => L.filter(l => l.k === k && !l.tr).length;
 function chrome() {
@@ -1594,7 +1670,7 @@ function drawSheet() {
   document.getElementById('sheet-body').innerHTML = `<div class="sheet-bar"><span>Install</span><button class="text-btn" data-closesheet>Done</button></div>
     <div class="sheet-app">${icon(l, 60)}<div class="t"><b>${esc(l.n)}</b><span>${esc(repoOf(l).on)} · ★ ${fmtK(repoOf(l).st)}</span><span class="${t.cls}">${t.short}</span></div></div>
     ${(w => w.length ? `<div class="sheet-warn">${ic('shieldq', 2)}<div><b>Before you install: ${esc(w[0].t)}</b><p>${esc(w[0].n)}</p>${w.length > 1 ? `<p>${w.length - 1} more on its page.</p>` : ''}<a href="#${l.id}" data-closesheet>Read the full listing</a></div></div>` : '')(NT(l).filter(x => x.lv !== 'note'))}
-    <div class="group-label">${{ skill: 'Pick where you use AI', mcp: 'Pick the AI app you use', tool: 'Pick your computer' }[l.k]}</div>${instCards(l, 2)}${askCard(l.r, l)}
+    <div class="group-label">${forYouLabel(l) || { skill: 'Pick where you use AI', mcp: 'Pick the AI app you use', tool: 'Pick your computer' }[l.k]}</div>${noAppNote(l)}${instCards(l, 2)}${versionNote(l)}${askCard(l.r, l)}
     <a class="pill-link" href="#${l.id}" data-closesheet style="align-self:center">View full listing</a>`;
 }
 // The install sheet and stories each get a history entry, so the browser's Back button closes them
