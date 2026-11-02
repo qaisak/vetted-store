@@ -7,7 +7,7 @@
 // check new listings without downloading every repository again.
 import fs from 'node:fs';
 import path from 'node:path';
-import { NONPROD, CODE, NONPROD_SKILL, fileKind, CAT_CAP, OTHER_NOTES, capOfFinding } from './filekind.mjs';
+import { NONPROD, CODE, NONPROD_SKILL, fileKind, CAT_CAP, OTHER_NOTES, otherNote, capOfFinding } from './filekind.mjs';
 
 const [, , DATA, ROOT, OUT] = process.argv;
 const d = JSON.parse(fs.readFileSync(DATA, 'utf8'));
@@ -364,7 +364,7 @@ for (const l of d.listings) {
     expected: !!prof.expect[k], why: prof.expect[k] || null, reviewed: caps[k] && !prof.expect[k] && rev[k] ? rev[k] : null }));
   const unexpected = capList.filter(c => c.found && !c.expected && !c.reviewed).map(c => c.k);
   const poisoned = tools.filter(t => t.flags.length);
-  const patKey = s => Object.keys(OTHER_NOTES).find(k => (s.pat || '').startsWith(k));
+  const patKey = s => l.kind === 'skill' ? null : Object.keys(OTHER_NOTES).find(k => (s.pat || '').startsWith(k));
   const fr = rev._findings || [];   // individual findings a reviewer read: benign, or a notice worth showing
   // A review names a snippet to match, a file, or both (some findings come with an empty snippet)
   // A finding that a reviewer judged harmful ("concern") or couldn't read ("open") doesn't count as explained
@@ -375,7 +375,7 @@ for (const l of d.listings) {
   const other = {};
   for (const s of seriousCode.filter(s => s.cap === 'other' && !reviewedFinding(s))) {
     const k = patKey(s) || s.pat || s.cat;
-    other[k] ??= { n: 0, note: OTHER_NOTES[k] || null, ex: [] };
+    other[k] ??= { n: 0, note: otherNote(k, l.kind), ex: [] };
     other[k].n++;
     if (other[k].ex.length < 2) other[k].ex.push([s.file, s.line]);
   }

@@ -9,6 +9,34 @@
         "level": "benign",
         "note": "references/CLAUDE_MD_TESTING.md:85,95,123 are sample CLAUDE.md wordings being compared. Each tells the assistant to search your own installed skills folder (~/.claude/skills) for a relevant skill.",
         "date": "2026-11-01"
+      },
+      {
+        "match": "rite skill",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:41, 171 and 287 and the testing guide tell you to write a skill only after watching an agent fail without it (\"Write skill addressing those specific violations\"). Steps in its test-first method for authoring skills; nothing tells the assistant to change its own setup.",
+        "date": "2026-11-02"
+      },
+      {
+        "match": "rite skill",
+        "file": "references/testing-skills-with-subagents.md",
+        "level": "benign",
+        "note": "SKILL.md:41, 171 and 287 and the testing guide tell you to write a skill only after watching an agent fail without it (\"Write skill addressing those specific violations\"). Steps in its test-first method for authoring skills; nothing tells the assistant to change its own setup.",
+        "date": "2026-11-02"
+      },
+      {
+        "match": "rite Skill",
+        "file": "references/anthropic-best-practices.md",
+        "level": "benign",
+        "note": "references/anthropic-best-practices.md:5 is the opening of a guide: \"This guide provides practical authoring decisions to help you write Skills that agents can discover\". Advice for writing skills.",
+        "date": "2026-11-02"
+      },
+      {
+        "match": "Edit skill",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:172 \"Edit skill without testing? Same violation.\" A rule of its test-first method for authoring skills.",
+        "date": "2026-11-02"
       }
     ]
   },
@@ -316,6 +344,14 @@
         "level": "benign",
         "note": "Code comment: tool calls fired by its own interface are left out of usage telemetry (server.ts:1182). The telemetry itself, on by default, is explained under Worth knowing.",
         "date": "2026-11-01"
+      },
+      {
+        "match": "postinstall",
+        "file": "package.json",
+        "level": "notice",
+        "title": "Reports each install to its server",
+        "note": "package.json:30 runs track-installation.js on its own whenever npm or npx installs it. That script sends a \"package_installed\" event to telemetry.desktopcommander.app with your saved Desktop Commander ID (or a new random one), your OS, Node and npm versions, and how it was installed, such as the CI repository and workflow name or VS Code. It doesn't check the telemetry setting the app's opt-out uses (track-installation.js:269-307).",
+        "date": "2026-11-02"
       }
     ]
   },
@@ -395,6 +431,24 @@
         "level": "benign",
         "note": "scripts/live-browser.js:8372 is a code comment: the Delete/Backspace key works as a shortcut for the toolbar's Remove button, only when the prompt box is empty.",
         "date": "2026-11-01"
+      },
+      {
+        "file": "reference/critique.md",
+        "level": "benign",
+        "note": "reference/critique.md:256 tells the assistant to count the priority issues and \"do not judge the findings 'straightforward' by feel\" before skipping questions. A rule for asking you more questions, not fewer.",
+        "date": "2026-11-02"
+      },
+      {
+        "file": "reference/degraded/finish-reviewer.md",
+        "level": "benign",
+        "note": "reference/degraded/finish-reviewer.md:10 warns the reviewing agent that \"a hard turn ceiling ends the run without warning\", so it should write its sections early. About its own time limit.",
+        "date": "2026-11-02"
+      },
+      {
+        "file": "reference/new-work.md",
+        "level": "benign",
+        "note": "reference/new-work.md:136 \"Never judge fidelity from one full-page thumbnail; it hides exactly the failures that matter.\" Design-review advice.",
+        "date": "2026-11-02"
       }
     ]
   },
@@ -488,6 +542,40 @@
         "level": "benign",
         "note": "references/export.md:85 is Python code in an SVG-export recipe that recognizes HTML comment markers so it can skip over them. The scanner matched the \"<!--\" pattern itself.",
         "date": "2026-11-01"
+      },
+      {
+        "match": "WARNING",
+        "file": "assets/example-journey-dark.html",
+        "level": "benign",
+        "note": "assets/example-journey*.html:119 is a label in an example diagram, \"NO WARNING AT 80%\", marking where a user hits a limit. Sample content.",
+        "date": "2026-11-02"
+      },
+      {
+        "match": "WARNING",
+        "file": "assets/example-journey-full.html",
+        "level": "benign",
+        "note": "assets/example-journey*.html:119 is a label in an example diagram, \"NO WARNING AT 80%\", marking where a user hits a limit. Sample content.",
+        "date": "2026-11-02"
+      },
+      {
+        "match": "WARNING",
+        "file": "assets/example-journey.html",
+        "level": "benign",
+        "note": "assets/example-journey*.html:119 is a label in an example diagram, \"NO WARNING AT 80%\", marking where a user hits a limit. Sample content.",
+        "date": "2026-11-02"
+      },
+      {
+        "match": "no warning",
+        "file": "assets/example-journey-full.html",
+        "level": "benign",
+        "note": "assets/example-journey-full.html:38 is the example diagram's subtitle: \"a dip when the free-tier export limit hits with no warning\". Sample content.",
+        "date": "2026-11-02"
+      },
+      {
+        "file": "scripts/export_svg.py",
+        "level": "benign",
+        "note": "scripts/export_svg.py:1055 \"return rules\" returns the CSS rules it parsed from an SVG's style blocks. Ordinary code.",
+        "date": "2026-11-02"
       }
     ]
   },
@@ -500,6 +588,13 @@
         "level": "benign",
         "note": "html-template.md:15 is a comment in the slide template telling the assistant to load fonts from Fontshare or Google Fonts. Normal web styling; finished slides fetch fonts from those sites.",
         "date": "2026-11-01"
+      },
+      {
+        "match": "Caveat",
+        "file": "bold-template-pack/templates/peoples-platform/design.md",
+        "level": "benign",
+        "note": "design.md:492 and 613 are typography rules for a slide template: \"Never use Caveat Brush without rotation.\" Caveat Brush is a font.",
+        "date": "2026-11-02"
       }
     ]
   },
@@ -538,7 +633,15 @@
     "files": "Its helper script reads the notes or file you pass it (scripts/headline_scorer.py:227) and prints a report. Nothing else on disk."
   },
   "alirezarezvani-seo-audit": {
-    "files": "Its helper script reads the notes or file you pass it (scripts/seo_checker.py:310) and prints a report. Nothing else on disk."
+    "files": "Its helper script reads the notes or file you pass it (scripts/seo_checker.py:310) and prints a report. Nothing else on disk.",
+    "_findings": [
+      {
+        "file": "references/schema-types.md",
+        "level": "benign",
+        "note": "references/schema-types.md:38 is a checklist item: \"No warnings in Search Console\". SEO advice.",
+        "date": "2026-11-02"
+      }
+    ]
   },
   "alirezarezvani-cold-email": {
     "files": "Its helper script reads the notes or file you pass it (scripts/email_sequence_analyzer.py:461) and prints a report. Nothing else on disk."
@@ -944,6 +1047,20 @@
         "level": "benign",
         "note": "README.md:173 is a setup tip for Codex users: let the skill's headless Chrome check run by allowing writes to /tmp and network inside Codex's sandbox. Approvals stay 'on-request', so Codex still asks before risky commands.",
         "date": "2026-11-01"
+      },
+      {
+        "match": "return rules",
+        "file": "kit/turn-fixed.mjs",
+        "level": "benign",
+        "note": "kit/turn.mjs:3582 and kit/turn-fixed.mjs:3772 return a list of CSS rules the kit built (\"return rules.join(...)\"). Ordinary code.",
+        "date": "2026-11-02"
+      },
+      {
+        "match": "return rules",
+        "file": "kit/turn.mjs",
+        "level": "benign",
+        "note": "kit/turn.mjs:3582 and kit/turn-fixed.mjs:3772 return a list of CSS rules the kit built (\"return rules.join(...)\"). Ordinary code.",
+        "date": "2026-11-02"
       }
     ]
   },
@@ -3972,6 +4089,12 @@
         "level": "benign",
         "note": "scripts/photos.json is a list of stock photo descriptions and tags; 'keyring' is a tag on photos of keys. No passwords or keychains involved.",
         "date": "2026-11-01"
+      },
+      {
+        "file": "scripts/sloplint.mjs",
+        "level": "benign",
+        "note": "scripts/sloplint.mjs:173, 752 and 4305 are its design linter working with CSS rules (\"return rules;\", a check on a display rule). Ordinary code.",
+        "date": "2026-11-02"
       }
     ],
     "network": "Only in optional scripts: imagegen.mjs sends an image prompt to Together AI when you have set TOGETHER_API_KEY (off otherwise), and the design checker opens your own page in headless Chrome.",
@@ -4106,6 +4229,12 @@
         "level": "benign",
         "note": "The flagged text is an HTML comment at the top of each caption preset (e.g. assets/frame-presets/blue-professional/caption-skin.html:1) explaining how the template's placeholders get filled. Documentation, not hidden instructions.",
         "date": "2026-11-01"
+      },
+      {
+        "file": "references/skill-lifecycle.md",
+        "level": "benign",
+        "note": "references/skill-lifecycle.md:43 explains that a pinned older version of its CLI \"prints no warning about it\", so the assistant should check for updates. Helpful advice.",
+        "date": "2026-11-02"
       }
     ],
     "network": "Map videos download map tiles from ArcGIS or CARTO and map libraries from jsDelivr (scripts/bake-basemap.mjs). An optional locate auto mode sends an image to Google Gemini, only with your GEMINI_API_KEY.",
@@ -4146,6 +4275,18 @@
           ]
         ],
         "date": "2026-11-01"
+      },
+      {
+        "title": "Its install script edits Claude Code's plugin files",
+        "level": "notice",
+        "note": "When you install it globally with npm, scripts/postinstall.mjs runs on its own and repairs context-mode's entry in ~/.claude/plugins/installed_plugins.json and the enabledPlugins list in ~/.claude/settings.json (lines 118-156), then rewrites the paths in its own hooks. Installs that aren't global skip this.",
+        "where": [
+          [
+            "scripts/postinstall.mjs",
+            null
+          ]
+        ],
+        "date": "2026-11-02"
       }
     ],
     "_findings": [
@@ -4280,6 +4421,13 @@
         "level": "benign",
         "note": "src/session/extract.ts:880 pulls the text around a search match out of a tool's response to show you. It stays on your machine.",
         "date": "2026-11-01"
+      },
+      {
+        "match": "bun.sh/install",
+        "file": "scripts/postinstall.mjs",
+        "level": "benign",
+        "note": "scripts/postinstall.mjs:72 is text in an error message: on Linux with Node older than 22.5 the install stops and suggests this command to install Bun. The script never runs it. The script does run on its own at npm install; see the note about Claude Code's plugin files.",
+        "date": "2026-11-02"
       }
     ]
   },
@@ -4363,6 +4511,12 @@
         "level": "benign",
         "note": "scripts/test_collect.py is the skill's test file; line 894 copies the environment to set PYTHONPATH so the tests can import its scripts. It doesn't run when you use the skill.",
         "date": "2026-11-01"
+      },
+      {
+        "file": "scripts/test_sources.py",
+        "level": "benign",
+        "note": "scripts/test_sources.py:155 is a test's docstring: \"ownership checks out, so there is no caveat to report.\" A test file.",
+        "date": "2026-11-02"
       }
     ]
   },
@@ -4638,6 +4792,27 @@
         "level": "benign",
         "note": "src/ui_cm_interface.rs:396 sends a chat message to the person you're connected to, through RustDesk's built-in chat during a session.",
         "date": "2026-11-01"
+      }
+    ]
+  },
+  "blader-humanizer": {
+    "_findings": [
+      {
+        "match": "without warning",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:165-167 is a before-and-after writing example: \"The new policy, announced without warning, affects thousands of workers.\" Sample text for the dash rule, not an instruction.",
+        "date": "2026-11-02"
+      }
+    ]
+  },
+  "alirezarezvani-inbox-triage": {
+    "_findings": [
+      {
+        "file": "scripts/draft_safety_validator.py",
+        "level": "benign",
+        "note": "scripts/draft_safety_validator.py:164 prints a fix-it step if the skill ever sent an email instead of drafting it: \"Patch skill to use draft verb only; re-test.\" Advice for you, part of a check that keeps it from sending.",
+        "date": "2026-11-02"
       }
     ]
   }

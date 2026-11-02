@@ -1260,7 +1260,7 @@ function purposeHTML(l) {
           <div class="stack">${seg.map(([k, , c]) => w[k] ? `<i style="width:${(w[k] / tot) * 100}%;background:${c}"></i>` : '').join('')}</div>
           <ul class="legend">${seg.map(([k, n, c]) => `<li><span class="dotsrc" style="background:${c}"></span>${n}<b>${w[k]}</b></li>`).join('')}</ul>
           <p class="pc-sub">${m.seriousCode} high or critical finding${m.seriousCode === 1 ? '' : 's'} in running code${m.seriousComment ? `, plus ${m.seriousComment} inside code comments (mostly comments describing attacks the code blocks)` : ''}.</p>
-          ${Object.keys(m.other || {}).length ? `<ul class="caps">${Object.entries(m.other).map(([k, o]) => `<li class="cap"><div class="cap-h"><b>${esc(k)}</b><span class="chip ${o.note ? 'c-blue' : 'c-orange'}">${o.n} · ${o.note ? 'Reviewed: benign' : 'Not reviewed'}</span></div>${o.note ? `<p>${esc(o.note)}</p>` : ''}
+          ${Object.keys(m.other || {}).length ? `<ul class="caps">${Object.entries(m.other).map(([k, o]) => `<li class="cap"><div class="cap-h"><b>${esc(k)}</b><span class="chip ${o.note ? 'c-blue' : 'c-orange'}">${o.n} · ${o.note ? 'Scanner false alarm' : 'Not reviewed'}</span></div>${o.note ? `<p>${esc(o.note)}</p>` : ''}
             ${o.ex.map(e => `<a class="ev mono" href="${gh(e[0], e[1])}" target="_blank" rel="noopener"><span>${esc(e[0])}:${e[1]}</span></a>`).join('')}</li>`).join('')}</ul>` : ''}</div>
         <div class="pc-card"><h3>Scanner flags compared with other ${kindWord}</h3>
           <div class="score">${m.findings.density}<small> per 1,000 lines</small></div>

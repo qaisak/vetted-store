@@ -1,0 +1,42 @@
+{
+ "_about": "npm lifecycle scripts (preinstall, install, postinstall) that run on their own when a listing is installed with npm or npx, read from package.json at the scanned commit.",
+ "zcaceres-markdownify-mcp": [
+  {
+   "file": "package.json",
+   "script": "preinstall",
+   "cmd": "node preinstall.js",
+   "refs": [
+    "preinstall.js"
+   ]
+  }
+ ],
+ "wonderwhy-er-desktopcommandermcp": [
+  {
+   "file": "package.json",
+   "script": "postinstall",
+   "cmd": "node dist/track-installation.js && node dist/npm-scripts/verify-ripgrep.js || node -e \"process.exit(0)\"",
+   "refs": [
+    "dist/track-installation.js",
+    "dist/npm-scripts/verify-ripgrep.js"
+   ]
+  }
+ ],
+ "jae-jae-fetcher-mcp": [
+  {
+   "file": "package.json",
+   "script": "postinstall",
+   "cmd": "playwright install chromium",
+   "refs": []
+  }
+ ],
+ "mksglu-context-mode": [
+  {
+   "file": "package.json",
+   "script": "postinstall",
+   "cmd": "node scripts/postinstall.mjs",
+   "refs": [
+    "scripts/postinstall.mjs"
+   ]
+  }
+ ]
+}

@@ -1,6 +1,7 @@
 // Turns data.json (from fetch.mjs) into the compact DATA object embedded in the store page.
 // Usage: node build.mjs data.json template.html out.html
 import fs from 'node:fs';
+import { otherNote } from './filekind.mjs';
 import { findingStatus, isSerious } from './findings.mjs';
 
 const [, , dataPath, tplPath, outPath] = process.argv;
@@ -38,6 +39,8 @@ const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'ast
   'yt-dlp/yt-dlp': 'yt-dlp', 'Wilfred/difftastic': 'difftastic', 'muesli/duf': 'duf', 'ClementTsang/bottom': 'bottom', 'ducaale/xh': 'xh', 'chmln/sd': 'sd' };
 // Hand-written plain-language lines, job tags and setup level (pipeline/plain.json)
 const SOURCES = JSON.parse(fs.readFileSync(new URL('../data/sources.json', import.meta.url), 'utf8'));
+// npm lifecycle scripts that run on their own at install (pipeline/install_hooks.mjs), keyed by data.json listing id
+const HOOKS = fs.existsSync(new URL('../data/install-hooks.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../data/install-hooks.json', import.meta.url), 'utf8')) : {};
 const VIDEOS = fs.existsSync(new URL('../data/videos.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../data/videos.json', import.meta.url), 'utf8')) : {};
 const PLAIN = JSON.parse(fs.readFileSync(new URL('./plain.json', import.meta.url), 'utf8'));
 // Install steps for MCP servers whose README gives a JSON config or several steps instead of one command.
@@ -240,13 +243,16 @@ for (const l of d.listings) {
   const name = SKILL_NAME[`${repo}:${l.slug}`] || niceName(l.kind === 'skill' ? l.name : l.kind === 'mcp' && l.path ? (SUB[l.slug] || l.name) : (NAME[repo] || l.name));
   L.push({ id, k: l.kind, n: name, sl: l.slug, t: tagline(desc), d: desc, r: repo, u: l.url, p: l.path, nv: !!l.nvidia, tr: TRUSTED.has(owner), g: glyphFor(l.slug + ' ' + desc + ' ' + repo), c: colorFor(id),
     lines: l.lines || null, lic: l.license || null, inst, pl: PLAIN[id]?.[0] || null, jb: PLAIN[id]?.[1] || [], lv: PLAIN[id]?.[2] || null,
-    vd: (VIDEOS[l.kind === 'mcp' && l.path ? `${repo}:${l.path}` : repo] || []).map(v => [v.kind, v.url, v.label || null, v.id || null]) });
+    vd: (VIDEOS[l.kind === 'mcp' && l.path ? `${repo}:${l.path}` : repo] || []).map(v => [v.kind, v.url, v.label || null, v.id || null]),
+    ...(HOOKS[l.id] ? { ih: HOOKS[l.id].map(h => ({ f: h.file, s: h.script, c: h.cmd, refs: h.refs })) } : {}) });
   if (!PLAIN[id]) console.error('NO PLAIN TEXT', id);
 }
 
 // Purpose-relative check (from purpose_analyze.mjs) and written reviews (reviews.json)
 const MR = process.argv[6] && fs.existsSync(process.argv[6]) ? JSON.parse(fs.readFileSync(process.argv[6], 'utf8')) : {};
 const REV = JSON.parse(fs.readFileSync(new URL('./reviews.json', import.meta.url), 'utf8'));
+// Notes on scanner patterns are written per kind (filekind.mjs); a skill's findings are explained by a reviewer, shown in its scan section
+for (const m of Object.values(MR)) if (m?.other) for (const [k, o] of Object.entries(m.other)) { if (m.kind === 'skill') delete m.other[k]; else o.note = otherNote(k, m.kind) || o.note; }
 
 // SkillSpector static-scan reports, one JSON per listing id (from scan.mjs).
 // Every high or critical finding carries our review status (findings.mjs), so a page can say plainly what was read and what it was.
@@ -280,7 +286,7 @@ for (const l of L) {
     for (const i of j.issues) {
       by[i.severity] = (by[i.severity] || 0) + 1;
       if (!isSerious(i)) continue;
-      const r = findingStatus(i, { id: l.id, k: l.k }, rev, mr);
+      const r = findingStatus(i, { id: l.id, k: l.k, ih: l.ih }, rev, mr);
       st.set(i, r); rv.n++; rv[r.s]++; if (r.by && r.s !== 'cov') rv[r.by]++;
       if (NT_RANK[r.s] != null && r.n) addNote(r.t || { note: 'Worth knowing', warn: 'A risk to know about', bad: 'Looks harmful' }[r.s], r.n, r.s, i.location?.file ? [[i.location.file, i.location.start_line || null]] : []);
     }

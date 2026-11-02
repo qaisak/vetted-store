@@ -8,6 +8,8 @@ const [, , dataPath, scanDir, purposePath, outPath] = process.argv;
 const d = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 const MR = JSON.parse(fs.readFileSync(purposePath, 'utf8'));
 const REV = JSON.parse(fs.readFileSync(new URL('./reviews.json', import.meta.url), 'utf8'));
+const HF = new URL('../data/install-hooks.json', import.meta.url);
+const HOOKS = fs.existsSync(HF) ? JSON.parse(fs.readFileSync(HF, 'utf8')) : {};
 const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'NVIDIA/SkillSpector': 'SkillSpector' };
 const BUILD_NAME = JSON.parse(process.env.VETTED_NAMES || '{}');
 const out = [];
@@ -24,7 +26,7 @@ for (const l of d.listings) {
   const open = [];
   for (const i of j.issues.filter(isSerious)) {
     if (scope && i.location?.file) i.location.file = `${scope}/${i.location.file.replace(/\\/g, '/')}`;
-    if (findingStatus(i, { id, k: l.kind }, REV[id], MR[id]).s !== 'open') continue;
+    if (findingStatus(i, { id, k: l.kind, ih: HOOKS[l.id] }, REV[id], MR[id]).s !== 'open') continue;
     open.push({ file: i.location?.file || '', line: i.location?.start_line || null, sev: i.severity, rule: `${i.category} / ${i.pattern}`.slice(0, 120), text: String(i.finding || '').replace(/\s+/g, ' ').slice(0, 160) });
   }
   if (open.length) out.push({ id, kind: l.kind, repo: m.full, branch: m.branch, path: l.path || '', scope, open });
