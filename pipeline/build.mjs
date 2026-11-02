@@ -230,6 +230,10 @@ for (const l of d.listings) {
       'localsend/localsend': 'Windows, macOS, Linux, Android', 'upscayl/upscayl': 'Windows, macOS, Linux', 'qarmin/czkawka': 'Windows, macOS, Linux',
       'flameshot-org/flameshot': 'Windows, Linux', 'keepassxreboot/keepassxc': 'Windows, macOS, Linux', 'syncthing/syncthing': 'Windows, macOS, Linux and more',
       'rustdesk/rustdesk': 'Windows, macOS, Linux, Android' };
+    // App stores linked from LocalSend's README (read November 2, 2026): the easiest install for most people, and the only one for iPhone
+    if (repo === 'localsend/localsend') inst.push({ to: 'Windows', how: 'App store', link: 'https://www.microsoft.com/store/apps/9NCB4Z0TZ6RR', linkText: 'Get it from the Microsoft Store' },
+      { to: 'Mac, iPhone and iPad', how: 'App store', link: 'https://apps.apple.com/us/app/localsend/id1661733229', linkText: 'Get it from the App Store' },
+      { to: 'Android', how: 'App store', link: 'https://play.google.com/store/apps/details?id=org.localsend.localsend_app', linkText: 'Get it on Google Play', note: 'Also on F-Droid and Amazon, its README says.' });
     if (DESKTOP[repo]) inst.push({ to: DESKTOP[repo], how: 'Download', link: `https://github.com/${repo}/releases/latest`, linkText: 'Download from GitHub', note: 'Pick the installer for your computer from the latest release.' });
     // Browser extension and home-server installs, from each README (November 1, 2026)
     if (repo === 'gorhill/uBlock') inst.push({ to: 'Firefox', how: 'Add-on', link: 'https://addons.mozilla.org/addon/ublock-origin/', linkText: 'Get it from Firefox Add-ons' },

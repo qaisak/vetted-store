@@ -96,6 +96,34 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.evaluate(() => document.querySelector('[data-focus]').click()); await p.waitForTimeout(200);
   await p.evaluate(() => document.querySelector('#panel [data-focusreset]').click()); await p.waitForTimeout(200);
   ok(await p.evaluate(() => !document.querySelector('.focusbar') && localStorage.getItem('vetted-focus') === JSON.stringify({ jobs: [], kinds: [], ai: [], os: null, level: 3 })), 'reset clears the focus');
+  // Install sheet follows the computer: a Windows user sees Windows cards first, never a Homebrew-only card on top
+  await p.evaluate(() => { FOCUS = { ...FOCUS0, os: 'Windows' }; saveFocus(); });
+  await p.goto(url + '#gitleaks'); await p.reload(); await p.waitForTimeout(300);
+  await p.click('.product-head [data-get]'); await p.waitForTimeout(200);
+  ok(/Windows/.test(await p.evaluate(() => document.querySelector('#sheet .inst-card b').textContent)), 'a Windows user gets a Windows install first');
+  await p.evaluate(() => document.getElementById('sheet').close()); await p.waitForTimeout(200);
+  await p.evaluate(() => { FOCUS = { ...FOCUS0 }; saveFocus(); });
+  // Search ideas for every job find something
+  const empty = await p.evaluate(() => Object.values(JOB_SUGGEST).flat().filter(q => !searchHits(q).length && !(correct(q) && searchHits(correct(q)).length)));
+  ok(!empty.length, 'every search idea finds listings ' + empty.join(', '));
+  ok(await p.evaluate(() => !correct('zoom')), 'zoom is not corrected to an unrelated word');
+  // My list: save, list page, share link opens read-only, setup link applies a focus
+  await p.goto(url + '#ripgrep'); await p.reload(); await p.waitForTimeout(300);
+  await p.click('.product-head [data-save]'); await p.waitForTimeout(150);
+  await p.goto(url + '#fzf'); await p.waitForTimeout(200); await p.click('.product-head [data-save]'); await p.waitForTimeout(150);
+  await p.goto(url + '#list'); await p.waitForTimeout(300);
+  const lst = await p.evaluate(() => ({ rows: document.querySelectorAll('#main .rowlist .row').length, cmp: document.querySelectorAll('#main table.cmp tbody tr').length, all: (document.querySelector('#install-all code')?.textContent || '').split('\n').length, md: listMarkdown(LIST.map(id => BY[id])) }));
+  ok(lst.rows === 2 && lst.cmp === 2 && lst.all === 2, `My list shows rows, a comparison and install-all (${lst.rows}, ${lst.cmp}, ${lst.all})`);
+  ok(/## ripgrep[\s\S]*Our check:[\s\S]*Vetted page:/.test(lst.md), 'Markdown summary has each listing');
+  await p.goto(url + '#list=jq,bat,not-a-listing'); await p.waitForTimeout(300);
+  ok(await p.evaluate(() => /A shared list/.test(document.querySelector('#main h1').textContent) && document.querySelectorAll('#main .rowlist .row').length === 2), 'a shared list link opens that list');
+  await p.goto(url + '#setup?jobs=design&ai=cursor&os=Windows'); await p.waitForTimeout(300);
+  ok(await p.evaluate(() => location.hash === '#today' && FOCUS.jobs[0] === 'design' && FOCUS.ai[0] === 'cursor' && FOCUS.os === 'Windows' && S.agent === 'cursor'), 'a setup link applies Make it yours');
+  await p.evaluate(() => { FOCUS = { ...FOCUS0 }; saveFocus(); LIST = []; saveList(); });
+  await p.goto(url + '#caught'); await p.waitForTimeout(300);
+  ok(await p.evaluate(() => document.querySelectorAll('#main .caught-item').length >= 10), 'What we caught lists the reviewed notes');
+  await p.goto(url + '#anthropics-invoice-chase'); await p.waitForTimeout(300);
+  ok(await p.evaluate(() => /Who owes me money/i.test(document.querySelector('.try')?.textContent || '')), 'a skill shows what to ask, quoted from its description');
   ok(!errs.length, 'no page errors ' + errs.join('; '));
   await b.close();
 })();

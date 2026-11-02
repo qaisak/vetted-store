@@ -24,7 +24,7 @@ for (const [label, viewport, scheme] of [['desktop', { width: 1280, height: 860 
   await page.goto(url);
   await page.waitForSelector('#main .page');
   const ids = await page.evaluate(() => L.map(l => l.id));
-  const tabs = await page.evaluate(() => [...TABS.map(t => t[0]), ...JOBS.map(j => 'for-' + j[0]), ...KITS.map(k => 'kit-' + k[0])]);
+  const tabs = await page.evaluate(() => [...TABS.map(t => t[0]), ...PAGES, ...JOBS.map(j => 'for-' + j[0]), ...KITS.map(k => 'kit-' + k[0])]);
   const missingKit = await page.evaluate(() => KITS.flatMap(k => k[5].map(([id]) => id).filter(id => !BY[id]).map(id => k[0] + ': ' + id)));
   if (missingKit.length) fail(label, 'kit items not in the catalog: ' + missingKit.join(', '));
   const overflow = async where => {
@@ -32,12 +32,15 @@ for (const [label, viewport, scheme] of [['desktop', { width: 1280, height: 860 
     if (o > 1) fail(`${label} ${where}`, `horizontal overflow ${o}px`);
   };
   for (const t of tabs) {
+    // My list is checked with a few listings saved: one skill, one connector, one app
+    if (t === 'list') await page.evaluate(() => { LIST = ['anthropics-pptx', 'mcp-context7', 'ripgrep'].filter(id => BY[id]); });
     await page.evaluate(t => { location.hash = t; }, t);
     await page.waitForTimeout(60);
     const txt = await page.evaluate(() => document.getElementById('main').innerText.trim().length);
     if (txt < 200) fail(`${label} #${t}`, 'page looks empty');
     await overflow('#' + t);
     if (shots) await page.screenshot({ path: `${shots}/${label}-tab-${t}.png`, fullPage: false });
+    if (t === 'list') await page.evaluate(() => { LIST = []; });
   }
   // Search
   await page.evaluate(() => { location.hash = 'search'; });
