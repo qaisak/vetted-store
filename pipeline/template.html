@@ -228,6 +228,8 @@ a.story { color: #FFFFFF; }
 .caught-row .chip { flex: none; }
 .caught-item p { margin: 6px 0 14px 60px; font-size: 14px; color: var(--label2); line-height: 1.45; }
 .hidden-note { font-size: 14px; color: var(--label2); margin: 0 0 14px; }
+.job-card.none { opacity: .62; }
+.job-card.none .s { color: var(--orange); }
 #install-all .note { display: block; font-size: 13px; color: var(--label2); margin: 8px 0 0; line-height: 1.45; }
 .hidden-note .text-btn { font-size: 14px; }
 /* My list, compare, install all */
@@ -653,7 +655,7 @@ const KIND = { skill: 'Agent Skill', mcp: 'Connector (MCP server)', tool: 'App' 
 const KINDS = { skill: 'Skills', mcp: 'Connectors', tool: 'Apps' };
 // Jobs people do; each listing's tags are hand-written in pipeline/plain.json
 const JOBS = [
-  ['everyday', 'Everyday & home', 'Photos, video, files, music and your TV', 'play', ['#BE185D', '#F43F5E']],
+  ['everyday', 'Everyday & home', 'Photos, files, money, cooking, job hunting and your smart home', 'play', ['#BE185D', '#F43F5E']],
   ['vibe', 'Building with AI', 'For vibe coders: plan, build and check apps with your assistant', 'spark', ['#7C3AED', '#C026D3']],
   ['dev', 'Developers', 'Write, review, test and ship code', 'code', ['#2563EB', '#0EA5E9']],
   ['design', 'Designers', 'Figma, interfaces, art and visuals', 'pen', ['#DB2777', '#F97316']],
@@ -993,8 +995,20 @@ function flagTotals() {
 }
 
 const byJob = k => L.filter(l => (l.jb || []).includes(k));
-const jobCard = ([k, t, sub, g, c]) => `<a class="job-card" href="#for-${k}"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span>
-  <span style="min-width:0"><b>${esc(t)}</b><span class="s">${esc(sub)}</span></span><span class="n">${vis(byJob(k)).length}</span></a>`;
+// A job card never shows a bare 0: when the viewer's settings hide everything in it, it says why
+function noneWhy(all) {
+  const kinds = [...new Set(all.map(l => l.k))];
+  if (FOCUS.kinds.length && !kinds.some(k => FOCUS.kinds.includes(k))) return `Only ${andList(kinds.map(k => KINDS[k].toLowerCase()))} here, and you picked ${andList(FOCUS.kinds.map(k => KINDS[k].toLowerCase()))}`;
+  // Which one setting hides everything: try each with the others kept
+  const tryWith = patch => { const keep = FOCUS; FOCUS = { ...FOCUS, ...patch }; const n = all.filter(fits).length; FOCUS = keep; return n; };
+  if (FOCUS.level < 3 && tryWith({ level: 3 })) return `Everything here needs more setup than "${LEVEL_OPTS.find(o => o[0] === FOCUS.level)[1]}"`;
+  if (FOCUS.os && tryWith({ os: null })) return `Nothing here runs on ${OS_OPTS.find(o => o[0] === FOCUS.os)[1]} yet`;
+  if (FOCUS.ai.includes('none') && tryWith({ ai: [] })) return 'Everything here works with an AI assistant';
+  return 'Nothing here fits your settings yet';
+}
+const jobCard = ([k, t, sub, g, c]) => { const all = byJob(k), n = vis(all).length, none = filtering() && !n;
+  return `<a class="job-card${none ? ' none' : ''}" href="#for-${k}"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span>
+  <span style="min-width:0"><b>${esc(t)}</b><span class="s">${esc(none ? noneWhy(all) : sub)}</span></span><span class="n">${none ? '' : n}</span></a>`; };
 function startHere() {
   const n = k => L.filter(l => l.k === k).length;
   return `<section class="shelf"><div class="shelf-head"><h2>What you'll find here</h2></div>
@@ -1641,7 +1655,9 @@ const fits = l => (!FOCUS.kinds.length || FOCUS.kinds.includes(l.k)) && (FOCUS.l
   && !(FOCUS.ai.length === 1 && FOCUS.ai[0] === 'none' && l.k !== 'tool');
 const jobScore = l => (l.jb || []).filter(j => FOCUS.jobs.includes(j)).length;
 const vis = list => filtering() ? list.filter(fits) : list;
-const jobsFirst = () => [...JOBS.filter(([k]) => FOCUS.jobs.includes(k)), ...JOBS.filter(([k]) => !FOCUS.jobs.includes(k))];
+// The viewer's jobs first, and jobs with nothing that fits their settings last
+const jobsFirst = () => { const has = k => !filtering() || vis(byJob(k)).length > 0;
+  return [...JOBS.filter(([k]) => FOCUS.jobs.includes(k) && has(k)), ...JOBS.filter(([k]) => !FOCUS.jobs.includes(k) && has(k)), ...JOBS.filter(([k]) => !has(k))]; };
 function focusSummary() {
   const parts = [FOCUS.jobs.map(j => JOB[j][1]).join(', '), FOCUS.kinds.map(k => KIND_OPTS.find(x => x[0] === k)[1]).join(', '),
     FOCUS.ai.map(a => AI_OPTS.find(x => x[0] === a)[1]).join(', '), FOCUS.os && OS_OPTS.find(x => x[0] === FOCUS.os)[1], FOCUS.level < 3 && LEVEL_OPTS.find(x => x[0] === FOCUS.level)[1]];

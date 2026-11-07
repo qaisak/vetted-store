@@ -163,9 +163,12 @@ for (const l of d.listings) {
     // Claude app (claude.ai, desktop, mobile): upload the skill folder as a ZIP in Customize > Skills
     // (support.claude.com/en/articles/12512180, checked November 1, 2026). Anthropic's own skills are built in.
     const folder = l.path.split('/').pop();
-    inst.push({ to: 'Claude app', how: 'Upload', dl: `https://github.com/${repo}/archive/refs/heads/${m.branch}.zip`,
-      steps: ['Download the project as a ZIP with the button below, and unzip it.', `Find the folder ${repoName}-${m.branch}/${l.path}.`,
-        ...(folder !== l.slug ? [`Rename that folder to ${l.slug} (the upload needs the folder named like the skill).`] : []),
+    // A skill whose name has spaces ("Home Assistant YAML") needs quotes on the command line, and keeps its folder name
+    const q = s => /\s/.test(s) ? `"${s}"` : s;
+    // Cooklang's skills only work with its Cook server, which a Claude app upload doesn't include
+    if (repo !== 'cooklang/cooklang-skills') inst.push({ to: 'Claude app', how: 'Upload', dl: `https://github.com/${repo}/archive/refs/heads/${m.branch}.zip`,
+      steps: ['Download the project as a ZIP with the button below, and unzip it.', `Find the folder ${repoName}-${m.branch}${l.path ? '/' + l.path : ''}.`,
+        ...(folder !== l.slug && !/\s/.test(l.slug) ? [`Rename that folder to ${l.slug} (the upload needs the folder named like the skill).`] : []),
         `Zip just that folder.`, 'In Claude, open Customize → Skills, click +, choose Create skill, then Upload a skill, and pick your ZIP.'],
       note: 'Needs "Code execution and file creation" turned on in Settings → Capabilities. Works on Free, Pro, Max, Team and Enterprise plans.' });
     if (owner === 'anthropics') {
@@ -175,10 +178,15 @@ for (const l of d.listings) {
     }
     if (owner === 'obra') inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin install superpowers@claude-plugins-official'], note: 'Run inside Claude Code. Installs the whole Superpowers pack.' });
     if (owner === 'huggingface') inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin marketplace add huggingface/skills'], note: 'Run inside Claude Code, then choose plugins from /plugin.' });
-    if (!TRUSTED.has(owner) && owner !== 'obra' && l.readmeInstall?.plugin)
+    // Cooklang's skills need its Cook server, which only the plugin installs (README, read November 7, 2026)
+    if (repo === 'cooklang/cooklang-skills') inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin marketplace add cooklang/cooklang-skills', '/plugin install cooklang@cooklang-skills'],
+      note: 'Run inside Claude Code. Adds all its skills and the Cook server that reads your recipe folder. Needs Node.js; there are no Windows builds yet, its README says.' });
+    else if (repo === 'tonylofgren/aurora-smart-home') inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin marketplace add tonylofgren/aurora-smart-home', '/plugin install aurora@aurora-smart-home'],
+      note: 'From the project\'s README. Run inside Claude Code. Installs the whole Aurora smart home pack, which includes this skill.' });
+    else if (!TRUSTED.has(owner) && owner !== 'obra' && l.readmeInstall?.plugin)
       inst.push({ to: 'Claude Code', how: 'Plugin', cmds: [l.readmeInstall.plugin], note: 'From the project\'s README. Run inside Claude Code, then pick what to install from /plugin.' });
     if (owner === 'openai') inst.push({ to: 'Codex', how: 'Built-in installer', cmds: [/\.curated\//.test(l.path) ? `$skill-installer ${l.slug}` : `$skill-installer install https://github.com/${repo}/tree/${m.branch}/${l.path}`], note: 'Type this inside Codex.' });
-    inst.push({ to: 'Any agent', how: 'skills CLI', agentCmd: `npx skills add ${repo} --skill ${l.slug}`, note: 'Uses the open skills CLI. Pick the agent to install into.' });
+    inst.push({ to: 'Any agent', how: 'skills CLI', agentCmd: `npx skills add ${repo} --skill ${q(l.slug)}`, note: repo === 'cooklang/cooklang-skills' ? 'Adds the skill only. It also needs the Cook server, which the plugin sets up; its README shows how to add it to other clients.' : 'Uses the open skills CLI. Pick the agent to install into.' });
     inst.push({ scan: true, cmds: [`git clone --depth 1 https://github.com/${repo}`, `skillspector scan ${repoName}/${l.path} --no-llm`] });
   } else if (l.kind === 'mcp') {
     const run = l.npxPkg ? `npx -y ${l.npxPkg}${l.slug === 'filesystem' ? ' /path/to/allowed/folder' : ''}` : l.uvxPkg ? `uvx ${l.uvxPkg}` : null;
@@ -257,7 +265,7 @@ for (const l of d.listings) {
     if (!inst.length || repo === 'cli/cli' || repo === 'jqlang/jq') if (!DESKTOP[repo]) inst.push({ to: 'All platforms', how: 'Install guide', link: repo === 'jqlang/jq' ? 'https://github.com/jqlang/jq/releases' : repo === 'cli/cli' ? 'https://github.com/cli/cli#installation' : repo === 'yt-dlp/yt-dlp' ? 'https://github.com/yt-dlp/yt-dlp#installation' : `https://github.com/${repo}#readme`, note: repo === 'jqlang/jq' ? 'Download the binary for your platform from the releases page.' : 'Follow the project\'s install guide.' });
   }
   // Skills whose folder name isn't the name the project goes by (from each README)
-  const SKILL_NAME = { 'heygen-com/hyperframes:hyperframes': 'HyperFrames', 'earthtojake/text-to-cad:cad': 'Text-to-CAD', 'Leonxlnx/taste-skill:design-taste-frontend': 'Taste Skill',
+  const SKILL_NAME = { 'zubair-trabzada/ai-finance-claude:finance-debt': 'Debt Payoff Strategy', 'zubair-trabzada/ai-finance-claude:finance-goals': 'Financial Goal Planner', 'heygen-com/hyperframes:hyperframes': 'HyperFrames', 'earthtojake/text-to-cad:cad': 'Text-to-CAD', 'Leonxlnx/taste-skill:design-taste-frontend': 'Taste Skill',
     'AgriciDaniel/claude-seo:seo': 'Claude SEO', 'AgriciDaniel/claude-seo:seo-audit': 'SEO Audit', 'AgriciDaniel/claude-seo:seo-local': 'Local SEO', 'cloudflare/security-audit-skill:security-audit': 'Security Audit',
     'trailofbits/skills:sharp-edges': 'Sharp Edges', 'anthropics/knowledge-work-plugins:triage-nda': 'NDA Triage' };
   const name = SKILL_NAME[`${repo}:${l.slug}`] || niceName(l.kind === 'skill' ? l.name : l.kind === 'mcp' && l.path ? (SUB[l.slug] || l.name) : (NAME[repo] || l.name));

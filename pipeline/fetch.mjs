@@ -82,6 +82,13 @@ const SKILL_REPOS = [
     'plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor', 'plugins/agentic-actions-auditor/skills/agentic-actions-auditor', 'plugins/variant-analysis/skills/variant-analysis'] },
   { repo: 'anthropics/knowledge-work-plugins', pick: ['small-business/skills/invoice-chase', 'small-business/skills/cash-flow-snapshot', 'small-business/skills/tax-season-organizer',
     'small-business/skills/proposal-builder', 'small-business/skills/review-reputation', 'small-business/skills/job-post-builder', 'small-business/skills/contract-review', 'legal/skills/triage-nda'] },
+  // Everyday & home had no skills, November 7, 2026: job hunting, money, travel, cooking, health, smart home and family
+  { repo: 'Paramchoudhary/ResumeSkills', pick: ['skills/resume-tailor', 'skills/cover-letter-generator', 'skills/interview-prep-generator', 'skills/salary-negotiation-prep', 'skills/offer-comparison-analyzer'] },
+  { repo: 'zubair-trabzada/ai-finance-claude', pick: ['skills/finance-debt', 'skills/finance-goals'] },
+  { repo: 'komal-SkyNET/claude-skill-homeassistant', pick: ['skills/home-assistant-manager'] },
+  { repo: 'tonylofgren/aurora-smart-home', pick: ['home-assistant'] },
+  { repo: 'ericporres/family-assistant-skill', pick: [''] },
+  { repo: 'cooklang/cooklang-skills', pick: ['skills/recipe-import', 'skills/meal-planning', 'skills/shopping-list'] },
 ];
 const MCP = [
   { repo: 'modelcontextprotocol/servers', sub: ['everything', 'fetch', 'filesystem', 'git', 'memory', 'sequentialthinking', 'time'] },

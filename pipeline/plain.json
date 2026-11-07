@@ -1148,7 +1148,8 @@
     "Shapes your assistant's replies for ADHD: next step first, numbered steps, no tangents.",
     [
       "office",
-      "writing"
+      "writing",
+      "everyday"
     ],
     1
   ],
@@ -2516,5 +2517,106 @@
       "office"
     ],
     1
+  ],
+  "paramchoudhary-resume-tailor": [
+    "Rewrites your resume for one job posting, putting your most relevant real experience first. It won't make anything up.",
+    [
+      "everyday",
+      "writing"
+    ],
+    1
+  ],
+  "paramchoudhary-cover-letter-generator": [
+    "Writes a cover letter from your resume and the job description, in your own voice.",
+    [
+      "everyday",
+      "writing"
+    ],
+    1
+  ],
+  "paramchoudhary-interview-prep-generator": [
+    "Turns your resume into likely interview questions, with stories from your own experience to answer them.",
+    [
+      "everyday",
+      "writing"
+    ],
+    1
+  ],
+  "paramchoudhary-salary-negotiation-prep": [
+    "Helps you negotiate a job offer: what to ask for, the full pay package, and what to say in the counter-offer.",
+    [
+      "everyday",
+      "business"
+    ],
+    1
+  ],
+  "paramchoudhary-offer-comparison-analyzer": [
+    "Compares job offers side by side: total pay, benefits, and the things that matter to you.",
+    [
+      "everyday",
+      "data"
+    ],
+    1
+  ],
+  "zubair-trabzada-finance-debt": [
+    "Builds a plan to pay off your debts, biggest interest first or smallest balance first, with how long it takes and what you save. Not financial advice.",
+    [
+      "everyday",
+      "data"
+    ],
+    1
+  ],
+  "zubair-trabzada-finance-goals": [
+    "Plans how to save for a goal like a house deposit, a car or a trip: how much a month, by when, and where to keep it. Not financial advice.",
+    [
+      "everyday",
+      "data"
+    ],
+    1
+  ],
+  "komal-skynet-home-assistant-manager": [
+    "Lets a coding assistant change your Home Assistant setup, check it, push it live over SSH and confirm it worked.",
+    [
+      "everyday",
+      "devops"
+    ],
+    3
+  ],
+  "tonylofgren-home-assistant-yaml": [
+    "Writes Home Assistant automations, scripts and dashboards in the current format, after asking what you want.",
+    [
+      "everyday",
+      "devops"
+    ],
+    2
+  ],
+  "ericporres-family-assistant": [
+    "A template you fill in with your family's details, so your assistant can fill out school, medical and insurance forms for you.",
+    [
+      "everyday",
+      "office"
+    ],
+    2
+  ],
+  "cooklang-recipe-import": [
+    "Saves a recipe from a web page, photos or pasted text into your Cooklang recipe collection.",
+    [
+      "everyday"
+    ],
+    2
+  ],
+  "cooklang-meal-planning": [
+    "Plans a week of meals from your own Cooklang recipes, with servings and nutrition targets if you want them.",
+    [
+      "everyday"
+    ],
+    2
+  ],
+  "cooklang-shopping-list": [
+    "Makes a grocery list from your recipes or meal plan, grouped by store aisle, minus what's already in your pantry.",
+    [
+      "everyday"
+    ],
+    2
   ]
 }

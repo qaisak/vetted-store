@@ -4815,5 +4815,267 @@
         "date": "2026-11-02"
       }
     ]
+  },
+  "paramchoudhary-cover-letter-generator": {
+    "_findings": [
+      {
+        "match": "apologize",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:214 is cover-letter advice: \"When You're Underqualified: Don't apologize. Instead, emphasize transferable skills.\" Writing tips, not an instruction to your assistant to drop its rules.",
+        "date": "2026-11-07"
+      }
+    ]
+  },
+  "komal-skynet-home-assistant-manager": {
+    "_findings": [
+      {
+        "match": "secrets.yaml",
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:18 is a protective rule: \"Never read/write .env or secrets.yaml; use !secret.\" It keeps the assistant away from your Home Assistant passwords.",
+        "date": "2026-11-07"
+      }
+    ]
+  },
+  "tonylofgren-home-assistant-yaml": {
+    "_findings": [
+      {
+        "file": "references/blueprint-prompts.md",
+        "level": "benign",
+        "note": "references/blueprint-prompts.md is a list of 50 example requests titled \"Blueprint Prompt 1\" and so on. The scanner read \"print Prompt\" inside the word \"Blueprint\". Nothing tries to extract instructions.",
+        "date": "2026-11-07"
+      },
+      {
+        "file": "SKILL.md",
+        "level": "benign",
+        "note": "SKILL.md:138 and 260 mention \"blueprint instructions\" and \"50 blueprint prompts\"; the scanner read \"print\" inside \"blueprint\".",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "secrets.yaml",
+        "file": "references/backup-restore-migration.md",
+        "level": "benign",
+        "note": "Home Assistant keeps passwords and API keys in secrets.yaml and refers to them with !secret. These guides tell you to put credentials there and keep it out of version control (e.g. references/best-practices.md:533, configuration.md:26).",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "secrets.yaml",
+        "file": "references/best-practices.md",
+        "level": "benign",
+        "note": "Home Assistant keeps passwords and API keys in secrets.yaml and refers to them with !secret. These guides tell you to put credentials there and keep it out of version control (e.g. references/best-practices.md:533, configuration.md:26).",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "secrets.yaml",
+        "file": "references/configuration.md",
+        "level": "benign",
+        "note": "Home Assistant keeps passwords and API keys in secrets.yaml and refers to them with !secret. These guides tell you to put credentials there and keep it out of version control (e.g. references/best-practices.md:533, configuration.md:26).",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "secrets.yaml",
+        "file": "references/dashboards.md",
+        "level": "benign",
+        "note": "Home Assistant keeps passwords and API keys in secrets.yaml and refers to them with !secret. These guides tell you to put credentials there and keep it out of version control (e.g. references/best-practices.md:533, configuration.md:26).",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "secrets.yaml",
+        "file": "references/esphome-patterns.md",
+        "level": "benign",
+        "note": "Home Assistant keeps passwords and API keys in secrets.yaml and refers to them with !secret. These guides tell you to put credentials there and keep it out of version control (e.g. references/best-practices.md:533, configuration.md:26).",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "secrets.yaml",
+        "file": "references/integrations-cameras.md",
+        "level": "benign",
+        "note": "Home Assistant keeps passwords and API keys in secrets.yaml and refers to them with !secret. These guides tell you to put credentials there and keep it out of version control (e.g. references/best-practices.md:533, configuration.md:26).",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "secrets.yaml",
+        "file": "references/integrations-esphome.md",
+        "level": "benign",
+        "note": "Home Assistant keeps passwords and API keys in secrets.yaml and refers to them with !secret. These guides tell you to put credentials there and keep it out of version control (e.g. references/best-practices.md:533, configuration.md:26).",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "secrets.yaml",
+        "file": "references/troubleshooting.md",
+        "level": "benign",
+        "note": "Home Assistant keeps passwords and API keys in secrets.yaml and refers to them with !secret. These guides tell you to put credentials there and keep it out of version control (e.g. references/best-practices.md:533, configuration.md:26).",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "get.hacs.xyz",
+        "file": "references/custom-components.md",
+        "level": "notice",
+        "title": "Its guides install HACS and Ollama with downloaded scripts",
+        "note": "references/hacs-popular.md:36 and custom-components.md:76 install HACS with \"wget -O - https://get.hacs.xyz | bash -\", and integrations-ai-llm.md:30 and voice-assistants.md:779 install Ollama with \"curl -fsSL https://ollama.com/install.sh | sh\". These are the install methods those projects document, but they run a script straight from the internet.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "get.hacs.xyz",
+        "file": "references/hacs-popular.md",
+        "level": "notice",
+        "title": "Its guides install HACS and Ollama with downloaded scripts",
+        "note": "references/hacs-popular.md:36 and custom-components.md:76 install HACS with \"wget -O - https://get.hacs.xyz | bash -\", and integrations-ai-llm.md:30 and voice-assistants.md:779 install Ollama with \"curl -fsSL https://ollama.com/install.sh | sh\". These are the install methods those projects document, but they run a script straight from the internet.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "ollama.com/install.sh",
+        "file": "references/integrations-ai-llm.md",
+        "level": "notice",
+        "title": "Its guides install HACS and Ollama with downloaded scripts",
+        "note": "references/hacs-popular.md:36 and custom-components.md:76 install HACS with \"wget -O - https://get.hacs.xyz | bash -\", and integrations-ai-llm.md:30 and voice-assistants.md:779 install Ollama with \"curl -fsSL https://ollama.com/install.sh | sh\". These are the install methods those projects document, but they run a script straight from the internet.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "ollama.com/install.sh",
+        "file": "references/voice-assistants.md",
+        "level": "notice",
+        "title": "Its guides install HACS and Ollama with downloaded scripts",
+        "note": "references/hacs-popular.md:36 and custom-components.md:76 install HACS with \"wget -O - https://get.hacs.xyz | bash -\", and integrations-ai-llm.md:30 and voice-assistants.md:779 install Ollama with \"curl -fsSL https://ollama.com/install.sh | sh\". These are the install methods those projects document, but they run a script straight from the internet.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "| sh",
+        "file": "references/integrations-ai-llm.md",
+        "level": "notice",
+        "title": "Its guides install HACS and Ollama with downloaded scripts",
+        "note": "references/hacs-popular.md:36 and custom-components.md:76 install HACS with \"wget -O - https://get.hacs.xyz | bash -\", and integrations-ai-llm.md:30 and voice-assistants.md:779 install Ollama with \"curl -fsSL https://ollama.com/install.sh | sh\". These are the install methods those projects document, but they run a script straight from the internet.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "| sh",
+        "file": "references/voice-assistants.md",
+        "level": "notice",
+        "title": "Its guides install HACS and Ollama with downloaded scripts",
+        "note": "references/hacs-popular.md:36 and custom-components.md:76 install HACS with \"wget -O - https://get.hacs.xyz | bash -\", and integrations-ai-llm.md:30 and voice-assistants.md:779 install Ollama with \"curl -fsSL https://ollama.com/install.sh | sh\". These are the install methods those projects document, but they run a script straight from the internet.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "Access Token",
+        "file": "references/custom-components.md",
+        "level": "benign",
+        "note": "Setup steps for integrations that need a token you create, such as \"Requires Personal Access Token from SmartThings\" (references/integrations-common.md:587) and Node-RED's long-lived access token (integrations-nodered.md:106). Nothing reads tokens on its own.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "Access Token",
+        "file": "references/integrations-common.md",
+        "level": "benign",
+        "note": "Setup steps for integrations that need a token you create, such as \"Requires Personal Access Token from SmartThings\" (references/integrations-common.md:587) and Node-RED's long-lived access token (integrations-nodered.md:106). Nothing reads tokens on its own.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "Access Token",
+        "file": "references/integrations-nodered.md",
+        "level": "benign",
+        "note": "Setup steps for integrations that need a token you create, such as \"Requires Personal Access Token from SmartThings\" (references/integrations-common.md:587) and Node-RED's long-lived access token (integrations-nodered.md:106). Nothing reads tokens on its own.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "Get API key from",
+        "file": "references/integrations-ai-llm.md",
+        "level": "benign",
+        "note": "Setup steps such as \"Get API key from platform.openai.com\" (references/integrations-ai-llm.md:135) for integrations you choose to add. You paste the key into Home Assistant yourself.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "Get API key from",
+        "file": "references/voice-assistants.md",
+        "level": "benign",
+        "note": "Setup steps such as \"Get API key from platform.openai.com\" (references/integrations-ai-llm.md:135) for integrations you choose to add. You paste the key into Home Assistant yourself.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "Get API key from",
+        "file": "references/weather-integration.md",
+        "level": "benign",
+        "note": "Setup steps such as \"Get API key from platform.openai.com\" (references/integrations-ai-llm.md:135) for integrations you choose to add. You paste the key into Home Assistant yourself.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "Access Secret",
+        "file": "references/integrations-tuya.md",
+        "level": "benign",
+        "note": "references/integrations-tuya.md:55 tells you to note your Tuya cloud project's Client ID and Client Secret (\"Access Secret\") to link the integration. Setup instructions.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "Disable security",
+        "file": "references/integrations-ai-llm.md",
+        "level": "benign",
+        "note": "The match comes from an example safety prompt in references/integrations-ai-llm.md:217-223: \"NEVER: Unlock doors without explicit confirmation, Disable security systems\". A rule that protects you.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "privileged: true",
+        "file": "references/integrations-bluetooth.md",
+        "level": "benign",
+        "note": "Docker Compose examples for Bluetooth (references/integrations-bluetooth.md:56) and Frigate (integrations-frigate.md:32) set privileged: true so the container can use USB and Bluetooth adapters, as those projects document. You'd add it to your own setup only if you run them in Docker.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "privileged: true",
+        "file": "references/integrations-frigate.md",
+        "level": "benign",
+        "note": "Docker Compose examples for Bluetooth (references/integrations-bluetooth.md:56) and Frigate (integrations-frigate.md:32) set privileged: true so the container can use USB and Bluetooth adapters, as those projects document. You'd add it to your own setup only if you run them in Docker.",
+        "date": "2026-11-07"
+      },
+      {
+        "file": "references/integrations-tasmota.md",
+        "level": "benign",
+        "note": "references/integrations-tasmota.md:279 lists Tasmota console commands (\"Rule1 # Show Rule1\"). Device commands, not prompt extraction.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "rm -rf /",
+        "file": "references/troubleshooting.md",
+        "level": "benign",
+        "note": "references/troubleshooting.md:1120 documents a manual factory reset, \"rm -rf /config/*\", which deletes your Home Assistant configuration (it lists the files to keep first). It's shown as a step you choose to run during a reset, not something the skill does on its own.",
+        "date": "2026-11-07"
+      },
+      {
+        "match": "access token",
+        "file": "references/integrations-nodered.md",
+        "level": "benign",
+        "note": "references/integrations-nodered.md:1171 is a setup checklist item: \"Long-lived access token generated\", the token you create so Node-RED can talk to Home Assistant.",
+        "date": "2026-11-07"
+      }
+    ],
+    "_notices": [
+      {
+        "title": "One troubleshooting step prints your secrets file",
+        "level": "notice",
+        "note": "references/troubleshooting.md:201 checks the secrets file with \"cat /config/secrets.yaml\", which shows every password and key in it. If your assistant runs that for you over SSH, they end up in the chat.",
+        "where": [
+          [
+            "references/troubleshooting.md",
+            null
+          ]
+        ],
+        "date": "2026-11-07"
+      }
+    ]
+  },
+  "ericporres-family-assistant": {
+    "_notices": [
+      {
+        "title": "You fill it with your family's private details",
+        "level": "notice",
+        "note": "It's a template: you write your family's names, birthdays, medical details, insurance policy numbers and bank details into its references/ files so the assistant can fill in forms. Keep the filled-in folder private, and remember that uploading it to the Claude app stores those details with your Claude account. The template asks for only the last 4 digits of account numbers.",
+        "where": [
+          [
+            "references/finance.md",
+            null
+          ]
+        ],
+        "date": "2026-11-07"
+      }
+    ]
   }
 }
