@@ -124,6 +124,14 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(await p.evaluate(() => document.querySelectorAll('#main .caught-item').length >= 10), 'What we caught lists the reviewed notes');
   await p.goto(url + '#anthropics-invoice-chase'); await p.waitForTimeout(300);
   ok(await p.evaluate(() => /Who owes me money/i.test(document.querySelector('.try')?.textContent || '')), 'a skill shows what to ask, quoted from its description');
+  // Tested: the test page shows every contestant's page for each brief, and its screenshots load
+  await p.goto(url + '#test-design-2026-11'); await p.waitForTimeout(400);
+  await p.evaluate(() => document.querySelectorAll('.test-card img').forEach(i => i.loading = 'eager'));
+  await p.waitForFunction(() => [...document.querySelectorAll('.test-card img')].every(i => i.complete), null, { timeout: 15000 }).catch(() => {});
+  const tp = await p.evaluate(() => ({ cards: document.querySelectorAll('.test-card').length, broken: [...document.querySelectorAll('.test-card img')].filter(i => !i.naturalWidth).length, win: document.querySelector('.verdict-box .row-txt b')?.textContent }));
+  ok(tp.cards === 10 && tp.broken === 0 && tp.win === 'Impeccable', `test page: 10 pages, screenshots load, verdict leads with the winner (${tp.cards}, ${tp.broken} broken, ${tp.win})`);
+  await p.goto(url + '#pbakaus-impeccable'); await p.waitForTimeout(300);
+  ok(await p.evaluate(() => /Our pick/.test(document.querySelector('.tested-box')?.textContent || '') && document.querySelector('.tested-box').getAttribute('href') === '#test-design-2026-11'), 'a tested listing links to its test');
   ok(!errs.length, 'no page errors ' + errs.join('; '));
   await b.close();
 })();

@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rosa's Bakery · Weekend pastry pre-orders in Lisbon</title>
+<meta name="description" content="Rosa's is a neighbourhood bakery in Lisbon. Pre-order pastéis de nata, pão de Deus, travesseiros and more for Saturday or Sunday pickup.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloock&family=Schibsted+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cobalt: #1d3f9e;
+    --cobalt-deep: #0f2263;
+    --cobalt-ink: #0b1a4d;
+    --butter: #f7d774;
+    --butter-soft: #fbe9a8;
+    --paper: #fbf7ec;
+    --paper-shade: #efe8d3;
+    --crust: #cf5a24;
+    --display: "Gloock", "Bodoni 72", "Didot", Georgia, serif;
+    --body: "Schibsted Grotesk", "Helvetica Neue", Arial, sans-serif;
+    --ease: cubic-bezier(.16, 1, .3, 1);
+    --gutter: clamp(1.25rem, 4vw, 3.5rem);
+    --tile: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='96' height='96' viewBox='0 0 96 96'%3E%3Cg fill='none' stroke='%23F7D774' stroke-opacity='.3' stroke-width='1.5'%3E%3Cpath d='M48 6 90 48 48 90 6 48Z'/%3E%3Ccircle cx='48' cy='48' r='16'/%3E%3Cpath d='M48 32v32M32 48h32'/%3E%3C/g%3E%3Cg fill='%23F7D774' fill-opacity='.3'%3E%3Ccircle cx='0' cy='0' r='5'/%3E%3Ccircle cx='96' cy='0' r='5'/%3E%3Ccircle cx='0' cy='96' r='5'/%3E%3Ccircle cx='96' cy='96' r='5'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; scroll-padding-top: 5rem; scrollbar-color: var(--cobalt) var(--paper-shade); }
+  body {
+    margin: 0; font-family: var(--body); font-size: 1.0625rem; line-height: 1.55;
+    color: var(--cobalt-ink); background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection { background: var(--butter); color: var(--cobalt-ink); }
+  ::-webkit-scrollbar { width: 12px; }
+  ::-webkit-scrollbar-track { background: var(--paper-shade); }
+  ::-webkit-scrollbar-thumb { background: var(--cobalt); border: 3px solid var(--paper-shade); border-radius: 8px; }
+  :focus-visible { outline: 3px solid var(--crust); outline-offset: 3px; border-radius: 4px; }
+  .on-blue :focus-visible { outline-color: var(--butter); }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; text-underline-offset: .22em; text-decoration-thickness: 1.5px; }
+  h1, h2, h3 { font-family: var(--display); font-weight: 400; line-height: 1.02; letter-spacing: -.01em; margin: 0; text-wrap: balance; }
+  p { margin: 0; text-wrap: pretty; }
+  .wrap { max-width: 78rem; margin-inline: auto; padding-inline: var(--gutter); }
+  .skip { position: absolute; left: -999px; top: .5rem; background: var(--butter); color: var(--cobalt-ink); padding: .6rem 1rem; z-index: 50; font-weight: 600; }
+  .skip:focus { left: .5rem; }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: .6rem; font: 600 1rem/1 var(--body);
+    padding: 1rem 1.5rem; border-radius: 999px; border: 2px solid transparent; cursor: pointer;
+    text-decoration: none; transition: transform .35s var(--ease), background-color .25s, color .25s, box-shadow .35s var(--ease);
+  }
+  .btn-butter { background: var(--butter); color: var(--cobalt-ink); box-shadow: 0 6px 18px -6px rgba(5, 12, 50, .6); }
+  .btn-butter:hover { background: var(--butter-soft); transform: translateY(-2px); box-shadow: 0 12px 22px -8px rgba(5, 12, 50, .6); }
+  .btn-blue { background: var(--cobalt); color: var(--paper); }
+  .btn-blue:hover { background: var(--cobalt-deep); transform: translateY(-2px); }
+  .btn-blue:disabled { background: #8d9bc7; cursor: not-allowed; transform: none; }
+  .btn-line { border-color: var(--paper); color: var(--paper); }
+  .btn-line:hover { background: var(--paper); color: var(--cobalt); }
+  .btn svg { width: 1.1em; height: 1.1em; }
+
+  /* ---------- header + hero ---------- */
+  .hero { background-color: var(--cobalt); background-image: var(--tile); color: var(--paper); position: relative; overflow: hidden; }
+  .hero::after { /* fade the tiles out toward the content */
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(120% 90% at 20% 45%, var(--cobalt) 30%, rgba(29, 63, 158, 0) 78%);
+  }
+  .hero > * { position: relative; z-index: 1; }
+  .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-block: 1.4rem; }
+  .brand { font-family: var(--display); font-size: 1.75rem; text-decoration: none; letter-spacing: -.01em; }
+  .brand span { color: var(--butter); }
+  .nav ul { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; }
+  .nav ul a { text-decoration: none; font-weight: 500; padding-block: .4rem; background: linear-gradient(var(--butter), var(--butter)) 0 100% / 0 2px no-repeat; transition: background-size .35s var(--ease); }
+  .nav ul a:hover { background-size: 100% 2px; }
+  .nav .btn { padding: .75rem 1.2rem; font-size: .95rem; }
+
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, .85fr); gap: clamp(2rem, 6vw, 5rem); align-items: center; padding-block: clamp(2.5rem, 7vw, 6rem) clamp(4rem, 9vw, 8rem); }
+  .hero h1 { font-size: clamp(3.1rem, 8.2vw, 6rem); }
+  .hero h1 em { font-style: normal; color: var(--butter); }
+  .hero .lede { margin-top: 1.75rem; max-width: 34rem; font-size: 1.2rem; color: #e4e9fb; }
+  .hero-actions { margin-top: 2.25rem; display: flex; flex-wrap: wrap; gap: .9rem; }
+  .hero-note { margin-top: 1.75rem; font-size: .95rem; color: #c9d3f4; }
+
+  /* the example ticket in the hero */
+  .ticket-demo { transform: rotate(2.2deg); justify-self: center; width: min(100%, 22rem); animation: slot 1.1s var(--ease) .15s both; }
+  @keyframes slot { from { transform: translateY(-2.5rem) rotate(-3deg); opacity: 0; clip-path: inset(0 0 100% 0); } to { transform: rotate(2.2deg); opacity: 1; clip-path: inset(0 0 0 0); } }
+
+  /* ---------- ticket (shared) ---------- */
+  .ticket {
+    --notch: 9px;
+    background: var(--paper); color: var(--cobalt-ink); position: relative;
+    -webkit-mask: radial-gradient(circle var(--notch) at 0 var(--cut, 70%), #0000 98%, #000) left / 51% 100% no-repeat,
+                  radial-gradient(circle var(--notch) at 100% var(--cut, 70%), #0000 98%, #000) right / 51% 100% no-repeat;
+            mask: radial-gradient(circle var(--notch) at 0 var(--cut, 70%), #0000 98%, #000) left / 51% 100% no-repeat,
+                  radial-gradient(circle var(--notch) at 100% var(--cut, 70%), #0000 98%, #000) right / 51% 100% no-repeat;
+    filter: drop-shadow(0 18px 22px rgba(5, 12, 50, .35));
+  }
+  .ticket-body, .ticket-stub { padding: 1.4rem 1.5rem; }
+  .ticket-head { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; border-bottom: 2px solid var(--cobalt-ink); padding-bottom: .8rem; }
+  .ticket-head b { font-family: var(--display); font-weight: 400; font-size: 1.35rem; }
+  .ticket-head span { font-variant-numeric: tabular-nums; font-weight: 600; font-size: .9rem; letter-spacing: .04em; }
+  .ticket-meta { display: flex; justify-content: space-between; font-size: .85rem; padding-block: .6rem; color: #35487f; }
+  .ticket-lines { list-style: none; margin: .2rem 0 0; padding: 0; min-height: 7.5rem; }
+  .ticket-lines li { display: flex; align-items: baseline; gap: .5rem; padding-block: .32rem; font-weight: 500; }
+  .ticket-lines .dots { flex: 1; border-bottom: 2px dotted #9aa6cf; transform: translateY(-.25em); }
+  .ticket-lines .q { font-variant-numeric: tabular-nums; font-weight: 700; }
+  .ticket-lines li.new { animation: print .55s var(--ease); }
+  @keyframes print { from { clip-path: inset(0 100% 0 0); opacity: .2; } to { clip-path: inset(0 0 0 0); opacity: 1; } }
+  .ticket-empty { color: #5a6a9c; font-style: italic; padding-block: .4rem; }
+  .ticket-total { display: flex; justify-content: space-between; align-items: baseline; border-top: 2px solid var(--cobalt-ink); margin-top: .6rem; padding-top: .7rem; font-weight: 700; }
+  .ticket-total output { font-family: var(--display); font-size: 1.6rem; font-weight: 400; font-variant-numeric: tabular-nums; }
+  .ticket-stub { border-top: 2px dashed #9aa6cf; background: var(--paper-shade); }
+
+  /* ---------- how it works ---------- */
+  section { padding-block: clamp(4rem, 9vw, 7.5rem); }
+  .steps-head { max-width: 40rem; }
+  h2 { font-size: clamp(2.3rem, 5vw, 3.75rem); }
+  .steps { list-style: none; margin: 3rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 2px solid var(--cobalt-ink); }
+  .steps li { padding: 1.6rem 2rem 0 0; }
+  .steps li + li { padding-left: 2rem; border-left: 2px solid var(--cobalt-ink); }
+  .steps .n { font-family: var(--display); font-size: 3.2rem; line-height: 1; color: var(--cobalt); }
+  .steps h3 { font-size: 1.6rem; margin-top: .8rem; }
+  .steps p { margin-top: .6rem; color: #2c3f77; max-width: 22rem; }
+
+  /* ---------- order ---------- */
+  .order { background: var(--butter); position: relative; }
+  .order-head { max-width: 44rem; }
+  .order-head p { margin-top: 1rem; font-size: 1.15rem; }
+  .order-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(19rem, .8fr); gap: clamp(2rem, 5vw, 4.5rem); margin-top: 3rem; align-items: start; }
+  .items { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem 1.25rem; }
+  .item { display: grid; grid-template-columns: 5.5rem 1fr; gap: 1rem; align-items: center; background: var(--paper); border-radius: 6px; padding: .9rem 1rem .9rem .9rem; transition: box-shadow .35s var(--ease), transform .35s var(--ease); }
+  .item:hover { transform: translateY(-3px); box-shadow: 0 14px 24px -14px rgba(11, 26, 77, .55); }
+  .item.has { box-shadow: inset 0 0 0 2px var(--cobalt); }
+  .tile { width: 5.5rem; aspect-ratio: 1; background: var(--tile-bg, #fff); border: 2px solid var(--cobalt); border-radius: 4px; display: grid; place-items: center; background-image: radial-gradient(circle at 0 0, var(--cobalt) 0 .55rem, transparent .56rem), radial-gradient(circle at 100% 0, var(--cobalt) 0 .55rem, transparent .56rem), radial-gradient(circle at 0 100%, var(--cobalt) 0 .55rem, transparent .56rem), radial-gradient(circle at 100% 100%, var(--cobalt) 0 .55rem, transparent .56rem); background-color: #fff; }
+  .tile svg { width: 70%; height: 70%; }
+  .item h3 { font-size: 1.3rem; }
+  .item .pt { font-size: .85rem; color: #4a5c92; font-style: italic; }
+  .item p.d { font-size: .95rem; line-height: 1.4; margin-top: .3rem; color: #2c3f77; }
+  .stepper { display: inline-flex; align-items: center; margin-top: .7rem; border: 2px solid var(--cobalt); border-radius: 999px; overflow: hidden; }
+  .stepper button { width: 2.5rem; height: 2.5rem; border: 0; background: transparent; color: var(--cobalt); font: 600 1.4rem/1 var(--body); cursor: pointer; transition: background-color .2s, color .2s; }
+  .stepper button:hover:not(:disabled) { background: var(--cobalt); color: var(--paper); }
+  .stepper button:disabled { color: #aab3d3; cursor: not-allowed; }
+  .stepper output { min-width: 2.2rem; text-align: center; font-weight: 700; font-variant-numeric: tabular-nums; }
+
+  .ticket-col { position: sticky; top: 5.5rem; }
+  .ticket-col .ticket { --cut: 78%; }
+  .ticket-col fieldset { border: 0; padding: 0; margin: 0 0 1rem; }
+  .ticket-col legend { font-weight: 600; font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; padding: 0 0 .4rem; }
+  .days { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+  .days label { position: relative; }
+  .days input { position: absolute; opacity: 0; inset: 0; cursor: pointer; }
+  .days span { display: block; text-align: center; padding: .65rem; border: 2px solid var(--cobalt); border-radius: 6px; font-weight: 600; transition: background-color .2s, color .2s; }
+  .days input:checked + span { background: var(--cobalt); color: var(--paper); }
+  .days input:focus-visible + span { outline: 3px solid var(--crust); outline-offset: 3px; }
+  .field { display: block; margin-bottom: .85rem; }
+  .field > span { display: block; font-weight: 600; font-size: .85rem; letter-spacing: .04em; text-transform: uppercase; margin-bottom: .3rem; }
+  .field input { width: 100%; font: 500 1rem var(--body); color: var(--cobalt-ink); background: var(--paper); border: 0; border-bottom: 2px solid var(--cobalt-ink); border-radius: 0; padding: .55rem .1rem; caret-color: var(--crust); }
+  .field input::placeholder { color: #66769f; }
+  .field input:focus { outline: none; background: #fff; border-bottom-color: var(--crust); box-shadow: 0 2px 0 var(--crust); }
+  .field input[aria-invalid="true"] { border-bottom-color: #b3261e; }
+  .msg { min-height: 1.4rem; font-size: .92rem; font-weight: 600; color: #a1221b; margin-bottom: .6rem; }
+  .msg.ok { color: #1d5a35; }
+  .stub-fine { font-size: .82rem; margin-top: .8rem; color: #35487f; }
+  .btn.wide { width: 100%; justify-content: center; }
+
+  .bar { display: none; }
+
+  /* ---------- close ---------- */
+  .close { background: var(--cobalt-deep); color: var(--paper); background-image: var(--tile); }
+  .close-in { display: grid; grid-template-columns: 1.1fr .9fr; gap: 3rem; align-items: end; }
+  .close h2 { font-size: clamp(2.6rem, 6vw, 4.8rem); }
+  .close h2 em { font-style: normal; color: var(--butter); }
+  .close p { color: #d6ddf6; max-width: 28rem; }
+  .close .btn { margin-top: 1.5rem; }
+  footer { background: var(--cobalt-ink); color: #b9c4ee; padding-block: 1.6rem; font-size: .92rem; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 2rem; }
+  footer a { color: var(--butter); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 62rem) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .ticket-demo { justify-self: start; margin-left: .5rem; }
+    .order-grid { grid-template-columns: 1fr; }
+    .ticket-col { position: static; max-width: 28rem; }
+    .close-in { grid-template-columns: 1fr; align-items: start; }
+    .bar { display: flex; position: fixed; z-index: 20; left: 1rem; right: 1rem; bottom: 1rem; justify-content: space-between; align-items: center; background: var(--cobalt); color: var(--paper); border-radius: 999px; padding: .55rem .55rem .55rem 1.3rem; box-shadow: 0 14px 28px -10px rgba(5, 12, 50, .7); font-weight: 600; transform: translateY(150%); transition: transform .5s var(--ease); }
+    .bar.show { transform: none; }
+    .bar a { background: var(--butter); color: var(--cobalt-ink); text-decoration: none; padding: .7rem 1.1rem; border-radius: 999px; }
+    footer { padding-bottom: 5.5rem; }
+  }
+  @media (max-width: 46rem) {
+    .nav ul { display: none; }
+    .steps { grid-template-columns: 1fr; border-top: 0; }
+    .steps li, .steps li + li { padding: 1.4rem 0; border-left: 0; border-top: 2px solid var(--cobalt-ink); }
+    .items { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#order">Skip to the pre-order</a>
+
+<header class="hero on-blue">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="brand" href="#top" id="top">Rosa's<span>.</span></a>
+      <ul>
+        <li><a href="#how">How it works</a></li>
+        <li><a href="#order">The weekend list</a></li>
+      </ul>
+      <a class="btn btn-butter" href="#order">Pre-order</a>
+    </nav>
+
+    <div class="hero-grid">
+      <div>
+        <h1>Weekend pastries, <em>set aside</em> with your name on&nbsp;them.</h1>
+        <p class="lede">Rosa's is a neighbourhood bakery in Lisbon. Tell us what you'd like by the end of the week, and a bag will be waiting on Saturday or Sunday morning.</p>
+        <div class="hero-actions">
+          <a class="btn btn-butter" href="#order">Start your order
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>
+          </a>
+          <a class="btn btn-line" href="#how">How it works</a>
+        </div>
+        <p class="hero-note">Pré-encomendas de fim de semana · Weekend pre-orders</p>
+      </div>
+
+      <div class="ticket ticket-demo" style="--cut: 74%" role="img" aria-label="Example order ticket: 6 pastéis de nata, 2 pão de Deus, 1 pão de ló. Nine pieces for Saturday.">
+        <div class="ticket-body" aria-hidden="true">
+          <div class="ticket-head"><b>Rosa's Bakery</b><span>Nº 014</span></div>
+          <div class="ticket-meta"><span>Example order</span><span>Saturday</span></div>
+          <ul class="ticket-lines" style="min-height:0">
+            <li><span>Pastel de nata</span><span class="dots"></span><span class="q">× 6</span></li>
+            <li><span>Pão de Deus</span><span class="dots"></span><span class="q">× 2</span></li>
+            <li><span>Pão de ló</span><span class="dots"></span><span class="q">× 1</span></li>
+          </ul>
+          <div class="ticket-total"><span>Pieces</span><output>9</output></div>
+        </div>
+        <div class="ticket-stub" aria-hidden="true"><b style="font-family:var(--display);font-weight:400;font-size:1.3rem">For Marta</b><div class="stub-fine" style="margin-top:.2rem">Collect Saturday morning</div></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section id="how">
+    <div class="wrap">
+      <div class="steps-head"><h2>Three steps, and the bag is&nbsp;yours.</h2></div>
+      <ol class="steps">
+        <li><div class="n" aria-hidden="true">1</div><h3>Pick your pastries</h3><p>Choose from the weekend list below. Add as many of each as you like.</p></li>
+        <li><div class="n" aria-hidden="true">2</div><h3>Choose Saturday or Sunday</h3><p>Leave your name and a way to reach you. Your ticket is sent to the bakery.</p></li>
+        <li><div class="n" aria-hidden="true">3</div><h3>Collect it warm</h3><p>Give your name at the counter and take your bag. No queue for the shelf.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="order" id="order">
+    <div class="wrap">
+      <div class="order-head">
+        <h2>The weekend list</h2>
+        <p>Everything here is baked for the weekend. Add pieces and watch your ticket fill in.</p>
+      </div>
+
+      <div class="order-grid">
+        <ul class="items" id="items" aria-label="Weekend pastries"></ul>
+
+        <div class="ticket-col" id="ticket-col">
+          <form class="ticket" id="form" novalidate aria-labelledby="ticket-title">
+            <div class="ticket-body">
+              <div class="ticket-head"><b id="ticket-title">Your ticket</b><span>Nº <span id="tno">000</span></span></div>
+              <fieldset>
+                <legend>Pickup day</legend>
+                <div class="days">
+                  <label><input type="radio" name="day" value="Saturday" checked><span>Saturday</span></label>
+                  <label><input type="radio" name="day" value="Sunday"><span>Sunday</span></label>
+                </div>
+              </fieldset>
+              <ul class="ticket-lines" id="lines" aria-live="polite"></ul>
+              <div class="ticket-total"><span>Pieces</span><output id="total" for="items">0</output></div>
+            </div>
+            <div class="ticket-stub">
+              <label class="field"><span>Name for the bag</span><input name="name" autocomplete="name" placeholder="Marta" required></label>
+              <label class="field"><span>Email or phone</span><input name="contact" autocomplete="email" placeholder="So we can reach you" required></label>
+              <div class="msg" id="msg" role="status" aria-live="polite"></div>
+              <button class="btn btn-blue wide" type="submit">Send my pre-order</button>
+              <p class="stub-fine">This opens an email to the bakery with your ticket filled in. Send it and we'll reply to confirm.</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="close on-blue">
+    <div class="wrap close-in">
+      <h2>Saturday morning, <em>sorted.</em></h2>
+      <div>
+        <p>Skip the guessing at the counter. Order a few days ahead and the good things will still be there.</p>
+        <a class="btn btn-butter" href="#order">Back to the weekend list</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="on-blue">
+  <div class="wrap">
+    <span>Rosa's Bakery · Lisbon</span>
+    <span>Orders: <a href="mailto:ola@rosasbakery.pt">ola@rosasbakery.pt</a></span>
+  </div>
+</footer>
+
+<div class="bar" id="bar" aria-hidden="true"><span><span id="barn">0</span> pieces on your ticket</span><a href="#ticket-col" tabindex="-1">View ticket</a></div>
+
+<script>
+(function () {
+  var B = 'stroke="#1d3f9e" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"';
+  var ICONS = {
+    nata: '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="25" fill="#fbf7ec" ' + B + ' stroke-dasharray="7 4"/><circle cx="32" cy="32" r="17" fill="#f7d774" ' + B + '/><circle cx="26" cy="28" r="2.6" fill="#cf5a24"/><circle cx="37" cy="35" r="3" fill="#cf5a24"/><circle cx="31" cy="39" r="1.8" fill="#cf5a24"/></svg>',
+    deus: '<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="9" y="17" width="46" height="30" rx="14" fill="#f7d774" ' + B + '/><g fill="#fbf7ec"><circle cx="21" cy="29" r="2.3"/><circle cx="31" cy="25" r="2.3"/><circle cx="42" cy="29" r="2.3"/><circle cx="26" cy="37" r="2.3"/><circle cx="37" cy="38" r="2.3"/></g></svg>',
+    travesseiro: '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M7 32c0-9 11-15 25-15s25 6 25 15-11 15-25 15S7 41 7 32Z" fill="#f7d774" ' + B + '/><path d="M16 26c10 5 22 5 32 0M16 38c10-5 22-5 32 0" fill="none" ' + B + '/><path d="M3 26l7 6-7 6M61 26l-7 6 7 6" fill="none" ' + B + '/></svg>',
+    queijada: '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="25" fill="#f7d774" stroke="#1d3f9e" stroke-width="7" stroke-dasharray="5 4"/><circle cx="32" cy="32" r="17" fill="#fbf7ec" ' + B + '/><path d="M32 22v20M22 32h20" ' + B + ' fill="none"/></svg>',
+    bola: '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="24" fill="#f7d774" ' + B + '/><path d="M10 31c14 5 30 5 44 0" fill="none" ' + B + '/><path d="M10 34c14 5 30 5 44 0" fill="#fbf7ec" stroke="none"/><g fill="#fbf7ec"><circle cx="22" cy="20" r="1.8"/><circle cx="34" cy="16" r="1.8"/><circle cx="43" cy="22" r="1.8"/><circle cx="30" cy="25" r="1.8"/></g></svg>',
+    lo: '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M9 46V33C9 21 19 14 32 14s23 7 23 19v13Z" fill="#f7d774" ' + B + '/><path d="M9 41c5 4 9 4 14 0s9-4 14 0 9 4 14 0 4-1 4-1" fill="none" ' + B + '/><path d="M22 28c3-3 6-3 9 0M34 25c3-3 6-3 9 0" fill="none" ' + B + '/></svg>'
+  };
+  var ITEMS = [
+    { id: 'nata', name: 'Pastel de nata', pt: 'Pastéis de nata', d: 'Flaky shell, custard blistered dark on top.' },
+    { id: 'deus', name: 'Pão de Deus', pt: 'Pão de Deus', d: 'Soft sweet bun under a blanket of coconut.' },
+    { id: 'travesseiro', name: 'Travesseiro', pt: 'Travesseiros', d: 'Puff pastry pillow with almond and egg cream.' },
+    { id: 'queijada', name: 'Queijada', pt: 'Queijadas', d: 'Small and tender, cheese, sugar and cinnamon.' },
+    { id: 'bola', name: 'Bola de Berlim', pt: 'Bola de Berlim', d: 'Sugared doughnut split and filled with egg cream.' },
+    { id: 'lo', name: 'Pão de ló', pt: 'Pão de ló', d: 'Whole sponge cake, barely set in the middle.' }
+  ];
+  var MAX = 24, qty = {};
+  var $ = function (s) { return document.querySelector(s); };
+  var list = $('#items'), lines = $('#lines'), totalEl = $('#total'), bar = $('#bar'), barn = $('#barn');
+  var justAdded = null;
+
+  $('#tno').textContent = String(Math.floor(10 + Math.random() * 89)).padStart(3, '0');
+
+  list.innerHTML = ITEMS.map(function (it) {
+    qty[it.id] = 0;
+    return '<li class="item" id="item-' + it.id + '"><div class="tile">' + ICONS[it.id] + '</div><div>' +
+      '<h3>' + it.name + '</h3><p class="d">' + it.d + '</p>' +
+      '<div class="stepper" role="group" aria-label="' + it.name + ' quantity">' +
+      '<button type="button" data-id="' + it.id + '" data-dir="-1" aria-label="Remove one ' + it.name + '" disabled>&minus;</button>' +
+      '<output id="q-' + it.id + '" aria-live="polite">0</output>' +
+      '<button type="button" data-id="' + it.id + '" data-dir="1" aria-label="Add one ' + it.name + '">+</button>' +
+      '</div></div></li>';
+  }).join('');
+
+  list.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) return;
+    var id = b.dataset.id, next = qty[id] + Number(b.dataset.dir);
+    if (next < 0 || next > MAX) return;
+    qty[id] = next; justAdded = id; render();
+  });
+
+  function total() { return ITEMS.reduce(function (s, it) { return s + qty[it.id]; }, 0); }
+
+  function render() {
+    ITEMS.forEach(function (it) {
+      var q = qty[it.id], row = $('#item-' + it.id);
+      $('#q-' + it.id).textContent = q;
+      row.classList.toggle('has', q > 0);
+      row.querySelector('[data-dir="-1"]').disabled = q === 0;
+      row.querySelector('[data-dir="1"]').disabled = q === MAX;
+    });
+    var picked = ITEMS.filter(function (it) { return qty[it.id] > 0; });
+    lines.innerHTML = picked.length ? picked.map(function (it) {
+      return '<li' + (it.id === justAdded ? ' class="new"' : '') + '><span>' + it.name + '</span><span class="dots"></span><span class="q">× ' + qty[it.id] + '</span></li>';
+    }).join('') : '<li class="ticket-empty">Nothing yet. Add a pastry from the list.</li>';
+    var t = total();
+    totalEl.textContent = t; barn.textContent = t;
+    bar.classList.toggle('show', t > 0 && !ticketVisible);
+    justAdded = null;
+  }
+
+  // mobile bar shows only while the ticket is off-screen
+  var ticketVisible = false;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (en) {
+      ticketVisible = en[0].isIntersecting;
+      bar.classList.toggle('show', total() > 0 && !ticketVisible);
+    }).observe($('#ticket-col'));
+  }
+
+  var form = $('#form'), msg = $('#msg');
+  function say(t, ok) { msg.textContent = t; msg.classList.toggle('ok', !!ok); }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = form.name.value.trim(), contact = form.contact.value.trim();
+    form.name.removeAttribute('aria-invalid'); form.contact.removeAttribute('aria-invalid');
+    if (!total()) { say('Add at least one pastry to your ticket first.'); return; }
+    if (!name) { form.name.setAttribute('aria-invalid', 'true'); say('Add a name so we can label the bag.'); form.name.focus(); return; }
+    if (!contact) { form.contact.setAttribute('aria-invalid', 'true'); say('Add an email or phone number so we can confirm.'); form.contact.focus(); return; }
+    var body = ['Pre-order Nº ' + $('#tno').textContent, 'Pickup: ' + form.day.value, ''].concat(
+      ITEMS.filter(function (it) { return qty[it.id] > 0; }).map(function (it) { return qty[it.id] + ' × ' + it.name; }),
+      ['', 'Total pieces: ' + total(), 'Name: ' + name, 'Contact: ' + contact]).join('\n');
+    say('Opening your email app. Press send there to place the order.', true);
+    window.location.href = 'mailto:ola@rosasbakery.pt?subject=' + encodeURIComponent('Weekend pre-order for ' + name + ' (' + form.day.value + ')') + '&body=' + encodeURIComponent(body);
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>

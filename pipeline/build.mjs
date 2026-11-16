@@ -354,10 +354,36 @@ if (TR) for (const k of ['daily', 'weekly', 'monthly']) TR[k] = (TR[k] || []).fi
 const DGD = new URL('../data/digests/', import.meta.url);
 const DG = fs.existsSync(DGD) ? fs.readdirSync(DGD).filter(f => f.endsWith('.json')).map(f => JSON.parse(fs.readFileSync(new URL(f, DGD), 'utf8'))).sort((a, b) => b.to.localeCompare(a.to) || a.type.localeCompare(b.type)) : [];
 
-const DATA = { gen: d.generated.slice(0, 10), L, R, AV: d.avatars, SC, MR, TR, DG };
+// Head-to-head tests (tests/<id>/results.json): the same task for several skills and plain Claude, judged blind. Newest first.
+const TD = new URL('../tests/', import.meta.url);
+const TESTS = fs.existsSync(TD) ? fs.readdirSync(TD).filter(d => fs.existsSync(new URL(`${d}/results.json`, TD))).map(d => JSON.parse(fs.readFileSync(new URL(`${d}/results.json`, TD), 'utf8')))
+  .map(t => ({ ...t, contestants: t.contestants.filter(c => !c.listing || L.some(l => l.id === c.listing)) })).sort((a, b) => b.date.localeCompare(a.date)) : [];
+const DATA = { gen: d.generated.slice(0, 10), L, R, AV: d.avatars, SC, MR, TR, DG, TESTS };
 const json = JSON.stringify(DATA).replace(/</g, '\\u003c');
 const tpl = fs.readFileSync(tplPath, 'utf8');
 // A function replacement, so "$'" or "$&" inside scanned text is inserted literally
 fs.writeFileSync(outPath, tpl.replace('/*__DATA__*/null', () => json));
+
+// The Checkup's copy of Vetted's checks (checkup/skills/vetted-checkup/vetted-data.json): every listed skill with its label and notes,
+// plus groups of skills that do the same job, so the Checkup can say "you have two of these, keep one".
+const CHECKUP_DIR = new URL('../checkup/skills/vetted-checkup/', import.meta.url);
+if (fs.existsSync(CHECKUP_DIR)) {
+  const GROUPS = {
+    'design-look': ['the same job: making pages look designed, not generated', ['anthropics-frontend-design', 'leonxlnx-design-taste-frontend', 'pbakaus-impeccable', 'nutlope-hallmark']],
+    'humanize': ['the same job: making AI text sound human', ['blader-humanizer', 'wshobson-avoid-ai-writing']],
+    'seo-audit': ['the same job: auditing a site for SEO', ['agricidaniel-seo', 'agricidaniel-seo-audit', 'alirezarezvani-seo-audit']],
+    'debugging': ['the same job: finding the cause of a bug', ['obra-systematic-debugging', 'addyosmani-debugging-and-error-recovery']],
+  };
+  const groupOf = id => Object.entries(GROUPS).find(([, [, ids]]) => ids.includes(id));
+  // The label a listing gets on the site (one scale: no issues, things to know, risks, flagged)
+  const label = l => { const nt = l.nt || [], w = nt.filter(x => x.lv === 'warn').length, n = nt.filter(x => x.lv === 'note').length, bad = nt.some(x => x.lv === 'bad');
+    return bad ? 'Looks harmful' : MR[l.id]?.verdict === 'flag' ? 'Flagged' : MR[l.id]?.verdict === 'review' ? 'Does more than stated' : w ? `${w} risk${w > 1 ? 's' : ''} to know` : n ? `${n} thing${n > 1 ? 's' : ''} to know` : 'No issues found'; };
+  const data = { generated: DATA.gen, site: 'https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG',
+    listings: L.filter(l => l.k === 'skill').map(l => { const g = groupOf(l.id);
+      return { id: l.id, slug: l.sl, name: l.n, description: String(l.d || '').slice(0, 400), repo: l.r, path: l.p, label: label(l),
+        notes: (l.nt || []).map(x => ({ title: x.t, level: x.lv })), ...(g ? { group: g[0], groupLabel: g[1][0] } : {}) }; }) };
+  fs.writeFileSync(new URL('vetted-data.json', CHECKUP_DIR), JSON.stringify(data) + '\n');
+  console.error('checkup data:', data.listings.length, 'skills');
+}
 console.error('listings', L.length, 'skills', L.filter(x => x.k === 'skill').length, 'mcp', L.filter(x => x.k === 'mcp').length, 'tools', L.filter(x => x.k === 'tool').length,
   'scanned', Object.keys(SC).length, 'serious reviewed', reviewedTotal, 'open', openTotal, 'anth plugins mapped', Object.keys(anthPlugin).length, 'hn kept', Object.values(R).reduce((a, r) => a + (r.hn?.length || 0), 0), 'bytes', fs.statSync(outPath).size);

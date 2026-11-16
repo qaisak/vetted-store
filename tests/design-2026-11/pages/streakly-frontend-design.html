@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Streakly: habits that survive a busy family</title>
+<meta name="description" content="Streakly is a habit tracker for busy parents. Check in during a 30-second window, skip a rough day without losing your streak, and share habits with your household.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --door:#EDF2F0; --ink:#10303A; --ink-soft:#3F5C65; --yellow:#FFCB3D; --coral:#E5493A; --mint:#B9E2CF; --paper:#FFFFFF;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--door);color:var(--ink);font:400 1.0625rem/1.6 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--coral);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);line-height:1.02;letter-spacing:-.025em;font-weight:800}
+h1{font-size:clamp(2.7rem,6.4vw,5rem)}
+h2{font-size:clamp(2rem,4vw,3rem)}
+h3{font-size:1.4rem;line-height:1.15;letter-spacing:-.015em;font-weight:700}
+p{max-width:60ch}
+
+/* header */
+.top{display:flex;justify-content:space-between;align-items:center;padding:22px 0}
+.logo{font:800 1.5rem var(--display);letter-spacing:-.03em;text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo i{width:14px;height:14px;border-radius:50%;background:var(--coral);display:inline-block}
+.btn{display:inline-block;font:600 1rem var(--body);padding:.85rem 1.4rem;border-radius:999px;background:var(--ink);color:var(--door);text-decoration:none;border:0;cursor:pointer;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn.small{padding:.55rem 1.1rem;font-size:.95rem}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;padding:48px 0 96px}
+.hero p.lead{font-size:1.25rem;margin:24px 0 32px;color:var(--ink-soft)}
+.hero .note-small{margin-top:14px;font-size:.95rem;color:var(--ink-soft)}
+
+/* the chart */
+.chart{background:var(--paper);border-radius:6px;padding:26px 24px 22px;box-shadow:0 1px 0 rgba(16,48,58,.1),0 18px 40px -18px rgba(16,48,58,.35);position:relative;transform:rotate(1.2deg)}
+.chart::before,.chart::after{content:"";position:absolute;top:-10px;width:30px;height:30px;border-radius:50%;background:var(--coral);box-shadow:inset -4px -5px 0 rgba(0,0,0,.15)}
+.chart::before{left:28px}.chart::after{right:28px;background:var(--ink)}
+.chart-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px;font-weight:600}
+.chart-head span:last-child{font-size:.9rem;color:var(--ink-soft);font-weight:500}
+.days,.row{display:grid;grid-template-columns:minmax(120px,1.6fr) repeat(7,1fr) 44px;gap:6px;align-items:center}
+.days{font-size:.8rem;color:var(--ink-soft);text-align:center;margin-bottom:6px}
+.row{padding:8px 0;border-top:1px solid #DDE6E3}
+.row .name{font-weight:600;font-size:.95rem;line-height:1.25}
+.cell{aspect-ratio:1;width:100%;max-width:38px;justify-self:center;border-radius:50%;border:2px solid #C8D6D2;background:transparent;cursor:pointer;padding:0;transition:background .15s,border-color .15s,transform .15s}
+.cell:hover{border-color:var(--ink)}
+.cell[aria-pressed="true"]{background:var(--ink);border-color:var(--ink)}
+.cell.today{border-color:var(--coral);border-width:3px}
+.cell.today[aria-pressed="true"]{background:var(--coral)}
+.cell:active{transform:scale(.88)}
+.streak{font:800 1.3rem var(--display);text-align:right}
+.streak small{display:block;font:500 .65rem var(--body);color:var(--ink-soft);margin-top:-4px}
+.chart-foot{margin-top:12px;font-size:.9rem;color:var(--ink-soft);min-height:1.5em}
+
+/* fridge notes */
+section.block{padding:96px 0}
+.intro{margin-bottom:56px}
+.intro p{margin-top:16px;font-size:1.15rem;color:var(--ink-soft)}
+.notes{display:grid;grid-template-columns:repeat(12,1fr);gap:28px;align-items:start}
+.note{padding:28px;border-radius:4px;box-shadow:0 14px 28px -16px rgba(16,48,58,.4)}
+.note p{margin-top:10px}
+.n1{grid-column:1 / 7;background:var(--yellow);transform:rotate(-1.3deg)}
+.n2{grid-column:8 / 13;background:var(--paper);margin-top:40px;transform:rotate(1.1deg)}
+.n3{grid-column:2 / 7;background:var(--mint);margin-top:-8px;transform:rotate(.7deg)}
+.n4{grid-column:8 / 13;background:var(--ink);color:var(--door);margin-top:20px;transform:rotate(-.8deg)}
+.n4 p{color:#CFE0DC}
+.n1 h3{font-size:2.1rem}
+.pass{display:inline-block;margin-top:18px;font-weight:600;background:var(--ink);color:var(--yellow);padding:.4rem .9rem;border-radius:999px;font-size:.9rem}
+
+/* morning */
+.day{background:var(--ink);color:var(--door)}
+.day h2{max-width:16ch}
+.timeline{list-style:none;padding:0;margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:3px solid var(--yellow)}
+.timeline li{padding:22px 20px 0 0}
+.timeline time{font:700 1.7rem var(--display);color:var(--yellow);display:block}
+.timeline p{color:#CFE0DC;margin-top:6px;font-size:1rem}
+
+/* signup */
+.signup{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:center}
+.signup p{margin-top:16px;color:var(--ink-soft)}
+form{display:flex;flex-direction:column;gap:12px;background:var(--paper);padding:28px;border-radius:6px;box-shadow:0 14px 28px -16px rgba(16,48,58,.4)}
+label{font-weight:600}
+input[type=email]{font:inherit;padding:.85rem 1rem;border:2px solid #C8D6D2;border-radius:10px;background:var(--door);color:var(--ink)}
+input[type=email]:focus{outline:3px solid var(--coral);outline-offset:1px;border-color:var(--ink)}
+.msg{min-height:1.5em;font-size:.95rem}
+.msg.err{color:#B3261E}
+footer{padding:40px 0 56px;color:var(--ink-soft);font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* one orchestrated load moment */
+@keyframes drop{from{transform:translateY(-24px) rotate(4deg);opacity:0}to{opacity:1}}
+.chart{animation:drop .7s cubic-bezier(.2,.8,.3,1) both .15s}
+
+@media (max-width:900px){
+  .hero,.signup{grid-template-columns:1fr;gap:40px}
+  .notes{display:flex;flex-direction:column;gap:22px}
+  .note{margin-top:0!important}
+  .timeline{grid-template-columns:1fr 1fr;row-gap:24px}
+}
+@media (max-width:520px){
+  .days,.row{grid-template-columns:minmax(76px,1.4fr) repeat(7,1fr) 34px;gap:3px}
+  .row .name{font-size:.8rem}
+  .chart{padding:24px 14px 18px}
+  .timeline{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  html{scroll-behavior:auto}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#top"><i></i>Streakly</a>
+    <a class="btn small" href="#join">Get early access</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div>
+        <h1>Habits that fit between the school run and bedtime.</h1>
+        <p class="lead">Streakly is a habit tracker for parents. Check in once, in about 30 seconds. Miss a day and keep your streak.</p>
+        <a class="btn" href="#join">Get early access</a>
+        <p class="note-small">Try the chart. Tap any circle.</p>
+      </div>
+
+      <div class="chart" role="group" aria-label="Sample week of habits">
+        <div class="chart-head"><span>This week</span><span id="sumLine"></span></div>
+        <div class="days" aria-hidden="true"><span></span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span><span></span></div>
+        <div id="rows"></div>
+        <p class="chart-foot" id="foot" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <section class="block" aria-labelledby="why">
+      <div class="intro">
+        <h2 id="why">Built for days that fall apart.</h2>
+        <p>Most trackers assume you have a calm morning. Yours has a missing shoe.</p>
+      </div>
+      <div class="notes">
+        <article class="note n1">
+          <h3>Rough day pass</h3>
+          <p>Sick kid, red-eye flight, no sleep. Use a pass and your streak carries on. You get two a month, and you decide when they're needed.</p>
+          <span class="pass">2 passes left this month</span>
+        </article>
+        <article class="note n2">
+          <h3>Check in with one thumb</h3>
+          <p>Open, tap, done. The whole check-in fits in the time it takes the kettle to boil.</p>
+        </article>
+        <article class="note n3">
+          <h3>Share a habit with your partner</h3>
+          <p>Put "pack lunches" or "bath and book" on a shared list. You both see who did it, and neither of you has to ask.</p>
+        </article>
+        <article class="note n4">
+          <h3>Reminders that know your day</h3>
+          <p>Set a reminder for after drop-off or once the kids are asleep. Streakly asks once, not five times.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <div></div>
+</div>
+
+<section class="day block" aria-labelledby="dayh">
+  <div class="wrap">
+    <h2 id="dayh">A realistic day with Streakly.</h2>
+    <ol class="timeline">
+      <li><time>7:10</time><p>Drink a glass of water before the coffee. Tap once.</p></li>
+      <li><time>12:30</time><p>Walk ten minutes while the baby naps. Tap once.</p></li>
+      <li><time>19:45</time><p>Read together. Your partner sees it's already done.</p></li>
+      <li><time>22:00</time><p>Lights out. Use a rough day pass if it never happened.</p></li>
+    </ol>
+  </div>
+</section>
+
+<div class="wrap">
+  <section class="block signup" id="join" aria-labelledby="joinh">
+    <div>
+      <h2 id="joinh">Be first when Streakly opens.</h2>
+      <p>Leave your email and we'll send one message when early access starts. We won't use it for anything else.</p>
+    </div>
+    <form id="form" novalidate>
+      <label for="email">Email address</label>
+      <input id="email" type="email" autocomplete="email" placeholder="you@example.com" required aria-describedby="msg">
+      <button class="btn" type="submit">Get early access</button>
+      <p class="msg" id="msg" role="status"></p>
+    </form>
+  </section>
+</div>
+
+<footer>
+  <div class="wrap"><span>Streakly</span><span>Made for people with sticky hands and good intentions.</span></div>
+</footer>
+
+<script>
+(function(){
+  var habits=[
+    {n:"Water before coffee",d:[1,1,1,1,1,0,0]},
+    {n:"Read with the kids",d:[1,0,1,1,1,1,0]},
+    {n:"Ten-minute walk",d:[0,1,1,0,1,1,0]}
+  ];
+  var dayNames=["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+  var today=(new Date().getDay()+6)%7; // Mon=0
+  // days after today are empty; today starts unchecked
+  habits.forEach(function(h){for(var i=today;i<7;i++)h.d[i]=0});
+  var rows=document.getElementById("rows");
+
+  function streak(h){
+    var i=today, c=0;
+    if(!h.d[i]) i--; // today not done yet: count back from yesterday
+    for(;i>=0&&h.d[i];i--)c++;
+    return c;
+  }
+  function render(){
+    rows.innerHTML="";
+    var total=0;
+    habits.forEach(function(h,hi){
+      var r=document.createElement("div");r.className="row";
+      var nm=document.createElement("span");nm.className="name";nm.textContent=h.n;r.appendChild(nm);
+      for(var i=0;i<7;i++){
+        var b=document.createElement("button");
+        b.type="button";b.className="cell"+(i===today?" today":"");
+        b.setAttribute("aria-pressed",h.d[i]?"true":"false");
+        b.setAttribute("aria-label",h.n+", "+dayNames[i]);
+        if(i>today){b.disabled=true;b.style.opacity=.35;b.style.cursor="default";}
+        else b.addEventListener("click",(function(hi,i){return function(){
+          habits[hi].d[i]=habits[hi].d[i]?0:1;render();
+          document.querySelector('[aria-label="'+habits[hi].n+', '+dayNames[i]+'"]').focus();
+        }})(hi,i));
+        r.appendChild(b);
+      }
+      var s=streak(h);total+=s;
+      var st=document.createElement("span");st.className="streak";
+      st.innerHTML=s+"<small>"+(s===1?"day":"days")+"</small>";r.appendChild(st);
+      rows.appendChild(r);
+    });
+    var done=habits.reduce(function(a,h){return a+h.d[today]},0);
+    document.getElementById("sumLine").textContent=done+" of "+habits.length+" done today";
+    document.getElementById("foot").textContent=done===habits.length
+      ?"All done for today. Go sit down."
+      :"Streaks count the days in a row, ending today.";
+  }
+  render();
+
+  var form=document.getElementById("form"),msg=document.getElementById("msg"),em=document.getElementById("email");
+  form.addEventListener("submit",function(e){
+    e.preventDefault();
+    var v=em.value.trim();
+    if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){
+      msg.className="msg err";msg.textContent="Enter an email address like name@example.com.";em.focus();return;
+    }
+    msg.className="msg";msg.textContent="You're on the list. We'll email you when early access opens.";
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>

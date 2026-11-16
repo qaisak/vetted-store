@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en" data-type="place">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Rosa's Bakery: weekend pastry pre-orders in Lisbon</title>
+<meta name="description" content="Neighbourhood bakery in Lisbon. Pre-order pastéis, sourdough and cakes by Thursday night, collect on Saturday or Sunday.">
+<meta name="page-type" content="place">
+<meta name="site-kind" content="other">
+<meta name="page-kind" content="place">
+<meta name="theme-color" content="#f6efe3">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400&family=Figtree:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}
+html,body{margin:0}
+:root{
+  --bg:#f6efe3; --alt:#ecdfca; --ink:#2b1d14; --muted:#6a5646; --accent:#a6431f; --accent-ink:#fff8ef;
+  --line:rgba(43,29,20,.16);
+  --display:"Fraunces",Georgia,serif; --text:"Figtree",system-ui,sans-serif;
+  --gut:120px; --nav:72px;
+}
+html{scroll-behavior:auto}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--text)}
+a{color:inherit}
+.wrap{width:min(100% - 2*var(--gut),1200px);margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.02em;margin:0}
+h1{font-size:clamp(34px,4.4vw,64px);line-height:1.06}
+h2{font-size:clamp(28px,2.6vw,40px);line-height:1.15}
+.skip{position:absolute;left:-999px;top:8px;background:var(--ink);color:var(--bg);padding:8px 16px;z-index:20}
+.skip:focus{left:16px}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+
+/* nav */
+header{position:fixed;inset:0 0 auto 0;height:var(--nav);background:var(--bg);border-bottom:1px solid var(--line);z-index:10}
+header .wrap{display:flex;align-items:center;height:100%;gap:32px}
+.logo{font:400 22px var(--display);text-decoration:none;margin-right:auto}
+nav.links{display:flex;gap:32px}
+nav.links a{font-weight:500;font-size:15px;text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 1px no-repeat;transition:background-size .25s;padding:4px 0}
+nav.links a:hover{background-size:100% 1px}
+.btn{display:inline-flex;align-items:center;justify-content:center;height:48px;padding:0 24px;border-radius:2px;background:var(--accent);color:var(--accent-ink);font:500 16px var(--text);text-decoration:none;border:0;cursor:pointer;transition:transform .15s,background .15s}
+.btn:hover{background:#8c3517;transform:translateY(-1px)}
+.btn:active{transform:translateY(1px)}
+.btn.sec{background:transparent;color:var(--ink);border:1px solid var(--ink)}
+.btn.sec:hover{background:var(--ink);color:var(--bg)}
+header .btn{height:44px}
+
+/* hero */
+.hero{min-height:100svh;padding:calc(var(--nav) + 64px) 0 64px;display:flex;align-items:flex-start}
+.hero .wrap{display:grid;grid-template-columns:repeat(12,1fr);column-gap:24px;row-gap:32px}
+.hero h1{grid-column:1/8}
+.hero .side{grid-column:8/13;align-self:end}
+.hero .side p{font-size:20px;line-height:1.5;margin:0 0 24px}
+.menu-hero{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:24px}
+.tile{background:var(--alt);padding:32px 24px;min-height:210px;display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;transition:transform .2s}
+.tile:hover{transform:translateY(-2px)}
+.tile .n{font:400 clamp(44px,5vw,72px)/1 var(--display)}
+.tile .t{font-size:16px}
+[data-enter]{animation:in .8s ease both}
+[data-enter]:nth-child(2){animation-delay:.1s}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+section.s{padding:120px 0 96px}
+section.s.alt{background:var(--alt)}
+.head{display:flex;justify-content:space-between;align-items:baseline;gap:24px;margin-bottom:56px}
+.head p{margin:0}
+
+/* menu */
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px 48px}
+.t-label{font-weight:500;font-size:13px;margin:0 0 12px}
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--line);min-height:44px}
+.rows li:first-child{border-top:0}
+.rows b{font-weight:500}
+.rows .p{font-variant-numeric:tabular-nums;white-space:nowrap}
+.rows small{display:block;color:var(--muted);font-size:16px;line-height:1.4}
+
+/* how */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.step{border-top:1px solid var(--ink);padding-top:16px}
+.step h3{font-size:24px;margin-bottom:8px}
+.step p{margin:0;max-width:34ch}
+
+/* visit */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.panel{background:var(--alt);padding:48px}
+.type-moment{font:400 clamp(44px,6.4vw,92px)/1.02 var(--display);letter-spacing:-.03em;margin:0 0 48px}
+.type-moment a{text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/0 3px no-repeat;transition:background-size .3s}
+.type-moment a:hover{background-size:100% 3px}
+dl.hours{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 24px}
+dl.hours dt{font-weight:500}
+dl.hours dd{margin:0;text-align:right;font-variant-numeric:tabular-nums}
+
+/* order form */
+form{display:grid;gap:16px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+label{display:block;font-size:14px;margin-bottom:4px}
+input,select,textarea{width:100%;height:48px;padding:0 12px;font:400 16px var(--text);color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:2px}
+textarea{height:96px;padding:12px}
+.note{font-size:14px;color:var(--muted);margin:0}
+
+footer{background:var(--ink);color:var(--bg);padding:96px 0 48px}
+footer .wrap{display:grid;grid-template-columns:7fr 5fr;gap:24px}
+footer .big{font:400 clamp(36px,4vw,56px)/1.05 var(--display);margin:0 0 16px}
+footer a{text-underline-offset:4px}
+footer .legal{grid-column:1/-1;display:flex;justify-content:space-between;border-top:1px solid rgba(246,239,227,.25);padding-top:24px;margin-top:48px;font-size:14px}
+
+@media (max-width:1023px){
+  :root{--gut:48px}
+  nav.links{display:none}
+  .hero h1,.hero .side{grid-column:1/-1}
+  .menu-hero{grid-template-columns:1fr 1fr}
+  .cols,.steps{grid-template-columns:1fr}
+}
+@media (max-width:639px){
+  :root{--gut:24px;--nav:56px}
+  .split,.two,footer .wrap{grid-template-columns:1fr}
+  .panel{padding:24px}
+  .head{flex-direction:column;gap:8px;margin-bottom:32px}
+  section.s{padding:96px 0 64px}
+  .hero{padding-top:calc(var(--nav) + 40px)}
+  .hero .btn{width:100%}
+  footer .legal{flex-direction:column;gap:8px}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<!-- Deal (by hand; the skill's scripts needed approval): place, warm flour ground, terracotta accent, Fraunces + Figtree, square corners. -->
+<a class="skip" href="#top">Skip to content</a>
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top">Rosa's Bakery</a>
+    <nav class="links" aria-label="Main">
+      <a href="#menu">Menu</a>
+      <a href="#how">Pre-order</a>
+      <a href="#visit">Visit</a>
+    </nav>
+    <a class="btn" href="#order">Pre-order pastries</a>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <h1 data-enter>Neighbourhood bakery in Alfama, Lisbon</h1>
+      <div class="side" data-enter>
+        <p>Pre-order by Thursday night, collect fresh on Saturday or Sunday from 8:00.</p>
+        <a class="btn" href="#order">Pre-order pastries</a>
+      </div>
+      <div class="menu-hero" data-enter>
+        <a class="tile" href="#menu"><span class="n">Pastéis</span><span class="t">de nata, from 1.40 €</span></a>
+        <a class="tile" href="#menu"><span class="n">Sourdough</span><span class="t">900 g loaf, 5.20 €</span></a>
+        <a class="tile" href="#menu"><span class="n">Cakes</span><span class="t">Bolo de arroz and more, from 14 €</span></a>
+        <a class="tile" href="#menu"><span class="n">Buns</span><span class="t">Cinnamon and cardamom, 2.80 €</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="s alt" id="menu">
+    <div class="wrap">
+      <div class="head"><h2>Weekend pastry menu</h2><p>Baked Saturday and Sunday only</p></div>
+      <div class="cols">
+        <div>
+          <h3 class="t-label">Pastries</h3>
+          <ul class="rows">
+            <li><span><b>Pastel de nata</b><small>Crisp, caramelised top</small></span><span class="p" data-assumed>1.40 €</span></li>
+            <li><span><b>Cinnamon bun</b><small>Brioche, brown sugar</small></span><span class="p" data-assumed>2.80 €</span></li>
+            <li><span><b>Cardamom bun</b><small>Pearl sugar on top</small></span><span class="p" data-assumed>2.80 €</span></li>
+            <li><span><b>Almond croissant</b><small>Twice baked</small></span><span class="p" data-assumed>3.20 €</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="t-label">Bread</h3>
+          <ul class="rows">
+            <li><span><b>Sourdough loaf</b><small>900 g, 24-hour ferment</small></span><span class="p" data-assumed>5.20 €</span></li>
+            <li><span><b>Rye loaf</b><small>Dense, seeded</small></span><span class="p" data-assumed>5.80 €</span></li>
+            <li><span><b>Broa de milho</b><small>Corn bread</small></span><span class="p" data-assumed>4.60 €</span></li>
+            <li><span><b>Baguette</b><small>Two a bag</small></span><span class="p" data-assumed>3.40 €</span></li>
+          </ul>
+        </div>
+        <div>
+          <h3 class="t-label">Cakes</h3>
+          <ul class="rows">
+            <li><span><b>Bolo de arroz, 6</b><small>Rice cake, lemon</small></span><span class="p" data-assumed>14.00 €</span></li>
+            <li><span><b>Orange cake, 8</b><small>Olive oil</small></span><span class="p" data-assumed>18.50 €</span></li>
+            <li><span><b>Chocolate cake, 10</b><small>Dark, no frosting</small></span><span class="p" data-assumed>24.00 €</span></li>
+            <li><span><b>Custom cake</b><small>Ask when you order</small></span><span class="p">On request</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="how">
+    <div class="wrap">
+      <div class="head"><h2>How pre-orders work</h2><p>Order closes Thursday at 22:00</p></div>
+      <div class="steps">
+        <div class="step"><h3>Send your list</h3><p>Fill in the form below with what you want and which day you collect.</p></div>
+        <div class="step"><h3>We confirm by email</h3><p>You get the total and your pickup time within a day.</p></div>
+        <div class="step"><h3>Collect and pay</h3><p>Come to the counter on Saturday or Sunday. Your bag has your name on it.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s alt" id="visit">
+    <div class="wrap">
+      <div class="head"><h2>Find us</h2></div>
+      <p class="type-moment"><a href="https://www.openstreetmap.org/search?query=Rua+de+São+Miguel+Alfama+Lisboa">Rua de São Miguel, Alfama</a></p>
+      <div class="split">
+        <div class="panel" style="background:var(--bg)">
+          <h3 class="t-label">Opening hours</h3>
+          <dl class="hours" data-assumed>
+            <dt>Saturday</dt><dd>8:00 to 14:00</dd>
+            <dt>Sunday</dt><dd>8:00 to 13:00</dd>
+            <dt>Monday to Friday</dt><dd>Closed, baking for the weekend</dd>
+          </dl>
+        </div>
+        <div class="panel" style="background:var(--bg)">
+          <h3 class="t-label">Collecting your order</h3>
+          <p style="margin:0 0 24px">Say your name at the counter. Walk-ins are welcome while stock lasts, but the pre-orders go first.</p>
+          <a class="btn sec" href="https://www.openstreetmap.org/search?query=Rua+de+São+Miguel+Alfama+Lisboa">Get directions</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s" id="order">
+    <div class="wrap">
+      <div class="head"><h2>Pre-order for this weekend</h2><p>We reply within a day.</p></div>
+      <div class="split">
+        <form action="mailto:orders@rosasbakery.example" method="post" enctype="text/plain">
+          <div class="two">
+            <div><label for="n">Name</label><input id="n" name="name" autocomplete="name" required></div>
+            <div><label for="e">Email</label><input id="e" name="email" type="email" autocomplete="email" required></div>
+          </div>
+          <div class="two">
+            <div><label for="d">Collection day</label>
+              <select id="d" name="day"><option>Saturday</option><option>Sunday</option></select></div>
+            <div><label for="s">Pickup time</label><input id="s" name="time" placeholder="e.g. 9:30"></div>
+          </div>
+          <div><label for="l">Your order</label><textarea id="l" name="order" required></textarea></div>
+          <button class="btn" type="submit">Send pre-order</button>
+          <p class="note">Orders close Thursday at 22:00. You pay at the counter.</p>
+        </form>
+        <div class="panel">
+          <h3 class="t-label">Good to know</h3>
+          <ul class="rows">
+            <li><span>Order by</span><span class="p">Thursday, 22:00</span></li>
+            <li><span>Collect</span><span class="p">Saturday or Sunday</span></li>
+            <li><span>Payment</span><span class="p">At the counter</span></li>
+            <li><span>Custom cakes</span><span class="p">Order a week ahead</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <p class="big">Rosa's Bakery</p>
+      <a href="https://www.openstreetmap.org/search?query=Rua+de+São+Miguel+Alfama+Lisboa">Rua de São Miguel, Alfama, Lisbon</a>
+    </div>
+    <div>
+      <p style="margin:0 0 8px">Saturday 8:00 to 14:00<br>Sunday 8:00 to 13:00</p>
+      <a href="#order">Pre-order pastries</a>
+    </div>
+    <div class="legal"><span>© 2026 Rosa's Bakery</span><span>Privacy · Terms</span></div>
+  </div>
+</footer>
+</body>
+</html>

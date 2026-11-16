@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rosa's Bakery · Weekend pastry pre-orders in Lisbon</title>
+<meta name="description" content="Order Rosa's weekend pastries by Thursday night and pick them up warm on Saturday or Sunday morning in Lisbon.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;700&family=Young+Serif&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --tile:#FBFAF6;       /* glazed tile white */
+    --cobalt:#1B3A9C;     /* azulejo blue */
+    --ink:#142048;        /* deep blue text */
+    --custard:#F4B72F;    /* pastel de nata yolk */
+    --burnt:#B5481F;      /* caramelised top, used sparingly */
+    --mist:#E4E9F6;       /* pale glaze */
+    --display:"Young Serif", Georgia, serif;
+    --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --tilebg:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='none' stroke='%23FBFAF6' stroke-width='2'%3E%3Cpath d='M40 6c10 10 10 18 0 28-10-10-10-18 0-28zM74 40c-10 10-18 10-28 0 10-10 18-10 28 0zM40 74c-10-10-10-18 0-28 10 10 10 18 0 28zM6 40c10-10 18-10 28 0-10 10-18 10-28 0z'/%3E%3Ccircle cx='40' cy='40' r='4' fill='%23F4B72F' stroke='none'/%3E%3Cpath d='M0 0h80v80H0z' stroke-opacity='.25'/%3E%3C/g%3E%3C/svg%3E");
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--tile);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+  h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.08;margin:0}
+  p{margin:0}
+  a{color:inherit}
+  :focus-visible{outline:3px solid var(--custard);outline-offset:3px}
+  .wrap{width:min(1120px,100% - 2.5rem);margin-inline:auto}
+
+  /* header */
+  .top{background:var(--cobalt);color:var(--tile)}
+  .top .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:1rem}
+  .logo{font-family:var(--display);font-size:1.4rem;text-decoration:none}
+  .top nav{display:flex;gap:1.5rem;font-weight:500}
+  .top nav a{text-decoration:none;border-bottom:2px solid transparent}
+  .top nav a:hover{border-color:var(--custard)}
+
+  /* hero */
+  .hero{background:var(--cobalt);color:var(--tile);position:relative;overflow:hidden}
+  .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:end;padding-block:4.5rem 0}
+  .hero h1{font-size:clamp(2.8rem,7vw,5.6rem);letter-spacing:-.02em;max-width:11ch}
+  .hero p.lede{font-size:1.2rem;max-width:34ch;margin-top:1.5rem;color:#DCE3F7}
+  .cta{display:inline-block;margin-top:2rem;background:var(--custard);color:var(--ink);font-weight:700;
+       padding:.95rem 1.6rem;border-radius:999px;text-decoration:none;transition:transform .15s}
+  .cta:hover{transform:translateY(-2px)}
+  .cutoff{background:var(--tile);color:var(--ink);border-radius:1.2rem 1.2rem 0 0;padding:1.6rem 1.7rem 2rem}
+  .cutoff h2{font-size:1.3rem;margin-bottom:1rem}
+  .cutoff dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:.55rem 1.2rem}
+  .cutoff dt{font-weight:700}
+  .cutoff dd{margin:0}
+  .band{height:80px;background:var(--cobalt) var(--tilebg);background-size:80px 80px;border-top:4px solid var(--custard)}
+
+  /* sections */
+  section{padding-block:5rem}
+  h2.big{font-size:clamp(2rem,4vw,3rem);margin-bottom:.8rem}
+  .intro{max-width:52ch;margin-bottom:2.5rem}
+
+  /* menu + order */
+  .order{display:grid;grid-template-columns:1.4fr 1fr;gap:3.5rem;align-items:start}
+  .menu{list-style:none;margin:0;padding:0}
+  .item{display:grid;grid-template-columns:1fr auto;gap:.3rem 1.5rem;padding:1.25rem 0;border-bottom:2px dotted #9FB0E0;align-items:center}
+  .item:first-child{border-top:2px dotted #9FB0E0}
+  .item h3{font-size:1.35rem}
+  .item .desc{grid-column:1;color:#3B476F;max-width:46ch}
+  .price{font-weight:700;color:var(--cobalt);white-space:nowrap}
+  .step{grid-column:2;grid-row:1 / span 2;display:flex;align-items:center;gap:.4rem;justify-self:end}
+  .step button{width:2.5rem;height:2.5rem;border-radius:50%;border:2px solid var(--cobalt);background:transparent;color:var(--cobalt);font:700 1.3rem/1 var(--body);cursor:pointer}
+  .step button:hover{background:var(--cobalt);color:var(--tile)}
+  .step output{min-width:2rem;text-align:center;font-weight:700;font-size:1.15rem}
+  .tag{display:inline-block;font-size:.85rem;font-weight:700;background:var(--custard);padding:.05rem .55rem;border-radius:99px;margin-left:.5rem;vertical-align:middle;color:var(--ink);font-family:var(--body)}
+
+  form{background:var(--mist);border-radius:1.2rem;padding:1.8rem;position:sticky;top:1.5rem;border:3px solid var(--cobalt)}
+  form h2{font-size:1.6rem;margin-bottom:1rem}
+  fieldset{border:0;padding:0;margin:0 0 1.1rem}
+  legend,label{font-weight:700;display:block;margin-bottom:.35rem;padding:0}
+  .days{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+  .days label{margin:0;font-weight:500}
+  .days input{position:absolute;opacity:0}
+  .days span{display:block;text-align:center;padding:.7rem .4rem;border:2px solid var(--cobalt);border-radius:.8rem;cursor:pointer;background:var(--tile)}
+  .days input:checked + span{background:var(--cobalt);color:var(--tile)}
+  .days input:focus-visible + span{outline:3px solid var(--custard);outline-offset:2px}
+  input[type=text],input[type=tel]{width:100%;padding:.75rem .85rem;border:2px solid var(--cobalt);border-radius:.8rem;font:inherit;background:var(--tile);color:var(--ink)}
+  .summary{list-style:none;margin:0 0 1rem;padding:0;min-height:3rem}
+  .summary li{display:flex;justify-content:space-between;gap:1rem;padding:.25rem 0}
+  .summary .empty{color:#3B476F}
+  .total{display:flex;justify-content:space-between;font-weight:700;font-size:1.25rem;border-top:2px solid var(--cobalt);padding-top:.8rem;margin-bottom:1.2rem}
+  form button[type=submit]{width:100%;border:0;border-radius:999px;background:var(--cobalt);color:var(--tile);font:700 1.05rem var(--body);padding:1rem;cursor:pointer}
+  form button[type=submit]:hover{background:var(--ink)}
+  .msg{margin-top:.9rem;font-weight:500;min-height:1.5rem}
+  .msg.err{color:var(--burnt)}
+  .fine{font-size:.92rem;color:#3B476F;margin-top:.8rem}
+
+  /* story + visit */
+  .story{background:var(--cobalt);color:var(--tile)}
+  .story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem}
+  .story h2{font-size:clamp(2rem,4vw,3rem)}
+  .story p{color:#DCE3F7;max-width:52ch}
+  .story p + p{margin-top:1rem}
+  .visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem}
+  .visit address{font-style:normal;font-size:1.2rem;margin-top:1rem}
+  .visit table{border-collapse:collapse;width:100%;margin-top:1rem}
+  .visit td{padding:.6rem 0;border-bottom:2px dotted #9FB0E0}
+  .visit td:last-child{text-align:right;font-weight:700}
+  footer{background:var(--ink);color:#C5CFEE;padding-block:2rem;font-size:.95rem}
+  footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+
+  /* one load moment: the tile band slides in */
+  @media (prefers-reduced-motion:no-preference){
+    .band{animation:pan 1.4s cubic-bezier(.2,.7,.2,1) both}
+    @keyframes pan{from{background-position:-320px 0;opacity:.2}to{background-position:0 0;opacity:1}}
+  }
+
+  @media (max-width:860px){
+    .hero .wrap,.order,.story .wrap,.visit .wrap{grid-template-columns:1fr}
+    .hero .wrap{padding-top:3rem}
+    form{position:static}
+    section{padding-block:3.5rem}
+    .top nav{gap:1rem}
+  }
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#">Rosa's Bakery</a>
+    <nav aria-label="Main">
+      <a href="#order">Pre-order</a>
+      <a href="#story">About Rosa</a>
+      <a href="#visit">Pick-up</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <h1>Order by Thursday. Pick up warm on Saturday.</h1>
+        <p class="lede">Rosa bakes Lisbon's weekend pastries in small batches, only for the people who ordered them.</p>
+        <a class="cta" href="#order">Start your pre-order</a>
+      </div>
+      <div class="cutoff">
+        <h2>This weekend</h2>
+        <dl>
+          <dt>Orders close</dt><dd>Thursday, 20:00</dd>
+          <dt>Pick-up</dt><dd>Saturday and Sunday, 08:00–13:00</dd>
+          <dt>Payment</dt><dd>At the counter, cash or card</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="band" role="presentation"></div>
+  </div>
+
+  <section id="order">
+    <div class="wrap">
+      <h2 class="big">What's in the oven this weekend</h2>
+      <p class="intro">Choose your pastries, pick a day, and leave your name. We'll have the bag ready with your name on it.</p>
+
+      <div class="order">
+        <ul class="menu" id="menu"></ul>
+
+        <form id="form" novalidate>
+          <h2>Your order</h2>
+          <ul class="summary" id="summary" aria-live="polite"></ul>
+          <div class="total"><span>Total</span><span id="total">€0.00</span></div>
+
+          <fieldset>
+            <legend>Pick-up day</legend>
+            <div class="days">
+              <label><input type="radio" name="day" value="Saturday" checked><span>Saturday</span></label>
+              <label><input type="radio" name="day" value="Sunday"><span>Sunday</span></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required>
+          </fieldset>
+          <fieldset>
+            <label for="phone">Phone number</label>
+            <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+          </fieldset>
+          <button type="submit">Send pre-order</button>
+          <p class="msg" id="msg" role="status"></p>
+          <p class="fine">Sending opens your email app with the order filled in. We reply to confirm by Friday.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="story">
+    <div class="wrap">
+      <h2>One oven, one baker, a short list</h2>
+      <div>
+        <p>Rosa started baking for her neighbours' Sunday tables, and the street kept asking for more. Today she still runs one oven and one short menu.</p>
+        <p>Pre-orders mean nothing is made on a guess. The pastéis de nata come out when you arrive, and whatever isn't ordered doesn't get baked.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit" id="visit">
+    <div class="wrap">
+      <div>
+        <h2 class="big">Pick up your bag</h2>
+        <p>Come to the side door and say your name.</p>
+        <address>Rua da Graça 00, 1170-000 Lisboa<br>Tram 12E, stop Graça</address>
+      </div>
+      <table aria-label="Opening hours">
+        <tr><td>Monday to Thursday</td><td>Closed, baking for the weekend</td></tr>
+        <tr><td>Friday</td><td>Confirmations by message</td></tr>
+        <tr><td>Saturday</td><td>08:00–13:00</td></tr>
+        <tr><td>Sunday</td><td>08:00–13:00</td></tr>
+      </table>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>Rosa's Bakery, Lisboa</span>
+    <a href="mailto:hello@rosasbakery.example">hello@rosasbakery.example</a>
+  </div>
+</footer>
+
+<script>
+const items = [
+  {id:'nata',  name:'Pastel de nata', price:1.30, tag:'Best seller', desc:'Flaky shell, custard with a blistered top. Best eaten within the hour.'},
+  {id:'arroz', name:'Bolo de arroz', price:1.80, desc:'Rice-flour cupcake with a cracked, golden crown and a hint of lemon.'},
+  {id:'deus',  name:'Pão de Deus', price:2.20, desc:'Soft brioche roll covered in sweet coconut.'},
+  {id:'trav',  name:'Travesseiro', price:2.60, desc:'Puff pastry pillow filled with almond and egg cream, Sintra style.'},
+  {id:'quei',  name:'Queijada de Sintra', price:2.00, desc:'Small fresh-cheese tart scented with cinnamon.'},
+  {id:'bola',  name:'Bola de Berlim', price:2.50, desc:'Sugared doughnut filled to order with egg cream.'}
+];
+const qty = {};
+const eur = n => '€' + n.toFixed(2);
+const menu = document.getElementById('menu');
+
+items.forEach(i => {
+  qty[i.id] = 0;
+  const li = document.createElement('li');
+  li.className = 'item';
+  li.innerHTML = `
+    <h3>${i.name}${i.tag ? `<span class="tag">${i.tag}</span>` : ''} <span class="price">${eur(i.price)}</span></h3>
+    <p class="desc">${i.desc}</p>
+    <div class="step">
+      <button type="button" data-id="${i.id}" data-d="-1" aria-label="Remove one ${i.name}">−</button>
+      <output id="q-${i.id}" aria-label="${i.name} quantity">0</output>
+      <button type="button" data-id="${i.id}" data-d="1" aria-label="Add one ${i.name}">+</button>
+    </div>`;
+  menu.appendChild(li);
+});
+
+const summary = document.getElementById('summary'), totalEl = document.getElementById('total');
+function render(){
+  let total = 0, rows = '';
+  items.forEach(i => {
+    document.getElementById('q-'+i.id).textContent = qty[i.id];
+    if (qty[i.id]) { total += qty[i.id]*i.price; rows += `<li><span>${qty[i.id]} × ${i.name}</span><span>${eur(qty[i.id]*i.price)}</span></li>`; }
+  });
+  summary.innerHTML = rows || '<li class="empty">Add a pastry from the list to begin.</li>';
+  totalEl.textContent = eur(total);
+}
+menu.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  const id = b.dataset.id;
+  qty[id] = Math.max(0, Math.min(24, qty[id] + Number(b.dataset.d)));
+  render();
+});
+
+const form = document.getElementById('form'), msg = document.getElementById('msg');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const lines = items.filter(i => qty[i.id]).map(i => `${qty[i.id]} x ${i.name} (${eur(qty[i.id]*i.price)})`);
+  const name = form.name.value.trim(), phone = form.phone.value.trim();
+  msg.className = 'msg err';
+  if (!lines.length) return msg.textContent = 'Add at least one pastry to your order.';
+  if (!name) { form.name.focus(); return msg.textContent = 'Enter your name so we can label the bag.'; }
+  if (!phone) { form.phone.focus(); return msg.textContent = 'Enter a phone number so we can confirm your order.'; }
+  const day = form.day.value;
+  const body = `Name: ${name}\nPhone: ${phone}\nPick-up: ${day}\n\n${lines.join('\n')}\n\nTotal: ${totalEl.textContent}`;
+  msg.className = 'msg';
+  msg.textContent = 'Opening your email app with the order filled in.';
+  location.href = `mailto:hello@rosasbakery.example?subject=${encodeURIComponent('Pre-order for ' + day)}&body=${encodeURIComponent(body)}`;
+});
+render();
+</script>
+</body>
+</html>

@@ -216,6 +216,38 @@ dialog.panel[open] { animation: panelIn .28s cubic-bezier(.2,.8,.2,1); }
   dialog.panel { width: 100vw; height: auto; max-height: 92dvh; margin: auto 0 0; border-radius: 14px 14px 0 0; }
   dialog.panel[open] { animation: sheetUp .32s cubic-bezier(.2,.8,.2,1); }
 }
+/* Tested */
+.test-hero { background: #16120F; }
+.test-hero .shot { position: absolute; top: 0; bottom: 0; right: 0; left: 40%; background-size: cover; background-position: left top; }
+.test-hero .shade { position: absolute; inset: 0; background: linear-gradient(90deg, #16120F 0%, #16120F 40%, rgba(22,18,15,.55) 52%, rgba(22,18,15,0) 70%); }
+.test-hero .title { max-width: 18ch; text-shadow: 0 1px 12px rgba(0,0,0,.35); }
+a.tested-box { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; margin-top: 12px; padding: 14px 16px; border-radius: 14px; border: 1px solid var(--sep); background: var(--card); color: var(--label); }
+.tested-box.pick { border-color: var(--green); background: color-mix(in srgb, var(--green) 7%, var(--card)); }
+.tested-box.skip { border-color: var(--orange); }
+.tested-box span { font-size: 14px; color: var(--label2); } .tested-box b { font-size: 16px; }
+.tested-box .tb-link { color: var(--blue); font-weight: 600; }
+.verdict-box { margin: 6px 0 8px; padding: 18px; border-radius: 16px; background: color-mix(in srgb, var(--green) 7%, var(--bg2)); }
+.verdict-box h2 { font-size: 20px; margin: 0 0 6px; } .verdict-box > p { margin: 0 0 8px; line-height: 1.5; }
+.verdict-box .note { font-size: 13px; color: var(--label2); }
+.vb-pick .lbl { display: block; margin-top: 8px; }
+.score-table .sc-cell { white-space: nowrap; } .score-table tr.win td { background: color-mix(in srgb, var(--green) 8%, transparent); }
+.sbar { display: inline-block; width: 70px; height: 6px; border-radius: 3px; background: var(--fill); vertical-align: middle; margin-right: 6px; overflow: hidden; }
+.sbar i { display: block; height: 100%; background: var(--blue); } .snum { font-variant-numeric: tabular-nums; font-weight: 600; }
+.test-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+.test-card { margin: 0; border: 1px solid var(--sep); border-radius: 14px; overflow: hidden; background: var(--card); }
+.test-card.win { border: 2px solid var(--green); }
+.test-card .shots { position: relative; display: block; aspect-ratio: 16 / 10; overflow: hidden; background: var(--bg2); }
+.test-card .shots img { width: 100%; display: block; }
+.test-card .shots .ph { position: absolute; right: 8px; bottom: 8px; width: 22%; border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,.25); border: 2px solid #FFFFFF; }
+.test-card figcaption { padding: 12px 14px; display: grid; gap: 6px; }
+.test-card .tc-h { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.test-card .sc { font-weight: 800; font-size: 18px; font-variant-numeric: tabular-nums; }
+.test-card p { margin: 0; font-size: 13px; color: var(--label2); line-height: 1.45; } .test-card small { font-size: 12px; color: var(--label2); }
+.method { padding-left: 18px; display: grid; gap: 8px; font-size: 14px; line-height: 1.5; }
+.tests { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 18px; }
+.test-tile { display: block; border-radius: 16px; overflow: hidden; border: 1px solid var(--sep); background: var(--card); color: var(--label); }
+.test-tile .shot { display: block; aspect-ratio: 16 / 9; background-size: cover; background-position: top center; }
+.test-tile .tt-body { display: grid; gap: 4px; padding: 14px 16px; } .test-tile b { font-size: 18px; } .test-tile .tt-body > span:last-child { font-size: 14px; color: var(--label2); }
 /* What we caught */
 a.story { color: #FFFFFF; }
 .caught-hero .title { max-width: 22ch; }
@@ -252,6 +284,8 @@ a.story { color: #FFFFFF; }
 .tabbar button { position: relative; }
 .tabbar .badge { position: absolute; top: 2px; left: calc(50% + 6px); min-width: 16px; height: 16px; padding: 0 4px; border-radius: 8px; background: var(--red); color: #FFFFFF; font-size: 10px; font-style: normal; font-weight: 700; line-height: 16px; }
 @media (max-width: 760px) {
+  .test-hero .shot { left: 0; top: 46%; }
+  .test-hero .shade { background: linear-gradient(180deg, #16120F 0%, #16120F 46%, rgba(22,18,15,.4) 60%, rgba(22,18,15,0) 80%); }
   .caught-grid { grid-template-columns: 1fr; }
   .story.wide.caught-hero { aspect-ratio: auto; min-height: 300px; }
   .story.wide.caught-hero .title { font-size: 26px; }
@@ -952,7 +986,7 @@ function pageToday() {
       <p class="intro">${introText()}</p>
       <div class="intro-links"><button data-focus>${ic('sliders', 2)} Make it yours</button><a href="#for-everyday">Just want free apps? Start here</a><button data-story="community">How we check</button></div></div>
     ${filtering() ? pickedForYou() : ''}
-    ${caughtHero()}
+    ${testHero()}
     ${trendingToday()}
     ${caughtShelf()}
     <section class="shelf"><div class="shelf-head"><h2>Starter kits<span class="sub">A few picks for one goal, ready to install together</span></h2><a class="see-all" href="#browse">See All</a></div>
@@ -970,7 +1004,7 @@ function pageToday() {
 // What Vetted is, in one breath, with only claims the data backs
 function introText() {
   const nSC = L.filter(l => scanOf(l)).length, ft = flagTotals();
-  return `Before you give an AI add-on your files, accounts and keys, see what it really does. ${L.length} skills, connectors and apps from GitHub${nSC === L.length && !ft.open ? ', each one checked by reading its code' : ''}.`;
+  return `Fewer, better AI skills. Most don't help, and every one you install takes up room in each session. We test the popular ones against plain Claude and read their code, so you keep only the few that work. ${L.length} checked${TESTS.length ? `, ${TESTS.reduce((a, t) => a + t.contestants.filter(c => c.listing).length, 0)} tested head to head` : ''}.`;
 }
 // New projects gaining stars fastest: created in the 120 days before the latest fetch, ranked by stars per day since
 function risingShelf() {
@@ -1454,6 +1488,7 @@ function pageProduct(id) {
       ${l.ih ? `<p class="also-chk">Runs a script on its own when npm installs it (${esc(andList([...new Set(l.ih.map(h => h.s))]))}). <button class="text-btn" data-jump="checks">Details</button></p>` : ''}
       ${tryAsking(l)}
       <div class="chips">${lv ? `<span class="${lv[1]}" title="${esc(lv[2])}">${lv[0]}</span>` : ''}${(l.jb || []).map(j => `<a href="#for-${j}">${esc(JOB[j][1])}</a>`).join('')}</div></div></div>`)(verdictShort(l)) : ''}
+    ${testedBox(l)}
     ${NT(l).filter(x => x.lv !== 'note').map(n => `<div class="worth ${NT_LV[n.lv][0]}" style="margin-top:12px"><div class="cap-h"><b>${esc(n.t)}</b><span class="chip ${NT_LV[n.lv][1]}">${NT_LV[n.lv][2]}</span></div><p>${esc(n.n)}</p></div>`).join('')}
     <div class="strip">
       <div><span class="k">GitHub</span><span class="v ${oddStars(l) ? 'c-orange' : ''}">${ic('star', 2)}${fmtK(r.st)}</span><span class="c">${oddStars(l) ? '<button class="text-btn odd-btn" data-jump="odd">Unusual growth</button>' : `stars${l.p ? ' (whole repo)' : ''}`}</span></div>
@@ -1521,6 +1556,72 @@ function pageProduct(id) {
   </div>`;
 }
 
+// ---------- Tested: one task, several skills and plain Claude, judged blind (tests/<id>/results.json) ----------
+const TESTS = D.TESTS || [], TEST = Object.fromEntries(TESTS.map(t => [t.id, t]));
+const testImg = (t, b, c, kind) => `tests/${t.id}/img/${b}-${c}-${kind}.jpg`;
+const cOf = (t, c) => t.contestants.find(x => x.id === c) || {};
+const cListing = (t, c) => BY[cOf(t, c).listing];
+const scoreOf = (t, b, c) => t.scores.find(s => s.brief === b && s.contestant === c);
+const avgOf = (t, c) => { const s = t.scores.filter(x => x.contestant === c); return s.length ? s.reduce((a, x) => a + x.total, 0) / s.length : 0; };
+const winsOf = (t, c) => Object.values(t.picks).reduce((a, p) => a + p.best.filter(x => x === c).length, 0);
+const roundsOf = t => Object.values(t.picks).reduce((a, p) => a + p.best.length, 0);
+const ranking = t => t.contestants.map(c => c.id).sort((a, b) => avgOf(t, b) - avgOf(t, a));
+const ordinal = n => n + (['th', 'st', 'nd', 'rd'][n % 100 > 10 && n % 100 < 14 ? 0 : n % 10] || 'th');
+// "Build a landing page for Streakly, a habit-tracking app for busy parents. Save…" → "A landing page for Streakly, a habit-tracking app for busy parents"
+const briefTitle = (t, b) => capFirst(t.briefs[b].split('. ')[0].replace(/^Build /, ''));
+const testsFor = l => TESTS.filter(t => t.contestants.some(c => c.listing === l.id));
+// On a listing's page: where it placed, against plain Claude, with a link to the test
+function testedBox(l) {
+  return testsFor(l).map(t => {
+    const c = t.contestants.find(c => c.listing === l.id).id, rank = ranking(t).indexOf(c) + 1, w = winsOf(t, c), pick = t.verdict.pick === c, skip = (t.verdict.skip || []).includes(c);
+    return `<a class="tested-box${pick ? ' pick' : skip ? ' skip' : ''}" href="#test-${t.id}"><span class="lbl">Tested ${fmtDate(t.date)}</span>
+      <b>${pick ? `Our pick: best of ${t.contestants.length}` : `${ordinal(rank)} of ${t.contestants.length}`} in "${esc(t.title)}"</b>
+      <span>Scored ${avgOf(t, c).toFixed(1)} out of 10 in blind judging; plain Claude scored ${avgOf(t, 'none').toFixed(1)}.${w ? ` Picked best in ${w} of ${roundsOf(t)} rounds.` : ''}${skip ? ' Its page broke on phones in one of the two tasks.' : ''}</span>
+      <span class="tb-link">See the pages side by side</span></a>`; }).join('');
+}
+// Today's lead: the newest test, with the winner's page as the picture
+function testHero() {
+  const t = TESTS[0]; if (!t) return '';
+  const pick = t.verdict.pick, l = cListing(t, pick), b = Object.keys(t.briefs).slice(-1)[0];
+  return `<div class="today"><a class="story wide test-hero" href="#test-${t.id}"><span class="shot" style="background-image:url('${testImg(t, b, pick, 'desk')}')"></span><span class="shade"></span>
+    <div class="copy"><span class="eyebrow">Tested · ${fmtDate(t.date).replace(/, \d{4}$/, '')}</span><span class="title">We tested the top design skills against plain Claude</span></div>
+    <div class="bottom frost">${l ? icon(l, 48) : ''}<div class="t"><b>Winner: ${esc(cOf(t, pick).name)}</b><span>Picked best in ${winsOf(t, pick)} of ${roundsOf(t)} blind rounds. Plain Claude came last on looks.</span></div><span class="get light">SEE</span></div></a></div>`;
+}
+const scoreBar = v => `<span class="sbar"><i style="width:${v * 10}%"></i></span><span class="snum">${v.toFixed(1)}</span>`;
+function pageTest(id) {
+  const t = TEST[id], order = ranking(t), briefs = Object.keys(t.briefs), pick = t.verdict.pick, simple = t.verdict.simplest;
+  const card = (b, c) => { const s = scoreOf(t, b, c), run = t.runs.find(r => r.brief === b && r.contestant === c) || {}, l = cListing(t, c);
+    return `<figure class="test-card${c === pick ? ' win' : ''}"><a class="shots" href="${testImg(t, b, c, 'desk')}" target="_blank" rel="noopener"><img src="${testImg(t, b, c, 'desk')}" alt="${esc(cOf(t, c).name)}, desktop" loading="lazy"><img class="ph" src="${testImg(t, b, c, 'phone')}" alt="${esc(cOf(t, c).name)}, phone" loading="lazy"></a>
+      <figcaption><span class="tc-h"><b>${l ? `<a href="#${l.id}">${esc(cOf(t, c).name)}</a>` : esc(cOf(t, c).name)}</b><span class="sc">${s.total.toFixed(1)}</span></span>
+        <p>“${esc(s.why[0])}”</p><small>${run.seconds} seconds · $${(run.costUSD || 0).toFixed(2)}${run.phoneOverflowPx > 0 ? ' · <span class="c-orange">scrolls sideways on phones</span>' : ''}</small></figcaption></figure>`; };
+  return `<div class="navbar"><div class="in"><a class="back" href="#tested">${ic('back', 2.4)}Tested</a></div></div>
+  <div class="page" style="padding-top:12px">
+    <div class="large-title"><div class="date-eyebrow">Tested ${fmtLong(t.date)}</div><h1>${esc(t.title)}</h1><p>${esc(t.question)}</p></div>
+    <section class="verdict-box"><h2>The verdict</h2><p>${esc(t.verdict.note)}</p>
+      <div class="rowlist">${[[pick, 'Install this'], [simple, 'Simplest, built into the Claude app']].filter(([c]) => cListing(t, c)).map(([c, why]) => `<div class="vb-pick"><span class="lbl">${why}</span>${row(cListing(t, c))}</div>`).join('')}</div>
+      <p class="note">They all do the same job, so install one. Two design skills compete with each other and both take up room in every session.</p></section>
+    <section class="shelf"><div class="shelf-head"><h2>Scores<span class="sub">Blind judging, out of 10: looks designed, clarity, fit, polish and phone, averaged over ${t.judge.rounds} rounds</span></h2></div>
+      <div class="cmp-wrap"><table class="cmp score-table"><thead><tr><th>Skill</th>${briefs.map(b => `<th>${esc(briefTitle(t, b).split(',')[0].replace(/^A (landing page|homepage) for /, ''))}</th>`).join('')}<th>Picked best</th><th>Our safety check</th></tr></thead>
+      <tbody>${order.map(c => { const l = cListing(t, c);
+        return `<tr class="${c === pick ? 'win' : ''}"><td>${l ? `<a href="#${l.id}">${esc(cOf(t, c).name)}</a><small>${esc(repoOf(l).on)}</small>` : `<b>${esc(cOf(t, c).name)}</b><small>No skill installed</small>`}</td>
+          ${briefs.map(b => `<td class="sc-cell">${scoreBar(scoreOf(t, b, c).total)}</td>`).join('')}<td>${winsOf(t, c)} of ${roundsOf(t)}</td><td>${l ? `<span class="${trust(l).cls}">${trust(l).short}</span>` : '—'}</td></tr>`; }).join('')}</tbody></table></div></section>
+    ${briefs.map(b => `<section class="shelf"><div class="shelf-head"><h2>${esc(briefTitle(t, b))}<span class="sub">Everyone got the same request: “${esc(t.briefs[b])}”</span></h2></div>
+      <div class="test-grid">${order.map(c => card(b, c)).join('')}</div></section>`).join('')}
+    <details class="full"><summary><b>How we tested</b><span>Same request, clean sessions, blind judges</span></summary>
+      <ul class="method"><li><b>Same request for everyone.</b> Each page was made in its own fresh Claude Code session (${esc(t.model.replace('claude-', 'Claude ').replace(/-(\d)-(\d)$/, ' $1.$2').replace('sonnet', 'Sonnet'))}) with no other skills installed. The skill was copied into the project, as <code>npx skills add</code> does. Every skill switched on by itself; nobody named it.</li>
+        <li><b>Versions.</b> ${t.contestants.filter(c => c.repo).map(c => `${esc(c.name)}: <a class="mono" href="https://github.com/${c.repo}/tree/${c.commit}/${c.path}" target="_blank" rel="noopener">${esc(c.repo)} ${esc(c.commit)}</a>`).join(', ')}.</li>
+        <li><b>Blind judging.</b> ${esc(t.judge.how)}. The judge was ${esc(t.judge.model.replace('claude-', 'Claude ').replace(/-(\d)-(\d)$/, ' $1.$2').replace('opus', 'Opus'))}.</li>
+        <li><b>Cost.</b> $${t.cost.generationUSD.toFixed(2)} to make the pages and $${t.cost.judgingUSD.toFixed(2)} to judge them.</li></ul>
+      <h3 style="font-size:17px;margin:16px 0 6px">Caveats</h3><ul class="method">${t.caveats.map(x => `<li>${esc(x)}</li>`).join('')}</ul></details>
+    ${dataNote()}</div>`;
+}
+function pageTested() {
+  return `<div class="page"><div class="large-title"><h1>Tested</h1><p>Most AI skills don't help, and every one you install takes up room in each session. So we give the popular ones the same job as plain Claude, judge the results blind, and tell you which one to keep.</p></div>
+    <div class="tests">${TESTS.map(t => { const pick = t.verdict.pick, b = Object.keys(t.briefs).slice(-1)[0];
+      return `<a class="test-tile" href="#test-${t.id}"><span class="shot" style="background-image:url('${testImg(t, b, pick, 'desk')}')"></span><span class="tt-body"><span class="lbl">${fmtDate(t.date)} · ${t.contestants.length} contestants</span><b>${esc(t.title)}</b><span>Winner: ${esc(cOf(t, pick).name)}, picked best in ${winsOf(t, pick)} of ${roundsOf(t)} blind rounds.</span></span></a>`; }).join('')}</div>
+    ${dataNote()}</div>`;
+}
+
 // ---------- What we caught ----------
 // Every note a review wrote on a listing: risks first, then by stars. Things the code does that a README doesn't lead with.
 const LV_RANK = { bad: 0, warn: 1, note: 2 };
@@ -1537,8 +1638,8 @@ function caughtHero() {
 }
 function caughtShelf() {
   const all = caughtAll();
-  return all.length > 1 ? `<section class="shelf"><div class="shelf-head"><h2>What we caught<span class="sub">Found by reading the code: ${all.length} things to know before you install</span></h2><a class="see-all" href="#caught">See All</a></div>
-    <div class="caught-grid">${all.slice(1, 7).map(caughtRow).join('')}</div></section>` : '';
+  return all.length ? `<section class="shelf"><div class="shelf-head"><h2>What we caught<span class="sub">Found by reading the code: ${all.length} things to know before you install</span></h2><a class="see-all" href="#caught">See All</a></div>
+    <div class="caught-grid">${all.slice(0, 6).map(caughtRow).join('')}</div></section>` : '';
 }
 function pageCaught() {
   const all = caughtAll(), risks = all.filter(x => x.n.lv !== 'note'), notes = all.filter(x => x.n.lv === 'note');
@@ -1835,8 +1936,8 @@ function pageIssue(id) {
 // ---------- routing ----------
 const S = { tab: 'today', detail: null, job: null, easy: false, q: '', agent: FOCUS.ai.find(a => AGENTS.some(x => x[0] === a)) || 'claude-code' };
 try { const a = localStorage.getItem('vetted-agent'); if (AGENTS.some(x => x[0] === a)) S.agent = a; } catch (e) {}
-const TABS = [['today', 'Today', 'today'], ['trending', 'Trending', 'pulse'], ['digest', 'Digest', 'book'], ['browse', 'Browse', 'grid'], ['tools', 'Apps', 'tool'], ['skills', 'Skills', 'skill'], ['mcp', 'Connectors', 'mcp'], ['list', 'My list', 'heart'], ['search', 'Search', 'search']];
-const MOBILE_TABS = ['today', 'trending', 'browse', 'list', 'search'];
+const TABS = [['today', 'Today', 'today'], ['tested', 'Tested', 'check'], ['trending', 'Trending', 'pulse'], ['digest', 'Digest', 'book'], ['browse', 'Browse', 'grid'], ['tools', 'Apps', 'tool'], ['skills', 'Skills', 'skill'], ['mcp', 'Connectors', 'mcp'], ['list', 'My list', 'heart'], ['search', 'Search', 'search']];
+const MOBILE_TABS = ['today', 'tested', 'browse', 'list', 'search'];
 // Pages without a tab of their own
 const PAGES = ['trusted', 'caught'];
 const count = k => L.filter(l => l.k === k && !l.tr).length;
@@ -1850,18 +1951,18 @@ function chrome() {
 }
 function render() {
   document.getElementById('main').innerHTML = (S.detail ? '' : focusBar()) + (S.detail ? pageProduct(S.detail) : S.job ? pageJob(S.job) : S.kit ? pageKit(S.kit)
-    : S.issue ? pageIssue(S.issue) : { today: pageToday, trending: pageTrending, digest: pageDigest, browse: pageBrowse, skills: pageSkills, mcp: pageMcp, tools: pageTools, trusted: pageTrusted, caught: pageCaught, list: pageList, search: pageSearch }[S.tab]());
+    : S.issue ? pageIssue(S.issue) : S.test ? pageTest(S.test) : { tested: pageTested, today: pageToday, trending: pageTrending, digest: pageDigest, browse: pageBrowse, skills: pageSkills, mcp: pageMcp, tools: pageTools, trusted: pageTrusted, caught: pageCaught, list: pageList, search: pageSearch }[S.tab]());
   document.body.dataset.detail = S.detail ? '1' : '';
   document.getElementById('fab').classList.toggle('hide', onTodayTop());
   // A title per page, for the browser tab, history and bookmarks
-  const t = S.detail ? BY[S.detail].n : S.job ? JOB[S.job][1] : S.kit ? KIT[S.kit][1] : S.issue ? issueInfo(D.DG.find(i => i.id === S.issue)).title
+  const t = S.detail ? BY[S.detail].n : S.job ? JOB[S.job][1] : S.kit ? KIT[S.kit][1] : S.test ? TEST[S.test].title : S.issue ? issueInfo(D.DG.find(i => i.id === S.issue)).title
     : ({ trusted: 'From companies', caught: 'What we caught', list: S.shared ? 'A shared list' : 'My list' }[S.tab] || (TABS.find(x => x[0] === S.tab) || [])[1]);
   document.title = t && S.tab !== 'today' || S.detail ? `${t} · Vetted` : 'Vetted: check AI add-ons before you install';
   chrome();
 }
 function route() {
   const h = decodeURIComponent(location.hash.slice(1));
-  S.job = null; S.kit = null; S.issue = null; S.shared = null;
+  S.job = null; S.kit = null; S.issue = null; S.shared = null; S.test = null;
   // A shared setup applies Make it yours, then shows Today; a shared list opens read-only
   if (h.startsWith('setup?')) { applySetup(h.slice(6)); history.replaceState(history.state, '', '#today'); toast('Set up from the link. Edit it any time in Make it yours.'); return route(); }
   if (h.startsWith('list=')) { S.shared = h.slice(5).split(',').filter(id => BY[id]); S.detail = null; S.tab = 'list'; S.back = 'list'; render(); return; }
@@ -1869,6 +1970,7 @@ function route() {
   if (BY[h]) { S.detail = h; if (!S.tab) S.tab = 'today'; }
   else if (h.startsWith('kit-') && KIT[h.slice(4)]) { S.detail = null; S.kit = h.slice(4); S.tab = 'browse'; }
   else if (h.startsWith('for-') && JOB[h.slice(4)]) { S.detail = null; S.job = h.slice(4); S.tab = 'browse'; }
+  else if (h.startsWith('test-') && TEST[h.slice(5)]) { S.detail = null; S.test = h.slice(5); S.tab = 'tested'; }
   else if (h.startsWith('digest-') && (D.DG || []).some(i => i.id === h.slice(7))) { S.detail = null; S.issue = h.slice(7); S.tab = 'digest'; }
   else {
     S.detail = null; S.tab = TABS.some(t => t[0] === h) || PAGES.includes(h) ? h : 'today';

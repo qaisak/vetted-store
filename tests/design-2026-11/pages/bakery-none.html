@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rosa's Bakery — Weekend Pastries, Lisbon</title>
+<meta name="description" content="Rosa's Bakery is a neighborhood bakery in Lisbon. Pre-order fresh weekend pastries for Saturday and Sunday pickup.">
+<style>
+  :root {
+    --cream: #fbf5ea;
+    --paper: #fffdf8;
+    --crust: #b5651d;
+    --crust-dark: #8a4a12;
+    --rose: #c8506a;
+    --ink: #3a2a1e;
+    --muted: #6f5d4e;
+    --line: #e8dcc8;
+    --radius: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--ink);
+    background: var(--cream);
+    line-height: 1.6;
+  }
+  h1, h2, h3 { line-height: 1.2; margin: 0 0 .5em; }
+  a { color: var(--crust-dark); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 1.25rem; }
+  .sans { font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+
+  header.site {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    position: sticky; top: 0; z-index: 10;
+  }
+  header.site .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-top: .8rem; padding-bottom: .8rem; gap: 1rem; flex-wrap: wrap;
+  }
+  .logo { font-size: 1.4rem; font-weight: bold; color: var(--crust-dark); text-decoration: none; }
+  nav a {
+    font-family: system-ui, sans-serif; font-size: .95rem;
+    margin-left: 1.1rem; text-decoration: none; color: var(--ink);
+  }
+  nav a:hover { color: var(--rose); }
+
+  .btn {
+    display: inline-block; font-family: system-ui, sans-serif; font-weight: 600;
+    background: var(--rose); color: #fff; padding: .85rem 1.5rem;
+    border-radius: 999px; text-decoration: none; border: 0; cursor: pointer; font-size: 1rem;
+  }
+  .btn:hover, .btn:focus-visible { background: #a63d55; }
+  .btn.alt { background: transparent; color: var(--crust-dark); border: 2px solid var(--crust); }
+  .btn.alt:hover { background: var(--crust); color: #fff; }
+
+  .hero {
+    background: linear-gradient(135deg, #f6e3c4 0%, #fbf5ea 60%);
+    padding: 5rem 0 4.5rem;
+  }
+  .hero .wrap { display: grid; grid-template-columns: 1.2fr .8fr; gap: 2rem; align-items: center; }
+  .hero h1 { font-size: clamp(2.2rem, 5vw, 3.4rem); color: var(--crust-dark); }
+  .hero p.lead { font-size: 1.2rem; color: var(--muted); max-width: 34em; }
+  .hero .actions { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 1.5rem; }
+  .hero .badge {
+    font-size: 8rem; text-align: center; line-height: 1;
+  }
+  .eyebrow {
+    font-family: system-ui, sans-serif; text-transform: uppercase; letter-spacing: .12em;
+    font-size: .8rem; color: var(--rose); font-weight: 700; margin-bottom: .8rem;
+  }
+
+  section { padding: 4rem 0; }
+  section h2 { font-size: 2rem; color: var(--crust-dark); }
+  .sub { color: var(--muted); max-width: 40em; }
+
+  .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; margin-top: 2rem; }
+  .step { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; }
+  .step .n {
+    display: inline-flex; width: 2.2rem; height: 2.2rem; border-radius: 50%;
+    background: var(--crust); color: #fff; align-items: center; justify-content: center;
+    font-family: system-ui, sans-serif; font-weight: 700; margin-bottom: .6rem;
+  }
+  .step h3 { font-size: 1.15rem; }
+  .step p { margin: 0; color: var(--muted); }
+
+  .menu { background: var(--paper); border-block: 1px solid var(--line); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+  .item { background: var(--cream); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.4rem; }
+  .item .emoji { font-size: 2.2rem; }
+  .item h3 { font-size: 1.2rem; margin-top: .3rem; }
+  .item p { margin: 0 0 .8rem; color: var(--muted); font-size: .98rem; }
+  .price { font-family: system-ui, sans-serif; font-weight: 700; color: var(--crust-dark); }
+  .tag { font-family: system-ui, sans-serif; font-size: .75rem; background: #f3d9de; color: #8a2a40; padding: .15rem .55rem; border-radius: 999px; margin-left: .4rem; }
+  .note { font-family: system-ui, sans-serif; font-size: .9rem; color: var(--muted); margin-top: 1.5rem; }
+
+  .order-box {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: start;
+  }
+  form { background: var(--paper); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.5rem; font-family: system-ui, sans-serif; }
+  label { display: block; font-weight: 600; font-size: .9rem; margin: 0 0 .9rem; }
+  input, select, textarea {
+    display: block; width: 100%; margin-top: .3rem; padding: .65rem .75rem;
+    border: 1px solid #cdbda3; border-radius: 8px; font: inherit; background: #fff; color: var(--ink);
+  }
+  input:focus, select:focus, textarea:focus, .btn:focus-visible, a:focus-visible {
+    outline: 3px solid #e9a9b8; outline-offset: 2px;
+  }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  #msg { margin-top: 1rem; font-weight: 600; color: #2d6a3e; }
+
+  .visit .cols { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 1.5rem; }
+  .hours { list-style: none; padding: 0; margin: 0; font-family: system-ui, sans-serif; }
+  .hours li { display: flex; justify-content: space-between; max-width: 22rem; padding: .35rem 0; border-bottom: 1px dotted var(--line); }
+
+  footer { background: var(--crust-dark); color: #f6e9d6; padding: 2rem 0; text-align: center; font-family: system-ui, sans-serif; font-size: .9rem; }
+  footer a { color: #fff; }
+
+  @media (max-width: 760px) {
+    .hero .wrap, .order-box, .visit .cols, .steps { grid-template-columns: 1fr; }
+    .hero .badge { font-size: 5rem; order: -1; }
+    nav a:first-child { margin-left: 0; }
+    section { padding: 3rem 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <a class="logo" href="#top">Rosa's Bakery</a>
+    <nav aria-label="Main">
+      <a href="#how">How it works</a>
+      <a href="#menu">Menu</a>
+      <a href="#order">Pre-order</a>
+      <a href="#visit">Visit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Lisbon · Baked fresh every weekend</div>
+        <h1>Weekend pastries, made by hand and saved just for you.</h1>
+        <p class="lead">Rosa's is a small neighborhood bakery. We bake in small batches on Saturday and Sunday mornings, and the best way to be sure of your favorites is to pre-order.</p>
+        <div class="actions">
+          <a class="btn" href="#order">Pre-order for this weekend</a>
+          <a class="btn alt" href="#menu">See the menu</a>
+        </div>
+      </div>
+      <div class="badge" aria-hidden="true">🥐</div>
+    </div>
+  </div>
+
+  <section id="how">
+    <div class="wrap">
+      <h2>How pre-ordering works</h2>
+      <p class="sub">Simple, and no payment online — you pay when you pick up.</p>
+      <div class="steps">
+        <div class="step"><div class="n">1</div><h3>Choose your pastries</h3><p>Pick what you'd like from the weekend menu below.</p></div>
+        <div class="step"><div class="n">2</div><h3>Order by Thursday</h3><p>Send your order by Thursday at 18:00 so we can plan the weekend bake.</p></div>
+        <div class="step"><div class="n">3</div><h3>Pick up Saturday or Sunday</h3><p>Come by at your chosen time. Your box will be waiting, still warm.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="wrap">
+      <h2>This weekend's menu</h2>
+      <p class="sub">Sample menu — the selection rotates with the seasons. Prices in euros.</p>
+      <div class="grid">
+        <article class="item"><div class="emoji" aria-hidden="true">🥧</div><h3>Pastel de nata <span class="tag">Favorite</span></h3><p>Crisp, flaky shell with a creamy custard, caramelized on top and dusted with cinnamon.</p><span class="price">€1.30 each · €7 for 6</span></article>
+        <article class="item"><div class="emoji" aria-hidden="true">🥐</div><h3>Butter croissant</h3><p>Long-fermented dough, laminated with real butter. Golden and shatteringly crisp.</p><span class="price">€1.90</span></article>
+        <article class="item"><div class="emoji" aria-hidden="true">🍞</div><h3>Pão de Deus</h3><p>Soft sweet brioche roll covered in toasted coconut. A Portuguese classic.</p><span class="price">€1.80</span></article>
+        <article class="item"><div class="emoji" aria-hidden="true">🍰</div><h3>Bolo de arroz</h3><p>Tender rice-flour muffin cake with a lightly crackled lemon-scented top.</p><span class="price">€1.60</span></article>
+        <article class="item"><div class="emoji" aria-hidden="true">🥮</div><h3>Travesseiros de Sintra</h3><p>Puff pastry "pillows" filled with almond and egg cream.</p><span class="price">€2.50</span></article>
+        <article class="item"><div class="emoji" aria-hidden="true">🍪</div><h3>Rosa's cinnamon rolls</h3><p>Big, soft and sticky, with orange-zest glaze. Sunday only.</p><span class="price">€3.20</span></article>
+      </div>
+      <p class="note">Please tell us about any allergies in your order. Our pastries contain gluten, eggs, dairy and nuts in places.</p>
+    </div>
+  </section>
+
+  <section id="order">
+    <div class="wrap order-box">
+      <div>
+        <h2>Place a pre-order</h2>
+        <p class="sub">Tell us what you'd like and when you'll come. We'll confirm by message within a day. Orders close Thursday at 18:00.</p>
+        <p class="sub">Prefer to talk? Call or message us at <a href="tel:+351210000000">+351 21 000 0000</a>.</p>
+      </div>
+      <form id="orderForm">
+        <label>Your name
+          <input name="name" required autocomplete="name">
+        </label>
+        <div class="row">
+          <label>Phone or email
+            <input name="contact" required autocomplete="email">
+          </label>
+          <label>Pickup day
+            <select name="day" required>
+              <option value="">Choose…</option>
+              <option>Saturday</option>
+              <option>Sunday</option>
+            </select>
+          </label>
+        </div>
+        <label>Pickup time
+          <select name="time" required>
+            <option value="">Choose…</option>
+            <option>08:00 – 09:30</option>
+            <option>09:30 – 11:00</option>
+            <option>11:00 – 13:00</option>
+          </select>
+        </label>
+        <label>Your order
+          <textarea name="items" rows="4" required placeholder="e.g. 6 pastéis de nata, 2 croissants"></textarea>
+        </label>
+        <button class="btn" type="submit">Send pre-order</button>
+        <div id="msg" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+  </section>
+
+  <section class="visit" id="visit" style="background:var(--paper);border-top:1px solid var(--line)">
+    <div class="wrap">
+      <h2>Come say hello</h2>
+      <div class="cols">
+        <div>
+          <p><strong>Rosa's Bakery</strong><br>Rua das Flores 00, Lisbon<br>(placeholder address)</p>
+          <p>Pre-order pickup and walk-ins welcome while stock lasts.</p>
+        </div>
+        <ul class="hours">
+          <li><span>Monday – Friday</span><span>Closed</span></li>
+          <li><span>Saturday</span><span>08:00 – 13:00</span></li>
+          <li><span>Sunday</span><span>08:00 – 13:00</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© <span id="yr">2026</span> Rosa's Bakery, Lisboa · Made with butter and love</div>
+</footer>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+  // No backend: build an email draft so the pre-order can actually be sent.
+  document.getElementById('orderForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var f = new FormData(e.target);
+    var body = 'Name: ' + f.get('name') + '\nContact: ' + f.get('contact') +
+      '\nPickup: ' + f.get('day') + ', ' + f.get('time') + '\n\nOrder:\n' + f.get('items');
+    window.location.href = 'mailto:orders@rosasbakery.example?subject=' +
+      encodeURIComponent('Weekend pre-order') + '&body=' + encodeURIComponent(body);
+    document.getElementById('msg').textContent = 'Thank you! Your email app should open with your order ready to send.';
+  });
+</script>
+</body>
+</html>

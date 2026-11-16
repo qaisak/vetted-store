@@ -1,0 +1,419 @@
+{
+ "id": "design-2026-11",
+ "title": "Design skills vs plain Claude",
+ "date": "2026-11-16",
+ "job": "design",
+ "question": "Do the most popular \"make it look designed\" skills beat plain Claude, and which one is best?",
+ "model": "claude-sonnet-5-5",
+ "runner": "Claude Code 2.1.325, headless, clean config, file tools only (no shell commands); skill copied into the project as npx skills add does",
+ "judge": {
+  "model": "claude-opus-5-5",
+  "rounds": 6,
+  "how": "Fresh Claude session per round, sees only anonymised screenshots (desktop first screen, desktop full page, phone first screen) labelled A to E; rounds 4 to 6 rotate the order so each page sits in a different slot",
+  "rubric": [
+   "designed",
+   "clarity",
+   "fit",
+   "polish",
+   "phone"
+  ]
+ },
+ "briefs": {
+  "streakly": "Build a landing page for Streakly, a habit-tracking app for busy parents. Save it as a single index.html in this folder, with inline CSS and no build step.",
+  "bakery": "Build a homepage for Rosa's Bakery, a neighborhood bakery in Lisbon that takes pre-orders for weekend pastries. Save it as a single index.html in this folder, with inline CSS and no build step."
+ },
+ "contestants": [
+  {
+   "id": "none",
+   "name": "Plain Claude",
+   "listing": null,
+   "repo": null,
+   "path": null,
+   "commit": null
+  },
+  {
+   "id": "frontend-design",
+   "name": "Frontend Design",
+   "listing": "anthropics-frontend-design",
+   "repo": "anthropics/skills",
+   "path": "skills/frontend-design",
+   "commit": "e4bb5d9"
+  },
+  {
+   "id": "taste-skill",
+   "name": "Taste Skill",
+   "listing": "leonxlnx-design-taste-frontend",
+   "repo": "Leonxlnx/taste-skill",
+   "path": "skills/taste-skill",
+   "commit": "f6b7657"
+  },
+  {
+   "id": "impeccable",
+   "name": "Impeccable",
+   "listing": "pbakaus-impeccable",
+   "repo": "pbakaus/impeccable",
+   "path": ".agent/skills/impeccable",
+   "commit": "d41d986"
+  },
+  {
+   "id": "hallmark",
+   "name": "Hallmark",
+   "listing": "nutlope-hallmark",
+   "repo": "Nutlope/hallmark",
+   "path": "skills/hallmark",
+   "commit": "04977e1"
+  }
+ ],
+ "runs": [
+  {
+   "brief": "bakery",
+   "contestant": "frontend-design",
+   "skillActivated": true,
+   "seconds": 56,
+   "costUSD": 0.155,
+   "outputBytes": 14554,
+   "phoneOverflowPx": 0,
+   "failedToLoad": []
+  },
+  {
+   "brief": "bakery",
+   "contestant": "hallmark",
+   "skillActivated": true,
+   "seconds": 113,
+   "costUSD": 0.372,
+   "outputBytes": 19262,
+   "phoneOverflowPx": 0,
+   "failedToLoad": []
+  },
+  {
+   "brief": "bakery",
+   "contestant": "impeccable",
+   "skillActivated": true,
+   "seconds": 125,
+   "costUSD": 0.401,
+   "outputBytes": 27667,
+   "phoneOverflowPx": 0,
+   "failedToLoad": []
+  },
+  {
+   "brief": "bakery",
+   "contestant": "none",
+   "skillActivated": null,
+   "seconds": 39,
+   "costUSD": 0.11,
+   "outputBytes": 12545,
+   "phoneOverflowPx": 0,
+   "failedToLoad": []
+  },
+  {
+   "brief": "bakery",
+   "contestant": "taste-skill",
+   "skillActivated": true,
+   "seconds": 88,
+   "costUSD": 0.486,
+   "outputBytes": 13994,
+   "phoneOverflowPx": 118,
+   "failedToLoad": []
+  },
+  {
+   "brief": "streakly",
+   "contestant": "frontend-design",
+   "skillActivated": true,
+   "seconds": 55,
+   "costUSD": 0.147,
+   "outputBytes": 13184,
+   "phoneOverflowPx": 0,
+   "failedToLoad": []
+  },
+  {
+   "brief": "streakly",
+   "contestant": "hallmark",
+   "skillActivated": true,
+   "seconds": 87,
+   "costUSD": 0.285,
+   "outputBytes": 18074,
+   "phoneOverflowPx": 0,
+   "failedToLoad": [
+    "https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap"
+   ]
+  },
+  {
+   "brief": "streakly",
+   "contestant": "impeccable",
+   "skillActivated": true,
+   "seconds": 102,
+   "costUSD": 0.315,
+   "outputBytes": 23242,
+   "phoneOverflowPx": 0,
+   "failedToLoad": []
+  },
+  {
+   "brief": "streakly",
+   "contestant": "none",
+   "skillActivated": null,
+   "seconds": 40,
+   "costUSD": 0.111,
+   "outputBytes": 12857,
+   "phoneOverflowPx": 0,
+   "failedToLoad": []
+  },
+  {
+   "brief": "streakly",
+   "contestant": "taste-skill",
+   "skillActivated": true,
+   "seconds": 93,
+   "costUSD": 0.351,
+   "outputBytes": 18225,
+   "phoneOverflowPx": 0,
+   "failedToLoad": []
+  }
+ ],
+ "scores": [
+  {
+   "brief": "bakery",
+   "contestant": "impeccable",
+   "rounds": 6,
+   "designed": 9,
+   "clarity": 9,
+   "fit": 9,
+   "polish": 8.3,
+   "phone": 8,
+   "total": 8.66,
+   "why": [
+    "The order-ticket idea, azulejo-blue pattern and confident serif headline feel made for this bakery, and the menu-plus-live-ticket ordering flow is clear and well finished, though the phone first screen cuts the ticket off at the bottom.",
+    "The azulejo-blue palette, the pre-order ticket made out to 'For Marta' and the live order ticket feel made for this bakery, with clear calls to action throughout; the hero ticket graphic sits low on desktop, and on the phone only its top edge shows at the bottom of the first screen.",
+    "The tile pattern, serif type and pre-order ticket that fills in as you add pastries feel designed for a Lisbon bakery, and the heading, buttons and three steps make the flow obvious.",
+    "A distinctive, confident identity: tile pattern, Lisbon blue and yellow, and an order-ticket motif that explains pre-ordering at a glance and carries through to a live 'Your ticket' order panel; the phone view keeps the hero and calls to action clean.",
+    "Azulejo-blue pattern, an order-ticket illustration and an interactive weekend list with a live ticket make it feel made for a Lisbon pre-order bakery, and it is cleanly executed, though the phone hero pushes the ticket below the fold.",
+    "The tile pattern, the order-ticket device and the warm 'name on the bag' idea feel made for this bakery, and the clear calls to action carry over well to the phone."
+   ]
+  },
+  {
+   "brief": "bakery",
+   "contestant": "frontend-design",
+   "rounds": 6,
+   "designed": 7.8,
+   "clarity": 8.8,
+   "fit": 8.8,
+   "polish": 6.5,
+   "phone": 5.3,
+   "total": 7.44,
+   "why": [
+    "The deadline-led headline, tile border and integrated order panel suit the business well, but the right side of the desktop hero is empty and the phone nav wraps badly ('Pre-/order', 'Pick-/up').",
+    "'Order by Thursday. Pick up warm on Saturday.' with a 'This weekend' info card and a tile strip is the clearest pitch of the five, but the right half of the desktop hero is empty and the phone nav wraps awkwardly into 'Pre-/order' and 'Pick-/up'.",
+    "The 'Order by Thursday' heading and tile strip are strong and on-brand, but the right half of the desktop hero is empty and the phone menu items break onto two lines.",
+    "The bold azulejo blue, tile border and 'Order by Thursday' headline suit a Lisbon pre-order bakery well, but the desktop hero has a big empty right half with the info card pushed into the tile strip, and on phone the nav wraps into cramped 'Pre-/order' and 'Pick-/up' fragments.",
+    "A strong order-by-Thursday headline, a tile border and a built-in order form fit the brief well, but the right side of the desktop hero is empty, the CTA crowds the tile strip, and the phone nav wraps into broken stacks ('Pre- order').",
+    "The azulejo blue and tile border suit Lisbon and the 'order by Thursday' message is very clear, but the right side of the hero is empty and the phone nav wraps into a cramped header."
+   ]
+  },
+  {
+   "brief": "bakery",
+   "contestant": "hallmark",
+   "rounds": 6,
+   "designed": 7,
+   "clarity": 7,
+   "fit": 6.8,
+   "polish": 6.7,
+   "phone": 7,
+   "total": 6.9,
+   "why": [
+    "The warm editorial type and the tray widget in the hero are distinctive, but the awkward subline ('bakes to the orders it has taken'), the lack of prices and the sparse menu make it feel thin.",
+    "The warm serif type and the 'Your tray' order box in the hero work well, but the line 'bakes to the orders it has taken' reads awkwardly, the next heading is cut off at the desktop fold, and there are large empty gaps between sections.",
+    "The warm editorial serif and the 'Your tray' order box look good, but the line 'bakes to the orders it has taken' is awkward and the first screen leaves a lot of dead space.",
+    "The order tray in the hero makes the next step obvious and the strong display serif has character, but there are no prices, no photos and only a thin menu, and the footer is mostly empty space, so it feels slightly unfinished for a bakery.",
+    "Confident editorial type and an order tray right in the hero, but the copy is thin and awkward ('bakes to the orders it has taken'), there are no prices, and there is little sense of place.",
+    "The serif type and the 'Your tray' order widget feel crafted, but the hero copy is awkward, there are large empty gaps, and the page has no prices, hours or address."
+   ]
+  },
+  {
+   "brief": "bakery",
+   "contestant": "none",
+   "rounds": 6,
+   "designed": 3.2,
+   "clarity": 7.8,
+   "fit": 5.5,
+   "polish": 6.2,
+   "phone": 6.8,
+   "total": 5.9,
+   "why": [
+    "Clear and complete, but it is a generic template with emoji illustrations, a default serif and a croissant-first look that doesn't feel like Lisbon.",
+    "It is clear but generic: a stock template with an emoji croissant, Times-style headings, emoji menu icons and an off-brief butter croissant, with nothing that says Lisbon.",
+    "The message is clear, but default-looking fonts, an emoji croissant and stock card grids make it read as a generic template.",
+    "Clear and tidy, with a sensible flow from steps to menu to form, but the emoji croissant, generic cards and stock warm-beige palette make it read as a template rather than a designed bakery brand.",
+    "Clear and complete, but the default serif, an emoji croissant as the hero image, emoji menu icons and a placeholder address make it look like a generic template.",
+    "It is clear and complete, with steps, a priced menu, a form and hours, but the emoji croissant and stock card layout make it look like a generic template with no Lisbon character."
+   ]
+  },
+  {
+   "brief": "bakery",
+   "contestant": "taste-skill",
+   "rounds": 6,
+   "designed": 5.8,
+   "clarity": 6.7,
+   "fit": 6.3,
+   "polish": 4,
+   "phone": 2.7,
+   "total": 5.1,
+   "why": [
+    "Restrained, tasteful type, but there's a big empty gap under the category tiles, the focus drifts to sourdough and cakes, and on the phone the tiles overflow sideways, get cut off, and the header button text wraps.",
+    "The editorial type is tasteful, but the desktop first screen is half empty, the category cards push sourdough and cakes over weekend pastries, and on the phone the cards run off the right edge and the header button text wraps.",
+    "The clean menu cards push sourdough and cakes over weekend pastries, a large blank gap sits under them on desktop, and on the phone the cards run off the right edge while the logo and header button wrap badly.",
+    "The editorial serif and restrained palette feel crafted, but the large dead space under the category tiles looks broken, and on phone the tiles overflow sideways, the logo wraps and the header button is cramped.",
+    "Restrained, well-chosen serif styling and a thorough menu, but the giant category cards leave a large empty gap on desktop, and on the phone the cards spill off the right edge and the header button wraps awkwardly.",
+    "The editorial type is refined, but a big empty band sits under the hero, and on the phone the category cards run off the screen and the header looks squashed."
+   ]
+  },
+  {
+   "brief": "streakly",
+   "contestant": "impeccable",
+   "rounds": 6,
+   "designed": 8.8,
+   "clarity": 8.5,
+   "fit": 8.3,
+   "polish": 7.2,
+   "phone": 7.3,
+   "total": 8.02,
+   "why": [
+    "Bold, energetic brand system with a memorable streak card, a time-of-day story and a tracker comparison, slightly let down by the phone copy saying 'try the check-in on the right' and tight time-label spacing.",
+    "Bold and memorable, with a great streak demo, a day-in-the-life timeline and a typical-vs-Streakly comparison that sell the idea well, held back by the am/pm labels running into the headings and phone copy that says the demo is 'on the right' when it sits below.",
+    "Bold and confident, with a strong streak demo and the grace-day comparison, but the am/pm suffixes crowd the feature titles and on the phone it says 'try the check-in on the right' when the demo is below.",
+    "The bold blue and yellow brand, the timeline of a parent's day and the tracker comparison make it the most distinctive and persuasive page, though the large times crowd their headings and on the phone the text still says the check-in is 'on the right'.",
+    "Bold, confident brand with a punchy headline, an interactive streak card and parent-specific sections like the day timeline and grace-day comparison, though the timeline times crowd their headings and the phone copy still says the check-in is 'on the right'.",
+    "Bold, confident branding with a memorable streak widget, a day-timeline section and a 'typical tracker vs Streakly' comparison; the phone hint 'on the right' points to a card that is actually below."
+   ]
+  },
+  {
+   "brief": "streakly",
+   "contestant": "frontend-design",
+   "rounds": 6,
+   "designed": 8,
+   "clarity": 8.2,
+   "fit": 8.3,
+   "polish": 7.3,
+   "phone": 7.2,
+   "total": 7.8,
+   "why": [
+    "Distinctive tilted sticky-note style, a realistic day timeline and parent-specific copy, though the hero chart shows an empty 0-day state and its labels are cramped on the phone.",
+    "Distinctive pinned chart and tilted sticky-note cards give it warmth and personality, with tight copy about real parent days, though the empty chart and the 'early access' CTA make the product feel a little unfinished.",
+    "It has a distinctive voice with the pinned chart, sticky-note feature cards and a timeline of a parent's day, though the all-zero empty chart looks flat and the habit labels wrap awkwardly on the phone.",
+    "The pinned, slightly tilted paper cards and the warm, specific copy about parents feel made for this product, but the demo chart shows all zeros and the feature cards are scattered unevenly.",
+    "Warm, characterful design with a pinned weekly chart and sticky-note feature cards that suit family life, and the hero clearly says who it's for and what to do next.",
+    "Distinctive pinned-chart and sticky-note look with sharp parent-specific copy, though the scattered cards look slightly messy and on the phone the habit labels squeeze into three-line wraps."
+   ]
+  },
+  {
+   "brief": "streakly",
+   "contestant": "taste-skill",
+   "rounds": 6,
+   "designed": 6.2,
+   "clarity": 9.2,
+   "fit": 7.7,
+   "polish": 5.3,
+   "phone": 8.2,
+   "total": 7.32,
+   "why": [
+    "The headline is the clearest of the five and the phone layout is strong, but the hero has a lot of dead space and the faded headline on the dark band looks broken.",
+    "The headline is very clear and the serif and terracotta palette feel warm, but the hero has dead space above it, the Saturday dot is missing its check, and the dark-band headline is nearly unreadable.",
+    "The literal headline is very clear and the warm serif style suits the audience, but the dark-section heading renders almost invisibly, the desktop hero has too much empty space, and Saturday shows a filled circle with no check mark.",
+    "It is clean and clear, with a serif headline and a believable app mockup, but the hero has a lot of empty space and the dark section's heading is so faint it looks broken.",
+    "Tells you exactly what it is in the headline with a tidy app preview and a strong phone layout, but the serif-plus-cream look is fairly generic and the dark-section heading is almost unreadable grey on brown.",
+    "The clearest hero and a solid structure, but it looks fairly standard, has a big empty gap above the hero, and the dark band's headline is nearly invisible grey on brown, which looks broken."
+   ]
+  },
+  {
+   "brief": "streakly",
+   "contestant": "hallmark",
+   "rounds": 6,
+   "designed": 7,
+   "clarity": 7,
+   "fit": 6.7,
+   "polish": 7.2,
+   "phone": 7.7,
+   "total": 7.12,
+   "why": [
+    "Restrained, confident type and a clever grace-day demo, but it is so sparse and monochrome that it feels cold for busy parents, and the big empty gap below the hero looks unfinished.",
+    "Restrained and editorial, and the grace-day visual explains the product well, but the near-monochrome palette feels cold for parents and the page has big empty gaps and thin content.",
+    "The restrained editorial look and grace-day demo are tasteful, but the hero never says it's for parents, the nav is bare, and there is a large empty gap under the desktop hero.",
+    "It is restrained, tidy and well typeset, and the grace-day idea comes across well, but the plain monochrome look feels sparse and could belong to many brands.",
+    "Elegant, restrained editorial look with a clear grace-day demo, but it feels cold and sparse for tired parents, and the subhead never says it's for parents.",
+    "Calm, tasteful editorial minimalism with a smart grace-day demo, but the hero never says it is for parents, the page feels sparse with big empty gaps, and its restrained greyscale palette feels cold for a family product."
+   ]
+  },
+  {
+   "brief": "streakly",
+   "contestant": "none",
+   "rounds": 6,
+   "designed": 4.2,
+   "clarity": 8.3,
+   "fit": 6.7,
+   "polish": 7.3,
+   "phone": 7.7,
+   "total": 6.84,
+   "why": [
+    "Clear and warm, with a good parent-focused headline, but the emoji-icon feature grid, pricing card and FAQ make it read like a standard SaaS template.",
+    "Clean and clear with good parent-focused copy, but the layout is a stock SaaS template (pill badge, six icon cards, testimonials, single pricing card, gradient CTA) and nothing about it is distinctive.",
+    "Clear and tidy, but it looks like a stock SaaS template: a feature grid with emoji icons, testimonials, a single pricing card and an FAQ accordion, with little that feels specific to Streakly.",
+    "It reads as a generic SaaS template, with emoji icons, a grid of six features, stock-style testimonials and a pricing card, plus a 'thousands of parents' claim that doesn't fit a beta.",
+    "Clean and clear, but it's a stock SaaS template: badge pill, six emoji feature cards, three steps, testimonials, one pricing card, and a gradient CTA.",
+    "Clean but plainly a generic SaaS template (emoji icon grid, stock testimonials, pricing card, 'join thousands' claim) with a washed-out grey logo, so it has little character of its own."
+   ]
+  }
+ ],
+ "picks": {
+  "bakery": {
+   "best": [
+    "impeccable",
+    "impeccable",
+    "impeccable",
+    "impeccable",
+    "impeccable",
+    "impeccable"
+   ],
+   "worst": [
+    "taste-skill",
+    "taste-skill",
+    "taste-skill",
+    "taste-skill",
+    "none",
+    "taste-skill"
+   ]
+  },
+  "streakly": {
+   "best": [
+    "impeccable",
+    "impeccable",
+    "frontend-design",
+    "impeccable",
+    "impeccable",
+    "impeccable"
+   ],
+   "worst": [
+    "none",
+    "none",
+    "none",
+    "none",
+    "none",
+    "none"
+   ]
+  }
+ },
+ "cost": {
+  "generationUSD": 2.73,
+  "judgingUSD": 3.74
+ },
+ "caveats": [
+  "One page per skill per brief: a single run can vary, so treat this as a strong signal, not a final verdict.",
+  "The judges are AI (Claude Opus), not people. They saw screenshots, not the code.",
+  "Hallmark picked a font from Fontshare that our test machine could not load, so its Streakly screenshots show a fallback font.",
+  "Sessions could only read and write files in their own folder, so skills that check their work by opening a browser could not."
+ ],
+ "verdict": {
+  "pick": "impeccable",
+  "simplest": "frontend-design",
+  "skip": [
+   "taste-skill"
+  ],
+  "note": "Impeccable won 11 of 12 blind rounds. Anthropic's Frontend Design came second and is already built into the Claude app. Taste Skill's bakery page broke on phones. Plain Claude was clear but looked generic: 3 to 4 out of 10 for looking designed."
+ }
+}

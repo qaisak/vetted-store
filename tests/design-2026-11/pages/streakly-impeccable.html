@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Streakly — habits that survive the school run</title>
+<meta name="description" content="Streakly is a habit tracker built for busy parents: ten-second check-ins, grace days for when life happens, and streaks you can share with your co-parent.">
+<meta name="theme-color" content="#2d3cff">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0e1030;
+  --ink-2:#3b3f6b;
+  --blue:#2d3cff;
+  --blue-deep:#1b24b8;
+  --blue-soft:#d7dbff;
+  --ice:#eef0ff;
+  --sun:#ffd23f;
+  --coral:#ff5a4e;
+  --white:#fff;
+  --display:"Bricolage Grotesque","Avenir Next Condensed","Arial Narrow",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --pad:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);font-size:1.0625rem;line-height:1.55;color:var(--ink);background:var(--ice);font-variant-numeric:tabular-nums}
+::selection{background:var(--sun);color:var(--ink)}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px;border-radius:6px}
+.on-light :focus-visible{outline-color:var(--blue)}
+a{color:inherit}
+img,svg{display:block;max-width:100%}
+.wrap{max-width:1200px;margin-inline:auto;padding-inline:var(--pad)}
+.skip{position:absolute;left:-999px;top:8px;background:var(--sun);color:var(--ink);padding:10px 16px;border-radius:8px;font-weight:700;z-index:10}
+.skip:focus{left:8px}
+
+h1,h2,h3{font-family:var(--display);line-height:1;letter-spacing:-.025em;text-wrap:balance}
+h1{font-size:clamp(2.9rem,8.2vw,6rem);font-weight:800}
+h2{font-size:clamp(2.1rem,5vw,3.75rem);font-weight:800}
+h3{font-size:1.5rem;font-weight:700;letter-spacing:-.015em}
+p{text-wrap:pretty}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border:0;border-radius:999px;font:700 1.0625rem/1 var(--body);cursor:pointer;text-decoration:none;transition:transform .35s var(--ease),background-color .2s,box-shadow .35s var(--ease);box-shadow:0 2px 0 rgba(14,16,48,.25),0 10px 24px -8px rgba(14,16,48,.45)}
+.btn-sun{background:var(--sun);color:var(--ink)}
+.btn-sun:hover{background:#ffdf6e;transform:translateY(-2px)}
+.btn-sun:active{transform:translateY(1px);box-shadow:0 1px 0 rgba(14,16,48,.25)}
+.btn[disabled]{opacity:.55;cursor:not-allowed;transform:none}
+
+/* header */
+header.top{background:var(--blue);color:var(--white)}
+.nav{display:flex;align-items:center;justify-content:space-between;padding-block:22px}
+.logo{display:inline-flex;align-items:center;gap:10px;font:800 1.5rem/1 var(--display);letter-spacing:-.03em;text-decoration:none}
+.nav a.link{font-weight:600;text-decoration:none;padding:10px 4px;text-underline-offset:5px}
+.nav a.link:hover{text-decoration:underline;text-decoration-thickness:2px}
+.nav-right{display:flex;gap:28px;align-items:center}
+.nav .btn{min-height:44px;padding:0 20px;font-size:1rem}
+
+/* hero */
+.hero{background:var(--blue);color:var(--white);padding-block:clamp(28px,5vw,64px) clamp(72px,10vw,140px);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(32px,5vw,72px);align-items:center}
+.hero h1 em{font-style:normal;color:var(--sun)}
+.hero .lede{font-size:clamp(1.15rem,2vw,1.4rem);max-width:34ch;margin-top:28px;color:var(--blue-soft)}
+.hero .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:18px 24px;margin-top:36px}
+.hero .fine{color:var(--blue-soft);font-size:.95rem}
+
+/* streak panel (interactive) */
+.panel{background:var(--ice);color:var(--ink);border-radius:32px;padding:clamp(22px,3vw,34px);box-shadow:0 2px 0 rgba(14,16,48,.2),0 40px 70px -30px rgba(7,9,70,.7);transform:rotate(1.6deg);transition:transform .6s var(--ease)}
+.panel:hover{transform:rotate(0)}
+.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.panel-habit{font-weight:700;font-size:1.05rem}
+.panel-sub{color:var(--ink-2);font-size:.95rem}
+.streak-num{font:800 clamp(5rem,11vw,8rem)/.85 var(--display);letter-spacing:-.05em;margin-top:18px}
+.streak-num small{display:block;font:700 1rem/1.2 var(--body);letter-spacing:0;margin-top:10px;color:var(--ink-2)}
+.chain{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin:26px 0 22px;padding:0;list-style:none}
+.day{aspect-ratio:1;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:.9rem;position:relative;background:var(--white);color:var(--ink-2);border:2px solid var(--blue-soft)}
+.day.done{background:var(--blue);border-color:var(--blue);color:var(--white)}
+.day.grace{background:repeating-linear-gradient(135deg,var(--sun) 0 5px,#ffe48a 5px 10px);border-color:var(--sun);color:var(--ink)}
+.day svg{width:55%;height:55%}
+.day.pop{animation:pop .6s var(--ease)}
+@keyframes pop{0%{transform:scale(.6)}60%{transform:scale(1.18)}100%{transform:scale(1)}}
+.check{width:100%;min-height:64px;border:0;border-radius:20px;background:var(--ink);color:var(--white);font:700 1.15rem/1 var(--body);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:12px;transition:transform .3s var(--ease),background-color .2s}
+.check:hover{background:#1c1f55}
+.check:active{transform:scale(.98)}
+.check[aria-pressed="true"]{background:var(--blue);}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-top:16px;font-size:.88rem;color:var(--ink-2)}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+
+/* sections */
+section{padding-block:clamp(72px,10vw,140px)}
+.light{background:var(--ice)}
+.sec-head{max-width:20ch}
+
+/* a day in the life */
+.day-list{margin-top:clamp(40px,6vw,72px);list-style:none;padding:0;border-top:2px solid var(--ink)}
+.day-list li{display:grid;grid-template-columns:minmax(120px,.28fr) 1fr minmax(0,.9fr);gap:12px clamp(20px,4vw,56px);align-items:baseline;padding-block:clamp(22px,3vw,36px);border-bottom:2px solid var(--ink)}
+.t{font:800 clamp(2.4rem,5.5vw,4.4rem)/.9 var(--display);letter-spacing:-.04em;color:var(--blue)}
+.t span{font-size:.4em;letter-spacing:0;margin-left:4px}
+.day-list h3{margin-bottom:8px}
+.day-list p{color:var(--ink-2);max-width:44ch}
+.nudge{justify-self:start;background:var(--white);border-radius:18px 18px 18px 4px;padding:14px 18px;font-weight:600;box-shadow:0 1px 0 rgba(14,16,48,.12),0 12px 24px -14px rgba(14,16,48,.4);font-size:1rem;max-width:30ch}
+.nudge b{display:block;font-size:.8rem;font-weight:700;color:var(--blue);margin-bottom:2px}
+
+/* grace days */
+.grace-sec{background:var(--sun);color:var(--ink)}
+.grace-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,96px);align-items:center}
+.grace-sec p{font-size:1.2rem;max-width:40ch;margin-top:22px}
+.grace-sec p strong{font-weight:700}
+.compare{display:grid;gap:22px}
+.row{background:var(--white);border-radius:24px;padding:22px 24px;box-shadow:0 1px 0 rgba(14,16,48,.15),0 22px 40px -26px rgba(14,16,48,.55)}
+.row h3{font-size:1.05rem;font-family:var(--body);letter-spacing:0;margin-bottom:14px;display:flex;justify-content:space-between;gap:12px}
+.row h3 span{font-weight:600;color:var(--ink-2)}
+.dots{display:flex;gap:8px}
+.dots i{flex:1;height:16px;border-radius:99px;background:var(--blue)}
+.dots i.miss{background:var(--coral)}
+.dots i.void{background:var(--blue-soft)}
+.dots i.g{background:repeating-linear-gradient(135deg,var(--sun) 0 4px,#ffe48a 4px 8px);outline:2px solid var(--ink);outline-offset:-2px}
+
+/* habits */
+.habits{background:var(--ink);color:var(--white)}
+.habits h2{max-width:16ch}
+.habits .sub{color:var(--blue-soft);max-width:40ch;margin-top:20px;font-size:1.15rem}
+.chips{display:flex;flex-wrap:wrap;gap:12px;margin-top:44px;padding:0;list-style:none}
+.chips li{border-radius:999px;padding:14px 22px;font-weight:600;font-size:1.05rem;border:2px solid rgba(255,255,255,.28);transition:transform .4s var(--ease),background-color .2s,color .2s,border-color .2s}
+.chips li:nth-child(4n+1){background:var(--blue);border-color:var(--blue)}
+.chips li:nth-child(4n+2){background:var(--sun);color:var(--ink);border-color:var(--sun)}
+.chips li:nth-child(4n+3){background:var(--coral);color:var(--ink);border-color:var(--coral)}
+.chips li:hover{transform:translateY(-4px) rotate(-1.5deg)}
+
+/* shared */
+.share-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(32px,6vw,96px);align-items:center}
+.share-grid p{font-size:1.2rem;color:var(--ink-2);max-width:40ch;margin-top:22px}
+.household{background:var(--white);border-radius:28px;padding:clamp(20px,3vw,32px);box-shadow:0 1px 0 rgba(14,16,48,.12),0 30px 50px -30px rgba(14,16,48,.5)}
+.household ul{list-style:none;padding:0;display:grid}
+.household li{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;padding-block:16px;border-bottom:1px solid var(--blue-soft)}
+.household li:last-child{border:0}
+.av{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font:800 1.1rem var(--display);color:var(--ink)}
+.household strong{display:block}
+.household span.s{color:var(--ink-2);font-size:.92rem}
+.household .n{font:800 2rem/1 var(--display);letter-spacing:-.03em;color:var(--blue)}
+.household .n small{font:600 .8rem var(--body);color:var(--ink-2);letter-spacing:0;margin-left:3px}
+
+/* faq */
+.faq{padding-top:0}
+.faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,6vw,96px)}
+details{border-top:2px solid var(--ink);padding-block:22px}
+details:last-of-type{border-bottom:2px solid var(--ink)}
+summary{font:700 1.25rem/1.3 var(--display);letter-spacing:-.01em;cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:20px;align-items:center}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";flex:none;width:14px;height:14px;border-right:3px solid var(--blue);border-bottom:3px solid var(--blue);transform:rotate(45deg);transition:transform .35s var(--ease);margin-right:6px}
+details[open] summary::after{transform:rotate(-135deg)}
+details p{margin-top:14px;color:var(--ink-2);max-width:56ch}
+
+/* close */
+.close{background:var(--blue);color:var(--white);text-align:left;overflow:hidden}
+.close h2{font-size:clamp(2.6rem,8vw,6rem);max-width:12ch}
+.close h2 em{font-style:normal;color:var(--sun)}
+.close p.lede{color:var(--blue-soft);font-size:1.2rem;margin-top:22px;max-width:36ch}
+form{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px;max-width:560px}
+label.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+input[type=email]{flex:1 1 260px;min-height:56px;border-radius:999px;border:3px solid transparent;padding:0 24px;font:500 1.0625rem var(--body);background:var(--white);color:var(--ink);caret-color:var(--blue)}
+input[type=email]::placeholder{color:#5a5e8c}
+input[type=email]:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+input[aria-invalid="true"]{border-color:var(--coral)}
+.msg{flex-basis:100%;min-height:1.5em;font-weight:600;color:var(--white)}
+.msg.err{color:#ffd0cb}
+footer{background:var(--blue-deep);color:var(--blue-soft);padding-block:28px;font-size:.95rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+/* scrollbar */
+html{scrollbar-color:var(--blue) var(--ice)}
+
+/* reveal */
+.rise{animation:rise .9s var(--ease) both}
+.rise.d1{animation-delay:.08s}.rise.d2{animation-delay:.16s}.rise.d3{animation-delay:.28s}
+@keyframes rise{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+@media (max-width:900px){
+  .hero-grid,.grace-grid,.share-grid,.faq-grid{grid-template-columns:1fr}
+  .panel{transform:none}
+  .day-list li{grid-template-columns:1fr}
+  .nav a.link{display:none}
+}
+@media (max-width:480px){
+  .chain{gap:6px}
+  .day{font-size:.8rem}
+  .btn{width:100%}
+  form .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="top">
+  <nav class="wrap nav" aria-label="Main">
+    <a class="logo" href="#top" aria-label="Streakly home">
+      <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="10" fill="#ffd23f"/><path d="M8 17.5l5 5L24 10" fill="none" stroke="#0e1030" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Streakly
+    </a>
+    <div class="nav-right">
+      <a class="link" href="#day">How it fits</a>
+      <a class="link" href="#grace">Grace days</a>
+      <a class="link" href="#faq">FAQ</a>
+      <a class="btn btn-sun" href="#get">Get early access</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main">
+<div class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <h1 class="rise">Habits that <em>survive</em> the school run.</h1>
+      <p class="lede rise d1">Streakly is the habit tracker for parents whose days don’t go to plan. Ten-second check-ins. Grace days for the sick-kid weeks. No guilt when the chain bends.</p>
+      <div class="cta-row rise d2">
+        <a class="btn btn-sun" href="#get">Get early access</a>
+        <span class="fine">Try the check-in on the right. It takes one tap.</span>
+      </div>
+    </div>
+
+    <div class="panel rise d3" aria-labelledby="ph">
+      <div class="panel-head">
+        <div>
+          <div class="panel-habit" id="ph">Ten minutes of floor time</div>
+          <div class="panel-sub">Sample habit · last 14 days</div>
+        </div>
+      </div>
+      <div class="streak-num"><span id="count" aria-live="polite">13</span><small>day streak</small></div>
+      <ol class="chain" id="chain" aria-label="Last 14 days"></ol>
+      <button class="check" id="check" type="button" aria-pressed="false">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span id="check-label">Done for today</span>
+      </button>
+      <div class="legend" aria-hidden="true">
+        <span><i style="background:var(--blue)"></i>Done</span>
+        <span><i style="background:var(--sun)"></i>Grace day</span>
+        <span><i style="background:#fff;border:2px solid var(--blue-soft)"></i>Today</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="light on-light" id="day">
+  <div class="wrap">
+    <h2 class="sec-head">Built for the day you actually have.</h2>
+    <ol class="day-list">
+      <li>
+        <div class="t">6:40<span>am</span></div>
+        <div><h3>One thumb, one tap</h3><p>Lunchboxes in one hand, phone in the other. Check in without unlocking a whole app: a single tap from the notification.</p></div>
+        <div class="nudge"><b>Streakly</b>Water before coffee? Tap to log it.</div>
+      </li>
+      <li>
+        <div class="t">12:15<span>pm</span></div>
+        <div><h3>Reminders that read the room</h3><p>Pick the windows that are really yours. Streakly stays quiet through nap time, meetings and pick-up.</p></div>
+        <div class="nudge"><b>Streakly</b>Five minutes to walk? You’re 2 days from your best.</div>
+      </li>
+      <li>
+        <div class="t">3:30<span>pm</span></div>
+        <div><h3>The day goes sideways</h3><p>A fever, a forgotten costume day, a late meeting. Spend a grace day and the streak holds, no explaining required.</p></div>
+        <div class="nudge"><b>Streakly</b>Rough day? Use a grace day. Your streak is safe.</div>
+      </li>
+      <li>
+        <div class="t">9:45<span>pm</span></div>
+        <div><h3>Last check, then sleep</h3><p>One calm screen to close the day: what got done, what can wait until tomorrow. Then it’s lights out.</p></div>
+        <div class="nudge"><b>Streakly</b>Book at bedtime: done. Good night.</div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="grace-sec" id="grace">
+  <div class="wrap grace-grid">
+    <div>
+      <h2>Miss a day. Keep the streak.</h2>
+      <p>Most trackers reset you to zero the moment life happens, and with kids life always happens. <strong>Streakly gives you grace days</strong> to spend when you need them, so one bad Tuesday doesn’t erase three weeks.</p>
+    </div>
+    <div class="compare" role="img" aria-label="Comparison: a typical tracker resets the streak after one missed day, while Streakly bridges the missed day with a grace day and keeps the streak going.">
+      <div class="row">
+        <h3>A typical tracker <span>back to day 0</span></h3>
+        <div class="dots" aria-hidden="true"><i class="void"></i><i class="void"></i><i class="void"></i><i class="miss"></i><i></i><i></i><i></i></div>
+      </div>
+      <div class="row">
+        <h3>Streakly <span>streak still going</span></h3>
+        <div class="dots" aria-hidden="true"><i></i><i></i><i></i><i class="g"></i><i></i><i></i><i></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="habits">
+  <div class="wrap">
+    <h2>Small enough to actually do.</h2>
+    <p class="sub">Start with the habits parents tell us they keep meaning to build. Or write your own.</p>
+    <ul class="chips">
+      <li>Water before coffee</li>
+      <li>Ten minutes of floor time</li>
+      <li>One book at bedtime</li>
+      <li>Walk after dinner</li>
+      <li>Text a friend back</li>
+      <li>Stretch while the kettle boils</li>
+      <li>Phone away at dinner</li>
+      <li>Lights out by 10:30</li>
+      <li>Prep tomorrow’s lunches</li>
+    </ul>
+  </div>
+</section>
+
+<section class="light on-light">
+  <div class="wrap share-grid">
+    <div>
+      <h2>Two parents, one streak.</h2>
+      <p>Share the habits that belong to the whole household, like bedtime reading, chores and family walks. See who’s on it and cheer each other on, without nagging.</p>
+    </div>
+    <div class="household" role="img" aria-label="Example household with two parents and a shared habit streak. Sample data.">
+      <ul aria-hidden="true">
+        <li><span class="av" style="background:var(--sun)">A</span><div><strong>Bedtime story</strong><span class="s">Alex checked in · 8:02 pm</span></div><div class="n">21<small>days</small></div></li>
+        <li><span class="av" style="background:var(--blue-soft)">J</span><div><strong>Family walk</strong><span class="s">Jordan checked in · 6:15 pm</span></div><div class="n">9<small>days</small></div></li>
+        <li><span class="av" style="background:#ffc3bd">A+J</span><div><strong>Tidy-up race</strong><span class="s">Waiting on both of you</span></div><div class="n">4<small>days</small></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="faq light on-light" id="faq">
+  <div class="wrap faq-grid">
+    <h2>Questions, answered.</h2>
+    <div>
+      <details><summary>How many grace days do I get?</summary><p>Grace days are built to be generous enough for real family life. You choose how many to keep in reserve per habit, so you decide how forgiving each streak should be.</p></details>
+      <details><summary>Is it just for me, or can my partner join?</summary><p>Both. Keep private habits to yourself and share the family ones with a co-parent or caregiver. Everyone sees only what you’ve shared.</p></details>
+      <details><summary>How long does a check-in take?</summary><p>One tap from the notification or home-screen widget. If you can open a text, you can check in.</p></details>
+      <details><summary>What does Streakly cost?</summary><p>We’re finalising pricing. Join the early-access list and we’ll tell you before anything is charged.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="close" id="get">
+  <div class="wrap">
+    <h2>Start a streak that <em>forgives.</em></h2>
+    <p class="lede">Join the early-access list. We’ll email you once, when Streakly is ready for your phone.</p>
+    <form id="signup" novalidate>
+      <label class="sr" for="email">Email address</label>
+      <input id="email" type="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-describedby="msg">
+      <button class="btn btn-sun" type="submit">Get early access</button>
+      <p class="msg" id="msg" role="status"></p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap"><span>© 2026 Streakly</span><span>Made for the ones who are up before the kids.</span></div>
+</footer>
+
+<script>
+(function(){
+  // --- interactive streak panel ---
+  // 14 days: 'd' done, 'g' grace, 't' today (open). Day 13 of 14 is a grace day.
+  var days=['d','d','d','d','d','g','d','d','d','d','d','d','d','t'];
+  var chain=document.getElementById('chain'), count=document.getElementById('count');
+  var btn=document.getElementById('check'), label=document.getElementById('check-label');
+  var doneToday=false;
+  var checkSvg='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  function streak(){
+    var n=0;
+    for(var i=days.length-1;i>=0;i--){
+      if(days[i]==='d'||days[i]==='g'){n++}
+      else if(days[i]==='t'&&i===days.length-1){continue}
+      else break;
+    }
+    return n;
+  }
+  function render(pop){
+    chain.textContent='';
+    for(var i=0;i<days.length;i++){
+      var li=document.createElement('li');
+      var s=days[i];
+      var daysAgo=days.length-1-i;
+      li.className='day'+(s==='d'?' done':s==='g'?' grace':'');
+      var name=daysAgo===0?'Today':daysAgo+' days ago';
+      li.setAttribute('aria-label',name+': '+(s==='d'?'done':s==='g'?'grace day':'not yet'));
+      if(s==='d'){li.innerHTML=checkSvg}
+      else if(s==='g'){li.textContent='G'}
+      else{li.textContent=''}
+      if(pop&&i===days.length-1)li.classList.add('pop');
+      chain.appendChild(li);
+    }
+    // keep the chain at 7 columns; show only last 14 in two rows
+    count.textContent=streak();
+    btn.setAttribute('aria-pressed',doneToday?'true':'false');
+    label.textContent=doneToday?'Done. See you tomorrow':'Done for today';
+  }
+  btn.addEventListener('click',function(){
+    doneToday=!doneToday;
+    days[days.length-1]=doneToday?'d':'t';
+    render(doneToday);
+  });
+  render(false);
+
+  // --- signup (client-side only; no backend is wired up) ---
+  var form=document.getElementById('signup'), email=document.getElementById('email'), msg=document.getElementById('msg');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=email.value.trim();
+    var ok=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v);
+    msg.className='msg'+(ok?'':' err');
+    email.setAttribute('aria-invalid',ok?'false':'true');
+    if(!ok){
+      msg.textContent=v?'That email doesn’t look right. Check for typos and try again.':'Add your email so we know where to send the invite.';
+      email.focus();return;
+    }
+    msg.textContent='You’re on the list. Watch for one email from us.';
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>

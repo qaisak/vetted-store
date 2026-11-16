@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Streakly: habits that survive busy days</title>
+<meta name="description" content="Streakly is a habit tracker for busy parents. Track the few habits that matter, in seconds a day, with grace days for when life gets in the way.">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+/* Hallmark v2.0.0 · theme: coral (by hand, scripts unavailable) · genre: modern-minimal · job: start tracking · hero: stage, text left, desk right · nav: wordmark and one action · footer: mast · signature: the week card with a grace day pressed Kept · copy: own */
+/* Hallmark · pre-emit critique: P4 H4 E4 S4 R4 V4 · weakest: S, the desk is CSS stationery with no photograph; kept it plain rather than faking a texture file */
+/* waive 42: nav is wordmark plus one action by design, no link row */
+:root {
+  --color-paper: oklch(97% 0.006 55); --color-paper-2: oklch(94.5% 0.007 55);
+  --color-ink: oklch(21% 0.012 38); --color-muted: oklch(47% 0.013 45);
+  --color-rule: oklch(87% 0.009 55); --color-rule-2: oklch(81% 0.011 55);
+  --color-accent: oklch(74% 0.125 30); --color-accent-2: oklch(54% 0.165 29); --color-focus: oklch(54% 0.17 30);
+  --color-cotton: oklch(98.8% 0.0045 80); --color-desk: oklch(94.3% 0.008 64);
+  --color-print: oklch(23% 0.012 38); --color-board: oklch(22% 0.011 40); --color-board-type: oklch(96.5% 0.006 70);
+  --color-board-muted: oklch(78% 0.01 60); --color-board-rule: oklch(36% 0.012 45);
+  --font-display: "General Sans", ui-sans-serif, system-ui, sans-serif; --font-body: var(--font-display);
+  --font-outlier: "Geist Mono", ui-monospace, monospace;
+  --radius-card: 8px; --radius-input: 6px; --radius-groove: 12px; --radius-dot: 999px;
+  --edge-stock: inset 0 1px 0 oklch(100% 0.005 80 / 0.9), inset 0 -1px 0 oklch(32% 0.03 50 / 0.07), 0 0 0 0.5px oklch(32% 0.03 50 / 0.22), 0 1px 0 oklch(32% 0.03 50 / 0.12);
+  --cast-stock: 6px 5px 10px -6px oklch(32% 0.03 50 / 0.3);
+  --cast-stock-lift: 12px 10px 18px -8px oklch(32% 0.03 50 / 0.3);
+  --press-groove: inset 1px 1.5px 2px oklch(32% 0.03 50 / 0.16), inset -1px -1px 0 oklch(100% 0.005 80 / 0.9);
+  --cast-board: 6px 5px 12px -6px oklch(7% 0.01 40 / 0.6);
+  --daylight: radial-gradient(90% 120% at 0% 30%, var(--color-cotton), transparent 62%);
+  --sheen: linear-gradient(100deg, var(--color-cotton), transparent 45%);
+  --text-body: 1.0625rem; --text-small: 0.9375rem;
+  --text-title: clamp(1.25rem, 1.1rem + 0.6vw, 1.5rem);
+  --text-h2: clamp(2rem, 1.4rem + 2.4vw, 3.5rem);
+  --text-display: clamp(2.6rem, 1.4rem + 4.6vw, 5.25rem);
+  --space-sm: 0.75rem; --space-md: 1.5rem; --space-lg: 2.5rem; --space-xl: 4rem; --space-section: clamp(4.5rem, 9vw, 8rem);
+  --container: 72rem; --gutter: clamp(1.25rem, 4vw, 2.5rem);
+  --dur: 160ms; --ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --tracking-display: -0.03em;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html, body { overflow-x: clip; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--color-paper); color: var(--color-print); font: 400 var(--text-body)/1.6 var(--font-body); -webkit-font-smoothing: antialiased; caret-color: var(--color-accent-2); }
+::selection { background: var(--color-accent); color: var(--color-ink); }
+html { scrollbar-color: var(--color-rule-2) var(--color-paper); }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 600; letter-spacing: var(--tracking-display); line-height: 1.05; margin: 0; text-wrap: balance; overflow-wrap: break-word; min-width: 0; color: var(--color-ink); }
+p { margin: 0; text-wrap: pretty; }
+a { color: inherit; text-decoration-color: var(--color-rule-2); text-underline-offset: 0.2em; }
+a:hover { text-decoration-color: var(--color-accent-2); }
+:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 3px; transition: none; }
+.container { width: 100%; max-width: var(--container); margin-inline: auto; padding-inline: var(--gutter); }
+.skip { position: absolute; left: -999px; top: 0; background: var(--color-cotton); padding: var(--space-sm); z-index: 10; }
+.skip:focus { left: var(--space-sm); }
+
+/* controls */
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 var(--space-md); border: 0; border-radius: var(--radius-card); font: 500 var(--text-body)/1 var(--font-body); cursor: pointer; text-decoration: none; transition: transform var(--dur) var(--ease-out), box-shadow var(--dur) var(--ease-out); }
+.btn--ink { background: var(--color-board); color: var(--color-board-type); box-shadow: var(--cast-stock); }
+.btn--ink:hover { transform: translateY(-1px); box-shadow: var(--cast-stock-lift); }
+.btn--ink:active { transform: translateY(1px); }
+.btn--ink[disabled] { opacity: 0.55; cursor: not-allowed; }
+.link { font-weight: 500; }
+
+/* nav */
+.nav { padding-block: var(--space-md); }
+.nav .container { display: flex; align-items: center; justify-content: space-between; gap: var(--space-md); }
+.mark { font-weight: 600; font-size: var(--text-title); letter-spacing: var(--tracking-display); text-decoration: none; color: var(--color-ink); }
+
+/* hero */
+.hero { padding-block: clamp(1.5rem, 4vw, 3.5rem) var(--space-section); }
+.hero .container { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-xl); align-items: center; }
+.hero h1 { font-size: var(--text-display); }
+.lede { margin-top: var(--space-md); font-size: var(--text-title); line-height: 1.4; color: var(--color-muted); max-width: 26ch; }
+.actions { margin-top: var(--space-lg); display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-md); }
+
+/* desk and stationery */
+.desk { background-color: var(--color-desk); background-image: var(--daylight); border-radius: var(--radius-card); padding: clamp(1.25rem, 3vw, 2.5rem); min-height: 28rem; position: relative; display: grid; align-content: center; gap: var(--space-md); }
+.stock { background-color: var(--color-cotton); background-image: var(--sheen); color: var(--color-print); border-radius: var(--radius-card); box-shadow: var(--edge-stock), var(--cast-stock); padding: var(--space-md); }
+.card-title { font-weight: 600; font-size: var(--text-title); letter-spacing: -0.02em; color: var(--color-ink); }
+.label { font-size: var(--text-small); font-weight: 500; color: var(--color-muted); }
+.week { list-style: none; margin: var(--space-md) 0 0; padding: 0; display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 0.5rem; }
+.week li { display: grid; justify-items: center; gap: 0.4rem; font-size: var(--text-small); color: var(--color-muted); }
+.dot { width: 100%; max-width: 2.75rem; aspect-ratio: 1; border-radius: var(--radius-dot); border: 1.5px solid var(--color-rule-2); display: grid; place-items: center; }
+.dot svg { width: 55%; height: 55%; }
+.dot--done { background: var(--color-board); border-color: var(--color-board); color: var(--color-board-type); }
+.dot--grace { border-style: dashed; border-color: var(--color-accent-2); color: var(--color-accent-2); }
+.card-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: var(--space-md); }
+.pressed { font-weight: 600; font-size: var(--text-title); color: var(--color-accent-2); transform: rotate(-4deg); text-shadow: 1px 1px 0 var(--color-cotton), -0.5px -0.5px 0 oklch(32% 0.03 50 / 0.25); letter-spacing: -0.01em; }
+.desk .stock:nth-child(2) { margin-left: clamp(0rem, 6vw, 4rem); }
+
+/* sections */
+.section { padding-block: var(--space-section); }
+.section h2 { font-size: var(--text-h2); }
+.split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: var(--space-xl); align-items: center; }
+.split p { margin-top: var(--space-md); color: var(--color-muted); max-width: 34ch; }
+
+.grace-card { padding: var(--space-lg); }
+.grace-card .week { margin-top: var(--space-md); }
+.grace-card .note { margin-top: var(--space-md); padding-top: var(--space-md); border-top: 1px solid var(--color-rule); }
+
+.index { display: grid; gap: 0; position: relative; }
+.index .stock { padding: var(--space-md) var(--space-lg); display: grid; gap: 0.35rem; }
+.index .stock p { margin: 0; max-width: 40ch; color: var(--color-muted); font-size: var(--text-body); }
+.index .stock:nth-child(1) { margin-right: 4rem; }
+.index .stock:nth-child(2) { margin-left: 2rem; margin-right: 2rem; margin-top: -0.5rem; }
+.index .stock:nth-child(3) { margin-left: 4rem; margin-top: -0.5rem; }
+
+/* board */
+.board { background: var(--color-board); color: var(--color-board-type); }
+.board h2 { color: var(--color-board-type); }
+.board .split p { color: var(--color-board-muted); }
+.rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--color-board-rule); }
+.rows li { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: var(--space-md); align-items: baseline; padding-block: 1.1rem; border-bottom: 1px solid var(--color-board-rule); font-size: var(--text-title); font-weight: 500; }
+.rows .fig { font-family: var(--font-outlier); font-variant-numeric: tabular-nums; font-size: var(--text-small); color: var(--color-board-muted); font-weight: 400; }
+
+/* close */
+.close .container { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: var(--space-xl); align-items: end; }
+.close h2 { font-size: var(--text-display); }
+.signup { display: grid; gap: var(--space-sm); }
+.signup label { font-size: var(--text-small); font-weight: 500; color: var(--color-muted); }
+.signup input { min-height: 48px; padding: 0 var(--space-sm); border: 1px solid var(--color-muted); border-radius: var(--radius-input); background: var(--color-cotton); font: 400 var(--text-body) var(--font-body); color: var(--color-print); width: 100%; }
+.signup input:focus-visible { outline: 3px solid var(--color-focus); outline-offset: 2px; border-color: var(--color-focus); }
+.signup .btn { justify-self: start; }
+.help { min-height: 1lh; font-size: var(--text-small); color: var(--color-muted); }
+
+/* footer */
+.footer { border-top: 1px solid var(--color-rule); padding-block: var(--space-lg); }
+.footer .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-md); color: var(--color-muted); font-size: var(--text-small); }
+.footer nav { display: flex; gap: var(--space-md); }
+
+@media (max-width: 54rem) {
+  .hero .container, .split, .close .container { grid-template-columns: minmax(0, 1fr); gap: var(--space-lg); }
+  .desk { min-height: 0; }
+  .lede { max-width: 34ch; }
+  .index .stock:nth-child(n) { margin-left: 0; margin-right: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn { transition: none; }
+  .btn--ink:hover, .btn--ink:active { transform: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="container">
+    <a class="mark" href="#top">Streakly</a>
+    <a class="btn btn--ink" href="#start">Get started</a>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="container">
+      <div>
+        <h1>Small habits that survive busy days</h1>
+        <p class="lede">Track the few habits that matter, in seconds a day.</p>
+        <div class="actions">
+          <a class="btn btn--ink" href="#start">Start your first habit</a>
+          <a class="link" href="#grace">How grace days work</a>
+        </div>
+      </div>
+
+      <div class="desk" aria-label="Example habit cards">
+        <article class="stock">
+          <div class="card-row">
+            <div>
+              <h2 class="card-title">Read together</h2>
+              <p class="label">Before bed, ten minutes</p>
+            </div>
+          </div>
+          <ol class="week" aria-label="This week">
+            <li><span class="dot dot--done"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span>Mon</li>
+            <li><span class="dot dot--done"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span>Tue</li>
+            <li><span class="dot dot--grace"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h8"/></svg></span>Wed</li>
+            <li><span class="dot dot--done"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span>Thu</li>
+            <li><span class="dot dot--done"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span>Fri</li>
+            <li><span class="dot"></span>Sat</li>
+            <li><span class="dot"></span>Sun</li>
+          </ol>
+        </article>
+        <article class="stock">
+          <div class="card-row">
+            <div>
+              <h3 class="card-title">Wednesday was a grace day</h3>
+              <p class="label">Sick kid, no sleep. The streak held.</p>
+            </div>
+            <span class="pressed">Kept</span>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="grace">
+    <div class="container split">
+      <div>
+        <h2>Miss a day. Keep the streak.</h2>
+        <p>Fevers, flights and forgotten lunchboxes happen. Spend a grace day and move on.</p>
+      </div>
+      <div class="stock grace-card">
+        <h3 class="card-title">Morning stretch</h3>
+        <ol class="week" aria-label="Example week with a grace day">
+          <li><span class="dot dot--done"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span>Mon</li>
+          <li><span class="dot dot--grace"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h8"/></svg></span>Tue</li>
+          <li><span class="dot dot--grace"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 8h8"/></svg></span>Wed</li>
+          <li><span class="dot dot--done"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span>Thu</li>
+          <li><span class="dot dot--done"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 8.5l3 3 6-7"/></svg></span>Fri</li>
+          <li><span class="dot"></span>Sat</li>
+          <li><span class="dot"></span>Sun</li>
+        </ol>
+        <p class="label note">Dashed circles are grace days. You choose how many each week.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="container split">
+      <div class="index">
+        <article class="stock">
+          <h3 class="card-title">One tap</h3>
+          <p>Check in from the lock screen while the kettle boils.</p>
+        </article>
+        <article class="stock">
+          <h3 class="card-title">Shared with your partner</h3>
+          <p>Both of you see what is done, so nobody asks twice.</p>
+        </article>
+        <article class="stock">
+          <h3 class="card-title">Nudges that read the room</h3>
+          <p>One quiet reminder at a time you pick, never a guilt trip.</p>
+        </article>
+      </div>
+      <div>
+        <h2>Built for the five minutes you actually have</h2>
+      </div>
+    </div>
+  </section>
+
+  <section class="section board">
+    <div class="container split">
+      <div>
+        <h2>Habits that fit around pickup</h2>
+        <p>Start with one. Add another when the first feels easy.</p>
+      </div>
+      <ul class="rows">
+        <li><span>Read together</span><span class="fig">evening</span></li>
+        <li><span>Morning stretch</span><span class="fig">morning</span></li>
+        <li><span>Water bottle refilled</span><span class="fig">all day</span></li>
+        <li><span>Screens off at dinner</span><span class="fig">evening</span></li>
+        <li><span>Call someone you love</span><span class="fig">weekly</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section close" id="start">
+    <div class="container">
+      <h2>Start with one habit</h2>
+      <form class="signup" id="signup" novalidate>
+        <label for="email">Your email</label>
+        <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com" required>
+        <button class="btn btn--ink" type="submit">Start your first habit</button>
+        <p class="help" id="help" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <a class="mark" href="#top">Streakly</a>
+    <nav aria-label="Footer">
+      <a href="#grace">Grace days</a>
+      <a href="#start">Get started</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  var form = document.getElementById('signup'), help = document.getElementById('help'), email = document.getElementById('email');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    if (!email.value || !email.validity.valid) { help.textContent = 'Add a valid email so we can reach you.'; email.focus(); return; }
+    help.textContent = 'Thanks. Sign-up is not connected yet, so nothing was sent.';
+  });
+</script>
+</body>
+</html>

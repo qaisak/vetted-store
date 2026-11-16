@@ -1,6 +1,10 @@
 # Vetted Skill Store
 
-An App Store-style catalog of real open-source projects: CLI apps, agent skills and MCP servers.
+**Fewer, better AI skills.** Most skills don't help, and every one installed takes up room in each session.
+Vetted tests the popular ones head to head against plain Claude (`tests/`), reads their code, and offers a
+Checkup that tells Claude Code users which of their skills to keep (`checkup/`, private for now).
+
+Underneath is a catalog of real open-source projects: CLI apps, agent skills and MCP servers.
 Projects from **independent developers** are the focus: each gets a **Purpose Check** (what its code can
 actually do, compared with what it says it's for) and a static **NVIDIA SkillSpector** scan.
 Projects from companies (Anthropic, OpenAI, NVIDIA, GitHub, Microsoft, Google and others) are listed as
@@ -41,6 +45,9 @@ The site is a single self-contained page: [`vetted-store.html`](vetted-store.htm
 | `pipeline/digest.mjs` | Writes the weekly, monthly and yearly Digest issues from the trending lists, launch dates and additions |
 | `data/digests/` | One JSON file per Digest issue; past issues are never rewritten, so the archive keeps what was true then |
 | `data/trending.json` | GitHub's own trending lists (today, this week, this month) with stars gained, read on the date it states |
+| `tests/<id>/` | A head-to-head test: `results.json` (runs, blind scores, verdict), screenshots, the pages each session made, the scripts, and a README with the method and caveats. The build shows every test on the Tested page |
+| `checkup/skills/vetted-checkup/` | The Checkup skill: `SKILL.md`, `checkup.mjs` (reads installed skills, plugins and the user's own session logs; changes nothing) and `vetted-data.json`, written by the build |
+| `checkup/test/checkup.test.mjs` | Builds a made-up Claude Code setup and checks the Checkup's report |
 
 ## Rebuild the site
 
@@ -85,6 +92,14 @@ node pipeline/build.mjs data/data.json pipeline/template.html vetted-store.html 
 6. **Build** as above, pointing the scan-reports argument at `<scan-root>/out` or `data/scan-reports`.
 7. **Smoke test** before publishing: `node pipeline/smoke.mjs vetted-store.html` and `node pipeline/flows.cjs vetted-store.html`
    (both use the preinstalled Playwright). Listings without a scan report are held back by the build, which names them.
+
+## Head-to-head tests
+
+Each test gives the same request to several skills and to plain Claude, in clean headless Claude Code sessions (no other
+skills, file tools only), then has fresh Claude sessions score anonymised screenshots on a fixed rubric over several rounds,
+rotating the order. See `tests/design-2026-11/README.md` for the first one: Impeccable won 11 of 12 blind rounds; plain
+Claude scored 3 to 4 out of 10 for looking designed. A test page appears on the site once `tests/<id>/results.json` exists;
+its screenshots are published with the artifact as files at the same relative paths.
 
 ## How the Purpose Check decides
 
