@@ -1053,6 +1053,16 @@ function startHere() {
     <div class="promise">${ic('shieldok', 1.8)}<div><b>What we check</b><span>${promiseText()}</span>
       <button class="text-btn" style="font-size:14px;font-weight:600;margin-top:6px;display:block" data-story="labels">What our safety labels mean</button></div></div></section>`;
 }
+// Everything: the whole catalog in one list, A to Z, with the type tabs as shortcuts
+function pageAll() {
+  const list = [...vis(L)].sort((a, b) => a.n.localeCompare(b.n, 'en', { sensitivity: 'base' }));
+  return `<div class="page">
+    <div class="large-title"><h1>Everything</h1><p>All ${list.length} listings, A to Z. Every one scanned and checked before it was listed.</p></div>
+    ${hiddenNote(L, list)}
+    <div class="chips" style="margin:-4px 0 14px">${[['skills', 'Skills', 'skill'], ['mcp', 'Connectors', 'mcp'], ['tools', 'Apps', 'tool']].map(([h, t, k]) => `<a href="#${h}">${t} · ${vis(L.filter(l => l.k === k)).length}</a>`).join('')}</div>
+    <div class="rowlist">${list.map(l => row(l)).join('')}</div>
+    ${dataNote()}</div>`;
+}
 function pageBrowse() {
   return `<div class="page">
     <div class="large-title"><h1>Browse</h1><p>By the work you do, or by type.</p></div>
@@ -1938,13 +1948,13 @@ function pageIssue(id) {
 // ---------- routing ----------
 const S = { tab: 'today', detail: null, job: null, easy: false, q: '', agent: FOCUS.ai.find(a => AGENTS.some(x => x[0] === a)) || 'claude-code' };
 try { const a = localStorage.getItem('vetted-agent'); if (AGENTS.some(x => x[0] === a)) S.agent = a; } catch (e) {}
-const TABS = [['today', 'Home', 'today'], ['browse', 'Browse', 'grid'], ['list', 'My list', 'heart'], ['search', 'Search', 'search']];
-const MOBILE_TABS = ['today', 'browse', 'list', 'search'];
+const TABS = [['today', 'Home', 'today'], ['browse', 'Browse', 'grid'], ['all', 'Everything', 'book'], ['skills', 'Skills', 'skill'], ['mcp', 'Connectors', 'mcp'], ['tools', 'Apps', 'tool'], ['list', 'My list', 'heart'], ['search', 'Search', 'search']];
+const MOBILE_TABS = ['today', 'browse', 'all', 'list', 'search'];
 // Pages without a tab of their own
-const PAGES = ['trusted', 'caught', 'tested', 'trending', 'digest', 'skills', 'mcp', 'tools'];
+const PAGES = ['trusted', 'caught', 'tested', 'trending', 'digest'];
 const count = k => L.filter(l => l.k === k && !l.tr).length;
 function chrome() {
-  const n = { skills: vis(L.filter(l => l.k === 'skill')).length, mcp: vis(L.filter(l => l.k === 'mcp')).length, tools: vis(L.filter(l => l.k === 'tool')).length, list: LIST.length || '' };
+  const n = { all: vis(L).length, skills: vis(L.filter(l => l.k === 'skill')).length, mcp: vis(L.filter(l => l.k === 'mcp')).length, tools: vis(L.filter(l => l.k === 'tool')).length, list: LIST.length || '' };
   document.getElementById('side-nav').innerHTML = TABS.filter(t => t[0] !== 'search').map(([k, l, g]) => `<button class="nav-item" data-tab="${k}" aria-current="${S.tab === k && !S.detail ? 'page' : 'false'}">${ic(g)}${l}${n[k] ? `<span class="n">${n[k]}</span>` : ''}</button>`).join('');
   const fl = focusOn() ? 'For you · on' : 'Make it yours';
   document.getElementById('side-tailor').innerHTML = `${ic('sliders', 2)}<span>${fl}${focusOn() ? `<small>${esc(focusSummary()).slice(0, 60)}</small>` : '<small>Show what fits your work</small>'}</span>`;
@@ -1953,12 +1963,12 @@ function chrome() {
 }
 function render() {
   document.getElementById('main').innerHTML = (S.detail ? '' : focusBar()) + (S.detail ? pageProduct(S.detail) : S.job ? pageJob(S.job) : S.kit ? pageKit(S.kit)
-    : S.issue ? pageIssue(S.issue) : S.test ? pageTest(S.test) : { tested: pageTested, today: pageToday, trending: pageTrending, digest: pageDigest, browse: pageBrowse, skills: pageSkills, mcp: pageMcp, tools: pageTools, trusted: pageTrusted, caught: pageCaught, list: pageList, search: pageSearch }[S.tab]());
+    : S.issue ? pageIssue(S.issue) : S.test ? pageTest(S.test) : { tested: pageTested, today: pageToday, all: pageAll, trending: pageTrending, digest: pageDigest, browse: pageBrowse, skills: pageSkills, mcp: pageMcp, tools: pageTools, trusted: pageTrusted, caught: pageCaught, list: pageList, search: pageSearch }[S.tab]());
   document.body.dataset.detail = S.detail ? '1' : '';
   document.getElementById('fab').classList.toggle('hide', onTodayTop());
   // A title per page, for the browser tab, history and bookmarks
   const t = S.detail ? BY[S.detail].n : S.job ? JOB[S.job][1] : S.kit ? KIT[S.kit][1] : S.test ? TEST[S.test].title : S.issue ? issueInfo(D.DG.find(i => i.id === S.issue)).title
-    : ({ trusted: 'From companies', caught: 'Risks & findings', tested: 'Tested', trending: 'Trending', digest: 'Digest', skills: 'Skills', mcp: 'Connectors', tools: 'Apps', list: S.shared ? 'A shared list' : 'My list' }[S.tab] || (TABS.find(x => x[0] === S.tab) || [])[1]);
+    : ({ trusted: 'From companies', caught: 'Risks & findings', tested: 'Tested', trending: 'Trending', digest: 'Digest', list: S.shared ? 'A shared list' : 'My list' }[S.tab] || (TABS.find(x => x[0] === S.tab) || [])[1]);
   document.title = t && S.tab !== 'today' || S.detail ? `${t} · Vetted` : 'Vetted: check AI add-ons before you install';
   chrome();
 }
