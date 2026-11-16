@@ -992,10 +992,11 @@ function pageToday() {
     ${filtering() ? pickedForYou() : ''}
     <section class="shelf"><div class="shelf-head"><h2>Start here<span class="sub">A few picks for one goal, ready to install together</span></h2><a class="see-all" href="#browse">See All</a></div>
       <div class="job-grid">${kitsFirst().slice(0, 4).map(kitCard).join('')}</div></section>
+    <section class="shelf"><div class="shelf-head"><h2>New powers<span class="sub">Things your AI can't do on its own, and the checked picks that add them</span></h2><a class="see-all" href="#powers">See All</a></div>
+      <div class="job-grid">${POWERS.slice(0, 6).map(([k, t, why, g, c, ids]) => `<a class="job-card" href="#powers"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span><span style="min-width:0"><b>${esc(t)}</b><span class="s">${esc(why)}</span></span><span class="n">${vis(pick(ids)).length}</span></a>`).join('')}</div></section>
     <section class="shelf"><div class="shelf-head"><h2>Browse by job</h2><a class="see-all" href="#browse">See All</a></div>
       <div class="job-grid">${jobsFirst().slice(0, 6).map(jobCard).join('')}</div></section>
     <section class="shelf"><div class="shelf-head"><h2>Popular<span class="sub">The most-starred community projects, every one checked. Listings with unusual star growth don't rank here</span></h2></div>${ranked(uniqueRepos(byStars(vis(community())).filter(l => !oddStars(l))).slice(0, 9), true)}</section>
-    ${riskShelf()}
     ${TESTS.length ? testedLine(TESTS[0]) : ''}
     ${dataNote()}</div>`;
 }
@@ -1053,6 +1054,22 @@ function startHere() {
     <div class="promise">${ic('shieldok', 1.8)}<div><b>What we check</b><span>${promiseText()}</span>
       <button class="text-btn" style="font-size:14px;font-weight:600;margin-top:6px;display:block" data-story="labels">What our safety labels mean</button></div></div></section>`;
 }
+// Things an AI assistant can't do by itself, and the checked picks that add each one.
+// Instruction-only skills sharpen what it already does; these give it reach it simply lacks.
+const POWERS = [
+  ['memory', "Remember between sessions", "Your AI forgets everything when a chat ends. These keep what it learned.", 'clock', ['#7C3AED', '#A855F7'], ['mcp-context-mode', 'thedotmack-mem-search', 'mcp-memory', 'mcp-codebase-memory-mcp']],
+  ['browser', "Use a real browser", "It can't open pages, click or sign in anywhere. These let it browse like you do.", 'globe', ['#2563EB', '#0EA5E9'], ['mcp-playwright-mcp', 'sawyerhood-dev-browser', 'mcp-chrome-devtools-mcp', 'mcp-mcp-chrome']],
+  ['accounts', "Use your apps and accounts", "It can't see your calendar, notes, designs or tickets. Connectors sign it in.", 'brief', ['#4F46E5', '#6366F1'], ['mcp-google-calendar-mcp', 'mcp-mcp-notion-server', 'mcp-figma-context-mcp', 'mcp-zotero-mcp', 'mcp-airtable-mcp-server', 'jeffallan-atlassian-mcp']],
+  ['web', "Read the live web", "Its knowledge has a cutoff date. These fetch pages, docs and transcripts as they are today.", 'pulse', ['#0369A1', '#38BDF8'], ['mcp-context7', 'mcp-fetch', 'mcp-duckduckgo-mcp-server', 'mcp-mcp-server-youtube-transcript', 'mcp-markdownify-mcp', 'mcp-arxiv-mcp-server']],
+  ['computer', "Work on your computer", "In the chat app it can't touch your files or run programs. These open that door, with limits you set.", 'tool', ['#334155', '#64748B'], ['mcp-filesystem', 'mcp-git', 'mcp-desktopcommandermcp']],
+  ['software', "Drive real software and devices", "It has no hands. These let it run Blender, CAD, your smart home and your TV.", 'chip', ['#047857', '#0D9488'], ['mcp-mcp-for-blender', 'earthtojake-cad', 'komal-skynet-home-assistant-manager', 'tonylofgren-home-assistant-yaml', 'cleanyourtv']],
+];
+function pagePowers() {
+  return `<div class="page"><div class="large-title"><h1>New powers</h1><p>Most skills make your AI better at things it can already do. These are different: each gives it an ability it doesn't have on its own. Every pick is checked like everything else, and anything risky says so in orange on its page.</p></div>
+    ${POWERS.map(([k, t, why, g, c, ids]) => { const list = vis(pick(ids)); return list.length ? `<section class="shelf"><div class="shelf-head"><h2>${esc(t)}<span class="sub">${esc(why)}</span></h2></div><div class="rowlist">${list.map(l => row(l)).join('')}</div></section>` : ''; }).join('')}
+    ${dataNote()}</div>`;
+}
+
 // Everything: the whole catalog in one list, A to Z, with the type tabs as shortcuts
 function pageAll() {
   const list = [...vis(L)].sort((a, b) => a.n.localeCompare(b.n, 'en', { sensitivity: 'base' }));
@@ -1074,7 +1091,7 @@ function pageBrowse() {
         ['trusted', 'From companies', 'From Anthropic, OpenAI, NVIDIA, GitHub and more', 'building', ['#1D2B53', '#5E6EFF'], L.filter(l => l.tr).length]]
         .map(([h, t, sub, g, c, n]) => `<a class="job-card" href="#${h}"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span><span style="min-width:0"><b>${t}</b><span class="s">${sub}</span></span><span class="n">${n}</span></a>`).join('')}</div></section>
     <section class="shelf"><div class="shelf-head"><h2>Starter kits</h2></div><div class="job-grid">${KITS.map(kitCard).join('')}</div></section>
-    <div class="chips" style="margin-top:4px"><a href="#caught">Serious risks</a><a href="#tested">Head-to-head tests</a><a href="#trending">Trending</a><a href="#digest">Digest</a></div>
+    <div class="chips" style="margin-top:4px"><a href="#powers">New powers</a><a href="#caught">Risks &amp; findings</a><a href="#tested">Head-to-head tests</a><a href="#trending">Trending</a><a href="#digest">Digest</a></div>
     ${dataNote()}</div>`;
 }
 function pageJob(k) {
@@ -1646,12 +1663,6 @@ function caughtHero() {
     <div class="copy"><span class="eyebrow">What we caught</span><span class="title">${esc(l.n)}: ${esc(lowFirst(n.t))}</span></div>
     <div class="bottom frost">${icon(l, 48)}<div class="t"><b>${esc(l.n)}</b><span>${esc(n.n.length > 150 ? n.n.slice(0, 149).replace(/\s+\S*$/, '') + '…' : n.n)}</span></div><span class="get light">READ</span></div></a></div>`;
 }
-// Only real security problems go on the front page; the notes stay on each listing's own page
-function riskShelf() {
-  const risks = caughtAll().filter(x => x.n.lv !== 'note');
-  return risks.length ? `<section class="shelf"><div class="shelf-head"><h2>Serious risks we found<span class="sub">Of ${L.length} listings checked, ${risks.length} have a real security problem. The rest came up clean or just have notes</span></h2><a class="see-all" href="#caught">All findings</a></div>
-    <div class="caught-grid">${risks.map(caughtRow).join('')}</div></section>` : '';
-}
 const testedLine = t => `<a class="tested-line" href="#test-${t.id}">${ic('check', 2)}<span><b>Tested:</b> ${esc(t.title)}. ${esc(cOf(t, t.verdict.pick).name)} won ${winsOf(t, t.verdict.pick)} of ${roundsOf(t)} blind rounds.</span></a>`;
 function pageCaught() {
   const all = caughtAll(), risks = all.filter(x => x.n.lv !== 'note'), notes = all.filter(x => x.n.lv === 'note');
@@ -1951,7 +1962,7 @@ try { const a = localStorage.getItem('vetted-agent'); if (AGENTS.some(x => x[0] 
 const TABS = [['today', 'Home', 'today'], ['browse', 'Browse', 'grid'], ['all', 'Everything', 'book'], ['skills', 'Skills', 'skill'], ['mcp', 'Connectors', 'mcp'], ['tools', 'Apps', 'tool'], ['list', 'My list', 'heart'], ['search', 'Search', 'search']];
 const MOBILE_TABS = ['today', 'browse', 'all', 'list', 'search'];
 // Pages without a tab of their own
-const PAGES = ['trusted', 'caught', 'tested', 'trending', 'digest'];
+const PAGES = ['trusted', 'caught', 'tested', 'trending', 'digest', 'powers'];
 const count = k => L.filter(l => l.k === k && !l.tr).length;
 function chrome() {
   const n = { all: vis(L).length, skills: vis(L.filter(l => l.k === 'skill')).length, mcp: vis(L.filter(l => l.k === 'mcp')).length, tools: vis(L.filter(l => l.k === 'tool')).length, list: LIST.length || '' };
@@ -1963,12 +1974,12 @@ function chrome() {
 }
 function render() {
   document.getElementById('main').innerHTML = (S.detail ? '' : focusBar()) + (S.detail ? pageProduct(S.detail) : S.job ? pageJob(S.job) : S.kit ? pageKit(S.kit)
-    : S.issue ? pageIssue(S.issue) : S.test ? pageTest(S.test) : { tested: pageTested, today: pageToday, all: pageAll, trending: pageTrending, digest: pageDigest, browse: pageBrowse, skills: pageSkills, mcp: pageMcp, tools: pageTools, trusted: pageTrusted, caught: pageCaught, list: pageList, search: pageSearch }[S.tab]());
+    : S.issue ? pageIssue(S.issue) : S.test ? pageTest(S.test) : { tested: pageTested, powers: pagePowers, today: pageToday, all: pageAll, trending: pageTrending, digest: pageDigest, browse: pageBrowse, skills: pageSkills, mcp: pageMcp, tools: pageTools, trusted: pageTrusted, caught: pageCaught, list: pageList, search: pageSearch }[S.tab]());
   document.body.dataset.detail = S.detail ? '1' : '';
   document.getElementById('fab').classList.toggle('hide', onTodayTop());
   // A title per page, for the browser tab, history and bookmarks
   const t = S.detail ? BY[S.detail].n : S.job ? JOB[S.job][1] : S.kit ? KIT[S.kit][1] : S.test ? TEST[S.test].title : S.issue ? issueInfo(D.DG.find(i => i.id === S.issue)).title
-    : ({ trusted: 'From companies', caught: 'Risks & findings', tested: 'Tested', trending: 'Trending', digest: 'Digest', list: S.shared ? 'A shared list' : 'My list' }[S.tab] || (TABS.find(x => x[0] === S.tab) || [])[1]);
+    : ({ trusted: 'From companies', caught: 'Risks & findings', tested: 'Tested', trending: 'Trending', digest: 'Digest', powers: 'New powers', list: S.shared ? 'A shared list' : 'My list' }[S.tab] || (TABS.find(x => x[0] === S.tab) || [])[1]);
   document.title = t && S.tab !== 'today' || S.detail ? `${t} · Vetted` : 'Vetted: check AI add-ons before you install';
   chrome();
 }

@@ -27,6 +27,8 @@ for (const [label, viewport, scheme] of [['desktop', { width: 1280, height: 860 
   const tabs = await page.evaluate(() => [...TABS.map(t => t[0]), ...PAGES, ...TESTS.map(t => 'test-' + t.id), ...JOBS.map(j => 'for-' + j[0]), ...KITS.map(k => 'kit-' + k[0])]);
   const missingKit = await page.evaluate(() => KITS.flatMap(k => k[5].map(([id]) => id).filter(id => !BY[id]).map(id => k[0] + ': ' + id)));
   if (missingKit.length) fail(label, 'kit items not in the catalog: ' + missingKit.join(', '));
+  const missingPow = await page.evaluate(() => POWERS.flatMap(g => g[5].filter(id => !BY[id]).map(id => g[0] + ': ' + id)));
+  if (missingPow.length) fail(label, 'power picks not in the catalog: ' + missingPow.join(', '));
   const overflow = async where => {
     const o = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
     if (o > 1) fail(`${label} ${where}`, `horizontal overflow ${o}px`);
