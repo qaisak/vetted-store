@@ -264,6 +264,10 @@ a.story { color: #FFFFFF; }
 .job-card.none .s { color: var(--orange); }
 #install-all .note { display: block; font-size: 13px; color: var(--label2); margin: 8px 0 0; line-height: 1.45; }
 .hidden-note .text-btn { font-size: 14px; }
+.home-search { display: flex; align-items: center; gap: 10px; margin: 0 0 12px; padding: 14px 16px; border-radius: 14px; background: var(--fill); color: var(--label2); font-size: 16px; font-weight: 500; }
+.home-search .ic { flex: none; }
+.tested-line { display: flex; align-items: flex-start; gap: 10px; margin-top: 22px; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--sep); color: var(--label); font-size: 14px; line-height: 1.5; }
+.tested-line .ic { flex: none; color: var(--green); margin-top: 3px; }
 /* My list, compare, install all */
 .list-acts { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 12px; }
 .pill-link.save[aria-pressed="true"] { color: var(--red); }
@@ -981,30 +985,25 @@ const lastFetch = () => Object.values(R).map(r => r.fd).filter(Boolean).sort().p
 const fmtLong = s => new Date(s + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 function pageToday() {
   return `<div class="page">
-    <div class="date-eyebrow">Updated ${fmtLong(lastFetch())}</div>
-    <div class="large-title"><h1>Today</h1>
-      <p class="intro">${introText()}</p>
-      <div class="intro-links"><button data-focus>${ic('sliders', 2)} Make it yours</button><a href="#for-everyday">Just want free apps? Start here</a><button data-story="community">How we check</button></div></div>
+    <div class="large-title"><h1>Vetted</h1>
+      <p class="intro">${introText()}</p></div>
+    <a class="home-search" href="#search">${ic('search')}<span>What do you want your AI to do?</span></a>
+    <div class="intro-links"><button data-focus>${ic('sliders', 2)} Make it yours</button><button data-story="community">How we check</button></div>
     ${filtering() ? pickedForYou() : ''}
-    ${testHero()}
-    ${trendingToday()}
-    ${caughtShelf()}
-    <section class="shelf"><div class="shelf-head"><h2>Starter kits<span class="sub">A few picks for one goal, ready to install together</span></h2><a class="see-all" href="#browse">See All</a></div>
+    <section class="shelf"><div class="shelf-head"><h2>Start here<span class="sub">A few picks for one goal, ready to install together</span></h2><a class="see-all" href="#browse">See All</a></div>
       <div class="job-grid">${kitsFirst().slice(0, 4).map(kitCard).join('')}</div></section>
-    ${digestShelf()}
     <section class="shelf"><div class="shelf-head"><h2>Browse by job</h2><a class="see-all" href="#browse">See All</a></div>
       <div class="job-grid">${jobsFirst().slice(0, 6).map(jobCard).join('')}</div></section>
-    ${(() => { const wk = latestIssues().find(i => i.type === 'weekly'), added = wk ? listedOf(wk.added) : [];
-      const fresh = uniqueRepos(byStars(added.flatMap(x => repoLs(x.repo)).filter(l => !l.tr)), 2);
-      return fresh.length ? `<section class="shelf"><div class="shelf-head"><h2>Just added to Vetted<span class="sub">${added.length} projects we started listing this week. Some are years old</span></h2><a class="see-all" href="#digest-${wk.id}">See All</a></div>${ranked(fresh.slice(0, 12))}</section>` : ''; })()}
-    ${(() => { const v = uniqueRepos(byStars(L.filter(l => l.vd?.length))).slice(0, 9); return v.length ? `<section class="shelf"><div class="shelf-head"><h2>Watch it in action<span class="sub">Demo videos from the developers themselves</span></h2></div>${ranked(v)}</section>` : ''; })()}
+    <section class="shelf"><div class="shelf-head"><h2>Popular<span class="sub">The most-starred community projects, every one checked. Listings with unusual star growth don't rank here</span></h2></div>${ranked(uniqueRepos(byStars(vis(community())).filter(l => !oddStars(l))).slice(0, 9), true)}</section>
+    ${riskShelf()}
+    ${TESTS.length ? testedLine(TESTS[0]) : ''}
     ${dataNote()}</div>`;
 }
 
 // What Vetted is, in one breath, with only claims the data backs
 function introText() {
-  const nSC = L.filter(l => scanOf(l)).length, ft = flagTotals();
-  return `Fewer, better AI skills. Most don't help, and every one you install takes up room in each session. We test the popular ones against plain Claude and read their code, so you keep only the few that work. ${L.length} checked${TESTS.length ? `, ${TESTS.reduce((a, t) => a + t.contestants.filter(c => c.listing).length, 0)} tested head to head` : ''}.`;
+  const risks = L.filter(l => (l.nt || []).some(x => x.lv !== 'note')).length;
+  return `Find AI skills, connectors and apps worth installing. We read the code of all ${L.length}, explain each in plain English, ${risks ? `and flag the ${risks} with a serious security problem` : 'and flag anything serious we find'}.`;
 }
 // New projects gaining stars fastest: created in the 120 days before the latest fetch, ranked by stars per day since
 function risingShelf() {
@@ -1065,6 +1064,7 @@ function pageBrowse() {
         ['trusted', 'From companies', 'From Anthropic, OpenAI, NVIDIA, GitHub and more', 'building', ['#1D2B53', '#5E6EFF'], L.filter(l => l.tr).length]]
         .map(([h, t, sub, g, c, n]) => `<a class="job-card" href="#${h}"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span><span style="min-width:0"><b>${t}</b><span class="s">${sub}</span></span><span class="n">${n}</span></a>`).join('')}</div></section>
     <section class="shelf"><div class="shelf-head"><h2>Starter kits</h2></div><div class="job-grid">${KITS.map(kitCard).join('')}</div></section>
+    <div class="chips" style="margin-top:4px"><a href="#caught">Serious risks</a><a href="#tested">Head-to-head tests</a><a href="#trending">Trending</a><a href="#digest">Digest</a></div>
     ${dataNote()}</div>`;
 }
 function pageJob(k) {
@@ -1627,7 +1627,7 @@ function pageTested() {
 const LV_RANK = { bad: 0, warn: 1, note: 2 };
 const caughtAll = () => vis(L).flatMap(l => NT(l).map(n => ({ l, n }))).sort((a, b) => LV_RANK[a.n.lv] - LV_RANK[b.n.lv] || repoOf(b.l).st - repoOf(a.l).st);
 const lowFirst = t => t.charAt(0).toLowerCase() + t.slice(1);
-const caughtRow = ({ l, n }) => `<a class="caught-row" href="#${l.id}">${icon(l, 48)}<span class="ct"><b>${esc(n.t)}</b><span>${esc(l.n)} · ${esc(repoOf(l).on)}</span></span><span class="chip ${NT_LV[n.lv][1]}">${NT_LV[n.lv][2]}</span></a>`;
+const caughtRow = ({ l, n }) => `<a class="caught-row" href="#${l.id}">${icon(l, 48)}<span class="ct"><b>${esc(l.n)}: ${esc(lowFirst(n.t))}</b><span>${esc(plainOf(l))}</span></span><span class="chip ${NT_LV[n.lv][1]}">${NT_LV[n.lv][2]}</span></a>`;
 function caughtHero() {
   const top = caughtAll()[0];
   if (!top) return '';
@@ -1636,16 +1636,18 @@ function caughtHero() {
     <div class="copy"><span class="eyebrow">What we caught</span><span class="title">${esc(l.n)}: ${esc(lowFirst(n.t))}</span></div>
     <div class="bottom frost">${icon(l, 48)}<div class="t"><b>${esc(l.n)}</b><span>${esc(n.n.length > 150 ? n.n.slice(0, 149).replace(/\s+\S*$/, '') + '…' : n.n)}</span></div><span class="get light">READ</span></div></a></div>`;
 }
-function caughtShelf() {
-  const all = caughtAll();
-  return all.length ? `<section class="shelf"><div class="shelf-head"><h2>What we caught<span class="sub">Found by reading the code: ${all.length} things to know before you install</span></h2><a class="see-all" href="#caught">See All</a></div>
-    <div class="caught-grid">${all.slice(0, 6).map(caughtRow).join('')}</div></section>` : '';
+// Only real security problems go on the front page; the notes stay on each listing's own page
+function riskShelf() {
+  const risks = caughtAll().filter(x => x.n.lv !== 'note');
+  return risks.length ? `<section class="shelf"><div class="shelf-head"><h2>Serious risks we found<span class="sub">Of ${L.length} listings checked, ${risks.length} have a real security problem. The rest came up clean or just have notes</span></h2><a class="see-all" href="#caught">All findings</a></div>
+    <div class="caught-grid">${risks.map(caughtRow).join('')}</div></section>` : '';
 }
+const testedLine = t => `<a class="tested-line" href="#test-${t.id}">${ic('check', 2)}<span><b>Tested:</b> ${esc(t.title)}. ${esc(cOf(t, t.verdict.pick).name)} won ${winsOf(t, t.verdict.pick)} of ${roundsOf(t)} blind rounds.</span></a>`;
 function pageCaught() {
   const all = caughtAll(), risks = all.filter(x => x.n.lv !== 'note'), notes = all.filter(x => x.n.lv === 'note');
   const block = x => `<div class="caught-item">${caughtRow(x)}<p>${esc(x.n.n)}</p></div>`;
-  return `<div class="page"><div class="large-title"><h1>What we caught</h1><p>Every listing is scanned, and its flags are read and explained. Most turn out to be ordinary code. These are the ${all.length} that turned out to be worth knowing, from risky defaults to data a project sends by default. Not malicious, but you'd want to know first.</p></div>
-    ${risks.length ? `<section class="shelf"><div class="shelf-head"><h2>Risks<span class="sub">Real weaknesses or risky defaults</span></h2></div>${risks.map(block).join('')}</section>` : ''}
+  return `<div class="page"><div class="large-title"><h1>Risks &amp; findings</h1><p>We read every listing's code. ${risks.length} of ${L.length} listings have a serious security problem; they come first, in plain words. The other findings are worth knowing but not dangerous, like usage data sent by default. Anything not on this page came up clean.</p></div>
+    ${risks.length ? `<section class="shelf"><div class="shelf-head"><h2>Serious risks<span class="sub">Real security problems. Read these before installing</span></h2></div>${risks.map(block).join('')}</section>` : ''}
     ${notes.length ? `<section class="shelf"><div class="shelf-head"><h2>Worth knowing<span class="sub">Data it sends, keys it needs, things it changes</span></h2></div>${notes.map(block).join('')}</section>` : ''}
     ${hiddenNote(L.flatMap(l => NT(l)), all)}${dataNote()}</div>`;
 }
@@ -1936,10 +1938,10 @@ function pageIssue(id) {
 // ---------- routing ----------
 const S = { tab: 'today', detail: null, job: null, easy: false, q: '', agent: FOCUS.ai.find(a => AGENTS.some(x => x[0] === a)) || 'claude-code' };
 try { const a = localStorage.getItem('vetted-agent'); if (AGENTS.some(x => x[0] === a)) S.agent = a; } catch (e) {}
-const TABS = [['today', 'Today', 'today'], ['tested', 'Tested', 'check'], ['trending', 'Trending', 'pulse'], ['digest', 'Digest', 'book'], ['browse', 'Browse', 'grid'], ['tools', 'Apps', 'tool'], ['skills', 'Skills', 'skill'], ['mcp', 'Connectors', 'mcp'], ['list', 'My list', 'heart'], ['search', 'Search', 'search']];
-const MOBILE_TABS = ['today', 'tested', 'browse', 'list', 'search'];
+const TABS = [['today', 'Home', 'today'], ['browse', 'Browse', 'grid'], ['list', 'My list', 'heart'], ['search', 'Search', 'search']];
+const MOBILE_TABS = ['today', 'browse', 'list', 'search'];
 // Pages without a tab of their own
-const PAGES = ['trusted', 'caught'];
+const PAGES = ['trusted', 'caught', 'tested', 'trending', 'digest', 'skills', 'mcp', 'tools'];
 const count = k => L.filter(l => l.k === k && !l.tr).length;
 function chrome() {
   const n = { skills: vis(L.filter(l => l.k === 'skill')).length, mcp: vis(L.filter(l => l.k === 'mcp')).length, tools: vis(L.filter(l => l.k === 'tool')).length, list: LIST.length || '' };
@@ -1956,7 +1958,7 @@ function render() {
   document.getElementById('fab').classList.toggle('hide', onTodayTop());
   // A title per page, for the browser tab, history and bookmarks
   const t = S.detail ? BY[S.detail].n : S.job ? JOB[S.job][1] : S.kit ? KIT[S.kit][1] : S.test ? TEST[S.test].title : S.issue ? issueInfo(D.DG.find(i => i.id === S.issue)).title
-    : ({ trusted: 'From companies', caught: 'What we caught', list: S.shared ? 'A shared list' : 'My list' }[S.tab] || (TABS.find(x => x[0] === S.tab) || [])[1]);
+    : ({ trusted: 'From companies', caught: 'Risks & findings', tested: 'Tested', trending: 'Trending', digest: 'Digest', skills: 'Skills', mcp: 'Connectors', tools: 'Apps', list: S.shared ? 'A shared list' : 'My list' }[S.tab] || (TABS.find(x => x[0] === S.tab) || [])[1]);
   document.title = t && S.tab !== 'today' || S.detail ? `${t} · Vetted` : 'Vetted: check AI add-ons before you install';
   chrome();
 }

@@ -8,12 +8,13 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   const url = 'file://' + require('path').resolve(process.argv[2] || 'vetted-store.html');
   await p.goto(url + '#today'); await p.waitForTimeout(500);
   await p.evaluate(() => scrollTo(0, 1500)); await p.waitForTimeout(100);
+  const y0 = await p.evaluate(() => scrollY);   // the page may be shorter than 1500px
   const href = await p.evaluate(() => { const a = [...document.querySelectorAll('#main a.row-txt')].find(a => a.getBoundingClientRect().top > 0); a.click(); return a.getAttribute('href'); });
   await p.waitForTimeout(300);
   ok(await p.evaluate(() => scrollY) === 0, 'listing opens at top ' + href);
   await p.click('a.back'); await p.waitForTimeout(400);
   ok(await p.evaluate(() => location.hash) === '#today', 'back link returns to Today');
-  const y = await p.evaluate(() => scrollY); ok(Math.abs(y - 1500) < 5, 'Today scroll restored (' + y + ')');
+  const y = await p.evaluate(() => scrollY); ok(Math.abs(y - y0) < 5, 'Today scroll restored (' + y + ' vs ' + y0 + ')');
   await p.goForward(); await p.waitForTimeout(300); ok(await p.evaluate(() => location.hash) === href, 'forward goes to listing again (back link used history)');
   // sheet + browser back
   await p.click('.product-head [data-get]'); await p.waitForTimeout(200);
