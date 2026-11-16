@@ -1333,7 +1333,7 @@ function instCards(l, show = 99) {
       ${o.note ? `<span class="note">${esc(o.note)}</span>` : ''}
       ${o.more ? `<details class="dev-scan"><summary>If it isn't listed there</summary><ol class="steps">${o.more.steps.map(x => `<li>${esc(x)}</li>`).join('')}</ol>${o.more.dl ? `<a class="pill-link" href="${o.more.dl}" rel="noopener" style="align-self:flex-start">Download ZIP ${ic('ext')}</a>` : ''}</details>` : ''}</div>`;
   };
-  return shown.map(card).join('') + (more.length ? `<details class="dev-scan"><summary>Other ways to install (${more.length})</summary><div class="inst-grid">${more.map(card).join('')}</div></details>` : '') + (scan.length ? `<details class="dev-scan"><summary>Check it yourself before trusting it</summary>
+  return shown.map(card).join('') + (l.k === 'tool' ? claudeInstallCard(l) : '') + (more.length ? `<details class="dev-scan"><summary>Other ways to install (${more.length})</summary><div class="inst-grid">${more.map(card).join('')}</div></details>` : '') + (scan.length ? `<details class="dev-scan"><summary>Check it yourself before trusting it</summary>
       <div class="inst-card scan"><div class="h"><span class="c-green">${ic('shieldok', 2.2)}</span><b>Deep check with your agent</b><span class="how">Cloudflare security-audit</span></div>
       ${copyBox(AUDIT_INSTALL)}${copyBox(auditAsk(l))}
       <span class="note">Installs Cloudflare's open-source security-audit skill, then asks your agent for a focused review. Uses your own AI account.${BY['cloudflare-security-audit'] ? ` <a href="#cloudflare-security-audit" data-closesheet>We checked that skill too.</a>` : ''}</span></div>
@@ -1376,6 +1376,26 @@ function askTarget() {
   if (a.length && !claude) return [AI_TO[a.find(x => AI_TO[x])] || 'your assistant', null];
   return ['Claude', q => `https://claude.ai/new?q=${q}`];
 }
+// Apps: one paste that lets the user's coding agent install it for them, picking the right option for their computer
+function appPrompt(l) {
+  const lines = [`Install ${l.n} on this computer, then check it runs and report back.`, 'The options, from its Vetted page:'];
+  for (const o of l.inst.filter(o => !o.scan)) {
+    if (o.cmds?.length) lines.push(`- ${o.to}: ${o.cmds.join(' , or: ')}`);
+    else if (o.link || o.dl) lines.push(`- ${o.to}: download from ${o.link || o.dl}`);
+  }
+  lines.push(`Pick the one that fits this system, preferring its package manager. If none fits, follow the README: https://github.com/${l.r}`);
+  lines.push('After installing, check it works (a version check or a launch) and tell me what you did.');
+  return lines.join('\n');
+}
+const claudeInstallCard = l => {
+  if (FOCUS.ai.length === 1 && FOCUS.ai[0] === 'none') return '';
+  // Only when an agent can actually do it: a browser add-on, for example, needs the user's own clicks
+  if (!l.inst.some(o => !o.scan && (o.cmds?.length || o.how === 'Download' || o.how === 'Install script' || o.how === 'Docker'))) return '';
+  const pr = appPrompt(l);
+  return `<div class="inst-card ask"><div class="h"><span class="c-blue">${ic('spark', 2)}</span><b>Or let your AI install it</b><span class="how">One paste</span></div>
+    <span class="note">Paste into Claude Code, Codex or Cursor: it picks the right option for your computer, installs it and checks it works.</span>
+    <div class="ask-btns"><button class="get primary" data-copy="${esc(pr)}" data-copymsg="Copied. Paste it into your agent's chat.">Copy the paste</button><details class="ask-q"><summary>Show it</summary><code class="snip" style="white-space:pre-wrap">${esc(pr)}</code></details></div></div>`;
+};
 const askCard = (repo, l) => { const t = askTarget(); if (!t) return ''; const pr = claudePrompt(repo, l), who = t[0] === 'Claude' ? 'your Claude' : t[0];
   return `<div class="inst-card ask"><div class="h"><span class="c-blue">${ic('spark', 2)}</span><b>Double-check with ${esc(who)}</b></div>
     <span class="note">A second opinion on your own ${esc(t[0])} plan: is it safe, and why, in a few lines.</span>
