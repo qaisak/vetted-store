@@ -248,7 +248,7 @@ for (const l of d.listings) {
       { to: 'Microsoft Edge', how: 'Add-on', link: 'https://microsoftedge.microsoft.com/addons/detail/ublock-origin/odfafepnkmbhccpbejgmiehpchacaeak', linkText: 'Get it from Edge Add-ons', note: 'Google Chrome no longer allows it, as its README notes.' });
     if (repo === 'pi-hole/pi-hole') inst.push({ to: 'A Linux computer or Raspberry Pi on your network', how: 'Install script', cmds: ['curl -sSL https://install.pi-hole.net | bash'], note: 'From the README. It runs the installer straight from the internet; the README also shows how to download and read it first. Then point your router\'s DNS at it.' });
     if (repo === 'Gathin23/cleanyourtv') inst.push({ to: 'With a coding assistant', how: 'Prompt', cmds: ['git clone https://github.com/Gathin23/cleanyourtv'], note: 'Open that folder in Claude Code or Codex, paste PROMPT.md and fill in your TV model. Your computer needs Python 3, a JDK (17 to 22) and the Android SDK, as the README explains. Turn on USB debugging on the TV first.' },
-      { to: 'Android phone only', how: 'Separate app', link: 'https://cleanyour.tv/app', linkText: 'Open the phone app page', note: 'A community-built phone app by another developer. Vetted hasn\'t checked it.' });
+      { to: 'Android phone only', how: 'Separate app', link: 'https://cleanyour.tv/app', linkText: 'Open the phone app page', note: 'A community-built phone app by another developer. Skillshelf hasn\'t checked it.' });
     // One card per system; several commands on a card are alternatives (alt), so the page says "any one of these"
     const mac = [i.brew].filter(Boolean), win = [i.winget, i.scoop, i.ps].filter(Boolean), lin = [i.apt, i.dnf, i.pacman, i.snap].filter(Boolean),
       script = [i.curl].filter(Boolean), dev = [i.uvTool, i.pipx, i.cargo, i.npm, i.go, i.pip].filter(Boolean);
@@ -364,9 +364,9 @@ const tpl = fs.readFileSync(tplPath, 'utf8');
 // A function replacement, so "$'" or "$&" inside scanned text is inserted literally
 fs.writeFileSync(outPath, tpl.replace('/*__DATA__*/null', () => json));
 
-// The Checkup's copy of Vetted's checks (checkup/skills/vetted-checkup/vetted-data.json): every listed skill with its label and notes,
+// The Checkup's copy of Skillshelf's checks (checkup/skills/skillshelf-checkup/skillshelf-data.json): every listed skill with its label and notes,
 // plus groups of skills that do the same job, so the Checkup can say "you have two of these, keep one".
-const CHECKUP_DIR = new URL('../checkup/skills/vetted-checkup/', import.meta.url);
+const CHECKUP_DIR = new URL('../checkup/skills/skillshelf-checkup/', import.meta.url);
 if (fs.existsSync(CHECKUP_DIR)) {
   const GROUPS = {
     'design-look': ['the same job: making pages look designed, not generated', ['anthropics-frontend-design', 'leonxlnx-design-taste-frontend', 'pbakaus-impeccable', 'nutlope-hallmark']],
@@ -382,7 +382,7 @@ if (fs.existsSync(CHECKUP_DIR)) {
     listings: L.filter(l => l.k === 'skill').map(l => { const g = groupOf(l.id);
       return { id: l.id, slug: l.sl, name: l.n, description: String(l.d || '').slice(0, 400), repo: l.r, path: l.p, label: label(l),
         notes: (l.nt || []).map(x => ({ title: x.t, level: x.lv })), ...(g ? { group: g[0], groupLabel: g[1][0] } : {}) }; }) };
-  fs.writeFileSync(new URL('vetted-data.json', CHECKUP_DIR), JSON.stringify(data) + '\n');
+  fs.writeFileSync(new URL('skillshelf-data.json', CHECKUP_DIR), JSON.stringify(data) + '\n');
   console.error('checkup data:', data.listings.length, 'skills');
 }
 console.error('listings', L.length, 'skills', L.filter(x => x.k === 'skill').length, 'mcp', L.filter(x => x.k === 'mcp').length, 'tools', L.filter(x => x.k === 'tool').length,

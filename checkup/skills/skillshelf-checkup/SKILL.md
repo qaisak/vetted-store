@@ -1,9 +1,9 @@
 ---
-name: vetted-checkup
+name: skillshelf-checkup
 description: Checks which of the user's installed Claude Code skills to keep, remove or review. Use when the user asks to check, clean up, audit or tidy their skills or plugins, asks which skills they actually use, says Claude feels slow or cluttered from too many skills, or asks whether an installed skill is safe.
 ---
 
-# Vetted Checkup
+# Skillshelf Checkup
 
 Tell the user which of their skills earn their place. Fewer, better skills: every installed skill's name and description is sent with every session, and skills that do the same job compete with each other.
 
@@ -20,16 +20,16 @@ Add `--days 90` for a longer look back, or `--json` for every detail, including 
 The script reads:
 - the skills in `~/.claude/skills`, in this project's `.claude/skills`, and in installed plugins;
 - the user's own session logs under `~/.claude/projects`, only to count which skills actually ran;
-- `vetted-data.json` next to it: Vetted's checks of listed skills (labels and notes). Nothing is sent anywhere.
+- `skillshelf-data.json` next to it: Skillshelf's checks of listed skills (labels and notes). Nothing is sent anywhere.
 
 ## Tell the user
 
 Lead with what to do, in plain words, in this order:
 
-1. **Review first**: skills where Vetted found a risk. Name the risk.
+1. **Review first**: skills where Skillshelf found a risk. Name the risk.
 2. **Never used**: skills that didn't run in the period. Say how many tokens of every session they cost.
 3. **Doing the same job**: pairs or groups; suggest keeping the one they use most.
-4. **Not checked by Vetted yet**: say that's unknown, not unsafe.
+4. **Not checked by Skillshelf yet**: say that's unknown, not unsafe.
 5. Everything else is fine to keep.
 
 Keep it short. A skill used once is not "never used". Say when no session logs were found, because then "never used" can't be judged.

@@ -1,7 +1,7 @@
-# Vetted Skill Store
+# Skillshelf
 
 **Fewer, better AI skills.** Most skills don't help, and every one installed takes up room in each session.
-Vetted tests the popular ones head to head against plain Claude (`tests/`), reads their code, and offers a
+Skillshelf tests the popular ones head to head against plain Claude (`tests/`), reads their code, and offers a
 Checkup that tells Claude Code users which of their skills to keep (`checkup/`, private for now).
 
 Underneath is a catalog of real open-source projects: CLI apps, agent skills and MCP servers.
@@ -82,7 +82,7 @@ node pipeline/build.mjs data/data.json pipeline/template.html vetted-store.html 
    `node pipeline/merge_reviews.mjs open.json verdicts.json --date YYYY-MM-DD`. It prints any finding still uncovered.
    Never mark something a warning or concern without reading the code. Rerun the Purpose Check afterwards.
 4c. **Trending**: refresh `data/trending.json` from github.com/trending (`?since=daily`, `weekly`, `monthly`): repo, total stars,
-   stars gained, rank. The build keeps only repositories listed in Vetted, so a trending project appears only after it's scanned.
+   stars gained, rank. The build keeps only repositories listed in Skillshelf, so a trending project appears only after it's scanned.
 4d. **Digest**: after refreshing `data/trending.json`, run `node pipeline/digest.mjs`. It writes this week's issue, the month's and
    the year's so far; earlier issues stay as they were and appear under Past issues. Headlines and intros are computed from the
    numbers (the leading job among the week's top gainers, the month's biggest gainer), so nothing is written by hand.
@@ -138,7 +138,7 @@ Things that couldn't be done from the build machine on November 1, 2026, or need
 - **Links with a #page.** Share buttons and setup links use the artifact's address plus `#listing` or `#setup?…`. Whether claude.ai
   passes the part after `#` to the page hasn't been checked from here; if it doesn't, shared links open on Today.
 - **Request a check.** Searching for something not listed offers to ask your own assistant to check it. There's nowhere to send a
-  request to Vetted yet: that needs a decision on where requests should go (a GitHub issue, a form or a shared database).
+  request to Skillshelf yet: that needs a decision on where requests should go (a GitHub issue, a form or a shared database).
 - **Publisher-run Purpose Checks.** Listings from companies have the scan and written reviews but not the "what it uses, and why"
   table, which only community projects have so far.
 - **Pinned installs.** Installs get the newest version, and each install sheet says which commit was checked. Pinning installs to that

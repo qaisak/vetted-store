@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Vetted Checkup: which of your Claude Code skills to keep, which to drop, and why.
+// Skillshelf Checkup: which of your Claude Code skills to keep, which to drop, and why.
 // Reads only local files: your installed skills, your plugins, and your own session logs (to count real use).
 // Never deletes or changes anything, and sends nothing anywhere.
 //
@@ -16,7 +16,7 @@ const DAYS = Number(opt('--days', 30));
 const PROJECT = path.resolve(opt('--project', process.cwd()));
 const CONFIG = process.env.CLAUDE_CONFIG_DIR || path.join(os.homedir(), '.claude');
 const HERE = path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Z]:)/, '$1'));
-const DATA_FILE = path.join(HERE, 'vetted-data.json');
+const DATA_FILE = path.join(HERE, 'skillshelf-data.json');
 const VETTED = fs.existsSync(DATA_FILE) ? JSON.parse(fs.readFileSync(DATA_FILE, 'utf8')) : { site: null, listings: [] };
 
 // ---------- 1. Installed skills ----------
@@ -91,7 +91,7 @@ if (fs.existsSync(projDir)) {
 }
 const usedCount = s => (uses[s.folder] || 0) + (s.name !== s.folder ? uses[s.name] || 0 : 0);
 
-// ---------- 3. Match to Vetted's checks ----------
+// ---------- 3. Match to Skillshelf's checks ----------
 const STOP = new Set('a an and are as at be by for from has have in into is it its of on or that the this to use used user when with you your will can not any all also more only than then them they their what which who how'.split(' '));
 const words = s => new Set(String(s).toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').split(/\s+/).filter(w => w.length > 2 && !STOP.has(w)));
 const jaccard = (a, b) => { let n = 0; for (const w of a) if (b.has(w)) n++; return n / Math.max(1, a.size + b.size - n); };
@@ -121,7 +121,7 @@ const rows = installed.map(s => {
   const reasons = [];
   let verdict = 'keep';
   if (sessions && !n) { verdict = 'consider removing'; reasons.push(`not used in the last ${DAYS} days`); }
-  if (v?.notes?.some(x => x.level !== 'note')) { verdict = 'review'; reasons.push('Vetted found a risk to know'); }
+  if (v?.notes?.some(x => x.level !== 'note')) { verdict = 'review'; reasons.push('Skillshelf found a risk to know'); }
   if (overlaps.some(o => o.a === s.folder || o.b === s.folder)) reasons.push('overlaps with another skill you have');
   return { skill: s.folder, name: s.name, scope: s.scope, plugin: s.plugin || null, used: n, lastUsed: lastUse[s.folder] ? new Date(lastUse[s.folder]).toISOString().slice(0, 10) : null,
     tokens: tokens(s), verdict, reasons, vetted: v ? { label: v.label, notes: v.notes, page: VETTED.site ? `${VETTED.site}#${v.id}` : null, repo: v.repo } : null, path: s.dir };
@@ -133,15 +133,15 @@ const report = { generated: new Date().toISOString(), days: DAYS, sessionsRead: 
 if (JSON_OUT) { console.log(JSON.stringify(report, null, 1)); process.exit(0); }
 
 const L = [];
-L.push(`Vetted Checkup: ${rows.length} skill${rows.length === 1 ? '' : 's'} installed (${rows.filter(r => r.scope === 'personal').length} personal, ${rows.filter(r => r.scope === 'this project').length} in this project, ${rows.filter(r => r.scope === 'plugin').length} from plugins).`);
+L.push(`Skillshelf Checkup: ${rows.length} skill${rows.length === 1 ? '' : 's'} installed (${rows.filter(r => r.scope === 'personal').length} personal, ${rows.filter(r => r.scope === 'this project').length} in this project, ${rows.filter(r => r.scope === 'plugin').length} from plugins).`);
 L.push(sessions ? `Read ${sessions} of your sessions from the last ${DAYS} days to see which skills actually ran.` : `No session logs from the last ${DAYS} days, so use isn't counted.`);
 L.push(`Their names and descriptions take about ${report.totals.descriptionTokens.toLocaleString('en-US')} tokens of every session.`);
 const sec = (title, list, fmt) => { if (!list.length) return; L.push('', `## ${title}`); for (const x of list) L.push(`- ${fmt(x)}`); };
-sec('Review first: a risk Vetted found', rows.filter(r => r.verdict === 'review'), r => `${r.skill}: ${r.vetted.notes.filter(n => n.level !== 'note').map(n => n.title).join('; ')}${r.vetted.page ? ` (${r.vetted.page})` : ''}`);
+sec('Review first: a risk Skillshelf found', rows.filter(r => r.verdict === 'review'), r => `${r.skill}: ${r.vetted.notes.filter(n => n.level !== 'note').map(n => n.title).join('; ')}${r.vetted.page ? ` (${r.vetted.page})` : ''}`);
 sec('Never used: consider removing', rows.filter(r => r.verdict === 'consider removing'), r => `${r.skill} (${r.scope}${r.plugin ? `, ${r.plugin}` : ''}), ~${r.tokens} tokens a session`);
 sec('Doing the same job: keep one', overlaps, o => `${o.a} and ${o.b}: ${o.why}`);
-sec('Worth knowing (from Vetted)', rows.filter(r => r.vetted?.notes?.some(n => n.level === 'note')), r => `${r.skill}: ${r.vetted.notes.filter(n => n.level === 'note').map(n => n.title).join('; ')}`);
-sec('Not checked by Vetted yet', rows.filter(r => !r.vetted), r => `${r.skill}${r.scope === 'plugin' ? ` (${r.plugin})` : ''}`);
+sec('Worth knowing (from Skillshelf)', rows.filter(r => r.vetted?.notes?.some(n => n.level === 'note')), r => `${r.skill}: ${r.vetted.notes.filter(n => n.level === 'note').map(n => n.title).join('; ')}`);
+sec('Not checked by Skillshelf yet', rows.filter(r => !r.vetted), r => `${r.skill}${r.scope === 'plugin' ? ` (${r.plugin})` : ''}`);
 sec('Used and checked: keep', rows.filter(r => r.verdict === 'keep' && r.vetted), r => `${r.skill}: ${r.used ? `used ${r.used} time${r.used === 1 ? '' : 's'}` : 'use not counted'}, ${r.vetted.label}`);
 L.push('', 'Nothing was changed. To remove a skill, delete its folder; the paths are in the --json output.');
 console.log(L.join('\n'));

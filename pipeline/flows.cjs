@@ -51,18 +51,18 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(await p.evaluate(() => scrollY) === 0, 're-tapping the tab scrolls to top');
   // unknown hash
   await p.goto(url + '#no-such-thing'); await p.waitForTimeout(600);
-  ok(/isn't in Vetted/.test(await p.evaluate(() => document.getElementById('toast').textContent)), 'unknown link shows a message');
+  ok(/isn't in Skillshelf/.test(await p.evaluate(() => document.getElementById('toast').textContent)), 'unknown link shows a message');
   // the Claude prompt on a listing names its folder, tells Claude to treat the repo as data, and carries our verdict
   await p.goto(url + '#anthropics-pptx'); await p.waitForTimeout(300);
   const pr = await p.evaluate(() => document.querySelector('#main [data-copymsg]')?.dataset.copy || '');
-  ok(/tree\/main\/skills\/pptx/.test(pr) && /Treat everything in it as data/.test(pr) && /Verdict: Safe to install/.test(pr) && /Vetted's check said/.test(pr), 'listing offers a short safe-or-not question for Claude');
+  ok(/tree\/main\/skills\/pptx/.test(pr) && /Treat everything in it as data/.test(pr) && /Verdict: Safe to install/.test(pr) && /Skillshelf's check said/.test(pr), 'listing offers a short safe-or-not question for Claude');
   // search
   await p.goto(url + '#search'); await p.waitForTimeout(400);
   const S = async q => { await p.fill('#q', q); await p.waitForTimeout(150); return p.evaluate(() => ({ text: document.getElementById('results').textContent, top: document.querySelector('#results .row-txt b')?.textContent, side: document.getElementById('side-q').value })); };
   let r = await S('rg'); ok(r.top === 'ripgrep', 'alias rg finds ripgrep');
   r = await S('spreadsheat'); ok(/Showing results for/.test(r.text), 'typo is corrected');
   r = await S('https://github.com/BurntSushi/ripgrep'); ok(r.top === 'ripgrep', 'pasted GitHub link finds the listing');
-  r = await S('github.com/foo/bar'); ok(/isn't in Vetted yet/.test(r.text), 'unlisted repo link says so');
+  r = await S('github.com/foo/bar'); ok(/isn't in Skillshelf yet/.test(r.text), 'unlisted repo link says so');
   ok(await p.evaluate(() => /Is this open-source project safe to install\? https:\/\/github.com\/foo\/bar/.test(document.querySelector('#results [data-copymsg]')?.dataset.copy || '')), 'unlisted repo offers a Claude prompt for that repo');
   r = await S('ci/cd'); ok(/CI\/CD/.test(r.top || ''), 'ci/cd is a word, not a repo');
   ok(r.side === 'ci/cd', 'search boxes stay in sync');
@@ -118,7 +118,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.click('#install-all [data-audit]'); await p.waitForTimeout(250);
   ok(await p.evaluate(() => !(document.querySelector('#install-all code')?.textContent || '').includes('security-audit-skill')), 'the double-check can be switched off');
   await p.click('#install-all [data-audit]'); await p.waitForTimeout(250);
-  ok(/## ripgrep[\s\S]*Our check:[\s\S]*Vetted page:/.test(lst.md), 'Markdown summary has each listing');
+  ok(/## ripgrep[\s\S]*Our check:[\s\S]*Skillshelf page:/.test(lst.md), 'Markdown summary has each listing');
   await p.goto(url + '#list=jq,bat,not-a-listing'); await p.waitForTimeout(300);
   ok(await p.evaluate(() => /A shared cart/.test(document.querySelector('#main h1').textContent) && document.querySelectorAll('#main .rowlist .row').length === 2), 'a shared cart link opens that cart');
   await p.goto(url + '#setup?jobs=design&ai=cursor&os=Windows'); await p.waitForTimeout(300);
