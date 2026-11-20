@@ -1,0 +1,10 @@
+name = "skillshelf"
+main = "src/worker.js"
+compatibility_date = "2026-11-01"
+
+# Slop reports. Create once with `npx wrangler d1 create skillshelf`, paste the id below,
+# then `npx wrangler d1 execute skillshelf --remote --file schema.sql`.
+[[d1_databases]]
+binding = "DB"
+database_name = "skillshelf"
+database_id = "REPLACE_WITH_D1_ID"

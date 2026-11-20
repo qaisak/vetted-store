@@ -48,6 +48,8 @@ The site is a single self-contained page: [`vetted-store.html`](vetted-store.htm
 | `tests/<id>/` | A head-to-head test: `results.json` (runs, blind scores, verdict), screenshots, the pages each session made, the scripts, and a README with the method and caveats. The build shows every test on the Tested page |
 | `checkup/skills/vetted-checkup/` | The Checkup skill: `SKILL.md`, `checkup.mjs` (reads installed skills, plugins and the user's own session logs; changes nothing) and `vetted-data.json`, written by the build |
 | `checkup/test/checkup.test.mjs` | Builds a made-up Claude Code setup and checks the Checkup's report |
+| `checkup/skills/skillshelf-checkup/toggle.mjs` | Switches a Claude Code skill on or off with Claude Code's own `skillOverrides` setting; `checkup/test/toggle.test.mjs` tests it |
+| `connector/` | The Skillshelf connector for Claude: a no-dependency remote MCP server for Cloudflare Workers (`src/worker.js`) with tools to find and check skills, report slop and get on/off steps. `src/catalog.json` is written by the build; slop reports go to D1 (`schema.sql`). `node connector/test/worker.test.mjs` runs it against SQLite |
 
 ## Rebuild the site
 

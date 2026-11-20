@@ -1,6 +1,6 @@
 ---
 name: skillshelf-checkup
-description: Checks which of the user's installed Claude Code skills to keep, remove or review. Use when the user asks to check, clean up, audit or tidy their skills or plugins, asks which skills they actually use, says Claude feels slow or cluttered from too many skills, or asks whether an installed skill is safe.
+description: Checks which of the user's installed Claude Code skills to keep, switch off or review, and switches skills on or off for them. Use when the user asks to check, clean up, audit or tidy their skills or plugins, asks which skills they actually use, says Claude feels slow or cluttered from too many skills, asks whether an installed skill is safe, or asks to turn a skill on or off.
 ---
 
 # Skillshelf Checkup
@@ -34,6 +34,22 @@ Lead with what to do, in plain words, in this order:
 
 Keep it short. A skill used once is not "never used". Say when no session logs were found, because then "never used" can't be judged.
 
-## Never remove anything on your own
+## Switch skills on or off
 
-Only suggest. If the user asks you to remove a skill, show the exact folder you'd delete (from `--json`), ask them to confirm, and only then delete that one folder. For a skill that came from a plugin, tell them to use `/plugin` to disable or uninstall the plugin instead of deleting files.
+Switching off is the usual fix, not deleting. It uses Claude Code's own `skillOverrides` setting, so it's undone with one command and shows in `/skills`:
+
+```bash
+node <this skill's folder>/toggle.mjs <skill> off --project "$PWD"
+node <this skill's folder>/toggle.mjs <skill> on --project "$PWD"
+```
+
+It finds the skill in this project's `.claude/skills` or in `~/.claude/skills`, changes only the `skillOverrides` entry in the matching settings file (`.claude/settings.local.json` or `~/.claude/settings.json`), and keeps a `.skillshelf-backup` copy of the file it changed. It prints one line of JSON saying what changed.
+
+- **Always ask first.** List the skills you'd switch off and why, and wait for a yes. Switch only the ones the user agreed to.
+- Add `--dry` to show what would change without writing.
+- Skills from a plugin are left alone: tell the user to use `/plugin` to disable the plugin.
+- Never delete a skill folder unless the user asks for deletion by name. Then show the folder from `--json`, confirm, and delete only that one.
+
+## Report slop
+
+If the user says a skill's output was bad and the Skillshelf connector is installed, use its `flag_slop` tool after they agree. Without the connector, tell them it can be added in Claude Code with `claude mcp add --transport http skillshelf <connector address>/mcp`, using the address on Skillshelf's site.

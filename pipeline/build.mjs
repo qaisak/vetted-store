@@ -366,6 +366,22 @@ fs.writeFileSync(outPath, tpl.replace('/*__DATA__*/null', () => json));
 
 // The Checkup's copy of Skillshelf's checks (checkup/skills/skillshelf-checkup/skillshelf-data.json): every listed skill with its label and notes,
 // plus groups of skills that do the same job, so the Checkup can say "you have two of these, keep one".
+// The chat connector's copy of the catalog (connector/src/catalog.json): what each listing is, its check, what it uses and how to install it
+const CONNECTOR_DIR = new URL('../connector/src/', import.meta.url);
+if (fs.existsSync(CONNECTOR_DIR)) {
+  const lab = l => { const nt = l.nt || [], w = nt.filter(x => x.lv === 'warn').length, n = nt.filter(x => x.lv === 'note').length;
+    return nt.some(x => x.lv === 'bad') ? 'Looks harmful' : MR[l.id]?.verdict === 'flag' ? 'Flagged' : MR[l.id]?.verdict === 'review' ? 'Does more than stated' : w ? `${w} risk${w > 1 ? 's' : ''} to know` : n ? `${n} thing${n > 1 ? 's' : ''} to know` : 'No issues found'; };
+  const cat = { generated: DATA.gen, site: 'https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG', listings: L.map(l => {
+    const m = MR[l.id], r = R[l.r];
+    return { id: l.id, name: l.n, kind: l.k, by: r.on, company: !!l.tr, repo: l.r, path: l.p || '', slug: l.sl, plain: l.pl || l.t, about: String(l.d || '').slice(0, 300),
+      jobs: l.jb || [], level: l.lv || null, check: lab(l), notes: (l.nt || []).map(x => ({ title: x.t, level: x.lv, note: x.n })),
+      uses: m && !m.codeFree ? m.caps.filter(c => c.found && c.expected).map(c => [c.k, c.why]) : m?.codeFree ? 'instructions only' : null,
+      install: l.inst.filter(o => !o.scan).map(o => ({ to: o.to, how: o.how, ...(o.agentCmd ? { cmd: `${o.agentCmd} --agent claude-code` } : o.cmds?.length ? { cmd: o.cmds[0] } : {}), ...(o.link ? { link: o.link } : {}) })).slice(0, 4),
+      stars: r.st, checkedCommit: r.cm || null };
+  }) };
+  fs.writeFileSync(new URL('catalog.json', CONNECTOR_DIR), JSON.stringify(cat) + '\n');
+  console.error('connector catalog:', cat.listings.length, 'listings');
+}
 const CHECKUP_DIR = new URL('../checkup/skills/skillshelf-checkup/', import.meta.url);
 if (fs.existsSync(CHECKUP_DIR)) {
   const GROUPS = {
