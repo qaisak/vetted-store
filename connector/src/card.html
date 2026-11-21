@@ -279,6 +279,7 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
       let reason = null;
       card.addEventListener('click', async e => {
         const t = e.target.closest('button'); if (!t) return;
+        if (t.hasAttribute('data-addcc')) return;
         if (t.dataset.copy != null) return copy(t, t.dataset.copy);
         if (t.dataset.open) return openLink(t.dataset.open);
         if (t.dataset.reason) { reason = t.dataset.reason; card.querySelectorAll('[data-reason]').forEach(c => c.setAttribute('aria-pressed', String(c === t))); card.querySelector('[data-act="send"]').disabled = false; return; }
@@ -341,7 +342,7 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
   const mini = c => c ? `<span class="mini ${esc(c.badge)}">${esc(c.label)}</span>` : '<span class="mini plain">Not on Skillshelf</span>';
   let P = null;   // { skills, off:Set, tab, open, toast, results, query }
   function showPanel(d) {
-    P = { skills: d.skills, off: new Set(), tab: d.skills.length ? 'mine' : 'find', open: null, toast: null, results: null, query: '' };
+    P = { skills: d.skills, app: d.app || 'claude-app', off: new Set(), tab: d.skills.length ? 'mine' : 'find', open: null, toast: null, results: null, query: '' };
     drawPanel();
   }
   function offMessage() {
@@ -356,7 +357,7 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
           <button class="smain" data-sopen aria-expanded="${open}"><div class="sname">${esc(s.name)} ${mini(s.check)}</div><div class="sdesc">${esc(s.description || (s.check ? '' : 'No description'))}</div></button>
           <button class="switch" role="switch" aria-checked="${!off}" aria-label="${esc(s.name)}: ${off ? 'off' : 'on'} in this chat" data-stoggle></button></div>
         ${open ? `<div class="sopen">${s.check ? `<div class="small">${esc(s.check.listing)} by ${esc(s.check.by)}. Skillshelf read its code: ${esc(s.check.label.toLowerCase())}.</div>` : '<div class="small">Not on Skillshelf, so nobody has checked its code there.</div>'}
-          <div class="actions" style="margin:0">${s.check ? `<button class="btn link" data-page="${esc(s.check.page)}">Full check ↗</button><button class="btn" data-sslop>Report slop</button>` : ''}</div><div class="sslop"></div></div>` : ''}`;
+          <div class="actions" style="margin:0">${P.app === 'claude-code' ? '<button class="btn" data-forgood>Turn off for good</button>' : ''}${s.check ? `<button class="btn link" data-page="${esc(s.check.page)}">Full check ↗</button><button class="btn" data-sslop>Report slop</button>` : ''}</div><div class="sslop"></div></div>` : ''}`;
     }).join('') : '<div class="pempty">No skills in this chat yet. Find some in the next tab.</div>';
     const find = `<div class="findbar"><input type="search" placeholder="What should Claude be better at?" value="${esc(P.query)}" aria-label="Find skills"><button class="btn primary" data-find>Find</button></div>
       ${P.results === null ? '<div class="pempty" style="padding-top:0">Try “make my website look less AI-made” or “write better emails”. Every result was checked by reading its code.</div>'
@@ -365,24 +366,39 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
     app.innerHTML = `<div class="panel">
       <div class="tabs" role="tablist"><button class="tab" role="tab" data-tab="mine" aria-selected="${P.tab === 'mine'}">My skills${sk.length ? ` · ${on} on` : ''}</button><button class="tab" role="tab" data-tab="find" aria-selected="${P.tab === 'find'}">Find more</button><span class="brand">Skillshelf</span></div>
       <div>${P.tab === 'mine' ? mine : find}</div>
-      ${P.toast && P.tab === 'mine' ? `<div class="ptoast" role="status">${esc(P.toast)}</div>` : ''}
-      <div class="pfoot">${P.tab === 'mine' ? 'Switches apply to this chat. To switch a skill off everywhere, use Customize, then Skills.' : 'Add a skill to the Claude app from its page (Full check), or install it in Claude Code with the command.'}</div></div>`;
+      ${P.toast ? `<div class="ptoast" role="status">${esc(P.toast)}</div>` : ''}
+      <div class="pfoot">${P.app === 'claude-code'
+        ? (P.tab === 'mine' ? 'Switches apply to this session. Open a skill and use Turn off for good to have Claude Code switch it off in your settings.' : 'Add asks Claude Code to install the skill for you. New skills load in your next session.')
+        : (P.tab === 'mine' ? 'Switches apply to this chat. To switch a skill off everywhere, use Customize, then Skills.' : 'Add a skill to the Claude app from its page (Full check), or install it in Claude Code with the command.')}</div></div>`;
     if (P.tab === 'find' && Array.isArray(P.results)) {
       // These aren't installed yet, so switching them off or reporting them makes no sense here
       app.querySelectorAll('.presults [data-act="toggle"], .presults [data-act="slop"]').forEach(b => b.remove());
+      if (P.app === 'claude-code') app.querySelectorAll('.presults article.card').forEach(c => { const p = P.results.find(x => String(x.id || x.name) === c.dataset.id); if (p && ccInstall(p)) c.querySelector('.actions').insertAdjacentHTML('afterbegin', '<button class="btn primary" data-addcc>Add to Claude Code</button>'); });
       wire(P.results);
     }
     const input = app.querySelector('.findbar input');
     if (input) input.onkeydown = e => { if (e.key === 'Enter') app.querySelector('[data-find]').click(); };
   }
+  // In Claude Code, Claude can run commands and edit settings itself, so the panel asks it to
+  const ccInstall = p => { const line = (p.install || []).find(l => / npx skills add /.test(' ' + l.slice(l.indexOf(': ') + 2))) || (p.install || []).find(l => /: claude (mcp|plugin) /.test(l)); return line ? line.slice(line.indexOf(': ') + 2) : null; };
+  async function askClaude(msg, done) {
+    if (host.message) { try { await request('ui/message', { role: 'user', content: [{ type: 'text', text: msg }] }); P.toast = done; } catch { P.toast = 'Couldn’t reach Claude. Ask it yourself: ' + msg; } }
+    else P.toast = 'Ask Claude: ' + msg;
+    drawPanel();
+  }
   app.addEventListener('click', async e => {
     if (!P || !app.querySelector('.panel')) return;
-    const t = e.target.closest('button'); if (!t || t.closest('article.card')) return;
+    const t = e.target.closest('button'); if (!t || (t.closest('article.card') && !t.hasAttribute('data-addcc'))) return;
+    if (t.hasAttribute('data-addcc')) {
+      const p = P.results.find(x => String(x.id || x.name) === t.closest('article.card').dataset.id), cmd = ccInstall(p);
+      return askClaude(`Install the ${p.name} skill (Skillshelf checked its code: ${p.check}) by running: ${cmd}\nTell me when it's done.`, `Asked Claude Code to install ${p.name}. It loads in your next session.`);
+    }
     const row = t.closest('[data-name]') || (t.closest('.sopen') && t.closest('.sopen').previousElementSibling);
     const s = row && P.skills.find(x => x.name === row.dataset.name);
-    if (t.dataset.tab) { P.tab = t.dataset.tab; return drawPanel(); }
+    if (t.dataset.tab) { P.tab = t.dataset.tab; P.toast = null; return drawPanel(); }
     if (t.dataset.page) return openLink(t.dataset.page);
     if (t.hasAttribute('data-sopen')) { P.open = P.open === s.name ? null : s.name; return drawPanel(); }
+    if (t.hasAttribute('data-forgood')) return askClaude(`Turn off the "${s.name}" skill in Claude Code for good: add "${s.name}": "off" under "skillOverrides" in ~/.claude/settings.json (or in this project's .claude/settings.local.json if it's a project skill), keeping every other setting. If it comes from a plugin, tell me to switch the plugin with /plugin instead. Then confirm.`, `Asked Claude Code to turn ${s.name} off for good.`);
     if (t.hasAttribute('data-stoggle')) {
       const nowOff = !P.off.has(s.name);
       nowOff ? P.off.add(s.name) : P.off.delete(s.name);

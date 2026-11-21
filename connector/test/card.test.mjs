@@ -51,7 +51,7 @@ const HOST = theme => `<!doctype html><html><body style="margin:0;padding:16px;b
     if (e.source !== f.contentWindow) return;
     const m = e.data; window.log.push(m);
     if (m.method === 'ui/initialize') reply(m.id, { protocolVersion: '2026-01-26', hostInfo: { name: 'test-host', version: '1' },
-      hostCapabilities: { openLinks: {}, serverTools: {}, updateModelContext: { text: {} } },
+      hostCapabilities: { openLinks: {}, serverTools: {}, updateModelContext: { text: {} }, message: { text: {} } },
       hostContext: { theme: '${theme}', platform: 'web', styles: { variables: { '--font-sans': 'system-ui, sans-serif' } } } });
     else if (m.method === 'ui/notifications/initialized') window.ready = true;
     else if (m.method === 'ui/notifications/size-changed') f.style.height = m.params.height + 'px';
@@ -223,6 +223,40 @@ const shot = async (page, name) => { if (SHOTS) { fs.mkdirSync(SHOTS, { recursiv
   await card.locator('.findbar').waitFor();
   ok(await card.locator('[data-tab="find"]').getAttribute('aria-selected') === 'true', 'with no skills, the panel opens on Find more');
   ok(!errors.length, 'no errors with an empty list');
+  await page.close();
+}
+// 4b. The same panel in Claude Code: it can switch a skill off for good and install new ones by asking Claude Code
+{
+  const { page, card, show, log, errors } = await open();
+  await show('my_skills', { app: 'claude-code', skills: [{ name: 'frontend-design', description: 'Guidance for distinctive, intentional visual design when building new UI' }, { name: 'meeting-notes', description: 'Tidy meeting notes' }] });
+  await card.locator('.srow').first().waitFor();
+  ok(/Turn off for good/.test(await card.locator('.pfoot').innerText()), 'in Claude Code the panel says it can switch skills off for good');
+  await card.locator('.srow[data-name="meeting-notes"] [data-sopen]').click();
+  await card.locator('[data-forgood]').click();
+  await card.locator('.ptoast').waitFor();
+  const off = (await log()).filter(m => m.method === 'ui/message').pop();
+  ok(off && /Turn off the "meeting-notes" skill in Claude Code for good: add "meeting-notes": "off" under "skillOverrides"/.test(off.params.content[0].text), 'Turn off for good asks Claude Code to set skillOverrides');
+  await shot(page, '14-code-off-for-good.png');
+  await card.locator('[data-tab="find"]').click();
+  await card.locator('.findbar input').fill('make my website look less AI generated');
+  await card.locator('[data-find]').click();
+  await card.locator('.presults [data-addcc]').first().waitFor();
+  ok(await card.locator('.presults [data-addcc]').count() >= 3, 'each result has Add to Claude Code');
+  await card.locator('.presults [data-addcc]').first().click();
+  await card.locator('.ptoast').waitFor();
+  const add = (await log()).filter(m => m.method === 'ui/message').pop();
+  ok(/^Install the Impeccable skill \(Skillshelf checked its code: 1 thing to know\) by running: npx skills add pbakaus\/impeccable --skill impeccable --agent claude-code/.test(add.params.content[0].text), 'Add to Claude Code asks Claude to run the checked install command');
+  ok(/Asked Claude Code to install Impeccable/.test(await card.locator('.ptoast').innerText()), 'and says so');
+  await shot(page, '15-code-add.png');
+  ok(!errors.length, 'no errors in Claude Code mode ' + errors.join('; '));
+  await page.close();
+}
+{
+  const { page, card, show } = await open();
+  await show('my_skills', { skills: [{ name: 'pdf' }] });
+  await card.locator('.srow').first().waitFor();
+  await card.locator('.srow [data-sopen]').click();
+  ok(await card.locator('[data-forgood]').count() === 0, 'in the Claude app there is no Turn off for good button (it can\'t be done from there)');
   await page.close();
 }
 // 5. Slop check
