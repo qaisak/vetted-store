@@ -102,6 +102,8 @@ ol.steps li { margin: 4px 0; }
 .switch:focus-visible, .tab:focus-visible, .smain:focus-visible { outline: 2px solid var(--info); outline-offset: 2px; }
 .sopen { padding: 0 14px 12px; display: grid; gap: 8px; }
 .pfoot { padding: 10px 14px; border-top: 1px solid var(--line); font-size: 12px; color: var(--fg2); }
+/* In the chat itself a long skill list scrolls inside the card; expanded, it uses the whole pane */
+:root[data-mode="inline"] .pbody { max-height: 460px; overflow-y: auto; }
 .phint { padding: 8px 14px; font-size: 12.5px; color: var(--fg2); background: var(--bg2); border-bottom: 1px solid var(--line); }
 .ptoast { padding: 9px 14px; font-size: 13px; font-weight: 500; background: var(--ok-bg); color: var(--ok); border-top: 1px solid var(--line); }
 .findbar { display: flex; gap: 6px; padding: 10px 14px; }
@@ -169,9 +171,9 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
     // Picture-in-picture keeps the panel on screen while the user chats, if the host offers it
     if (Array.isArray(c.availableDisplayModes)) view.modes = c.availableDisplayModes;
     if (c.displayMode) view.mode = c.displayMode;
-    if ((c.availableDisplayModes || c.displayMode) && P && app.querySelector('.panel')) { drawPanel(); autoFloat(); }
+    if ((c.availableDisplayModes || c.displayMode) && P && app.querySelector('.panel')) { autoFloat(); drawPanel(); }
   }
-  const view = { modes: [], mode: 'inline' };
+  const view = { modes: [], mode: 'inline', stuck: false };
 
   // Tell the host how tall the card is, so it fits the chat without a scrollbar
   let lastH = 0;
@@ -350,26 +352,38 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
   let P = null;   // { skills, off:Set, tab, open, toast, results, query }
   function showPanel(d) {
     P = { skills: d.skills, app: d.app || 'claude-app', off: new Set(), tab: d.skills.length ? 'mine' : 'find', open: null, toast: null, results: null, query: '' };
-    drawPanel();
     autoFloat();
+    drawPanel();
   }
-  // The panel floats on its own as soon as it opens, once, when the host offers picture-in-picture.
-  // If the host says no (some only allow it after a click), the Keep on screen button is still there.
-  // Where the panel goes to sit beside the chat: a floating window if the host has one, otherwise the host's expanded view
-  // (in Claude that is a side pane next to the chat). Hosts that don't say which modes they have get the expanded view tried.
+  // On open the panel asks to sit beside the chat: a floating window if the host has one, otherwise the host's expanded
+  // view (in Claude, a pane next to the chat). Hosts that don't list their modes get the expanded view tried.
+  // Some hosts (Claude today) don't let a card move itself. If nothing happens within a moment, the panel stops offering
+  // its own button and instead says plainly how to do it with the host's controls.
   const sideMode = () => view.modes.includes('pip') ? 'pip' : (view.modes.includes('fullscreen') || !view.modes.length) ? 'fullscreen' : null;
+  function moveTo(want) {
+    view.trying = true;
+    const asked = request('ui/request-display-mode', { mode: want }).then(r => (r && r.mode) || want).catch(() => 'refused');
+    // A late yes still counts
+    asked.then(m => { if (view.stuck && m === want) { view.stuck = false; view.mode = m; if (P) drawPanel(); } });
+    return Promise.race([asked, new Promise(res => setTimeout(() => res('no answer'), 2500))]).then(m => {
+      view.trying = false;
+      if (m === want) { view.mode = m; view.stuck = false; } else view.stuck = true;
+      return m === want;
+    });
+  }
   let floated = false;
   function autoFloat() {
     const want = sideMode();
     if (floated || !P || !want || view.mode !== 'inline') return;
     floated = true;
-    request('ui/request-display-mode', { mode: want }).then(r => { view.mode = (r && r.mode) || want; drawPanel(); }).catch(() => {});
+    moveTo(want).then(() => drawPanel());
   }
   function offMessage() {
     const off = P.skills.filter(s => P.off.has(s.name)).map(s => s.name);
     return off.length ? `In this conversation the user switched these skills off with Skillshelf: ${off.join(', ')}. Don't use them unless the user asks for one by name. Every other skill is fine to use.` : 'The user switched all their skills back on for this conversation.';
   }
   function drawPanel() {
+    document.documentElement.dataset.mode = view.mode;
     const sk = P.skills, on = sk.length - P.off.size;
     const mine = sk.length ? sk.map(s => {
       const off = P.off.has(s.name), open = P.open === s.name;
@@ -384,9 +398,10 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
         : P.results === 'loading' ? '<div class="pempty" style="padding-top:0">Looking…</div>'
         : P.results.length ? `<div class="presults">${P.results.map(p => cardHTML(p, false)).join('')}</div>` : '<div class="pempty" style="padding-top:0">Nothing checked matches that yet.</div>'}`;
     app.innerHTML = `<div class="panel">
-      <div class="tabs" role="tablist"><button class="tab" role="tab" data-tab="mine" aria-selected="${P.tab === 'mine'}">My skills${sk.length ? ` · ${on} on` : ''}</button><button class="tab" role="tab" data-tab="find" aria-selected="${P.tab === 'find'}">Find more</button><span class="brand">Skillshelf</span>${view.mode !== 'inline' ? '<button class="pin" data-place="inline">Back into chat</button>' : sideMode() ? `<button class="pin" data-place="${sideMode()}">Open beside chat</button>` : ''}</div>
-      ${view.mode === 'fullscreen' ? '<div class="phint">Switches here work while you chat. If you can’t see the chat, click <b>Show chat</b> at the top right.</div>' : ''}
-      <div>${P.tab === 'mine' ? mine : find}</div>
+      <div class="tabs" role="tablist"><button class="tab" role="tab" data-tab="mine" aria-selected="${P.tab === 'mine'}">My skills${sk.length ? ` · ${on} on` : ''}</button><button class="tab" role="tab" data-tab="find" aria-selected="${P.tab === 'find'}">Find more</button><span class="brand">Skillshelf</span>${view.stuck || view.trying ? '' : view.mode !== 'inline' ? '<button class="pin" data-place="inline">Back into chat</button>' : sideMode() ? `<button class="pin" data-place="${sideMode()}">Open beside chat</button>` : ''}</div>
+      ${view.mode === 'fullscreen' ? '<div class="phint">Switches here work while you chat. If you can’t see the chat, click <b>Show chat</b> at the top right.</div>'
+        : view.mode === 'inline' && view.stuck ? '<div class="phint">To keep this open beside your chat: click <b>⤢</b> at the top right of this card, then <b>Show chat</b>.</div>' : ''}
+      <div class="pbody">${P.tab === 'mine' ? mine : find}</div>
       ${P.toast ? `<div class="ptoast" role="status">${esc(P.toast)}</div>` : ''}
       <div class="pfoot">${P.app === 'claude-code'
         ? (P.tab === 'mine' ? 'Switches apply to this session. Open a skill and use Turn off for good to have Claude Code switch it off in your settings.' : 'Add asks Claude Code to install the skill for you. New skills load in your next session.')
@@ -417,12 +432,7 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
     const row = t.closest('[data-name]') || (t.closest('.sopen') && t.closest('.sopen').previousElementSibling);
     const s = row && P.skills.find(x => x.name === row.dataset.name);
     if (t.dataset.tab) { P.tab = t.dataset.tab; P.toast = null; return drawPanel(); }
-    if (t.dataset.place) {
-      const want = t.dataset.place;
-      try { const r = await request('ui/request-display-mode', { mode: want }); view.mode = (r && r.mode) || want; P.toast = view.mode === want ? null : 'Claude’s app kept it where it was.'; }
-      catch { P.toast = 'Claude’s app didn’t allow that here.'; }
-      return drawPanel();
-    }
+    if (t.dataset.place) { await moveTo(t.dataset.place); P.toast = null; return drawPanel(); }
     if (t.dataset.page) return openLink(t.dataset.page);
     if (t.hasAttribute('data-sopen')) { P.open = P.open === s.name ? null : s.name; return drawPanel(); }
     if (t.hasAttribute('data-forgood')) return askClaude(`Turn off the "${s.name}" skill in Claude Code for good: add "${s.name}": "off" under "skillOverrides" in ~/.claude/settings.json (or in this project's .claude/settings.local.json if it's a project skill), keeping every other setting. If it comes from a plugin, tell me to switch the plugin with /plugin instead. Then confirm.`, `Asked Claude Code to turn ${s.name} off for good.`);
