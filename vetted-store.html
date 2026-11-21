@@ -175,6 +175,9 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .copybox code { flex: 1; min-width: 0; font-family: var(--mono); font-size: 12.5px; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.45; }
 .dev-scan { margin-top: 4px; }
 .inst-card.ask { background: color-mix(in srgb, var(--blue) 8%, var(--bg2)); }
+.claude-steps { margin: 0; padding-left: 20px; display: grid; gap: 8px; line-height: 1.45; }
+.claude-steps .copybox { margin-top: 6px; }
+.claude-note { margin: 0; font-size: 12.5px; color: var(--label2); line-height: 1.45; }
 .sheet .inst-card.ask { background: color-mix(in srgb, var(--blue) 8%, var(--card)); }
 .ask-btns { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 .ask-btns .get { width: auto; padding: 0 16px; }
@@ -996,11 +999,25 @@ function pageToday() {
       <div class="job-grid">${kitsFirst().slice(0, 4).map(kitCard).join('')}</div></section>
     <section class="shelf"><div class="shelf-head"><h2>New powers<span class="sub">Things your AI can't do on its own, and the checked picks that add them</span></h2><a class="see-all" href="#powers">See All</a></div>
       <div class="job-grid">${POWERS.slice(0, 6).map(([k, t, why, g, c, ids]) => `<a class="job-card" href="#powers"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span><span style="min-width:0"><b>${esc(t)}</b><span class="s">${esc(why)}</span></span><span class="n">${vis(pick(ids)).length}</span></a>`).join('')}</div></section>
+    ${claudeBox()}
     <section class="shelf"><div class="shelf-head"><h2>Browse by job</h2><a class="see-all" href="#browse">See All</a></div>
       <div class="job-grid">${jobsFirst().slice(0, 6).map(jobCard).join('')}</div></section>
     <section class="shelf"><div class="shelf-head"><h2>Popular<span class="sub">The most-starred community projects, every one checked. Listings with unusual star growth don't rank here</span></h2></div>${ranked(uniqueRepos(byStars(vis(community())).filter(l => !oddStars(l))).slice(0, 9), true)}</section>
     ${TESTS.length ? testedLine(TESTS[0]) : ''}
     ${dataNote()}</div>`;
+}
+
+// The Skillshelf connector: ask for skills inside Claude and get these checks as cards (connector/ in the repo)
+const CONNECTOR = 'https://skillshelf.skillshelf.workers.dev/mcp';
+function claudeBox() {
+  return `<section class="shelf" id="in-claude"><div class="shelf-head"><h2>Use Skillshelf inside Claude<span class="sub">Ask for a skill in any chat and get these checked picks as cards, with Install, Switch off and Report slop buttons</span></h2></div>
+    <div class="inst-card ask claude-box">
+      <ol class="claude-steps"><li>In Claude, open <b>Settings</b>, then <b>Connectors</b>, then <b>Add custom connector</b>.</li>
+        <li>Name it Skillshelf and paste this address:${copyBox(CONNECTOR)}</li>
+        <li>In a new chat, ask: <i>“find me a skill to make my website look less AI-made”</i>.</li></ol>
+      <details class="ask-q"><summary>Using Claude Code instead?</summary>${copyBox(`claude mcp add --transport http skillshelf ${CONNECTOR}`)}</details>
+      <p class="claude-note">Free, with no account. It only gets the short question Claude sends it, like “design skills”, and doesn't keep it. It can't see your chats, files or settings. A slop report shares just the reason you pick.</p>
+    </div></section>`;
 }
 
 // What Skillshelf is, in one breath, with only claims the data backs

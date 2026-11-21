@@ -136,6 +136,9 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(tp.cards === 10 && tp.broken === 0 && tp.win === 'Impeccable', `test page: 10 pages, screenshots load, verdict leads with the winner (${tp.cards}, ${tp.broken} broken, ${tp.win})`);
   await p.goto(url + '#pbakaus-impeccable'); await p.waitForTimeout(300);
   ok(await p.evaluate(() => /Our pick/.test(document.querySelector('.tested-box')?.textContent || '') && document.querySelector('.tested-box').getAttribute('href') === '#test-design-2026-11'), 'a tested listing links to its test');
+  await p.goto(url + '#today'); await p.waitForTimeout(300);
+  const cb = await p.evaluate(() => { const box = document.querySelector('#in-claude'); return { code: box?.querySelector('.copybox code')?.textContent, copy: box?.querySelector('[data-copy]')?.dataset.copy, cc: box?.querySelectorAll('.copybox').length }; });
+  ok(cb.code === 'https://skillshelf.skillshelf.workers.dev/mcp' && cb.copy === cb.code && cb.cc === 2, 'home has the Add Skillshelf to Claude box with a copyable connector address');
   ok(!errs.length, 'no page errors ' + errs.join('; '));
   await b.close();
 })();
