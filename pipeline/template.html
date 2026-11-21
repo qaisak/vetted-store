@@ -785,7 +785,7 @@ function pageKit(k) {
   <div class="page" style="padding-top:12px">
     <div class="large-title"><div class="job-card" style="background:none;padding:0;margin-bottom:6px"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span><h1>${esc(title)}</h1></div>
       <p>${esc(sub)}. ${list.length} picks, in the order we'd add them. Each one is checked like everything else in the store.</p></div>
-    <div class="list-acts" style="margin:-4px 0 14px"><button class="get primary" data-savekit="${k}">Add all ${list.length} to cart</button><button class="pill-link" data-jump="install-all">Install all</button><button class="pill-link" data-sharekit="${k}">${ic('share', 2)} Share</button></div>
+    <div class="list-acts" style="margin:-4px 0 14px"><button class="get primary" data-savekit="${k}">Save all ${list.length}</button><button class="pill-link" data-jump="install-all">Install all</button><button class="pill-link" data-sharekit="${k}">${ic('share', 2)} Share</button></div>
     <ol class="kit">${list.map(([id, why], i) => `<li>${row(BY[id], i + 1).replace('<div class="row">', '<div class="row kit-row">')}<p class="why-kit">${esc(why)}</p></li>`).join('')}</ol>
     ${checkout(list.map(([id]) => BY[id]), `Install all ${list.length} with one paste`)}
     ${dataNote()}</div>`;
@@ -854,7 +854,7 @@ function reachLine(l) {
 }
 const usesHTML = l => { const u = usesOf(l); if (!u || (!u.used.length && !u.checked.length)) return '';
   return `<div class="uses"><span class="lbl">What it uses, and why</span><ul>${u.used.map(([k, t, why]) => `<li><b>${esc(t)}</b><span>${esc(why)}</span></li>`).join('')}</ul>
-    ${u.checked.length ? `<p class="also-chk">Also checked and explained: ${esc(andList(u.checked.map(c => c[1].toLowerCase())))}. <button class="text-btn" data-jump="checks">Why</button></p>` : ''}</div>`; };
+    ${u.checked.length ? `<p class="also-chk">Also checked: ${esc(andList(u.checked.map(c => c[1].toLowerCase())))}. <button class="text-btn" data-jump="checks">Why it's fine</button></p>` : ''}</div>`; };
 // The verdict in one short line for the top of a listing; the full reasoning sits in "See the full check"
 function verdictShort(l) {
   const v = verdict(l), rv = scanOf(l)?.rv, nt = NT(l), risks = nt.filter(x => x.lv !== 'note'), notes = nt.length - risks.length;
@@ -864,7 +864,7 @@ function verdictShort(l) {
   else if (v[2] === 'Instructions only') line = 'Just text for your assistant. Nothing runs on your computer.';
   else if (v[2] === 'Fits its purpose') line = 'It does what it says, and nothing in its code needs your attention.';
   else line = 'The scan found nothing that needs your attention.';
-  if (!risks.length && notes) line += ` ${notes === 1 ? 'One thing' : notes + ' things'} worth knowing inside.`;
+  if (!risks.length && notes) line += ` ${notes === 1 ? 'There\'s one thing' : 'There are ' + notes + ' things'} worth knowing below.`;
   return [v[0], v[1], v[2], line];
 }
 // The short label under a listing's GET button. Risks and flags win over who published it.
@@ -997,35 +997,43 @@ function pageToday() {
     <a class="home-search" href="#search">${ic('search')}<span>What do you want your AI to do?</span></a>
     <div class="intro-links"><button data-focus>${ic('sliders', 2)} Make it yours</button><button data-story="community">How we check</button></div>
     ${filtering() ? pickedForYou() : ''}
-    <section class="shelf"><div class="shelf-head"><h2>Start here<span class="sub">A few picks for one goal, ready to install together</span></h2><a class="see-all" href="#browse">See All</a></div>
+    <section class="shelf"><div class="shelf-head"><h2>Start here<span class="sub">A few picks for one goal, ready to install together</span></h2><a class="see-all" href="#browse">See all</a></div>
       <div class="job-grid">${kitsFirst().slice(0, 4).map(kitCard).join('')}</div></section>
-    <section class="shelf"><div class="shelf-head"><h2>New powers<span class="sub">Things your AI can't do on its own, and the checked picks that add them</span></h2><a class="see-all" href="#powers">See All</a></div>
+    <section class="shelf"><div class="shelf-head"><h2>New powers<span class="sub">Things your AI can't do on its own, and the checked picks that add them</span></h2><a class="see-all" href="#powers">See all</a></div>
       <div class="job-grid">${POWERS.slice(0, 6).map(([k, t, why, g, c, ids]) => `<a class="job-card" href="#powers"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span><span style="min-width:0"><b>${esc(t)}</b><span class="s">${esc(why)}</span></span><span class="n">${vis(pick(ids)).length}</span></a>`).join('')}</div></section>
     ${claudeBox()}
-    <section class="shelf"><div class="shelf-head"><h2>Browse by job</h2><a class="see-all" href="#browse">See All</a></div>
+    <section class="shelf"><div class="shelf-head"><h2>Browse by job</h2><a class="see-all" href="#browse">See all</a></div>
       <div class="job-grid">${jobsFirst().slice(0, 6).map(jobCard).join('')}</div></section>
-    <section class="shelf"><div class="shelf-head"><h2>Popular<span class="sub">The most-starred community projects, every one checked. Listings with unusual star growth don't rank here</span></h2></div>${ranked(uniqueRepos(byStars(vis(community())).filter(l => !oddStars(l))).slice(0, 9), true)}</section>
+    <section class="shelf"><div class="shelf-head"><h2>Popular<span class="sub">The most-starred community projects, every one checked</span></h2></div>${ranked(uniqueRepos(byStars(vis(community())).filter(l => !oddStars(l))).slice(0, 9), true)}</section>
     ${TESTS.length ? testedLine(TESTS[0]) : ''}
     ${dataNote()}</div>`;
 }
 
 // The Skillshelf connector: ask for skills inside Claude and get these checks as cards (connector/ in the repo)
 const CONNECTOR = 'https://skillshelf.skillshelf.workers.dev/mcp';
+// Plain names for install cards whose data label is developer jargon
+const INST_TO = { 'Any agent': 'Claude Code and other agents' };
+const INST_HOW = { 'skills CLI': 'Terminal' };
+
 function claudeBox() {
-  return `<section class="shelf" id="in-claude"><div class="shelf-head"><h2>Use Skillshelf inside Claude<span class="sub">Your skills with on/off switches, a slop checker, and these checked picks, right in the chat</span></h2></div>
-    <div class="inst-card ask claude-box">
-      <ol class="claude-steps"><li>In Claude, open <b>Plugins</b>, click <b>Add</b>, then <b>Add custom connector</b>.</li>
-        <li>Name it Skillshelf and paste this address:${copyBox(CONNECTOR)}</li>
-        <li>In a new chat, try:<ul class="claude-tries"><li><i>“open my skills in Skillshelf”</i>: every skill you have, with switches to turn them off for that chat, and a tab to find more</li>
-          <li><i>“check this for AI slop: …”</i> and paste text: it highlights the tells, and Claude can avoid them from then on</li>
-          <li><i>“find me a skill to make my website look less AI-made”</i></li></ul></li></ol>
-      <details class="ask-q"><summary>Using Claude Code instead?</summary>${copyBox(`claude mcp add --transport http skillshelf ${CONNECTOR}`)}</details>
-      <p class="claude-note">Free, with no account. It only gets the short question Claude sends it, like “design skills”, and doesn't keep it. It can't see your chats, files or settings. A slop report shares just the reason you pick.</p>
-      <div class="claude-desk"><b>Use Claude Code? Switch its skills everywhere</b>
-        <span>On the Claude desktop app, ask “show my Claude Code skills in Skillshelf” to see every Claude Code skill you have, switch each on or off, and see our check on each one.</span>
-        <a class="get primary" href="${CONNECTOR.replace(/\/mcp$/, '/skillshelf.mcpb')}" target="_blank" rel="noopener">Get it for Claude desktop</a>
-        <span class="claude-note">It downloads in a new tab. Open the file and click Install. It runs on your computer and only changes Claude Code's on/off setting, with a backup. Mac and Windows.</span></div>
-    </div></section>`;
+  return `<section class="shelf" id="in-claude"><div class="shelf-head"><h2>Use Skillshelf inside Claude<span class="sub">Find checked skills and switch yours on or off without leaving the chat</span></h2></div>
+    <div class="inst-grid">
+      <div class="inst-card ask claude-box"><div class="h"><b>In Claude chats</b><span class="how">2 steps</span></div>
+        <ol class="claude-steps"><li>In Claude, open <b>Plugins</b>, click <b>Add</b>, then <b>Add custom connector</b>.</li>
+          <li>Name it Skillshelf and paste this address:${copyBox(CONNECTOR)}</li></ol>
+        <div><span class="lbl">Then ask, in a new chat</span><ul class="claude-tries"><li><i>“open my skills in Skillshelf”</i></li>
+          <li><i>“find me a skill to make my website look less AI-made”</i></li>
+          <li><i>“check this for AI slop: …”</i> and paste your text</li></ul></div>
+      </div>
+      <div class="inst-card ask claude-box"><div class="h"><b>In Claude Code</b><span class="how">1 step</span></div>
+        <p class="claude-note">Run this once in a terminal:</p>${copyBox(`claude mcp add --transport http skillshelf ${CONNECTOR}`)}
+        <div class="claude-desk"><b>On/off switches for your Claude Code skills</b>
+          <span>The desktop extension lists every Claude Code skill on your computer with a switch and our check on each. After installing, ask Claude <i>“show my Claude Code skills in Skillshelf”</i>.</span>
+          <a class="get primary" href="${CONNECTOR.replace(/\/mcp$/, '/skillshelf.mcpb')}" target="_blank" rel="noopener">Get the extension</a>
+          <span class="claude-note">For the Claude desktop app on Mac and Windows. Open the downloaded file and click Install.</span></div>
+      </div>
+    </div>
+    <p class="claude-note" style="margin-top:10px">Free, no account. Skillshelf only sees the short search Claude sends (like “design skills”) and keeps nothing. It can't see your chats, files or settings.</p></section>`;
 }
 
 // What Skillshelf is, in one breath, with only claims the data backs
@@ -1155,7 +1163,7 @@ function repoTitle(repo) { const n = repo.split('/')[1].replace(/[-_]+/g, ' '); 
 function trustedShelf(kind, title) {
   const list = vis(byStars(L.filter(l => l.tr && (!kind || l.k === kind))));
   if (!list.length) return '';
-  return `<section class="shelf"><div class="shelf-head"><h2>${title}<span class="sub">From companies' own GitHub organizations · scanned like everything else</span></h2><a class="see-all" href="#trusted">See All</a></div>
+  return `<section class="shelf"><div class="shelf-head"><h2>${title}<span class="sub">From companies' own GitHub organizations · scanned like everything else</span></h2><a class="see-all" href="#trusted">See all</a></div>
     <div class="scroller tiles">${uniqueRepos(list, 2).slice(0, 16).map(tile).join('')}</div></section>`;
 }
 function ranked(list, numbered) {
@@ -1191,7 +1199,7 @@ function pageSkills() {
     ${hiddenNote(L.filter(l => l.k === 'skill'), all)}
     ${banners(uniqueRepos(byStars(comm)).slice(0, 4).map(l => ({ l, eb: (JOB[(l.jb || [])[0]] || [0, 'Skill'])[1] })))}
     ${shelves.map(([k, t]) => { const list = order(byPrimary[k]);
-      return `<section class="shelf"><div class="shelf-head"><h2>${esc(t)}<span class="sub">${list.length} skill${list.length > 1 ? 's' : ''}</span></h2>${list.length > 9 ? `<a class="see-all" href="#for-${k}">See All</a>` : ''}</div>${ranked(list.slice(0, 9))}</section>`; }).join('')}
+      return `<section class="shelf"><div class="shelf-head"><h2>${esc(t)}<span class="sub">${list.length} skill${list.length > 1 ? 's' : ''}</span></h2>${list.length > 9 ? `<a class="see-all" href="#for-${k}">See all</a>` : ''}</div>${ranked(list.slice(0, 9))}</section>`; }).join('')}
     ${otherJobs.length ? `<section class="shelf"><div class="shelf-head"><h2>More jobs</h2></div><div class="chips">${otherJobs.map(([k, t]) => `<a href="#for-${k}">${esc(t)} · ${byPrimary[k].length}</a>`).join('')}</div></section>` : ''}
     ${rest.length ? `<section class="shelf"><div class="shelf-head"><h2>More skills</h2></div>${ranked(order(rest))}</section>` : ''}
     <section class="shelf"><div class="shelf-head"><h2>Skill packs</h2></div>
@@ -1348,7 +1356,7 @@ function instCards(l, show = 99) {
   const lead = fit.length ? fit : all, shown = lead.length <= show + 1 ? lead : lead.slice(0, show), more = all.filter(o => !shown.includes(o));
   const card = o => {
     const agent = S.agent;
-    return `<div class="inst-card"><div class="h"><b>${esc(o.to)}</b><span class="how">${esc(o.how)}</span></div>
+    return `<div class="inst-card"><div class="h"><b>${esc(INST_TO[o.to] || o.to)}</b><span class="how">${esc(INST_HOW[o.how] || o.how)}</span></div>
       ${o.agentCmd ? `<div class="seg" role="group" aria-label="Agent">${AGENTS.map(([k, n]) => `<button data-agent="${k}" aria-pressed="${agent === k}">${n}</button>`).join('')}</div>${copyBox(`${o.agentCmd} --agent ${agent}`)}` : ''}
       ${o.alt && o.cmds?.length > 1 ? `<span class="note">Any one of these:</span>` : ''}${(o.cmds || []).map(copyBox).join('')}
       ${o.text ? `<span class="note" style="color:var(--label)">${esc(o.text)}</span>` : ''}
@@ -1550,7 +1558,7 @@ const SOCIAL = [['YouTube', '#FF0033', q => `https://www.youtube.com/results?sea
 const CHECK_ORDER = ['Maintained', 'Code-Review', 'Vulnerabilities', 'Dangerous-Workflow', 'Token-Permissions', 'Branch-Protection', 'Security-Policy', 'Pinned-Dependencies', 'SAST', 'Signed-Releases'];
 function pageProduct(id) {
   const l = BY[id], r = repoOf(l), t = trust(l);
-  const from = S.back?.startsWith('for-') ? JOB[S.back.slice(4)][1] : S.back?.startsWith('kit-') ? KIT[S.back.slice(4)][1] : S.back?.startsWith('digest-') ? 'Digest' : { today: 'Today', trending: 'Trending', digest: 'Digest', browse: 'Browse', skills: 'Skills', mcp: 'Connectors', tools: 'Apps', trusted: 'From companies', search: 'Search' }[S.back || S.tab] || 'Today';
+  const from = S.back?.startsWith('for-') ? JOB[S.back.slice(4)][1] : S.back?.startsWith('kit-') ? KIT[S.back.slice(4)][1] : S.back?.startsWith('digest-') ? 'Digest' : { today: 'Home', trending: 'Trending', digest: 'Digest', browse: 'Browse', skills: 'Skills', mcp: 'Connectors', tools: 'Apps', trusted: 'From companies', search: 'Search' }[S.back || S.tab] || 'Today';
   const siblings = byRepo(l.r).filter(x => x.id !== l.id);
   const q = encodeURIComponent(l.k === 'skill' ? `${l.sl} ${r.on} skill` : l.k === 'mcp' ? `${l.n} MCP` : `${l.n} ${l.r.split('/')[1] === l.n.toLowerCase() ? '' : l.r.split('/')[1]}`.trim());
   const checks = r.sc && r.sc !== 'u' ? CHECK_ORDER.map(n => r.sc.ch.find(c => c[0] === n)).filter(Boolean).slice(0, 6) : [];
@@ -1573,7 +1581,7 @@ function pageProduct(id) {
       <div><span class="k">Updated</span><span class="v">${ic('pulse', 2)}</span><span class="c">${ago(r.pu)}</span></div>
       <div><span class="k">License</span><span class="v">${ic('scale', 2)}</span>${(lic => lic ? `<span class="c">${esc(lic)}</span>` : `<span class="c c-orange" title="The author hasn't said how you may reuse it">None listed</span>`)(l.lic && l.lic.length < 30 ? l.lic : r.lic)}</div>
       <div><span class="k">Publisher</span><span class="v">${ic(r.org ? 'building' : 'person', 2)}</span><span class="c">${r.org ? 'Organization' : 'Individual'}</span></div>
-      ${l.lines ? `<div><span class="k">SKILL.md</span><span class="v">${l.lines}</span><span class="c">lines</span></div>` : r.lang ? `<div><span class="k">Language</span><span class="v">${ic('code', 2)}</span><span class="c">${esc(r.lang)}</span></div>` : ''}
+      ${l.lines ? `<div><span class="k">Instructions</span><span class="v">${l.lines}</span><span class="c">lines to read</span></div>` : r.lang ? `<div><span class="k">Language</span><span class="v">${ic('code', 2)}</span><span class="c">${esc(r.lang)}</span></div>` : ''}
     </div>
 
     ${oddStars(l) ? `<div class="worth lv-note" id="odd" style="margin-top:12px"><div class="cap-h"><b>Unusual GitHub numbers</b><span class="chip c-blue">Worth knowing</span></div><p>${esc(oddText(l))}</p></div>` : ''}
@@ -1629,7 +1637,7 @@ function pageProduct(id) {
       </dl></section>
     <p class="caveat"><button class="text-btn" style="font-size:13px" data-story="labels">What the labels mean</button></p>
     </details>
-    ${siblings.length ? `<section class="shelf"><div class="shelf-head"><h2>More from ${esc(niceRepo(l.r))}</h2>${siblings.length > 8 ? `<button class="see-all" data-seeall="${l.r}">See All</button>` : ''}</div><div class="scroller tiles">${siblings.slice(0, 16).map(tile).join('')}</div></section>` : ''}
+    ${siblings.length ? `<section class="shelf"><div class="shelf-head"><h2>More from ${esc(niceRepo(l.r))}</h2>${siblings.length > 8 ? `<button class="see-all" data-seeall="${l.r}">See all</button>` : ''}</div><div class="scroller tiles">${siblings.slice(0, 16).map(tile).join('')}</div></section>` : ''}
     ${dataNote()}
   </div>`;
 }
@@ -1738,7 +1746,7 @@ let LIST = [];
 try { const s = JSON.parse(localStorage.getItem('vetted-list') || '[]'); if (Array.isArray(s)) LIST = s.filter(id => BY[id]); } catch (e) {}
 const saveList = () => { try { localStorage.setItem('vetted-list', JSON.stringify(LIST)); } catch (e) {} };
 const inList = id => LIST.includes(id);
-const saveBtn = l => `<button class="pill-link save" data-save="${l.id}" aria-pressed="${inList(l.id)}">${ic('heart', 2, inList(l.id) ? 'currentColor' : 'none')} ${inList(l.id) ? 'In cart' : 'Add to cart'}</button>`;
+const saveBtn = l => `<button class="pill-link save" data-save="${l.id}" aria-pressed="${inList(l.id)}">${ic('heart', 2, inList(l.id) ? 'currentColor' : 'none')} ${inList(l.id) ? 'Saved' : 'Save'}</button>`;
 function copyText(text, msg) {
   try { navigator.clipboard.writeText(text).then(() => toast(msg || 'Copied'), () => prompt('Copy this:', text)); } catch (e) { prompt('Copy this:', text); }
 }
@@ -1772,10 +1780,10 @@ function checkoutText(list) {
   out.push('', 'Finish with a short list: installed, skipped, and anything the check flagged.');
   return out.join('\n');
 }
-function checkout(list, title = 'Checkout') {
+function checkout(list, title = 'Install them all') {
   const hasCmd = list.some(l => mainCmd(l)), txt = checkoutText(list);
   return `<section class="shelf" id="install-all"><div class="shelf-head"><h2>${title}<span class="sub">One paste for your AI agent (Claude Code, Codex or Cursor): it installs everything${S.audit ? ', runs the security double-check' : ''} and reports back.${forYouLabel(list[0] || {}) ? ` ${forYouLabel(list[0])}.` : ''}</span></h2></div>
-    ${hasCmd ? `<div class="copybox multi"><code>${esc(txt)}</code><button class="copy-btn" data-copy="${esc(txt)}" data-copymsg="Copied. Paste it into your agent's chat." aria-label="Copy the checkout paste">${ic('copy')}</button></div>
+    ${hasCmd ? `<div class="copybox multi"><code>${esc(txt)}</code><button class="copy-btn" data-copy="${esc(txt)}" data-copymsg="Copied. Paste it into your agent's chat." aria-label="Copy the install paste">${ic('copy')}</button></div>
     <label class="audit-opt"><input type="checkbox" data-audit ${S.audit ? 'checked' : ''}> Double-check everything with Cloudflare's security-audit skill before use (recommended, uses your AI account)</label>` : `<p class="note">In the Claude app there's nothing to paste: add each one with its GET button, from its own page.</p>`}
     <p class="note">Each one is checked on its own page. Installs get the newest version.${BY['cloudflare-security-audit'] ? ` The double-check uses <a href="#cloudflare-security-audit">Cloudflare's security-audit skill</a>, which we checked too.` : ''}</p></section>`;
 }
@@ -1797,9 +1805,9 @@ function listMarkdown(list) {
 }
 function pageList() {
   const shared = S.shared, list = (shared || LIST).map(id => BY[id]).filter(Boolean);
-  if (!list.length) return `<div class="page"><div class="large-title"><h1>Your cart</h1></div><p class="empty">Your cart is empty.<br>Tap <b>Add to cart</b> on any listing, then check out: one paste installs everything and runs the security double-check.<br><a href="#browse">Browse</a></p></div>`;
-  return `<div class="page"><div class="large-title"><h1>${shared ? 'A shared cart' : 'Your cart'}</h1><p>${list.length} listing${list.length === 1 ? '' : 's'}. ${shared ? 'Someone shared this cart with you.' : 'Saved in this browser only.'}</p>
-    <div class="list-acts"><button class="get primary" data-jump="install-all">Checkout</button>${shared ? `<button class="pill-link" data-savelist>Add all to my cart</button>` : `<button class="pill-link" data-sharelist>${ic('share', 2)} Share cart</button>`}<button class="pill-link" data-mdlist>Copy as Markdown</button>${shared ? '' : '<button class="text-btn" data-clearlist>Clear</button>'}</div></div>
+  if (!list.length) return `<div class="page"><div class="large-title"><h1>My list</h1></div><p class="empty">Your list is empty.<br>Tap <b>Save</b> on any listing, then check out: one paste installs everything and runs the security double-check.<br><a href="#browse">Browse</a></p></div>`;
+  return `<div class="page"><div class="large-title"><h1>${shared ? 'A shared list' : 'My list'}</h1><p>${list.length} listing${list.length === 1 ? '' : 's'}. ${shared ? 'Someone shared this list with you.' : 'Saved in this browser only.'}</p>
+    <div class="list-acts"><button class="get primary" data-jump="install-all">Install them all</button>${shared ? `<button class="pill-link" data-savelist>Save all to my list</button>` : `<button class="pill-link" data-sharelist>${ic('share', 2)} Share list</button>`}<button class="pill-link" data-mdlist>Copy as Markdown</button>${shared ? '' : '<button class="text-btn" data-clearlist>Clear</button>'}</div></div>
     <div class="rowlist">${list.map(l => row(l)).join('')}</div>
     ${checkout(list)}${compareTable(list)}${dataNote()}</div>`;
 }
@@ -1932,7 +1940,7 @@ function trendingToday() {
   const T = D.TR || {}, items = trendItems(T.weekly).length >= 3 ? [trendItems(T.weekly), 'this week'] : [trendItems(T.monthly), 'this month'];
   // With jobs chosen, projects for those jobs come first; the rest keep their order by stars gained
   if (filtering() && FOCUS.jobs.length) items[0] = items[0].map((x, i) => [x, i]).sort((a, b) => (jobScore(b[0].ls[0]) > 0) - (jobScore(a[0].ls[0]) > 0) || a[1] - b[1]).map(x => x[0]);
-  return items[0].length ? `<section class="shelf"><div class="shelf-head"><h2>Trending now<span class="sub">Gaining the most GitHub stars ${items[1]}${filtering() && FOCUS.jobs.length ? ', your field first' : ''}</span></h2><a class="see-all" href="#trending">See All</a></div>
+  return items[0].length ? `<section class="shelf"><div class="shelf-head"><h2>Trending now<span class="sub">Gaining the most GitHub stars ${items[1]}${filtering() && FOCUS.jobs.length ? ', your field first' : ''}</span></h2><a class="see-all" href="#trending">See all</a></div>
     <div class="scroller ranked ${items[0].length <= 2 ? 'one' : items[0].length <= 6 ? 'two' : ''}">${items[0].slice(0, 6).map((x, i) => trendRow(x, i, items[1])).join('')}</div></section>` : '';
 }
 
@@ -1982,7 +1990,7 @@ const issueCard = is => { const f = issueInfo(is), tops = [...new Set([...(is.ga
 const latestIssues = () => ['weekly', 'monthly', 'yearly'].map(t => (D.DG || []).find(i => i.type === t)).filter(Boolean);
 function digestShelf() {
   const latest = latestIssues();
-  return latest.length ? `<section class="shelf"><div class="shelf-head"><h2>Digest<span class="sub">What's new and rising this week, month and year</span></h2><a class="see-all" href="#digest">See All</a></div>
+  return latest.length ? `<section class="shelf"><div class="shelf-head"><h2>Digest<span class="sub">What's new and rising this week, month and year</span></h2><a class="see-all" href="#digest">See all</a></div>
     <div class="scroller issues">${latest.map(issueCard).join('')}</div></section>` : '';
 }
 function pageDigest() {
@@ -2023,7 +2031,7 @@ function pageIssue(id) {
 // ---------- routing ----------
 const S = { tab: 'today', detail: null, job: null, easy: false, q: '', audit: true, agent: FOCUS.ai.find(a => AGENTS.some(x => x[0] === a)) || 'claude-code' };
 try { const a = localStorage.getItem('vetted-agent'); if (AGENTS.some(x => x[0] === a)) S.agent = a; } catch (e) {}
-const TABS = [['today', 'Home', 'today'], ['browse', 'Browse', 'grid'], ['all', 'Everything', 'book'], ['skills', 'Skills', 'skill'], ['mcp', 'Connectors', 'mcp'], ['tools', 'Apps', 'tool'], ['list', 'Cart', 'heart'], ['search', 'Search', 'search']];
+const TABS = [['today', 'Home', 'today'], ['browse', 'Browse', 'grid'], ['all', 'Everything', 'book'], ['skills', 'Skills', 'skill'], ['mcp', 'Connectors', 'mcp'], ['tools', 'Apps', 'tool'], ['list', 'My list', 'heart'], ['search', 'Search', 'search']];
 const MOBILE_TABS = ['today', 'browse', 'all', 'list', 'search'];
 // Pages without a tab of their own
 const PAGES = ['trusted', 'caught', 'tested', 'trending', 'digest', 'powers'];
@@ -2043,7 +2051,7 @@ function render() {
   document.getElementById('fab').classList.toggle('hide', onTodayTop());
   // A title per page, for the browser tab, history and bookmarks
   const t = S.detail ? BY[S.detail].n : S.job ? JOB[S.job][1] : S.kit ? KIT[S.kit][1] : S.test ? TEST[S.test].title : S.issue ? issueInfo(D.DG.find(i => i.id === S.issue)).title
-    : ({ trusted: 'From companies', caught: 'Risks & findings', tested: 'Tested', trending: 'Trending', digest: 'Digest', powers: 'New powers', list: S.shared ? 'A shared cart' : 'Your cart' }[S.tab] || (TABS.find(x => x[0] === S.tab) || [])[1]);
+    : ({ trusted: 'From companies', caught: 'Risks & findings', tested: 'Tested', trending: 'Trending', digest: 'Digest', powers: 'New powers', list: S.shared ? 'A shared list' : 'My list' }[S.tab] || (TABS.find(x => x[0] === S.tab) || [])[1]);
   document.title = t && S.tab !== 'today' || S.detail ? `${t} · Skillshelf` : 'Skillshelf: check AI add-ons before you install';
   chrome();
 }
@@ -2112,15 +2120,15 @@ document.addEventListener('click', e => {
   if (t.matches('.story-ov .row-txt')) { e.preventDefault(); closeModal(story, target); return; }
   if ('focus' in d) { drawPanel(); if (!panel.open) { panel.showModal(); pushModal(panel); } return; }
   if (d.fset) { setFocus(d.fset, d.fval); return; }
-  if (d.save) { const on = !inList(d.save); LIST = on ? [...LIST, d.save] : LIST.filter(x => x !== d.save); saveList(); if (sheet.open) drawSheet(); refocus(); toast(on ? 'Added to your cart' : 'Removed from your cart'); return; }
+  if (d.save) { const on = !inList(d.save); LIST = on ? [...LIST, d.save] : LIST.filter(x => x !== d.save); saveList(); if (sheet.open) drawSheet(); refocus(); toast(on ? 'Saved to your list' : 'Removed from your list'); return; }
   if ('audit' in d) { S.audit = !!t.checked; const y = scrollY; render(); scrollTo(0, y); return; }
   if (d.share) { const l = BY[d.share]; share(`${l.n} on Skillshelf`, `${l.n}: ${plainOf(l)} ${trust(l).short} on Skillshelf's check.`, l.id); return; }
-  if ('sharelist' in d) { share('My Skillshelf cart', `${LIST.length} AI add-ons, each checked on Skillshelf.`, 'list=' + LIST.join(',')); return; }
+  if ('sharelist' in d) { share('My Skillshelf list', `${LIST.length} AI add-ons, each checked on Skillshelf.`, 'list=' + LIST.join(',')); return; }
   if (d.sharekit) { share(KIT[d.sharekit][1], KIT[d.sharekit][2], 'kit-' + d.sharekit); return; }
   if (d.savekit || 'savelist' in d) { const ids = d.savekit ? KIT[d.savekit][5].map(x => x[0]).filter(id => BY[id]) : S.shared, add = ids.filter(id => !inList(id));
-    LIST = [...LIST, ...add]; saveList(); refocus(); toast(add.length ? `${add.length} added to your cart` : 'Already in your cart'); return; }
+    LIST = [...LIST, ...add]; saveList(); refocus(); toast(add.length ? `${add.length} saved to your list` : 'Already in your list'); return; }
   if ('mdlist' in d) { copyText(listMarkdown((S.shared || LIST).map(id => BY[id]).filter(Boolean)), 'Copied as Markdown'); return; }
-  if ('clearlist' in d) { if (confirm(`Remove all ${LIST.length} from your cart?`)) { LIST = []; saveList(); refocus(); } return; }
+  if ('clearlist' in d) { if (confirm(`Remove all ${LIST.length} from your list?`)) { LIST = []; saveList(); refocus(); } return; }
   if ('copysetup' in d) { copyText(`${SITE}#${setupHash()}`, 'Link to this setup copied'); return; }
   if ('focusreset' in d) { FOCUS = { ...FOCUS0 }; SHOW_ALL = false; saveFocus(); refocus(); return; }
   if ('closepanel' in d) { closeModal(panel); return; }

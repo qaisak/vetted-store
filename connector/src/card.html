@@ -510,7 +510,7 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
         await request('ui/message', { role: 'user', content: [{ type: 'text', text: `Rewrite the text I pasted so it sounds like a person wrote it. ${rule(hs)} Keep the meaning and length.` }] }).catch(() => { out.innerHTML = '<div class="small">Ask Claude to rewrite it without these.</div>'; });
       } else {
         const r = rule(hs);
-        out.innerHTML = `<div class="small">Paste this into Claude's Settings, in the personal preferences box, and Claude will follow it in every chat:</div><div class="cmd"><code style="white-space:normal">${esc(r)}</code><button class="btn" data-copy="${esc(r)}">Copy</button></div>`;
+        out.innerHTML = `<div class="small">Paste this into Claude's Settings, under Your Claude, then Instructions. Claude follows it in every chat:</div><div class="cmd"><code style="white-space:normal">${esc(r)}</code><button class="btn" data-copy="${esc(r)}">Copy</button></div>`;
         out.querySelector('[data-copy]').onclick = e => copy(e.target, r);
       }
     });
