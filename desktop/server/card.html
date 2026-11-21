@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your skills</title>
+<style>
+/* Skillshelf for Claude desktop: your skills with on/off switches, shown in the chat (MCP Apps). Uses the host's colours when sent. */
+:root {
+  --bg: var(--color-background-primary, #ffffff);
+  --bg2: var(--color-background-secondary, #f6f5f2);
+  --fg: var(--color-text-primary, #1d1c1a);
+  --fg2: var(--color-text-secondary, #5f5d58);
+  --line: var(--color-border-tertiary, #e6e3dc);
+  --ok-bg: var(--color-background-success, #e7f4ea); --ok: var(--color-text-success, #1f6b35);
+  --note-bg: var(--color-background-warning, #fbf1dc); --note: var(--color-text-warning, #8a5a00);
+  --risk-bg: var(--color-background-danger, #fbe6e4); --risk: var(--color-text-danger, #a3261c);
+  --info: var(--color-text-info, #2d5bd1);
+  --on: #2f8f4e; --off: #c9c5bc;
+  --radius: var(--border-radius-lg, 12px);
+  --font: var(--font-sans, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif);
+}
+:root[data-theme="dark"] {
+  --bg: var(--color-background-primary, #1f1e1c);
+  --bg2: var(--color-background-secondary, #2a2926);
+  --fg: var(--color-text-primary, #f2f0ea);
+  --fg2: var(--color-text-secondary, #b4b0a6);
+  --line: var(--color-border-tertiary, #3a3833);
+  --ok-bg: var(--color-background-success, #17301e); --ok: var(--color-text-success, #8fd6a3);
+  --note-bg: var(--color-background-warning, #35290f); --note: var(--color-text-warning, #f0c46a);
+  --risk-bg: var(--color-background-danger, #3a1916); --risk: var(--color-text-danger, #f29a90);
+  --info: var(--color-text-info, #8fb0ff);
+  --on: #4cb36d; --off: #4a4742;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: transparent; }
+body { font: 14px/1.45 var(--font); color: var(--fg); padding: 2px; -webkit-font-smoothing: antialiased; }
+button, input { font: inherit; color: inherit; }
+button { cursor: pointer; }
+.panel { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.top { display: flex; align-items: center; gap: 10px; padding: 12px 14px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
+.top h2 { margin: 0; font-size: 15px; font-weight: 600; }
+.count { color: var(--fg2); font-size: 12.5px; }
+.search { margin-left: auto; flex: 1 1 160px; max-width: 240px; border: 1px solid var(--line); background: var(--bg2); border-radius: 8px; padding: 5px 9px; font-size: 13px; outline: none; }
+.search:focus { border-color: var(--info); }
+.group { padding: 8px 14px 2px; font-size: 11.5px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: var(--fg2); display: flex; justify-content: space-between; gap: 8px; }
+.group span { text-transform: none; letter-spacing: 0; font-weight: 500; }
+.row { display: flex; align-items: center; gap: 10px; padding: 9px 14px; border-top: 1px solid var(--line); }
+.group + .row { border-top: 0; }
+.row.off .name, .row.off .desc { opacity: .55; }
+.main { flex: 1; min-width: 0; text-align: left; background: none; border: 0; padding: 0; }
+.name { font-weight: 600; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.desc { color: var(--fg2); font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.row.open .desc { white-space: normal; }
+.dot { display: inline-flex; align-items: center; gap: 4px; font-size: 11.5px; font-weight: 600; padding: 1px 7px; border-radius: 999px; }
+.dot::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.ok { background: var(--ok-bg); color: var(--ok); }
+.note { background: var(--note-bg); color: var(--note); }
+.risk { background: var(--risk-bg); color: var(--risk); }
+.plain { background: var(--bg2); color: var(--fg2); }
+.switch { flex: none; width: 42px; height: 24px; border-radius: 999px; border: 0; background: var(--off); position: relative; transition: background .15s; padding: 0; }
+.switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.25); transition: transform .15s; }
+.switch[aria-checked="true"] { background: var(--on); }
+.switch[aria-checked="true"]::after { transform: translateX(18px); }
+.switch:disabled { opacity: .5; cursor: default; }
+.switch:focus-visible, .btn:focus-visible, .chip:focus-visible, .main:focus-visible { outline: 2px solid var(--info); outline-offset: 2px; }
+.locked { flex: none; font-size: 12px; color: var(--fg2); }
+.more { padding: 2px 14px 12px 14px; display: grid; gap: 8px; }
+.notes { margin: 0; padding-left: 18px; font-size: 13px; }
+.actions { display: flex; flex-wrap: wrap; gap: 6px; }
+.btn { border: 1px solid var(--line); background: var(--bg2); border-radius: 8px; padding: 4px 10px; font-size: 13px; font-weight: 500; }
+.btn.link { background: none; border-color: transparent; color: var(--info); }
+.btn.primary { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.btn:disabled { opacity: .45; cursor: default; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid var(--line); background: var(--bg); border-radius: 999px; padding: 4px 10px; font-size: 12.5px; }
+.chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.small { font-size: 12.5px; color: var(--fg2); }
+.foot { padding: 10px 14px; border-top: 1px solid var(--line); font-size: 12px; color: var(--fg2); }
+.toast { padding: 9px 14px; font-size: 13px; font-weight: 500; background: var(--ok-bg); color: var(--ok); border-top: 1px solid var(--line); }
+.toast.bad { background: var(--risk-bg); color: var(--risk); }
+.empty { padding: 16px 14px; color: var(--fg2); }
+.msg { padding: 12px 14px; }
+.loading { color: var(--fg2); padding: 10px 4px; }
+</style>
+</head>
+<body>
+<div id="app"><div class="loading">Looking at your skills…</div></div>
+<script>
+(() => {
+  // ---------- MCP Apps bridge (JSON-RPC over postMessage) ----------
+  let nextId = 0, host = {};
+  const waiting = {};
+  const post = m => window.parent.postMessage(m, '*');
+  const request = (method, params) => new Promise((resolve, reject) => {
+    const id = ++nextId; waiting[id] = { resolve, reject };
+    post({ jsonrpc: '2.0', id, method, params });
+    setTimeout(() => { if (waiting[id]) { delete waiting[id]; reject(new Error('No answer')); } }, 30000);
+  });
+  const notify = (method, params) => post({ jsonrpc: '2.0', method, params });
+  window.addEventListener('message', e => {
+    if (e.source !== window.parent) return;
+    const m = e.data; if (!m || m.jsonrpc !== '2.0') return;
+    if (!m.method && m.id != null) { const w = waiting[m.id]; if (!w) return; delete waiting[m.id]; return m.error ? w.reject(new Error(m.error.message || 'Error')) : w.resolve(m.result); }
+    if (m.method === 'ui/notifications/tool-result') show(data(m.params), m.params);
+    else if (m.method === 'ui/notifications/tool-cancelled') app.innerHTML = '<div class="loading">Cancelled.</div>';
+    else if (m.method === 'ui/notifications/host-context-changed') applyContext(m.params || {});
+    else if (m.method && m.id != null) post(m.method === 'ui/resource-teardown' || m.method === 'ping' ? { jsonrpc: '2.0', id: m.id, result: {} } : { jsonrpc: '2.0', id: m.id, error: { code: -32601, message: 'Method not found' } });
+  });
+  function applyContext(c) {
+    if (c.theme) document.documentElement.dataset.theme = c.theme;
+    const v = c.styles && c.styles.variables; if (v) for (const k in v) if (v[k]) document.documentElement.style.setProperty(k, v[k]);
+    const f = c.styles && c.styles.css && c.styles.css.fonts;
+    if (f && !document.getElementById('host-fonts')) { const s = document.createElement('style'); s.id = 'host-fonts'; s.textContent = f; document.head.appendChild(s); }
+  }
+  let lastH = 0;
+  new ResizeObserver(() => { const h = Math.ceil(document.documentElement.getBoundingClientRect().height); if (h !== lastH) { lastH = h; notify('ui/notifications/size-changed', { height: h }); } }).observe(document.documentElement);
+  request('ui/initialize', { appInfo: { name: 'skillshelf-skills', version: '1.0.0' }, appCapabilities: {}, protocolVersion: '2026-01-26' })
+    .then(r => { host = (r && r.hostCapabilities) || {}; applyContext((r && r.hostContext) || {}); notify('ui/notifications/initialized', {}); }).catch(() => {});
+  const data = r => { if (!r) return {}; if (r.structuredContent) return r.structuredContent; try { return JSON.parse((r.content || []).find(c => c.type === 'text').text); } catch { return {}; } };
+  const callTool = async (name, args) => data(await request('tools/call', { name, arguments: args }));
+  const openLink = url => request('ui/open-link', { url }).catch(() => window.open(url, '_blank', 'noopener'));
+  const tellClaude = t => { if (host.updateModelContext) request('ui/update-model-context', { content: [{ type: 'text', text: t }] }).catch(() => {}); };
+
+  // ---------- views ----------
+  const app = document.getElementById('app');
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+  const REASONS = [['generic', 'Looks generic or AI-made'], ['wrong', 'Wrong or made-up facts'], ['ignored', "Didn't follow my instructions"], ['padded', 'Too long or padded'], ['broke', 'Broke something'], ['other', 'Something else']];
+  let state = null, query = '', openKey = null, toast = null;
+
+  function show(d) {
+    if (d.view === 'skills') { state = d; return draw(); }
+    if (d.view === 'switched') {
+      app.innerHTML = `<div class="panel"><div class="msg">${esc(d.note)}</div><div class="foot"><button class="btn" data-all>See all my skills</button></div></div>`;
+      app.querySelector('[data-all]').onclick = loadAll;
+      return;
+    }
+    if (d.view === 'reported') { app.innerHTML = `<div class="panel"><div class="msg">${d.saved ? 'Report sent to Skillshelf. Thank you.' : esc(d.note)}</div></div>`; return; }
+    app.innerHTML = `<div class="panel"><div class="msg">${esc(d.note || 'Done.')}</div></div>`;
+  }
+  async function loadAll() { app.innerHTML = '<div class="loading">Looking at your skills…</div>'; try { show(await callTool('show_my_skills', {})); } catch { app.innerHTML = '<div class="panel"><div class="msg">Couldn’t load your skills. Ask Claude to show them again.</div></div>'; } }
+
+  const badge = c => c ? `<span class="dot ${esc(c.badge)}">${esc(c.label)}</span>` : '';
+  function rowHTML(s) {
+    const open = openKey === s.key, hit = !query || (s.name + ' ' + s.description + ' ' + (s.plugin || '') + ' ' + (s.project || '')).toLowerCase().includes(query);
+    if (!hit) return '';
+    return `<div class="row${s.on === false ? ' off' : ''}${open ? ' open' : ''}" data-key="${esc(s.key)}">
+        <button class="main" data-expand aria-expanded="${open}"><div class="name">${esc(s.name)} ${badge(s.check)}</div><div class="desc">${esc(s.description || 'No description')}</div></button>
+        ${s.can_switch ? `<button class="switch" role="switch" aria-checked="${s.on}" aria-label="${esc(s.name)} ${s.on ? 'on' : 'off'}" data-switch></button>` : `<span class="locked">in plugin</span>`}
+      </div>${open ? moreHTML(s) : ''}`;
+  }
+  function moreHTML(s) {
+    const c = s.check;
+    return `<div class="more" data-more="${esc(s.key)}">
+      ${c ? (c.notes.length ? `<ul class="notes">${c.notes.map(n => `<li>${esc(n)}</li>`).join('')}</ul>` : '<div class="small">Skillshelf read its code and found no issues.</div>') : '<div class="small">Not on Skillshelf, so nobody has checked its code there.</div>'}
+      ${s.plugin ? `<div class="small">Comes with the ${esc(s.plugin)} plugin. Switch the whole plugin with /plugin in Claude Code.</div>` : ''}
+      <div class="actions">${c && c.page ? `<button class="btn link" data-page="${esc(c.page)}">Full check ↗</button>` : ''}${c ? `<button class="btn" data-slop>Report slop</button>` : ''}</div>
+      <div class="slop"></div></div>`;
+  }
+  function draw() {
+    const d = state, sk = d.skills;
+    if (!sk.length) { app.innerHTML = `<div class="panel"><div class="top"><h2>Your skills</h2></div><div class="empty">${esc(d.note)}</div></div>`; return; }
+    const on = sk.filter(s => s.on === true).length, off = sk.filter(s => s.on === false).length;
+    const groups = [['Personal', sk.filter(s => s.scope === 'personal'), ''],
+      ...[...new Set(sk.filter(s => s.scope === 'project').map(s => s.project))].map(p => [`Project: ${p}`, sk.filter(s => s.project === p), '']),
+      ['From plugins', sk.filter(s => s.scope === 'plugin'), 'switch with /plugin']];
+    const body = groups.filter(g => g[1].length).map(([t, list, hint]) => { const rows = list.map(rowHTML).join(''); return rows ? `<div class="group">${esc(t)}${hint ? `<span>${esc(hint)}</span>` : ''}</div>${rows}` : ''; }).join('');
+    const focused = document.activeElement && document.activeElement.classList.contains('search');
+    app.innerHTML = `<div class="panel">
+      <div class="top"><h2>Your skills</h2><span class="count">${on} on${off ? ` · ${off} off` : ''}${sk.length - on - off ? ` · ${sk.length - on - off} in plugins` : ''}</span>
+        ${sk.length > 4 ? `<input class="search" type="search" placeholder="Find a skill" value="${esc(query)}" aria-label="Find a skill">` : ''}</div>
+      ${body || '<div class="empty">No skill matches that.</div>'}
+      ${toast ? `<div class="toast${toast.bad ? ' bad' : ''}" role="status">${esc(toast.text)}</div>` : ''}
+      <div class="foot">${esc(d.note)}</div></div>`;
+    const search = app.querySelector('.search');
+    if (search) { search.oninput = () => { query = search.value.trim().toLowerCase(); draw(); }; if (focused) { search.focus(); search.setSelectionRange(search.value.length, search.value.length); } }
+  }
+
+  app.addEventListener('click', async e => {
+    const t = e.target.closest('button'); if (!t || !state) return;
+    const row = t.closest('[data-key], [data-more]'), key = row && (row.dataset.key || row.dataset.more), s = state.skills.find(x => x.key === key);
+    if (t.dataset.page) return openLink(t.dataset.page);
+    if (t.hasAttribute('data-expand')) { openKey = openKey === key ? null : key; return draw(); }
+    if (t.hasAttribute('data-switch')) {
+      const want = !s.on; s.on = want; t.disabled = true; toast = null; draw();
+      try {
+        const r = await callTool('switch_skill', { skill: s.folder, on: want, ...(s.project ? { project: s.project } : {}) });
+        if (!r.ok) throw new Error(r.note);
+        toast = { text: `${s.name} is ${want ? 'on' : 'off'}. Start a new Claude Code session for it to take effect.` };
+        tellClaude(`The user switched the skill "${s.name}" ${want ? 'on' : 'off'} from the Skillshelf card.`);
+      } catch (err) { s.on = !want; toast = { bad: true, text: err.message && err.message !== 'No answer' ? err.message : `Couldn’t switch ${s.name}. Try again.` }; }
+      return draw();
+    }
+    if (t.hasAttribute('data-slop')) {
+      const box = app.querySelector(`[data-more="${CSS.escape(key)}"] .slop`);
+      box.innerHTML = `<div class="small" style="margin-bottom:6px">What went wrong with ${esc(s.name)}?</div><div class="chips">${REASONS.map(([k, v]) => `<button class="chip" data-reason="${k}" aria-pressed="false">${esc(v)}</button>`).join('')}</div>
+        <div class="actions" style="margin-top:8px"><button class="btn primary" data-send disabled>Send report</button></div><div class="small" style="margin-top:4px">Only the skill and the reason are sent to Skillshelf.</div>`;
+      return;
+    }
+    if (t.dataset.reason) { row.querySelectorAll('[data-reason]').forEach(c => c.setAttribute('aria-pressed', String(c === t))); row.querySelector('[data-send]').disabled = false; return; }
+    if (t.hasAttribute('data-send')) {
+      const reason = row.querySelector('[data-reason][aria-pressed="true"]').dataset.reason, box = row.querySelector('.slop');
+      t.disabled = true; t.textContent = 'Sending…';
+      try { const r = await callTool('report_slop', { skill: s.folder, reason }); box.innerHTML = `<div class="small"><b>${r.saved ? 'Report sent. Thank you.' : esc(r.note)}</b></div>`; if (r.saved) tellClaude(`The user reported "${s.name}" as slop from the Skillshelf card.`); }
+      catch { box.innerHTML = '<div class="small">Couldn’t send it. Try again later.</div>'; }
+    }
+  });
+})();
+</script>
+</body>
+</html>
