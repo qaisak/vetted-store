@@ -160,8 +160,9 @@ for (const l of d.listings) {
   const desc = clean(DESC_FIX[l.slug] || l.desc);
   const inst = [];
   if (l.kind === 'skill') {
-    // Claude app (claude.ai, desktop, mobile): upload the skill folder as a ZIP in Customize > Skills
-    // (support.claude.com/en/articles/12512180, checked November 1, 2026). Anthropic's own skills are built in.
+    // Claude app (claude.ai, desktop, mobile): upload the skill folder as a ZIP at Plugins > Add > Upload plugin
+    // (claude.ai/plugins/new/upload takes a .zip, .skill or SKILL.md; checked in the app November 21, 2026, after
+    // Customize > Skills became Plugins). Anthropic's own skills are built in.
     const folder = l.path.split('/').pop();
     // A skill whose name has spaces ("Home Assistant YAML") needs quotes on the command line, and keeps its folder name
     const q = s => /\s/.test(s) ? `"${s}"` : s;
@@ -169,12 +170,12 @@ for (const l of d.listings) {
     if (repo !== 'cooklang/cooklang-skills') inst.push({ to: 'Claude app', how: 'Upload', dl: `https://github.com/${repo}/archive/refs/heads/${m.branch}.zip`,
       steps: ['Download the project as a ZIP with the button below, and unzip it.', `Find the folder ${repoName}-${m.branch}${l.path ? '/' + l.path : ''}.`,
         ...(folder !== l.slug && !/\s/.test(l.slug) ? [`Rename that folder to ${l.slug} (the upload needs the folder named like the skill).`] : []),
-        `Zip just that folder.`, 'In Claude, open Customize → Skills, click +, choose Create skill, then Upload a skill, and pick your ZIP.'],
-      note: 'Needs "Code execution and file creation" turned on in Settings → Capabilities. Works on Free, Pro, Max, Team and Enterprise plans.' });
+        `Zip just that folder.`, 'In Claude, open Plugins, click Add, choose Upload plugin, and pick your ZIP (or go straight to claude.ai/plugins/new/upload).'],
+      note: 'Needs "Create and edit files" turned on in Settings → Capabilities. Works on Free, Pro, Max, Team and Enterprise plans.' });
     if (owner === 'anthropics') {
       const plug = anthPlugin[l.path];
       if (plug) inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin marketplace add anthropics/skills', `/plugin install ${plug}@anthropic-agent-skills`], note: `Run inside Claude Code. Installs the ${plug} bundle, which includes this skill.` });
-      inst.unshift({ to: 'Claude app', how: 'Example skill', text: 'Anthropic\'s example skills can be turned on in Customize → Skills. If this one isn\'t listed there, upload it with the steps below.', note: 'Needs "Code execution and file creation" turned on in Settings → Capabilities.' });
+      inst.unshift({ to: 'Claude app', how: 'Example skill', text: 'Anthropic\'s example skills are in Claude\'s Plugins directory: open Plugins, search for this one and add it. If it isn\'t listed there, upload it with the steps below.', note: 'Needs "Create and edit files" turned on in Settings → Capabilities.' });
     }
     if (owner === 'obra') inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin install superpowers@claude-plugins-official'], note: 'Run inside Claude Code. Installs the whole Superpowers pack.' });
     if (owner === 'huggingface') inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin marketplace add huggingface/skills'], note: 'Run inside Claude Code, then choose plugins from /plugin.' });

@@ -1014,7 +1014,7 @@ const CONNECTOR = 'https://skillshelf.skillshelf.workers.dev/mcp';
 function claudeBox() {
   return `<section class="shelf" id="in-claude"><div class="shelf-head"><h2>Use Skillshelf inside Claude<span class="sub">Your skills with on/off switches, a slop checker, and these checked picks, right in the chat</span></h2></div>
     <div class="inst-card ask claude-box">
-      <ol class="claude-steps"><li>In Claude, open <b>Settings</b>, then <b>Connectors</b>, then <b>Add custom connector</b>.</li>
+      <ol class="claude-steps"><li>In Claude, open <b>Plugins</b>, click <b>Add</b>, then <b>Add custom connector</b>.</li>
         <li>Name it Skillshelf and paste this address:${copyBox(CONNECTOR)}</li>
         <li>In a new chat, try:<ul class="claude-tries"><li><i>“open my skills in Skillshelf”</i>: every skill you have, with switches to turn them off for that chat, and a tab to find more</li>
           <li><i>“check this for AI slop: …”</i> and paste text: it highlights the tells, and Claude can avoid them from then on</li>
