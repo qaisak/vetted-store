@@ -11,6 +11,7 @@ const SRC = path.join(HERE, '..', 'src');
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'skillshelf-'));
 fs.writeFileSync(path.join(tmp, 'worker.mjs'), fs.readFileSync(path.join(SRC, 'worker.js'), 'utf8')
   .replace("import CATALOG from './catalog.json';", `const CATALOG = ${fs.readFileSync(path.join(SRC, 'catalog.json'), 'utf8')};`)
+  .replace("import DESKTOP_MCPB from './skillshelf-desktop.bin';", 'const DESKTOP_MCPB = new Uint8Array([80, 75, 3, 4]);')
   .replace("import CARD_HTML from './card.html';", `const CARD_HTML = ${JSON.stringify(fs.readFileSync(path.join(SRC, 'card.html'), 'utf8'))};`));
 const worker = (await import(path.join(tmp, 'worker.mjs'))).default;
 
@@ -79,6 +80,8 @@ ok(fj.flags['pbakaus-impeccable']?.generic === 1, '/flags.json has counts per li
 ok((await worker.fetch(new Request('https://x.test/mcp'), env)).status === 405, 'GET /mcp is refused');
 const bat = await (await post([{ jsonrpc: '2.0', id: 900, method: 'ping' }, { jsonrpc: '2.0', id: 901, method: 'nope' }], session)).json();
 ok(Array.isArray(bat) && bat[0].result && bat[1].error?.code === -32601, 'batches work and unknown methods get -32601');
+const dl = await worker.fetch(new Request('https://x.test/skillshelf.mcpb'), env);
+ok(dl.status === 200 && /attachment; filename="skillshelf.mcpb"/.test(dl.headers.get('Content-Disposition')) && new Uint8Array(await dl.arrayBuffer())[0] === 80, '/skillshelf.mcpb downloads the desktop extension');
 const home = await (await worker.fetch(new Request('https://x.test/'), env)).text();
 ok(/Add custom connector/.test(home) && /x\.test\/mcp/.test(home), 'the home page explains how to add it');
 

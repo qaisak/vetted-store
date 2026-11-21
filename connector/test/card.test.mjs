@@ -18,6 +18,7 @@ const CARD = fs.readFileSync(path.join(SRC, 'card.html'), 'utf8');
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'skillshelf-card-'));
 fs.writeFileSync(path.join(tmp, 'worker.mjs'), fs.readFileSync(path.join(SRC, 'worker.js'), 'utf8')
   .replace("import CATALOG from './catalog.json';", `const CATALOG = ${fs.readFileSync(path.join(SRC, 'catalog.json'), 'utf8')};`)
+  .replace("import DESKTOP_MCPB from './skillshelf-desktop.bin';", 'const DESKTOP_MCPB = new Uint8Array([80, 75, 3, 4]);')
   .replace("import CARD_HTML from './card.html';", `const CARD_HTML = ${JSON.stringify(CARD)};`));
 const worker = (await import(path.join(tmp, 'worker.mjs'))).default;
 const db = new DatabaseSync(':memory:');

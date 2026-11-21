@@ -10,4 +10,6 @@ fs.mkdirSync(path.join(HERE, 'dist'), { recursive: true });
 const out = path.join(HERE, 'dist', 'skillshelf.mcpb');
 execFileSync('npx', ['-y', '@anthropic-ai/mcpb@2.1.2', 'validate', path.join(HERE, 'manifest.json')], { stdio: 'inherit' });
 execFileSync('npx', ['-y', '@anthropic-ai/mcpb@2.1.2', 'pack', HERE, out], { stdio: 'inherit' });
+// The connector serves it for download at /skillshelf.mcpb
+fs.copyFileSync(out, path.join(HERE, '..', 'connector', 'src', 'skillshelf-desktop.bin'));
 console.log('Packed', out, Math.round(fs.statSync(out).size / 1024) + ' KB');

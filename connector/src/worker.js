@@ -6,6 +6,8 @@
 // Results also come with an interactive card (MCP Apps): ui://skillshelf/card.html, from card.html. Hosts without MCP Apps just show text.
 import CATALOG from './catalog.json';
 import CARD_HTML from './card.html';
+// The Claude desktop extension (desktop/pack.mjs copies it here as .bin, which Workers bundle as raw bytes), served at /skillshelf.mcpb
+import DESKTOP_MCPB from './skillshelf-desktop.bin';
 
 const SERVER = { name: 'skillshelf', version: '1.0.0' };
 const PROTOCOLS = ['2025-11-25', '2025-06-18', '2025-03-26', '2024-11-05'];
@@ -199,6 +201,7 @@ export default {
       const headers = isInit ? { 'Mcp-Session-Id': session } : {};
       return out.length ? json(batch ? out : out[0], 200, headers) : json(null, 202, headers);
     }
+    if (url.pathname === '/skillshelf.mcpb') return new Response(DESKTOP_MCPB, { headers: { 'Content-Type': 'application/octet-stream', 'Content-Disposition': 'attachment; filename="skillshelf.mcpb"', 'Cache-Control': 'public, max-age=3600', ...CORS } });
     if (url.pathname === '/flags.json') {
       if (!env.DB) return json({ flags: {} });
       const { results } = await env.DB.prepare("SELECT listing, reason, COUNT(*) AS n FROM flags WHERE created > datetime('now', '-30 days') GROUP BY listing, reason").all();
