@@ -139,7 +139,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.goto(url + '#today'); await p.waitForTimeout(300);
   const cb = await p.evaluate(() => { const box = document.querySelector('#in-claude'); return { code: box?.querySelector('.copybox code')?.textContent, copy: box?.querySelector('[data-copy]')?.dataset.copy, cc: box?.querySelectorAll('.copybox').length }; });
   ok(cb.code === 'https://skillshelf.skillshelf.workers.dev/mcp' && cb.copy === cb.code && cb.cc === 2, 'home has the Add Skillshelf to Claude box with a copyable connector address');
-  ok(await p.evaluate(() => document.querySelector('#in-claude a[download]')?.getAttribute('href') === 'https://skillshelf.skillshelf.workers.dev/skillshelf.mcpb'), 'the box offers the desktop extension download');
+  ok(await p.evaluate(() => document.querySelector('#in-claude .claude-desk a')?.getAttribute('href') === 'https://skillshelf.skillshelf.workers.dev/skillshelf.mcpb'), 'the box offers the desktop extension download');
   ok(!errs.length, 'no page errors ' + errs.join('; '));
   await b.close();
 })();
