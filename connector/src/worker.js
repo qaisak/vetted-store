@@ -3,7 +3,9 @@
 // Runs on Cloudflare Workers with no dependencies. Flags are stored in D1 (binding DB, schema in ../schema.sql).
 //
 // Endpoints: POST /mcp (MCP over Streamable HTTP, JSON responses), GET / (a short page), GET /flags.json (counts per listing).
+// Results also come with an interactive card (MCP Apps): ui://skillshelf/card.html, from card.html. Hosts without MCP Apps just show text.
 import CATALOG from './catalog.json';
+import CARD_HTML from './card.html';
 
 const SERVER = { name: 'skillshelf', version: '1.0.0' };
 const PROTOCOLS = ['2025-11-25', '2025-06-18', '2025-03-26', '2024-11-05'];
@@ -11,6 +13,12 @@ const SITE = CATALOG.site;
 const L = CATALOG.listings;
 const BY = Object.fromEntries(L.map(l => [l.id, l]));
 const KIND = { skill: 'Skill', mcp: 'Connector', tool: 'App' };
+const CARD_URI = 'ui://skillshelf/card.html', CARD_MIME = 'text/html;profile=mcp-app';
+// Every tool shows its result in the card. Both spellings of the key: the current one and the older one some hosts still read.
+const UI = { ui: { resourceUri: CARD_URI }, 'ui/resourceUri': CARD_URI };
+// The card needs no network at all (everything is inline), so no CSP domains are asked for. It draws its own cards, so no host border.
+const CARD_META = { ui: { prefersBorder: false, permissions: { clipboardWrite: {} } } };
+const CARD_RESOURCE = { uri: CARD_URI, name: 'skillshelf-card', title: 'Skillshelf card', description: 'Checked picks with install, report-slop and switch-off buttons', mimeType: CARD_MIME, _meta: CARD_META };
 
 // The only reasons a person can give. Flag text is never shown to anyone else's Claude, so a report can't carry instructions to it.
 const REASONS = {
@@ -32,19 +40,19 @@ const TOOLS = [
   { name: 'find_skills', title: 'Find checked skills',
     description: 'Search Skillshelf for skills, connectors (MCP servers) and apps that help with a task, e.g. "make my website look less AI-generated" or "read my Google Calendar". Returns up to 5 checked picks with what each does, its safety check and how to install it.',
     inputSchema: { type: 'object', properties: { task: { type: 'string', description: 'What the user wants their AI to do, in their words' }, kind: { type: 'string', enum: ['skill', 'connector', 'app', 'any'], description: 'Limit to one kind; default any' } }, required: ['task'] },
-    annotations: { readOnlyHint: true, openWorldHint: false } },
+    annotations: { readOnlyHint: true, openWorldHint: false }, _meta: UI },
   { name: 'check_skill', title: 'Check a skill',
     description: "Look up one skill, connector or app by name or GitHub link: what it does, Skillshelf's safety check, what it can reach, any risks, and how many people reported its output as slop in the last 30 days.",
     inputSchema: { type: 'object', properties: { skill: { type: 'string', description: 'A name like "Impeccable" or a GitHub link' } }, required: ['skill'] },
-    annotations: { readOnlyHint: true, openWorldHint: false } },
+    annotations: { readOnlyHint: true, openWorldHint: false }, _meta: UI },
   { name: 'flag_slop', title: 'Report slop',
     description: "Report that a listed skill gave the user bad output. Use only after the user says so and agrees to send it. The reason is one of the fixed categories; the optional note is kept for Skillshelf's reviewers and never shown to other users.",
     inputSchema: { type: 'object', properties: { skill: { type: 'string', description: 'The skill\'s name or GitHub link' }, reason: { type: 'string', enum: Object.keys(REASONS), description: Object.entries(REASONS).map(([k, v]) => `${k}: ${v}`).join('; ') }, note: { type: 'string', description: 'Optional: one sentence on what went wrong, without personal details', maxLength: 300 } }, required: ['skill', 'reason'] },
-    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: false } },
+    annotations: { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: false }, _meta: UI },
   { name: 'how_to_toggle', title: 'How to switch a skill on or off',
     description: 'Exact steps to switch a skill on or off in the Claude app or in Claude Code. Claude cannot change these settings itself.',
     inputSchema: { type: 'object', properties: { skill: { type: 'string' }, where: { type: 'string', enum: ['claude-app', 'claude-code'], description: 'Where the user uses Claude' }, on: { type: 'boolean', description: 'true to switch on, false to switch off' } }, required: ['skill', 'where', 'on'] },
-    annotations: { readOnlyHint: true, openWorldHint: false } },
+    annotations: { readOnlyHint: true, openWorldHint: false }, _meta: UI },
 ];
 
 // ---------- search ----------
@@ -92,7 +100,9 @@ function resolve(q) {
   return near.length ? { many: near } : null;
 }
 const link = l => `${SITE}#${l.id}`;
-const brief = l => ({ name: l.name, kind: KIND[l.kind], by: l.by + (l.company ? ' (company)' : ''), what_it_does: l.plain, check: l.check, page: link(l),
+// ok: nothing found; note: things worth knowing; risk: a serious issue (a 'warn' note)
+const badge = l => l.notes.some(n => n.level !== 'note') ? 'risk' : l.notes.length ? 'note' : 'ok';
+const brief = l => ({ id: l.id, name: l.name, kind: KIND[l.kind], by: l.by + (l.company ? ' (company)' : ''), what_it_does: l.plain, check: l.check, badge: badge(l), page: link(l),
   install: l.install.filter(i => i.cmd).slice(0, 2).map(i => `${i.to}: ${i.cmd}`).concat(l.install.some(i => !i.cmd && i.link) ? [`Download: ${l.install.find(i => i.link).link}`] : []) });
 
 // ---------- flags ----------
@@ -157,9 +167,14 @@ async function handleRpc(msg, env, session) {
   const { id, method, params = {} } = msg;
   if (id === undefined) return null;   // notifications (initialized, cancelled) need no reply
   if (method === 'initialize') return { jsonrpc: '2.0', id, result: { protocolVersion: PROTOCOLS.includes(params.protocolVersion) ? params.protocolVersion : PROTOCOLS[0],
-    capabilities: { tools: { listChanged: false } }, serverInfo: { ...SERVER, title: 'Skillshelf' }, instructions: INSTRUCTIONS } };
+    capabilities: { tools: { listChanged: false }, resources: { listChanged: false } }, serverInfo: { ...SERVER, title: 'Skillshelf' }, instructions: INSTRUCTIONS } };
   if (method === 'ping') return { jsonrpc: '2.0', id, result: {} };
   if (method === 'tools/list') return { jsonrpc: '2.0', id, result: { tools: TOOLS } };
+  if (method === 'resources/list') return { jsonrpc: '2.0', id, result: { resources: [CARD_RESOURCE] } };
+  if (method === 'resources/templates/list') return { jsonrpc: '2.0', id, result: { resourceTemplates: [] } };
+  if (method === 'resources/read') return params.uri === CARD_URI
+    ? { jsonrpc: '2.0', id, result: { contents: [{ uri: CARD_URI, mimeType: CARD_MIME, text: CARD_HTML, _meta: CARD_META }] } }
+    : rpcError(id, -32002, `Resource not found: ${params.uri}`);
   if (method === 'tools/call') {
     const res = await callTool(params.name, params.arguments || {}, env, session);
     return res ? { jsonrpc: '2.0', id, result: res } : rpcError(id, -32602, `Unknown tool: ${params.name}`);

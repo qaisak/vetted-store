@@ -10,7 +10,8 @@ const SRC = path.join(HERE, '..', 'src');
 // Node can't import JSON the way the Workers bundler does, so load a copy of the worker with the catalog inlined
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'skillshelf-'));
 fs.writeFileSync(path.join(tmp, 'worker.mjs'), fs.readFileSync(path.join(SRC, 'worker.js'), 'utf8')
-  .replace("import CATALOG from './catalog.json';", `const CATALOG = ${fs.readFileSync(path.join(SRC, 'catalog.json'), 'utf8')};`));
+  .replace("import CATALOG from './catalog.json';", `const CATALOG = ${fs.readFileSync(path.join(SRC, 'catalog.json'), 'utf8')};`)
+  .replace("import CARD_HTML from './card.html';", `const CARD_HTML = ${JSON.stringify(fs.readFileSync(path.join(SRC, 'card.html'), 'utf8'))};`));
 const worker = (await import(path.join(tmp, 'worker.mjs'))).default;
 
 // A D1-shaped wrapper over node:sqlite: prepare(sql).bind(...).all() / first() / run()
@@ -31,6 +32,15 @@ ok((await post({ jsonrpc: '2.0', method: 'notifications/initialized' }, session)
 const tl = (await (await post({ jsonrpc: '2.0', id: ++id, method: 'tools/list' }, session)).json()).result.tools;
 ok(tl.map(t => t.name).join() === 'find_skills,check_skill,flag_slop,how_to_toggle' && tl.every(t => t.inputSchema?.type === 'object'), 'tools/list has the four tools with schemas');
 
+// The interactive card (MCP Apps)
+ok(ij.result.capabilities.resources && tl.every(t => t._meta?.ui?.resourceUri === 'ui://skillshelf/card.html' && t._meta['ui/resourceUri'] === 'ui://skillshelf/card.html'), 'every tool points to the card, in both key spellings');
+const rl = (await (await post({ jsonrpc: '2.0', id: ++id, method: 'resources/list' }, session)).json()).result.resources;
+ok(rl.length === 1 && rl[0].uri === 'ui://skillshelf/card.html' && rl[0].mimeType === 'text/html;profile=mcp-app', 'resources/list has the card');
+const rr = (await (await post({ jsonrpc: '2.0', id: ++id, method: 'resources/read', params: { uri: 'ui://skillshelf/card.html' } }, session)).json()).result.contents[0];
+ok(rr.mimeType === 'text/html;profile=mcp-app' && /ui\/initialize/.test(rr.text) && /<\/html>\s*$/.test(rr.text) && !/<script[^>]+src=|<link[^>]+href=/.test(rr.text), 'resources/read returns the whole card, with nothing loaded from outside');
+const rx = await (await post({ jsonrpc: '2.0', id: ++id, method: 'resources/read', params: { uri: 'ui://other/x.html' } }, session)).json();
+ok(rx.error?.code === -32002, 'an unknown resource is an error');
+
 const f = await call('find_skills', { task: 'make my website look less AI generated' }, session);
 ok(f.structuredContent.picks.some(p => /Impeccable|Hallmark|Taste|Frontend Design/.test(p.name)) && f.structuredContent.picks.every(p => p.page && p.check), 'find_skills finds design skills, each with a check and a page');
 const fc = await call('find_skills', { task: 'google calendar', kind: 'connector' }, session);
@@ -38,8 +48,11 @@ ok(fc.structuredContent.picks.length && fc.structuredContent.picks.every(p => p.
 
 const c = await call('check_skill', { skill: 'Impeccable' }, session);
 ok(c.structuredContent.name === 'Impeccable' && c.structuredContent.check && Array.isArray(c.structuredContent.worth_knowing), 'check_skill by name');
+ok(c.structuredContent.id === 'pbakaus-impeccable' && c.structuredContent.badge === 'note', 'results carry the listing id and a badge colour');
 const w = await call('check_skill', { skill: 'https://github.com/lharries/whatsapp-mcp' }, session);
-ok(w.structuredContent.name && w.structuredContent.risks.length >= 1, 'check_skill by GitHub link shows the WhatsApp risk');
+ok(w.structuredContent.name && w.structuredContent.risks.length >= 1 && w.structuredContent.badge === 'risk', 'check_skill by GitHub link shows the WhatsApp risk, in red');
+const byId = await call('check_skill', { skill: 'pbakaus-impeccable' }, session);
+ok(byId.structuredContent.name === 'Impeccable', 'check_skill takes a listing id (what the card sends)');
 const u = await call('check_skill', { skill: 'https://github.com/nobody/not-a-real-thing' }, session);
 ok(u.structuredContent.found === false && /security-audit/.test(u.structuredContent.note), 'an unlisted repo says it is unchecked and points to the Cloudflare audit');
 

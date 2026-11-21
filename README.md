@@ -49,7 +49,7 @@ The site is a single self-contained page: [`vetted-store.html`](vetted-store.htm
 | `checkup/skills/vetted-checkup/` | The Checkup skill: `SKILL.md`, `checkup.mjs` (reads installed skills, plugins and the user's own session logs; changes nothing) and `vetted-data.json`, written by the build |
 | `checkup/test/checkup.test.mjs` | Builds a made-up Claude Code setup and checks the Checkup's report |
 | `checkup/skills/skillshelf-checkup/toggle.mjs` | Switches a Claude Code skill on or off with Claude Code's own `skillOverrides` setting; `checkup/test/toggle.test.mjs` tests it |
-| `connector/` | The Skillshelf connector for Claude: a no-dependency remote MCP server for Cloudflare Workers (`src/worker.js`) with tools to find and check skills, report slop and get on/off steps. `src/catalog.json` is written by the build; slop reports go to D1 (`schema.sql`). `node connector/test/worker.test.mjs` runs it against SQLite |
+| `connector/` | The Skillshelf connector for Claude: a no-dependency remote MCP server for Cloudflare Workers (`src/worker.js`) with tools to find and check skills, report slop and get on/off steps. `src/catalog.json` is written by the build; slop reports go to D1 (`schema.sql`). Results come with an interactive card in the chat (MCP Apps, `src/card.html`): checked picks with colour-coded safety badges, Install, What it can do, Switch off and Report slop buttons; apps without card support show the same answer as text. `node connector/test/worker.test.mjs` runs it against SQLite; `node connector/test/card.test.mjs [shots-dir]` clicks through the card in Chromium |
 
 ## Rebuild the site
 

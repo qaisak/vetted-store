@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Skillshelf</title>
+<style>
+/* Skillshelf card, shown inside Claude chats (MCP Apps). The host's own colours and fonts are used when it sends them. */
+:root {
+  --bg: var(--color-background-primary, #ffffff);
+  --bg2: var(--color-background-secondary, #f6f5f2);
+  --fg: var(--color-text-primary, #1d1c1a);
+  --fg2: var(--color-text-secondary, #5f5d58);
+  --line: var(--color-border-tertiary, #e6e3dc);
+  --ok-bg: var(--color-background-success, #e7f4ea); --ok: var(--color-text-success, #1f6b35);
+  --note-bg: var(--color-background-warning, #fbf1dc); --note: var(--color-text-warning, #8a5a00);
+  --risk-bg: var(--color-background-danger, #fbe6e4); --risk: var(--color-text-danger, #a3261c);
+  --info: var(--color-text-info, #2d5bd1);
+  --radius: var(--border-radius-lg, 12px);
+  --font: var(--font-sans, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif);
+  --mono: var(--font-mono, ui-monospace, SFMono-Regular, Menlo, Consolas, monospace);
+}
+:root[data-theme="dark"] {
+  --bg: var(--color-background-primary, #1f1e1c);
+  --bg2: var(--color-background-secondary, #2a2926);
+  --fg: var(--color-text-primary, #f2f0ea);
+  --fg2: var(--color-text-secondary, #b4b0a6);
+  --line: var(--color-border-tertiary, #3a3833);
+  --ok-bg: var(--color-background-success, #17301e); --ok: var(--color-text-success, #8fd6a3);
+  --note-bg: var(--color-background-warning, #35290f); --note: var(--color-text-warning, #f0c46a);
+  --risk-bg: var(--color-background-danger, #3a1916); --risk: var(--color-text-danger, #f29a90);
+  --info: var(--color-text-info, #8fb0ff);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: transparent; }
+body { font: 14px/1.45 var(--font); color: var(--fg); padding: 2px; -webkit-font-smoothing: antialiased; }
+button { font: inherit; color: inherit; cursor: pointer; }
+.head { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin: 2px 2px 8px; color: var(--fg2); font-size: 12.5px; }
+.head b { color: var(--fg); font-weight: 600; }
+.list { display: grid; gap: 8px; }
+.card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); padding: 12px 14px; }
+.top { display: flex; gap: 10px; align-items: flex-start; justify-content: space-between; }
+h3 { margin: 0; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
+.meta { color: var(--fg2); font-size: 12.5px; margin-top: 1px; }
+.what { margin: 6px 0 0; }
+.badge { flex: none; display: inline-flex; align-items: center; gap: 5px; font-size: 12px; font-weight: 600; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+.badge::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
+.ok { background: var(--ok-bg); color: var(--ok); }
+.note { background: var(--note-bg); color: var(--note); }
+.risk { background: var(--risk-bg); color: var(--risk); }
+.actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.btn { border: 1px solid var(--line); background: var(--bg2); border-radius: 8px; padding: 5px 10px; font-size: 13px; font-weight: 500; }
+.btn:hover { border-color: var(--fg2); }
+.btn[aria-expanded="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.btn.link { background: none; border-color: transparent; color: var(--info); padding-left: 4px; padding-right: 4px; }
+.btn.primary { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.btn:disabled { opacity: .45; cursor: default; }
+.btn:focus-visible, .chip:focus-visible { outline: 2px solid var(--info); outline-offset: 2px; }
+.drawer { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 10px; display: grid; gap: 8px; }
+.drawer:empty { display: none; }
+.lbl { font-size: 12px; color: var(--fg2); font-weight: 600; margin-bottom: 3px; }
+.cmd { display: flex; gap: 6px; align-items: stretch; }
+.cmd code { flex: 1; min-width: 0; font: 12.5px/1.4 var(--mono); background: var(--bg2); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; overflow-x: auto; white-space: nowrap; }
+.cmd .btn { flex: none; }
+.row { padding: 8px 10px; border-radius: 8px; }
+.row b { display: block; font-weight: 600; }
+.row span { color: inherit; opacity: .9; font-size: 13px; }
+ul.plain { margin: 0; padding-left: 18px; }
+ul.plain li { margin: 2px 0; }
+ol.steps { margin: 0; padding-left: 20px; }
+ol.steps li { margin: 4px 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; }
+.chip { border: 1px solid var(--line); background: var(--bg); border-radius: 999px; padding: 5px 11px; font-size: 13px; }
+.chip[aria-pressed="true"] { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.small { font-size: 12.5px; color: var(--fg2); }
+.done { font-weight: 600; }
+.foot { margin: 8px 2px 0; font-size: 12px; color: var(--fg2); }
+.loading { color: var(--fg2); padding: 10px 4px; }
+@media (max-width: 420px) { .top { flex-direction: column; gap: 6px; } }
+</style>
+</head>
+<body>
+<div id="app"><div class="loading">Checking Skillshelf…</div></div>
+<script>
+(() => {
+  // ---------- talking to the host (MCP Apps, JSON-RPC over postMessage) ----------
+  let nextId = 0, host = {}, input = {};
+  const waiting = {};
+  const post = m => window.parent.postMessage(m, '*');
+  const request = (method, params) => new Promise((resolve, reject) => {
+    const id = ++nextId;
+    waiting[id] = { resolve, reject };
+    post({ jsonrpc: '2.0', id, method, params });
+    setTimeout(() => { if (waiting[id]) { delete waiting[id]; reject(new Error('No answer')); } }, 30000);
+  });
+  const notify = (method, params) => post({ jsonrpc: '2.0', method, params });
+
+  window.addEventListener('message', e => {
+    if (e.source !== window.parent) return;
+    const m = e.data;
+    if (!m || m.jsonrpc !== '2.0') return;
+    if (!m.method && m.id != null) {   // a reply to one of our requests
+      const w = waiting[m.id]; if (!w) return; delete waiting[m.id];
+      return m.error ? w.reject(new Error(m.error.message || 'Error')) : w.resolve(m.result);
+    }
+    switch (m.method) {
+      case 'ui/notifications/tool-input': input = (m.params && m.params.arguments) || {}; break;
+      case 'ui/notifications/tool-result': show(m.params); break;
+      case 'ui/notifications/tool-cancelled': app.innerHTML = '<div class="loading">Cancelled.</div>'; break;
+      case 'ui/notifications/host-context-changed': applyContext(m.params || {}); break;
+      default: if (m.id != null) post(m.method === 'ui/resource-teardown' || m.method === 'ping' ? { jsonrpc: '2.0', id: m.id, result: {} } : { jsonrpc: '2.0', id: m.id, error: { code: -32601, message: 'Method not found' } });
+    }
+  });
+
+  function applyContext(c) {
+    if (c.theme) document.documentElement.dataset.theme = c.theme;
+    const vars = c.styles && c.styles.variables;
+    if (vars) for (const k in vars) if (vars[k]) document.documentElement.style.setProperty(k, vars[k]);
+    const fonts = c.styles && c.styles.css && c.styles.css.fonts;
+    if (fonts && !document.getElementById('host-fonts')) { const s = document.createElement('style'); s.id = 'host-fonts'; s.textContent = fonts; document.head.appendChild(s); }
+  }
+
+  // Tell the host how tall the card is, so it fits the chat without a scrollbar
+  let lastH = 0;
+  new ResizeObserver(() => { const h = Math.ceil(document.documentElement.getBoundingClientRect().height); if (h !== lastH) { lastH = h; notify('ui/notifications/size-changed', { height: h }); } }).observe(document.documentElement);
+
+  request('ui/initialize', { appInfo: { name: 'skillshelf-card', version: '1.0.0' }, appCapabilities: {}, protocolVersion: '2026-01-26' })
+    .then(r => { host = (r && r.hostCapabilities) || {}; applyContext((r && r.hostContext) || {}); notify('ui/notifications/initialized', {}); })
+    .catch(() => {});
+
+  const callTool = async (name, args) => {
+    const r = await request('tools/call', { name, arguments: args });
+    return data(r);
+  };
+  const openLink = url => request('ui/open-link', { url }).catch(() => window.open(url, '_blank', 'noopener'));
+  const tellClaude = textLine => { if (host.updateModelContext) request('ui/update-model-context', { content: [{ type: 'text', text: textLine }] }).catch(() => {}); };
+
+  // ---------- rendering ----------
+  const app = document.getElementById('app');
+  const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+  const data = r => {
+    if (!r) return {};
+    if (r.structuredContent) return r.structuredContent;
+    try { return JSON.parse((r.content || []).find(c => c.type === 'text').text); } catch { return {}; }
+  };
+  const REASONS = [['generic', 'Looks generic or AI-made'], ['wrong', 'Wrong or made-up facts'], ['ignored', "Didn't follow my instructions"], ['padded', 'Too long or padded'], ['broke', 'Broke something'], ['other', 'Something else']];
+  const badge = p => `<span class="badge ${esc(p.badge || 'ok')}">${esc(p.check || 'Checked')}</span>`;
+  const sum = o => Object.values(o || {}).reduce((a, b) => a + b, 0);
+
+  function show(result) {
+    const d = data(result);
+    if (result && result.isError && !d.note) { app.innerHTML = `<div class="card">Something went wrong. Ask Claude to try again.</div>`; return; }
+    if (Array.isArray(d.picks)) return showPicks(d);
+    if (d.found === false) return showUnlisted(d);
+    if (d.found === 'several') return showSeveral(d);
+    if (d.name && d.check) return showDetail(d);
+    if (Array.isArray(d.steps)) return showSteps(d);
+    if ('saved' in d) return showFlagResult(d);
+    app.innerHTML = `<div class="card">${esc(d.note || 'Done.')}</div>`;
+  }
+
+  function cardHTML(p, open) {
+    const id = esc(p.id || p.name);
+    return `<article class="card" data-id="${id}">
+      <div class="top"><div><h3>${esc(p.name)}</h3><div class="meta">${esc(p.kind)} · by ${esc(p.by)}</div></div>${badge(p)}</div>
+      <p class="what">${esc(p.what_it_does)}</p>
+      <div class="actions">
+        ${(p.install || []).length ? `<button class="btn" data-act="install" aria-expanded="false">Install</button>` : ''}
+        ${open ? '' : `<button class="btn" data-act="details" aria-expanded="false">What it can do</button>`}
+        ${p.kind === 'Skill' ? `<button class="btn" data-act="toggle" aria-expanded="false">Switch off</button>` : ''}
+        <button class="btn" data-act="slop" aria-expanded="false">Report slop</button>
+        <button class="btn link" data-act="page">Full check ↗</button>
+      </div>
+      ${open ? `<div class="drawer">${detailHTML(p)}</div>` : ''}
+      <div class="drawer act"></div>
+    </article>`;
+  }
+
+  function showPicks(d) {
+    if (!d.picks.length) { app.innerHTML = `<div class="card">${esc(d.note)}</div>`; return; }
+    app.innerHTML = `<div class="head"><span><b>${d.picks.length} checked pick${d.picks.length > 1 ? 's' : ''}</b>${input.task ? ` for “${esc(input.task)}”` : ''}</span><span>Skillshelf</span></div>
+      <div class="list">${d.picks.map(p => cardHTML(p, false)).join('')}</div>
+      <div class="foot">Every pick was checked by reading its code.</div>`;
+    wire(d.picks);
+  }
+  function showDetail(d) { app.innerHTML = `<div class="list">${cardHTML(d, true)}</div><div class="foot">Checked at commit ${esc(d.checked_commit || '')} by Skillshelf.</div>`; wire([d]); }
+
+  function detailHTML(d) {
+    const parts = [];
+    for (const r of d.risks || []) { const i = r.indexOf(': '); parts.push(`<div class="row risk"><b>${esc(i > 0 ? r.slice(0, i) : r)}</b>${i > 0 ? `<span>${esc(r.slice(i + 2))}</span>` : ''}</div>`); }
+    for (const w of d.worth_knowing || []) parts.push(`<div class="row note"><b>Worth knowing</b><span>${esc(w)}</span></div>`);
+    if (Array.isArray(d.uses) && d.uses.length) parts.push(`<div><div class="lbl">What it can reach</div><ul class="plain">${d.uses.map(u => `<li>${esc(u)}</li>`).join('')}</ul></div>`);
+    else if (typeof d.uses === 'string') parts.push(`<div class="small">${esc(d.uses)}</div>`);
+    const n = sum(d.slop_reports_last_30_days);
+    parts.push(`<div class="small">${n ? `Reported as slop ${n} time${n > 1 ? 's' : ''} in the last 30 days: ${Object.entries(d.slop_reports_last_30_days).map(([k, v]) => `${esc(k)} (${v})`).join(', ')}` : 'No slop reports in the last 30 days.'}</div>`);
+    return parts.join('');
+  }
+
+  function installHTML(p) {
+    return (p.install || []).map(line => {
+      const i = line.indexOf(': '), to = line.slice(0, i), what = line.slice(i + 2);
+      if (/^Download$/i.test(to)) return `<div><div class="lbl">Download</div><button class="btn" data-open="${esc(what)}">Open download page ↗</button></div>`;
+      return `<div><div class="lbl">${esc(to)}</div><div class="cmd"><code>${esc(what)}</code><button class="btn" data-copy="${esc(what)}">Copy</button></div></div>`;
+    }).join('') + `<div class="small">Or just ask Claude: “install ${esc(p.name)} for me”.</div>`;
+  }
+
+  function slopHTML(p) {
+    return `<div class="lbl">What went wrong with ${esc(p.name)}?</div>
+      <div class="chips">${REASONS.map(([k, v]) => `<button class="chip" data-reason="${k}" aria-pressed="false">${esc(v)}</button>`).join('')}</div>
+      <div class="actions" style="margin-top:2px"><button class="btn primary" data-act="send" disabled>Send report</button></div>
+      <div class="small">Only the reason is shared, never your chat. One report per skill per chat.</div>`;
+  }
+
+  function toggleHTML(p) {
+    return `<div class="lbl">Where do you use ${esc(p.name)}?</div>
+      <div class="chips"><button class="chip" data-where="claude-app">Claude app or website</button><button class="chip" data-where="claude-code">Claude Code</button></div>
+      <div class="steps-out"></div>`;
+  }
+  const stepsHTML = d => `<ol class="steps">${d.steps.map(s => `<li>${linkifySetting(s)}</li>`).join('')}</ol>${d.note ? `<div class="small">${esc(d.note)}</div>` : ''}`;
+  // Settings snippets in the steps get their own copy button
+  const linkifySetting = s => {
+    const m = s.match(/"skillOverrides": \{[^}]*\}/);
+    if (!m) return esc(s);
+    return esc(s.slice(0, m.index)) + `<div class="cmd" style="margin:4px 0"><code>${esc(m[0])}</code><button class="btn" data-copy="${esc(m[0])}">Copy</button></div>` + esc(s.slice(m.index + m[0].length));
+  };
+
+  function wire(items) {
+    const byId = Object.fromEntries(items.map(p => [String(p.id || p.name), p]));
+    app.querySelectorAll('article.card').forEach(card => {
+      const p = byId[card.dataset.id], drawer = card.querySelector('.drawer.act');
+      let reason = null;
+      card.addEventListener('click', async e => {
+        const t = e.target.closest('button'); if (!t) return;
+        if (t.dataset.copy != null) return copy(t, t.dataset.copy);
+        if (t.dataset.open) return openLink(t.dataset.open);
+        if (t.dataset.reason) { reason = t.dataset.reason; card.querySelectorAll('[data-reason]').forEach(c => c.setAttribute('aria-pressed', String(c === t))); card.querySelector('[data-act="send"]').disabled = false; return; }
+        if (t.dataset.where) {
+          card.querySelectorAll('[data-where]').forEach(c => c.setAttribute('aria-pressed', String(c === t)));
+          const out = card.querySelector('.steps-out'); out.innerHTML = '<div class="small">Getting the steps…</div>';
+          try { out.innerHTML = stepsHTML(await callTool('how_to_toggle', { skill: p.id || p.name, where: t.dataset.where, on: false })); }
+          catch { out.innerHTML = '<div class="small">Couldn’t get the steps. Ask Claude “how do I switch off ' + esc(p.name) + '?”</div>'; }
+          return;
+        }
+        const act = t.dataset.act;
+        if (act === 'page') return openLink(p.page);
+        if (act === 'send') {
+          t.disabled = true; t.textContent = 'Sending…';
+          try {
+            const r = await callTool('flag_slop', { skill: p.id || p.name, reason });
+            drawer.innerHTML = flagResultHTML(r);
+            if (r.saved) tellClaude(`The user reported ${p.name} as slop from the Skillshelf card (reason: ${(REASONS.find(x => x[0] === reason) || [])[1]}).`);
+          } catch { drawer.innerHTML = '<div class="small">Couldn’t send it. Ask Claude to report it instead.</div>'; }
+          setExpanded(card, null);
+          return;
+        }
+        // Open or close a drawer section
+        const wasOpen = t.getAttribute('aria-expanded') === 'true';
+        setExpanded(card, wasOpen ? null : t);
+        if (wasOpen) { drawer.innerHTML = ''; return; }
+        reason = null;
+        if (act === 'install') drawer.innerHTML = installHTML(p);
+        else if (act === 'slop') drawer.innerHTML = slopHTML(p);
+        else if (act === 'toggle') drawer.innerHTML = toggleHTML(p);
+        else if (act === 'details') {
+          drawer.innerHTML = '<div class="small">Loading the check…</div>';
+          try { const full = await callTool('check_skill', { skill: p.id || p.name }); Object.assign(p, full); drawer.innerHTML = detailHTML(full); }
+          catch { drawer.innerHTML = '<div class="small">Couldn’t load it. Open the full check instead.</div>'; }
+        }
+      });
+    });
+  }
+  const setExpanded = (card, on) => card.querySelectorAll('.actions [aria-expanded]').forEach(b => b.setAttribute('aria-expanded', String(b === on)));
+
+  function flagResultHTML(d) {
+    const n = sum(d.slop_reports_last_30_days);
+    return `<div class="done">${d.saved ? 'Report sent. Thank you.' : esc(d.note)}</div>${d.saved ? `<div class="small">${n} report${n === 1 ? '' : 's'} on this one in the last 30 days. Skillshelf reviews them every week.</div>` : ''}`;
+  }
+  function showFlagResult(d) { app.innerHTML = `<div class="card">${flagResultHTML(d)}</div>`; }
+  function showSteps(d) { app.innerHTML = `<div class="card"><div class="lbl">How to switch it ${input.on === true ? 'on' : 'off'}</div>${stepsHTML(d)}</div>`; app.querySelectorAll('[data-copy]').forEach(b => b.onclick = () => copy(b, b.dataset.copy)); }
+  function showUnlisted(d) {
+    const cmd = (d.note.match(/npx skills add \S+ --skill \S+/) || [])[0];
+    app.innerHTML = `<div class="card"><div class="top"><div><h3>Not checked yet</h3><div class="meta">This one isn’t on Skillshelf</div></div><span class="badge note">Unchecked</span></div>
+      <p class="what">Nobody has read its code here. Before installing it, have your AI run Cloudflare’s open-source security check on it.</p>
+      ${cmd ? `<div class="cmd"><code>${esc(cmd)}</code><button class="btn" data-copy="${esc(cmd)}">Copy</button></div>` : ''}</div>`;
+    app.querySelectorAll('[data-copy]').forEach(b => b.onclick = () => copy(b, b.dataset.copy));
+  }
+  function showSeveral(d) {
+    app.innerHTML = `<div class="head"><b>Which one did you mean?</b></div><div class="list">${d.candidates.map(c => `<button class="card btn" style="text-align:left;width:100%" data-pick="${esc(c.name)}"><h3>${esc(c.name)}</h3><div class="meta">${esc(c.kind)} · by ${esc(c.by)}</div><p class="what">${esc(c.what_it_does)}</p></button>`).join('')}</div>`;
+    app.querySelectorAll('[data-pick]').forEach(b => b.onclick = async () => { app.innerHTML = '<div class="loading">Checking…</div>'; try { showDetail(await callTool('check_skill', { skill: b.dataset.pick })); } catch { app.innerHTML = '<div class="card">Couldn’t load it. Ask Claude again.</div>'; } });
+  }
+
+  async function copy(btn, value) {
+    const done = ok => { btn.textContent = ok ? 'Copied' : 'Select it to copy'; setTimeout(() => { btn.textContent = 'Copy'; }, 1600); };
+    try { await navigator.clipboard.writeText(value); return done(true); } catch {}
+    try {
+      const code = btn.parentElement.querySelector('code'), r = document.createRange();
+      r.selectNodeContents(code); const s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      done(document.execCommand('copy'));
+    } catch { done(false); }
+  }
+})();
+</script>
+</body>
+</html>
