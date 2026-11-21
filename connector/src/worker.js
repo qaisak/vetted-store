@@ -17,7 +17,7 @@ const L = CATALOG.listings;
 const BY = Object.fromEntries(L.map(l => [l.id, l]));
 const KIND = { skill: 'Skill', mcp: 'Connector', tool: 'App' };
 // Hosts cache the card by its address, so the address carries a fingerprint of the card: a changed card gets a new address
-// and is fetched fresh. The old fixed address still answers, for hosts that remember it.
+// and is fetched fresh. Older addresses (the fixed one and earlier fingerprints) still answer with the current card.
 const fingerprint = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193); } return (h >>> 0).toString(36); };
 const CARD_URI = `ui://skillshelf/card-${fingerprint(CARD_HTML)}.html`, CARD_URI_OLD = 'ui://skillshelf/card.html', CARD_MIME = 'text/html;profile=mcp-app';
 // Every tool shows its result in the card. Both spellings of the key: the current one and the older one some hosts still read.
@@ -213,7 +213,8 @@ async function handleRpc(msg, env, session) {
   if (method === 'tools/list') return { jsonrpc: '2.0', id, result: { tools: TOOLS } };
   if (method === 'resources/list') return { jsonrpc: '2.0', id, result: { resources: [CARD_RESOURCE] } };
   if (method === 'resources/templates/list') return { jsonrpc: '2.0', id, result: { resourceTemplates: [] } };
-  if (method === 'resources/read') return params.uri === CARD_URI || params.uri === CARD_URI_OLD
+  // Hosts remember tools/list, so they may ask for the card at an address from an earlier deploy: serve the current card for any of them
+  if (method === 'resources/read') return params.uri === CARD_URI || params.uri === CARD_URI_OLD || /^ui:\/\/skillshelf\/card-[a-z0-9]+\.html$/.test(params.uri || '')
     ? { jsonrpc: '2.0', id, result: { contents: [{ uri: params.uri, mimeType: CARD_MIME, text: CARD_HTML, _meta: CARD_META }] } }
     : rpcError(id, -32002, `Resource not found: ${params.uri}`);
   if (method === 'tools/call') {

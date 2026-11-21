@@ -42,7 +42,8 @@ const rl = (await (await post({ jsonrpc: '2.0', id: ++id, method: 'resources/lis
 ok(rl.length === 1 && rl[0].uri === cardUri && rl[0].mimeType === 'text/html;profile=mcp-app', 'resources/list has the card');
 const rr = (await (await post({ jsonrpc: '2.0', id: ++id, method: 'resources/read', params: { uri: cardUri } }, session)).json()).result.contents[0];
 const rrOld = (await (await post({ jsonrpc: '2.0', id: ++id, method: 'resources/read', params: { uri: 'ui://skillshelf/card.html' } }, session)).json()).result.contents[0];
-ok(rrOld.text === rr.text, 'the old fixed card address still serves the current card');
+const rrStale = (await (await post({ jsonrpc: '2.0', id: ++id, method: 'resources/read', params: { uri: 'ui://skillshelf/card-x2e803.html' } }, session)).json()).result.contents[0];
+ok(rrOld.text === rr.text && rrStale.text === rr.text, 'old card addresses (the fixed one and an earlier fingerprint) still serve the current card');
 ok(rr.mimeType === 'text/html;profile=mcp-app' && /ui\/initialize/.test(rr.text) && /<\/html>\s*$/.test(rr.text) && !/<script[^>]+src=|<link[^>]+href=/.test(rr.text), 'resources/read returns the whole card, with nothing loaded from outside');
 const rx = await (await post({ jsonrpc: '2.0', id: ++id, method: 'resources/read', params: { uri: 'ui://other/x.html' } }, session)).json();
 ok(rx.error?.code === -32002, 'an unknown resource is an error');
