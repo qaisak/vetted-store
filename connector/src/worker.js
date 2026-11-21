@@ -277,7 +277,7 @@ export default {
       const flags = {}; for (const r of results || []) (flags[r.listing] ||= {})[r.reason] = r.n;
       return json({ since_days: 30, reasons: REASONS, flags });
     }
-    if (url.pathname === '/' || url.pathname === '') return new Response(`Skillshelf connector for Claude.\n\nAdd it in Claude: Settings, Connectors, Add custom connector, then paste:\n${url.origin}/mcp\n\nThen ask Claude things like "find me a skill to make my site look less AI-made", "is Impeccable safe?" or "that skill's output was slop, report it".\n\nCatalog: ${L.length} listings, checked ${CATALOG.generated}. Site: ${SITE}\n`, { headers: { 'Content-Type': 'text/plain; charset=utf-8', ...CORS } });
+    if (url.pathname === '/' || url.pathname === '') return new Response(`Skillshelf connector for Claude.\n\nAdd it in Claude: Plugins, Add, Add custom connector, then paste:\n${url.origin}/mcp\n\nThen ask Claude things like "find me a skill to make my site look less AI-made", "is Impeccable safe?" or "that skill's output was slop, report it".\n\nCatalog: ${L.length} listings, checked ${CATALOG.generated}. Site: ${SITE}\n`, { headers: { 'Content-Type': 'text/plain; charset=utf-8', ...CORS } });
     return json({ error: 'Not found' }, 404);
   },
 };

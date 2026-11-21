@@ -127,7 +127,7 @@ ok(Array.isArray(bat) && bat[0].result && bat[1].error?.code === -32601, 'batche
 const dl = await worker.fetch(new Request('https://x.test/skillshelf.mcpb'), env);
 ok(dl.status === 200 && /attachment; filename="skillshelf.mcpb"/.test(dl.headers.get('Content-Disposition')) && new Uint8Array(await dl.arrayBuffer())[0] === 80, '/skillshelf.mcpb downloads the desktop extension');
 const home = await (await worker.fetch(new Request('https://x.test/'), env)).text();
-ok(/Add custom connector/.test(home) && /x\.test\/mcp/.test(home), 'the home page explains how to add it');
+ok(/Plugins, Add, Add custom connector/.test(home) && !/Settings, Connectors/.test(home) && /x\.test\/mcp/.test(home), 'the home page explains how to add it, with the current Claude app steps (Plugins, not Settings)');
 
 fs.rmSync(tmp, { recursive: true, force: true });
 process.exitCode = fails ? 1 : 0;
