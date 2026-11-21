@@ -43,7 +43,7 @@ Other endpoints:
 
 Commands:
 - Deploy: `cd connector && npx wrangler deploy` (needs `wrangler login`).
-- Tests: `node connector/test/worker.test.mjs` (35 checks), and `node connector/test/card.test.mjs [screenshot-dir]` (54 checks; loads the card in a sandboxed iframe with a stand-in host).
+- Tests: `node connector/test/worker.test.mjs` (44 checks), and `node connector/test/card.test.mjs [screenshot-dir]` (loads the card in a sandboxed iframe with a stand-in host; needs Playwright). The marketplace: `node pipeline/marketplace.test.mjs`.
 
 ## Desktop extension (bonus for Claude Code users): `desktop/`
 
@@ -64,6 +64,6 @@ Commands:
 4. **Slop reports.** `flag_slop` has never been sent against production, so whether the D1 `flags` table exists remotely is unconfirmed. If unsure, run `npx wrangler d1 execute skillshelf --remote --file schema.sql` (safe: `CREATE TABLE IF NOT EXISTS`).
 5. **Sharing.** The site artifact is private. The owner must set Share → "anyone with the link" before posting it anywhere.
 6. **Ideas not started:**
-   - real one-tap "Add" for Claude app skills (Anthropic offers no API; today it links to the listing's upload steps);
+   - one-step installs: started. The build writes a Skillshelf plugin marketplace (`.claude-plugin/marketplace.json`, see the README), and the connector offers "add the Skillshelf marketplace" first. It only works for other people once the repo is public and the file is on `main`;
    - importing `/flags.json` counts into the site's weekly refresh;
    - a Cloudflare API token, so cloud sessions can deploy without the laptop.

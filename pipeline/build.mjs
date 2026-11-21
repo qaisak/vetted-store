@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import { otherNote } from './filekind.mjs';
 import { findingStatus, isSerious } from './findings.mjs';
+import { buildMarketplace, writeMarketplace, installName, commitsFrom, branchesFrom, MARKETPLACE, MARKETPLACE_REPO } from './marketplace.mjs';
 
 const [, , dataPath, tplPath, outPath] = process.argv;
 const d = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
@@ -380,8 +381,14 @@ if (fs.existsSync(CONNECTOR_DIR)) {
       install: l.inst.filter(o => !o.scan).map(o => ({ to: o.to, how: o.how, ...(o.agentCmd ? { cmd: `${o.agentCmd} --agent claude-code` } : o.cmds?.length ? { cmd: o.cmds[0] } : {}), ...(o.link ? { link: o.link } : {}) })).slice(0, 4),
       stars: r.st, checkedCommit: r.cm || null };
   }) };
+  // The Skillshelf plugin marketplace (.claude-plugin/marketplace.json): skills with no serious risk, pinned to the checked commit.
+  // Each listing in it gets its install name (plugin@skillshelf), so the connector can offer the one-click route.
+  const { marketplace: mk, skipped } = buildMarketplace(cat, commitsFrom(SOURCES), branchesFrom(d));
+  cat.marketplace = { name: MARKETPLACE, repo: MARKETPLACE_REPO };
+  for (const l of cat.listings) { const n = installName(mk, l.id); if (n) l.plugin = n; }
   fs.writeFileSync(new URL('catalog.json', CONNECTOR_DIR), JSON.stringify(cat) + '\n');
   console.error('connector catalog:', cat.listings.length, 'listings');
+  console.error('marketplace:', mk.plugins.length, 'skills, written to', writeMarketplace(mk), 'left out:', JSON.stringify(skipped));
 }
 const CHECKUP_DIR = new URL('../checkup/skills/skillshelf-checkup/', import.meta.url);
 if (fs.existsSync(CHECKUP_DIR)) {

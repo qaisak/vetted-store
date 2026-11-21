@@ -6,12 +6,14 @@ import os from 'node:os';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { DatabaseSync } from 'node:sqlite';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const require = createRequire(import.meta.url);
 let chromium;
 try { ({ chromium } = require('playwright')); } catch { ({ chromium } = await import('playwright')); }
 
-const HERE = path.dirname(new URL(import.meta.url).pathname);
+// fileURLToPath/pathToFileURL so the paths also work on Windows
+const HERE = path.dirname(fileURLToPath(import.meta.url));
 const SRC = path.join(HERE, '..', 'src');
 const SHOTS = process.argv[2];
 const CARD = fs.readFileSync(path.join(SRC, 'card.html'), 'utf8');
@@ -22,7 +24,7 @@ fs.writeFileSync(path.join(tmp, 'worker.mjs'), fs.readFileSync(path.join(SRC, 'w
   .replace("import CATALOG from './catalog.json';", `const CATALOG = ${fs.readFileSync(path.join(SRC, 'catalog.json'), 'utf8')};`)
   .replace("import DESKTOP_MCPB from './skillshelf-desktop.bin';", 'const DESKTOP_MCPB = new Uint8Array([80, 75, 3, 4]);')
   .replace("import CARD_HTML from './card.html';", `const CARD_HTML = ${JSON.stringify(CARD)};`));
-const worker = (await import(path.join(tmp, 'worker.mjs'))).default;
+const worker = (await import(pathToFileURL(path.join(tmp, 'worker.mjs')).href)).default;
 const db = new DatabaseSync(':memory:');
 db.exec(fs.readFileSync(path.join(HERE, '..', 'schema.sql'), 'utf8'));
 const stmt = (sql, args = []) => ({ bind: (...a) => stmt(sql, a), all: async () => ({ results: db.prepare(sql).all(...args) }), first: async () => db.prepare(sql).get(...args) ?? null, run: async () => db.prepare(sql).run(...args) });
@@ -95,6 +97,11 @@ const shot = async (page, name) => { if (SHOTS) { fs.mkdirSync(SHOTS, { recursiv
   const first = card.locator('article.card').first();
   await first.locator('[data-act="install"]').click();
   ok(/npx skills add/.test(await first.locator('.drawer.act').innerText()), 'Install shows the install command');
+  const drawerText = await first.locator('.drawer.act').innerText();
+  ok(await first.locator('.drawer.act .mk').count() === 1 && /Easiest: add the Skillshelf marketplace/.test(drawerText) && /\/plugin marketplace add /.test(drawerText) && /\/plugin install pbakaus-impeccable@skillshelf/.test(drawerText)
+    && drawerText.indexOf('Easiest') < drawerText.indexOf('Or upload it'), 'Install leads with Add the Skillshelf marketplace, before the upload steps');
+  await first.locator('.mk [data-open]').click();
+  ok((await log()).some(m => m.method === 'ui/open-link' && m.params.url === 'https://claude.ai/plugins'), 'Open Plugins in Claude opens the Plugins page');
   await first.locator('[data-copy]').first().click();
   ok(/Copied|Select it to copy/.test(await first.locator('[data-copy]').first().innerText()), 'Copy responds');
   await shot(page, '2-install.png');

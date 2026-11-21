@@ -4,8 +4,10 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { DatabaseSync } from 'node:sqlite';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
-const HERE = path.dirname(new URL(import.meta.url).pathname);
+// fileURLToPath/pathToFileURL so the paths also work on Windows
+const HERE = path.dirname(fileURLToPath(import.meta.url));
 const SRC = path.join(HERE, '..', 'src');
 // Node can't import JSON the way the Workers bundler does, so load a copy of the worker with the catalog inlined
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'skillshelf-'));
@@ -15,7 +17,7 @@ fs.writeFileSync(path.join(tmp, 'worker.mjs'), fs.readFileSync(path.join(SRC, 'w
   .replace("import CATALOG from './catalog.json';", `const CATALOG = ${fs.readFileSync(path.join(SRC, 'catalog.json'), 'utf8')};`)
   .replace("import DESKTOP_MCPB from './skillshelf-desktop.bin';", 'const DESKTOP_MCPB = new Uint8Array([80, 75, 3, 4]);')
   .replace("import CARD_HTML from './card.html';", `const CARD_HTML = ${JSON.stringify(fs.readFileSync(path.join(SRC, 'card.html'), 'utf8'))};`));
-const worker = (await import(path.join(tmp, 'worker.mjs'))).default;
+const worker = (await import(pathToFileURL(path.join(tmp, 'worker.mjs')).href)).default;
 
 // A D1-shaped wrapper over node:sqlite: prepare(sql).bind(...).all() / first() / run()
 const db = new DatabaseSync(':memory:');
@@ -80,6 +82,18 @@ const t1 = await call('how_to_toggle', { skill: 'Impeccable', where: 'claude-app
 ok(/Plugins/.test(t1.structuredContent.steps[0]) && /claude\.ai\/plugins/.test(t1.structuredContent.steps[0]) && /Remove/.test(t1.structuredContent.steps[1]) && !/Customize/.test(JSON.stringify(t1.structuredContent)), 'how_to_toggle gives current Claude app steps (Plugins, not Customize)');
 const ci = (await call('check_skill', { skill: 'Impeccable' }, session)).structuredContent;
 ok(ci.claude_app && ci.claude_app.upload === 'https://claude.ai/plugins/new/upload' && /github\.com\/pbakaus\/impeccable/.test(ci.claude_app.folder), 'check_skill gives the Claude app route: skill folder and upload page');
+// The Skillshelf marketplace route: only for skills in it (no serious risk, pinned to the checked commit)
+const mkt = JSON.parse(fs.readFileSync(path.join(HERE, '..', '..', '.claude-plugin', 'marketplace.json'), 'utf8'));
+const am = ci.add_marketplace;
+ok(mkt.plugins.some(p => p.name === 'pbakaus-impeccable') && am && am.plugin === 'pbakaus-impeccable@skillshelf' && am.claude_code[0] === `/plugin marketplace add ${am.marketplace}` && am.claude_code[1] === '/plugin install pbakaus-impeccable@skillshelf', 'a skill in the marketplace gets the add-the-marketplace route, with both Claude Code commands');
+ok(/Add marketplace/.test(am.claude_app.join(' ')) && am.claude_app.join(' ').includes(am.marketplace) && am.plugins_page === 'https://claude.ai/plugins' && /^Easiest/.test(am.how), 'and Claude app steps: Plugins, Add, Add marketplace, the repo to enter');
+const risky = (await call('check_skill', { skill: 'openai-winui-app' }, session)).structuredContent;
+ok(risky.badge === 'risk' && risky.add_marketplace === null, 'a skill with a serious risk is never offered the marketplace route');
+const noCommit = (await call('check_skill', { skill: 'anthropics-pdf' }, session)).structuredContent;
+ok(noCommit.add_marketplace === null && noCommit.claude_app, 'a skill without an exact checked commit keeps the upload route only');
+const fm = (await call('find_skills', { task: 'brainstorm an idea before building' }, session)).structuredContent.picks;
+ok(fm.length && fm.every(p => 'add_marketplace' in p) && fm.filter(p => p.add_marketplace).every(p => mkt.plugins.some(x => `${x.name}@skillshelf` === p.add_marketplace.plugin)), 'find_skills picks carry the route too, only for skills in the marketplace');
+ok(/add_marketplace/.test(ij.result.instructions), 'the instructions tell Claude to offer the marketplace first');
 const curly = (await call('check_slop', { text: 'In today’s fast-paced digital world, it’s important to note that we ship.' }, session)).structuredContent;
 ok(curly.hits.some(h => h.id === 'openers') && curly.hits.some(h => h.id === 'filler'), 'check_slop catches tells written with curly apostrophes and stacked adjectives');
 const t2 = await call('how_to_toggle', { skill: 'Impeccable', where: 'claude-code', on: false }, session);

@@ -1,0 +1,2540 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "skillshelf",
+  "description": "Skills checked by Skillshelf (https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG): each one's code was read, and none of these has a serious risk. Each is pinned to the exact commit that was checked. Catalog of 2026-10-31.",
+  "owner": {
+    "name": "Skillshelf"
+  },
+  "plugins": [
+    {
+      "name": "addyosmani-api-and-interface-design",
+      "description": "Helps design APIs and interfaces that stay stable as a project grows. Skillshelf check: No issues found, at commit 8bfcc1f.",
+      "author": {
+        "name": "addyosmani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#addyosmani-api-and-interface-design",
+      "repository": "https://github.com/addyosmani/agent-skills",
+      "keywords": [
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/addyosmani/agent-skills.git",
+        "path": "skills/api-and-interface-design",
+        "ref": "main",
+        "sha": "8bfcc1f9916f2eea55494d8c1fa7f4bde867dd9e"
+      }
+    },
+    {
+      "name": "addyosmani-browser-testing-with-devtools",
+      "description": "Tests your web app in a real Chrome using DevTools. Skillshelf check: No issues found, at commit 8bfcc1f.",
+      "author": {
+        "name": "addyosmani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#addyosmani-browser-testing-with-devtools",
+      "repository": "https://github.com/addyosmani/agent-skills",
+      "keywords": [
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/addyosmani/agent-skills.git",
+        "path": "skills/browser-testing-with-devtools",
+        "ref": "main",
+        "sha": "8bfcc1f9916f2eea55494d8c1fa7f4bde867dd9e"
+      }
+    },
+    {
+      "name": "addyosmani-ci-cd-and-automation",
+      "description": "Sets up automatic build, test and deploy steps for your project. Skillshelf check: No issues found, at commit 8bfcc1f.",
+      "author": {
+        "name": "addyosmani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#addyosmani-ci-cd-and-automation",
+      "repository": "https://github.com/addyosmani/agent-skills",
+      "keywords": [
+        "devops",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/addyosmani/agent-skills.git",
+        "path": "skills/ci-cd-and-automation",
+        "ref": "main",
+        "sha": "8bfcc1f9916f2eea55494d8c1fa7f4bde867dd9e"
+      }
+    },
+    {
+      "name": "addyosmani-code-review-and-quality",
+      "description": "Reviews code from several angles before you merge it, whoever wrote it. Skillshelf check: No issues found, at commit 8bfcc1f.",
+      "author": {
+        "name": "addyosmani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#addyosmani-code-review-and-quality",
+      "repository": "https://github.com/addyosmani/agent-skills",
+      "keywords": [
+        "dev",
+        "vibe"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/addyosmani/agent-skills.git",
+        "path": "skills/code-review-and-quality",
+        "ref": "main",
+        "sha": "8bfcc1f9916f2eea55494d8c1fa7f4bde867dd9e"
+      }
+    },
+    {
+      "name": "addyosmani-code-simplification",
+      "description": "Makes working code easier to read without changing what it does. Skillshelf check: No issues found, at commit 8bfcc1f.",
+      "author": {
+        "name": "addyosmani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#addyosmani-code-simplification",
+      "repository": "https://github.com/addyosmani/agent-skills",
+      "keywords": [
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/addyosmani/agent-skills.git",
+        "path": "skills/code-simplification",
+        "ref": "main",
+        "sha": "8bfcc1f9916f2eea55494d8c1fa7f4bde867dd9e"
+      }
+    },
+    {
+      "name": "addyosmani-constraint-driven-development",
+      "description": "Writes down your project's quality bar and stops the AI quietly lowering it. Skillshelf check: No issues found, at commit 8bfcc1f.",
+      "author": {
+        "name": "addyosmani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#addyosmani-constraint-driven-development",
+      "repository": "https://github.com/addyosmani/agent-skills",
+      "keywords": [
+        "dev",
+        "vibe"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/addyosmani/agent-skills.git",
+        "path": "skills/constraint-driven-development",
+        "ref": "main",
+        "sha": "8bfcc1f9916f2eea55494d8c1fa7f4bde867dd9e"
+      }
+    },
+    {
+      "name": "addyosmani-context-engineering",
+      "description": "Sets up your AI session with the right context so it keeps doing good work. Skillshelf check: No issues found, at commit 8bfcc1f.",
+      "author": {
+        "name": "addyosmani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#addyosmani-context-engineering",
+      "repository": "https://github.com/addyosmani/agent-skills",
+      "keywords": [
+        "vibe",
+        "ai",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/addyosmani/agent-skills.git",
+        "path": "skills/context-engineering",
+        "ref": "main",
+        "sha": "8bfcc1f9916f2eea55494d8c1fa7f4bde867dd9e"
+      }
+    },
+    {
+      "name": "addyosmani-debugging-and-error-recovery",
+      "description": "Finds the real cause when tests fail or something that worked breaks. Skillshelf check: No issues found, at commit 8bfcc1f.",
+      "author": {
+        "name": "addyosmani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#addyosmani-debugging-and-error-recovery",
+      "repository": "https://github.com/addyosmani/agent-skills",
+      "keywords": [
+        "dev",
+        "vibe"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/addyosmani/agent-skills.git",
+        "path": "skills/debugging-and-error-recovery",
+        "ref": "main",
+        "sha": "8bfcc1f9916f2eea55494d8c1fa7f4bde867dd9e"
+      }
+    },
+    {
+      "name": "agricidaniel-seo",
+      "description": "Checks a website for SEO problems, from technical issues to content and AI search, and says what to fix first. Skillshelf check: No issues found, at commit 6be93f4.",
+      "author": {
+        "name": "AgriciDaniel"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#agricidaniel-seo",
+      "repository": "https://github.com/AgriciDaniel/claude-seo",
+      "keywords": [
+        "marketing",
+        "business"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/AgriciDaniel/claude-seo.git",
+        "path": "skills/seo",
+        "ref": "main",
+        "sha": "6be93f45064ffbadced572b5d5c95f55fd263af0"
+      }
+    },
+    {
+      "name": "agricidaniel-seo-audit",
+      "description": "Runs a full SEO check of a whole website and gives you a scored, prioritized to-do list. Skillshelf check: No issues found, at commit 6be93f4.",
+      "author": {
+        "name": "AgriciDaniel"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#agricidaniel-seo-audit",
+      "repository": "https://github.com/AgriciDaniel/claude-seo",
+      "keywords": [
+        "marketing",
+        "business"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/AgriciDaniel/claude-seo.git",
+        "path": "skills/seo-audit",
+        "ref": "main",
+        "sha": "6be93f45064ffbadced572b5d5c95f55fd263af0"
+      }
+    },
+    {
+      "name": "agricidaniel-seo-local",
+      "description": "Checks how a local business shows up on Google: Business Profile, reviews, listings and location pages. Skillshelf check: No issues found, at commit 6be93f4.",
+      "author": {
+        "name": "AgriciDaniel"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#agricidaniel-seo-local",
+      "repository": "https://github.com/AgriciDaniel/claude-seo",
+      "keywords": [
+        "marketing",
+        "business"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/AgriciDaniel/claude-seo.git",
+        "path": "skills/seo-local",
+        "ref": "main",
+        "sha": "6be93f45064ffbadced572b5d5c95f55fd263af0"
+      }
+    },
+    {
+      "name": "aicodeking-leanrea",
+      "description": "Helps your assistant take apart shipped apps with ordinary command-line tools. Skillshelf check: No issues found, at commit 09ba4aa.",
+      "author": {
+        "name": "aicodeking"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#aicodeking-leanrea",
+      "repository": "https://github.com/aicodeking/leanrea",
+      "keywords": [
+        "security",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/aicodeking/leanrea.git",
+        "path": "leanrea",
+        "ref": "main",
+        "sha": "09ba4aa0217f82cd880f855a60b877f59f39b22b"
+      }
+    },
+    {
+      "name": "alirezarezvani-cold-email",
+      "description": "Writes cold outreach emails and follow-ups, and checks them for length, personal touch and spam risk. Skillshelf check: No issues found, at commit e4a1dc3.",
+      "author": {
+        "name": "alirezarezvani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#alirezarezvani-cold-email",
+      "repository": "https://github.com/alirezarezvani/claude-skills",
+      "keywords": [
+        "marketing",
+        "writing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/alirezarezvani/claude-skills.git",
+        "path": "marketing-skill/skills/cold-email",
+        "ref": "main",
+        "sha": "e4a1dc3695908dd5a6c811cc76ab7aa4cf95f2f0"
+      }
+    },
+    {
+      "name": "alirezarezvani-copywriting",
+      "description": "Writes headlines, taglines, calls to action and landing-page copy, and scores headline options. Skillshelf check: No issues found, at commit e4a1dc3.",
+      "author": {
+        "name": "alirezarezvani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#alirezarezvani-copywriting",
+      "repository": "https://github.com/alirezarezvani/claude-skills",
+      "keywords": [
+        "marketing",
+        "writing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/alirezarezvani/claude-skills.git",
+        "path": "marketing-skill/skills/copywriting",
+        "ref": "main",
+        "sha": "e4a1dc3695908dd5a6c811cc76ab7aa4cf95f2f0"
+      }
+    },
+    {
+      "name": "alirezarezvani-email-sequence",
+      "description": "Plans welcome, onboarding and nurture email series for people who signed up, with timing and triggers. Skillshelf check: No issues found, at commit e4a1dc3.",
+      "author": {
+        "name": "alirezarezvani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#alirezarezvani-email-sequence",
+      "repository": "https://github.com/alirezarezvani/claude-skills",
+      "keywords": [
+        "marketing",
+        "writing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/alirezarezvani/claude-skills.git",
+        "path": "marketing-skill/skills/email-sequence",
+        "ref": "main",
+        "sha": "e4a1dc3695908dd5a6c811cc76ab7aa4cf95f2f0"
+      }
+    },
+    {
+      "name": "alirezarezvani-inbox-triage",
+      "description": "Sorts your recent email and drafts replies for you to review. It never sends anything itself. Skillshelf check: No issues found, at commit e4a1dc3.",
+      "author": {
+        "name": "alirezarezvani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#alirezarezvani-inbox-triage",
+      "repository": "https://github.com/alirezarezvani/claude-skills",
+      "keywords": [
+        "office"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/alirezarezvani/claude-skills.git",
+        "path": "productivity/email/skills/inbox-triage",
+        "ref": "main",
+        "sha": "e4a1dc3695908dd5a6c811cc76ab7aa4cf95f2f0"
+      }
+    },
+    {
+      "name": "alirezarezvani-launch-strategy",
+      "description": "Plans a product or feature launch, including Product Hunt day, and checks if you're ready. Skillshelf check: No issues found, at commit e4a1dc3.",
+      "author": {
+        "name": "alirezarezvani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#alirezarezvani-launch-strategy",
+      "repository": "https://github.com/alirezarezvani/claude-skills",
+      "keywords": [
+        "marketing",
+        "business"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/alirezarezvani/claude-skills.git",
+        "path": "marketing-skill/skills/launch-strategy",
+        "ref": "main",
+        "sha": "e4a1dc3695908dd5a6c811cc76ab7aa4cf95f2f0"
+      }
+    },
+    {
+      "name": "alirezarezvani-meetings",
+      "description": "Decides whether a meeting is worth having, builds a timed agenda, and turns notes into action items with owners. Skillshelf check: No issues found, at commit e4a1dc3.",
+      "author": {
+        "name": "alirezarezvani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#alirezarezvani-meetings",
+      "repository": "https://github.com/alirezarezvani/claude-skills",
+      "keywords": [
+        "office"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/alirezarezvani/claude-skills.git",
+        "path": "productivity/meetings/skills/meetings",
+        "ref": "main",
+        "sha": "e4a1dc3695908dd5a6c811cc76ab7aa4cf95f2f0"
+      }
+    },
+    {
+      "name": "alirezarezvani-process-mapper",
+      "description": "Maps a business process step by step and finds where work gets stuck. Skillshelf check: No issues found, at commit e4a1dc3.",
+      "author": {
+        "name": "alirezarezvani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#alirezarezvani-process-mapper",
+      "repository": "https://github.com/alirezarezvani/claude-skills",
+      "keywords": [
+        "office",
+        "data",
+        "business"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/alirezarezvani/claude-skills.git",
+        "path": "business-operations/skills/process-mapper",
+        "ref": "main",
+        "sha": "e4a1dc3695908dd5a6c811cc76ab7aa4cf95f2f0"
+      }
+    },
+    {
+      "name": "alirezarezvani-seo-audit",
+      "description": "Audits a website for search ranking problems: technical issues, page content and meta tags. Skillshelf check: No issues found, at commit e4a1dc3.",
+      "author": {
+        "name": "alirezarezvani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#alirezarezvani-seo-audit",
+      "repository": "https://github.com/alirezarezvani/claude-skills",
+      "keywords": [
+        "marketing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/alirezarezvani/claude-skills.git",
+        "path": "marketing-skill/skills/seo-audit",
+        "ref": "main",
+        "sha": "e4a1dc3695908dd5a6c811cc76ab7aa4cf95f2f0"
+      }
+    },
+    {
+      "name": "alirezarezvani-social-media-manager",
+      "description": "Plans social media strategy and a content calendar across platforms. Skillshelf check: No issues found, at commit e4a1dc3.",
+      "author": {
+        "name": "alirezarezvani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#alirezarezvani-social-media-manager",
+      "repository": "https://github.com/alirezarezvani/claude-skills",
+      "keywords": [
+        "marketing",
+        "writing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/alirezarezvani/claude-skills.git",
+        "path": "marketing-skill/skills/social-media-manager",
+        "ref": "main",
+        "sha": "e4a1dc3695908dd5a6c811cc76ab7aa4cf95f2f0"
+      }
+    },
+    {
+      "name": "alirezarezvani-weekly-review",
+      "description": "Walks you through a weekly review: close open loops, check stalled projects, plan the week. Skillshelf check: No issues found, at commit e4a1dc3.",
+      "author": {
+        "name": "alirezarezvani"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#alirezarezvani-weekly-review",
+      "repository": "https://github.com/alirezarezvani/claude-skills",
+      "keywords": [
+        "office"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/alirezarezvani/claude-skills.git",
+        "path": "productivity/weekly-review/skills/weekly-review",
+        "ref": "main",
+        "sha": "e4a1dc3695908dd5a6c811cc76ab7aa4cf95f2f0"
+      }
+    },
+    {
+      "name": "anthropics-cash-flow-snapshot",
+      "description": "Forecasts your cash for the next 30, 60 and 90 days from your accounting app or a spreadsheet, and flags risks. Skillshelf check: No issues found, at commit 2574e29.",
+      "author": {
+        "name": "Anthropic"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#anthropics-cash-flow-snapshot",
+      "repository": "https://github.com/anthropics/knowledge-work-plugins",
+      "keywords": [
+        "business",
+        "data"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/knowledge-work-plugins.git",
+        "path": "small-business/skills/cash-flow-snapshot",
+        "ref": "main",
+        "sha": "2574e29377c7173d0cecffef29a6ecbd7f8ccb5d"
+      }
+    },
+    {
+      "name": "anthropics-contract-review",
+      "description": "Reads an NDA or vendor contract, explains the risky parts in plain English and marks up changes. Not a substitute for a lawyer. Skillshelf check: No issues found, at commit 2574e29.",
+      "author": {
+        "name": "Anthropic"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#anthropics-contract-review",
+      "repository": "https://github.com/anthropics/knowledge-work-plugins",
+      "keywords": [
+        "business",
+        "office"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/knowledge-work-plugins.git",
+        "path": "small-business/skills/contract-review",
+        "ref": "main",
+        "sha": "2574e29377c7173d0cecffef29a6ecbd7f8ccb5d"
+      }
+    },
+    {
+      "name": "anthropics-invoice-chase",
+      "description": "Drafts polite reminders for overdue invoices from your accounting app, firmer for repeat late payers. You approve before anything is sent. Skillshelf check: No issues found, at commit 2574e29.",
+      "author": {
+        "name": "Anthropic"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#anthropics-invoice-chase",
+      "repository": "https://github.com/anthropics/knowledge-work-plugins",
+      "keywords": [
+        "business",
+        "office"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/knowledge-work-plugins.git",
+        "path": "small-business/skills/invoice-chase",
+        "ref": "main",
+        "sha": "2574e29377c7173d0cecffef29a6ecbd7f8ccb5d"
+      }
+    },
+    {
+      "name": "anthropics-job-post-builder",
+      "description": "Writes a job post, interview questions with a scoring guide, and an offer letter for a role you are hiring for. Skillshelf check: No issues found, at commit 2574e29.",
+      "author": {
+        "name": "Anthropic"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#anthropics-job-post-builder",
+      "repository": "https://github.com/anthropics/knowledge-work-plugins",
+      "keywords": [
+        "business",
+        "writing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/knowledge-work-plugins.git",
+        "path": "small-business/skills/job-post-builder",
+        "ref": "main",
+        "sha": "2574e29377c7173d0cecffef29a6ecbd7f8ccb5d"
+      }
+    },
+    {
+      "name": "anthropics-proposal-builder",
+      "description": "Turns call notes, photos or an RFP into a priced proposal or estimate in your own template. Skillshelf check: No issues found, at commit 2574e29.",
+      "author": {
+        "name": "Anthropic"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#anthropics-proposal-builder",
+      "repository": "https://github.com/anthropics/knowledge-work-plugins",
+      "keywords": [
+        "business",
+        "writing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/knowledge-work-plugins.git",
+        "path": "small-business/skills/proposal-builder",
+        "ref": "main",
+        "sha": "2574e29377c7173d0cecffef29a6ecbd7f8ccb5d"
+      }
+    },
+    {
+      "name": "anthropics-review-reputation",
+      "description": "Sums up your Google, Yelp and Facebook reviews, pasted in or from connected accounts, and drafts replies for you to approve. Skillshelf check: No issues found, at commit 2574e29.",
+      "author": {
+        "name": "Anthropic"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#anthropics-review-reputation",
+      "repository": "https://github.com/anthropics/knowledge-work-plugins",
+      "keywords": [
+        "business",
+        "marketing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/knowledge-work-plugins.git",
+        "path": "small-business/skills/review-reputation",
+        "ref": "main",
+        "sha": "2574e29377c7173d0cecffef29a6ecbd7f8ccb5d"
+      }
+    },
+    {
+      "name": "anthropics-tax-season-organizer",
+      "description": "Gathers what your accountant needs at tax time, like quarterly estimates and 1099 forms (US). Not tax advice. Skillshelf check: No issues found, at commit 2574e29.",
+      "author": {
+        "name": "Anthropic"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#anthropics-tax-season-organizer",
+      "repository": "https://github.com/anthropics/knowledge-work-plugins",
+      "keywords": [
+        "business",
+        "office"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/knowledge-work-plugins.git",
+        "path": "small-business/skills/tax-season-organizer",
+        "ref": "main",
+        "sha": "2574e29377c7173d0cecffef29a6ecbd7f8ccb5d"
+      }
+    },
+    {
+      "name": "anthropics-triage-nda",
+      "description": "Sorts an incoming NDA into sign it, ask a lawyer, or needs full legal review, and says why. Skillshelf check: No issues found, at commit 2574e29.",
+      "author": {
+        "name": "Anthropic"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#anthropics-triage-nda",
+      "repository": "https://github.com/anthropics/knowledge-work-plugins",
+      "keywords": [
+        "business",
+        "office"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/anthropics/knowledge-work-plugins.git",
+        "path": "legal/skills/triage-nda",
+        "ref": "main",
+        "sha": "2574e29377c7173d0cecffef29a6ecbd7f8ccb5d"
+      }
+    },
+    {
+      "name": "ayghri-i-have-adhd",
+      "description": "Shapes your assistant's replies for ADHD: next step first, numbered steps, no tangents. Skillshelf check: No issues found, at commit 1ecea19.",
+      "author": {
+        "name": "ayghri"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#ayghri-i-have-adhd",
+      "repository": "https://github.com/ayghri/i-have-adhd",
+      "keywords": [
+        "office",
+        "writing",
+        "everyday"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/ayghri/i-have-adhd.git",
+        "path": ".cursor/skills/i-have-adhd",
+        "ref": "main",
+        "sha": "1ecea1993b7fce257ffbd686c070948b5e07eda6"
+      }
+    },
+    {
+      "name": "cathrynlavery-diagram-design",
+      "description": "Draws clean diagrams: flowcharts, timelines, architecture and org charts. Skillshelf check: No issues found, at commit 0cf73c3.",
+      "author": {
+        "name": "cathrynlavery"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#cathrynlavery-diagram-design",
+      "repository": "https://github.com/cathrynlavery/diagram-design",
+      "keywords": [
+        "design",
+        "office",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/cathrynlavery/diagram-design.git",
+        "path": "skills/diagram-design",
+        "ref": "main",
+        "sha": "0cf73c3fcc56667ad91a9a04c439ac6ccfabc9d1"
+      }
+    },
+    {
+      "name": "cloudflare-security-audit",
+      "description": "Reviews your code for security holes and writes up what it finds, from a quick check to a full audit. Skillshelf check: No issues found, at commit c1c8a8c.",
+      "author": {
+        "name": "Cloudflare"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#cloudflare-security-audit",
+      "repository": "https://github.com/cloudflare/security-audit-skill",
+      "keywords": [
+        "security",
+        "dev",
+        "vibe"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/cloudflare/security-audit-skill.git",
+        "path": "skills/security-audit",
+        "ref": "main",
+        "sha": "c1c8a8c1471069fb0e188eeaff69b8e8db6564a8"
+      }
+    },
+    {
+      "name": "cooklang-meal-planning",
+      "description": "Plans a week of meals from your own Cooklang recipes, with servings and nutrition targets if you want them. Skillshelf check: No issues found, at commit 7d96745.",
+      "author": {
+        "name": "cooklang"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#cooklang-meal-planning",
+      "repository": "https://github.com/cooklang/cooklang-skills",
+      "keywords": [
+        "everyday"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/cooklang/cooklang-skills.git",
+        "path": "skills/meal-planning",
+        "ref": "main",
+        "sha": "7d967453a8a96f06fe4cbe16645b1f3214ae995d"
+      }
+    },
+    {
+      "name": "cooklang-recipe-import",
+      "description": "Saves a recipe from a web page, photos or pasted text into your Cooklang recipe collection. Skillshelf check: No issues found, at commit 7d96745.",
+      "author": {
+        "name": "cooklang"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#cooklang-recipe-import",
+      "repository": "https://github.com/cooklang/cooklang-skills",
+      "keywords": [
+        "everyday"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/cooklang/cooklang-skills.git",
+        "path": "skills/recipe-import",
+        "ref": "main",
+        "sha": "7d967453a8a96f06fe4cbe16645b1f3214ae995d"
+      }
+    },
+    {
+      "name": "cooklang-shopping-list",
+      "description": "Makes a grocery list from your recipes or meal plan, grouped by store aisle, minus what's already in your pantry. Skillshelf check: No issues found, at commit 7d96745.",
+      "author": {
+        "name": "cooklang"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#cooklang-shopping-list",
+      "repository": "https://github.com/cooklang/cooklang-skills",
+      "keywords": [
+        "everyday"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/cooklang/cooklang-skills.git",
+        "path": "skills/shopping-list",
+        "ref": "main",
+        "sha": "7d967453a8a96f06fe4cbe16645b1f3214ae995d"
+      }
+    },
+    {
+      "name": "coreyhaines31-ab-testing",
+      "description": "Plans A/B tests and experiments, and helps read the results. Skillshelf check: No issues found, at commit 88c79f6.",
+      "author": {
+        "name": "coreyhaines31"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#coreyhaines31-ab-testing",
+      "repository": "https://github.com/coreyhaines31/marketingskills",
+      "keywords": [
+        "marketing",
+        "data",
+        "business"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/coreyhaines31/marketingskills.git",
+        "path": "skills/ab-testing",
+        "ref": "main",
+        "sha": "88c79f6528a9347420e57ceb1fff9a60de651768"
+      }
+    },
+    {
+      "name": "coreyhaines31-ad-creative",
+      "description": "Writes ad headlines, copy and variations for Google, Meta, LinkedIn and more. Skillshelf check: No issues found, at commit 88c79f6.",
+      "author": {
+        "name": "coreyhaines31"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#coreyhaines31-ad-creative",
+      "repository": "https://github.com/coreyhaines31/marketingskills",
+      "keywords": [
+        "marketing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/coreyhaines31/marketingskills.git",
+        "path": "skills/ad-creative",
+        "ref": "main",
+        "sha": "88c79f6528a9347420e57ceb1fff9a60de651768"
+      }
+    },
+    {
+      "name": "coreyhaines31-ads",
+      "description": "Plans and improves paid ad campaigns on Google, Meta, LinkedIn and X. Skillshelf check: No issues found, at commit 88c79f6.",
+      "author": {
+        "name": "coreyhaines31"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#coreyhaines31-ads",
+      "repository": "https://github.com/coreyhaines31/marketingskills",
+      "keywords": [
+        "marketing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/coreyhaines31/marketingskills.git",
+        "path": "skills/ads",
+        "ref": "main",
+        "sha": "88c79f6528a9347420e57ceb1fff9a60de651768"
+      }
+    },
+    {
+      "name": "coreyhaines31-ai-seo",
+      "description": "Helps your content show up and get cited in AI answers like ChatGPT and Perplexity. Skillshelf check: No issues found, at commit 88c79f6.",
+      "author": {
+        "name": "coreyhaines31"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#coreyhaines31-ai-seo",
+      "repository": "https://github.com/coreyhaines31/marketingskills",
+      "keywords": [
+        "marketing",
+        "writing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/coreyhaines31/marketingskills.git",
+        "path": "skills/ai-seo",
+        "ref": "main",
+        "sha": "88c79f6528a9347420e57ceb1fff9a60de651768"
+      }
+    },
+    {
+      "name": "coreyhaines31-analytics",
+      "description": "Sets up and checks analytics tracking such as GA4. Skillshelf check: No issues found, at commit 88c79f6.",
+      "author": {
+        "name": "coreyhaines31"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#coreyhaines31-analytics",
+      "repository": "https://github.com/coreyhaines31/marketingskills",
+      "keywords": [
+        "marketing",
+        "data"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/coreyhaines31/marketingskills.git",
+        "path": "skills/analytics",
+        "ref": "main",
+        "sha": "88c79f6528a9347420e57ceb1fff9a60de651768"
+      }
+    },
+    {
+      "name": "coreyhaines31-aso",
+      "description": "Improves your App Store or Google Play listing so more people find and install it. Skillshelf check: No issues found, at commit 88c79f6.",
+      "author": {
+        "name": "coreyhaines31"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#coreyhaines31-aso",
+      "repository": "https://github.com/coreyhaines31/marketingskills",
+      "keywords": [
+        "marketing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/coreyhaines31/marketingskills.git",
+        "path": "skills/aso",
+        "ref": "main",
+        "sha": "88c79f6528a9347420e57ceb1fff9a60de651768"
+      }
+    },
+    {
+      "name": "coreyhaines31-attribution",
+      "description": "Works out which marketing actually brings in customers and revenue. Skillshelf check: No issues found, at commit 88c79f6.",
+      "author": {
+        "name": "coreyhaines31"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#coreyhaines31-attribution",
+      "repository": "https://github.com/coreyhaines31/marketingskills",
+      "keywords": [
+        "marketing",
+        "data",
+        "business"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/coreyhaines31/marketingskills.git",
+        "path": "skills/attribution",
+        "ref": "main",
+        "sha": "88c79f6528a9347420e57ceb1fff9a60de651768"
+      }
+    },
+    {
+      "name": "coreyhaines31-churn-prevention",
+      "description": "Plans ways to keep customers: cancellation flows, save offers, failed-payment recovery. Skillshelf check: No issues found, at commit 88c79f6.",
+      "author": {
+        "name": "coreyhaines31"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#coreyhaines31-churn-prevention",
+      "repository": "https://github.com/coreyhaines31/marketingskills",
+      "keywords": [
+        "marketing",
+        "business"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/coreyhaines31/marketingskills.git",
+        "path": "skills/churn-prevention",
+        "ref": "main",
+        "sha": "88c79f6528a9347420e57ceb1fff9a60de651768"
+      }
+    },
+    {
+      "name": "czlonkowski-n8n-error-handling",
+      "description": "Sets up n8n automations so failures are caught and reported instead of silently lost. Skillshelf check: No issues found, at commit e037563.",
+      "author": {
+        "name": "czlonkowski"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#czlonkowski-n8n-error-handling",
+      "repository": "https://github.com/czlonkowski/n8n-skills",
+      "keywords": [
+        "office",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/czlonkowski/n8n-skills.git",
+        "path": "skills/n8n-error-handling",
+        "ref": "main",
+        "sha": "e037563e101749e630e6688d121d04529fe6ee7b"
+      }
+    },
+    {
+      "name": "czlonkowski-n8n-expression-syntax",
+      "description": "Writes and fixes n8n expressions, the {{ }} formulas that pass data between steps. Skillshelf check: No issues found, at commit e037563.",
+      "author": {
+        "name": "czlonkowski"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#czlonkowski-n8n-expression-syntax",
+      "repository": "https://github.com/czlonkowski/n8n-skills",
+      "keywords": [
+        "office",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/czlonkowski/n8n-skills.git",
+        "path": "skills/n8n-expression-syntax",
+        "ref": "main",
+        "sha": "e037563e101749e630e6688d121d04529fe6ee7b"
+      }
+    },
+    {
+      "name": "czlonkowski-n8n-node-configuration",
+      "description": "Helps fill in n8n node settings correctly: which fields are required and how they depend on each other. Skillshelf check: No issues found, at commit e037563.",
+      "author": {
+        "name": "czlonkowski"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#czlonkowski-n8n-node-configuration",
+      "repository": "https://github.com/czlonkowski/n8n-skills",
+      "keywords": [
+        "office",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/czlonkowski/n8n-skills.git",
+        "path": "skills/n8n-node-configuration",
+        "ref": "main",
+        "sha": "e037563e101749e630e6688d121d04529fe6ee7b"
+      }
+    },
+    {
+      "name": "czlonkowski-n8n-workflow-patterns",
+      "description": "Proven ways to structure n8n automations: webhooks, API calls, scheduled jobs. Skillshelf check: No issues found, at commit e037563.",
+      "author": {
+        "name": "czlonkowski"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#czlonkowski-n8n-workflow-patterns",
+      "repository": "https://github.com/czlonkowski/n8n-skills",
+      "keywords": [
+        "office",
+        "vibe",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/czlonkowski/n8n-skills.git",
+        "path": "skills/n8n-workflow-patterns",
+        "ref": "main",
+        "sha": "e037563e101749e630e6688d121d04529fe6ee7b"
+      }
+    },
+    {
+      "name": "earthtojake-cad",
+      "description": "Designs 3D parts from a description, with a live preview, and exports files for 3D printing or CAD. Skillshelf check: 1 thing to know, at commit 5a5dab9.",
+      "author": {
+        "name": "earthtojake"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#earthtojake-cad",
+      "repository": "https://github.com/earthtojake/text-to-cad",
+      "keywords": [
+        "design",
+        "science"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/earthtojake/text-to-cad.git",
+        "path": "skills/cad",
+        "ref": "main",
+        "sha": "5a5dab9503d140b8cf62a28d21ba2573a722d2d6"
+      }
+    },
+    {
+      "name": "heygen-com-hyperframes",
+      "description": "Makes videos by having your assistant write them as web pages: explainers, launch films, captions and charts. Skillshelf check: 1 thing to know, at commit af0d68d.",
+      "author": {
+        "name": "HeyGen"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#heygen-com-hyperframes",
+      "repository": "https://github.com/heygen-com/hyperframes",
+      "keywords": [
+        "marketing",
+        "design"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/heygen-com/hyperframes.git",
+        "path": "skills/hyperframes",
+        "ref": "main",
+        "sha": "af0d68d612ebd9c419f27d9ebc8068512667bae4"
+      }
+    },
+    {
+      "name": "jeffallan-angular-architect",
+      "description": "Builds and structures Angular apps: components, routing and state. Skillshelf check: No issues found, at commit 078a25c.",
+      "author": {
+        "name": "Jeffallan"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#jeffallan-angular-architect",
+      "repository": "https://github.com/Jeffallan/claude-skills",
+      "keywords": [
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Jeffallan/claude-skills.git",
+        "path": "skills/angular-architect",
+        "ref": "main",
+        "sha": "078a25cc5bfd8011459be7b91d004e900c1d02d3"
+      }
+    },
+    {
+      "name": "jeffallan-api-designer",
+      "description": "Designs REST or GraphQL APIs and writes their specs. Skillshelf check: No issues found, at commit 078a25c.",
+      "author": {
+        "name": "Jeffallan"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#jeffallan-api-designer",
+      "repository": "https://github.com/Jeffallan/claude-skills",
+      "keywords": [
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Jeffallan/claude-skills.git",
+        "path": "skills/api-designer",
+        "ref": "main",
+        "sha": "078a25cc5bfd8011459be7b91d004e900c1d02d3"
+      }
+    },
+    {
+      "name": "jeffallan-architecture-designer",
+      "description": "Designs or reviews how a software system fits together, and records the decisions. Skillshelf check: No issues found, at commit 078a25c.",
+      "author": {
+        "name": "Jeffallan"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#jeffallan-architecture-designer",
+      "repository": "https://github.com/Jeffallan/claude-skills",
+      "keywords": [
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Jeffallan/claude-skills.git",
+        "path": "skills/architecture-designer",
+        "ref": "main",
+        "sha": "078a25cc5bfd8011459be7b91d004e900c1d02d3"
+      }
+    },
+    {
+      "name": "jeffallan-atlassian-mcp",
+      "description": "Works with Jira tickets and Confluence pages through Atlassian's MCP server. Skillshelf check: 1 thing to know, at commit 078a25c.",
+      "author": {
+        "name": "Jeffallan"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#jeffallan-atlassian-mcp",
+      "repository": "https://github.com/Jeffallan/claude-skills",
+      "keywords": [
+        "office",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Jeffallan/claude-skills.git",
+        "path": "skills/atlassian-mcp",
+        "ref": "main",
+        "sha": "078a25cc5bfd8011459be7b91d004e900c1d02d3"
+      }
+    },
+    {
+      "name": "jeffallan-chaos-engineer",
+      "description": "Plans controlled failure tests so you learn how your system breaks before users do. Skillshelf check: No issues found, at commit 078a25c.",
+      "author": {
+        "name": "Jeffallan"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#jeffallan-chaos-engineer",
+      "repository": "https://github.com/Jeffallan/claude-skills",
+      "keywords": [
+        "devops"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Jeffallan/claude-skills.git",
+        "path": "skills/chaos-engineer",
+        "ref": "main",
+        "sha": "078a25cc5bfd8011459be7b91d004e900c1d02d3"
+      }
+    },
+    {
+      "name": "jeffallan-cli-developer",
+      "description": "Helps build command-line tools with good flags, prompts and help text. Skillshelf check: No issues found, at commit 078a25c.",
+      "author": {
+        "name": "Jeffallan"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#jeffallan-cli-developer",
+      "repository": "https://github.com/Jeffallan/claude-skills",
+      "keywords": [
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Jeffallan/claude-skills.git",
+        "path": "skills/cli-developer",
+        "ref": "main",
+        "sha": "078a25cc5bfd8011459be7b91d004e900c1d02d3"
+      }
+    },
+    {
+      "name": "jeffallan-cloud-architect",
+      "description": "Designs cloud setups, migration plans, cost savings and disaster recovery. Skillshelf check: No issues found, at commit 078a25c.",
+      "author": {
+        "name": "Jeffallan"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#jeffallan-cloud-architect",
+      "repository": "https://github.com/Jeffallan/claude-skills",
+      "keywords": [
+        "devops"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Jeffallan/claude-skills.git",
+        "path": "skills/cloud-architect",
+        "ref": "main",
+        "sha": "078a25cc5bfd8011459be7b91d004e900c1d02d3"
+      }
+    },
+    {
+      "name": "jeffallan-code-documenter",
+      "description": "Writes documentation for your code: comments, API specs and doc sites. Skillshelf check: No issues found, at commit 078a25c.",
+      "author": {
+        "name": "Jeffallan"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#jeffallan-code-documenter",
+      "repository": "https://github.com/Jeffallan/claude-skills",
+      "keywords": [
+        "dev",
+        "writing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Jeffallan/claude-skills.git",
+        "path": "skills/code-documenter",
+        "ref": "main",
+        "sha": "078a25cc5bfd8011459be7b91d004e900c1d02d3"
+      }
+    },
+    {
+      "name": "kepano-defuddle",
+      "description": "Turns a web page into clean Markdown text, without menus and ads, using the Defuddle tool. Skillshelf check: No issues found, at commit 3ccff53.",
+      "author": {
+        "name": "kepano"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#kepano-defuddle",
+      "repository": "https://github.com/kepano/obsidian-skills",
+      "keywords": [
+        "research",
+        "writing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/kepano/obsidian-skills.git",
+        "path": "skills/defuddle",
+        "ref": "main",
+        "sha": "3ccff5338ea700537839b21900aa5358a0402c98"
+      }
+    },
+    {
+      "name": "kepano-json-canvas",
+      "description": "Makes Obsidian canvases: mind maps, flowcharts and visual boards. Skillshelf check: No issues found, at commit 3ccff53.",
+      "author": {
+        "name": "kepano"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#kepano-json-canvas",
+      "repository": "https://github.com/kepano/obsidian-skills",
+      "keywords": [
+        "office",
+        "design"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/kepano/obsidian-skills.git",
+        "path": "skills/json-canvas",
+        "ref": "main",
+        "sha": "3ccff5338ea700537839b21900aa5358a0402c98"
+      }
+    },
+    {
+      "name": "kepano-obsidian-bases",
+      "description": "Builds database-style views of your Obsidian notes: tables, cards, filters and formulas. Skillshelf check: No issues found, at commit 3ccff53.",
+      "author": {
+        "name": "kepano"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#kepano-obsidian-bases",
+      "repository": "https://github.com/kepano/obsidian-skills",
+      "keywords": [
+        "office",
+        "data"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/kepano/obsidian-skills.git",
+        "path": "skills/obsidian-bases",
+        "ref": "main",
+        "sha": "3ccff5338ea700537839b21900aa5358a0402c98"
+      }
+    },
+    {
+      "name": "kepano-obsidian-cli",
+      "description": "Lets your assistant read, create and search notes in your Obsidian vault through the Obsidian CLI. Skillshelf check: No issues found, at commit 3ccff53.",
+      "author": {
+        "name": "kepano"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#kepano-obsidian-cli",
+      "repository": "https://github.com/kepano/obsidian-skills",
+      "keywords": [
+        "office",
+        "writing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/kepano/obsidian-skills.git",
+        "path": "skills/obsidian-cli",
+        "ref": "main",
+        "sha": "3ccff5338ea700537839b21900aa5358a0402c98"
+      }
+    },
+    {
+      "name": "kepano-obsidian-markdown",
+      "description": "Writes and edits notes in Obsidian's Markdown: links between notes, callouts, embeds and properties. Skillshelf check: No issues found, at commit 3ccff53.",
+      "author": {
+        "name": "kepano"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#kepano-obsidian-markdown",
+      "repository": "https://github.com/kepano/obsidian-skills",
+      "keywords": [
+        "writing",
+        "office",
+        "research"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/kepano/obsidian-skills.git",
+        "path": "skills/obsidian-markdown",
+        "ref": "main",
+        "sha": "3ccff5338ea700537839b21900aa5358a0402c98"
+      }
+    },
+    {
+      "name": "komal-skynet-home-assistant-manager",
+      "description": "Lets a coding assistant change your Home Assistant setup, check it, push it live over SSH and confirm it worked. Skillshelf check: No issues found, at commit 2112679.",
+      "author": {
+        "name": "komal-SkyNET"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#komal-skynet-home-assistant-manager",
+      "repository": "https://github.com/komal-SkyNET/claude-skill-homeassistant",
+      "keywords": [
+        "everyday",
+        "devops"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/komal-SkyNET/claude-skill-homeassistant.git",
+        "path": "skills/home-assistant-manager",
+        "ref": "main",
+        "sha": "21126796f5da91d6d18757f0059762a5ab16ccd4"
+      }
+    },
+    {
+      "name": "lackeyjb-playwright-skill",
+      "description": "Lets your assistant test your website in a real browser: screenshots, phone sizes, logins and broken links. Skillshelf check: No issues found, at commit dd47a6a.",
+      "author": {
+        "name": "lackeyjb"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#lackeyjb-playwright-skill",
+      "repository": "https://github.com/lackeyjb/playwright-skill",
+      "keywords": [
+        "dev",
+        "vibe"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/lackeyjb/playwright-skill.git",
+        "path": "skills/playwright-skill",
+        "ref": "main",
+        "sha": "dd47a6a023e249eb1b36e9e943eab89d0900865d"
+      }
+    },
+    {
+      "name": "lemomo-ai-lemo-opuscar",
+      "description": "Makes short films in code with your coding assistant, in one of 66 visual styles. Skillshelf check: No issues found, at commit bebbbe1.",
+      "author": {
+        "name": "lemomo-ai"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#lemomo-ai-lemo-opuscar",
+      "repository": "https://github.com/lemomo-ai/lemo-opuscar",
+      "keywords": [
+        "design",
+        "marketing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/lemomo-ai/lemo-opuscar.git",
+        "path": "plugin/skills/lemo-opuscar",
+        "ref": "main",
+        "sha": "bebbbe1aa92a3cb4bb6f83500e61b23a17d1aa00"
+      }
+    },
+    {
+      "name": "leonxlnx-design-taste-frontend",
+      "description": "Gives your coding assistant art direction for landing pages, then checks the result in a real browser and fixes what looks off. Skillshelf check: No issues found, at commit 12af471.",
+      "author": {
+        "name": "Leonxlnx"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#leonxlnx-design-taste-frontend",
+      "repository": "https://github.com/Leonxlnx/taste-skill",
+      "keywords": [
+        "design",
+        "vibe",
+        "marketing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Leonxlnx/taste-skill.git",
+        "path": "skills/taste-skill",
+        "ref": "main",
+        "sha": "12af471f627f866411b4bd785b19646d3672784c"
+      }
+    },
+    {
+      "name": "muratcankoylan-context-compression",
+      "description": "Keeps long AI sessions on track by summarizing the past without losing decisions and next steps. Skillshelf check: No issues found, at commit 9ff0c99.",
+      "author": {
+        "name": "muratcankoylan"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#muratcankoylan-context-compression",
+      "repository": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "keywords": [
+        "ai",
+        "vibe",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering.git",
+        "path": "skills/context-compression",
+        "ref": "main",
+        "sha": "9ff0c99108b36d3b886defd825d8ac1f47dba374"
+      }
+    },
+    {
+      "name": "muratcankoylan-context-fundamentals",
+      "description": "Explains how an AI's context window works, so you can give it the right information. Skillshelf check: No issues found, at commit 9ff0c99.",
+      "author": {
+        "name": "muratcankoylan"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#muratcankoylan-context-fundamentals",
+      "repository": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "keywords": [
+        "ai",
+        "vibe"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering.git",
+        "path": "skills/context-fundamentals",
+        "ref": "main",
+        "sha": "9ff0c99108b36d3b886defd825d8ac1f47dba374"
+      }
+    },
+    {
+      "name": "muratcankoylan-evaluation",
+      "description": "Helps build tests and quality checks that show whether an AI agent is doing its job. Skillshelf check: No issues found, at commit 9ff0c99.",
+      "author": {
+        "name": "muratcankoylan"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#muratcankoylan-evaluation",
+      "repository": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "keywords": [
+        "ai",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering.git",
+        "path": "skills/evaluation",
+        "ref": "main",
+        "sha": "9ff0c99108b36d3b886defd825d8ac1f47dba374"
+      }
+    },
+    {
+      "name": "muratcankoylan-memory-systems",
+      "description": "Helps design long-term memory for AI agents, so they remember across sessions. Skillshelf check: No issues found, at commit 9ff0c99.",
+      "author": {
+        "name": "muratcankoylan"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#muratcankoylan-memory-systems",
+      "repository": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "keywords": [
+        "ai",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering.git",
+        "path": "skills/memory-systems",
+        "ref": "main",
+        "sha": "9ff0c99108b36d3b886defd825d8ac1f47dba374"
+      }
+    },
+    {
+      "name": "muratcankoylan-multi-agent-patterns",
+      "description": "Helps design systems where several AI agents work together, and decide whether you need more than one. Skillshelf check: No issues found, at commit 9ff0c99.",
+      "author": {
+        "name": "muratcankoylan"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#muratcankoylan-multi-agent-patterns",
+      "repository": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering",
+      "keywords": [
+        "ai",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering.git",
+        "path": "skills/multi-agent-patterns",
+        "ref": "main",
+        "sha": "9ff0c99108b36d3b886defd825d8ac1f47dba374"
+      }
+    },
+    {
+      "name": "nutlope-hallmark",
+      "description": "Designs new websites and pages that look hand-designed, not AI-generated. Skillshelf check: 2 things to know, at commit 4f6a46c.",
+      "author": {
+        "name": "Nutlope"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#nutlope-hallmark",
+      "repository": "https://github.com/Nutlope/hallmark",
+      "keywords": [
+        "design",
+        "vibe"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Nutlope/hallmark.git",
+        "path": "skills/hallmark",
+        "ref": "main",
+        "sha": "4f6a46c6dc325d40ab268c93e25c7b96676ebccd"
+      }
+    },
+    {
+      "name": "obra-brainstorming",
+      "description": "Before building anything, your assistant asks questions and shapes the idea with you first. Skillshelf check: No issues found, at commit 2ce8aa1.",
+      "author": {
+        "name": "obra"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#obra-brainstorming",
+      "repository": "https://github.com/obra/superpowers",
+      "keywords": [
+        "vibe",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/obra/superpowers.git",
+        "path": "skills/brainstorming",
+        "ref": "main",
+        "sha": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+      }
+    },
+    {
+      "name": "obra-diagnosing-superpowers",
+      "description": "Works out why an AI coding session went wrong: repeated work, ignored plans, poor results. Skillshelf check: No issues found, at commit 2ce8aa1.",
+      "author": {
+        "name": "obra"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#obra-diagnosing-superpowers",
+      "repository": "https://github.com/obra/superpowers",
+      "keywords": [
+        "vibe",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/obra/superpowers.git",
+        "path": "skills/diagnosing-superpowers",
+        "ref": "main",
+        "sha": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+      }
+    },
+    {
+      "name": "obra-dispatching-parallel-agents",
+      "description": "Splits independent tasks across several AI helpers working at the same time. Skillshelf check: No issues found, at commit 2ce8aa1.",
+      "author": {
+        "name": "obra"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#obra-dispatching-parallel-agents",
+      "repository": "https://github.com/obra/superpowers",
+      "keywords": [
+        "dev",
+        "ai"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/obra/superpowers.git",
+        "path": "skills/dispatching-parallel-agents",
+        "ref": "main",
+        "sha": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+      }
+    },
+    {
+      "name": "obra-executing-plans",
+      "description": "Has your assistant follow a written plan step by step, checking in along the way. Skillshelf check: No issues found, at commit 2ce8aa1.",
+      "author": {
+        "name": "obra"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#obra-executing-plans",
+      "repository": "https://github.com/obra/superpowers",
+      "keywords": [
+        "vibe",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/obra/superpowers.git",
+        "path": "skills/executing-plans",
+        "ref": "main",
+        "sha": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+      }
+    },
+    {
+      "name": "obra-finishing-a-development-branch",
+      "description": "When the work is done and tested, helps decide how to merge or ship it. Skillshelf check: No issues found, at commit 2ce8aa1.",
+      "author": {
+        "name": "obra"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#obra-finishing-a-development-branch",
+      "repository": "https://github.com/obra/superpowers",
+      "keywords": [
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/obra/superpowers.git",
+        "path": "skills/finishing-a-development-branch",
+        "ref": "main",
+        "sha": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+      }
+    },
+    {
+      "name": "obra-receiving-code-review",
+      "description": "Makes your assistant weigh review feedback carefully instead of blindly applying it. Skillshelf check: No issues found, at commit 2ce8aa1.",
+      "author": {
+        "name": "obra"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#obra-receiving-code-review",
+      "repository": "https://github.com/obra/superpowers",
+      "keywords": [
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/obra/superpowers.git",
+        "path": "skills/receiving-code-review",
+        "ref": "main",
+        "sha": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+      }
+    },
+    {
+      "name": "obra-requesting-code-review",
+      "description": "Has your assistant get its work reviewed before calling it done. Skillshelf check: No issues found, at commit 2ce8aa1.",
+      "author": {
+        "name": "obra"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#obra-requesting-code-review",
+      "repository": "https://github.com/obra/superpowers",
+      "keywords": [
+        "dev",
+        "vibe"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/obra/superpowers.git",
+        "path": "skills/requesting-code-review",
+        "ref": "main",
+        "sha": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+      }
+    },
+    {
+      "name": "obra-subagent-driven-development",
+      "description": "Hands each task in a plan to a fresh AI helper, with a review after each one. Skillshelf check: No issues found, at commit 2ce8aa1.",
+      "author": {
+        "name": "obra"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#obra-subagent-driven-development",
+      "repository": "https://github.com/obra/superpowers",
+      "keywords": [
+        "dev",
+        "ai"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/obra/superpowers.git",
+        "path": "skills/subagent-driven-development",
+        "ref": "main",
+        "sha": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+      }
+    },
+    {
+      "name": "obra-systematic-debugging",
+      "description": "Makes your assistant find the real cause of a bug before trying fixes. Skillshelf check: No issues found, at commit 2ce8aa1.",
+      "author": {
+        "name": "obra"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#obra-systematic-debugging",
+      "repository": "https://github.com/obra/superpowers",
+      "keywords": [
+        "dev",
+        "vibe"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/obra/superpowers.git",
+        "path": "skills/systematic-debugging",
+        "ref": "main",
+        "sha": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+      }
+    },
+    {
+      "name": "obra-test-driven-development",
+      "description": "Has your assistant write tests first, then the code that passes them. Skillshelf check: No issues found, at commit 2ce8aa1.",
+      "author": {
+        "name": "obra"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#obra-test-driven-development",
+      "repository": "https://github.com/obra/superpowers",
+      "keywords": [
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/obra/superpowers.git",
+        "path": "skills/test-driven-development",
+        "ref": "main",
+        "sha": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+      }
+    },
+    {
+      "name": "obra-using-git-worktrees",
+      "description": "Gives each feature its own separate copy of the project so work doesn't collide. Skillshelf check: No issues found, at commit 2ce8aa1.",
+      "author": {
+        "name": "obra"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#obra-using-git-worktrees",
+      "repository": "https://github.com/obra/superpowers",
+      "keywords": [
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/obra/superpowers.git",
+        "path": "skills/using-git-worktrees",
+        "ref": "main",
+        "sha": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+      }
+    },
+    {
+      "name": "obra-using-superpowers",
+      "description": "The starter skill for the Superpowers pack: teaches your assistant to find and use the others. Skillshelf check: No issues found, at commit 2ce8aa1.",
+      "author": {
+        "name": "obra"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#obra-using-superpowers",
+      "repository": "https://github.com/obra/superpowers",
+      "keywords": [
+        "vibe",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/obra/superpowers.git",
+        "path": "skills/using-superpowers",
+        "ref": "main",
+        "sha": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+      }
+    },
+    {
+      "name": "obra-verification-before-completion",
+      "description": "Stops your assistant claiming something works until it has actually checked. Skillshelf check: No issues found, at commit 2ce8aa1.",
+      "author": {
+        "name": "obra"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#obra-verification-before-completion",
+      "repository": "https://github.com/obra/superpowers",
+      "keywords": [
+        "vibe",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/obra/superpowers.git",
+        "path": "skills/verification-before-completion",
+        "ref": "main",
+        "sha": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+      }
+    },
+    {
+      "name": "obra-writing-plans",
+      "description": "Turns your requirements into a detailed, step-by-step build plan before coding. Skillshelf check: No issues found, at commit 2ce8aa1.",
+      "author": {
+        "name": "obra"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#obra-writing-plans",
+      "repository": "https://github.com/obra/superpowers",
+      "keywords": [
+        "vibe",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/obra/superpowers.git",
+        "path": "skills/writing-plans",
+        "ref": "main",
+        "sha": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+      }
+    },
+    {
+      "name": "obra-writing-skills",
+      "description": "Helps you write and test your own skills. Skillshelf check: No issues found, at commit 2ce8aa1.",
+      "author": {
+        "name": "obra"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#obra-writing-skills",
+      "repository": "https://github.com/obra/superpowers",
+      "keywords": [
+        "ai",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/obra/superpowers.git",
+        "path": "skills/writing-skills",
+        "ref": "main",
+        "sha": "2ce8aa15d05bd57213e6f746f953aafb7ded7a8b"
+      }
+    },
+    {
+      "name": "othmanadi-planning-with-files",
+      "description": "Keeps your AI's plan, findings and progress in files so long tasks don't lose track. Skillshelf check: No issues found, at commit b6580cd.",
+      "author": {
+        "name": "OthmanAdi"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#othmanadi-planning-with-files",
+      "repository": "https://github.com/OthmanAdi/planning-with-files",
+      "keywords": [
+        "vibe",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/OthmanAdi/planning-with-files.git",
+        "path": ".agents/skills/planning-with-files",
+        "ref": "master",
+        "sha": "b6580cd24af1d8a95ab268794456e05608a1afd3"
+      }
+    },
+    {
+      "name": "paramchoudhary-cover-letter-generator",
+      "description": "Writes a cover letter from your resume and the job description, in your own voice. Skillshelf check: No issues found, at commit 74ae19e.",
+      "author": {
+        "name": "Paramchoudhary"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#paramchoudhary-cover-letter-generator",
+      "repository": "https://github.com/Paramchoudhary/ResumeSkills",
+      "keywords": [
+        "everyday",
+        "writing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Paramchoudhary/ResumeSkills.git",
+        "path": "skills/cover-letter-generator",
+        "ref": "main",
+        "sha": "74ae19e7c62b0516d1c298328e5544976c12da5d"
+      }
+    },
+    {
+      "name": "paramchoudhary-interview-prep-generator",
+      "description": "Turns your resume into likely interview questions, with stories from your own experience to answer them. Skillshelf check: No issues found, at commit 74ae19e.",
+      "author": {
+        "name": "Paramchoudhary"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#paramchoudhary-interview-prep-generator",
+      "repository": "https://github.com/Paramchoudhary/ResumeSkills",
+      "keywords": [
+        "everyday",
+        "writing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Paramchoudhary/ResumeSkills.git",
+        "path": "skills/interview-prep-generator",
+        "ref": "main",
+        "sha": "74ae19e7c62b0516d1c298328e5544976c12da5d"
+      }
+    },
+    {
+      "name": "paramchoudhary-offer-comparison-analyzer",
+      "description": "Compares job offers side by side: total pay, benefits, and the things that matter to you. Skillshelf check: No issues found, at commit 74ae19e.",
+      "author": {
+        "name": "Paramchoudhary"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#paramchoudhary-offer-comparison-analyzer",
+      "repository": "https://github.com/Paramchoudhary/ResumeSkills",
+      "keywords": [
+        "everyday",
+        "data"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Paramchoudhary/ResumeSkills.git",
+        "path": "skills/offer-comparison-analyzer",
+        "ref": "main",
+        "sha": "74ae19e7c62b0516d1c298328e5544976c12da5d"
+      }
+    },
+    {
+      "name": "paramchoudhary-resume-tailor",
+      "description": "Rewrites your resume for one job posting, putting your most relevant real experience first. It won't make anything up. Skillshelf check: No issues found, at commit 74ae19e.",
+      "author": {
+        "name": "Paramchoudhary"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#paramchoudhary-resume-tailor",
+      "repository": "https://github.com/Paramchoudhary/ResumeSkills",
+      "keywords": [
+        "everyday",
+        "writing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Paramchoudhary/ResumeSkills.git",
+        "path": "skills/resume-tailor",
+        "ref": "main",
+        "sha": "74ae19e7c62b0516d1c298328e5544976c12da5d"
+      }
+    },
+    {
+      "name": "paramchoudhary-salary-negotiation-prep",
+      "description": "Helps you negotiate a job offer: what to ask for, the full pay package, and what to say in the counter-offer. Skillshelf check: No issues found, at commit 74ae19e.",
+      "author": {
+        "name": "Paramchoudhary"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#paramchoudhary-salary-negotiation-prep",
+      "repository": "https://github.com/Paramchoudhary/ResumeSkills",
+      "keywords": [
+        "everyday",
+        "business"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Paramchoudhary/ResumeSkills.git",
+        "path": "skills/salary-negotiation-prep",
+        "ref": "main",
+        "sha": "74ae19e7c62b0516d1c298328e5544976c12da5d"
+      }
+    },
+    {
+      "name": "pbakaus-impeccable",
+      "description": "Helps design, critique and polish a website or app interface. Skillshelf check: 1 thing to know, at commit 4f95649.",
+      "author": {
+        "name": "pbakaus"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#pbakaus-impeccable",
+      "repository": "https://github.com/pbakaus/impeccable",
+      "keywords": [
+        "design",
+        "vibe"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/pbakaus/impeccable.git",
+        "path": ".agent/skills/impeccable",
+        "ref": "main",
+        "sha": "4f956490f0056ae1ff5ea80372cf56e83c001d3c"
+      }
+    },
+    {
+      "name": "sawyerhood-dev-browser",
+      "description": "Lets your assistant use a browser: visit sites, fill forms, take screenshots and pull data. Skillshelf check: No issues found, at commit e5d746f.",
+      "author": {
+        "name": "SawyerHood"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#sawyerhood-dev-browser",
+      "repository": "https://github.com/SawyerHood/dev-browser",
+      "keywords": [
+        "dev",
+        "data",
+        "vibe"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/SawyerHood/dev-browser.git",
+        "path": "skills/dev-browser",
+        "ref": "main",
+        "sha": "e5d746f1fc17a3301d6e7f865f89c034f15f69fb"
+      }
+    },
+    {
+      "name": "thedotmack-agent-cost-report",
+      "description": "Reports what your AI coding sessions actually cost, from real token counts. Skillshelf check: 1 thing to know, at commit 70aa400.",
+      "author": {
+        "name": "thedotmack"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#thedotmack-agent-cost-report",
+      "repository": "https://github.com/thedotmack/claude-mem",
+      "keywords": [
+        "dev",
+        "ai"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/thedotmack/claude-mem.git",
+        "path": "claude-mem-cursor/skills/agent-cost-report",
+        "ref": "main",
+        "sha": "70aa40042cfb8157a0d84954b9c0d2b30b50af80"
+      }
+    },
+    {
+      "name": "thedotmack-claude-mem-install",
+      "description": "Sets up claude-mem in Cursor so your AI remembers past sessions. Skillshelf check: No issues found, at commit 70aa400.",
+      "author": {
+        "name": "thedotmack"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#thedotmack-claude-mem-install",
+      "repository": "https://github.com/thedotmack/claude-mem",
+      "keywords": [
+        "vibe",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/thedotmack/claude-mem.git",
+        "path": "claude-mem-cursor/skills/install",
+        "ref": "main",
+        "sha": "70aa40042cfb8157a0d84954b9c0d2b30b50af80"
+      }
+    },
+    {
+      "name": "thedotmack-mem-search",
+      "description": "Searches your AI's memory of past sessions: \"did we solve this before?\" Skillshelf check: No issues found, at commit 70aa400.",
+      "author": {
+        "name": "thedotmack"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#thedotmack-mem-search",
+      "repository": "https://github.com/thedotmack/claude-mem",
+      "keywords": [
+        "vibe",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/thedotmack/claude-mem.git",
+        "path": "claude-mem-cursor/skills/mem-search",
+        "ref": "main",
+        "sha": "70aa40042cfb8157a0d84954b9c0d2b30b50af80"
+      }
+    },
+    {
+      "name": "tonylofgren-home-assistant-yaml",
+      "description": "Writes Home Assistant automations, scripts and dashboards in the current format, after asking what you want. Skillshelf check: 2 things to know, at commit bdf9802.",
+      "author": {
+        "name": "tonylofgren"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#tonylofgren-home-assistant-yaml",
+      "repository": "https://github.com/tonylofgren/aurora-smart-home",
+      "keywords": [
+        "everyday",
+        "devops"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/tonylofgren/aurora-smart-home.git",
+        "path": "home-assistant",
+        "ref": "main",
+        "sha": "bdf9802f500788e62fe8d10794181e6417c1cc7d"
+      }
+    },
+    {
+      "name": "trailofbits-agentic-actions-auditor",
+      "description": "Checks GitHub Actions that run AI agents for ways an outsider could hijack them. Skillshelf check: No issues found, at commit 2be6433.",
+      "author": {
+        "name": "Trail of Bits"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#trailofbits-agentic-actions-auditor",
+      "repository": "https://github.com/trailofbits/skills",
+      "keywords": [
+        "security",
+        "devops",
+        "ai"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/trailofbits/skills.git",
+        "path": "plugins/agentic-actions-auditor/skills/agentic-actions-auditor",
+        "ref": "main",
+        "sha": "2be6433b39e009cd2b6fd3be1895f6b1faa5af9a"
+      }
+    },
+    {
+      "name": "trailofbits-differential-review",
+      "description": "Reviews a code change for security problems before you merge it and writes a short report. Skillshelf check: No issues found, at commit 2be6433.",
+      "author": {
+        "name": "Trail of Bits"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#trailofbits-differential-review",
+      "repository": "https://github.com/trailofbits/skills",
+      "keywords": [
+        "security",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/trailofbits/skills.git",
+        "path": "plugins/differential-review/skills/differential-review",
+        "ref": "main",
+        "sha": "2be6433b39e009cd2b6fd3be1895f6b1faa5af9a"
+      }
+    },
+    {
+      "name": "trailofbits-sharp-edges",
+      "description": "Finds settings and APIs in your code that make security mistakes easy, and suggests safer defaults. Skillshelf check: No issues found, at commit 2be6433.",
+      "author": {
+        "name": "Trail of Bits"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#trailofbits-sharp-edges",
+      "repository": "https://github.com/trailofbits/skills",
+      "keywords": [
+        "security",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/trailofbits/skills.git",
+        "path": "plugins/sharp-edges/skills/sharp-edges",
+        "ref": "main",
+        "sha": "2be6433b39e009cd2b6fd3be1895f6b1faa5af9a"
+      }
+    },
+    {
+      "name": "trailofbits-supply-chain-risk-auditor",
+      "description": "Checks the packages your project depends on for known advisories, abandoned projects and risky install scripts. Skillshelf check: No issues found, at commit 2be6433.",
+      "author": {
+        "name": "Trail of Bits"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#trailofbits-supply-chain-risk-auditor",
+      "repository": "https://github.com/trailofbits/skills",
+      "keywords": [
+        "security",
+        "dev",
+        "devops"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/trailofbits/skills.git",
+        "path": "plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor",
+        "ref": "main",
+        "sha": "2be6433b39e009cd2b6fd3be1895f6b1faa5af9a"
+      }
+    },
+    {
+      "name": "trailofbits-variant-analysis",
+      "description": "After a bug turns up, hunts for the same mistake elsewhere in your code. Skillshelf check: No issues found, at commit 2be6433.",
+      "author": {
+        "name": "Trail of Bits"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#trailofbits-variant-analysis",
+      "repository": "https://github.com/trailofbits/skills",
+      "keywords": [
+        "security",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/trailofbits/skills.git",
+        "path": "plugins/variant-analysis/skills/variant-analysis",
+        "ref": "main",
+        "sha": "2be6433b39e009cd2b6fd3be1895f6b1faa5af9a"
+      }
+    },
+    {
+      "name": "weizhena-research-add-fields",
+      "description": "Adds new questions to an existing research outline. Skillshelf check: No issues found, at commit 6ce38f6.",
+      "author": {
+        "name": "Weizhena"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#weizhena-research-add-fields",
+      "repository": "https://github.com/Weizhena/Deep-Research-skills",
+      "keywords": [
+        "research"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Weizhena/Deep-Research-skills.git",
+        "path": "skills/research-codex-en/research-add-fields",
+        "ref": "master",
+        "sha": "6ce38f60e3f8b22502c29873f96503a4e0c5addb"
+      }
+    },
+    {
+      "name": "weizhena-research-add-items",
+      "description": "Adds new things to research to an existing outline. Skillshelf check: No issues found, at commit 6ce38f6.",
+      "author": {
+        "name": "Weizhena"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#weizhena-research-add-items",
+      "repository": "https://github.com/Weizhena/Deep-Research-skills",
+      "keywords": [
+        "research"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Weizhena/Deep-Research-skills.git",
+        "path": "skills/research-codex-en/research-add-items",
+        "ref": "master",
+        "sha": "6ce38f60e3f8b22502c29873f96503a4e0c5addb"
+      }
+    },
+    {
+      "name": "weizhena-research-deep",
+      "description": "Researches every item in your outline in depth, one AI helper per item. Skillshelf check: No issues found, at commit 6ce38f6.",
+      "author": {
+        "name": "Weizhena"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#weizhena-research-deep",
+      "repository": "https://github.com/Weizhena/Deep-Research-skills",
+      "keywords": [
+        "research"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Weizhena/Deep-Research-skills.git",
+        "path": "skills/research-codex-en/research-deep",
+        "ref": "master",
+        "sha": "6ce38f60e3f8b22502c29873f96503a4e0c5addb"
+      }
+    },
+    {
+      "name": "weizhena-research-report",
+      "description": "Turns finished research into a Markdown report, leaving out anything uncertain. Skillshelf check: No issues found, at commit 6ce38f6.",
+      "author": {
+        "name": "Weizhena"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#weizhena-research-report",
+      "repository": "https://github.com/Weizhena/Deep-Research-skills",
+      "keywords": [
+        "research",
+        "writing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/Weizhena/Deep-Research-skills.git",
+        "path": "skills/research-codex-en/research-report",
+        "ref": "master",
+        "sha": "6ce38f60e3f8b22502c29873f96503a4e0c5addb"
+      }
+    },
+    {
+      "name": "wshobson-avoid-ai-writing",
+      "description": "Finds and rewrites the phrases that make text sound machine-written. Skillshelf check: No issues found, at commit 7e2fb55.",
+      "author": {
+        "name": "wshobson"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#wshobson-avoid-ai-writing",
+      "repository": "https://github.com/wshobson/agents",
+      "keywords": [
+        "writing",
+        "marketing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/wshobson/agents.git",
+        "path": "plugins/avoid-ai-writing/skills/avoid-ai-writing",
+        "ref": "main",
+        "sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26"
+      }
+    },
+    {
+      "name": "wshobson-before-you-build",
+      "description": "Reviews the risks of a product idea before you build it: who it's for, what could go wrong. Skillshelf check: No issues found, at commit 7e2fb55.",
+      "author": {
+        "name": "wshobson"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#wshobson-before-you-build",
+      "repository": "https://github.com/wshobson/agents",
+      "keywords": [
+        "business",
+        "vibe"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/wshobson/agents.git",
+        "path": "plugins/before-you-build/skills/before-you-build",
+        "ref": "main",
+        "sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26"
+      }
+    },
+    {
+      "name": "wshobson-competitive-landscape",
+      "description": "Maps your competitors and finds where you can stand out. Skillshelf check: No issues found, at commit 7e2fb55.",
+      "author": {
+        "name": "wshobson"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#wshobson-competitive-landscape",
+      "repository": "https://github.com/wshobson/agents",
+      "keywords": [
+        "business",
+        "marketing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/wshobson/agents.git",
+        "path": "plugins/startup-business-analyst/skills/competitive-landscape",
+        "ref": "main",
+        "sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26"
+      }
+    },
+    {
+      "name": "wshobson-data-storytelling",
+      "description": "Turns numbers into a clear story for a report or presentation. Skillshelf check: No issues found, at commit 7e2fb55.",
+      "author": {
+        "name": "wshobson"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#wshobson-data-storytelling",
+      "repository": "https://github.com/wshobson/agents",
+      "keywords": [
+        "data",
+        "writing",
+        "business"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/wshobson/agents.git",
+        "path": "plugins/business-analytics/skills/data-storytelling",
+        "ref": "main",
+        "sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26"
+      }
+    },
+    {
+      "name": "wshobson-employment-contract-templates",
+      "description": "Drafts offer letters, employment contracts and HR policies from templates. Have a lawyer check them. Skillshelf check: No issues found, at commit 7e2fb55.",
+      "author": {
+        "name": "wshobson"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#wshobson-employment-contract-templates",
+      "repository": "https://github.com/wshobson/agents",
+      "keywords": [
+        "office",
+        "business"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/wshobson/agents.git",
+        "path": "plugins/hr-legal-compliance/skills/employment-contract-templates",
+        "ref": "main",
+        "sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26"
+      }
+    },
+    {
+      "name": "wshobson-gdpr-data-handling",
+      "description": "Helps handle EU personal data the GDPR way: consent, deletion requests, privacy by design. Not legal advice. Skillshelf check: No issues found, at commit 7e2fb55.",
+      "author": {
+        "name": "wshobson"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#wshobson-gdpr-data-handling",
+      "repository": "https://github.com/wshobson/agents",
+      "keywords": [
+        "security",
+        "business",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/wshobson/agents.git",
+        "path": "plugins/hr-legal-compliance/skills/gdpr-data-handling",
+        "ref": "main",
+        "sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26"
+      }
+    },
+    {
+      "name": "wshobson-kpi-dashboard-design",
+      "description": "Helps pick the right metrics and lay out a dashboard people actually read. Skillshelf check: No issues found, at commit 7e2fb55.",
+      "author": {
+        "name": "wshobson"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#wshobson-kpi-dashboard-design",
+      "repository": "https://github.com/wshobson/agents",
+      "keywords": [
+        "data",
+        "business"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/wshobson/agents.git",
+        "path": "plugins/business-analytics/skills/kpi-dashboard-design",
+        "ref": "main",
+        "sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26"
+      }
+    },
+    {
+      "name": "wshobson-market-sizing-analysis",
+      "description": "Estimates how big your market is (TAM, SAM, SOM) for a pitch or plan. Skillshelf check: No issues found, at commit 7e2fb55.",
+      "author": {
+        "name": "wshobson"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#wshobson-market-sizing-analysis",
+      "repository": "https://github.com/wshobson/agents",
+      "keywords": [
+        "business",
+        "marketing"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/wshobson/agents.git",
+        "path": "plugins/startup-business-analyst/skills/market-sizing-analysis",
+        "ref": "main",
+        "sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26"
+      }
+    },
+    {
+      "name": "wshobson-postmortem-writing",
+      "description": "Writes a blameless postmortem after an outage: timeline, root cause, action items. Skillshelf check: No issues found, at commit 7e2fb55.",
+      "author": {
+        "name": "wshobson"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#wshobson-postmortem-writing",
+      "repository": "https://github.com/wshobson/agents",
+      "keywords": [
+        "writing",
+        "devops"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/wshobson/agents.git",
+        "path": "plugins/incident-response/skills/postmortem-writing",
+        "ref": "main",
+        "sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26"
+      }
+    },
+    {
+      "name": "wshobson-sql-optimization-patterns",
+      "description": "Speeds up slow database queries: indexes, query plans and rewrites. Skillshelf check: No issues found, at commit 7e2fb55.",
+      "author": {
+        "name": "wshobson"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#wshobson-sql-optimization-patterns",
+      "repository": "https://github.com/wshobson/agents",
+      "keywords": [
+        "data",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/wshobson/agents.git",
+        "path": "plugins/developer-essentials/skills/sql-optimization-patterns",
+        "ref": "main",
+        "sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26"
+      }
+    },
+    {
+      "name": "wshobson-startup-financial-modeling",
+      "description": "Builds a 3 to 5 year financial model for a startup: revenue, costs, cash flow and scenarios. Skillshelf check: No issues found, at commit 7e2fb55.",
+      "author": {
+        "name": "wshobson"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#wshobson-startup-financial-modeling",
+      "repository": "https://github.com/wshobson/agents",
+      "keywords": [
+        "business",
+        "data"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/wshobson/agents.git",
+        "path": "plugins/startup-business-analyst/skills/startup-financial-modeling",
+        "ref": "main",
+        "sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26"
+      }
+    },
+    {
+      "name": "wshobson-stride-analysis-patterns",
+      "description": "Walks through the STRIDE method to find security threats in a system. Skillshelf check: No issues found, at commit 7e2fb55.",
+      "author": {
+        "name": "wshobson"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#wshobson-stride-analysis-patterns",
+      "repository": "https://github.com/wshobson/agents",
+      "keywords": [
+        "security"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/wshobson/agents.git",
+        "path": "plugins/security-scanning/skills/stride-analysis-patterns",
+        "ref": "main",
+        "sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26"
+      }
+    },
+    {
+      "name": "wshobson-stripe-integration",
+      "description": "Helps add Stripe payments to an app: checkout, subscriptions and webhooks. Skillshelf check: No issues found, at commit 7e2fb55.",
+      "author": {
+        "name": "wshobson"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#wshobson-stripe-integration",
+      "repository": "https://github.com/wshobson/agents",
+      "keywords": [
+        "dev",
+        "vibe",
+        "business"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/wshobson/agents.git",
+        "path": "plugins/payment-processing/skills/stripe-integration",
+        "ref": "main",
+        "sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26"
+      }
+    },
+    {
+      "name": "wshobson-visual-design-foundations",
+      "description": "Typography, color, spacing and icons: the basics for a consistent visual style. Skillshelf check: No issues found, at commit 7e2fb55.",
+      "author": {
+        "name": "wshobson"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#wshobson-visual-design-foundations",
+      "repository": "https://github.com/wshobson/agents",
+      "keywords": [
+        "design"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/wshobson/agents.git",
+        "path": "plugins/ui-design/skills/visual-design-foundations",
+        "ref": "main",
+        "sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26"
+      }
+    },
+    {
+      "name": "wshobson-wcag-audit-patterns",
+      "description": "Checks a website for accessibility problems (WCAG 2.2) and explains how to fix them. Skillshelf check: No issues found, at commit 7e2fb55.",
+      "author": {
+        "name": "wshobson"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#wshobson-wcag-audit-patterns",
+      "repository": "https://github.com/wshobson/agents",
+      "keywords": [
+        "design",
+        "dev"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/wshobson/agents.git",
+        "path": "plugins/accessibility-compliance/skills/wcag-audit-patterns",
+        "ref": "main",
+        "sha": "7e2fb559cf4b824b27f1fec49fe88f7511066d26"
+      }
+    },
+    {
+      "name": "zarazhangrui-frontend-slides",
+      "description": "Makes animated presentation slides as a web page, from scratch or from a PowerPoint file. Skillshelf check: No issues found, at commit 9906a34.",
+      "author": {
+        "name": "zarazhangrui"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#zarazhangrui-frontend-slides",
+      "repository": "https://github.com/zarazhangrui/frontend-slides",
+      "keywords": [
+        "office",
+        "marketing",
+        "design"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/zarazhangrui/frontend-slides.git",
+        "path": "plugins/frontend-slides/skills/frontend-slides",
+        "ref": "main",
+        "sha": "9906a34d640d2111f724544cbc50f7f130569ae1"
+      }
+    },
+    {
+      "name": "zubair-trabzada-finance-debt",
+      "description": "Builds a plan to pay off your debts, biggest interest first or smallest balance first, with how long it takes and what you save. Not financial advice. Skillshelf check: No issues found, at commit dd93980.",
+      "author": {
+        "name": "zubair-trabzada"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#zubair-trabzada-finance-debt",
+      "repository": "https://github.com/zubair-trabzada/ai-finance-claude",
+      "keywords": [
+        "everyday",
+        "data"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/zubair-trabzada/ai-finance-claude.git",
+        "path": "skills/finance-debt",
+        "ref": "main",
+        "sha": "dd9398043d37623d1bc02fc74ccd67bf2fada5ad"
+      }
+    },
+    {
+      "name": "zubair-trabzada-finance-goals",
+      "description": "Plans how to save for a goal like a house deposit, a car or a trip: how much a month, by when, and where to keep it. Not financial advice. Skillshelf check: No issues found, at commit dd93980.",
+      "author": {
+        "name": "zubair-trabzada"
+      },
+      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#zubair-trabzada-finance-goals",
+      "repository": "https://github.com/zubair-trabzada/ai-finance-claude",
+      "keywords": [
+        "everyday",
+        "data"
+      ],
+      "source": {
+        "source": "git-subdir",
+        "url": "https://github.com/zubair-trabzada/ai-finance-claude.git",
+        "path": "skills/finance-goals",
+        "ref": "main",
+        "sha": "dd9398043d37623d1bc02fc74ccd67bf2fada5ad"
+      }
+    }
+  ]
+}

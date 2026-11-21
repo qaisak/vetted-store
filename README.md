@@ -38,6 +38,8 @@ The site is a single self-contained page: [`vetted-store.html`](vetted-store.htm
 | `pipeline/smoke.mjs` | Headless smoke test: every tab, job page, listing, install sheet and story, desktop and phone |
 | `pipeline/flows.cjs` | Headless checks of navigation, search, the Digest, Make it yours, install sheets per computer, My list, shared lists and setup links |
 | `pipeline/build.mjs` | Builds the data and writes `vetted-store.html` |
+| `pipeline/marketplace.mjs` | Writes `.claude-plugin/marketplace.json`, the Skillshelf plugin marketplace (see below); `pipeline/marketplace.test.mjs` tests it |
+| `.claude-plugin/marketplace.json` | The Skillshelf plugin marketplace, written by the build: checked skills with no serious risk, each pinned to the commit Skillshelf checked |
 | `data/data.json` | Fetched listings and repo data (October 31, 2026) |
 | `data/purpose.json` | Purpose Check results |
 | `data/scan-reports/` | SkillSpector JSON reports, one per listing (`*.scope.txt` marks scoped scans, `*.exclude.txt` lists skipped folders) |
@@ -59,6 +61,40 @@ Only needs Node.js 20 or newer:
 ```bash
 node pipeline/build.mjs data/data.json pipeline/template.html vetted-store.html data/scan-reports data/purpose.json
 ```
+
+## The Skillshelf plugin marketplace
+
+People can install a checked skill in one step instead of downloading a folder and uploading it. The build writes
+[`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json), a Claude plugin marketplace with one plugin per skill.
+
+**Add it once, then install from it:**
+
+- Claude app (claude.ai, desktop): Plugins, then Add, then Add marketplace, and enter `qaisak/vetted-store`.
+- Claude Code: `/plugin marketplace add qaisak/vetted-store`, then `/plugin install <listing-id>@skillshelf`
+  (for example `/plugin install obra-brainstorming@skillshelf`).
+
+**What goes in** (`pipeline/marketplace.mjs`):
+
+- Skills only, and only those whose Skillshelf check found no serious risk: "No issues found" or "things to know".
+  Anything with a risk, flagged, harmful, or doing more than it says stays out.
+- Only skills where Skillshelf has the exact commit it checked (`data/sources.json`). Each plugin is pinned to that commit,
+  so people get the code that was checked, not whatever the repo has today.
+- Each plugin is just the checked skill folder (a `git-subdir` source). Claude loads a folder with `SKILL.md` at its top as
+  one skill, so nothing else from the repo comes along. Skills whose folder is the whole repo stay out for that reason.
+- Today that is 127 skills. 103 more are left out only because their check has no exact commit on record: they were
+  scanned from the October 31 zip downloads. All are from companies (OpenAI 39, NVIDIA 24, Anthropic 19, Hugging Face 12,
+  Vercel Labs 9). Rescanning them at a known commit adds them on the next build.
+
+The connector offers this route first. `find_skills` and `check_skill` results carry `add_marketplace` (the Claude app steps
+and the two Claude Code commands) for skills in it, and the card's Install drawer leads with "Easiest: add the Skillshelf
+marketplace". The catalog marks those listings with `plugin` (`<id>@skillshelf`).
+
+To regenerate the marketplace on its own: `node pipeline/marketplace.mjs`. To test it: `node pipeline/marketplace.test.mjs`.
+If Claude Code is installed, `claude plugin validate .` checks the file against Claude's own rules.
+
+The repo must be public, and the file must be on its default branch, for other people to add it. To try this branch first in
+Claude Code: `/plugin marketplace add qaisak/vetted-store#claude/clever-knuth-9eryqo`. Every source points at a public GitHub
+repo, so the file also works if copied as-is into a separate public repo.
 
 ## Full pipeline
 
