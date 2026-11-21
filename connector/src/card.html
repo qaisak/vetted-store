@@ -168,7 +168,7 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
     // Picture-in-picture keeps the panel on screen while the user chats, if the host offers it
     if (Array.isArray(c.availableDisplayModes)) view.modes = c.availableDisplayModes;
     if (c.displayMode) view.mode = c.displayMode;
-    if ((c.availableDisplayModes || c.displayMode) && P && app.querySelector('.panel')) drawPanel();
+    if ((c.availableDisplayModes || c.displayMode) && P && app.querySelector('.panel')) { drawPanel(); autoFloat(); }
   }
   const view = { modes: [], mode: 'inline' };
 
@@ -350,6 +350,15 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
   function showPanel(d) {
     P = { skills: d.skills, app: d.app || 'claude-app', off: new Set(), tab: d.skills.length ? 'mine' : 'find', open: null, toast: null, results: null, query: '' };
     drawPanel();
+    autoFloat();
+  }
+  // The panel floats on its own as soon as it opens, once, when the host offers picture-in-picture.
+  // If the host says no (some only allow it after a click), the Keep on screen button is still there.
+  let floated = false;
+  function autoFloat() {
+    if (floated || !P || !view.modes.includes('pip') || view.mode === 'pip') return;
+    floated = true;
+    request('ui/request-display-mode', { mode: 'pip' }).then(r => { view.mode = (r && r.mode) || 'pip'; drawPanel(); }).catch(() => {});
   }
   function offMessage() {
     const off = P.skills.filter(s => P.off.has(s.name)).map(s => s.name);
