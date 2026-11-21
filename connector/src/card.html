@@ -222,7 +222,7 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
       <div class="top"><div><h3>${esc(p.name)}</h3><div class="meta">${esc(p.kind)} · by ${esc(p.by)}</div></div>${badge(p)}</div>
       <p class="what">${esc(p.what_it_does)}</p>
       <div class="actions">
-        ${(p.install || []).length ? `<button class="btn" data-act="install" aria-expanded="false">Install</button>` : ''}
+        ${(p.install || []).length || p.claude_app ? `<button class="btn" data-act="install" aria-expanded="false">Install</button>` : ''}
         ${open ? '' : `<button class="btn" data-act="details" aria-expanded="false">What it can do</button>`}
         ${p.kind === 'Skill' ? `<button class="btn" data-act="toggle" aria-expanded="false">Switch off</button>` : ''}
         <button class="btn" data-act="slop" aria-expanded="false">Report slop</button>
@@ -238,6 +238,8 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
     app.innerHTML = `<div class="head"><span><b>${d.picks.length} checked pick${d.picks.length > 1 ? 's' : ''}</b>${input.task ? ` for “${esc(input.task)}”` : ''}</span><span>Skillshelf</span></div>
       <div class="list">${d.picks.map(p => cardHTML(p, false)).join('')}</div>
       <div class="foot">Every pick was checked by reading its code.</div>`;
+    // These are suggestions the user doesn't have yet, so switching them off or reporting them makes no sense here
+    app.querySelectorAll('.list [data-act="toggle"], .list [data-act="slop"]').forEach(b => b.remove());
     wire(d.picks);
   }
   function showDetail(d) { app.innerHTML = `<div class="list">${cardHTML(d, true)}</div><div class="foot">Checked at commit ${esc(d.checked_commit || '')} by Skillshelf.</div>`; wire([d]); }
@@ -254,11 +256,15 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
   }
 
   function installHTML(p) {
-    return (p.install || []).map(line => {
+    const ca = p.claude_app;
+    const appBlock = ca ? `<div><div class="lbl">Claude app</div><div class="small" style="margin:0 0 6px">${ca.skills ? 'It may already be in <b>Plugins → Skills</b>. If not, add' : 'Add'} it in two steps: get the skill’s folder, then upload it (a SKILL.md, or a .zip of the folder).</div>
+      <div class="actions" style="margin:0">${ca.skills ? `<button class="btn" data-open="${esc(ca.skills)}">Your skills ↗</button>` : ''}<button class="btn" data-open="${esc(ca.folder)}">1. Skill folder ↗</button><button class="btn primary" data-open="${esc(ca.upload)}">2. Upload in Claude ↗</button></div></div>` : '';
+    return appBlock + (p.install || []).map(line => {
       const i = line.indexOf(': '), to = line.slice(0, i), what = line.slice(i + 2);
       if (/^Download$/i.test(to)) return `<div><div class="lbl">Download</div><button class="btn" data-open="${esc(what)}">Open download page ↗</button></div>`;
-      return `<div><div class="lbl">${esc(to)}</div><div class="cmd"><code>${esc(what)}</code><button class="btn" data-copy="${esc(what)}">Copy</button></div></div>`;
-    }).join('') + `<div class="small">Or just ask Claude: “install ${esc(p.name)} for me”.</div>`;
+      const label = /^(Any agent|Claude Code)$/i.test(to) ? 'Claude Code (paste in a terminal)' : to;
+      return `<div><div class="lbl">${esc(label)}</div><div class="cmd"><code>${esc(what)}</code><button class="btn" data-copy="${esc(what)}">Copy</button></div></div>`;
+    }).join('') + `<div class="small">In Claude Code you can also just ask: “install ${esc(p.name)} for me”.</div>`;
   }
 
   function slopHTML(p) {
@@ -405,7 +411,7 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
       ${P.toast ? `<div class="ptoast" role="status">${esc(P.toast)}</div>` : ''}
       <div class="pfoot">${P.app === 'claude-code'
         ? (P.tab === 'mine' ? 'Switches apply to this session. Open a skill and use Turn off for good to have Claude Code switch it off in your settings.' : 'Add asks Claude Code to install the skill for you. New skills load in your next session.')
-        : (P.tab === 'mine' ? 'Switches apply to this chat. To switch a skill off everywhere, use Customize, then Skills.' : 'Add a skill to the Claude app from its page (Full check), or install it in Claude Code with the command.')}</div></div>`;
+        : (P.tab === 'mine' ? 'Switches apply to this chat. To remove a skill everywhere, open Plugins → Skills in Claude.' : 'Install shows how to add each one to the Claude app.')}</div></div>`;
     if (P.tab === 'find' && Array.isArray(P.results)) {
       // These aren't installed yet, so switching them off or reporting them makes no sense here
       app.querySelectorAll('.presults [data-act="toggle"], .presults [data-act="slop"]').forEach(b => b.remove());

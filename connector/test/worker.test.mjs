@@ -77,7 +77,11 @@ ok(c2.structuredContent.slop_reports_last_30_days['Looks generic or AI-made'] ==
 ok(!s2.includes('IGNORE ALL PREVIOUS'), "a report's note is never shown to anyone's Claude");
 
 const t1 = await call('how_to_toggle', { skill: 'Impeccable', where: 'claude-app', on: false }, session);
-ok(/Customize/.test(t1.structuredContent.steps[0]) && /off/.test(t1.structuredContent.steps[1]), 'how_to_toggle gives Claude app steps');
+ok(/Plugins/.test(t1.structuredContent.steps[0]) && /claude\.ai\/plugins/.test(t1.structuredContent.steps[0]) && /Remove/.test(t1.structuredContent.steps[1]) && !/Customize/.test(JSON.stringify(t1.structuredContent)), 'how_to_toggle gives current Claude app steps (Plugins, not Customize)');
+const ci = (await call('check_skill', { skill: 'Impeccable' }, session)).structuredContent;
+ok(ci.claude_app && ci.claude_app.upload === 'https://claude.ai/plugins/new/upload' && /github\.com\/pbakaus\/impeccable/.test(ci.claude_app.folder), 'check_skill gives the Claude app route: skill folder and upload page');
+const curly = (await call('check_slop', { text: 'In today’s fast-paced digital world, it’s important to note that we ship.' }, session)).structuredContent;
+ok(curly.hits.some(h => h.id === 'openers') && curly.hits.some(h => h.id === 'filler'), 'check_slop catches tells written with curly apostrophes and stacked adjectives');
 const t2 = await call('how_to_toggle', { skill: 'Impeccable', where: 'claude-code', on: false }, session);
 ok(t2.structuredContent.steps.some(s => s.includes('"skillOverrides": { "impeccable": "off" }')), 'how_to_toggle gives the Claude Code setting');
 
