@@ -31,7 +31,8 @@ let rid = 0;
 const rpc = async (method, params, session = 'card-test') => (await (await worker.fetch(new Request('https://x.test/mcp', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Mcp-Session-Id': session }, body: JSON.stringify({ jsonrpc: '2.0', id: ++rid, method, params }) }), env)).json());
 
 // The card must be the exact text the server hands out
-const served = (await rpc('resources/read', { uri: 'ui://skillshelf/card.html' })).result.contents[0].text;
+const cardUri = (await rpc('tools/list', {})).result.tools[0]._meta.ui.resourceUri;
+const served = (await rpc('resources/read', { uri: cardUri })).result.contents[0].text;
 
 let fails = 0;
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++; };

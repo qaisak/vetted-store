@@ -36,10 +36,13 @@ const tl = (await (await post({ jsonrpc: '2.0', id: ++id, method: 'tools/list' }
 ok(tl.map(t => t.name).join() === 'find_skills,check_skill,flag_slop,my_skills,check_slop,how_to_toggle' && tl.every(t => t.inputSchema?.type === 'object'), 'tools/list has the six tools with schemas');
 
 // The interactive card (MCP Apps)
-ok(ij.result.capabilities.resources && tl.every(t => t._meta?.ui?.resourceUri === 'ui://skillshelf/card.html' && t._meta['ui/resourceUri'] === 'ui://skillshelf/card.html'), 'every tool points to the card, in both key spellings');
+const cardUri = tl[0]._meta?.ui?.resourceUri;
+ok(/^ui:\/\/skillshelf\/card-[a-z0-9]+\.html$/.test(cardUri) && tl.every(t => t._meta?.ui?.resourceUri === cardUri && t._meta['ui/resourceUri'] === cardUri), 'every tool points to the card (address carries its fingerprint), in both key spellings');
 const rl = (await (await post({ jsonrpc: '2.0', id: ++id, method: 'resources/list' }, session)).json()).result.resources;
-ok(rl.length === 1 && rl[0].uri === 'ui://skillshelf/card.html' && rl[0].mimeType === 'text/html;profile=mcp-app', 'resources/list has the card');
-const rr = (await (await post({ jsonrpc: '2.0', id: ++id, method: 'resources/read', params: { uri: 'ui://skillshelf/card.html' } }, session)).json()).result.contents[0];
+ok(rl.length === 1 && rl[0].uri === cardUri && rl[0].mimeType === 'text/html;profile=mcp-app', 'resources/list has the card');
+const rr = (await (await post({ jsonrpc: '2.0', id: ++id, method: 'resources/read', params: { uri: cardUri } }, session)).json()).result.contents[0];
+const rrOld = (await (await post({ jsonrpc: '2.0', id: ++id, method: 'resources/read', params: { uri: 'ui://skillshelf/card.html' } }, session)).json()).result.contents[0];
+ok(rrOld.text === rr.text, 'the old fixed card address still serves the current card');
 ok(rr.mimeType === 'text/html;profile=mcp-app' && /ui\/initialize/.test(rr.text) && /<\/html>\s*$/.test(rr.text) && !/<script[^>]+src=|<link[^>]+href=/.test(rr.text), 'resources/read returns the whole card, with nothing loaded from outside');
 const rx = await (await post({ jsonrpc: '2.0', id: ++id, method: 'resources/read', params: { uri: 'ui://other/x.html' } }, session)).json();
 ok(rx.error?.code === -32002, 'an unknown resource is an error');

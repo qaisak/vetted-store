@@ -3,7 +3,7 @@
 // Runs on Cloudflare Workers with no dependencies. Flags are stored in D1 (binding DB, schema in ../schema.sql).
 //
 // Endpoints: POST /mcp (MCP over Streamable HTTP, JSON responses), GET / (a short page), GET /flags.json (counts per listing).
-// Results also come with an interactive card (MCP Apps): ui://skillshelf/card.html, from card.html. Hosts without MCP Apps just show text.
+// Results also come with an interactive card (MCP Apps): ui://skillshelf/card-<fingerprint>.html, from card.html. Hosts without MCP Apps just show text.
 import CATALOG from './catalog.json';
 import { analyzeSlop } from './slop.js';
 import CARD_HTML from './card.html';
@@ -16,7 +16,10 @@ const SITE = CATALOG.site;
 const L = CATALOG.listings;
 const BY = Object.fromEntries(L.map(l => [l.id, l]));
 const KIND = { skill: 'Skill', mcp: 'Connector', tool: 'App' };
-const CARD_URI = 'ui://skillshelf/card.html', CARD_MIME = 'text/html;profile=mcp-app';
+// Hosts cache the card by its address, so the address carries a fingerprint of the card: a changed card gets a new address
+// and is fetched fresh. The old fixed address still answers, for hosts that remember it.
+const fingerprint = s => { let h = 0x811c9dc5; for (let i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 0x01000193); } return (h >>> 0).toString(36); };
+const CARD_URI = `ui://skillshelf/card-${fingerprint(CARD_HTML)}.html`, CARD_URI_OLD = 'ui://skillshelf/card.html', CARD_MIME = 'text/html;profile=mcp-app';
 // Every tool shows its result in the card. Both spellings of the key: the current one and the older one some hosts still read.
 const UI = { ui: { resourceUri: CARD_URI }, 'ui/resourceUri': CARD_URI };
 // The card needs no network at all (everything is inline), so no CSP domains are asked for. It draws its own cards, so no host border.
@@ -210,8 +213,8 @@ async function handleRpc(msg, env, session) {
   if (method === 'tools/list') return { jsonrpc: '2.0', id, result: { tools: TOOLS } };
   if (method === 'resources/list') return { jsonrpc: '2.0', id, result: { resources: [CARD_RESOURCE] } };
   if (method === 'resources/templates/list') return { jsonrpc: '2.0', id, result: { resourceTemplates: [] } };
-  if (method === 'resources/read') return params.uri === CARD_URI
-    ? { jsonrpc: '2.0', id, result: { contents: [{ uri: CARD_URI, mimeType: CARD_MIME, text: CARD_HTML, _meta: CARD_META }] } }
+  if (method === 'resources/read') return params.uri === CARD_URI || params.uri === CARD_URI_OLD
+    ? { jsonrpc: '2.0', id, result: { contents: [{ uri: params.uri, mimeType: CARD_MIME, text: CARD_HTML, _meta: CARD_META }] } }
     : rpcError(id, -32002, `Resource not found: ${params.uri}`);
   if (method === 'tools/call') {
     const res = await callTool(params.name, params.arguments || {}, env, session);
