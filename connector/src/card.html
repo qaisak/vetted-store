@@ -83,6 +83,7 @@ ol.steps li { margin: 4px 0; }
 .tab { border: 0; background: none; border-radius: 8px; padding: 5px 10px; font-size: 13.5px; font-weight: 600; color: var(--fg2); }
 .tab[aria-selected="true"] { background: var(--bg2); color: var(--fg); }
 .tabs .brand { margin-left: auto; font-size: 12px; color: var(--fg2); padding-right: 4px; }
+.tabs .pin { border: 1px solid var(--line); background: none; border-radius: 8px; padding: 4px 9px; font-size: 12.5px; color: var(--fg); white-space: nowrap; }
 .srow { display: flex; align-items: center; gap: 10px; padding: 9px 14px; border-top: 1px solid var(--line); }
 .srow:first-child { border-top: 0; }
 .srow.off .sname, .srow.off .sdesc { opacity: .5; }
@@ -164,7 +165,12 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
     if (vars) for (const k in vars) if (vars[k]) document.documentElement.style.setProperty(k, vars[k]);
     const fonts = c.styles && c.styles.css && c.styles.css.fonts;
     if (fonts && !document.getElementById('host-fonts')) { const s = document.createElement('style'); s.id = 'host-fonts'; s.textContent = fonts; document.head.appendChild(s); }
+    // Picture-in-picture keeps the panel on screen while the user chats, if the host offers it
+    if (Array.isArray(c.availableDisplayModes)) view.modes = c.availableDisplayModes;
+    if (c.displayMode) view.mode = c.displayMode;
+    if ((c.availableDisplayModes || c.displayMode) && P && app.querySelector('.panel')) drawPanel();
   }
+  const view = { modes: [], mode: 'inline' };
 
   // Tell the host how tall the card is, so it fits the chat without a scrollbar
   let lastH = 0;
@@ -364,7 +370,7 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
         : P.results === 'loading' ? '<div class="pempty" style="padding-top:0">Looking…</div>'
         : P.results.length ? `<div class="presults">${P.results.map(p => cardHTML(p, false)).join('')}</div>` : '<div class="pempty" style="padding-top:0">Nothing checked matches that yet.</div>'}`;
     app.innerHTML = `<div class="panel">
-      <div class="tabs" role="tablist"><button class="tab" role="tab" data-tab="mine" aria-selected="${P.tab === 'mine'}">My skills${sk.length ? ` · ${on} on` : ''}</button><button class="tab" role="tab" data-tab="find" aria-selected="${P.tab === 'find'}">Find more</button><span class="brand">Skillshelf</span></div>
+      <div class="tabs" role="tablist"><button class="tab" role="tab" data-tab="mine" aria-selected="${P.tab === 'mine'}">My skills${sk.length ? ` · ${on} on` : ''}</button><button class="tab" role="tab" data-tab="find" aria-selected="${P.tab === 'find'}">Find more</button><span class="brand">Skillshelf</span>${view.modes.includes('pip') ? `<button class="pin" data-pip>${view.mode === 'pip' ? 'Put back in chat' : 'Keep on screen'}</button>` : ''}</div>
       <div>${P.tab === 'mine' ? mine : find}</div>
       ${P.toast ? `<div class="ptoast" role="status">${esc(P.toast)}</div>` : ''}
       <div class="pfoot">${P.app === 'claude-code'
@@ -396,6 +402,12 @@ mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(
     const row = t.closest('[data-name]') || (t.closest('.sopen') && t.closest('.sopen').previousElementSibling);
     const s = row && P.skills.find(x => x.name === row.dataset.name);
     if (t.dataset.tab) { P.tab = t.dataset.tab; P.toast = null; return drawPanel(); }
+    if (t.hasAttribute('data-pip')) {
+      const want = view.mode === 'pip' ? 'inline' : 'pip';
+      try { const r = await request('ui/request-display-mode', { mode: want }); view.mode = (r && r.mode) || want; P.toast = view.mode === want ? null : 'Claude’s app kept it where it was.'; }
+      catch { P.toast = 'Claude’s app didn’t allow that here.'; }
+      return drawPanel();
+    }
     if (t.dataset.page) return openLink(t.dataset.page);
     if (t.hasAttribute('data-sopen')) { P.open = P.open === s.name ? null : s.name; return drawPanel(); }
     if (t.hasAttribute('data-forgood')) return askClaude(`Turn off the "${s.name}" skill in Claude Code for good: add "${s.name}": "off" under "skillOverrides" in ~/.claude/settings.json (or in this project's .claude/settings.local.json if it's a project skill), keeping every other setting. If it comes from a plugin, tell me to switch the plugin with /plugin instead. Then confirm.`, `Asked Claude Code to turn ${s.name} off for good.`);
