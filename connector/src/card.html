@@ -58,6 +58,7 @@ h3 { margin: 0; font-size: 15px; font-weight: 600; letter-spacing: -0.01em; }
 .btn:focus-visible, .chip:focus-visible { outline: 2px solid var(--info); outline-offset: 2px; }
 .drawer { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 10px; display: grid; gap: 8px; }
 .drawer:empty { display: none; }
+.drawer > *, .drawer > div > * { min-width: 0; }
 .lbl { font-size: 12px; color: var(--fg2); font-weight: 600; margin-bottom: 3px; }
 .cmd { display: flex; gap: 6px; align-items: stretch; }
 .cmd code { flex: 1; min-width: 0; font: 12.5px/1.4 var(--mono); background: var(--bg2); border: 1px solid var(--line); border-radius: 8px; padding: 6px 8px; overflow-x: auto; white-space: nowrap; }
@@ -76,6 +77,51 @@ ol.steps li { margin: 4px 0; }
 .done { font-weight: 600; }
 .foot { margin: 8px 2px 0; font-size: 12px; color: var(--fg2); }
 .loading { color: var(--fg2); padding: 10px 4px; }
+/* Skills panel */
+.panel { background: var(--bg); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.tabs { display: flex; gap: 4px; padding: 8px 10px; border-bottom: 1px solid var(--line); align-items: center; }
+.tab { border: 0; background: none; border-radius: 8px; padding: 5px 10px; font-size: 13.5px; font-weight: 600; color: var(--fg2); }
+.tab[aria-selected="true"] { background: var(--bg2); color: var(--fg); }
+.tabs .brand { margin-left: auto; font-size: 12px; color: var(--fg2); padding-right: 4px; }
+.srow { display: flex; align-items: center; gap: 10px; padding: 9px 14px; border-top: 1px solid var(--line); }
+.srow:first-child { border-top: 0; }
+.srow.off .sname, .srow.off .sdesc { opacity: .5; }
+.smain { flex: 1; min-width: 0; text-align: left; background: none; border: 0; padding: 0; }
+.sname { font-weight: 600; display: flex; align-items: center; gap: 7px; flex-wrap: wrap; }
+.sdesc { color: var(--fg2); font-size: 12.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.srow.open .sdesc { white-space: normal; }
+.mini { display: inline-flex; align-items: center; gap: 4px; font-size: 11.5px; font-weight: 600; padding: 1px 7px; border-radius: 999px; }
+.mini::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.mini.plain { background: var(--bg2); color: var(--fg2); }
+.switch { flex: none; width: 42px; height: 24px; border-radius: 999px; border: 0; background: #c9c5bc; position: relative; transition: background .15s; padding: 0; }
+:root[data-theme="dark"] .switch { background: #4a4742; }
+.switch::after { content: ""; position: absolute; top: 3px; left: 3px; width: 18px; height: 18px; border-radius: 50%; background: #fff; box-shadow: 0 1px 2px rgba(0,0,0,.25); transition: transform .15s; }
+.switch[aria-checked="true"] { background: #2f8f4e; }
+.switch[aria-checked="true"]::after { transform: translateX(18px); }
+.switch:focus-visible, .tab:focus-visible, .smain:focus-visible { outline: 2px solid var(--info); outline-offset: 2px; }
+.sopen { padding: 0 14px 12px; display: grid; gap: 8px; }
+.pfoot { padding: 10px 14px; border-top: 1px solid var(--line); font-size: 12px; color: var(--fg2); }
+.ptoast { padding: 9px 14px; font-size: 13px; font-weight: 500; background: var(--ok-bg); color: var(--ok); border-top: 1px solid var(--line); }
+.findbar { display: flex; gap: 6px; padding: 10px 14px; }
+.findbar input { flex: 1; min-width: 0; border: 1px solid var(--line); background: var(--bg2); border-radius: 8px; padding: 6px 10px; font: inherit; color: inherit; outline: none; }
+.findbar input:focus { border-color: var(--info); }
+.pempty { padding: 14px; color: var(--fg2); }
+.presults { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 0 10px 10px; }
+.presults > * { min-width: 0; }
+/* Slop check */
+.verdict { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; padding: 12px 14px; border-bottom: 1px solid var(--line); }
+.verdict b { font-size: 15px; }
+.lv-high { color: var(--risk); } .lv-some { color: var(--note); } .lv-low, .lv-none { color: var(--ok); }
+.quote { padding: 12px 14px; white-space: pre-wrap; line-height: 1.6; max-height: 260px; overflow: auto; border-bottom: 1px solid var(--line); font-size: 13.5px; }
+mark { background: var(--note-bg); color: inherit; border-bottom: 2px solid var(--note); border-radius: 3px; padding: 0 1px; }
+.tells { padding: 6px 14px 4px; display: grid; gap: 2px; }
+.tell { display: flex; gap: 10px; align-items: flex-start; padding: 7px 0; border-top: 1px solid var(--line); cursor: pointer; }
+.tell:first-child { border-top: 0; }
+.tell input { margin-top: 3px; accent-color: var(--fg); width: 16px; height: 16px; flex: none; }
+.tell b { font-weight: 600; }
+.tell .ex { color: var(--fg2); font-size: 12.5px; }
+.slopacts { display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 14px; border-top: 1px solid var(--line); }
+.everywhere { padding: 0 14px 12px; display: grid; gap: 6px; }
 @media (max-width: 420px) { .top { flex-direction: column; gap: 6px; } }
 </style>
 </head>
@@ -150,6 +196,8 @@ ol.steps li { margin: 4px 0; }
   function show(result) {
     const d = data(result);
     if (result && result.isError && !d.note) { app.innerHTML = `<div class="card">Something went wrong. Ask Claude to try again.</div>`; return; }
+    if (d.view === 'panel') return showPanel(d);
+    if (d.view === 'slop') return showSlop(d);
     if (Array.isArray(d.picks)) return showPicks(d);
     if (d.found === false) return showUnlisted(d);
     if (d.found === 'several') return showSeveral(d);
@@ -287,6 +335,112 @@ ol.steps li { margin: 4px 0; }
   function showSeveral(d) {
     app.innerHTML = `<div class="head"><b>Which one did you mean?</b></div><div class="list">${d.candidates.map(c => `<button class="card btn" style="text-align:left;width:100%" data-pick="${esc(c.name)}"><h3>${esc(c.name)}</h3><div class="meta">${esc(c.kind)} · by ${esc(c.by)}</div><p class="what">${esc(c.what_it_does)}</p></button>`).join('')}</div>`;
     app.querySelectorAll('[data-pick]').forEach(b => b.onclick = async () => { app.innerHTML = '<div class="loading">Checking…</div>'; try { showDetail(await callTool('check_skill', { skill: b.dataset.pick })); } catch { app.innerHTML = '<div class="card">Couldn’t load it. Ask Claude again.</div>'; } });
+  }
+
+  // ---------- My skills: everything Claude has in this chat, with per-chat switches ----------
+  const mini = c => c ? `<span class="mini ${esc(c.badge)}">${esc(c.label)}</span>` : '<span class="mini plain">Not on Skillshelf</span>';
+  let P = null;   // { skills, off:Set, tab, open, toast, results, query }
+  function showPanel(d) {
+    P = { skills: d.skills, off: new Set(), tab: d.skills.length ? 'mine' : 'find', open: null, toast: null, results: null, query: '' };
+    drawPanel();
+  }
+  function offMessage() {
+    const off = P.skills.filter(s => P.off.has(s.name)).map(s => s.name);
+    return off.length ? `In this conversation the user switched these skills off with Skillshelf: ${off.join(', ')}. Don't use them unless the user asks for one by name. Every other skill is fine to use.` : 'The user switched all their skills back on for this conversation.';
+  }
+  function drawPanel() {
+    const sk = P.skills, on = sk.length - P.off.size;
+    const mine = sk.length ? sk.map(s => {
+      const off = P.off.has(s.name), open = P.open === s.name;
+      return `<div class="srow${off ? ' off' : ''}${open ? ' open' : ''}" data-name="${esc(s.name)}">
+          <button class="smain" data-sopen aria-expanded="${open}"><div class="sname">${esc(s.name)} ${mini(s.check)}</div><div class="sdesc">${esc(s.description || (s.check ? '' : 'No description'))}</div></button>
+          <button class="switch" role="switch" aria-checked="${!off}" aria-label="${esc(s.name)}: ${off ? 'off' : 'on'} in this chat" data-stoggle></button></div>
+        ${open ? `<div class="sopen">${s.check ? `<div class="small">${esc(s.check.listing)} by ${esc(s.check.by)}. Skillshelf read its code: ${esc(s.check.label.toLowerCase())}.</div>` : '<div class="small">Not on Skillshelf, so nobody has checked its code there.</div>'}
+          <div class="actions" style="margin:0">${s.check ? `<button class="btn link" data-page="${esc(s.check.page)}">Full check ↗</button><button class="btn" data-sslop>Report slop</button>` : ''}</div><div class="sslop"></div></div>` : ''}`;
+    }).join('') : '<div class="pempty">No skills in this chat yet. Find some in the next tab.</div>';
+    const find = `<div class="findbar"><input type="search" placeholder="What should Claude be better at?" value="${esc(P.query)}" aria-label="Find skills"><button class="btn primary" data-find>Find</button></div>
+      ${P.results === null ? '<div class="pempty" style="padding-top:0">Try “make my website look less AI-made” or “write better emails”. Every result was checked by reading its code.</div>'
+        : P.results === 'loading' ? '<div class="pempty" style="padding-top:0">Looking…</div>'
+        : P.results.length ? `<div class="presults">${P.results.map(p => cardHTML(p, false)).join('')}</div>` : '<div class="pempty" style="padding-top:0">Nothing checked matches that yet.</div>'}`;
+    app.innerHTML = `<div class="panel">
+      <div class="tabs" role="tablist"><button class="tab" role="tab" data-tab="mine" aria-selected="${P.tab === 'mine'}">My skills${sk.length ? ` · ${on} on` : ''}</button><button class="tab" role="tab" data-tab="find" aria-selected="${P.tab === 'find'}">Find more</button><span class="brand">Skillshelf</span></div>
+      <div>${P.tab === 'mine' ? mine : find}</div>
+      ${P.toast && P.tab === 'mine' ? `<div class="ptoast" role="status">${esc(P.toast)}</div>` : ''}
+      <div class="pfoot">${P.tab === 'mine' ? 'Switches apply to this chat. To switch a skill off everywhere, use Customize, then Skills.' : 'Add a skill to the Claude app from its page (Full check), or install it in Claude Code with the command.'}</div></div>`;
+    if (P.tab === 'find' && Array.isArray(P.results)) {
+      // These aren't installed yet, so switching them off or reporting them makes no sense here
+      app.querySelectorAll('.presults [data-act="toggle"], .presults [data-act="slop"]').forEach(b => b.remove());
+      wire(P.results);
+    }
+    const input = app.querySelector('.findbar input');
+    if (input) input.onkeydown = e => { if (e.key === 'Enter') app.querySelector('[data-find]').click(); };
+  }
+  app.addEventListener('click', async e => {
+    if (!P || !app.querySelector('.panel')) return;
+    const t = e.target.closest('button'); if (!t || t.closest('article.card')) return;
+    const row = t.closest('[data-name]') || (t.closest('.sopen') && t.closest('.sopen').previousElementSibling);
+    const s = row && P.skills.find(x => x.name === row.dataset.name);
+    if (t.dataset.tab) { P.tab = t.dataset.tab; return drawPanel(); }
+    if (t.dataset.page) return openLink(t.dataset.page);
+    if (t.hasAttribute('data-sopen')) { P.open = P.open === s.name ? null : s.name; return drawPanel(); }
+    if (t.hasAttribute('data-stoggle')) {
+      const nowOff = !P.off.has(s.name);
+      nowOff ? P.off.add(s.name) : P.off.delete(s.name);
+      P.toast = `${s.name} is ${nowOff ? 'off' : 'on'} in this chat.`;
+      if (host.updateModelContext) request('ui/update-model-context', { content: [{ type: 'text', text: offMessage() }] }).catch(() => {});
+      else if (host.message) request('ui/message', { role: 'user', content: [{ type: 'text', text: nowOff ? `Please don't use the ${s.name} skill in this chat.` : `You can use the ${s.name} skill again in this chat.` }] }).catch(() => {});
+      return drawPanel();
+    }
+    if (t.hasAttribute('data-find')) {
+      P.query = app.querySelector('.findbar input').value.trim(); if (!P.query) return;
+      P.results = 'loading'; drawPanel();
+      try { P.results = (await callTool('find_skills', { task: P.query, kind: 'skill' })).picks || []; } catch { P.results = []; }
+      return drawPanel();
+    }
+    if (t.hasAttribute('data-sslop')) {
+      const box = t.closest('.sopen').querySelector('.sslop');
+      box.innerHTML = `<div class="chips">${REASONS.map(([k, v]) => `<button class="chip" data-sreason="${k}">${esc(v)}</button>`).join('')}</div><div class="small" style="margin-top:4px">Tap a reason to send it. Only the reason is shared.</div>`;
+      return;
+    }
+    if (t.dataset.sreason) {
+      const box = t.closest('.sslop'), sk = P.skills.find(x => x.name === t.closest('.sopen').previousElementSibling.dataset.name);
+      box.innerHTML = '<div class="small">Sending…</div>';
+      try { const r = await callTool('flag_slop', { skill: sk.check.id, reason: t.dataset.sreason }); box.innerHTML = `<div class="small"><b>${r.saved ? 'Report sent. Thank you.' : esc(r.note)}</b></div>`; }
+      catch { box.innerHTML = '<div class="small">Couldn’t send it. Try again later.</div>'; }
+    }
+  });
+
+  // ---------- Slop check: highlight the tells, then ban them for this chat or every chat ----------
+  function showSlop(d) {
+    P = null;
+    const marks = d.hits.flatMap(h => h.matches.map(m => ({ ...m, id: h.id, label: h.label }))).sort((a, b) => a.start - b.start);
+    let html = '', at = 0;
+    for (const m of marks) { if (m.start < at) continue; html += esc(d.text.slice(at, m.start)) + `<mark title="${esc(m.label)}">${esc(d.text.slice(m.start, m.end))}</mark>`; at = m.end; }
+    html += esc(d.text.slice(at));
+    app.innerHTML = `<div class="panel">
+      <div class="verdict"><b class="lv-${esc(d.level)}">${esc(d.verdict)}</b><span class="small">${d.total} tell${d.total === 1 ? '' : 's'} in ${d.words} words</span></div>
+      ${d.words ? `<div class="quote">${html}</div>` : ''}
+      ${d.hits.length ? `<div class="tells">${d.hits.map(h => `<label class="tell"><input type="checkbox" checked data-hit="${esc(h.id)}"><span><b>${esc(h.label)}</b> <span class="small">×${h.count}</span><br><span class="ex">${esc(h.why)}. ${h.examples.length ? 'Found: ' + h.examples.map(x => `“${esc(x)}”`).join(', ') : ''}</span></span></label>`).join('')}</div>
+      <div class="slopacts"><button class="btn primary" data-ban="chat">Avoid these in this chat</button><button class="btn" data-ban="rewrite">Rewrite it without them</button><button class="btn" data-ban="always">Avoid in every chat</button></div>
+      <div class="everywhere"></div>` : ''}
+      <div class="pfoot">These are common patterns, not proof: people use some of them too. Your text isn't stored.</div></div>`;
+    const chosen = () => d.hits.filter(h => app.querySelector(`[data-hit="${h.id}"]`).checked);
+    const NAMES = { buzzwords: 'AI buzzwords', openers: 'stock openers', filler: 'filler phrases', notjust: '"it\'s not X, it\'s Y" contrasts', wrapup: 'wrap-up lines', eager: 'eager openings', emdash: 'heavy use of em dashes', whether: '"whether you\'re X or Y" lines', reveal: 'fake suspense', hedge: 'stacked hedges', emoji: 'emoji bullets' };
+    const rule = hs => `Don't write like a chatbot. Avoid ${hs.map(h => `${NAMES[h.id] || h.label}${h.examples.length && h.id !== 'emdash' ? ` (like ${h.examples.slice(0, 4).map(x => `"${x}"`).join(', ')})` : ''}`).join('; ')}.`;
+    app.querySelectorAll('[data-ban]').forEach(b => b.onclick = async () => {
+      const hs = chosen(); if (!hs.length) return;
+      const out = app.querySelector('.everywhere');
+      if (b.dataset.ban === 'chat') {
+        const ok = host.updateModelContext ? await request('ui/update-model-context', { content: [{ type: 'text', text: `For the rest of this conversation, the user wants none of these in anything you write. ${rule(hs)}` }] }).then(() => true, () => false) : false;
+        out.innerHTML = `<div class="small"><b>${ok ? 'Done. Claude will avoid these for the rest of this chat.' : 'Tell Claude: “' + esc(rule(hs)) + '”'}</b></div>`;
+      } else if (b.dataset.ban === 'rewrite') {
+        await request('ui/message', { role: 'user', content: [{ type: 'text', text: `Rewrite the text I pasted so it sounds like a person wrote it. ${rule(hs)} Keep the meaning and length.` }] }).catch(() => { out.innerHTML = '<div class="small">Ask Claude to rewrite it without these.</div>'; });
+      } else {
+        const r = rule(hs);
+        out.innerHTML = `<div class="small">Paste this into Claude's Settings, in the personal preferences box, and Claude will follow it in every chat:</div><div class="cmd"><code style="white-space:normal">${esc(r)}</code><button class="btn" data-copy="${esc(r)}">Copy</button></div>`;
+        out.querySelector('[data-copy]').onclick = e => copy(e.target, r);
+      }
+    });
   }
 
   async function copy(btn, value) {

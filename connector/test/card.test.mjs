@@ -16,7 +16,9 @@ const SRC = path.join(HERE, '..', 'src');
 const SHOTS = process.argv[2];
 const CARD = fs.readFileSync(path.join(SRC, 'card.html'), 'utf8');
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'skillshelf-card-'));
+fs.copyFileSync(path.join(SRC, 'slop.js'), path.join(tmp, 'slop.mjs'));
 fs.writeFileSync(path.join(tmp, 'worker.mjs'), fs.readFileSync(path.join(SRC, 'worker.js'), 'utf8')
+  .replace("import { analyzeSlop } from './slop.js';", "import { analyzeSlop } from './slop.mjs';")
   .replace("import CATALOG from './catalog.json';", `const CATALOG = ${fs.readFileSync(path.join(SRC, 'catalog.json'), 'utf8')};`)
   .replace("import DESKTOP_MCPB from './skillshelf-desktop.bin';", 'const DESKTOP_MCPB = new Uint8Array([80, 75, 3, 4]);')
   .replace("import CARD_HTML from './card.html';", `const CARD_HTML = ${JSON.stringify(CARD)};`));
@@ -54,7 +56,7 @@ const HOST = theme => `<!doctype html><html><body style="margin:0;padding:16px;b
     else if (m.method === 'ui/notifications/initialized') window.ready = true;
     else if (m.method === 'ui/notifications/size-changed') f.style.height = m.params.height + 'px';
     else if (m.method === 'tools/call') reply(m.id, await window.hostCall(m.params.name, m.params.arguments));
-    else if (m.method === 'ui/open-link' || m.method === 'ui/update-model-context') reply(m.id, {});
+    else if (m.method === 'ui/open-link' || m.method === 'ui/update-model-context' || m.method === 'ui/message') reply(m.id, {});
   });
   f.srcdoc = ${JSON.stringify(served).replace(/</g, '\\u003c')};
 </script></body></html>`;
@@ -175,6 +177,75 @@ const shot = async (page, name) => { if (SHOTS) { fs.mkdirSync(SHOTS, { recursiv
     ok(await card.locator('article.card').count() === 1, 'picking one of several matches opens its check');
   } else ok(several.structuredContent.name, '"memory" resolves straight to one listing');
   ok(!errors.length, 'no errors at phone width');
+  await page.close();
+}
+
+// 4. My skills: the skills Claude has in this chat, switched per chat, plus Find more
+{
+  const { page, card, show, log, errors } = await open();
+  await show('my_skills', { skills: [
+    { name: 'pdf', description: 'Use this skill whenever the user wants to do anything with PDF files: reading, extracting, merging' },
+    { name: 'docs', description: 'Editable docs people can share and comment on' },
+    { name: 'frontend-design', description: 'Guidance for distinctive, intentional visual design when building new UI' },
+    { name: 'deep-research', description: 'Multi-source research synthesized into a report' }] });
+  await card.locator('.srow').first().waitFor();
+  ok(await card.locator('.srow').count() === 4 && await card.locator('.srow .switch[aria-checked="true"]').count() === 4, 'My skills lists every skill in the chat, all on');
+  ok(await card.locator('.srow[data-name="pdf"] .mini.ok').count() === 1 && await card.locator('.srow[data-name="docs"] .mini.plain').count() === 1, 'checked skills get a badge; unchecked ones say so');
+  await shot(page, '9-my-skills.png');
+  await card.locator('.srow[data-name="docs"] .switch').click();
+  await card.locator('.ptoast').waitFor();
+  ok(await card.locator('.srow[data-name="docs"] .switch').getAttribute('aria-checked') === 'false', 'a switch turns a skill off');
+  const ctx = (await log()).filter(m => m.method === 'ui/update-model-context').pop();
+  ok(ctx && /switched these skills off with Skillshelf: docs\./.test(ctx.params.content[0].text), 'Claude is told not to use it in this chat');
+  await card.locator('.srow[data-name="deep-research"] .switch').click();
+  const ctx2 = (await log()).filter(m => m.method === 'ui/update-model-context').pop();
+  ok(/docs, deep-research/.test(ctx2.params.content[0].text), 'the message to Claude always holds the full list of what is off');
+  await shot(page, '10-switched-off.png');
+  await card.locator('.srow[data-name="pdf"] [data-sopen]').click();
+  ok(/Skillshelf read its code/.test(await card.locator('.sopen').innerText()), 'opening a checked skill shows its check');
+  await card.locator('[data-tab="find"]').click();
+  await card.locator('.findbar input').fill('make my website look less AI generated');
+  await card.locator('[data-find]').click();
+  await card.locator('.presults article.card').first().waitFor();
+  ok(await card.locator('.presults article.card').count() >= 3, 'Find more searches checked skills inside the panel');
+  await card.locator('.presults article.card').first().locator('[data-act="install"]').click();
+  ok(/npx skills add/.test(await card.locator('.presults article.card').first().locator('.drawer.act').innerText()), 'and each result can be installed from there');
+  ok(await card.locator('.presults [data-act="toggle"]').count() === 0, 'results you don\'t have yet have no Switch off button');
+  ok(await card.locator('.panel').evaluate(el => [...el.querySelectorAll('article.card')].every(c => c.getBoundingClientRect().right <= el.getBoundingClientRect().right + 0.5)), 'results fit inside the panel');
+  ok(await card.locator('.presults article.card').first().evaluate(c => [...c.querySelectorAll('button')].every(b => b.getBoundingClientRect().right <= c.getBoundingClientRect().right + 0.5)), 'the Copy button stays inside its card');
+  await shot(page, '11-find-more.png');
+  ok(!errors.length, 'no errors in the skills panel ' + errors.join('; '));
+  await page.close();
+}
+{
+  const { page, card, show, errors } = await open('light', { width: 390, height: 800 });
+  await show('my_skills', { skills: [] });
+  await card.locator('.findbar').waitFor();
+  ok(await card.locator('[data-tab="find"]').getAttribute('aria-selected') === 'true', 'with no skills, the panel opens on Find more');
+  ok(!errors.length, 'no errors with an empty list');
+  await page.close();
+}
+// 5. Slop check
+{
+  const { page, card, show, log, errors } = await open();
+  await show('check_slop', { text: "Great question! In today's fast-paced world, it's important to note that this is not just a tool — it's a partner. Let's dive in and delve into a vibrant tapestry of ideas. The result? Real growth. Whether you're a founder or a freelancer, it plays a crucial role. In conclusion, I hope this helps!" });
+  await card.locator('.verdict').waitFor();
+  ok(/Lots of AI tells/.test(await card.locator('.verdict').innerText()), 'the slop check gives a verdict');
+  ok(await card.locator('mark').count() >= 10, 'the tells are highlighted in the text');
+  await shot(page, '12-slop.png');
+  await card.locator('[data-hit="eager"]').uncheck();
+  await card.locator('[data-ban="chat"]').click();
+  await card.getByText('Claude will avoid these').waitFor();
+  const ban = (await log()).filter(m => m.method === 'ui/update-model-context').pop().params.content[0].text;
+  ok(/delve/.test(ban) && !/great question/i.test(ban), 'Avoid in this chat tells Claude the ticked patterns only');
+  await card.locator('[data-ban="rewrite"]').click();
+  await page.waitForTimeout(150);
+  ok((await log()).some(m => m.method === 'ui/message' && /^Rewrite the text I pasted/.test(m.params.content[0].text)), 'Rewrite asks Claude in the chat');
+  await card.locator('[data-ban="always"]').click();
+  ok(/Avoid AI buzzwords \(like "delve"/.test(await card.locator('.everywhere code').innerText()) && /"it's not X, it's Y" contrasts/.test(await card.locator('.everywhere code').innerText()), 'the rule reads properly');
+  ok(/personal preferences/.test(await card.locator('.everywhere').innerText()) && await card.locator('.everywhere [data-copy]').count() === 1, 'Avoid in every chat gives a rule to paste into settings');
+  await shot(page, '13-slop-every-chat.png');
+  ok(!errors.length, 'no errors in the slop check ' + errors.join('; '));
   await page.close();
 }
 

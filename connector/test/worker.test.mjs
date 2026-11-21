@@ -9,7 +9,9 @@ const HERE = path.dirname(new URL(import.meta.url).pathname);
 const SRC = path.join(HERE, '..', 'src');
 // Node can't import JSON the way the Workers bundler does, so load a copy of the worker with the catalog inlined
 const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'skillshelf-'));
+fs.copyFileSync(path.join(SRC, 'slop.js'), path.join(tmp, 'slop.mjs'));
 fs.writeFileSync(path.join(tmp, 'worker.mjs'), fs.readFileSync(path.join(SRC, 'worker.js'), 'utf8')
+  .replace("import { analyzeSlop } from './slop.js';", "import { analyzeSlop } from './slop.mjs';")
   .replace("import CATALOG from './catalog.json';", `const CATALOG = ${fs.readFileSync(path.join(SRC, 'catalog.json'), 'utf8')};`)
   .replace("import DESKTOP_MCPB from './skillshelf-desktop.bin';", 'const DESKTOP_MCPB = new Uint8Array([80, 75, 3, 4]);')
   .replace("import CARD_HTML from './card.html';", `const CARD_HTML = ${JSON.stringify(fs.readFileSync(path.join(SRC, 'card.html'), 'utf8'))};`));
@@ -31,7 +33,7 @@ const session = init.headers.get('Mcp-Session-Id'), ij = await init.json();
 ok(init.status === 200 && session && ij.result.protocolVersion === '2025-06-18' && ij.result.capabilities.tools && /find_skills/.test(ij.result.instructions), 'initialize: protocol, tools capability, instructions and a session id');
 ok((await post({ jsonrpc: '2.0', method: 'notifications/initialized' }, session)).status === 202, 'a notification gets 202 and no body');
 const tl = (await (await post({ jsonrpc: '2.0', id: ++id, method: 'tools/list' }, session)).json()).result.tools;
-ok(tl.map(t => t.name).join() === 'find_skills,check_skill,flag_slop,how_to_toggle' && tl.every(t => t.inputSchema?.type === 'object'), 'tools/list has the four tools with schemas');
+ok(tl.map(t => t.name).join() === 'find_skills,check_skill,flag_slop,my_skills,check_slop,how_to_toggle' && tl.every(t => t.inputSchema?.type === 'object'), 'tools/list has the six tools with schemas');
 
 // The interactive card (MCP Apps)
 ok(ij.result.capabilities.resources && tl.every(t => t._meta?.ui?.resourceUri === 'ui://skillshelf/card.html' && t._meta['ui/resourceUri'] === 'ui://skillshelf/card.html'), 'every tool points to the card, in both key spellings');
@@ -74,6 +76,26 @@ const t1 = await call('how_to_toggle', { skill: 'Impeccable', where: 'claude-app
 ok(/Customize/.test(t1.structuredContent.steps[0]) && /off/.test(t1.structuredContent.steps[1]), 'how_to_toggle gives Claude app steps');
 const t2 = await call('how_to_toggle', { skill: 'Impeccable', where: 'claude-code', on: false }, session);
 ok(t2.structuredContent.steps.some(s => s.includes('"skillOverrides": { "impeccable": "off" }')), 'how_to_toggle gives the Claude Code setting');
+
+// My skills: what Claude has in this chat, matched to Skillshelf's checks
+const ms = (await call('my_skills', { skills: [
+  { name: 'pdf', description: 'Use this skill whenever the user wants to do anything with PDF files: reading, extracting, merging, splitting' },
+  { name: 'docs', description: 'Editable docs people can share and comment on' },
+  { name: 'frontend-design', description: 'Guidance for distinctive, intentional visual design when building new UI' },
+  { name: 'pdf2', description: 'x' }, 'impeccable'] }, session)).structuredContent;
+ok(ms.view === 'panel' && ms.skills.length === 5, 'my_skills lists every skill Claude passes, names alone too');
+ok(ms.skills[0].check?.id === 'anthropics-pdf' && ms.skills[2].check?.id === 'anthropics-frontend-design', 'skills are matched to their Skillshelf checks by name and description (pdf is Anthropic\'s, not OpenAI\'s)');
+ok(ms.skills[1].check === null && ms.skills[3].check === null, 'skills Skillshelf never checked say so');
+ok(ms.skills[4].check?.id === 'pbakaus-impeccable' && ms.skills[4].check.badge === 'note', 'a unique name matches without a description');
+const me = (await call('my_skills', { skills: [] }, session)).structuredContent;
+ok(me.skills.length === 0 && /Find more/.test(me.note), 'an empty list opens on Find more');
+// Slop check
+const sc = await call('check_slop', { text: "Great question! In today's fast-paced world, it's important to note that this is not just a tool — it's a partner. Let's dive in and delve into a vibrant tapestry. The result? Growth. In conclusion, I hope this helps!" }, session);
+ok(sc.structuredContent.level === 'high' && sc.structuredContent.hits.length >= 6, `check_slop finds the tells (${sc.structuredContent.hits.map(h => h.id).join(', ')})`);
+ok(sc.structuredContent.hits.every(h => h.matches.every(m => sc.structuredContent.text.slice(m.start, m.end).trim().toLowerCase() === m.text.toLowerCase())), 'every tell points at the right place in the text');
+ok(!/"matches"/.test(sc.content[0].text) && /pattern/.test(sc.content[0].text), 'Claude gets a short summary, the card gets the positions');
+const clean = (await call('check_slop', { text: 'I fixed the login bug. The token expired after an hour, so people got logged out. Now it refreshes five minutes early.' }, session)).structuredContent;
+ok(clean.level === 'none' && clean.total === 0, 'plain human writing comes back clean');
 
 const fj = await (await worker.fetch(new Request('https://x.test/flags.json'), env)).json();
 ok(fj.flags['pbakaus-impeccable']?.generic === 1, '/flags.json has counts per listing');

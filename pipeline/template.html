@@ -177,6 +177,7 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .inst-card.ask { background: color-mix(in srgb, var(--blue) 8%, var(--bg2)); }
 .claude-steps { margin: 0; padding-left: 20px; display: grid; gap: 8px; line-height: 1.45; }
 .claude-steps .copybox { margin-top: 6px; }
+.claude-tries { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 4px; color: var(--label2); }
 .claude-desk { display: grid; gap: 6px; justify-items: start; border-top: 1px solid var(--sep); padding-top: 12px; line-height: 1.45; }
 .claude-note { margin: 0; font-size: 12.5px; color: var(--label2); line-height: 1.45; }
 .sheet .inst-card.ask { background: color-mix(in srgb, var(--blue) 8%, var(--card)); }
@@ -1011,14 +1012,16 @@ function pageToday() {
 // The Skillshelf connector: ask for skills inside Claude and get these checks as cards (connector/ in the repo)
 const CONNECTOR = 'https://skillshelf.skillshelf.workers.dev/mcp';
 function claudeBox() {
-  return `<section class="shelf" id="in-claude"><div class="shelf-head"><h2>Use Skillshelf inside Claude<span class="sub">Ask for a skill in any chat and get these checked picks as cards, with Install, Switch off and Report slop buttons</span></h2></div>
+  return `<section class="shelf" id="in-claude"><div class="shelf-head"><h2>Use Skillshelf inside Claude<span class="sub">Your skills with on/off switches, a slop checker, and these checked picks, right in the chat</span></h2></div>
     <div class="inst-card ask claude-box">
       <ol class="claude-steps"><li>In Claude, open <b>Settings</b>, then <b>Connectors</b>, then <b>Add custom connector</b>.</li>
         <li>Name it Skillshelf and paste this address:${copyBox(CONNECTOR)}</li>
-        <li>In a new chat, ask: <i>“find me a skill to make my website look less AI-made”</i>.</li></ol>
+        <li>In a new chat, try:<ul class="claude-tries"><li><i>“open my skills in Skillshelf”</i>: every skill you have, with switches to turn them off for that chat, and a tab to find more</li>
+          <li><i>“check this for AI slop: …”</i> and paste text: it highlights the tells, and Claude can avoid them from then on</li>
+          <li><i>“find me a skill to make my website look less AI-made”</i></li></ul></li></ol>
       <details class="ask-q"><summary>Using Claude Code instead?</summary>${copyBox(`claude mcp add --transport http skillshelf ${CONNECTOR}`)}</details>
       <p class="claude-note">Free, with no account. It only gets the short question Claude sends it, like “design skills”, and doesn't keep it. It can't see your chats, files or settings. A slop report shares just the reason you pick.</p>
-      <div class="claude-desk"><b>Manage the skills on your computer</b>
+      <div class="claude-desk"><b>Use Claude Code? Switch its skills everywhere</b>
         <span>On the Claude desktop app, ask “show my Claude Code skills in Skillshelf” to see every Claude Code skill you have, switch each on or off, and see our check on each one.</span>
         <a class="get primary" href="${CONNECTOR.replace(/\/mcp$/, '/skillshelf.mcpb')}" target="_blank" rel="noopener">Get it for Claude desktop</a>
         <span class="claude-note">It downloads in a new tab. Open the file and click Install. It runs on your computer and only changes Claude Code's on/off setting, with a backup. Mac and Windows.</span></div>
