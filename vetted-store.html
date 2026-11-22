@@ -1,6 +1,17 @@
 <title>Skillshelf</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Free apps, AI skills and connectors from GitHub, explained in plain English and set up for you by Claude.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Skillshelf">
+<meta property="og:title" content="Skillshelf: the app store for open source">
+<meta property="og:description" content="Free apps, AI skills and connectors from GitHub, explained in plain English and set up for you by Claude. Free alternatives to tools you pay for.">
+<meta property="og:url" content="https://skillshelf-dgcx.onrender.com/">
+<meta property="og:image" content="https://skillshelf-dgcx.onrender.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="627">
+<meta property="og:image:alt" content="Skillshelf: the app store for open source">
+<meta name="twitter:card" content="summary_large_image">
 <style>
 /* Layout: app-store pattern. Sidebar on desktop, bottom tab bar on phones; Today stories, shelves, product pages, install sheet. All listings are real repos. */
 :root {
@@ -1071,12 +1082,13 @@ function stories() {
   const featured = uniqueRepos(byStars(comm)).slice(0, 8);
   const out = [];
   const noted = checked.filter(l => NT(l).length).length, ft = flagTotals();
-  out.push({ id: 'community', eyebrow: 'How Skillshelf works', title: 'See what it can access before you install it', g: ['#14213D', '#3A6EA5'], glyph: 'shieldok', wide: true, app: BY['blader-humanizer'] || featured[0],
-    body: [`AI add-ons and open-source apps can go online, read your files, run other programs and use your passwords. Most places that list them don't tell you which ones do what.`,
-      `We read each project's code and list exactly what it can reach: <strong>the internet, your files, other programs, passwords and keys, and your browser</strong>. Then we compare that with what the project says it's for.`,
-      `If a note-taking skill could read your SSH keys, its page would say so in orange. If an app sends usage data unless you switch it off, its page says so and tells you how to switch it off.`,
-      `The automatic scanner raises a lot of alarms, most of them about ordinary code. So every high-risk flag gets a written reason before a listing gets its label: ${ft.n.toLocaleString('en-US')} so far${ft.open ? `, ${ft.open} still waiting` : ''}. Rules settle the clear cases, like a flag in a test file. Claude, an AI model, reads the rest line by line. Each reason is on the listing's page.`,
-      `Right now: ${L.length} listings, every one scanned with NVIDIA's SkillSpector. ${checked.length} projects from independent developers also got the Purpose Check; ${noted} of them have something worth knowing before you install, written at the top of their page.`], apps: featured });
+  const scannedN = L.filter(l => scanOf(l)).length;
+  out.push({ id: 'community', eyebrow: 'How Skillshelf works', title: 'Claude checks it on your computer before installing', g: ['#14213D', '#3A6EA5'], glyph: 'shieldok', wide: true, app: BY['blader-humanizer'] || featured[0],
+    body: [`Open-source apps and AI add-ons can go online, read your files, run other programs and use your passwords. You should know which ones do what before you install them.`,
+      `So every <strong>Copy for Claude</strong> on Skillshelf carries a safety check. Your own Claude gets the code, reads it on your computer before running anything, and tells you in plain words what it can reach: <strong>the internet, your files, other programs, passwords and keys, and your browser</strong>.`,
+      `It flags anything that doesn't fit what the project says it's for, such as hidden code, data sent somewhere unexpected or instructions aimed at an AI. Then it gives you a verdict and asks before it installs. You decide.`,
+      `Why on your computer: code changes after anyone reviews it, and installs get the newest version. A check at install time reads the exact version you're about to run, on your own Claude plan.`,
+      `Older listings also keep our earlier checks under Technical details: ${scannedN} of ${L.length} were scanned with NVIDIA's SkillSpector, and ${ft.n.toLocaleString('en-US')} of the scanner's high-risk flags have a written reason. Newer listings aren't scanned by Skillshelf.`], apps: featured });
   const commScans = comm.map(l => scanOf(l)).filter(Boolean);
   if (spector && commScans.length) {
     const c = {}; for (const x of commScans) c[x.sev] = (c[x.sev] || 0) + 1;
@@ -1733,7 +1745,7 @@ function pageProduct(id) {
       ${getHTML(l)}</section>
 
     <section class="block before" id="before"><h2>Before you install</h2>
-      <p>Claude reads ${esc(l.n)}'s code on your own computer and tells you what it can reach before anything is installed. You decide.</p>
+      <p>When you set it up with <b>Copy for Claude</b>, Claude first reads ${esc(l.n)}'s code on your own computer and tells you what it can reach. Nothing installs until you say yes. If you download it yourself, you can still ask Claude to check it first:</p>
       ${risks.map(n => `<div class="worth ${NT_LV[n.lv][0]}"><div class="cap-h"><b>${esc(n.t)}</b><span class="chip ${NT_LV[n.lv][1]}">${NT_LV[n.lv][2]}</span></div><p>${esc(n.n)}</p></div>`).join('')}
       ${l.ih ? `<p class="note">Runs a script on its own when npm installs it (${esc(andList([...new Set(l.ih.map(h => h.s))]))}). Details are under Technical details.</p>` : ''}
       ${askCard(l.r, l)}
@@ -2276,8 +2288,8 @@ document.addEventListener('click', e => {
   if (d.fset) { setFocus(d.fset, d.fval); return; }
   if (d.save) { const on = !inList(d.save); LIST = on ? [...LIST, d.save] : LIST.filter(x => x !== d.save); saveList(); if (sheet.open) drawSheet(); refocus(); toast(on ? 'Saved to your list' : 'Removed from your list'); return; }
   if ('audit' in d) { S.audit = !!t.checked; const y = scrollY; render(); scrollTo(0, y); return; }
-  if (d.share) { const l = BY[d.share]; share(`${l.n} on Skillshelf`, `${l.n}: ${plainOf(l)} ${trust(l).short} on Skillshelf's check.`, l.id); return; }
-  if ('sharelist' in d) { share('My Skillshelf list', `${LIST.length} AI add-ons, each checked on Skillshelf.`, 'list=' + LIST.join(',')); return; }
+  if (d.share) { const l = BY[d.share]; share(`${l.n} on Skillshelf`, `${l.n}: ${plainOf(l)}${l.alt?.paid ? ` A free alternative to ${l.alt.n}.` : ''} Found on Skillshelf, the app store for open source.`, l.id); return; }
+  if ('sharelist' in d) { share('My Skillshelf list', `${LIST.length} open-source picks from Skillshelf, the app store for open source.`, 'list=' + LIST.join(',')); return; }
   if (d.sharekit) { share(KIT[d.sharekit][1], KIT[d.sharekit][2], 'kit-' + d.sharekit); return; }
   if (d.savekit || 'savelist' in d) { const ids = d.savekit ? KIT[d.savekit][5].map(x => x[0]).filter(id => BY[id]) : S.shared, add = ids.filter(id => !inList(id));
     LIST = [...LIST, ...add]; saveList(); refocus(); toast(add.length ? `${add.length} saved to your list` : 'Already in your list'); return; }
