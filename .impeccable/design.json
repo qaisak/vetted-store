@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-22T03:30:00Z",
+  "title": "Design System: Skillshelf",
+  "extensions": {
+    "colorMeta": {
+      "accent": { "role": "primary", "displayName": "Accent Blue", "canonical": "#0062CC" },
+      "button": { "role": "primary", "displayName": "Button Blue", "canonical": "#0062CC" },
+      "green-ink": { "role": "secondary", "displayName": "Free Green", "canonical": "#1B6B31" },
+      "bg-grouped": { "role": "neutral", "displayName": "Grouped Grey", "canonical": "#F2F2F7" },
+      "fill": { "role": "neutral", "displayName": "Control Fill", "canonical": "#EEEEF3" }
+    },
+    "typographyMeta": {
+      "hero": { "displayName": "Hero", "purpose": "The home promise only." },
+      "large-title": { "displayName": "Large title", "purpose": "Page titles (Browse, My list)." },
+      "section": { "displayName": "Section", "purpose": "Shelf and listing-block headings." },
+      "body": { "displayName": "Body", "purpose": "Everything else." },
+      "code": { "displayName": "Code", "purpose": "Commands people copy." }
+    },
+    "shadows": [
+      { "name": "sheet", "value": "0 10px 40px rgba(0,0,0,0.12)", "purpose": "The install sheet and dialogs over a scrim." },
+      { "name": "segment", "value": "0 1px 3px rgba(0,0,0,0.12)", "purpose": "The selected kind in Browse's filter." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(.2,.8,.2,1)", "purpose": "Sheet rise and card lift on hover." }
+    ],
+    "breakpoints": [
+      { "name": "phone", "value": "760px" }
+    ]
+  },
+  "components": [
+    { "name": "Get button", "kind": "button", "refersTo": "button-get", "description": "Opens the install sheet from any row.",
+      "html": "<button class=\"ds-get\">Get</button>",
+      "css": ".ds-get { min-width: 76px; height: 30px; border-radius: 15px; background: #EEEEF3; color: #0062CC; font: 700 15px system-ui, sans-serif; padding: 0 16px; border: 0; }" },
+    { "name": "Free alternative tag", "kind": "chip", "refersTo": "alt-tag", "description": "Only where the project says it replaces a paid tool.",
+      "html": "<span class=\"ds-alt\">Free alternative to ElevenLabs</span>",
+      "css": ".ds-alt { display: inline-block; font: 700 12px/1.2 system-ui, sans-serif; padding: 4px 8px; border-radius: 6px; background: rgba(36,138,61,.16); color: #1B6B31; }" },
+    { "name": "Search field", "kind": "input", "refersTo": "search-field", "description": "One shared query across sidebar, home and Browse.",
+      "html": "<input class=\"ds-search\" type=\"search\" placeholder=\"What do you want to do?\">",
+      "css": ".ds-search { width: 320px; border: 0; background: #EEEEF3; color: #000; border-radius: 10px; padding: 10px 12px; font: 15px system-ui, sans-serif; } .ds-search::placeholder { color: #636368; }" }
+  ],
+  "narrative": {
+    "northStar": "An app store everyone already knows how to use",
+    "overview": "Skillshelf deliberately follows Apple's App Store and Mac App Store grammar so first-time visitors know how to use it. Its own marks are content: real maker pictures, plain-language lines, and a cited 'Free alternative to X' tag.",
+    "keyCharacteristics": ["Three tabs", "Rows with Get", "Real GitHub pictures", "Four-block listing pages", "Details folded"],
+    "rules": [
+      { "name": "Green means free", "body": "Green tags only where data/alternatives.json cites the project.", "section": "colors" },
+      { "name": "Risk colours stay in the details", "body": "Orange and red appear only in Before you install and Technical details.", "section": "colors" }
+    ],
+    "dos": ["Lead with what it does in plain words", "Cite every alternative", "Fold technical material"],
+    "donts": ["No safety badges on cards", "No new tabs", "No invented data", "No tertiary grey for readable text"]
+  }
+}
