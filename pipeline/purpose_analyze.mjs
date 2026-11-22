@@ -152,6 +152,35 @@ const PROFILES = {
     expect: { network: 'Downloads the speech models you choose, and checks for updates', files: 'Reads your recordings and text and saves the audio it makes', shell: 'Runs its local speech engines and tools such as ffmpeg', env: 'Settings' } },
   'lightcraft': { date: '2026-11-01', purpose: 'A non-destructive photo editor for RAW photos, written in Rust, for Windows, macOS and Linux, with a browser version.',
     expect: { files: 'Reads your photos and library and writes edits and exports', network: 'Downloads optional AI models you install', env: 'Settings', shell: 'Opens files and folders in your system apps' } },
+  // Local AI and free everyday apps; purposes from each README and website, November 22, 2026
+  'jan': { date: '2026-11-22', purpose: 'A desktop chat app for AI models that run on your own computer, with optional cloud models, a local API server and MCP tools.',
+    expect: { network: 'Downloads the models you choose, talks to cloud models only if you add them, and checks for updates', files: 'Saves your chats, models and settings on your computer', shell: 'Runs its local model engine and the MCP tools you add', env: 'Settings', credentials: 'Stores the API keys you enter for cloud models' } },
+  'llama-cpp': { date: '2026-11-22', purpose: 'A library and command-line tools that run AI language models on your own hardware, including a local server with an OpenAI-style API.',
+    expect: { network: 'Downloads models you ask for and serves its local API', files: 'Reads model files and writes outputs and caches', shell: 'Build and helper scripts', env: 'Settings' } },
+  'open-webui': { date: '2026-11-22', purpose: 'A self-hosted chat interface for AI models (Ollama or any OpenAI-style API) with document chat, web search, users and tools.',
+    expect: { network: 'Serves the web interface and talks to the model servers, search engines and tools you configure', files: 'Stores chats, uploaded documents and settings in its data folder', shell: 'Runs code and tools you enable for the assistant', env: 'Settings', credentials: 'Stores user accounts and the API keys you add' } },
+  'comfyui': { date: '2026-11-22', purpose: 'A node-based app that runs image, video and audio generation models on your own computer, with a local server and web interface.',
+    expect: { network: 'Serves its local interface and downloads models and custom nodes you choose', files: 'Reads models and inputs and saves generated images and workflows', shell: 'Installs and runs custom node dependencies', env: 'Settings' } },
+  'handy': { date: '2026-11-22', purpose: 'A desktop speech-to-text app: press a shortcut, speak, and it types the words into the app you are using, with the speech model running offline.',
+    expect: { network: 'Downloads the speech models you choose and checks for updates', files: 'Saves models, settings and optional recordings', shell: 'Pastes the text by simulating key presses in your apps', env: 'Settings' } },
+  'meetily': { date: '2026-11-22', purpose: 'A desktop meeting note taker that records your computer audio and microphone, transcribes it locally and writes summaries with a local or chosen AI model.',
+    expect: { network: 'Downloads speech models and sends text to the summary model you choose (local by default)', files: 'Saves recordings, transcripts and notes on your computer', shell: 'Runs its local transcription and summary services', env: 'Settings', credentials: 'Stores the API key for a cloud summary model if you add one' } },
+  'anythingllm': { date: '2026-11-22', purpose: 'A desktop and self-hosted app to chat with your documents and run AI agents, using local models or cloud providers you connect.',
+    expect: { network: 'Talks to the model providers, vector databases and tools you connect, and downloads local models', files: 'Reads the documents you add and stores chats and indexes', shell: 'Runs its local model and agent tools', env: 'Settings', credentials: 'Stores the API keys you add for providers', browser: 'Agent skills can open web pages you ask about' } },
+  'stirling-pdf': { date: '2026-11-22', purpose: 'A PDF editor you run yourself, as a desktop app or server: merge, split, convert, sign, compress and edit PDFs.',
+    expect: { network: 'Serves its web interface and API', files: 'Reads the PDFs you give it and writes the results', shell: 'Runs conversion tools such as LibreOffice, Tesseract and qpdf', env: 'Settings', credentials: 'Optional user logins for a shared server' } },
+  'appflowy': { date: '2026-11-22', purpose: 'A workspace app for notes, wikis, task boards and databases, storing data on your device with optional sync to AppFlowy Cloud or your own server.',
+    expect: { network: 'Syncs with AppFlowy Cloud or your server if you sign in, and uses optional AI features', files: 'Stores your workspace and imports or exports files', env: 'Settings', credentials: 'Keeps your sign-in for sync' } },
+  'actual-budget': { date: '2026-11-22', purpose: 'A local-first personal budgeting app with optional sync to a server you run and optional bank connections.',
+    expect: { network: 'Syncs with your own server and the bank-sync services you turn on', files: 'Stores your budget files and imports bank exports', env: 'Settings', credentials: 'Stores your server password and bank-sync keys if you add them' } },
+  'penpot': { date: '2026-11-22', purpose: 'A web-based design and prototyping platform you can use online or host yourself, with a backend server, exporter and web app.',
+    expect: { network: 'Serves the web app and API, and fetches fonts and images you add', files: 'Stores design files and uploaded assets', shell: 'Runs its exporter and image tools', env: 'Settings', credentials: 'User accounts, sign-in providers and email settings on your server', browser: 'Its exporter renders designs in a headless browser' } },
+  'immich': { date: '2026-11-22', purpose: 'A self-hosted photo and video library: a server you run at home with phone apps that back up your pictures, plus machine-learning search and face recognition.',
+    expect: { network: 'Serves the web app and API to your phones and browsers, and downloads its search models', files: 'Stores your photos, videos and thumbnails in your library folder', shell: 'Runs media tools such as ffmpeg', env: 'Settings', credentials: 'User accounts, sign-in providers and API keys on your server' } },
+  'obs-studio': { date: '2026-11-22', purpose: 'Desktop software for recording and live streaming video from your screen, cameras and audio, with scenes, sources and plugins.',
+    expect: { network: 'Streams to services you choose and checks for updates', files: 'Saves recordings, scenes and settings', shell: 'Runs plugins and helper processes', env: 'Settings', credentials: 'Stores your stream keys and service sign-ins' } },
+  'excalidraw': { date: '2026-11-22', purpose: 'A browser whiteboard for hand-drawn style diagrams, with optional end-to-end encrypted sharing and live collaboration.',
+    expect: { network: 'Shares and syncs drawings when you start a session or share a link', files: 'Opens and saves drawings and images you add', env: 'Settings' } },
   // Filling thin job categories; purposes from each README, November 1, 2026
   'localsend': { date: '2026-11-01', purpose: 'Sends files and messages between nearby devices on the same local network, without an internet connection or account.',
     expect: { network: 'Finds nearby devices and sends files over your local network', files: 'Reads the files you send and saves the ones you receive', env: 'Settings', shell: 'Opens received files and folders' } },
@@ -290,7 +319,7 @@ const SEV_W = { CRITICAL: 10, HIGH: 5, MEDIUM: 2, LOW: 0.5, INFO: 0 };
 // A serious finding whose pattern isn't listed here counts as "needs a closer look".
 
 const TRUSTED = new Set(['anthropics', 'openai', 'NVIDIA', 'microsoft', 'github', 'cli', 'modelcontextprotocol', 'ChromeDevTools', 'huggingface', 'vercel-labs', 'upstash', 'aquasecurity', 'semgrep', 'astral-sh', 'ollama']);
-const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'NVIDIA/SkillSpector': 'SkillSpector', 'qarmin/czkawka': 'Krokiet (Czkawka)', 'gorhill/uBlock': 'uBlock Origin' };
+const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'NVIDIA/SkillSpector': 'SkillSpector', 'qarmin/czkawka': 'Krokiet (Czkawka)', 'gorhill/uBlock': 'uBlock Origin', 'Mintplex-Labs/anything-llm': 'AnythingLLM', 'actualbudget/actual': 'Actual Budget' };
 const idOf = (l, m) => (l.kind === 'skill' ? `${m.owner}-${l.slug}` : l.kind === 'mcp' ? `mcp-${l.slug}` : (NAME[m.full] || l.slug)).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 
 const PREV = fs.existsSync(OUT) ? JSON.parse(fs.readFileSync(OUT, 'utf8')) : {};

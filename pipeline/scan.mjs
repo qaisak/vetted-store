@@ -16,7 +16,7 @@ const OUT = path.join(root, 'out');
 fs.mkdirSync(OUT, { recursive: true });
 
 // Same id scheme as build.mjs
-const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'NVIDIA/SkillSpector': 'SkillSpector' };
+const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'NVIDIA/SkillSpector': 'SkillSpector', 'qarmin/czkawka': 'Krokiet (Czkawka)', 'gorhill/uBlock': 'uBlock Origin', 'Mintplex-Labs/anything-llm': 'AnythingLLM', 'actualbudget/actual': 'Actual Budget' };
 const jobs = [];
 for (const l of d.listings) {
   if ((l.kind === 'tool' && !TOOLS) || l.slug === 'template-skill') continue;

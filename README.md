@@ -104,6 +104,13 @@ repo, so the file also works if copied as-is into a separate public repo.
 
 ## Full pipeline
 
+**Since November 22, 2026, new listings are not scanned or reviewed.** Skillshelf's safety check is the prompt visitors copy:
+"Copy for Claude" and "Install them all" ask the visitor's own Claude to read the code on their computer, say what it can reach
+and flag anything odd, then ask before installing (`safetyCheck()` in the template). To add a listing: fetch (step 1), add
+install cards and a plain line (step 5), then build. Steps 2 to 4b are only for the older listings that already have scans; don't
+read scanner flags by hand. Listings with no scan show "Not scanned by Skillshelf" under Technical details.
+
+
 1. **Fetch** (GitHub allows 60 unauthenticated API calls an hour; responses are cached in `pipeline/cache/`):
    `node pipeline/fetch.mjs data/data.json`.
    To add repos without refetching everything, list them in `fetch.mjs` and run
@@ -136,7 +143,7 @@ repo, so the file also works if copied as-is into a separate public repo.
    **Videos**: `node pipeline/videos.mjs data/data.json data/videos.json`, then check each new link is a demo of the project.
 6. **Build** as above, pointing the scan-reports argument at `<scan-root>/out` or `data/scan-reports`.
 7. **Smoke test** before publishing: `node pipeline/smoke.mjs vetted-store.html` and `node pipeline/flows.cjs vetted-store.html`
-   (both use the preinstalled Playwright). Listings without a scan report are held back by the build, which names them.
+   (both use the preinstalled Playwright). The build lists projects without a scan report and names them ("Not scanned by Skillshelf").
 
 ## Head-to-head tests
 

@@ -378,8 +378,9 @@ for (const l of L) {
   if (nt.length) l.nt = nt.sort((a, b) => NT_RANK[a.lv] - NT_RANK[b.lv]);
 }
 
-// Nothing is listed before it's scanned: listings without a scan report wait for the next build
-if (scanDir) { const held = L.filter(l => !SC[l.id]); if (held.length) console.error('HELD BACK (not scanned yet):', held.map(l => l.id).join(', ')); for (const l of held) L.splice(L.indexOf(l), 1); }
+// Skillshelf no longer scans new listings (November 22, 2026): the setup prompt visitors copy asks their own Claude to read
+// the code on their computer before installing. Listings without a scan report are listed and say "Not scanned by Skillshelf".
+if (scanDir) { const unscanned = L.filter(l => !SC[l.id]); if (unscanned.length) console.error('NOT SCANNED (listed; the visitor\'s Claude checks):', unscanned.map(l => l.id).join(', ')); }
 
 // GitHub's own trending lists, read at build time (data/trending.json); the page shows only repositories listed here
 const TRF = new URL('../data/trending.json', import.meta.url);

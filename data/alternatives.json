@@ -1,14 +1,89 @@
 {
   "_about": "What each listing is an alternative to, only where the project's own README, GitHub description or website says so. n: the product it replaces. paid: true when that product costs money (it then shows on the 'Free alternatives to tools you pay for' shelf). src: where the claim is. quote: the project's own words. note: a caveat the project itself gives. Leave a listing out rather than guess.",
-  "voicestudio": { "n": "ElevenLabs", "paid": true, "src": "https://github.com/debpalash/VoiceStudio", "quote": "VoiceStudio is the open-source, fully-local ElevenLabs alternative" },
-  "compositor": { "n": "Adobe Photoshop", "paid": true, "src": "https://github.com/robbietilton/Compositor", "quote": "The Photoshop alternative for Mac" },
-  "photocraft": { "n": "Adobe Photoshop", "paid": true, "src": "https://github.com/storytold/photocraft", "quote": "an open-source, clean-room reimplementation of Adobe Photoshop", "note": "Its README says it is not yet a Photoshop replacement for daily professional work." },
-  "rustdesk": { "n": "TeamViewer", "paid": true, "src": "https://github.com/rustdesk/rustdesk", "quote": "An open-source remote desktop application designed for self-hosting, as an alternative to TeamViewer." },
-  "localsend": { "n": "AirDrop", "paid": false, "src": "https://github.com/localsend/localsend", "quote": "An open-source cross-platform alternative to AirDrop" },
-  "posting": { "n": "Postman", "paid": false, "src": "https://github.com/darrenburns/posting", "quote": "Posting is an HTTP client, not unlike Postman and Insomnia." },
-  "glances": { "n": "top and htop", "paid": false, "src": "https://github.com/nicolargo/glances", "quote": "A top/htop alternative for GNU/Linux, BSD, macOS and Windows operating systems." },
-  "fd": { "n": "find", "paid": false, "src": "https://github.com/sharkdp/fd", "quote": "A simple, fast and user-friendly alternative to 'find'" },
-  "duf": { "n": "df", "paid": false, "src": "https://github.com/muesli/duf", "quote": "Disk Usage/Free Utility - a better 'df' alternative" },
-  "sd": { "n": "sed", "paid": false, "src": "https://github.com/chmln/sd", "quote": "Intuitive find & replace CLI (sed alternative)" },
-  "bat": { "n": "cat", "paid": false, "src": "https://github.com/sharkdp/bat", "quote": "A cat(1) clone with wings." }
+  "voicestudio": {
+    "n": "ElevenLabs",
+    "paid": true,
+    "src": "https://github.com/debpalash/VoiceStudio",
+    "quote": "VoiceStudio is the open-source, fully-local ElevenLabs alternative"
+  },
+  "compositor": {
+    "n": "Adobe Photoshop",
+    "paid": true,
+    "src": "https://github.com/robbietilton/Compositor",
+    "quote": "The Photoshop alternative for Mac"
+  },
+  "photocraft": {
+    "n": "Adobe Photoshop",
+    "paid": true,
+    "src": "https://github.com/storytold/photocraft",
+    "quote": "an open-source, clean-room reimplementation of Adobe Photoshop",
+    "note": "Its README says it is not yet a Photoshop replacement for daily professional work."
+  },
+  "rustdesk": {
+    "n": "TeamViewer",
+    "paid": true,
+    "src": "https://github.com/rustdesk/rustdesk",
+    "quote": "An open-source remote desktop application designed for self-hosting, as an alternative to TeamViewer."
+  },
+  "localsend": {
+    "n": "AirDrop",
+    "paid": false,
+    "src": "https://github.com/localsend/localsend",
+    "quote": "An open-source cross-platform alternative to AirDrop"
+  },
+  "posting": {
+    "n": "Postman",
+    "paid": false,
+    "src": "https://github.com/darrenburns/posting",
+    "quote": "Posting is an HTTP client, not unlike Postman and Insomnia."
+  },
+  "glances": {
+    "n": "top and htop",
+    "paid": false,
+    "src": "https://github.com/nicolargo/glances",
+    "quote": "A top/htop alternative for GNU/Linux, BSD, macOS and Windows operating systems."
+  },
+  "fd": {
+    "n": "find",
+    "paid": false,
+    "src": "https://github.com/sharkdp/fd",
+    "quote": "A simple, fast and user-friendly alternative to 'find'"
+  },
+  "duf": {
+    "n": "df",
+    "paid": false,
+    "src": "https://github.com/muesli/duf",
+    "quote": "Disk Usage/Free Utility - a better 'df' alternative"
+  },
+  "sd": {
+    "n": "sed",
+    "paid": false,
+    "src": "https://github.com/chmln/sd",
+    "quote": "Intuitive find & replace CLI (sed alternative)"
+  },
+  "bat": {
+    "n": "cat",
+    "paid": false,
+    "src": "https://github.com/sharkdp/bat",
+    "quote": "A cat(1) clone with wings."
+  },
+  "jan": {
+    "n": "ChatGPT",
+    "paid": false,
+    "src": "https://github.com/janhq/jan",
+    "quote": "Jan is an open source alternative to ChatGPT that runs 100% offline on your computer."
+  },
+  "appflowy": {
+    "n": "Notion",
+    "paid": false,
+    "src": "https://github.com/AppFlowy-IO/AppFlowy",
+    "quote": "The Open Source Alternative To Notion"
+  },
+  "meetily": {
+    "n": "Otter.ai",
+    "paid": true,
+    "src": "https://meetily.ai",
+    "quote": "Privacy-First AI Meeting Assistant | Otter.ai & Granola Alternative",
+    "note": "Its Community Edition is free and open source; Meetily also sells a Pro plan."
+  }
 }

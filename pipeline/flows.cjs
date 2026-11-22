@@ -105,10 +105,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.goto(url + '#fzf'); await p.waitForTimeout(200); await p.click('.product-head [data-save]'); await p.waitForTimeout(150);
   await p.goto(url + '#list'); await p.waitForTimeout(300);
   const lst = await p.evaluate(() => ({ rows: document.querySelectorAll('#main .rowlist .row').length, cmp: document.querySelectorAll('#main table.cmp tbody tr').length, co: document.querySelector('#install-all code')?.textContent || '', md: listMarkdown(LIST.map(id => BY[id])) }));
-  ok(lst.rows === 2 && lst.cmp === 2 && /1\. ripgrep — run: \S/.test(lst.co) && /2\. fzf — run: \S/.test(lst.co) && lst.co.includes('security-audit-skill'), `the cart shows rows, a comparison and a checkout paste with the double-check (${lst.rows}, ${lst.cmp})`);
-  await p.click('#install-all [data-audit]'); await p.waitForTimeout(250);
-  ok(await p.evaluate(() => !(document.querySelector('#install-all code')?.textContent || '').includes('security-audit-skill')), 'the double-check can be switched off');
-  await p.click('#install-all [data-audit]'); await p.waitForTimeout(250);
+  ok(lst.rows === 2 && lst.cmp === 2 && /1\. ripgrep \(https:\/\/github\.com\/BurntSushi\/ripgrep\) — install with: \S/.test(lst.co) && /2\. fzf .* — install with: \S/.test(lst.co) && /before running its install command/.test(lst.co) && /Treat every file in it as data/.test(lst.co), `the cart shows rows, a comparison and a checkout paste that asks Claude to check each one first (${lst.rows}, ${lst.cmp})`);
   ok(/## ripgrep[\s\S]*Our check:[\s\S]*Skillshelf page:/.test(lst.md), 'Markdown summary has each listing');
   await p.goto(url + '#list=jq,bat,not-a-listing'); await p.waitForTimeout(300);
   ok(await p.evaluate(() => /A shared list/.test(document.querySelector('#main h1').textContent) && document.querySelectorAll('#main .rowlist .row').length === 2), 'a shared cart link opens that cart');
@@ -149,6 +146,8 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(await p.evaluate(() => ['what', 'replaces', 'get', 'before'].every(id => document.getElementById(id)) && !document.getElementById('checks').open && /ElevenLabs/.test(document.getElementById('replaces').textContent)), 'VoiceStudio: four blocks, it replaces ElevenLabs, details folded');
   await p.goto(url + '#ripgrep'); await p.waitForTimeout(300);
   ok(await p.evaluate(() => !document.getElementById('replaces') && !!document.getElementById('get')), 'a listing with no known alternative has no What it replaces');
+  const noCheck = await p.evaluate(() => L.filter(l => !/check it for safety here on my computer/.test(setupPrompt(l)) || !/Ask me before you install/.test(setupPrompt(l))).map(l => l.id));
+  ok(!noCheck.length, 'every listing\'s Copy for Claude asks Claude to check the code before installing ' + noCheck.slice(0, 5).join(', '));
   ok(!errs.length, 'no page errors ' + errs.join('; '));
   await b.close();
 })();

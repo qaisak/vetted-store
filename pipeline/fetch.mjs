@@ -13,6 +13,8 @@ const want = repo => !ONLY || ONLY.has(repo.toLowerCase());
 const CACHE = path.join(path.dirname(new URL(import.meta.url).pathname.replace(/^\/([A-Z]:)/, '$1')), 'cache');
 fs.mkdirSync(CACHE, { recursive: true });
 const UA = { 'User-Agent': 'vetted-prototype-builder', Accept: 'application/vnd.github+json' };
+// GITHUB_TOKEN (optional, from the environment, never stored) lifts GitHub's 60-calls-an-hour limit. Sent to api.github.com only.
+const headersFor = url => process.env.GITHUB_TOKEN && url.startsWith('https://api.github.com/') ? { ...UA, Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } : UA;
 
 async function get(url, { json = true, binary = false } = {}) {
   const key = path.join(CACHE, url.replace(/[^a-z0-9]+/gi, '_').slice(0, 180) + (binary ? '.bin' : '.txt'));
@@ -23,7 +25,7 @@ async function get(url, { json = true, binary = false } = {}) {
   }
   let res;
   get.failed = false;   // true when the host couldn't be reached or refused: "not checked", as opposed to "nothing there"
-  try { res = await fetch(url, { headers: UA }); } catch (e) { console.error('ERR', url, e.message); get.failed = true; return null; }
+  try { res = await fetch(url, { headers: headersFor(url) }); } catch (e) { console.error('ERR', url, e.message); get.failed = true; return null; }
   if (res.status === 403 || res.status === 429) { console.error('RATE', url, res.status); get.failed = true; return null; }
   if (!res.ok) { console.error('MISS', res.status, url); fs.writeFileSync(key, ''); return null; }
   const buf = Buffer.from(await res.arrayBuffer());
@@ -138,6 +140,9 @@ const TOOLS = ['NVIDIA/SkillSpector', 'vercel-labs/skills', 'BurntSushi/ripgrep'
   'Gathin23/cleanyourtv', 'storytold/photocraft', 'storytold/pdfcraft', 'KnifeLemon/Filee', 'robbietilton/Compositor', 'jub0t/Concat', 'crmne/spotifast',
   // GitHub's monthly trending list, November 1, 2026
   'debpalash/VoiceStudio', 'storytold/lightcraft',
+  // Local AI and free everyday apps people look for most (GitHub stars, Hacker News, Reddit and app round-ups, November 22, 2026)
+  'janhq/jan', 'ggml-org/llama.cpp', 'open-webui/open-webui', 'Comfy-Org/ComfyUI', 'cjpais/Handy', 'Zackriya-Solutions/meetily', 'Mintplex-Labs/anything-llm',
+  'Stirling-Tools/Stirling-PDF', 'AppFlowy-IO/AppFlowy', 'actualbudget/actual', 'penpot/penpot', 'immich-app/immich', 'obsproject/obs-studio', 'excalidraw/excalidraw',
   // Filling thin job categories (everyday and security), November 1, 2026
   'localsend/localsend', 'upscayl/upscayl', 'qarmin/czkawka', 'flameshot-org/flameshot', 'keepassxreboot/keepassxc', 'syncthing/syncthing', 'trufflesecurity/trufflehog',
   'gorhill/uBlock', 'pi-hole/pi-hole', 'rustdesk/rustdesk'];
