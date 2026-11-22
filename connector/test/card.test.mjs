@@ -24,7 +24,8 @@ fs.writeFileSync(path.join(tmp, 'worker.mjs'), fs.readFileSync(path.join(SRC, 'w
   .replace("import CATALOG from './catalog.json';", `const CATALOG = ${fs.readFileSync(path.join(SRC, 'catalog.json'), 'utf8')};`)
   .replace("import DESKTOP_MCPB from './skillshelf-desktop.bin';", 'const DESKTOP_MCPB = new Uint8Array([80, 75, 3, 4]);')
   .replace("import CARD_HTML from './card.html';", `const CARD_HTML = ${JSON.stringify(CARD)};`)
-  .replace("import SETUP_HTML from './setup.html';", `const SETUP_HTML = ${JSON.stringify(fs.readFileSync(path.join(SRC, 'setup.html'), 'utf8'))};`));
+  .replace("import SETUP_HTML from './setup.html';", `const SETUP_HTML = ${JSON.stringify(fs.readFileSync(path.join(SRC, 'setup.html'), 'utf8'))};`)
+  .replace("import SETUP_SHOT from './setup-shot.jpg.bin';", 'const SETUP_SHOT = new Uint8Array([255, 216, 255, 224]);'));
 const worker = (await import(pathToFileURL(path.join(tmp, 'worker.mjs')).href)).default;
 const db = new DatabaseSync(':memory:');
 db.exec(fs.readFileSync(path.join(HERE, '..', 'schema.sql'), 'utf8'));

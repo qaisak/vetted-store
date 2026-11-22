@@ -8,6 +8,8 @@ import CATALOG from './catalog.json';
 import { analyzeSlop } from './slop.js';
 import CARD_HTML from './card.html';
 import SETUP_HTML from './setup.html';
+// The setup page's picture: the real card with find_skills results, a JPEG saved as .bin so Workers bundle it as raw bytes
+import SETUP_SHOT from './setup-shot.jpg.bin';
 // The Claude desktop extension (desktop/pack.mjs copies it here as .bin, which Workers bundle as raw bytes), served at /skillshelf.mcpb
 import DESKTOP_MCPB from './skillshelf-desktop.bin';
 
@@ -279,6 +281,7 @@ export default {
       const flags = {}; for (const r of results || []) (flags[r.listing] ||= {})[r.reason] = r.n;
       return json({ since_days: 30, reasons: REASONS, flags });
     }
+    if (url.pathname === '/setup-shot.jpg') return new Response(SETUP_SHOT, { headers: { 'Content-Type': 'image/jpeg', 'Cache-Control': 'public, max-age=86400', ...CORS } });
     if (url.pathname === '/' || url.pathname === '') {
       const mcp = `${url.origin}/mcp`, cmd = `claude mcp add --transport http skillshelf ${mcp}`;
       if ((request.headers.get('Accept') || '').includes('text/html')) {

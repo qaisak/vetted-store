@@ -17,7 +17,8 @@ fs.writeFileSync(path.join(tmp, 'worker.mjs'), fs.readFileSync(path.join(SRC, 'w
   .replace("import CATALOG from './catalog.json';", `const CATALOG = ${fs.readFileSync(path.join(SRC, 'catalog.json'), 'utf8')};`)
   .replace("import DESKTOP_MCPB from './skillshelf-desktop.bin';", 'const DESKTOP_MCPB = new Uint8Array([80, 75, 3, 4]);')
   .replace("import CARD_HTML from './card.html';", `const CARD_HTML = ${JSON.stringify(fs.readFileSync(path.join(SRC, 'card.html'), 'utf8'))};`)
-  .replace("import SETUP_HTML from './setup.html';", `const SETUP_HTML = ${JSON.stringify(fs.readFileSync(path.join(SRC, 'setup.html'), 'utf8'))};`));
+  .replace("import SETUP_HTML from './setup.html';", `const SETUP_HTML = ${JSON.stringify(fs.readFileSync(path.join(SRC, 'setup.html'), 'utf8'))};`)
+  .replace("import SETUP_SHOT from './setup-shot.jpg.bin';", 'const SETUP_SHOT = new Uint8Array([255, 216, 255, 224]);'));
 const worker = (await import(pathToFileURL(path.join(tmp, 'worker.mjs')).href)).default;
 
 // A D1-shaped wrapper over node:sqlite: prepare(sql).bind(...).all() / first() / run()
@@ -133,6 +134,8 @@ const pageRes = await worker.fetch(new Request('https://x.test/', { headers: { A
 ok((pageRes.headers.get('Content-Type') || '').startsWith('text/html') && page.includes('<title>Add Skillshelf to Claude</title>') && !page.includes('{{'), 'browsers get the setup page, with every placeholder filled');
 ok(page.includes('<code id="link">https://x.test/mcp</code>') && page.includes('<code id="cmd">claude mcp add --transport http skillshelf https://x.test/mcp</code>') && page.includes('data-copy="link"') && page.includes('data-copy="cmd"'), 'the setup page has the link and the Claude Code command, each with a Copy button');
 ok(page.includes('<strong>Plugins</strong>, click <strong>Add</strong>, then <strong>Add custom connector</strong>') && page.includes('<strong>before</strong> your first message') && page.includes('Add it only once') && page.includes('href="https://claude.ai/plugins"'), 'the setup page gives the Claude app steps, the new-chat warning and the add-it-once note');
+const shot = await worker.fetch(new Request('https://x.test/setup-shot.jpg'), env);
+ok(shot.status === 200 && shot.headers.get('Content-Type') === 'image/jpeg' && page.includes('src="/setup-shot.jpg"') && /alt="[^"]{20,}"/.test(page), 'the setup page shows a picture of the card, served by the connector, with a description');
 
 fs.rmSync(tmp, { recursive: true, force: true });
 process.exitCode = fails ? 1 : 0;
