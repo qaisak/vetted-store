@@ -1238,8 +1238,8 @@ const card = (l, note) => `<a class="card" href="#${l.id}"><span class="card-top
   <span class="card-foot">${note ? `<span class="up">${esc(note)}</span>` : ''}<span>${ic('star', 2)} ${fmtK(repoOf(l).st)}</span>${l.alt?.paid ? `<span class="free">Free instead of ${esc(l.alt.n)}</span>` : ''}</span></a>`;
 const cards = (list, notes = [], cls = '') => `<div class="cards${cls ? ' ' + cls : ''}">${list.map((l, i) => card(l, notes[i])).join('')}</div>`;
 const shelfOf = (title, sub, body, more, cls) => `<section class="shelf${cls ? ' ' + cls : ''}"><div class="shelf-head"><h2>${title}${sub ? `<span class="sub">${sub}</span>` : ''}</h2>${more ? `<a class="see-all" href="${more}">See all</a>` : ''}</div>${body}</section>`;
-// Hand-picked for someone new to AI: free apps with a normal download, no account and no subscription
-const START = ['hob', 'handy', 'affine', 'localsend', 'excalidraw', 'obs-studio'];
+// Hand-picked for anyone: well-known free apps with a normal download, no account and no subscription (shown most-starred first)
+const START = ['ublock-origin', 'handy', 'affine', 'localsend', 'excalidraw', 'obs-studio'];
 // Free AI that runs on your own computer
 const OWN_AI = ['strata', 'jan', 'ollama', 'deeptutor', 'anythingllm', 'upscayl'];
 // Jev, TypeSafe's decision model, and its open-source side
@@ -1260,10 +1260,10 @@ function risers(max = 6) {
 function pageToday() {
   const seen = new Set();
   const take = (list, n = 6) => { const out = list.filter(l => !seen.has(l.r)).slice(0, n); out.forEach(l => seen.add(l.r)); return out; };
-  const start = take(vis(pick(START)));
-  const alts = take(vis(pick(HOME_ALTS)).filter(l => l.alt));
+  const start = take(byStars(vis(pick(START))));
+  const alts = take(byStars(vis(pick(HOME_ALTS))).filter(l => l.alt));
   const rise = risers(12).filter(([l]) => !seen.has(l.r)).slice(0, 6); rise.forEach(([l]) => seen.add(l.r));
-  const ownAI = take(vis(pick(OWN_AI)));
+  const ownAI = take(byStars(vis(pick(OWN_AI))));
   const skills = take(topOf('skill', 30)), conns = take(topOf('mcp', 30)), jev = take(vis(pick(JEV)), 4);
   return `<div class="page home">
     <section class="hero">
