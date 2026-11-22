@@ -11,8 +11,8 @@ const { chromium } = require('playwright');
 const [dataPath = 'data/data.json', outPath = 'data/logos.json'] = process.argv.slice(2).filter(a => !a.startsWith('--') && !a.includes(','));
 const onlyI = process.argv.indexOf('--only');
 const ONLY = onlyI > 0 ? new Set(process.argv[onlyI + 1].toLowerCase().split(',')) : null;
-// Organisations whose separate products would otherwise all show the same company avatar
-const MULTI = new Set(['FrigadeHQ', 'HKUDS']);
+// Organisations whose products would otherwise show the company's avatar (several products, or a company wordmark)
+const MULTI = new Set(['FrigadeHQ', 'HKUDS', 'Zackriya-Solutions']);
 const d = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 const out = fs.existsSync(outPath) ? JSON.parse(fs.readFileSync(outPath, 'utf8')) : {};
 const gh = p => { try { return JSON.parse(execFileSync('gh', ['api', p], { encoding: 'utf8', maxBuffer: 64e6, stdio: ['ignore', 'pipe', 'ignore'] })); } catch { return null; } };

@@ -626,7 +626,7 @@ dialog.story-ov[open] { animation: grow .38s cubic-bezier(.2,.8,.2,1); }
 @media (max-width: 760px) {
   .shell { grid-template-columns: minmax(0, 1fr); }
   .side { display: none; }
-  .tabbar { display: grid; grid-template-columns: repeat(3, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; background: color-mix(in srgb, var(--bg2) 88%, transparent); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid var(--sep); padding: 6px max(8px, env(safe-area-inset-right, 0px)) calc(4px + env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px)); }
+  .tabbar { display: grid; grid-template-columns: repeat(4, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; background: color-mix(in srgb, var(--bg2) 88%, transparent); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid var(--sep); padding: 6px max(8px, env(safe-area-inset-right, 0px)) calc(4px + env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px)); }
   .tabbar button { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 11px; font-weight: 600; color: var(--label2); }
   .tabbar .ic { font-size: 24px; }
   .tabbar button[aria-current="page"] { color: var(--blue); }
@@ -720,6 +720,25 @@ dialog.story-ov[open] { animation: grow .38s cubic-bezier(.2,.8,.2,1); }
 .sort { font-size: 13px; color: var(--label2); display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
 .sort select { font: inherit; font-size: 14px; color: var(--label); background: var(--fill); border: 0; border-radius: 8px; padding: 5px 8px; }
 .more-row { text-align: center; margin-top: 18px; }
+/* Browse filters: topics narrow the list in place; the count, a setup toggle and the sort sit right above the cards */
+.topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.topics a { display: inline-flex; align-items: baseline; gap: 6px; padding: 7px 13px; border-radius: 999px; background: var(--bg2); color: var(--label); font-weight: 600; font-size: 14px; white-space: nowrap; }
+.topics a span { font-size: 12px; font-weight: 500; color: var(--label2); font-variant-numeric: tabular-nums; }
+.topics a:hover { background: var(--fill); }
+.topics a[aria-current="page"] { background: var(--label); color: var(--bg); }
+.topics a[aria-current="page"] span { color: inherit; opacity: .7; }
+.topic-sub { color: var(--label2); font-size: 15px; margin: 12px 0 0; max-width: 70ch; }
+.list-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin: 22px 0 14px; padding-top: 16px; border-top: 1px solid var(--sep); }
+.list-bar h2 { font-size: 20px; font-weight: 700; margin-right: auto; }
+.list-bar h2 span { font-size: 15px; font-weight: 400; color: var(--label2); margin-left: 6px; font-variant-numeric: tabular-nums; }
+.toggle { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; color: var(--label); cursor: pointer; white-space: nowrap; }
+.toggle input { accent-color: var(--blue); width: 16px; height: 16px; margin: 0; }
+button.kind { padding: 6px 14px; border-radius: 8px; color: var(--label); font-weight: 600; font-size: 14.5px; display: inline-flex; gap: 6px; align-items: baseline; }
+button.kind span { font-size: 12px; color: var(--label2); font-weight: 500; font-variant-numeric: tabular-nums; }
+button.kind[aria-pressed="true"] { background: var(--card); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+/* Free alternatives page */
+.alt-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.alt-tag.host { background: color-mix(in srgb, var(--blue) 14%, transparent); color: var(--blue); }
 #results { margin-top: 4px; }
 /* Rows */
 .row-txt b { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.25; }
@@ -774,7 +793,11 @@ blockquote.said a { display: block; margin-top: 6px; font-size: 13.5px; font-wei
   .alt-grid::-webkit-scrollbar { display: none; }
   .alt-grid > * { scroll-snap-align: start; }
   .kind-seg { display: flex; }
-  .kind-seg a { flex: 1 1 auto; justify-content: center; padding: 6px 8px; }
+  .kind-seg a, button.kind { flex: 1 1 auto; justify-content: center; padding: 6px 8px; }
+  .topics { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: -16px; padding-inline: 16px; }
+  .topics::-webkit-scrollbar { display: none; }
+  .list-bar { margin-top: 18px; }
+  .list-bar h2 { flex-basis: 100%; }
   .shelf-head { flex-wrap: wrap; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
@@ -843,6 +866,7 @@ const G = {
   bulb: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',
   info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/>',
   heart: '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
+  tag: '<path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
   share: '<path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/>',
 };
 // The Skillshelf mark: three things standing on a shelf
@@ -881,8 +905,7 @@ const KITS = [
     ['gitleaks', 'Before you share your code, checks you didn\'t save any passwords or API keys in it.']]],
   ['marketing', 'Marketer\'s kit', 'Copy, ads, SEO and social, with an assistant that knows the playbook', 'megaphone', ['#EA580C', '#F59E0B'], [
     ['alirezarezvani-copywriting', 'Headlines and landing-page copy, with headline options scored.'],
-    ['coreyhaines31-ad-creative', 'Ad variations for Google, Meta and LinkedIn.'],
-    ['coreyhaines31-ai-seo', 'Helps you show up in AI answers, not just Google.'],
+    ['coreyhaines31-ads', 'Over 50 marketing skills in one pack: ads, SEO, showing up in AI answers, analytics and more.'],
     ['alirezarezvani-social-media-manager', 'A content calendar across platforms.'],
     ['blader-humanizer', 'Makes AI drafts sound like you wrote them.'],
     ['mcp-mcp-server-youtube-transcript', 'Pulls a YouTube video\'s transcript so you can summarize or quote it.']]],
@@ -1159,12 +1182,18 @@ const fmtLong = s => new Date(s + 'T00:00:00Z').toLocaleDateString('en-US', { mo
 const HOME_IDEAS = [['Run AI offline', 'offline'], ['Take meeting notes', 'meeting notes'], ['Type with your voice', 'dictation'], ['Edit PDFs', 'pdf']];
 // The top of a kind, by stars: one listing per repository, unusual star growth left out
 const topOf = k => uniqueRepos(byStars(vis(L.filter(l => l.k === k))).filter(l => !oddStars(l))).slice(0, 9);
-// Free alternatives to paid tools, only where the project itself says so
-// One per paid tool (the most-starred), six at most
-const paidAlts = () => { const seen = new Set(); return byStars(vis(L.filter(l => l.alt?.paid))).filter(l => !seen.has(l.alt.n) && seen.add(l.alt.n)).slice(0, 6); };
+// Free alternatives, only where the project itself says so (data/alternatives.json). Areas group them on the Free alternatives page;
+// an alternative to a built-in command (area "cli") stays on its own listing only.
+const AREAS = [['health', 'Health & fitness'], ['meet', 'Meetings, calls & voice'], ['media', 'Photos, video & design'], ['notes', 'Notes, documents & office'],
+  ['home', 'Home & devices'], ['ai', 'AI'], ['biz', 'Running a business'], ['team', 'Teamwork & projects'], ['dev', 'For developers']];
+const altsAll = () => byStars(vis(L.filter(l => l.alt && AREAS.some(a => a[0] === l.alt.area))));
+// Hand-picked for the home page: everyday products people pay for, each replaced by something you install, not a server
+const HOME_ALTS = ['noop', 'opencut', 'cap', 'rustdesk', 'photocraft', 'openwhispr'];
+// Business tools you host yourself are free that way, and say so; a project with its own terms says those
+const altFree = l => l.alt.tag || (l.sv ? 'Free to host yourself' : 'Free');
 const altCard = l => `<a class="alt-card" href="#${l.id}"><span class="was">Instead of <s>${esc(l.alt.n)}</s></span>
   <span class="alt-app">${icon(l, 56)}<span class="t"><b>${esc(l.n)}</b><span>${esc(plainOf(l))}</span></span></span>
-  <span class="alt-foot"><span class="alt-tag">Free</span><span>${KIND1[l.k]} · ${ic('star', 2)} ${fmtK(repoOf(l).st)}</span></span></a>`;
+  <span class="alt-foot"><span class="alt-tag${l.sv ? ' host' : ''}">${esc(altFree(l))}</span><span>${KIND1[l.k]} · ${ic('star', 2)} ${fmtK(repoOf(l).st)}</span></span></a>`;
 // A calm card: the project, what it does in one full sentence, and one quiet line of facts. The listing page has Get.
 const card = (l, note) => `<a class="card" href="#${l.id}"><span class="card-top">${icon(l, 52)}<span class="card-name"><b>${esc(l.n)}</b><span>${KIND1[l.k]}</span></span></span>
   <span class="card-line">${esc(plainOf(l))}</span>
@@ -1191,12 +1220,12 @@ function risers(max = 6) {
 const DOORS = [['new', "I'm new to AI"], ['code', 'I use Claude Code']];
 function pageToday() {
   const door = S.door === 'code' ? 'code' : 'new';
-  const alts = paidAlts();
+  const alts = vis(pick(HOME_ALTS)).filter(l => l.alt);
   const rise = risers();
   const fresh = list => list.filter(l => !rise.some(r => r[0].r === l.r));
   const body = door === 'new' ? `
     ${shelfOf('Start here', 'Free apps anyone can install. No account, no subscription.', cards(vis(pick(START))))}
-    ${alts.length ? `<section class="shelf alts"><div class="shelf-head"><h2>Free alternatives to tools you pay for<span class="sub">Each project says so in its own words. We link the line.</span></h2></div>
+    ${alts.length ? `<section class="shelf alts"><div class="shelf-head"><h2>Free alternatives to tools you pay for<span class="sub">Each project says so in its own words. We link the line.</span></h2><a class="see-all" href="#instead">See all ${altsAll().length}</a></div>
       <div class="alt-grid">${alts.map(altCard).join('')}</div></section>` : ''}
     ${shelfOf('Free AI on your own computer', 'Private, works offline, no monthly fee', cards(vis(pick(OWN_AI))))}
     <section class="shelf how"><div class="shelf-head"><h2>How it works</h2></div>
@@ -1328,60 +1357,63 @@ function pagePowers() {
     ${dataNote()}</div>`;
 }
 
+// Free alternatives: open-source apps that do the job of a well-known product, grouped by area and searchable by the product you use now.
+// Within an area, the product with the most-starred replacement comes first, and its replacements sit together.
+function insteadHTML() {
+  const raw = (S.iq || '').trim(), q = raw.toLowerCase(), all = altsAll();
+  const hit = l => !q || [l.alt.n, l.n, plainOf(l)].join(' ').toLowerCase().includes(q);
+  const byProduct = list => { const top = {}; for (const l of list) top[l.alt.n] = Math.max(top[l.alt.n] || 0, repoOf(l).st);
+    return [...list].sort((a, b) => top[b.alt.n] - top[a.alt.n] || a.alt.n.localeCompare(b.alt.n) || repoOf(b).st - repoOf(a).st); };
+  const groups = AREAS.map(([k, title]) => [k, title, byProduct(all.filter(l => l.alt.area === k && hit(l)))]).filter(g => g[2].length);
+  if (!groups.length) return `<p class="empty">Nothing here replaces “${esc(raw)}” yet.<br><button class="text-btn" data-seeall="${esc(raw)}">Search all of Skillshelf for it</button></p>`;
+  return (groups.length > 2 ? `<nav class="topics" aria-label="Areas">${groups.map(([k, title, list]) => `<a href="#instead" data-jump="area-${k}">${esc(title)}<span>${list.length}</span></a>`).join('')}</nav>` : '')
+    + groups.map(([k, title, list]) => `<section class="shelf" id="area-${k}"><div class="shelf-head"><h2>${esc(title)}</h2></div><div class="alt-list">${list.map(altCard).join('')}</div></section>`).join('');
+}
+function pageInstead() {
+  const all = altsAll(), products = new Set(all.map(l => l.alt.n)), paid = new Set(all.filter(l => l.alt.paid).map(l => l.alt.n));
+  return `<div class="page">
+    <div class="large-title"><h1>Free alternatives</h1><p class="intro">${all.length} open-source apps that do the job of ${products.size} well-known products, ${paid.size} of them paid. Each project says so in its own README or GitHub description, and its page links the line.</p></div>
+    <label class="search-field" for="iq">${ic('search')}<input id="iq" type="search" placeholder="Try WHOOP, Notion or Zapier" aria-label="Search by the product you use now" value="${esc(S.iq || '')}" autocomplete="off" enterkeyhint="search"></label>
+    <p class="topic-sub">Most install on your computer or phone. The business tools run on a server you control, and Claude Code can set one up with you: their cards say “Free to host yourself”.</p>
+    <div id="instead-results">${insteadHTML()}</div>
+    ${dataNote()}</div>`;
+}
+
 // Browse: one place for everything. Search, a kind filter (All, Apps, Skills, Connectors), jobs, then the list.
 // #browse, #all, #tools, #skills and #mcp all land here; #search lands here with the cursor in the search box.
 const KIND_HASH = { all: null, tools: 'tool', skills: 'skill', mcp: 'mcp' }, HASH_OF = { tool: 'tools', skill: 'skills', mcp: 'mcp' };
 const BROWSE_SORTS = [['stars', 'Most stars'], ['new', 'Recently updated'], ['az', 'A to Z']];
+const inJob = l => !S.job || (l.jb || []).includes(S.job);
 function browseList() {
-  const list = vis(L.filter(l => !S.kind || l.k === S.kind));
+  const list = vis(L.filter(l => (!S.kind || l.k === S.kind) && inJob(l) && (!S.easy || l.lv === 1)));
   if (S.sort === 'az') return [...list].sort((a, b) => a.n.localeCompare(b.n, 'en', { sensitivity: 'base' }));
   if (S.sort === 'new') return [...list].sort((a, b) => String(repoOf(b).pu).localeCompare(String(repoOf(a).pu)) || repoOf(b).st - repoOf(a).st);
   return byStars(list);
 }
+// Search, then what kind (All, Apps, Skills, Connectors) and which topic, then the cards. Topics are links (#for-writing),
+// so Back undoes them; the kind is a setting that a topic keeps. Starter kits come after the list.
 function pageBrowse() {
   const kinds = [[null, 'All', 'all'], ['tool', 'Apps', 'tools'], ['skill', 'Skills', 'skills'], ['mcp', 'Connectors', 'mcp']];
-  const n = k => vis(L.filter(l => !k || l.k === k)).length;
-  const list = browseList(), shown = list.slice(0, S.more || 60);
+  const n = k => vis(L.filter(l => (!k || l.k === k) && inJob(l))).length;
+  const nj = k => vis(byJob(k).filter(l => !S.kind || l.k === S.kind)).length;
+  const list = browseList(), shown = list.slice(0, S.more || 30);
+  const kits = S.job ? KITS.filter(x => KIT_JOB[x[0]] === S.job) : S.kind ? [] : kitsFirst();
   return `<div class="page browse">
-    <div class="large-title"><h1>Browse</h1></div>
+    <div class="large-title"><h1>${S.job ? esc(JOB[S.job][1]) : 'Browse'}</h1></div>
     <label class="search-field" for="q">${ic('search')}<input id="q" type="search" placeholder="Search apps, skills and connectors" value="${esc(S.q)}" autocomplete="off" enterkeyhint="search"></label>
     <div id="results" ${S.q.trim() ? '' : 'hidden'}>${S.q.trim() ? resultsHTML() : ''}</div>
     <div id="browse-all" ${S.q.trim() ? 'hidden' : ''}>
-    <nav class="kind-seg" aria-label="Kind">${kinds.map(([k, t, h]) => `<a href="#${h}" aria-current="${S.kind === k ? 'page' : 'false'}">${t}<span>${n(k)}</span></a>`).join('')}</nav>
-    <p class="kind-help">${{ tool: 'Free programs you run on your own computer.', skill: 'Instructions that teach Claude a job, like making slides or reviewing code. Most are plain text.', mcp: 'Also called MCP servers. They let Claude use your apps and accounts, like your browser, Figma or your calendar.' }[S.kind] || 'Free apps for your computer, skills that teach Claude a job, and connectors that let Claude use your apps.'}</p>
-    ${hiddenNote(L.filter(l => !S.kind || l.k === S.kind), list)}
-    <section class="shelf"><div class="shelf-head"><h2>By job</h2></div>
-      <div class="job-chips">${jobsFirst().map(([k, t]) => `<a href="#for-${k}">${esc(t)}<span>${vis(byJob(k).filter(l => !S.kind || l.k === S.kind)).length}</span></a>`).join('')}</div></section>
-    ${!S.kind ? `<section class="shelf"><div class="shelf-head"><h2>Starter kits<span class="sub">A few picks for one goal, to save together</span></h2></div><div class="job-grid">${kitsFirst().map(kitCard).join('')}</div></section>` : ''}
-    <section class="shelf"><div class="shelf-head"><h2>${S.kind ? KINDS[S.kind] : 'Everything'}<span class="sub">${list.length} project${list.length === 1 ? '' : 's'}</span></h2>
-      <label class="sort">Sort <select data-sort>${BROWSE_SORTS.map(([k, t]) => `<option value="${k}" ${S.sort === k ? 'selected' : ''}>${t}</option>`).join('')}</select></label></div>
-      <div class="rowlist">${shown.map(l => row(l)).join('')}</div>
-      ${list.length > shown.length ? `<p class="more-row"><button class="pill-link" data-more="${shown.length + 60}">Show ${Math.min(60, list.length - shown.length)} more</button></p>` : ''}</section>
+    <div class="kind-seg" role="group" aria-label="Kind" style="margin-top:14px">${kinds.map(([k, label, h]) => `<button class="kind" data-kind="${h}" aria-pressed="${S.kind === k}">${label}<span>${n(k)}</span></button>`).join('')}</div>
+    <nav class="topics" aria-label="Topic"><a href="#${HASH_OF[S.kind] || 'browse'}" aria-current="${S.job ? 'false' : 'page'}">All topics</a>${jobsFirst().map(([k, label]) => { const c = nj(k); return c ? `<a href="#for-${k}" aria-current="${S.job === k ? 'page' : 'false'}">${esc(label)}<span>${c}</span></a>` : ''; }).join('')}</nav>
+    <p class="topic-sub">${S.job ? esc(JOB[S.job][2]) + '.' : { tool: 'Free programs you run on your own computer.', skill: 'Instructions that teach Claude a job, like making slides or reviewing code. Most are plain text.', mcp: 'Also called MCP servers. They let Claude use your apps and accounts, like your browser, Figma or your calendar.' }[S.kind] || 'Free apps for your computer, skills that teach Claude a job, and connectors that let Claude use your apps.'}</p>
+    ${hiddenNote(L.filter(l => (!S.kind || l.k === S.kind) && inJob(l) && (!S.easy || l.lv === 1)), list)}
+    <div class="list-bar"><h2>${S.kind ? KINDS[S.kind] : 'Everything'}<span>${list.length}</span></h2>
+      <label class="toggle"><input type="checkbox" data-easybox ${S.easy ? 'checked' : ''}>One-step setup only</label>
+      <label class="sort">Sort <select data-sort>${BROWSE_SORTS.map(([k, label]) => `<option value="${k}" ${S.sort === k ? 'selected' : ''}>${label}</option>`).join('')}</select></label></div>
+    ${shown.length ? cards(shown, [], 'browse-cards') : `<p class="empty">Nothing here${S.easy ? ' with one-step setup' : ''} yet.${S.easy ? '<br><button class="text-btn" data-easyoff>Show everything</button>' : ''}</p>`}
+    ${list.length > shown.length ? `<p class="more-row"><button class="pill-link" data-more="${shown.length + 30}">Show ${Math.min(30, list.length - shown.length)} more</button></p>` : ''}
+    ${kits.length ? `<section class="shelf"><div class="shelf-head"><h2>Starter kits<span class="sub">A few picks for one goal, to save together</span></h2></div><div class="job-grid">${kits.map(kitCard).join('')}</div></section>` : ''}
     </div>
-    ${dataNote()}</div>`;
-}
-function pageJob(k) {
-  const [, title, sub, g, c] = JOB[k];
-  const all = vis(byJob(k)).filter(l => !S.easy || l.lv === 1), kits = KITS.filter(x => KIT_JOB[x[0]] === k);
-  // Listings whose main job is this one come first, then community before trusted, then by stars
-  const main = l => (l.jb || [])[0] === k ? 0 : 1;
-  const groups = ['skill', 'mcp', 'tool'].map(kind => [KINDS[kind], byStars(all.filter(l => l.k === kind)).sort((a, b) => main(a) - main(b) || (a.tr - b.tr))]).filter(([, list]) => list.length);
-  // A kind with only one or two listings joins the biggest shelf instead of getting a near-empty one of its own
-  if (groups.length > 1) {
-    const small = groups.filter(([, list]) => list.length < 3), big = groups.reduce((a, b) => b[1].length > a[1].length ? b : a);
-    const names = [big[0]];
-    for (const g of small) if (g !== big) { names.push(g[0].toLowerCase()); big[1] = big[1].concat(g[1]); groups.splice(groups.indexOf(g), 1); }
-    big[0] = names.length > 1 ? `${names.slice(0, -1).join(', ')} and ${names[names.length - 1]}` : names[0];
-  }
-  groups.sort((a, b) => b[1].length - a[1].length);   // the biggest shelf first, e.g. Apps on Everyday & home
-  return `<div class="navbar"><div class="in"><a class="back" href="#browse">${ic('back', 2.4)}Browse</a></div></div>
-  <div class="page" style="padding-top:12px">
-    <div class="large-title"><div class="job-card" style="background:none;padding:0;margin-bottom:6px"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span><h1>${esc(title)}</h1></div><p>${esc(sub)}. ${all.length} listing${all.length === 1 ? '' : 's'}${S.easy ? ' with one-step setup' : ''}, community projects first.</p></div>
-    ${kits.length ? `<div class="job-grid" style="margin-bottom:16px">${kits.map(kitCard).join('')}</div>` : ''}
-    <div class="filters" role="group" aria-label="Filter"><button data-easy="0" aria-pressed="${!S.easy}">Everything</button><button data-easy="1" aria-pressed="${!!S.easy}">One-step setup only</button></div>
-    ${hiddenNote(byJob(k).filter(l => !S.easy || l.lv === 1), all)}
-    ${groups.length ? groups.map(([name, list]) => `<section class="shelf"><div class="shelf-head"><h2>${name}<span class="sub">${list.length} listing${list.length > 1 ? 's' : ''}</span></h2></div><div class="rowlist">${list.map(l => row(l)).join('')}</div></section>`).join('')
-      : S.easy ? `<p class="empty">Nothing with one-step setup here yet.</p>` : `<p class="empty">Nothing here fits your focus.<br><button class="text-btn" data-showall="1">Show everything</button></p>`}
     ${dataNote()}</div>`;
 }
 
@@ -1474,7 +1506,7 @@ const searchHits = q => {
 function resultsHTML() {
   const q = S.q.trim();
   if (!q) return `<h2 style="font-size:22px;margin-bottom:6px">${FOCUS.jobs.length ? 'Ideas for you' : 'Discover'}</h2><ul class="suggest">${suggestions().map(s => `<li><button data-suggest="${s}">${ic('search')}${s}</button></li>`).join('')}</ul>`;
-  const list = res => `<div class="rowlist">${res.map(l => row(l)).join('')}</div>`;
+  const list = res => cards(res, [], 'browse-cards');
   const rq = repoQuery(q);
   if (rq) {
     const res = L.filter(l => l.r.toLowerCase() === rq);
@@ -2253,7 +2285,7 @@ try { const a = localStorage.getItem('vetted-agent'); if (AGENTS.some(x => x[0] 
 // Which door the home page opens on: "new" (new to AI) or "code" (uses Claude Code), remembered per viewer
 try { S.door = localStorage.getItem('vetted-door') === 'code' ? 'code' : 'new'; } catch (e) { S.door = 'new'; }
 // Three tabs: Home, Browse and My list. Kinds are a filter inside Browse.
-const TABS = [['today', 'Home', 'today'], ['browse', 'Browse', 'grid'], ['list', 'My list', 'heart']];
+const TABS = [['today', 'Home', 'today'], ['browse', 'Browse', 'grid'], ['instead', 'Free alternatives', 'tag', 'Alternatives'], ['list', 'My list', 'heart']];
 // Pages without a tab of their own (Browse's kind filters and search included, so old links keep working)
 const PAGES = ['all', 'tools', 'skills', 'mcp', 'search', 'trusted', 'caught', 'tested', 'trending', 'digest', 'powers'];
 const BROWSE_HASHES = ['all', 'tools', 'skills', 'mcp', 'search'];
@@ -2261,23 +2293,26 @@ const count = k => L.filter(l => l.k === k && !l.tr).length;
 function chrome() {
   const n = { list: LIST.length || '' };
   // Listing pages, job pages and kits light up the tab they belong to
-  const cur = k => S.tab === k || (k === 'browse' && !['today', 'list'].includes(S.tab));
+  const cur = k => S.tab === k || (k === 'browse' && !['today', 'list', 'instead'].includes(S.tab));
   document.getElementById('side-nav').innerHTML = TABS.map(([k, l, g]) => `<button class="nav-item" data-tab="${k}" aria-current="${cur(k) && !S.detail ? 'page' : 'false'}">${ic(g)}${l}${n[k] ? `<span class="n">${n[k]}</span>` : ''}</button>`).join('');
-  document.getElementById('tabbar').innerHTML = TABS.map(([k, l, g]) => `<button data-tab="${k}" aria-current="${cur(k) ? 'page' : 'false'}">${ic(g, 1.8)}${l}${k === 'list' && LIST.length ? `<i class="badge">${LIST.length}</i>` : ''}</button>`).join('');
+  document.getElementById('tabbar').innerHTML = TABS.map(([k, l, g, short]) => `<button data-tab="${k}" aria-current="${cur(k) ? 'page' : 'false'}">${ic(g, 1.8)}${short || l}${k === 'list' && LIST.length ? `<i class="badge">${LIST.length}</i>` : ''}</button>`).join('');
 }
 function render() {
-  document.getElementById('main').innerHTML = (S.detail ? '' : focusBar()) + (S.detail ? pageProduct(S.detail) : S.job ? pageJob(S.job) : S.kit ? pageKit(S.kit)
-    : S.issue ? pageIssue(S.issue) : S.test ? pageTest(S.test) : { tested: pageTested, powers: pagePowers, today: pageToday, trending: pageTrending, digest: pageDigest, browse: pageBrowse, trusted: pageTrusted, caught: pageCaught, list: pageList }[S.tab]());
+  document.getElementById('main').innerHTML = (S.detail ? '' : focusBar()) + (S.detail ? pageProduct(S.detail) : S.kit ? pageKit(S.kit)
+    : S.issue ? pageIssue(S.issue) : S.test ? pageTest(S.test) : { tested: pageTested, powers: pagePowers, today: pageToday, instead: pageInstead, trending: pageTrending, digest: pageDigest, browse: pageBrowse, trusted: pageTrusted, caught: pageCaught, list: pageList }[S.tab]());
   document.body.dataset.detail = S.detail ? '1' : '';
+  // On a phone the topic row scrolls sideways: bring the chosen topic into view (sideways only, so the page doesn't move)
+  { const tp = document.querySelector('#main .topics'), on = tp?.querySelector('[aria-current="page"]'); if (tp && on && tp.scrollWidth > tp.clientWidth) tp.scrollLeft += on.getBoundingClientRect().left - tp.getBoundingClientRect().left - 16; }
   if (S.focusSearch && !S.detail && S.tab === 'browse') { S.focusSearch = false; const q = document.getElementById('q'); if (q) { q.focus(); q.setSelectionRange(q.value.length, q.value.length); } }
   // A title per page, for the browser tab, history and bookmarks
   const t = S.detail ? BY[S.detail].n : S.job ? JOB[S.job][1] : S.kit ? KIT[S.kit][1] : S.test ? TEST[S.test].title : S.issue ? issueInfo(D.DG.find(i => i.id === S.issue)).title
-    : ({ trusted: 'From companies', caught: 'Risks & findings', tested: 'Tested', trending: 'Trending', digest: 'Digest', powers: 'New powers', list: S.shared ? 'A shared list' : 'My list', browse: S.kind ? KINDS[S.kind] : 'Browse' }[S.tab] || (TABS.find(x => x[0] === S.tab) || [])[1]);
+    : ({ trusted: 'From companies', caught: 'Risks & findings', tested: 'Tested', trending: 'Trending', digest: 'Digest', powers: 'New powers', list: S.shared ? 'A shared list' : 'My list', instead: 'Free alternatives', browse: S.kind ? KINDS[S.kind] : 'Browse' }[S.tab] || (TABS.find(x => x[0] === S.tab) || [])[1]);
   document.title = t && S.tab !== 'today' || S.detail ? `${t} · Skillshelf` : 'Skillshelf: the app store for open source';
   chrome();
 }
 function route() {
   const h = decodeURIComponent(location.hash.slice(1));
+  const wasJob = S.job;
   S.job = null; S.kit = null; S.issue = null; S.shared = null; S.test = null;
   // A shared setup applies Make it yours, then shows Today; a shared list opens read-only
   if (h.startsWith('setup?')) { applySetup(h.slice(6)); history.replaceState(history.state, '', '#today'); toast('Set up from the link. Edit it any time in Make it yours.'); return route(); }
@@ -2285,7 +2320,7 @@ function route() {
   if (!BY[h]) S.back = h || 'today';
   if (BY[h]) { S.detail = h; if (!S.tab) S.tab = 'today'; }
   else if (h.startsWith('kit-') && KIT[h.slice(4)]) { S.detail = null; S.kit = h.slice(4); S.tab = 'browse'; }
-  else if (h.startsWith('for-') && JOB[h.slice(4)]) { S.detail = null; S.job = h.slice(4); S.tab = 'browse'; }
+  else if (h.startsWith('for-') && JOB[h.slice(4)]) { S.detail = null; S.job = h.slice(4); S.tab = 'browse'; setQuery(''); if (S.job !== wasJob) S.more = 0; }
   else if (h.startsWith('test-') && TEST[h.slice(5)]) { S.detail = null; S.test = h.slice(5); S.tab = 'tested'; }
   else if (h.startsWith('digest-') && (D.DG || []).some(i => i.id === h.slice(7))) { S.detail = null; S.issue = h.slice(7); S.tab = 'digest'; }
   else {
@@ -2294,7 +2329,7 @@ function route() {
     // Browse's kind filters and search are Browse with a setting
     if (S.tab === 'browse' || BROWSE_HASHES.includes(S.tab)) {
       // Opening Apps, Skills or Connectors shows that list, not an old search
-      if (S.tab !== 'search') { const k = S.tab === 'browse' ? null : KIND_HASH[S.tab]; if (k !== S.kind) S.more = 0; S.kind = k; if (S.tab !== 'browse') setQuery(''); }
+      if (S.tab !== 'search') { const k = S.tab === 'browse' ? null : KIND_HASH[S.tab]; if (k !== S.kind || wasJob) S.more = 0; S.kind = k; if (S.tab !== 'browse') setQuery(''); }
       S.focusSearch = S.tab === 'search'; S.tab = 'browse';
     }
   }
@@ -2340,7 +2375,7 @@ function openStory(id) {
 }
 
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-more],[data-focus],[data-fset],[data-focusreset],[data-closepanel],[data-showall],[data-tab],[data-get],[data-story],[data-closestory],[data-closesheet],[data-copy],[data-agent],[data-suggest],[data-seeall],[data-easy],[data-jump],[data-unclamp],[data-save],[data-audit],[data-share],[data-sharelist],[data-sharekit],[data-savekit],[data-savelist],[data-mdlist],[data-clearlist],[data-copysetup],[data-door],.story-ov .row-txt');
+  const t = e.target.closest('[data-more],[data-focus],[data-fset],[data-focusreset],[data-closepanel],[data-showall],[data-tab],[data-get],[data-story],[data-closestory],[data-closesheet],[data-copy],[data-agent],[data-suggest],[data-seeall],[data-easy],[data-jump],[data-unclamp],[data-save],[data-audit],[data-share],[data-sharelist],[data-sharekit],[data-savekit],[data-savelist],[data-mdlist],[data-clearlist],[data-copysetup],[data-door],[data-kind],[data-easyoff],.story-ov .row-txt');
   if (!t) return;
   const d = t.dataset;
   const target = t.getAttribute('href')?.startsWith('#') ? t.getAttribute('href').slice(1) : null;
@@ -2357,6 +2392,9 @@ document.addEventListener('click', e => {
     LIST = [...LIST, ...add]; saveList(); refocus(); toast(add.length ? `${add.length} saved to your list` : 'Already in your list'); return; }
   if ('mdlist' in d) { copyText(listMarkdown((S.shared || LIST).map(id => BY[id]).filter(Boolean)), 'Copied as Markdown'); return; }
   if ('clearlist' in d) { if (confirm(`Remove all ${LIST.length} from your list?`)) { LIST = []; saveList(); refocus(); } return; }
+  // A kind keeps the topic you're on; with no topic it's Browse's own link (#tools), so it can be shared
+  if (d.kind) { S.kind = KIND_HASH[d.kind]; S.more = 0; if (!S.job) history.replaceState(history.state, '', '#' + (d.kind === 'all' ? 'browse' : d.kind)); refocus(); return; }
+  if ('easyoff' in d) { S.easy = false; refocus(); return; }
   if (d.door) { S.door = d.door; try { localStorage.setItem('vetted-door', S.door); } catch (err) {} const y = scrollY; render(); scrollTo(0, y); return; }
   if ('copysetup' in d) { copyText(`${SITE}#${setupHash()}`, 'Link to this setup copied'); return; }
   if ('focusreset' in d) { FOCUS = { ...FOCUS0 }; SHOW_ALL = false; saveFocus(); refocus(); return; }
@@ -2379,7 +2417,7 @@ document.addEventListener('click', e => {
   }
   else if (d.suggest) { setQuery(d.suggest); if (S.tab !== 'browse' || S.detail) go('search'); else { render(); const q = document.getElementById('q'); if (q) q.focus(); } }
   else if ('unclamp' in d) { t.previousElementSibling.classList.remove('clamp'); t.remove(); }
-  else if (d.jump) { const el = document.getElementById(d.jump); if (el?.tagName === 'DETAILS') el.open = true; el?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+  else if (d.jump) { e.preventDefault(); const el = document.getElementById(d.jump); if (el?.tagName === 'DETAILS') el.open = true; el?.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
   else if (d.easy) { S.easy = d.easy === '1'; const y = scrollY; render(); scrollTo(0, y); }
   else if (d.seeall) { S.q = d.seeall; document.getElementById("side-q").value = S.q; go("search"); }
 });
@@ -2390,11 +2428,13 @@ function drawResults() {
   if (r) { r.hidden = !on; r.innerHTML = on ? resultsHTML() : ''; } if (all) all.hidden = on;
 }
 document.addEventListener('input', e => {
+  if (e.target.id === 'iq') { S.iq = e.target.value; const r = document.getElementById('instead-results'); if (r) r.innerHTML = insteadHTML(); return; }
   if (!['q', 'side-q', 'home-q'].includes(e.target.id)) return;
   setQuery(e.target.value);
   if (S.tab !== 'browse' || S.detail) go('search'); else drawResults();
 });
-document.addEventListener('change', e => { if (e.target.matches('[data-sort]')) { S.sort = e.target.value; S.more = 0; refocus(); } });
+document.addEventListener('change', e => { if (e.target.matches('[data-sort]')) { S.sort = e.target.value; S.more = 0; refocus(); }
+  if (e.target.matches('[data-easybox]')) { S.easy = e.target.checked; S.more = 0; refocus(); } });
 sheet.addEventListener('click', e => { if (e.target === sheet) sheet.close(); });
 story.addEventListener('click', e => { if (e.target === story) story.close(); });
 sheet.addEventListener('close', () => onModalClose(sheet));

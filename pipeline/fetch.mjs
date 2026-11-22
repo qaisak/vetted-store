@@ -167,7 +167,13 @@ const TOOLS = ['NVIDIA/SkillSpector', 'vercel-labs/skills', 'BurntSushi/ripgrep'
   'Niko1221/Strata', 'FrigadeHQ/hob', 'FrigadeHQ/yogurt', 'HKUDS/nanobot', 'jaredpalmer/kev', 'ollaya-dev/ollaya', 'NandhaKishorM/laya',
   'toeverything/AFFiNE', 'genspark-ai/genoffice', 'HKUDS/DeepTutor', 'nexu-io/open-design', 'backnotprop/plannotator', 'HKUDS/CLI-Anything',
   // A CLI that installs its own skill (its skill file is skill.md, which the skill reader above doesn't pick up)
-  'Graphify-Labs/graphify'];
+  'Graphify-Labs/graphify',
+  // Free alternatives to paid products, each saying so in its own README or GitHub description (checked November 22, 2026)
+  'ryanbr/noop', 'CapSoftware/Cap', 'OpenCut-app/OpenCut', 'fastrepl/anarlog', 'OpenWhispr/openwhispr', 'dyad-sh/dyad', 'lfnovo/open-notebook',
+  'jellyfin/jellyfin', 'usebruno/bruno', 'hoppscotch/hoppscotch',
+  'twentyhq/twenty', 'makeplane/plane', 'hcengineering/platform', 'Leantime/leantime', 'documenso/documenso', 'formbricks/formbricks',
+  'chatwoot/chatwoot', 'activepieces/activepieces', 'docmost/docmost', 'bigcapitalhq/bigcapital', 'inovector/mixpost', 'HiEventsDev/Hi.Events',
+  'coollabsio/coolify', 'Dokploy/dokploy', 'TabbyML/tabby'];
 
 const meta = {}, scores = {}, hn = {}, avatars = {};
 async function repoMeta(repo) {

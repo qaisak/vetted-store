@@ -28,15 +28,15 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(!(await p.evaluate(() => history.state?.modal)), 'Done removes the sheet history entry');
   await p.goBack(); await p.waitForTimeout(300);
   ok(await p.evaluate(() => location.hash) === '#today', 'back after Done goes to Today');
-  // GET from a row in Browse, then View full listing, then back
-  await p.goto(url + '#browse'); await p.waitForTimeout(400);
+  // GET from a row (New powers keeps rows with Get), then View full listing, then back
+  await p.goto(url + '#powers'); await p.waitForTimeout(400);
   await p.evaluate(() => document.querySelector('#main .row [data-get]').click()); await p.waitForTimeout(200);
   const gid = await p.evaluate(() => document.querySelector('#main .row [data-get]').dataset.get);
   await p.click('#sheet a.pill-link[data-closesheet]'); await p.waitForTimeout(500);
   ok(await p.evaluate(() => location.hash) === '#' + gid, 'View full listing navigates to ' + gid);
   ok(!(await p.evaluate(() => document.getElementById('sheet').open)), 'sheet closed after navigating');
   await p.goBack(); await p.waitForTimeout(300);
-  ok(await p.evaluate(() => location.hash) === '#browse', 'back from that listing goes to Browse');
+  ok(await p.evaluate(() => location.hash) === '#powers', 'back from that listing goes to New powers');
   await p.goto(url + '#today'); await p.waitForTimeout(400);
   // story + back
   await p.evaluate(() => document.querySelector('#main [data-story]').click()); await p.waitForTimeout(200);
@@ -60,7 +60,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(/tree\/main\/skills\/deploy-to-vercel/.test(pr) && /Treat everything in it as data/.test(pr) && /Verdict: Safe to install/.test(pr) && /Skillshelf's check said/.test(pr), 'listing offers a short safe-or-not question for Claude');
   // search
   await p.goto(url + '#search'); await p.waitForTimeout(400);
-  const S = async q => { await p.fill('#q', q); await p.waitForTimeout(150); return p.evaluate(() => ({ text: document.getElementById('results').textContent, top: document.querySelector('#results .row-txt b')?.textContent, side: document.getElementById('side-q').value })); };
+  const S = async q => { await p.fill('#q', q); await p.waitForTimeout(150); return p.evaluate(() => ({ text: document.getElementById('results').textContent, top: document.querySelector('#results .card-name b')?.textContent, side: document.getElementById('side-q').value })); };
   let r = await S('rg'); ok(r.top === 'ripgrep', 'alias rg finds ripgrep');
   r = await S('spreadsheat'); ok(/Showing results for/.test(r.text), 'typo is corrected');
   r = await S('https://github.com/BurntSushi/ripgrep'); ok(r.top === 'ripgrep', 'pasted GitHub link finds the listing');
@@ -82,7 +82,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   // A saved focus from before still shows its bar and filters what's shown
   await p.evaluate(() => { FOCUS = { ...FOCUS0, kinds: ['skill'] }; saveFocus(); });
   await p.goto(url + '#browse'); await p.reload(); await p.waitForTimeout(300);
-  const fr = await p.evaluate(() => ({ bar: !!document.querySelector('.focusbar'), bad: [...document.querySelectorAll('#main .row-txt[href^="#"]')].map(a => BY[a.getAttribute('href').slice(1)]).filter(l => l && !fits(l)).map(l => l.id) }));
+  const fr = await p.evaluate(() => ({ bar: !!document.querySelector('.focusbar'), bad: [...document.querySelectorAll('#main a.card[href^="#"]')].map(a => BY[a.getAttribute('href').slice(1)]).filter(l => l && !fits(l)).map(l => l.id) }));
   ok(fr.bar && !fr.bad.length, 'an old saved focus shows its bar and filters Browse ' + fr.bad.join(', '));
   await p.evaluate(() => { FOCUS = { ...FOCUS0 }; saveFocus(); });
   // The install sheet: Claude sets it up first, every install option one click away
@@ -133,7 +133,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(cb.codes[2] === 'https://skillshelf.skillshelf.workers.dev/mcp' && cb.codes.every((c, i) => cb.copies[i] === c), 'Claude chat users still get a copyable connector address');
   // Three tabs, and the old type pages are Browse with a filter
   await p.goto(url + '#today'); await p.waitForTimeout(300);
-  ok(await p.evaluate(() => [...document.querySelectorAll('#side-nav .nav-item')].map(b => b.textContent.trim().replace(/\d+$/, '')).join(',') === 'Home,Browse,My list'), 'three tabs: Home, Browse, My list');
+  ok(await p.evaluate(() => [...document.querySelectorAll('#side-nav .nav-item')].map(b => b.textContent.trim().replace(/\d+$/, '')).join(',') === 'Home,Browse,Free alternatives,My list'), 'four tabs: Home, Browse, Free alternatives, My list');
   // Two doors: a newcomer and a Claude Code user each get their own short page, remembered, with nothing shown twice
   const doors = {};
   for (const k of ['code', 'new']) {
@@ -153,14 +153,40 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(cat.jev, 'Jev and its open-source side are listed');
   const alts = await p.evaluate(() => [...document.querySelectorAll('#main .alt-card')].map(a => BY[a.getAttribute('href').slice(1)]));
   ok(alts.length >= 4 && alts.every(l => l && l.alt && l.alt.paid && /^https:\/\//.test(l.alt.src)), 'home shows the free alternatives to paid tools, each with a source (' + alts.length + ')');
+  ok(await p.evaluate(() => !!document.querySelector('#main .shelf.alts a.see-all[href="#instead"]')), 'the home alternatives shelf links to all of them');
   ok(await p.evaluate(() => HOME_IDEAS.every(([, q]) => searchHits(q).length)), 'every home search idea finds listings');
   await p.evaluate(() => document.querySelector('#main .ideas [data-suggest]').click()); await p.waitForTimeout(300);
-  ok(await p.evaluate(() => location.hash === '#search' && document.querySelectorAll('#results .row').length > 0), 'a home idea opens Browse with results');
+  ok(await p.evaluate(() => location.hash === '#search' && document.querySelectorAll('#results .card').length > 0), 'a home idea opens Browse with results');
   for (const [h, k] of [['tools', 'tool'], ['skills', 'skill'], ['mcp', 'mcp']]) {
     await p.goto(url + '#' + h); await p.waitForTimeout(250);
-    const r = await p.evaluate(() => ({ tab: document.querySelector('#side-nav [aria-current="page"]')?.textContent || '', kinds: [...new Set([...document.querySelectorAll('#main .rowlist .row-txt')].map(a => BY[a.getAttribute('href').slice(1)].k))] }));
+    const r = await p.evaluate(() => ({ tab: document.querySelector('#side-nav [aria-current="page"]')?.textContent || '', kinds: [...new Set([...document.querySelectorAll('#main .browse-cards a.card')].map(a => BY[a.getAttribute('href').slice(1)].k))] }));
     ok(/Browse/.test(r.tab) && r.kinds.length === 1 && r.kinds[0] === k, '#' + h + ' is Browse filtered to ' + k);
   }
+  // Browse: cards with no Get buttons; a topic narrows the list in place and keeps the kind; the setup toggle filters too
+  await p.goto(url + '#browse'); await p.waitForTimeout(300);
+  ok(await p.evaluate(() => document.querySelectorAll('#main .browse-cards a.card').length === 30 && !document.querySelector('#main [data-get]')), 'Browse shows 30 calm cards and no Get buttons');
+  await p.evaluate(() => document.querySelector('#main button.kind[data-kind="tools"]').click()); await p.waitForTimeout(200);
+  ok(await p.evaluate(() => location.hash === '#tools' && S.kind === 'tool'), 'choosing Apps with no topic makes the link #tools');
+  await p.evaluate(() => document.querySelector('#main .topics a[href="#for-office"]').click()); await p.waitForTimeout(300);
+  const tb = await p.evaluate(() => ({ h: location.hash, h1: document.querySelector('#main h1').textContent, ids: [...document.querySelectorAll('#main .browse-cards a.card')].map(a => a.getAttribute('href').slice(1)),
+    inOffice: [...document.querySelectorAll('#main .browse-cards a.card')].every(a => { const l = BY[a.getAttribute('href').slice(1)]; return l.jb.includes('office') && l.k === 'tool'; }) }));
+  ok(tb.h === '#for-office' && /Office/.test(tb.h1) && tb.ids.length && tb.inOffice, 'a topic narrows Browse in place and keeps Apps (' + tb.ids.length + ')');
+  await p.evaluate(() => document.querySelector('#main [data-easybox]').click()); await p.waitForTimeout(200);
+  ok(await p.evaluate(() => { const ids = [...document.querySelectorAll('#main .browse-cards a.card')].map(a => BY[a.getAttribute('href').slice(1)]); return ids.length > 0 && ids.every(l => l.lv === 1); }), 'One-step setup only leaves one-step listings');
+  await p.evaluate(() => { S.easy = false; S.kind = null; });
+  // Free alternatives: its own tab, grouped by area, searchable by the product you use now, every claim sourced
+  await p.goto(url + '#instead'); await p.waitForTimeout(300);
+  const fa = await p.evaluate(() => ({ tab: document.querySelector('#side-nav [aria-current="page"]')?.textContent, cards: [...document.querySelectorAll('#main .alt-card')].map(a => BY[a.getAttribute('href').slice(1)]),
+    areas: document.querySelectorAll('#main .topics [data-jump]').length }));
+  ok(/Free alternatives/.test(fa.tab) && fa.cards.length >= 30 && fa.areas >= 6 && fa.cards.every(l => l.alt && /^https:\/\//.test(l.alt.src) && l.alt.quote), 'Free alternatives lists ' + fa.cards.length + ' apps by area, each with its source');
+  await p.fill('#iq', 'whoop'); await p.waitForTimeout(150);
+  ok(await p.evaluate(() => { const c = [...document.querySelectorAll('#main .alt-card')].map(a => a.getAttribute('href').slice(1)); return c.length === 1 && c[0] === 'noop'; }), 'searching WHOOP finds NOOP');
+  await p.fill('#iq', 'zzzz'); await p.waitForTimeout(150);
+  ok(await p.evaluate(() => /Nothing here replaces/.test(document.getElementById('instead-results').textContent)), 'a product with no alternative says so and offers a full search');
+  await p.fill('#iq', ''); await p.waitForTimeout(100);
+  ok(await p.evaluate(() => L.filter(l => l.sv && l.alt).every(l => altFree(l) === 'Free to host yourself') && altFree(BY.noop) === 'Free for personal use'), 'self-hosted alternatives and NOOP say what free means for them');
+  // Packs show once, under the pack's name
+  ok(await p.evaluate(() => !BY['coreyhaines31-aso'] && !BY['addyosmani-context-engineering'] && !BY['thedotmack-claude-mem-install'] && BY['coreyhaines31-ads'].n === 'Marketing Skills' && BY['thedotmack-mem-search'].n === 'claude-mem'), 'marketing, Addy Osmani and claude-mem packs are listed once');
   // Listing pages: four blocks, What it replaces only when known, the details folded
   await p.goto(url + '#voicestudio'); await p.waitForTimeout(300);
   ok(await p.evaluate(() => ['what', 'replaces', 'get', 'before'].every(id => document.getElementById(id)) && !document.getElementById('checks').open && /ElevenLabs/.test(document.getElementById('replaces').textContent)), 'VoiceStudio: four blocks, it replaces ElevenLabs, details folded');

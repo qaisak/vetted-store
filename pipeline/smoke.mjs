@@ -49,7 +49,7 @@ for (const [label, viewport, scheme] of [['desktop', { width: 1280, height: 860 
   await page.waitForTimeout(50);
   for (const q of ['pdf', 'figma', 'security', 'zzzz-no-hit']) {
     await page.fill('#q', q);
-    const n = await page.evaluate(() => document.querySelectorAll('#results .row').length);
+    const n = await page.evaluate(() => document.querySelectorAll('#results .row, #results .card').length);
     if (q === 'zzzz-no-hit' ? n !== 0 : n === 0) fail(`${label} search`, `"${q}" gave ${n} results`);
   }
   // Every listing page, and its install sheet

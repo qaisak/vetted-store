@@ -1,113 +1,309 @@
 {
-  "_about": "What each listing is an alternative to, only where the project's own README, GitHub description or website says so. n: the product it replaces. paid: true when that product costs money (it then shows on the 'Free alternatives to tools you pay for' shelf). src: where the claim is. quote: the project's own words. note: a caveat the project itself gives. Leave a listing out rather than guess.",
+  "_about": "What each listing is an alternative to, only where the project's own README, GitHub description or website says so. n: the product it replaces. paid: true when that product costs money (it then shows on the 'Free alternatives to tools you pay for' shelf). src: where the claim is. quote: the project's own words. note: a caveat the project itself gives. area: where it goes on the Free alternatives page (cli: replaces a built-in command, left off that page). tag: a word on its card instead of \"Free\". Leave a listing out rather than guess.",
   "voicestudio": {
     "n": "ElevenLabs",
     "paid": true,
     "src": "https://github.com/debpalash/VoiceStudio",
-    "quote": "VoiceStudio is the open-source, fully-local ElevenLabs alternative"
+    "quote": "VoiceStudio is the open-source, fully-local ElevenLabs alternative",
+    "area": "ai"
   },
   "compositor": {
     "n": "Adobe Photoshop",
     "paid": true,
     "src": "https://github.com/robbietilton/Compositor",
-    "quote": "The Photoshop alternative for Mac"
+    "quote": "The Photoshop alternative for Mac",
+    "area": "media"
   },
   "photocraft": {
     "n": "Adobe Photoshop",
     "paid": true,
     "src": "https://github.com/storytold/photocraft",
     "quote": "an open-source, clean-room reimplementation of Adobe Photoshop",
-    "note": "Its README says it is not yet a Photoshop replacement for daily professional work."
+    "note": "Its README says it is not yet a Photoshop replacement for daily professional work.",
+    "area": "media"
   },
   "rustdesk": {
     "n": "TeamViewer",
     "paid": true,
     "src": "https://github.com/rustdesk/rustdesk",
-    "quote": "An open-source remote desktop application designed for self-hosting, as an alternative to TeamViewer."
+    "quote": "An open-source remote desktop application designed for self-hosting, as an alternative to TeamViewer.",
+    "area": "home"
   },
   "localsend": {
     "n": "AirDrop",
     "paid": false,
     "src": "https://github.com/localsend/localsend",
-    "quote": "An open-source cross-platform alternative to AirDrop"
+    "quote": "An open-source cross-platform alternative to AirDrop",
+    "area": "home"
   },
   "posting": {
     "n": "Postman",
     "paid": false,
     "src": "https://github.com/darrenburns/posting",
-    "quote": "Posting is an HTTP client, not unlike Postman and Insomnia."
+    "quote": "Posting is an HTTP client, not unlike Postman and Insomnia.",
+    "area": "dev"
   },
   "glances": {
     "n": "top and htop",
     "paid": false,
     "src": "https://github.com/nicolargo/glances",
-    "quote": "A top/htop alternative for GNU/Linux, BSD, macOS and Windows operating systems."
+    "quote": "A top/htop alternative for GNU/Linux, BSD, macOS and Windows operating systems.",
+    "area": "cli"
   },
   "fd": {
     "n": "find",
     "paid": false,
     "src": "https://github.com/sharkdp/fd",
-    "quote": "A simple, fast and user-friendly alternative to 'find'"
+    "quote": "A simple, fast and user-friendly alternative to 'find'",
+    "area": "cli"
   },
   "duf": {
     "n": "df",
     "paid": false,
     "src": "https://github.com/muesli/duf",
-    "quote": "Disk Usage/Free Utility - a better 'df' alternative"
+    "quote": "Disk Usage/Free Utility - a better 'df' alternative",
+    "area": "cli"
   },
   "sd": {
     "n": "sed",
     "paid": false,
     "src": "https://github.com/chmln/sd",
-    "quote": "Intuitive find & replace CLI (sed alternative)"
+    "quote": "Intuitive find & replace CLI (sed alternative)",
+    "area": "cli"
   },
   "bat": {
     "n": "cat",
     "paid": false,
     "src": "https://github.com/sharkdp/bat",
-    "quote": "A cat(1) clone with wings."
+    "quote": "A cat(1) clone with wings.",
+    "area": "cli"
   },
   "jan": {
     "n": "ChatGPT",
     "paid": false,
     "src": "https://github.com/janhq/jan",
-    "quote": "Jan is an open source alternative to ChatGPT that runs 100% offline on your computer."
+    "quote": "Jan is an open source alternative to ChatGPT that runs 100% offline on your computer.",
+    "area": "ai"
   },
   "appflowy": {
     "n": "Notion",
     "paid": false,
     "src": "https://github.com/AppFlowy-IO/AppFlowy",
-    "quote": "The Open Source Alternative To Notion"
+    "quote": "The Open Source Alternative To Notion",
+    "area": "notes"
   },
   "meetily": {
     "n": "Otter.ai",
     "paid": true,
     "src": "https://meetily.ai",
     "quote": "Privacy-First AI Meeting Assistant | Otter.ai & Granola Alternative",
-    "note": "Its Community Edition is free and open source; Meetily also sells a Pro plan."
+    "note": "Its Community Edition is free and open source; Meetily also sells a Pro plan.",
+    "area": "meet"
   },
   "yogurt": {
     "n": "Granola",
     "paid": true,
     "src": "https://github.com/FrigadeHQ/yogurt",
-    "quote": "A free, open-source alternative to Granola, Otter and Fireflies."
+    "quote": "A free, open-source alternative to Granola, Otter and Fireflies.",
+    "area": "meet"
   },
   "hob": {
     "n": "ChatGPT",
     "paid": false,
     "src": "https://github.com/FrigadeHQ/hob",
-    "quote": "A free, open-source alternative to Claude and ChatGPT."
+    "quote": "A free, open-source alternative to Claude and ChatGPT.",
+    "area": "ai"
   },
   "affine": {
     "n": "Notion",
     "paid": false,
     "src": "https://github.com/toeverything/AFFiNE",
-    "quote": "A privacy-focused, local-first, open-source, and ready-to-use alternative for Notion & Miro."
+    "quote": "A privacy-focused, local-first, open-source, and ready-to-use alternative for Notion & Miro.",
+    "area": "notes"
   },
   "genoffice": {
     "n": "Microsoft Office",
     "paid": true,
     "src": "https://github.com/genspark-ai/genoffice",
-    "quote": "GenOffice is a free, open-source alternative to Microsoft Office for macOS, Windows and Linux."
+    "quote": "GenOffice is a free, open-source alternative to Microsoft Office for macOS, Windows and Linux.",
+    "area": "notes"
+  },
+  "noop": {
+    "n": "WHOOP membership",
+    "paid": true,
+    "area": "health",
+    "src": "https://github.com/ryanbr/noop",
+    "quote": "Offline WHOOP companion — pair your strap over Bluetooth, keep all data on your own device. No cloud, no account, no subscription.",
+    "tag": "Free for personal use",
+    "note": "You still need a WHOOP 4.0 or 5.0 strap. Its licence (PolyForm Noncommercial) allows personal use but not commercial use, so it isn't open source in the strict sense."
+  },
+  "cap": {
+    "n": "Loom",
+    "paid": true,
+    "area": "media",
+    "src": "https://github.com/CapSoftware/Cap",
+    "quote": "Cap is the open source alternative to Loom."
+  },
+  "opencut": {
+    "n": "CapCut",
+    "paid": true,
+    "area": "media",
+    "src": "https://github.com/OpenCut-app/OpenCut",
+    "quote": "The open-source CapCut alternative",
+    "note": "Being rewritten. Its README says the version at opencut.app is the one to use today."
+  },
+  "anarlog": {
+    "n": "Granola",
+    "paid": true,
+    "area": "meet",
+    "src": "https://github.com/fastrepl/anarlog",
+    "quote": "anarlog is an open-source alternative to Granola."
+  },
+  "openwhispr": {
+    "n": "Wispr Flow",
+    "paid": true,
+    "area": "meet",
+    "src": "https://github.com/OpenWhispr/openwhispr",
+    "quote": "The open-source and free alternative to WisprFlow and Granola."
+  },
+  "dyad": {
+    "n": "Lovable",
+    "paid": true,
+    "area": "ai",
+    "src": "https://github.com/dyad-sh/dyad",
+    "quote": "v0 / Lovable / Replit / Bolt alternative"
+  },
+  "open-notebook": {
+    "n": "NotebookLM",
+    "paid": false,
+    "area": "ai",
+    "src": "https://github.com/lfnovo/open-notebook",
+    "quote": "An open source, privacy-focused alternative to Google's Notebook LM!"
+  },
+  "jellyfin": {
+    "n": "Plex",
+    "paid": true,
+    "area": "home",
+    "src": "https://github.com/jellyfin/jellyfin",
+    "quote": "It is an alternative to the proprietary Emby and Plex, to provide media from a dedicated server to end-user devices via multiple apps."
+  },
+  "bruno": {
+    "n": "Postman",
+    "paid": false,
+    "area": "dev",
+    "src": "https://github.com/usebruno/bruno",
+    "quote": "Opensource IDE For Exploring and Testing API's (lightweight alternative to Postman/Insomnia)"
+  },
+  "hoppscotch": {
+    "n": "Postman",
+    "paid": false,
+    "area": "dev",
+    "src": "https://github.com/hoppscotch/hoppscotch",
+    "quote": "Open-Source Alternative to Postman, Insomnia"
+  },
+  "twenty": {
+    "n": "Salesforce",
+    "paid": true,
+    "area": "biz",
+    "src": "https://github.com/twentyhq/twenty",
+    "quote": "The open alternative to Salesforce, designed for AI."
+  },
+  "plane": {
+    "n": "Jira",
+    "paid": true,
+    "area": "team",
+    "src": "https://github.com/makeplane/plane",
+    "quote": "Open-source Jira, Linear, Monday, and ClickUp alternative."
+  },
+  "huly": {
+    "n": "Linear",
+    "paid": true,
+    "area": "team",
+    "src": "https://github.com/hcengineering/platform",
+    "quote": "Huly — All-in-One Project Management Platform (alternative to Linear, Jira, Slack, Notion, Motion)"
+  },
+  "leantime": {
+    "n": "Asana",
+    "paid": true,
+    "area": "team",
+    "src": "https://github.com/Leantime/leantime",
+    "quote": "A perfect alternative to ClickUp, Monday, or Asana"
+  },
+  "documenso": {
+    "n": "DocuSign",
+    "paid": true,
+    "area": "biz",
+    "src": "https://github.com/documenso/documenso",
+    "quote": "The Open Source DocuSign Alternative."
+  },
+  "formbricks": {
+    "n": "Qualtrics",
+    "paid": true,
+    "area": "biz",
+    "src": "https://github.com/formbricks/formbricks",
+    "quote": "The Open Source Qualtrics Alternative"
+  },
+  "chatwoot": {
+    "n": "Intercom",
+    "paid": true,
+    "area": "biz",
+    "src": "https://github.com/chatwoot/chatwoot",
+    "quote": "The modern customer support platform, an open-source alternative to Intercom, Zendesk, Salesforce Service Cloud etc."
+  },
+  "activepieces": {
+    "n": "Zapier",
+    "paid": true,
+    "area": "team",
+    "src": "https://github.com/activepieces/activepieces",
+    "quote": "An open source replacement for Zapier"
+  },
+  "docmost": {
+    "n": "Confluence",
+    "paid": true,
+    "area": "team",
+    "src": "https://github.com/docmost/docmost",
+    "quote": "It is an open-source alternative to Confluence and Notion."
+  },
+  "bigcapital": {
+    "n": "QuickBooks",
+    "paid": true,
+    "area": "biz",
+    "src": "https://github.com/bigcapitalhq/bigcapital",
+    "quote": "Independent financial accounting with intelligent reporting, alternative to Quickbooks, Xero, Wave."
+  },
+  "mixpost": {
+    "n": "Buffer",
+    "paid": true,
+    "area": "biz",
+    "src": "https://github.com/inovector/mixpost",
+    "quote": "No subscriptions, no limits. (Buffer alternative)"
+  },
+  "hi-events": {
+    "n": "Eventbrite",
+    "paid": true,
+    "area": "biz",
+    "src": "https://github.com/HiEventsDev/Hi.Events",
+    "quote": "alternative to Eventbrite, Tickettailor, Dice.fm and other ticketing platforms"
+  },
+  "coolify": {
+    "n": "Vercel",
+    "paid": true,
+    "area": "dev",
+    "src": "https://github.com/coollabsio/coolify",
+    "quote": "It is an alternative to Heroku, Netlify, and Vercel."
+  },
+  "dokploy": {
+    "n": "Vercel",
+    "paid": true,
+    "area": "dev",
+    "src": "https://github.com/Dokploy/dokploy",
+    "quote": "Open Source Alternative to Vercel, Netlify and Heroku."
+  },
+  "tabby": {
+    "n": "GitHub Copilot",
+    "paid": true,
+    "area": "dev",
+    "src": "https://github.com/TabbyML/tabby",
+    "quote": "offering an open-source and on-premises alternative to GitHub Copilot"
   }
 }

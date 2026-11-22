@@ -43,6 +43,11 @@ const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'ast
   'Niko1221/Strata': 'Strata', 'FrigadeHQ/hob': 'Hob', 'FrigadeHQ/yogurt': 'Yogurt', 'HKUDS/nanobot': 'nanobot', 'jaredpalmer/kev': 'Kev', 'ollaya-dev/ollaya': 'ollaya',
   'NandhaKishorM/laya': 'laya', 'toeverything/AFFiNE': 'AFFiNE', 'genspark-ai/genoffice': 'GenOffice', 'HKUDS/DeepTutor': 'DeepTutor', 'nexu-io/open-design': 'Open Design',
   'backnotprop/plannotator': 'Plannotator', 'HKUDS/CLI-Anything': 'CLI-Anything', 'Graphify-Labs/graphify': 'Graphify', 'DIYgod/pinky': 'Pinky',
+  'ryanbr/noop': 'NOOP', 'CapSoftware/Cap': 'Cap', 'OpenCut-app/OpenCut': 'OpenCut', 'fastrepl/anarlog': 'Anarlog', 'OpenWhispr/openwhispr': 'OpenWhispr', 'dyad-sh/dyad': 'Dyad',
+  'lfnovo/open-notebook': 'Open Notebook', 'jellyfin/jellyfin': 'Jellyfin', 'usebruno/bruno': 'Bruno', 'hoppscotch/hoppscotch': 'Hoppscotch', 'twentyhq/twenty': 'Twenty',
+  'makeplane/plane': 'Plane', 'hcengineering/platform': 'Huly', 'Leantime/leantime': 'Leantime', 'documenso/documenso': 'Documenso', 'formbricks/formbricks': 'Formbricks',
+  'chatwoot/chatwoot': 'Chatwoot', 'activepieces/activepieces': 'Activepieces', 'docmost/docmost': 'Docmost', 'bigcapitalhq/bigcapital': 'Bigcapital', 'inovector/mixpost': 'Mixpost',
+  'HiEventsDev/Hi.Events': 'Hi.Events', 'coollabsio/coolify': 'Coolify', 'Dokploy/dokploy': 'Dokploy', 'TabbyML/tabby': 'Tabby',
   'yt-dlp/yt-dlp': 'yt-dlp', 'Wilfred/difftastic': 'difftastic', 'muesli/duf': 'duf', 'ClementTsang/bottom': 'bottom', 'ducaale/xh': 'xh', 'chmln/sd': 'sd' };
 // Hand-written plain-language lines, job tags and setup level (pipeline/plain.json)
 const SOURCES = JSON.parse(fs.readFileSync(new URL('../data/sources.json', import.meta.url), 'utf8'));
@@ -57,6 +62,16 @@ const REDUNDANT = fs.existsSync(new URL('../data/redundant.json', import.meta.ur
 const CUR = JSON.parse(fs.readFileSync(new URL('../data/curation.json', import.meta.url), 'utf8'));
 // Each project's own logo where a person owns the repository (pipeline/logos.cjs, checked by eye), so no listing shows a developer's photo as its icon
 const LOGOS = fs.existsSync(new URL('../data/logos.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../data/logos.json', import.meta.url), 'utf8')) : {};
+// Apps you host yourself: free when you run them, on a server or an always-on computer. Each link is the project's own guide (from its README, November 22, 2026)
+const SELF_HOST = { 'twentyhq/twenty': ['https://docs.twenty.com/developers/self-host/capabilities/docker-compose'], 'makeplane/plane': ['https://developers.plane.so/self-hosting/overview'],
+  'hcengineering/platform': ['https://github.com/hcengineering/huly-selfhost'], 'Leantime/leantime': ['https://github.com/Leantime/docker-leantime'],
+  'documenso/documenso': ['https://docs.documenso.com/docs/self-hosting'], 'formbricks/formbricks': ['https://formbricks.com/docs/self-hosting/deployment'],
+  'chatwoot/chatwoot': ['https://chatwoot.com/deploy'], 'activepieces/activepieces': ['https://www.activepieces.com/docs/install/overview'],
+  'docmost/docmost': ['https://docmost.com/docs'], 'bigcapitalhq/bigcapital': ['https://docs.bigcapital.app/deployment/docker'],
+  'inovector/mixpost': ['https://docs.mixpost.app/lite/', 'This is Mixpost Lite, the free edition. Mixpost Pro is a paid product.'],
+  'HiEventsDev/Hi.Events': ['https://hi.events/docs/getting-started'], 'coollabsio/coolify': ['https://coolify.io/docs/start-with-self-hosted'],
+  'TabbyML/tabby': ['https://tabby.tabbyml.com/docs/installation/'], 'lfnovo/open-notebook': ['https://github.com/lfnovo/open-notebook#readme', 'Its README has the Docker steps, including the secret key to set first.'] };
+const SERVER = new Set([...Object.keys(SELF_HOST), 'Dokploy/dokploy', 'jellyfin/jellyfin']);
 const ALTS = fs.existsSync(new URL('../data/alternatives.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../data/alternatives.json', import.meta.url), 'utf8')) : {};
 // Install steps for MCP servers whose README gives a JSON config or several steps instead of one command.
 // Every command is the README's own, or its JSON config written as the equivalent `claude mcp add`.
@@ -252,7 +267,8 @@ for (const l of d.listings) {
       'Niko1221/Strata': { ps: 'irm -TimeoutSec 120 https://github.com/Niko1221/Strata/releases/latest/download/install.ps1 | iex' },
       'NandhaKishorM/laya': { pip: 'pip install laya' },
       'HKUDS/CLI-Anything': { pip: 'pip install cli-anything-hub' },
-      'Graphify-Labs/graphify': { uvTool: 'uv tool install graphifyy', pipx: 'pipx install graphifyy' } };
+      'Graphify-Labs/graphify': { uvTool: 'uv tool install graphifyy', pipx: 'pipx install graphifyy' },
+      'usebruno/bruno': { brew: 'brew install bruno', winget: 'winget install Bruno.Bruno' } };
     const i = Object.fromEntries(Object.entries({ ...(l.install || {}), ...(TOOL_INSTALL[repo] || {}) }).map(([k, v]) => [k, v.replace(/\s+#.*$/, '')]));   // drop trailing shell comments
     if (repo === 'ollama/ollama') delete i.pip;
     if (repo === 'astral-sh/uv') delete i.uvTool;
@@ -266,6 +282,11 @@ for (const l of d.listings) {
     if (repo === 'jaredpalmer/kev') { delete i.npx; delete i.pip; }   // a separate skill and a cloud account setup, not the install
     if (repo === 'nexu-io/open-design') delete i.curl;   // the script takes the agent's name; the desktop download is the plain route
     if (repo === 'HKUDS/CLI-Anything') delete i.npx;   // installs one of its skills, not the tool
+    if (repo === 'ryanbr/noop' || repo === 'TabbyML/tabby') delete i.brew;   // a build tool for developers, not the app
+    if (repo === 'OpenCut-app/OpenCut') delete i.ps;   // a developer tool for building it
+    if (repo === 'twentyhq/twenty') { delete i.npm; delete i.npx; }   // its app-building CLI and agent skills, not the CRM
+    if (repo === 'hcengineering/platform') delete i.npm;   // a build tool for developers
+    if (repo === 'coollabsio/coolify' || repo === 'Dokploy/dokploy') delete i.curl;   // shown on a server card below
     if (repo === 'Graphify-Labs/graphify') { delete i.brew; delete i.winget; delete i.curl; delete i.pip; }   // those lines install Python and uv, which Graphify needs first      // a third-party webinstall script; its README lists package managers for every system
     // Desktop apps: installers on each project's releases page (checked in their READMEs, November 1, 2026)
     const DESKTOP = { 'storytold/photocraft': 'macOS, Windows, Linux', 'storytold/pdfcraft': 'macOS, Windows, Linux', 'KnifeLemon/Filee': 'Windows, macOS, Linux',
@@ -276,7 +297,8 @@ for (const l of d.listings) {
       'rustdesk/rustdesk': 'Windows, macOS, Linux, Android',
       'cjpais/Handy': 'Windows, macOS, Linux', 'Zackriya-Solutions/meetily': 'Windows, macOS, Linux', 'AppFlowy-IO/AppFlowy': 'Windows, macOS, Linux',
       'Niko1221/Strata': 'Windows, macOS, Linux', 'FrigadeHQ/hob': 'macOS, Windows, Linux', 'FrigadeHQ/yogurt': 'macOS, Windows, Linux', 'toeverything/AFFiNE': 'Windows, macOS, Linux',
-      'genspark-ai/genoffice': 'macOS, Windows, Linux', 'HKUDS/DeepTutor': 'macOS, Windows', 'nexu-io/open-design': 'macOS, Windows' };
+      'genspark-ai/genoffice': 'macOS, Windows, Linux', 'HKUDS/DeepTutor': 'macOS, Windows', 'nexu-io/open-design': 'macOS, Windows',
+      'OpenWhispr/openwhispr': 'macOS, Windows, Linux' };
     // Desktop apps whose own site has the download page (each link checked November 22, 2026)
     const SITE_DL = { 'janhq/jan': ['Windows, macOS, Linux', 'https://jan.ai/download', 'Download from jan.ai'],
       'Comfy-Org/ComfyUI': ['Windows, macOS', 'https://www.comfy.org/download', 'Download the ComfyUI desktop app', 'Its README also lists a portable Windows build and a manual install.'],
@@ -284,7 +306,12 @@ for (const l of d.listings) {
       'Stirling-Tools/Stirling-PDF': ['Windows, macOS, Linux', 'https://www.stirling.com/download', 'Download Stirling PDF'],
       'actualbudget/actual': ['Windows, macOS, Linux', 'https://actualbudget.org/download', 'Download Actual'],
       'obsproject/obs-studio': ['Windows, macOS, Linux', 'https://obsproject.com/download', 'Download OBS Studio'],
-      'open-webui/open-webui': ['macOS, Windows, Linux', 'https://github.com/open-webui/desktop', 'Get the desktop app', 'A separate desktop app from the same team. Open WebUI itself is a chat interface for models you run, like Ollama.'] };
+      'open-webui/open-webui': ['macOS, Windows, Linux', 'https://github.com/open-webui/desktop', 'Get the desktop app', 'A separate desktop app from the same team. Open WebUI itself is a chat interface for models you run, like Ollama.'],
+      'CapSoftware/Cap': ['macOS, Windows, Linux', 'https://cap.so/download', 'Download Cap'],
+      'fastrepl/anarlog': ['macOS, Windows, Linux', 'https://anarlog.so/download', 'Download Anarlog'],
+      'dyad-sh/dyad': ['macOS, Windows, Linux', 'https://www.dyad.sh/#download', 'Download Dyad'],
+      'usebruno/bruno': ['macOS, Windows, Linux', 'https://www.usebruno.com/downloads', 'Download Bruno'],
+      'jellyfin/jellyfin': ['Windows, macOS, Linux', 'https://jellyfin.org/downloads', 'Download Jellyfin', 'Install the server on the computer that holds your films and music, then watch with Jellyfin\'s apps on your TV, phone or browser.'] };
     if (SITE_DL[repo]) { const [to, link, linkText, note] = SITE_DL[repo]; inst.push({ to, how: 'Download', link, linkText, note: note || 'Pick the installer for your computer.' }); }
     // Apps you use in the browser, or host for your household (from each README and website, November 22, 2026)
     if (repo === 'excalidraw/excalidraw') inst.push({ to: 'Any browser', how: 'Web app', link: 'https://excalidraw.com', linkText: 'Open Excalidraw', note: 'Free to use in your browser, nothing to install. Drawings stay in your browser unless you share them.' });
@@ -293,6 +320,13 @@ for (const l of d.listings) {
     if (repo === 'open-webui/open-webui') inst.push({ to: 'Docker', how: 'Docker', cmds: ['docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main'], note: 'From the README. Then open http://localhost:3000.' });
     if (repo === 'Stirling-Tools/Stirling-PDF') inst.push({ to: 'Docker', how: 'Docker', cmds: ['docker run -p 8080:8080 docker.stirlingpdf.com/stirlingtools/stirling-pdf'], note: 'From the README: runs it in your browser at http://localhost:8080.' });
     if (repo === 'Comfy-Org/ComfyUI') inst.push({ to: 'Command line', how: 'comfy-cli', cmds: ['pip install comfy-cli && comfy install'], note: 'From the README.' });
+    // From each README (November 22, 2026)
+    if (repo === 'ryanbr/noop') inst.push({ to: 'Mac, Android, iPhone', how: 'Download', link: 'https://github.com/ryanbr/noop/releases/latest', linkText: 'Download from GitHub', note: 'Needs a WHOOP 4.0 or 5.0 strap. It isn\'t in the App Store or Google Play: on Android you allow installs from unknown apps, on iPhone you install it through AltStore or SideStore with your own Apple ID, and on a Mac its README shows how to open an app Apple hasn\'t notarized.' });
+    if (repo === 'OpenCut-app/OpenCut') inst.push({ to: 'Any browser', how: 'Web app', link: 'https://opencut.app', linkText: 'Open OpenCut', note: 'Nothing to install. The project is being rewritten; its README says opencut.app runs the earlier version, which is the one to use today.' });
+    if (repo === 'hoppscotch/hoppscotch') inst.push({ to: 'Any browser', how: 'Web app', link: 'https://hoppscotch.io', linkText: 'Open Hoppscotch', note: 'Free in your browser. Its README also links desktop apps and a self-hosting guide.' });
+    if (repo === 'coollabsio/coolify') inst.push({ to: 'A Linux server', how: 'Install script', cmds: ['curl -fsSL https://cdn.coollabs.io/coolify/install.sh | bash'], note: 'From the README. Run it on a fresh Linux server, such as a rented VPS. It runs the installer straight from the internet; the README links the script so you can read it first.' });
+    if (repo === 'Dokploy/dokploy') inst.push({ to: 'A Linux server', how: 'Install script', cmds: ['curl -sSL https://dokploy.com/install.sh | bash'], note: 'From the README. Run it on a fresh Linux server, such as a rented VPS. It runs the installer straight from the internet.' });
+    if (SELF_HOST[repo]) inst.push({ to: 'Your own server', how: 'Self-host', link: SELF_HOST[repo][0], linkText: 'Open the self-hosting guide', note: 'Free when you run it yourself, on a server or an always-on computer, usually with Docker. Claude Code can set it up with you.' + (SELF_HOST[repo][1] ? ' ' + SELF_HOST[repo][1] : '') });
     // App stores linked from LocalSend's README (read November 2, 2026): the easiest install for most people, and the only one for iPhone
     if (repo === 'localsend/localsend') inst.push({ to: 'Windows', how: 'App store', link: 'https://www.microsoft.com/store/apps/9NCB4Z0TZ6RR', linkText: 'Get it from the Microsoft Store' },
       { to: 'Mac, iPhone and iPad', how: 'App store', link: 'https://apps.apple.com/us/app/localsend/id1661733229', linkText: 'Get it from the App Store' },
@@ -333,6 +367,7 @@ for (const l of d.listings) {
     vd: (VIDEOS[l.kind === 'mcp' && l.path ? `${repo}:${l.path}` : repo] || []).map(v => [v.kind, v.url, v.label || null, v.id || null]),
     ...(ALTS[id] ? { alt: ALTS[id] } : {}),
     ...(REDUNDANT[id] ? { rd: REDUNDANT[id].why } : {}),
+    ...(SERVER.has(repo) ? { sv: 1 } : {}),
     ...(HOOKS[l.id] ? { ih: HOOKS[l.id].map(h => ({ f: h.file, s: h.script, c: h.cmd, refs: h.refs })) } : {}) });
   if (!PLAIN[id]) console.error('NO PLAIN TEXT', id);
 }

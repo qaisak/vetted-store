@@ -40,25 +40,6 @@
       }
     },
     {
-      "name": "addyosmani-browser-testing-with-devtools",
-      "description": "Tests your web app in a real Chrome using DevTools. Skillshelf check: No issues found, at commit 8bfcc1f.",
-      "author": {
-        "name": "addyosmani"
-      },
-      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#addyosmani-browser-testing-with-devtools",
-      "repository": "https://github.com/addyosmani/agent-skills",
-      "keywords": [
-        "dev"
-      ],
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/addyosmani/agent-skills.git",
-        "path": "skills/browser-testing-with-devtools",
-        "ref": "main",
-        "sha": "8bfcc1f9916f2eea55494d8c1fa7f4bde867dd9e"
-      }
-    },
-    {
       "name": "addyosmani-ci-cd-and-automation",
       "description": "Sets up automatic build, test and deploy steps for your project. Skillshelf check: No issues found, at commit 8bfcc1f.",
       "author": {
@@ -80,7 +61,7 @@
     },
     {
       "name": "addyosmani-code-review-and-quality",
-      "description": "Reviews code from several angles before you merge it, whoever wrote it. Skillshelf check: No issues found, at commit 8bfcc1f.",
+      "description": "Engineering habits for your coding assistant: reviewing code, finding the real cause of bugs, testing in a real browser and sticking to the plan. One pack of 26 skills. Skillshelf check: No issues found, at commit 8bfcc1f.",
       "author": {
         "name": "addyosmani"
       },
@@ -113,67 +94,6 @@
         "source": "git-subdir",
         "url": "https://github.com/addyosmani/agent-skills.git",
         "path": "skills/code-simplification",
-        "ref": "main",
-        "sha": "8bfcc1f9916f2eea55494d8c1fa7f4bde867dd9e"
-      }
-    },
-    {
-      "name": "addyosmani-constraint-driven-development",
-      "description": "Writes down your project's quality bar and stops the AI quietly lowering it. Skillshelf check: No issues found, at commit 8bfcc1f.",
-      "author": {
-        "name": "addyosmani"
-      },
-      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#addyosmani-constraint-driven-development",
-      "repository": "https://github.com/addyosmani/agent-skills",
-      "keywords": [
-        "dev",
-        "vibe"
-      ],
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/addyosmani/agent-skills.git",
-        "path": "skills/constraint-driven-development",
-        "ref": "main",
-        "sha": "8bfcc1f9916f2eea55494d8c1fa7f4bde867dd9e"
-      }
-    },
-    {
-      "name": "addyosmani-context-engineering",
-      "description": "Sets up your AI session with the right context so it keeps doing good work. Skillshelf check: No issues found, at commit 8bfcc1f.",
-      "author": {
-        "name": "addyosmani"
-      },
-      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#addyosmani-context-engineering",
-      "repository": "https://github.com/addyosmani/agent-skills",
-      "keywords": [
-        "vibe",
-        "ai",
-        "dev"
-      ],
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/addyosmani/agent-skills.git",
-        "path": "skills/context-engineering",
-        "ref": "main",
-        "sha": "8bfcc1f9916f2eea55494d8c1fa7f4bde867dd9e"
-      }
-    },
-    {
-      "name": "addyosmani-debugging-and-error-recovery",
-      "description": "Finds the real cause when tests fail or something that worked breaks. Skillshelf check: No issues found, at commit 8bfcc1f.",
-      "author": {
-        "name": "addyosmani"
-      },
-      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#addyosmani-debugging-and-error-recovery",
-      "repository": "https://github.com/addyosmani/agent-skills",
-      "keywords": [
-        "dev",
-        "vibe"
-      ],
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/addyosmani/agent-skills.git",
-        "path": "skills/debugging-and-error-recovery",
         "ref": "main",
         "sha": "8bfcc1f9916f2eea55494d8c1fa7f4bde867dd9e"
       }
@@ -557,27 +477,8 @@
       }
     },
     {
-      "name": "coreyhaines31-ad-creative",
-      "description": "Writes ad headlines, copy and variations for Google, Meta, LinkedIn and more. Skillshelf check: No issues found, at commit 88c79f6.",
-      "author": {
-        "name": "coreyhaines31"
-      },
-      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#coreyhaines31-ad-creative",
-      "repository": "https://github.com/coreyhaines31/marketingskills",
-      "keywords": [
-        "marketing"
-      ],
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/coreyhaines31/marketingskills.git",
-        "path": "skills/ad-creative",
-        "ref": "main",
-        "sha": "88c79f6528a9347420e57ceb1fff9a60de651768"
-      }
-    },
-    {
       "name": "coreyhaines31-ads",
-      "description": "Plans and improves paid ad campaigns on Google, Meta, LinkedIn and X. Skillshelf check: No issues found, at commit 88c79f6.",
+      "description": "Marketing know-how for your AI assistant: ads, SEO, analytics, app store listings, pricing pages and keeping customers. One pack of over 50 skills. Skillshelf check: No issues found, at commit 88c79f6.",
       "author": {
         "name": "coreyhaines31"
       },
@@ -590,106 +491,6 @@
         "source": "git-subdir",
         "url": "https://github.com/coreyhaines31/marketingskills.git",
         "path": "skills/ads",
-        "ref": "main",
-        "sha": "88c79f6528a9347420e57ceb1fff9a60de651768"
-      }
-    },
-    {
-      "name": "coreyhaines31-ai-seo",
-      "description": "Helps your content show up and get cited in AI answers like ChatGPT and Perplexity. Skillshelf check: No issues found, at commit 88c79f6.",
-      "author": {
-        "name": "coreyhaines31"
-      },
-      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#coreyhaines31-ai-seo",
-      "repository": "https://github.com/coreyhaines31/marketingskills",
-      "keywords": [
-        "marketing",
-        "writing"
-      ],
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/coreyhaines31/marketingskills.git",
-        "path": "skills/ai-seo",
-        "ref": "main",
-        "sha": "88c79f6528a9347420e57ceb1fff9a60de651768"
-      }
-    },
-    {
-      "name": "coreyhaines31-analytics",
-      "description": "Sets up and checks analytics tracking such as GA4. Skillshelf check: No issues found, at commit 88c79f6.",
-      "author": {
-        "name": "coreyhaines31"
-      },
-      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#coreyhaines31-analytics",
-      "repository": "https://github.com/coreyhaines31/marketingskills",
-      "keywords": [
-        "marketing",
-        "data"
-      ],
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/coreyhaines31/marketingskills.git",
-        "path": "skills/analytics",
-        "ref": "main",
-        "sha": "88c79f6528a9347420e57ceb1fff9a60de651768"
-      }
-    },
-    {
-      "name": "coreyhaines31-aso",
-      "description": "Improves your App Store or Google Play listing so more people find and install it. Skillshelf check: No issues found, at commit 88c79f6.",
-      "author": {
-        "name": "coreyhaines31"
-      },
-      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#coreyhaines31-aso",
-      "repository": "https://github.com/coreyhaines31/marketingskills",
-      "keywords": [
-        "marketing"
-      ],
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/coreyhaines31/marketingskills.git",
-        "path": "skills/aso",
-        "ref": "main",
-        "sha": "88c79f6528a9347420e57ceb1fff9a60de651768"
-      }
-    },
-    {
-      "name": "coreyhaines31-attribution",
-      "description": "Works out which marketing actually brings in customers and revenue. Skillshelf check: No issues found, at commit 88c79f6.",
-      "author": {
-        "name": "coreyhaines31"
-      },
-      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#coreyhaines31-attribution",
-      "repository": "https://github.com/coreyhaines31/marketingskills",
-      "keywords": [
-        "marketing",
-        "data",
-        "business"
-      ],
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/coreyhaines31/marketingskills.git",
-        "path": "skills/attribution",
-        "ref": "main",
-        "sha": "88c79f6528a9347420e57ceb1fff9a60de651768"
-      }
-    },
-    {
-      "name": "coreyhaines31-churn-prevention",
-      "description": "Plans ways to keep customers: cancellation flows, save offers, failed-payment recovery. Skillshelf check: No issues found, at commit 88c79f6.",
-      "author": {
-        "name": "coreyhaines31"
-      },
-      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#coreyhaines31-churn-prevention",
-      "repository": "https://github.com/coreyhaines31/marketingskills",
-      "keywords": [
-        "marketing",
-        "business"
-      ],
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/coreyhaines31/marketingskills.git",
-        "path": "skills/churn-prevention",
         "ref": "main",
         "sha": "88c79f6528a9347420e57ceb1fff9a60de651768"
       }
@@ -1233,48 +1034,8 @@
       }
     },
     {
-      "name": "thedotmack-agent-cost-report",
-      "description": "Reports what your AI coding sessions actually cost, from real token counts. Skillshelf check: 1 thing to know, at commit 70aa400.",
-      "author": {
-        "name": "thedotmack"
-      },
-      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#thedotmack-agent-cost-report",
-      "repository": "https://github.com/thedotmack/claude-mem",
-      "keywords": [
-        "dev",
-        "ai"
-      ],
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/thedotmack/claude-mem.git",
-        "path": "claude-mem-cursor/skills/agent-cost-report",
-        "ref": "main",
-        "sha": "70aa40042cfb8157a0d84954b9c0d2b30b50af80"
-      }
-    },
-    {
-      "name": "thedotmack-claude-mem-install",
-      "description": "Sets up claude-mem in Cursor so your AI remembers past sessions. Skillshelf check: No issues found, at commit 70aa400.",
-      "author": {
-        "name": "thedotmack"
-      },
-      "homepage": "https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG#thedotmack-claude-mem-install",
-      "repository": "https://github.com/thedotmack/claude-mem",
-      "keywords": [
-        "vibe",
-        "dev"
-      ],
-      "source": {
-        "source": "git-subdir",
-        "url": "https://github.com/thedotmack/claude-mem.git",
-        "path": "claude-mem-cursor/skills/install",
-        "ref": "main",
-        "sha": "70aa40042cfb8157a0d84954b9c0d2b30b50af80"
-      }
-    },
-    {
       "name": "thedotmack-mem-search",
-      "description": "Searches your AI's memory of past sessions: \"did we solve this before?\" Skillshelf check: No issues found, at commit 70aa400.",
+      "description": "Gives Claude Code a memory of your past sessions that it can search, so it can answer \"did we solve this before?\" Skillshelf check: No issues found, at commit 70aa400.",
       "author": {
         "name": "thedotmack"
       },
