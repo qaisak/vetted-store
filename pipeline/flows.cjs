@@ -127,22 +127,18 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.goto(url + '#pbakaus-impeccable'); await p.waitForTimeout(300);
   ok(await p.evaluate(() => /Our pick/.test(document.querySelector('.tested-box')?.textContent || '') && document.querySelector('.tested-box').getAttribute('href') === '#test-design-2026-11'), 'a tested listing links to its test');
   await p.goto(url + '#today'); await p.waitForTimeout(300);
-  await p.evaluate(() => document.querySelector('[data-door="code"]').click()); await p.waitForTimeout(300);
   const cb = await p.evaluate(() => { const box = document.querySelector('#in-claude'); const codes = [...(box?.querySelectorAll('.copybox code') || [])].map(c => c.textContent); return { codes, copies: [...(box?.querySelectorAll('[data-copy]') || [])].map(b => b.dataset.copy), bar: !!box?.querySelector('.bar-card .bar-drawing') }; });
-  ok(cb.bar && cb.codes[0] === '/plugin marketplace add qaisak/vetted-store' && cb.codes[1] === '/plugin install skillshelf@skillshelf', 'the Claude Code door leads with the Skillshelf bar: a drawing of it and its two install commands');
+  ok(cb.bar && cb.codes[0] === '/plugin marketplace add qaisak/vetted-store' && cb.codes[1] === '/plugin install skillshelf@skillshelf', 'the home page has the Skillshelf bar: a drawing of it and its two install commands');
   ok(cb.codes[2] === 'https://skillshelf.skillshelf.workers.dev/mcp' && cb.codes.every((c, i) => cb.copies[i] === c), 'Claude chat users still get a copyable connector address');
   // Three tabs, and the old type pages are Browse with a filter
   await p.goto(url + '#today'); await p.waitForTimeout(300);
   ok(await p.evaluate(() => [...document.querySelectorAll('#side-nav .nav-item')].map(b => b.textContent.trim().replace(/\d+$/, '')).join(',') === 'Home,Browse,Free alternatives,My list'), 'four tabs: Home, Browse, Free alternatives, My list');
-  // Two doors: a newcomer and a Claude Code user each get their own short page, remembered, with nothing shown twice
-  const doors = {};
-  for (const k of ['code', 'new']) {
-    await p.evaluate(k => document.querySelector(`[data-door="${k}"]`).click(), k); await p.waitForTimeout(300);
-    doors[k] = await p.evaluate(() => { const ids = [...document.querySelectorAll('#main a.card, #main a.alt-card')].map(a => a.getAttribute('href').slice(1));
-      return { ids, dup: ids.filter((x, i) => ids.indexOf(x) !== i), sel: document.querySelector('[data-door][aria-selected="true"]')?.dataset.door, saved: localStorage.getItem('vetted-door'), bar: !!document.querySelector('#in-claude') }; });
-  }
-  ok(doors.new.sel === 'new' && doors.new.saved === 'new' && !doors.new.bar && doors.code.bar && doors.new.ids.length >= 12 && doors.code.ids.length >= 12, `two home doors switch and are remembered (${doors.new.ids.length} and ${doors.code.ids.length} cards)`);
-  ok(!doors.new.dup.length && !doors.code.dup.length, 'nothing shows twice on a home door ' + doors.new.dup.concat(doors.code.dup).join(', '));
+  // One home for everyone: no switch, apps and Claude add-ons on the same page, nothing shown twice
+  const home = await p.evaluate(() => { const ids = [...document.querySelectorAll('#main a.card, #main a.alt-card')].map(a => a.getAttribute('href').slice(1));
+    return { ids, dup: ids.filter((x, i) => ids.indexOf(x) !== i), doors: document.querySelectorAll('[data-door]').length, bar: !!document.querySelector('#in-claude'),
+      kinds: new Set(ids.map(id => BY[id]?.k)).size, heads: [...document.querySelectorAll('#main .shelf-head h2')].map(h => h.firstChild.textContent) }; });
+  ok(!home.doors && home.bar && home.kinds === 3 && home.ids.length >= 30, `one home page with apps, skills, connectors and the Skillshelf bar (${home.ids.length} cards: ${home.heads.join(' / ')})`);
+  ok(!home.dup.length, 'nothing shows twice on the home page ' + home.dup.join(', '));
   ok(await p.evaluate(() => [...document.querySelectorAll('#main .card-line')].every(e => e.scrollHeight <= e.clientHeight + 2)), 'home cards show their whole sentence');
   // The catalog leaves out what Claude already has, Codex-only skills and test servers; icons are never a developer's photo
   const cat = await p.evaluate(() => ({ cut: L.filter(l => /^(anthropics|openai|NVIDIA)\//.test(l.r) && l.k === 'skill' || l.id === 'mcp-everything').map(l => l.id),

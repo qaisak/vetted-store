@@ -2,26 +2,41 @@
 name: Skillshelf
 description: The app store for open source. Apps, skills and connectors from GitHub, explained in plain English, and set up for you by Claude.
 colors:
-  bg: "#FFFFFF"
-  bg-grouped: "#F2F2F7"
+  bg: "#FAF8F5"
+  bg-grouped: "#F2EEE8"
   card: "#FFFFFF"
-  sidebar: "#F5F5F7"
-  fill: "#EEEEF3"
-  label: "#000000"
-  label-secondary: "#636368"
-  label-tertiary: "#8A8A8E"
-  separator: "rgba(60, 60, 67, 0.18)"
+  card-line: "#E6E1D9"
+  sidebar: "#F3F0EA"
+  fill: "#ECE8E1"
+  label: "#1C1A17"
+  label-secondary: "#5E5850"
+  label-tertiary: "#8C857B"
+  separator: "rgba(70, 50, 30, 0.14)"
+  kind-app: "#2156D1"
+  kind-skill: "#7A3BD6"
+  kind-connector: "#0E7A6E"
+  gold: "#B7791F"
+  gold-ink: "#8A5300"
+  gold-bg: "#FDF1D3"
+  highlighter: "#FCDC6A"
+  band-green: "#E6F3E9"
+  band-blue: "#E7EFFB"
+  band-violet: "#EFEAF9"
   accent: "#0062CC"
   button: "#0062CC"
   green: "#248A3D"
   green-ink: "#1B6B31"
   orange: "#C26A00"
   red: "#FF3B30"
-  dark-bg: "#000000"
-  dark-bg-grouped: "#1C1C1E"
-  dark-fill: "#2C2C2E"
-  dark-label: "#FFFFFF"
-  dark-label-secondary: "#A1A1A8"
+  dark-bg: "#121110"
+  dark-bg-grouped: "#1E1C1A"
+  dark-fill: "#2C2925"
+  dark-label: "#F5F2ED"
+  dark-label-secondary: "#ADA69C"
+  dark-kind-app: "#8DB2FF"
+  dark-kind-skill: "#C3A6FF"
+  dark-kind-connector: "#5FD4C2"
+  dark-gold: "#F2C14E"
   dark-accent: "#4BA3FF"
   dark-button: "#0A68D4"
   dark-green-ink: "#4CD777"
@@ -116,7 +131,9 @@ Skillshelf looks like an app store on purpose. The owner chose the category stan
 
 What makes it Skillshelf is the content, not ornament: every picture is the maker's real GitHub picture, every card says what the project does in plain words, and where a project itself says it replaces a paid tool, a small green "Free alternative to X" tag says so, with the source one click away. Safety is not a badge on cards; each listing ends with "Before you install", where Claude reads the code on the visitor's own computer.
 
-Three tabs only: Home, Browse, My list. Apps, Skills and Connectors are a filter inside Browse.
+Four tabs: Home, Browse, Free alternatives, My list. Apps, Skills and Connectors are a filter inside Browse. Home is one page for everyone (no "new to AI" / "Claude Code" switch, owner's call 2026-11-22).
+
+The owner found the pure Apple palette tiring ("a wall of grey boxes"), so since 2026-11-22 the store keeps the App Store grammar but is warmer and has more colour: a warm off-white page, white cards with a hairline edge, a colour per kind and per topic, and three tinted bands on Home. Colour always has a job (wayfinding, a kind, a state); it never decorates on its own.
 
 ## Colors
 
@@ -127,13 +144,20 @@ Three tabs only: Home, Browse, My list. Apps, Skills and Connectors are a filter
 ### Secondary
 - **Free green** (`--green-ink` `#1B6B31` light / `#4CD777` dark, on a 16% green tint): only for "Free alternative to X" and "Free" tags.
 
+- **Kind colours**: App blue `#2156D1`, Skill violet `#7A3BD6`, Connector teal `#0E7A6E` (lighter in dark mode). Always a dot next to the word, never colour alone: on cards and in Browse's kind filter.
+- **Topic and area colours**: each Browse topic (the `JOBS` list) and each Free alternatives area (`AREAS`) has a hue and an icon. Chips show the icon in that hue; the selected chip fills with it (darkened 18% so white text passes).
+- **Gold** (`#B7791F`, ink `#8A5300` on `#FDF1D3`): GitHub stars and the "+N stars this week" pill.
+- **Highlighter** (`#FCDC6A`): the marker stroke behind "open source" in the hero, and text selection.
+- **Bands on Home**: Free alternatives on green `#E6F3E9`, the Skillshelf bar on blue `#E7EFFB`, Skills on violet `#EFEAF9`. Text on a band uses a secondary colour tinted from that band, not grey. Edge to edge on phones.
+
 ### Neutral
-- White page, `#F2F2F7` grouped panels, `#EEEEF3` fills for controls; black page with `#1C1C1E` / `#2C2C2E` in dark mode.
-- Secondary text `#636368` (light) and `#A1A1A8` (dark); tertiary `#8A8A8E` / `#8E8E93` for icons and decoration only, never for text a visitor must read.
+- Warm off-white page `#FAF8F5`, white cards with a `#E6E1D9` edge, `#F2EEE8` grouped panels, `#ECE8E1` fills for controls; near-black page `#121110` with `#1E1C1A` / `#2C2925` in dark mode.
+- Text `#1C1A17`, not pure black. Secondary text `#5E5850` (light) and `#ADA69C` (dark); tertiary `#8C857B` / `#8F887E` for icons and decoration only, never for text a visitor must read.
 
 ### Named Rules
 - **Green means free.** Green tags appear only where `data/alternatives.json` cites the project's own words.
-- **Orange and red are for real risks.** They appear only inside "Before you install" or Technical details, from a reviewer's written note.
+- **Orange and red are for real risks.** As text or tags they appear only inside "Before you install" or Technical details, from a reviewer's written note. (A topic's icon hue is not a warning.)
+- **Every colour has a job.** No gradients on text, no glows, no colour that isn't a kind, a topic, a state or one of the three bands.
 
 ## Typography
 
@@ -147,14 +171,14 @@ One family: the platform's system UI face (SF on Apple devices, Segoe UI on Wind
 
 ## Layout
 
-- Desktop: a 240px sidebar (wordmark, search, three tabs) and a content column up to 1120px wide with 36px gutters.
-- Phones (760px and below): no sidebar, a three-tab bar fixed at the bottom, 16px gutters, horizontal swipe rows for shelves.
-- Shelves are separated by a hairline rule and 34px of space; a heading sits closer to its content than to the shelf above.
+- Desktop: a 240px sidebar (wordmark, search, four tabs) and a content column up to 1120px wide with 36px gutters.
+- Phones (760px and below): no sidebar, a four-tab bar fixed at the bottom, 16px gutters, horizontal swipe rows for Home's shelves.
+- Shelves are separated by a hairline rule and 34px of space (no rule right after a band); a heading sits closer to its content than to the shelf above.
 - Rows: 64px icon, title (up to two lines), one plain line, a meta line (kind, stars, last update) and an optional green tag, with Get on the right.
 
 ## Elevation & Depth
 
-Flat, like the stores. Depth only for things that float: the install sheet and dialogs (`0 10px 40px` soft shadow over a scrim) and the selected segment in Browse's kind filter (`0 1px 3px`).
+Mostly flat. Cards sit on the page with a hairline edge and a barely-there shadow, and lift 2px with a soft offset shadow (`0 12px 28px -14px`) on hover. Things that float get more: the install sheet and dialogs (`0 10px 40px` soft shadow over a scrim). The selected segment in Browse's kind filter and the selected sidebar item are white with `0 1px 3px`.
 
 ## Shapes
 
@@ -167,16 +191,17 @@ Squircle icons (22.5% radius). Pills for buttons and chips. 10px controls, 14 to
 - **Pill links**: Save, Share, GitHub.
 
 ### Chips
-- Idea chips under the home search and job chips (job name plus a count) in grey pills.
+- Idea chips under the home search, topic chips in Browse and area chips on Free alternatives: white pills with an edge, an icon in their own colour, and a count where it helps.
 
 ### Cards / Containers
-- Grouped grey panels for the Skillshelf bar card, the free-alternative cards and the install options. Never a card inside a card, except the drawing of the Claude Code bar, which is a picture of an app.
+- White cards (project cards, free-alternative cards, How it works steps) on the warm page or on a band. Grouped warm panels for install options on listing pages. The Skillshelf bar card is the blue band itself. Never a card inside a card, except the drawing of the Claude Code bar, which is a picture of an app.
+- On phones, Home's shelves swipe sideways (one card and the edge of the next); Browse stays a single column.
 
 ### Inputs / Fields
-- Grey search fields with a leading magnifier. One query is shared by the sidebar, home and Browse search boxes.
+- White search fields with an edge and a leading magnifier (the sidebar's sits in a fill). One query is shared by the sidebar, home and Browse search boxes.
 
 ### Navigation
-- Sidebar with three items on desktop; bottom tab bar with the same three on phones. Listing, job and kit pages light up Browse.
+- Sidebar with four items on desktop; bottom tab bar with the same four on phones. Each tab's icon has its own colour (Home blue, Browse violet, Free alternatives green, My list rose). Listing, job and kit pages light up Browse.
 
 ### Free alternative card (signature)
 - "Instead of" with the paid product's name struck through in red, then the project's icon, name and plain line, and a green Free tag. Only for listings whose `alt.paid` is true.

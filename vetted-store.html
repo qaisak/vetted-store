@@ -15,21 +15,32 @@
 <style>
 /* Layout: app-store pattern. Sidebar on desktop, bottom tab bar on phones; Today stories, shelves, product pages, install sheet. All listings are real repos. */
 :root {
-  --bg: #FFFFFF; --bg2: #F2F2F7; --card: #FFFFFF; --label: #000000; --label2: #636368; --label3: #8A8A8E;
-  --sep: rgba(60, 60, 67, 0.18); --fill: #EEEEF3; --blue: #0062CC; --btn: #0062CC; --red: #FF3B30; --green: #248A3D; --orange: #C26A00;
-  --sidebar: #F5F5F7; --green-ink: #1B6B31; --scrim: rgba(0, 0, 0, 0.4); --shadow: 0 10px 40px rgba(0, 0, 0, 0.12); --code: #F6F6F9;
+  --bg: #FAF8F5; --bg2: #F2EEE8; --card: #FFFFFF; --label: #1C1A17; --label2: #5E5850; --label3: #8C857B;
+  --sep: rgba(70, 50, 30, 0.14); --fill: #ECE8E1; --blue: #0062CC; --btn: #0062CC; --red: #FF3B30; --green: #248A3D; --orange: #C26A00;
+  --sidebar: #F3F0EA; --green-ink: #1B6B31; --scrim: rgba(20, 15, 10, 0.4); --shadow: 0 10px 40px rgba(40, 30, 20, 0.14); --code: #F6F3EE;
+  /* Colour roles: card edges, a colour per kind, gold for stars and what's rising, the hero highlighter, and three tinted bands on Home.
+     --lift lightens a hue for dark mode and --tint sets how strong a hover wash is. */
+  --line: #E6E1D9; --lift: 0%; --tint: 11%; --lift-shadow: 0 12px 28px -14px rgba(60, 40, 20, 0.28);
+  --k-tool: #2156D1; --k-skill: #7A3BD6; --k-mcp: #0E7A6E; --gold: #B7791F; --gold-bg: #FDF1D3; --gold-ink: #8A5300; --hl: #FCDC6A;
+  --band-green: #E6F3E9; --band-green-2: #3E5F48; --band-blue: #E7EFFB; --band-blue-2: #44587A; --band-violet: #EFEAF9; --band-violet-2: #594C77;
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI Variable Text", "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --bg: #000000; --bg2: #1C1C1E; --card: #1C1C1E; --label: #FFFFFF; --label2: #A1A1A8; --label3: #8E8E93;
-  --sep: rgba(84, 84, 88, 0.6); --fill: #2C2C2E; --blue: #4BA3FF; --btn: #0A68D4; --red: #FF453A; --green: #30D158; --orange: #FF9F0A;
-  --sidebar: #141416; --green-ink: #4CD777; --scrim: rgba(0, 0, 0, 0.6); --shadow: 0 10px 40px rgba(0, 0, 0, 0.6); --code: #0F0F11; color-scheme: dark;
+  --bg: #121110; --bg2: #1E1C1A; --card: #1E1C1A; --label: #F5F2ED; --label2: #ADA69C; --label3: #8F887E;
+  --sep: rgba(255, 240, 220, 0.12); --fill: #2C2925; --blue: #4BA3FF; --btn: #0A68D4; --red: #FF453A; --green: #30D158; --orange: #FF9F0A;
+  --sidebar: #171614; --green-ink: #4CD777; --scrim: rgba(0, 0, 0, 0.6); --shadow: 0 10px 40px rgba(0, 0, 0, 0.6); --code: #0F0E0D; color-scheme: dark;
+  --line: #322E29; --lift: 38%; --tint: 20%; --lift-shadow: 0 12px 28px -14px rgba(0, 0, 0, 0.8);
+  --k-tool: #8DB2FF; --k-skill: #C3A6FF; --k-mcp: #5FD4C2; --gold: #F2C14E; --gold-bg: rgba(242, 193, 78, 0.16); --gold-ink: #F6CF6E; --hl: rgba(234, 179, 8, 0.42);
+  --band-green: #15221B; --band-green-2: #A3C7AE; --band-blue: #141C2A; --band-blue-2: #A9BCDB; --band-violet: #1D1929; --band-violet-2: #BCB1DC;
 } }
 :root[data-theme="dark"] {
-  --bg: #000000; --bg2: #1C1C1E; --card: #1C1C1E; --label: #FFFFFF; --label2: #A1A1A8; --label3: #8E8E93;
-  --sep: rgba(84, 84, 88, 0.6); --fill: #2C2C2E; --blue: #4BA3FF; --btn: #0A68D4; --red: #FF453A; --green: #30D158; --orange: #FF9F0A;
-  --sidebar: #141416; --green-ink: #4CD777; --scrim: rgba(0, 0, 0, 0.6); --shadow: 0 10px 40px rgba(0, 0, 0, 0.6); --code: #0F0F11; color-scheme: dark;
+  --bg: #121110; --bg2: #1E1C1A; --card: #1E1C1A; --label: #F5F2ED; --label2: #ADA69C; --label3: #8F887E;
+  --sep: rgba(255, 240, 220, 0.12); --fill: #2C2925; --blue: #4BA3FF; --btn: #0A68D4; --red: #FF453A; --green: #30D158; --orange: #FF9F0A;
+  --sidebar: #171614; --green-ink: #4CD777; --scrim: rgba(0, 0, 0, 0.6); --shadow: 0 10px 40px rgba(0, 0, 0, 0.6); --code: #0F0E0D; color-scheme: dark;
+  --line: #322E29; --lift: 38%; --tint: 20%; --lift-shadow: 0 12px 28px -14px rgba(0, 0, 0, 0.8);
+  --k-tool: #8DB2FF; --k-skill: #C3A6FF; --k-mcp: #5FD4C2; --gold: #F2C14E; --gold-bg: rgba(242, 193, 78, 0.16); --gold-ink: #F6CF6E; --hl: rgba(234, 179, 8, 0.42);
+  --band-green: #15221B; --band-green-2: #A3C7AE; --band-blue: #141C2A; --band-blue-2: #A9BCDB; --band-violet: #1D1929; --band-violet-2: #BCB1DC;
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -39,7 +50,9 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 h1, h2, h3, h4 { margin: 0; text-wrap: balance; }
 p { margin: 0; text-wrap: pretty; }
 ::placeholder { color: var(--label2); opacity: 1; }
-::selection { background: color-mix(in srgb, var(--blue) 26%, transparent); }
+::selection { background: var(--hl); color: var(--label); }
+html { scrollbar-color: color-mix(in srgb, var(--label) 24%, transparent) transparent; }
+input, textarea { caret-color: var(--blue); }
 a { color: var(--blue); text-decoration: none; }
 button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; padding: 0; }
 :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 6px; }
@@ -56,8 +69,9 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .side-search input, .search-field input { width: 100%; border: 0; background: var(--fill); color: var(--label); border-radius: 10px; padding: 8px 10px 8px 32px; font: inherit; }
 .side-search .ic, .search-field .ic { position: absolute; left: 10px; top: 50%; transform: translateY(-50%); color: var(--label2); font-size: 15px; }
 .nav-item { display: flex; align-items: center; gap: 10px; padding: 7px 10px; border-radius: 8px; color: var(--label); font-size: 15px; font-weight: 500; width: 100%; text-align: left; }
-.nav-item .ic { color: var(--blue); font-size: 18px; }
-.nav-item[aria-current="page"] { background: var(--fill); }
+.nav-item .ic { color: color-mix(in oklab, var(--c, var(--blue)), #FFFFFF var(--lift)); font-size: 18px; }
+.nav-item:hover { background: color-mix(in srgb, var(--fill) 60%, transparent); }
+.nav-item[aria-current="page"] { background: var(--card); box-shadow: 0 0 0 1px var(--line), 0 1px 3px rgba(40, 30, 20, 0.08); }
 .nav-item .n { margin-left: auto; color: var(--label2); font-size: 13px; font-variant-numeric: tabular-nums; }
 .side-foot { margin-top: auto; padding: 10px; font-size: 12px; color: var(--label2); line-height: 1.45; }
 .tabbar { display: none; }
@@ -571,7 +585,7 @@ details.full > summary span { font-size: 14px; color: var(--label2); }
 
 /* Search */
 .search-field { position: relative; margin-bottom: 18px; display: block; }
-.search-field input { padding: 10px 12px 10px 34px; font-size: 17px; }
+.search-field input { padding: 10px 12px 10px 34px; font-size: 17px; background: var(--card); box-shadow: 0 0 0 1px var(--line); }
 .suggest { list-style: none; padding: 0; margin: 0; }
 .suggest li button { width: 100%; text-align: left; display: flex; gap: 10px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--sep); color: var(--blue); font-size: 20px; }
 .suggest .ic { color: var(--label3); font-size: 18px; }
@@ -629,7 +643,7 @@ dialog.story-ov[open] { animation: grow .38s cubic-bezier(.2,.8,.2,1); }
   .tabbar { display: grid; grid-template-columns: repeat(4, 1fr); position: fixed; left: 0; right: 0; bottom: 0; z-index: 25; background: color-mix(in srgb, var(--bg2) 88%, transparent); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border-top: 1px solid var(--sep); padding: 6px max(8px, env(safe-area-inset-right, 0px)) calc(4px + env(safe-area-inset-bottom, 0px)) max(8px, env(safe-area-inset-left, 0px)); }
   .tabbar button { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 11px; font-weight: 600; color: var(--label2); }
   .tabbar .ic { font-size: 24px; }
-  .tabbar button[aria-current="page"] { color: var(--blue); }
+  .tabbar button[aria-current="page"] { color: color-mix(in oklab, var(--c, var(--blue)), #FFFFFF var(--lift)); }
   .page { padding-bottom: 110px; padding-top: 14px; }
   .today { grid-template-columns: minmax(0, 1fr); gap: 22px; }
   .story { aspect-ratio: 5 / 4; }
@@ -654,22 +668,32 @@ dialog.story-ov[open] { animation: grow .38s cubic-bezier(.2,.8,.2,1); }
 .hero h1 { font-size: 40px; font-weight: 800; letter-spacing: -0.02em; line-height: 1.05; max-width: 18ch; }
 .hero .intro { font-size: 19px; line-height: 1.45; color: var(--label2); max-width: 46ch; margin-top: 10px; }
 .hero-search { max-width: 620px; margin: 22px 0 0; }
-.hero-search input { font-size: 17px; padding: 13px 14px 13px 40px; border-radius: 12px; }
+.hero-search input { font-size: 17px; padding: 13px 14px 13px 40px; border-radius: 12px; background: var(--card); box-shadow: 0 0 0 1px var(--line), 0 2px 10px -6px rgba(40, 30, 20, 0.2); }
+/* A highlighter stroke behind the hero's key words */
+mark.hl { color: inherit; background: linear-gradient(180deg, transparent 56%, var(--hl) 56%, var(--hl) 90%, transparent 90%); padding: 0 0.04em; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
 .hero-search .ic { left: 14px; font-size: 17px; }
 .ideas { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; max-width: 680px; }
-.ideas button { padding: 7px 13px; border-radius: 999px; background: var(--fill); color: var(--label); font-size: 14px; font-weight: 600; }
-.ideas button:hover { background: color-mix(in srgb, var(--blue) 12%, var(--fill)); }
-.bar-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; background: var(--bg2); border-radius: 20px; padding: 24px; }
+.ideas button { display: inline-flex; align-items: center; gap: 7px; padding: 7px 14px 7px 11px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); color: var(--label); font-size: 14px; font-weight: 600; transition: background .15s ease, border-color .15s ease; }
+.ideas button .ic { font-size: 16px; color: color-mix(in oklab, var(--c), #FFFFFF var(--lift)); }
+.ideas button:hover { background: color-mix(in oklab, var(--c) var(--tint), var(--card)); border-color: color-mix(in oklab, var(--c) 35%, var(--line)); }
+.bar-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; background: var(--band-blue); border-radius: 24px; padding: 26px; }
+.bar-card .copybox { background: var(--card); }
+.bar-card .claude-note { color: var(--band-blue-2); }
+.shelf.band { border-radius: 24px; padding: 0 24px 26px; }
+.shelf.band > .shelf-head { border-top: 0; padding-top: 22px; }
+.shelf.band.green { background: var(--band-green); } .shelf.band.green .shelf-head .sub { color: var(--band-green-2); }
+.shelf.band.violet { background: var(--band-violet); } .shelf.band.violet .shelf-head .sub { color: var(--band-violet-2); }
+.shelf.band + .shelf > .shelf-head, .bar-shelf + .shelf > .shelf-head { border-top: 0; padding-top: 0; }
 .bar-card h2 { font-size: 24px; font-weight: 800; letter-spacing: -0.01em; }
-.bar-card .bar-copy > p { color: var(--label2); font-size: 15px; margin: 6px 0 14px; max-width: 52ch; }
+.bar-card .bar-copy > p { color: var(--band-blue-2); font-size: 15px; margin: 6px 0 14px; max-width: 52ch; }
 .bar-steps { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 .bar-steps > b { font-size: 16px; }
 .chat-way > summary { cursor: pointer; color: var(--blue); font-weight: 600; font-size: 14.5px; padding: 4px 0; }
 .chat-way[open] > summary { margin-bottom: 8px; }
 .claude-note a { font-weight: 600; }
 .alt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
-.alt-card { display: flex; flex-direction: column; gap: 12px; background: var(--bg2); border-radius: 18px; padding: 16px; color: var(--label); min-width: 0; transition: transform .2s cubic-bezier(.2,.8,.2,1); }
-.alt-card:hover { transform: translateY(-2px); }
+.alt-card { display: flex; flex-direction: column; gap: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 18px; padding: 16px; color: var(--label); min-width: 0; box-shadow: 0 1px 2px rgba(40, 30, 20, 0.05); transition: transform .2s cubic-bezier(.2,.8,.2,1), box-shadow .2s ease; }
+.alt-card:hover { transform: translateY(-2px); box-shadow: var(--lift-shadow); }
 .alt-card .was { font-size: 14px; color: var(--label2); font-weight: 600; }
 .alt-card .was s { font-size: 19px; font-weight: 800; color: var(--label); text-decoration-thickness: 2.5px; text-decoration-color: var(--red); display: block; margin-top: 2px; }
 .alt-app { display: flex; gap: 12px; align-items: center; min-width: 0; }
@@ -678,29 +702,32 @@ dialog.story-ov[open] { animation: grow .38s cubic-bezier(.2,.8,.2,1); }
 .alt-app .t > span { font-size: 14px; color: var(--label2); line-height: 1.4; }
 .alt-app { align-items: flex-start; }
 .alt-foot { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--label2); margin-top: auto; }
-.alt-foot .ic { width: 12px; height: 12px; vertical-align: -1px; }
+.alt-foot .ic { width: 12px; height: 12px; vertical-align: -1px; color: var(--gold); }
 .alt-tag { display: inline-block; align-self: flex-start; font-size: 12px; font-weight: 700; line-height: 1.2; padding: 4px 8px; border-radius: 6px; background: color-mix(in srgb, var(--green) 16%, transparent); color: var(--green-ink); margin-top: 4px; white-space: normal; }
 .alt-tag.plain { background: var(--fill); color: var(--label2); }
 .alt-tag.big { font-size: 13.5px; padding: 4px 10px; margin-top: 8px; }
 .alt-foot .alt-tag { margin-top: 0; }
-.doors { display: inline-flex; gap: 2px; background: var(--fill); border-radius: 12px; padding: 3px; margin-top: 26px; max-width: 100%; }
-.doors button { padding: 9px 18px; border-radius: 9px; font-size: 15px; font-weight: 600; color: var(--label2); white-space: nowrap; }
-.doors button[aria-selected="true"] { background: var(--card); color: var(--label); box-shadow: 0 1px 3px rgba(0,0,0,.14); }
 .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
 .cards.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 @media (min-width: 1300px) { .cards.four { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
-.card { display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 16px; background: var(--bg2); color: var(--label); min-width: 0; transition: background .15s ease; }
-.card:hover { background: var(--fill); }
+.card { display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 16px; background: var(--card); border: 1px solid var(--line); color: var(--label); min-width: 0; box-shadow: 0 1px 2px rgba(40, 30, 20, 0.05); transition: transform .2s cubic-bezier(.2,.8,.2,1), box-shadow .2s ease; }
+.card:hover { transform: translateY(-2px); box-shadow: var(--lift-shadow); }
+/* Kinds: App, Skill and Connector each have a colour, always next to the word */
+.k-tool { --kc: var(--k-tool); } .k-skill { --kc: var(--k-skill); } .k-mcp { --kc: var(--k-mcp); }
+.kd { display: inline-flex; align-items: center; gap: 6px; }
+.kd::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--kc); flex: none; }
+.card-name .kd { color: var(--kc); font-weight: 600; }
 .card-top { display: flex; gap: 12px; align-items: center; min-width: 0; }
 .card-name { display: flex; flex-direction: column; min-width: 0; }
 .card-name b { font-size: 17px; font-weight: 600; line-height: 1.25; overflow-wrap: anywhere; }
 .card-name span { font-size: 13px; color: var(--label2); }
 .card-line { font-size: 15px; line-height: 1.45; }
 .card-foot { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: 13px; color: var(--label2); }
-.card-foot .ic { width: 12px; height: 12px; vertical-align: -1px; }
-.card-foot .up, .card-foot .free { color: var(--green-ink); font-weight: 600; }
+.card-foot .ic { width: 12px; height: 12px; vertical-align: -1px; color: var(--gold); }
+.card-foot .free { color: var(--green-ink); font-weight: 600; }
+.card-foot .up { color: var(--gold-ink); background: var(--gold-bg); font-weight: 700; padding: 2px 8px; border-radius: 999px; }
 .how3 { list-style: none; counter-reset: how; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
-.how3 li { counter-increment: how; display: flex; flex-direction: column; gap: 4px; padding: 16px; border-radius: 16px; background: var(--bg2); }
+.how3 li { counter-increment: how; display: flex; flex-direction: column; gap: 4px; padding: 16px; border-radius: 16px; background: var(--card); border: 1px solid var(--line); }
 .how3 li::before { content: counter(how); width: 26px; height: 26px; border-radius: 50%; background: var(--btn); color: #FFFFFF; font-size: 14px; font-weight: 700; display: grid; place-items: center; margin-bottom: 4px; }
 .how3 b { font-size: 16px; }
 .how3 span { font-size: 14px; color: var(--label2); line-height: 1.45; }
@@ -722,11 +749,13 @@ dialog.story-ov[open] { animation: grow .38s cubic-bezier(.2,.8,.2,1); }
 .more-row { text-align: center; margin-top: 18px; }
 /* Browse filters: topics narrow the list in place; the count, a setup toggle and the sort sit right above the cards */
 .topics { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-.topics a { display: inline-flex; align-items: baseline; gap: 6px; padding: 7px 13px; border-radius: 999px; background: var(--bg2); color: var(--label); font-weight: 600; font-size: 14px; white-space: nowrap; }
+.topics a { display: inline-flex; align-items: center; gap: 6px; padding: 6px 13px 6px 10px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); color: var(--label); font-weight: 600; font-size: 14px; white-space: nowrap; transition: background .15s ease, border-color .15s ease; }
+.topics a .ic { font-size: 15px; color: color-mix(in oklab, var(--c, var(--label2)), #FFFFFF var(--lift)); }
 .topics a span { font-size: 12px; font-weight: 500; color: var(--label2); font-variant-numeric: tabular-nums; }
-.topics a:hover { background: var(--fill); }
-.topics a[aria-current="page"] { background: var(--label); color: var(--bg); }
-.topics a[aria-current="page"] span { color: inherit; opacity: .7; }
+.topics a:hover { background: color-mix(in oklab, var(--c, var(--label)) var(--tint), var(--card)); border-color: color-mix(in oklab, var(--c, var(--label)) 30%, var(--line)); }
+.topics a[aria-current="page"] { background: color-mix(in oklab, var(--c, #4A443D), #000000 18%); border-color: transparent; color: #FFFFFF; }
+.topics a[aria-current="page"] .ic, .topics a[aria-current="page"] span { color: inherit; }
+.topics a[aria-current="page"] span { opacity: .8; }
 .topic-sub { color: var(--label2); font-size: 15px; margin: 12px 0 0; max-width: 70ch; }
 .list-bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 18px; margin: 22px 0 14px; padding-top: 16px; border-top: 1px solid var(--sep); }
 .list-bar h2 { font-size: 20px; font-weight: 700; margin-right: auto; }
@@ -735,9 +764,13 @@ dialog.story-ov[open] { animation: grow .38s cubic-bezier(.2,.8,.2,1); }
 .toggle input { accent-color: var(--blue); width: 16px; height: 16px; margin: 0; }
 button.kind { padding: 6px 14px; border-radius: 8px; color: var(--label); font-weight: 600; font-size: 14.5px; display: inline-flex; gap: 6px; align-items: baseline; }
 button.kind span { font-size: 12px; color: var(--label2); font-weight: 500; font-variant-numeric: tabular-nums; }
-button.kind[aria-pressed="true"] { background: var(--card); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+button.kind[aria-pressed="true"] { background: var(--card); box-shadow: 0 1px 3px rgba(40, 30, 20, 0.14); }
+button.kind.kd { align-items: center; }
+button.kind.kd[aria-pressed="true"] { color: var(--kc); }
 /* Free alternatives page */
 .alt-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.area-h { display: flex; align-items: center; gap: 10px; }
+.area-h .ic { font-size: 20px; color: color-mix(in oklab, var(--c), #FFFFFF var(--lift)); }
 .alt-tag.host { background: color-mix(in srgb, var(--blue) 14%, transparent); color: var(--blue); }
 #results { margin-top: 4px; }
 /* Rows */
@@ -785,8 +818,12 @@ blockquote.said a { display: block; margin-top: 6px; font-size: 13.5px; font-wei
   .hero h1 { font-size: 32px; }
   .hero .intro { font-size: 17px; }
   .bar-card { grid-template-columns: minmax(0, 1fr); padding: 18px; gap: 18px; }
-  .doors { display: flex; } .doors button { flex: 1 1 0; padding: 9px 8px; font-size: 14.5px; }
   .cards { grid-template-columns: minmax(0, 1fr); }
+  .cards.home-cards { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
+  .cards.home-cards::-webkit-scrollbar { display: none; }
+  .cards.home-cards > * { scroll-snap-align: start; }
+  .cards.home-cards, .alt-grid { margin-inline: -16px; padding-inline: 16px; scroll-padding-inline: 16px; }
+  .shelf.band, .bar-card { margin-inline: -16px; border-radius: 0; padding-inline: 16px; }
   .how3 { grid-template-columns: minmax(0, 1fr); }
   .vthumb { width: 120px; }
   .alt-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 82%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
@@ -1178,14 +1215,15 @@ function stories() {
 // ---------- pages ----------
 const lastFetch = () => Object.values(R).map(r => r.fd).filter(Boolean).sort().pop() || D.gen;
 const fmtLong = s => new Date(s + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
-// Ideas under the home search: each one finds listings (checked by the flows test)
-const HOME_IDEAS = [['Run AI offline', 'offline'], ['Take meeting notes', 'meeting notes'], ['Type with your voice', 'dictation'], ['Edit PDFs', 'pdf']];
+// Ideas under the home search: each one finds listings (checked by the flows test), with an icon and a colour
+const HOME_IDEAS = [['Run AI offline', 'offline', 'chip', '#7A3BD6'], ['Take meeting notes', 'meeting notes', 'doc', '#0E7A6E'], ['Type with your voice', 'dictation', 'wave', '#C2185B'], ['Edit PDFs', 'pdf', 'file', '#2156D1']];
 // The top of a kind, by stars: one listing per repository, unusual star growth left out
-const topOf = k => uniqueRepos(byStars(vis(L.filter(l => l.k === k))).filter(l => !oddStars(l))).slice(0, 9);
+const topOf = (k, n = 9) => uniqueRepos(byStars(vis(L.filter(l => l.k === k))).filter(l => !oddStars(l))).slice(0, n);
 // Free alternatives, only where the project itself says so (data/alternatives.json). Areas group them on the Free alternatives page;
 // an alternative to a built-in command (area "cli") stays on its own listing only.
-const AREAS = [['health', 'Health & fitness'], ['meet', 'Meetings, calls & voice'], ['media', 'Photos, video & design'], ['notes', 'Notes, documents & office'],
-  ['home', 'Home & devices'], ['ai', 'AI'], ['biz', 'Running a business'], ['team', 'Teamwork & projects'], ['dev', 'For developers']];
+const AREAS = [['health', 'Health & fitness', 'pulse', '#D2335C'], ['meet', 'Meetings, calls & voice', 'wave', '#0E7A6E'], ['media', 'Photos, video & design', 'play', '#9C36B5'], ['notes', 'Notes, documents & office', 'doc', '#2156D1'],
+  ['home', 'Home & devices', 'slides', '#B7791F'], ['ai', 'AI', 'chip', '#6741D9'], ['biz', 'Running a business', 'brief', '#0B7285'], ['team', 'Teamwork & projects', 'person', '#5C940D'], ['dev', 'For developers', 'code', '#495057']];
+const AREA = Object.fromEntries(AREAS.map(a => [a[0], a]));
 const altsAll = () => byStars(vis(L.filter(l => l.alt && AREAS.some(a => a[0] === l.alt.area))));
 // Hand-picked for the home page: everyday products people pay for, each replaced by something you install, not a server
 const HOME_ALTS = ['noop', 'opencut', 'cap', 'rustdesk', 'photocraft', 'openwhispr'];
@@ -1195,11 +1233,11 @@ const altCard = l => `<a class="alt-card" href="#${l.id}"><span class="was">Inst
   <span class="alt-app">${icon(l, 56)}<span class="t"><b>${esc(l.n)}</b><span>${esc(plainOf(l))}</span></span></span>
   <span class="alt-foot"><span class="alt-tag${l.sv ? ' host' : ''}">${esc(altFree(l))}</span><span>${KIND1[l.k]} · ${ic('star', 2)} ${fmtK(repoOf(l).st)}</span></span></a>`;
 // A calm card: the project, what it does in one full sentence, and one quiet line of facts. The listing page has Get.
-const card = (l, note) => `<a class="card" href="#${l.id}"><span class="card-top">${icon(l, 52)}<span class="card-name"><b>${esc(l.n)}</b><span>${KIND1[l.k]}</span></span></span>
+const card = (l, note) => `<a class="card" href="#${l.id}"><span class="card-top">${icon(l, 52)}<span class="card-name"><b>${esc(l.n)}</b><span class="kd k-${l.k}">${KIND1[l.k]}</span></span></span>
   <span class="card-line">${esc(plainOf(l))}</span>
   <span class="card-foot">${note ? `<span class="up">${esc(note)}</span>` : ''}<span>${ic('star', 2)} ${fmtK(repoOf(l).st)}</span>${l.alt?.paid ? `<span class="free">Free instead of ${esc(l.alt.n)}</span>` : ''}</span></a>`;
 const cards = (list, notes = [], cls = '') => `<div class="cards${cls ? ' ' + cls : ''}">${list.map((l, i) => card(l, notes[i])).join('')}</div>`;
-const shelfOf = (title, sub, body, more) => `<section class="shelf"><div class="shelf-head"><h2>${title}${sub ? `<span class="sub">${sub}</span>` : ''}</h2>${more ? `<a class="see-all" href="${more}">See all</a>` : ''}</div>${body}</section>`;
+const shelfOf = (title, sub, body, more, cls) => `<section class="shelf${cls ? ' ' + cls : ''}"><div class="shelf-head"><h2>${title}${sub ? `<span class="sub">${sub}</span>` : ''}</h2>${more ? `<a class="see-all" href="${more}">See all</a>` : ''}</div>${body}</section>`;
 // Hand-picked for someone new to AI: free apps with a normal download, no account and no subscription
 const START = ['hob', 'handy', 'affine', 'localsend', 'excalidraw', 'obs-studio'];
 // Free AI that runs on your own computer
@@ -1217,36 +1255,36 @@ function risers(max = 6) {
     }
   return out.slice(0, max);
 }
-const DOORS = [['new', "I'm new to AI"], ['code', 'I use Claude Code']];
+// One home for everyone: apps anyone can install, free swaps for paid tools, the Skillshelf bar, what's rising on GitHub,
+// free AI for your own computer, then skills and connectors for Claude. Nothing shows twice: each shelf skips projects an earlier one showed.
 function pageToday() {
-  const door = S.door === 'code' ? 'code' : 'new';
-  const alts = vis(pick(HOME_ALTS)).filter(l => l.alt);
-  const rise = risers();
-  const fresh = list => list.filter(l => !rise.some(r => r[0].r === l.r));
-  const body = door === 'new' ? `
-    ${shelfOf('Start here', 'Free apps anyone can install. No account, no subscription.', cards(vis(pick(START))))}
-    ${alts.length ? `<section class="shelf alts"><div class="shelf-head"><h2>Free alternatives to tools you pay for<span class="sub">Each project says so in its own words. We link the line.</span></h2><a class="see-all" href="#instead">See all ${altsAll().length}</a></div>
+  const seen = new Set();
+  const take = (list, n = 6) => { const out = list.filter(l => !seen.has(l.r)).slice(0, n); out.forEach(l => seen.add(l.r)); return out; };
+  const start = take(vis(pick(START)));
+  const alts = take(vis(pick(HOME_ALTS)).filter(l => l.alt));
+  const rise = risers(12).filter(([l]) => !seen.has(l.r)).slice(0, 6); rise.forEach(([l]) => seen.add(l.r));
+  const ownAI = take(vis(pick(OWN_AI)));
+  const skills = take(topOf('skill', 30)), conns = take(topOf('mcp', 30)), jev = take(vis(pick(JEV)), 4);
+  return `<div class="page home">
+    <section class="hero">
+      <h1>The app store for <mark class="hl">open source</mark></h1>
+      <p class="intro">Free apps and AI add-ons from GitHub, explained in plain English, and set up for you by Claude.</p>
+      <label class="search-field hero-search" for="home-q">${ic('search')}<input id="home-q" type="search" placeholder="What do you want to do?" autocomplete="off" enterkeyhint="search"></label>
+      <div class="ideas">${HOME_IDEAS.map(([t, q, g, c]) => `<button data-suggest="${esc(q)}" style="--c:${c}">${ic(g)}${esc(t)}</button>`).join('')}</div>
+    </section>
+    ${shelfOf('Start here', 'Free apps anyone can install. No account, no subscription.', cards(start, [], 'home-cards'))}
+    ${alts.length ? `<section class="shelf band green alts"><div class="shelf-head"><h2>Free alternatives to tools you pay for<span class="sub">Each project says so in its own words. We link the line.</span></h2><a class="see-all" href="#instead">See all ${altsAll().length}</a></div>
       <div class="alt-grid">${alts.map(altCard).join('')}</div></section>` : ''}
-    ${shelfOf('Free AI on your own computer', 'Private, works offline, no monthly fee', cards(vis(pick(OWN_AI))))}
+    ${claudeBox()}
+    ${rise.length >= 3 ? shelfOf('Rising on GitHub', 'From GitHub\'s own trending lists', cards(rise.map(r => r[0]), rise.map(r => r[1]), 'home-cards')) : ''}
+    ${ownAI.length ? shelfOf('Free AI on your own computer', 'Private, works offline, no monthly fee', cards(ownAI, [], 'home-cards')) : ''}
+    ${skills.length ? shelfOf('Skills people install most', 'A skill teaches Claude a job, like making slides or reviewing code. Most-starred first, one per project.', cards(skills, [], 'home-cards'), '#skills', 'band violet') : ''}
+    ${conns.length ? shelfOf('Connectors', 'Let Claude use your apps, your browser and your phone', cards(conns, [], 'home-cards'), '#mcp') : ''}
+    ${jev.length >= 3 ? shelfOf('Jev and decision models', 'TypeSafe\'s Jev answers typed questions with probabilities instead of writing text. Here is its open-source side.', cards(jev, [], 'four home-cards')) : ''}
     <section class="shelf how"><div class="shelf-head"><h2>How it works</h2></div>
       <ol class="how3"><li><b>Pick something free</b><span>Every listing says what it does in plain English.</span></li>
         <li><b>Get it</b><span>Download it like any app, or copy one line and paste it to Claude.</span></li>
-        <li><b>Claude checks it first</b><span>It reads the code on your computer and asks you before it installs anything.</span></li></ol></section>`
-  : `
-    ${claudeBox()}
-    ${rise.length >= 3 ? shelfOf('Rising on GitHub', 'From GitHub\'s own trending lists', cards(rise.map(r => r[0]), rise.map(r => r[1]))) : ''}
-    ${(list => list.length >= 3 ? shelfOf('Jev and decision models', 'TypeSafe\'s Jev answers typed questions with probabilities instead of writing text. Here is its open-source side.', cards(list, [], 'four')) : '')(vis(pick(JEV)))}
-    ${shelfOf('Skills people install most', 'By GitHub stars, one per project', cards(fresh(topOf('skill')).slice(0, 6)), '#skills')}
-    ${shelfOf('Connectors', 'Let Claude use your apps, your browser and your phone', cards(fresh(topOf('mcp')).slice(0, 6)), '#mcp')}`;
-  return `<div class="page home">
-    <section class="hero">
-      <h1>The app store for open source</h1>
-      <p class="intro">Free apps and AI add-ons from GitHub, explained in plain English, and set up for you by Claude.</p>
-      <label class="search-field hero-search" for="home-q">${ic('search')}<input id="home-q" type="search" placeholder="What do you want to do?" autocomplete="off" enterkeyhint="search"></label>
-      <div class="ideas">${HOME_IDEAS.map(([t, q]) => `<button data-suggest="${esc(q)}">${esc(t)}</button>`).join('')}</div>
-      <div class="doors" role="tablist" aria-label="Show picks for">${DOORS.map(([k, t]) => `<button role="tab" aria-selected="${k === door}" data-door="${k}">${esc(t)}</button>`).join('')}</div>
-    </section>
-    ${body}
+        <li><b>Claude checks it first</b><span>It reads the code on your computer and asks you before it installs anything.</span></li></ol></section>
     <p class="see-everything"><a href="#browse">See all ${vis(L).length} apps, skills and connectors ›</a></p>
     ${dataNote()}</div>`;
 }
@@ -1366,8 +1404,8 @@ function insteadHTML() {
     return [...list].sort((a, b) => top[b.alt.n] - top[a.alt.n] || a.alt.n.localeCompare(b.alt.n) || repoOf(b).st - repoOf(a).st); };
   const groups = AREAS.map(([k, title]) => [k, title, byProduct(all.filter(l => l.alt.area === k && hit(l)))]).filter(g => g[2].length);
   if (!groups.length) return `<p class="empty">Nothing here replaces “${esc(raw)}” yet.<br><button class="text-btn" data-seeall="${esc(raw)}">Search all of Skillshelf for it</button></p>`;
-  return (groups.length > 2 ? `<nav class="topics" aria-label="Areas">${groups.map(([k, title, list]) => `<a href="#instead" data-jump="area-${k}">${esc(title)}<span>${list.length}</span></a>`).join('')}</nav>` : '')
-    + groups.map(([k, title, list]) => `<section class="shelf" id="area-${k}"><div class="shelf-head"><h2>${esc(title)}</h2></div><div class="alt-list">${list.map(altCard).join('')}</div></section>`).join('');
+  return (groups.length > 2 ? `<nav class="topics" aria-label="Areas">${groups.map(([k, title, list]) => `<a href="#instead" data-jump="area-${k}" style="--c:${AREA[k][3]}">${ic(AREA[k][2])}${esc(title)}<span>${list.length}</span></a>`).join('')}</nav>` : '')
+    + groups.map(([k, title, list]) => `<section class="shelf" id="area-${k}"><div class="shelf-head"><h2 class="area-h" style="--c:${AREA[k][3]}">${ic(AREA[k][2])}${esc(title)}</h2></div><div class="alt-list">${list.map(altCard).join('')}</div></section>`).join('');
 }
 function pageInstead() {
   const all = altsAll(), products = new Set(all.map(l => l.alt.n)), paid = new Set(all.filter(l => l.alt.paid).map(l => l.alt.n));
@@ -1403,8 +1441,8 @@ function pageBrowse() {
     <label class="search-field" for="q">${ic('search')}<input id="q" type="search" placeholder="Search apps, skills and connectors" value="${esc(S.q)}" autocomplete="off" enterkeyhint="search"></label>
     <div id="results" ${S.q.trim() ? '' : 'hidden'}>${S.q.trim() ? resultsHTML() : ''}</div>
     <div id="browse-all" ${S.q.trim() ? 'hidden' : ''}>
-    <div class="kind-seg" role="group" aria-label="Kind" style="margin-top:14px">${kinds.map(([k, label, h]) => `<button class="kind" data-kind="${h}" aria-pressed="${S.kind === k}">${label}<span>${n(k)}</span></button>`).join('')}</div>
-    <nav class="topics" aria-label="Topic"><a href="#${HASH_OF[S.kind] || 'browse'}" aria-current="${S.job ? 'false' : 'page'}">All topics</a>${jobsFirst().map(([k, label]) => { const c = nj(k); return c ? `<a href="#for-${k}" aria-current="${S.job === k ? 'page' : 'false'}">${esc(label)}<span>${c}</span></a>` : ''; }).join('')}</nav>
+    <div class="kind-seg" role="group" aria-label="Kind" style="margin-top:14px">${kinds.map(([k, label, h]) => `<button class="kind${k ? ` kd k-${k}` : ''}" data-kind="${h}" aria-pressed="${S.kind === k}">${label}<span>${n(k)}</span></button>`).join('')}</div>
+    <nav class="topics" aria-label="Topic"><a href="#${HASH_OF[S.kind] || 'browse'}" aria-current="${S.job ? 'false' : 'page'}">All topics</a>${jobsFirst().map(([k, label, , g, col]) => { const c = nj(k); return c ? `<a href="#for-${k}" style="--c:${col[0]}" aria-current="${S.job === k ? 'page' : 'false'}">${ic(g)}${esc(label)}<span>${c}</span></a>` : ''; }).join('')}</nav>
     <p class="topic-sub">${S.job ? esc(JOB[S.job][2]) + '.' : { tool: 'Free programs you run on your own computer.', skill: 'Instructions that teach Claude a job, like making slides or reviewing code. Most are plain text.', mcp: 'Also called MCP servers. They let Claude use your apps and accounts, like your browser, Figma or your calendar.' }[S.kind] || 'Free apps for your computer, skills that teach Claude a job, and connectors that let Claude use your apps.'}</p>
     ${hiddenNote(L.filter(l => (!S.kind || l.k === S.kind) && inJob(l) && (!S.easy || l.lv === 1)), list)}
     <div class="list-bar"><h2>${S.kind ? KINDS[S.kind] : 'Everything'}<span>${list.length}</span></h2>
@@ -2287,10 +2325,9 @@ function pageIssue(id) {
 // ---------- routing ----------
 const S = { tab: 'today', detail: null, job: null, easy: false, q: '', kind: null, sort: 'stars', more: 0, audit: true, agent: FOCUS.ai.find(a => AGENTS.some(x => x[0] === a)) || 'claude-code' };
 try { const a = localStorage.getItem('vetted-agent'); if (AGENTS.some(x => x[0] === a)) S.agent = a; } catch (e) {}
-// Which door the home page opens on: "new" (new to AI) or "code" (uses Claude Code), remembered per viewer
-try { S.door = localStorage.getItem('vetted-door') === 'code' ? 'code' : 'new'; } catch (e) { S.door = 'new'; }
 // Three tabs: Home, Browse and My list. Kinds are a filter inside Browse.
 const TABS = [['today', 'Home', 'today'], ['browse', 'Browse', 'grid'], ['instead', 'Free alternatives', 'tag', 'Alternatives'], ['list', 'My list', 'heart']];
+const TAB_C = { today: '#2156D1', browse: '#7A3BD6', instead: '#1E8A43', list: '#D2335C' };
 // Pages without a tab of their own (Browse's kind filters and search included, so old links keep working)
 const PAGES = ['all', 'tools', 'skills', 'mcp', 'search', 'trusted', 'caught', 'tested', 'trending', 'digest', 'powers'];
 const BROWSE_HASHES = ['all', 'tools', 'skills', 'mcp', 'search'];
@@ -2299,8 +2336,8 @@ function chrome() {
   const n = { list: LIST.length || '' };
   // Listing pages, job pages and kits light up the tab they belong to
   const cur = k => S.tab === k || (k === 'browse' && !['today', 'list', 'instead'].includes(S.tab));
-  document.getElementById('side-nav').innerHTML = TABS.map(([k, l, g]) => `<button class="nav-item" data-tab="${k}" aria-current="${cur(k) && !S.detail ? 'page' : 'false'}">${ic(g)}${l}${n[k] ? `<span class="n">${n[k]}</span>` : ''}</button>`).join('');
-  document.getElementById('tabbar').innerHTML = TABS.map(([k, l, g, short]) => `<button data-tab="${k}" aria-current="${cur(k) ? 'page' : 'false'}">${ic(g, 1.8)}${short || l}${k === 'list' && LIST.length ? `<i class="badge">${LIST.length}</i>` : ''}</button>`).join('');
+  document.getElementById('side-nav').innerHTML = TABS.map(([k, l, g]) => `<button class="nav-item" data-tab="${k}" style="--c:${TAB_C[k]}" aria-current="${cur(k) && !S.detail ? 'page' : 'false'}">${ic(g)}${l}${n[k] ? `<span class="n">${n[k]}</span>` : ''}</button>`).join('');
+  document.getElementById('tabbar').innerHTML = TABS.map(([k, l, g, short]) => `<button data-tab="${k}" style="--c:${TAB_C[k]}" aria-current="${cur(k) ? 'page' : 'false'}">${ic(g, 1.8)}${short || l}${k === 'list' && LIST.length ? `<i class="badge">${LIST.length}</i>` : ''}</button>`).join('');
 }
 function render() {
   document.getElementById('main').innerHTML = (S.detail ? '' : focusBar()) + (S.detail ? pageProduct(S.detail) : S.kit ? pageKit(S.kit)
@@ -2380,7 +2417,7 @@ function openStory(id) {
 }
 
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-more],[data-focus],[data-fset],[data-focusreset],[data-closepanel],[data-showall],[data-tab],[data-get],[data-story],[data-closestory],[data-closesheet],[data-copy],[data-agent],[data-suggest],[data-seeall],[data-easy],[data-jump],[data-unclamp],[data-save],[data-audit],[data-share],[data-sharelist],[data-sharekit],[data-savekit],[data-savelist],[data-mdlist],[data-clearlist],[data-copysetup],[data-door],[data-kind],[data-easyoff],.story-ov .row-txt');
+  const t = e.target.closest('[data-more],[data-focus],[data-fset],[data-focusreset],[data-closepanel],[data-showall],[data-tab],[data-get],[data-story],[data-closestory],[data-closesheet],[data-copy],[data-agent],[data-suggest],[data-seeall],[data-easy],[data-jump],[data-unclamp],[data-save],[data-audit],[data-share],[data-sharelist],[data-sharekit],[data-savekit],[data-savelist],[data-mdlist],[data-clearlist],[data-copysetup],[data-kind],[data-easyoff],.story-ov .row-txt');
   if (!t) return;
   const d = t.dataset;
   const target = t.getAttribute('href')?.startsWith('#') ? t.getAttribute('href').slice(1) : null;
@@ -2400,7 +2437,6 @@ document.addEventListener('click', e => {
   // A kind keeps the topic you're on; with no topic it's Browse's own link (#tools), so it can be shared
   if (d.kind) { S.kind = KIND_HASH[d.kind]; S.more = 0; if (!S.job) history.replaceState(history.state, '', '#' + (d.kind === 'all' ? 'browse' : d.kind)); refocus(); return; }
   if ('easyoff' in d) { S.easy = false; refocus(); return; }
-  if (d.door) { S.door = d.door; try { localStorage.setItem('vetted-door', S.door); } catch (err) {} const y = scrollY; render(); scrollTo(0, y); return; }
   if ('copysetup' in d) { copyText(`${SITE}#${setupHash()}`, 'Link to this setup copied'); return; }
   if ('focusreset' in d) { FOCUS = { ...FOCUS0 }; SHOW_ALL = false; saveFocus(); refocus(); return; }
   if ('closepanel' in d) { closeModal(panel); return; }
