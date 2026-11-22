@@ -1,5 +1,5 @@
 {
-  "_about": "What Skillshelf leaves off the site, and why (November 22, 2026). The build skips these. Repos: every listing from that repository. Ids: single listings. Keep: the one listing that stands for a whole pack, with the name and line it shows.",
+  "_about": "What Skillshelf leaves off the site, and why (November 22, 2026). The build skips these. Repos: every listing from that repository. Ids: single listings. Keep: the one listing that stands for a whole pack, with the name and line it shows (pack: set it up as the whole project).",
   "repos": {
     "anthropics/skills": "Claude already has Anthropic's own skills: they are built into the Claude apps and Claude uses them by itself when a request needs them.",
     "anthropics/knowledge-work-plugins": "Anthropic's own plugins are already in Claude's plugin directory.",
@@ -75,11 +75,11 @@
     "thedotmack-claude-mem-install": "Part of claude-mem, listed once."
   },
   "keep": {
-    "obra-using-superpowers": { "n": "Superpowers", "pl": "A whole way of working for Claude Code: it brainstorms with you, writes a plan, builds with tests and checks its own work before saying it's done. One pack of 14 skills." },
-    "weizhena-research-deep": { "n": "Deep Research" },
-    "czlonkowski-n8n-workflow-patterns": { "n": "n8n Skills" },
-    "coreyhaines31-ads": { "n": "Marketing Skills", "pl": "Marketing know-how for your AI assistant: ads, SEO, analytics, app store listings, pricing pages and keeping customers. One pack of over 50 skills." },
-    "addyosmani-code-review-and-quality": { "n": "Agent Skills by Addy Osmani", "pl": "Engineering habits for your coding assistant: reviewing code, finding the real cause of bugs, testing in a real browser and sticking to the plan. One pack of 26 skills." },
-    "thedotmack-mem-search": { "n": "claude-mem", "pl": "Gives Claude Code a memory of your past sessions that it can search, so it can answer \"did we solve this before?\"" }
+    "obra-using-superpowers": { "pack": true, "n": "Superpowers", "pl": "A whole way of working for Claude Code: it brainstorms with you, writes a plan, builds with tests and checks its own work before saying it's done. One pack of 14 skills." },
+    "weizhena-research-deep": { "pack": true, "n": "Deep Research" },
+    "czlonkowski-n8n-workflow-patterns": { "pack": true, "n": "n8n Skills" },
+    "coreyhaines31-ads": { "pack": true, "n": "Marketing Skills", "pl": "Marketing know-how for your AI assistant: ads, SEO, analytics, app store listings, pricing pages and keeping customers. One pack of over 50 skills." },
+    "addyosmani-code-review-and-quality": { "pack": true, "n": "Agent Skills by Addy Osmani", "pl": "Engineering habits for your coding assistant: reviewing code, finding the real cause of bugs, testing in a real browser and sticking to the plan. One pack of 26 skills." },
+    "thedotmack-mem-search": { "pack": true, "n": "claude-mem", "pl": "Gives Claude Code a memory of your past sessions that it can search, so it can answer \"did we solve this before?\"" }
   }
 }

@@ -222,7 +222,8 @@ for (const l of d.listings) {
     else if (!TRUSTED.has(owner) && owner !== 'obra' && l.readmeInstall?.plugin)
       inst.push({ to: 'Claude Code', how: 'Plugin', cmds: [l.readmeInstall.plugin.replace(/\s+#.*$/, '')], note: 'From the project\'s README. Run inside Claude Code, then pick what to install from /plugin.' });
     if (owner === 'openai') inst.push({ to: 'Codex', how: 'Built-in installer', cmds: [/\.curated\//.test(l.path) ? `$skill-installer ${l.slug}` : `$skill-installer install https://github.com/${repo}/tree/${m.branch}/${l.path}`], note: 'Type this inside Codex.' });
-    inst.push({ to: 'Any agent', how: 'skills CLI', agentCmd: `npx skills add ${repo} --skill ${q(l.slug)}`, note: repo === 'cooklang/cooklang-skills' ? 'Adds the skill only. It also needs the Cook server, which the plugin sets up; its README shows how to add it to other clients.' : 'Uses the open skills CLI. Pick the agent to install into.' });
+    if (CUR.keep[id]?.pack) inst.push({ to: 'Any agent', how: 'skills CLI', agentCmd: `npx skills add ${repo}`, note: 'Uses the open skills CLI. It lists the pack\'s skills so you can pick which to install.' });
+    else inst.push({ to: 'Any agent', how: 'skills CLI', agentCmd: `npx skills add ${repo} --skill ${q(l.slug)}`, note: repo === 'cooklang/cooklang-skills' ? 'Adds the skill only. It also needs the Cook server, which the plugin sets up; its README shows how to add it to other clients.' : 'Uses the open skills CLI. Pick the agent to install into.' });
     inst.push({ scan: true, cmds: [`git clone --depth 1 https://github.com/${repo}`, `skillspector scan ${repoName}/${l.path} --no-llm`] });
   } else if (l.kind === 'mcp') {
     const run = l.npxPkg ? `npx -y ${l.npxPkg}${l.slug === 'filesystem' ? ' /path/to/allowed/folder' : ''}` : l.uvxPkg ? `uvx ${l.uvxPkg}` : null;
@@ -368,6 +369,7 @@ for (const l of d.listings) {
     ...(ALTS[id] ? { alt: ALTS[id] } : {}),
     ...(REDUNDANT[id] ? { rd: REDUNDANT[id].why } : {}),
     ...(SERVER.has(repo) ? { sv: 1 } : {}),
+    ...(CUR.keep[id]?.pack ? { pk: 1 } : {}),
     ...(HOOKS[l.id] ? { ih: HOOKS[l.id].map(h => ({ f: h.file, s: h.script, c: h.cmd, refs: h.refs })) } : {}) });
   if (!PLAIN[id]) console.error('NO PLAIN TEXT', id);
 }
