@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Add Skillshelf to Claude</title>
+<meta name="description" content="Find AI skills for any task and see in plain English what each one does and whether it's safe, before you add it.">
+<style>
+  :root { --bg: #fbfaf7; --bg2: #f1efe9; --fg: #1d1c1a; --muted: #6b6862; --line: #dedad2; --accent: #1f6f4a; --accent-fg: #fff; --warn: #8a5a00; }
+  @media (prefers-color-scheme: dark) { :root { --bg: #171614; --bg2: #22211e; --fg: #eeece7; --muted: #a29e96; --line: #36342f; --accent: #4fbf87; --accent-fg: #0d1a13; --warn: #e0b04a; } }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--fg); font: 16px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 760px; margin: 0 auto; padding: 40px 16px 56px; }
+  h1 { font-size: 30px; line-height: 1.2; margin: 0 0 10px; letter-spacing: -0.01em; }
+  h2 { font-size: 18px; margin: 0 0 10px; }
+  p { margin: 0 0 12px; }
+  .lead { font-size: 18px; color: var(--muted); margin-bottom: 28px; }
+  .copy { display: flex; gap: 8px; align-items: stretch; margin: 0 0 8px; }
+  .copy code { flex: 1; min-width: 0; overflow-x: auto; white-space: nowrap; padding: 11px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg2); font: 14px/1.4 ui-monospace, "Cascadia Mono", Consolas, monospace; }
+  button { font: inherit; font-size: 15px; font-weight: 600; padding: 0 16px; border-radius: 10px; border: 1px solid var(--line); background: var(--bg2); color: var(--fg); cursor: pointer; white-space: nowrap; }
+  button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); }
+  button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .big code { font-size: 15px; padding: 14px; }
+  .big button { padding: 0 20px; }
+  .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin: 28px 0; }
+  .card { min-width: 0; }
+  @media (max-width: 640px) { .grid { grid-template-columns: minmax(0, 1fr); } h1 { font-size: 26px; } }
+  .card { border: 1px solid var(--line); border-radius: 14px; padding: 18px; background: var(--bg); }
+  .card .sub { color: var(--muted); font-size: 14px; margin: -6px 0 12px; }
+  ol { margin: 0 0 12px; padding-left: 22px; }
+  li { margin-bottom: 6px; }
+  .key { background: var(--bg2); border-left: 3px solid var(--warn); padding: 8px 10px; border-radius: 6px; font-size: 15px; }
+  a { color: var(--accent); }
+  .btnlink { display: inline-block; margin-top: 4px; font-weight: 600; text-decoration: none; }
+  ul.try { list-style: none; padding: 0; margin: 0 0 24px; display: grid; gap: 8px; }
+  ul.try li { margin: 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg2); }
+  ul.notes { padding-left: 20px; margin: 0 0 24px; }
+  footer { color: var(--muted); font-size: 14px; border-top: 1px solid var(--line); padding-top: 16px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Add Skillshelf to Claude</h1>
+  <p class="lead">Find AI skills for any task, and see in plain English what each one does and whether it's safe, before you add it.</p>
+
+  <p><strong>Your Skillshelf link</strong></p>
+  <div class="copy big">
+    <code id="link">{{MCP}}</code>
+    <button class="primary" data-copy="link">Copy link</button>
+  </div>
+  <p style="color:var(--muted);font-size:14px">No account or sign-in needed.</p>
+
+  <div class="grid">
+    <section class="card" aria-labelledby="app">
+      <h2 id="app">In Claude</h2>
+      <p class="sub">The website, desktop app or phone app</p>
+      <ol>
+        <li>Open <strong>Plugins</strong>, click <strong>Add</strong>, then <strong>Add custom connector</strong>.</li>
+        <li>Name it <strong>Skillshelf</strong> and paste the link above.</li>
+        <li>Start a <strong>new chat</strong>. Click <strong>+</strong> and switch Skillshelf on.</li>
+      </ol>
+      <p class="key">Switch it on <strong>before</strong> your first message. Switching it on in the middle of a chat doesn't load it.</p>
+      <a class="btnlink" href="{{PLUGINS}}" target="_blank" rel="noopener">Open Plugins in Claude ↗</a>
+    </section>
+
+    <section class="card" aria-labelledby="code">
+      <h2 id="code">In Claude Code</h2>
+      <p class="sub">In your terminal</p>
+      <ol>
+        <li>Run this once:</li>
+      </ol>
+      <div class="copy">
+        <code id="cmd">{{CMD}}</code>
+        <button data-copy="cmd">Copy</button>
+      </div>
+      <ol start="2">
+        <li>Start a <strong>new</strong> Claude Code session.</li>
+      </ol>
+    </section>
+  </div>
+
+  <h2>Then ask Claude things like</h2>
+  <ul class="try">
+    <li>"Find me a skill to make my site look less AI-made"</li>
+    <li>"Is Impeccable safe?"</li>
+    <li>"Find me an open-source voice tool"</li>
+  </ul>
+
+  <h2>Good to know</h2>
+  <ul class="notes">
+    <li><strong>Add it only once.</strong> If Skillshelf shows up twice in your list, remove one.</li>
+    <li>Searching Claude's connector list won't find Skillshelf yet. Use the link above.</li>
+  </ul>
+
+  <footer>{{COUNT}} skills, connectors and apps, checked {{DATE}}.</footer>
+</main>
+<script>
+  document.querySelectorAll('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var el = document.getElementById(b.getAttribute('data-copy')), text = el.textContent, label = b.textContent;
+      function done() { b.textContent = 'Copied'; setTimeout(function () { b.textContent = label; }, 1500); }
+      function fallback() { var r = document.createRange(); r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r); try { document.execCommand('copy'); done(); } catch (e) {} }
+      if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, fallback); else fallback();
+    });
+  });
+</script>
+</body>
+</html>
