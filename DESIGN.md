@@ -133,7 +133,7 @@ What makes it Skillshelf is the content, not ornament: every picture is the make
 
 Four tabs: Home, Browse, Free alternatives, My list. Apps, Skills and Connectors are a filter inside Browse. Home is one page for everyone (no "new to AI" / "Claude Code" switch, owner's call 2026-11-22).
 
-The owner found the pure Apple palette tiring ("a wall of grey boxes"), so since 2026-11-22 the store keeps the App Store grammar but is warmer and has more colour: a warm off-white page, white cards with a hairline edge, a colour per kind and per topic, and three tinted bands on Home. Colour always has a job (wayfinding, a kind, a state); it never decorates on its own.
+The owner found the pure Apple palette tiring ("a wall of grey boxes"), so since 2026-11-22 the store keeps the App Store grammar but is warmer and has more colour: a warm off-white page, white cards with a hairline edge, a colour per kind and per topic, and three tinted bands on Home. Colour always has a job (wayfinding, a kind, a state); it never decorates on its own. Later the same day the owner asked for a "glassy premium look" and a better dark mode: surfaces became glass (see Elevation & Depth) over a soft, fixed glow, and dark mode moved to cool neutrals.
 
 ## Colors
 
@@ -148,11 +148,11 @@ The owner found the pure Apple palette tiring ("a wall of grey boxes"), so since
 - **Topic and area colours**: each Browse topic (the `JOBS` list) and each Free alternatives area (`AREAS`) has a hue and an icon. Chips show the icon in that hue; the selected chip fills with it (darkened 18% so white text passes).
 - **Gold** (`#B7791F`, ink `#8A5300` on `#FDF1D3`): GitHub stars and the "+N stars this week" pill.
 - **Highlighter** (`#FCDC6A`): the marker stroke behind "open source" in the hero, and text selection.
-- **Bands on Home**: Free alternatives on green `#E6F3E9`, the Skillshelf bar on blue `#E7EFFB`, Skills on violet `#EFEAF9`. Text on a band uses a secondary colour tinted from that band, not grey. Edge to edge on phones.
+- **Bands on Home**: Free alternatives on a green wash, the Skillshelf bar on blue, Skills on violet (8 to 10% tints, translucent so the glow shows through). Text on a band uses a secondary colour tinted from that band, not grey. Edge to edge on phones.
 
 ### Neutral
-- Warm off-white page `#FAF8F5`, white cards with a `#E6E1D9` edge, `#F2EEE8` grouped panels, `#ECE8E1` fills for controls; near-black page `#121110` with `#1E1C1A` / `#2C2925` in dark mode.
-- Text `#1C1A17`, not pure black. Secondary text `#5E5850` (light) and `#ADA69C` (dark); tertiary `#8C857B` / `#8F887E` for icons and decoration only, never for text a visitor must read.
+- Page `#F3F2EF` (dark `#0A0B0E`) under a fixed glow: four faint radial washes, blue top left, peach (dark: violet) top right, violet and teal at the bottom. Cards are white at 70% (dark: white at 6%), grouped panels at 52% (dark 4.5%), control fills are Apple's grey at 12% (dark 22%).
+- Text `#16161A` (dark `#F4F4F7`), not pure black or white. Secondary text `#5B5B66` (light) and `#A6A6B2` (dark), measured at 6.5:1 and 7.3:1 on cards; tertiary `#8A8A94` / `#8A8A96` for icons and decoration only, never for text a visitor must read.
 
 ### Named Rules
 - **Green means free.** Green tags appear only where `data/alternatives.json` cites the project's own words.
@@ -178,7 +178,7 @@ One family: the platform's system UI face (SF on Apple devices, Segoe UI on Wind
 
 ## Elevation & Depth
 
-Mostly flat. Cards sit on the page with a hairline edge and a barely-there shadow, and lift 2px with a soft offset shadow (`0 12px 28px -14px`) on hover. Things that float get more: the install sheet and dialogs (`0 10px 40px` soft shadow over a scrim). The selected segment in Browse's kind filter and the selected sidebar item are white with `0 1px 3px`.
+Glass. Every surface is translucent with a 1px edge (`--line`) and a lit top edge (`inset 0 1px 0`, white at 90%, dark 7%) plus a soft offset shadow; cards lift 2px on hover. Only what floats blurs what is behind it (`blur(24px) saturate(180%)`, sheets 40px): the sidebar, the phone tab bar, the listing page's top bar, the install sheet and panels. Cards don't blur, so long lists stay fast; over the smooth glow they read the same. The primary button has a slight top-lit gradient. With "reduce transparency" on, surfaces go solid and nothing blurs.
 
 ## Shapes
 

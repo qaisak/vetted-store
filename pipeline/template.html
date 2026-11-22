@@ -15,32 +15,48 @@
 <style>
 /* Layout: app-store pattern. Sidebar on desktop, bottom tab bar on phones; Today stories, shelves, product pages, install sheet. All listings are real repos. */
 :root {
-  --bg: #FAF8F5; --bg2: #F2EEE8; --card: #FFFFFF; --label: #1C1A17; --label2: #5E5850; --label3: #8C857B;
-  --sep: rgba(70, 50, 30, 0.14); --fill: #ECE8E1; --blue: #0062CC; --btn: #0062CC; --red: #FF3B30; --green: #248A3D; --orange: #C26A00;
-  --sidebar: #F3F0EA; --green-ink: #1B6B31; --scrim: rgba(20, 15, 10, 0.4); --shadow: 0 10px 40px rgba(40, 30, 20, 0.14); --code: #F6F3EE;
-  /* Colour roles: card edges, a colour per kind, gold for stars and what's rising, the hero highlighter, and three tinted bands on Home.
-     --lift lightens a hue for dark mode and --tint sets how strong a hover wash is. */
-  --line: #E6E1D9; --lift: 0%; --tint: 11%; --lift-shadow: 0 12px 28px -14px rgba(60, 40, 20, 0.28);
+  /* Glass on a soft glow: surfaces are translucent over a fixed, faintly coloured background (.glow); what floats also blurs.
+     --line is a surface's edge, --glass-hl its lit top edge, --chrome the blurred bars and sheets. --lift lightens a hue in dark mode
+     and --tint sets how strong a hover wash is. --bd-* colour the drawings of the Skillshelf bar. */
+  --bg: #F3F2EF; --bg2: rgba(255, 255, 255, 0.52); --card: rgba(255, 255, 255, 0.7); --label: #16161A; --label2: #5B5B66; --label3: #8A8A94;
+  --sep: rgba(20, 20, 40, 0.1); --fill: rgba(120, 120, 135, 0.12); --blue: #0062CC; --btn: #0A6DDB; --red: #FF3B30; --green: #248A3D; --orange: #C26A00;
+  --sidebar: rgba(255, 255, 255, 0.5); --green-ink: #1B6B31; --scrim: rgba(15, 15, 30, 0.28); --shadow: 0 30px 80px -20px rgba(20, 20, 50, 0.35); --code: rgba(255, 255, 255, 0.72);
+  --line: rgba(20, 20, 40, 0.08); --glass-hl: inset 0 1px 0 rgba(255, 255, 255, 0.9); --glass-shadow: 0 1px 2px rgba(20, 20, 50, 0.04), 0 8px 24px -14px rgba(20, 20, 50, 0.16);
+  --glass-blur: blur(24px) saturate(180%); --chrome: rgba(250, 250, 252, 0.64);
+  --glow: radial-gradient(55% 45% at 8% 0%, rgba(80, 130, 255, 0.2), transparent 70%), radial-gradient(45% 40% at 96% 6%, rgba(255, 160, 110, 0.18), transparent 70%),
+    radial-gradient(50% 45% at 92% 96%, rgba(150, 100, 255, 0.14), transparent 70%), radial-gradient(50% 45% at 6% 98%, rgba(40, 190, 140, 0.13), transparent 70%);
+  --lift: 0%; --tint: 11%; --lift-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.95), 0 18px 40px -18px rgba(20, 20, 60, 0.3);
   --k-tool: #2156D1; --k-skill: #7A3BD6; --k-mcp: #0E7A6E; --gold: #B7791F; --gold-bg: #FDF1D3; --gold-ink: #8A5300; --hl: #FCDC6A;
-  --band-green: #E6F3E9; --band-green-2: #3E5F48; --band-blue: #E7EFFB; --band-blue-2: #44587A; --band-violet: #EFEAF9; --band-violet-2: #594C77;
+  --band-green: rgba(40, 170, 90, 0.09); --band-green-2: #3C5C46; --band-blue: rgba(10, 110, 230, 0.08); --band-blue-2: #42577A; --band-violet: rgba(122, 59, 214, 0.08); --band-violet-2: #574A76;
+  --bd-bg: #FFFFFF; --bd-ink: #1F1F1F; --bd-bar: #F3F3F3; --bd-on: #1F1F1F; --bd-on-ink: #FFFFFF; --bd-off: #E4E4E4; --bd-dim: #6B6B6B; --bd-line: #D6D6D6; --bd-hl: #C2255C;
   --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI Variable Text", "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
 }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --bg: #121110; --bg2: #1E1C1A; --card: #1E1C1A; --label: #F5F2ED; --label2: #ADA69C; --label3: #8F887E;
-  --sep: rgba(255, 240, 220, 0.12); --fill: #2C2925; --blue: #4BA3FF; --btn: #0A68D4; --red: #FF453A; --green: #30D158; --orange: #FF9F0A;
-  --sidebar: #171614; --green-ink: #4CD777; --scrim: rgba(0, 0, 0, 0.6); --shadow: 0 10px 40px rgba(0, 0, 0, 0.6); --code: #0F0E0D; color-scheme: dark;
-  --line: #322E29; --lift: 38%; --tint: 20%; --lift-shadow: 0 12px 28px -14px rgba(0, 0, 0, 0.8);
-  --k-tool: #8DB2FF; --k-skill: #C3A6FF; --k-mcp: #5FD4C2; --gold: #F2C14E; --gold-bg: rgba(242, 193, 78, 0.16); --gold-ink: #F6CF6E; --hl: rgba(234, 179, 8, 0.42);
-  --band-green: #15221B; --band-green-2: #A3C7AE; --band-blue: #141C2A; --band-blue-2: #A9BCDB; --band-violet: #1D1929; --band-violet-2: #BCB1DC;
+  --bg: #0A0B0E; --bg2: rgba(255, 255, 255, 0.045); --card: rgba(255, 255, 255, 0.06); --label: #F4F4F7; --label2: #A6A6B2; --label3: #8A8A96;
+  --sep: rgba(255, 255, 255, 0.09); --fill: rgba(120, 120, 135, 0.22); --blue: #5AACFF; --btn: #0A6DDB; --red: #FF453A; --green: #30D158; --orange: #FF9F0A;
+  --sidebar: rgba(20, 21, 27, 0.55); --green-ink: #4CD777; --scrim: rgba(0, 0, 0, 0.55); --shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.8); --code: rgba(0, 0, 0, 0.35); color-scheme: dark;
+  --line: rgba(255, 255, 255, 0.08); --glass-hl: inset 0 1px 0 rgba(255, 255, 255, 0.07); --glass-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px -16px rgba(0, 0, 0, 0.7);
+  --glass-blur: blur(28px) saturate(160%); --chrome: rgba(16, 17, 22, 0.62);
+  --glow: radial-gradient(55% 45% at 8% 0%, rgba(50, 100, 255, 0.22), transparent 70%), radial-gradient(45% 40% at 96% 6%, rgba(180, 90, 255, 0.14), transparent 70%),
+    radial-gradient(50% 45% at 92% 96%, rgba(255, 120, 80, 0.08), transparent 70%), radial-gradient(50% 45% at 6% 98%, rgba(20, 180, 150, 0.12), transparent 70%);
+  --lift: 38%; --tint: 20%; --lift-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 18px 40px -18px rgba(0, 0, 0, 0.85);
+  --k-tool: #8DB2FF; --k-skill: #C3A6FF; --k-mcp: #5FD4C2; --gold: #F2C14E; --gold-bg: rgba(242, 193, 78, 0.16); --gold-ink: #F6CF6E; --hl: rgba(255, 196, 0, 0.55);
+  --band-green: rgba(48, 209, 88, 0.08); --band-green-2: #A6D8B5; --band-blue: rgba(10, 132, 255, 0.1); --band-blue-2: #B0C6EC; --band-violet: rgba(175, 110, 255, 0.09); --band-violet-2: #CFC0F2;
+  --bd-bg: #1C1C21; --bd-ink: #EDEDF0; --bd-bar: #26262C; --bd-on: #EDEDF0; --bd-on-ink: #16161A; --bd-off: #34343B; --bd-dim: #A0A0AA; --bd-line: #3A3A42; --bd-hl: #FF7AA6;
 } }
 :root[data-theme="dark"] {
-  --bg: #121110; --bg2: #1E1C1A; --card: #1E1C1A; --label: #F5F2ED; --label2: #ADA69C; --label3: #8F887E;
-  --sep: rgba(255, 240, 220, 0.12); --fill: #2C2925; --blue: #4BA3FF; --btn: #0A68D4; --red: #FF453A; --green: #30D158; --orange: #FF9F0A;
-  --sidebar: #171614; --green-ink: #4CD777; --scrim: rgba(0, 0, 0, 0.6); --shadow: 0 10px 40px rgba(0, 0, 0, 0.6); --code: #0F0E0D; color-scheme: dark;
-  --line: #322E29; --lift: 38%; --tint: 20%; --lift-shadow: 0 12px 28px -14px rgba(0, 0, 0, 0.8);
-  --k-tool: #8DB2FF; --k-skill: #C3A6FF; --k-mcp: #5FD4C2; --gold: #F2C14E; --gold-bg: rgba(242, 193, 78, 0.16); --gold-ink: #F6CF6E; --hl: rgba(234, 179, 8, 0.42);
-  --band-green: #15221B; --band-green-2: #A3C7AE; --band-blue: #141C2A; --band-blue-2: #A9BCDB; --band-violet: #1D1929; --band-violet-2: #BCB1DC;
+  --bg: #0A0B0E; --bg2: rgba(255, 255, 255, 0.045); --card: rgba(255, 255, 255, 0.06); --label: #F4F4F7; --label2: #A6A6B2; --label3: #8A8A96;
+  --sep: rgba(255, 255, 255, 0.09); --fill: rgba(120, 120, 135, 0.22); --blue: #5AACFF; --btn: #0A6DDB; --red: #FF453A; --green: #30D158; --orange: #FF9F0A;
+  --sidebar: rgba(20, 21, 27, 0.55); --green-ink: #4CD777; --scrim: rgba(0, 0, 0, 0.55); --shadow: 0 30px 80px -20px rgba(0, 0, 0, 0.8); --code: rgba(0, 0, 0, 0.35); color-scheme: dark;
+  --line: rgba(255, 255, 255, 0.08); --glass-hl: inset 0 1px 0 rgba(255, 255, 255, 0.07); --glass-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 32px -16px rgba(0, 0, 0, 0.7);
+  --glass-blur: blur(28px) saturate(160%); --chrome: rgba(16, 17, 22, 0.62);
+  --glow: radial-gradient(55% 45% at 8% 0%, rgba(50, 100, 255, 0.22), transparent 70%), radial-gradient(45% 40% at 96% 6%, rgba(180, 90, 255, 0.14), transparent 70%),
+    radial-gradient(50% 45% at 92% 96%, rgba(255, 120, 80, 0.08), transparent 70%), radial-gradient(50% 45% at 6% 98%, rgba(20, 180, 150, 0.12), transparent 70%);
+  --lift: 38%; --tint: 20%; --lift-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 18px 40px -18px rgba(0, 0, 0, 0.85);
+  --k-tool: #8DB2FF; --k-skill: #C3A6FF; --k-mcp: #5FD4C2; --gold: #F2C14E; --gold-bg: rgba(242, 193, 78, 0.16); --gold-ink: #F6CF6E; --hl: rgba(255, 196, 0, 0.55);
+  --band-green: rgba(48, 209, 88, 0.08); --band-green-2: #A6D8B5; --band-blue: rgba(10, 132, 255, 0.1); --band-blue-2: #B0C6EC; --band-violet: rgba(175, 110, 255, 0.09); --band-violet-2: #CFC0F2;
+  --bd-bg: #1C1C21; --bd-ink: #EDEDF0; --bd-bar: #26262C; --bd-on: #EDEDF0; --bd-on-ink: #16161A; --bd-off: #34343B; --bd-dim: #A0A0AA; --bd-line: #3A3A42; --bd-hl: #FF7AA6;
 }
 
 * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
@@ -768,7 +784,7 @@ mark.hl { color: inherit; background: linear-gradient(180deg, transparent 56%, v
 .topics a .ic { font-size: 15px; color: color-mix(in oklab, var(--c, var(--label2)), #FFFFFF var(--lift)); }
 .topics a span { font-size: 12px; font-weight: 500; color: var(--label2); font-variant-numeric: tabular-nums; }
 .topics a:hover { background: color-mix(in oklab, var(--c, var(--label)) var(--tint), var(--card)); border-color: color-mix(in oklab, var(--c, var(--label)) 30%, var(--line)); }
-.topics a[aria-current="page"] { background: color-mix(in oklab, var(--c, #4A443D), #000000 18%); border-color: transparent; color: #FFFFFF; }
+.topics a[aria-current="page"] { background: color-mix(in oklab, var(--c, var(--btn)), #000000 18%); border-color: transparent; color: #FFFFFF; }
 .topics a[aria-current="page"] .ic, .topics a[aria-current="page"] span { color: inherit; }
 .topics a[aria-current="page"] span { opacity: .8; }
 .topic-sub { color: var(--label2); font-size: 15px; margin: 12px 0 0; max-width: 70ch; }
@@ -860,9 +876,39 @@ blockquote.said a { display: block; margin-top: 6px; font-size: 13.5px; font-wei
   .list-bar h2 { flex-basis: 100%; }
   .shelf-head { flex-wrap: wrap; }
 }
+/* ---------- Glass (2026-11): translucent surfaces with a lit top edge on a soft glow. Only what floats blurs. ---------- */
+.glow { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--glow); }
+.card, .alt-card, .how3 li, .way, .inst-card, .job-card, .t-card, .pc-card, .pc-verdict, .hn, .rv, .rep > *, .findings, .worth, .rd-note,
+blockquote.said, .plain, .trusted-note, .empty-note, .tested-box, .test-tile, .test-card, .bar-card, .shelf.band, .sheet-app, .sheet-warn, .verdict-box {
+  border: 1px solid var(--line); box-shadow: var(--glass-hl), var(--glass-shadow); }
+.card:hover, .alt-card:hover { box-shadow: var(--lift-shadow); }
+.ideas button, .topics a, .kind-seg, .sort select, .copybox { border: 1px solid var(--line); box-shadow: var(--glass-hl); }
+.get:not(.primary):not(.light), .pill-link { background: var(--card); box-shadow: var(--glass-hl), 0 0 0 1px var(--line); }
+.get.primary { background: linear-gradient(180deg, color-mix(in oklab, var(--btn), #FFFFFF 16%), var(--btn)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3), 0 6px 16px -8px color-mix(in srgb, var(--btn) 75%, transparent); }
+.topics a[aria-current="page"] { box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25), 0 6px 14px -8px rgba(0, 0, 0, 0.35); }
+.search-field input, .hero-search input { background: var(--card); border: 1px solid var(--line); box-shadow: var(--glass-hl), var(--glass-shadow); }
+/* What floats blurs what's behind it */
+.side { background: var(--chrome); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); border-right: 1px solid var(--line); }
+.nav-item[aria-current="page"] { background: var(--card); box-shadow: var(--glass-hl), 0 0 0 1px var(--line), 0 4px 12px -6px rgba(20, 20, 50, 0.18); }
+.tabbar { background: var(--chrome); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); border-top: 1px solid var(--line); }
+.navbar { background: var(--chrome); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); border-bottom: 1px solid var(--line); }
+dialog.sheet, dialog.panel { background: var(--chrome); -webkit-backdrop-filter: blur(40px) saturate(180%); backdrop-filter: blur(40px) saturate(180%); border: 1px solid var(--line); box-shadow: var(--glass-hl), var(--shadow); }
+dialog::backdrop { -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+/* The drawings of the Skillshelf bar follow the theme, like the app does */
+.bar-drawing { background: var(--bd-bg); color: var(--bd-ink); border-color: var(--line); box-shadow: var(--glass-shadow); }
+.bd-bar { background: var(--bd-bar); }
+.bd-chip { background: var(--bd-on); color: var(--bd-on-ink); }
+.bd-chip.off, .bd-chip.all { background: var(--bd-off); color: var(--bd-ink); }
+.bd-links, .bd-composer, .bd-hint { color: var(--bd-dim); }
+.bd-composer, .bd-input { border-color: var(--bd-line); }
+.bd-composer span:first-child, .bd-composer span:last-child, .bd-input { color: var(--bd-ink); }
+.bd-btn { background: var(--bd-on); color: var(--bd-on-ink); }
+.bd-hl { color: var(--bd-hl); }
+@media (prefers-reduced-transparency: reduce) { :root { --card: color-mix(in srgb, var(--bg) 40%, #FFFFFF); --chrome: var(--bg); } .side, .tabbar, .navbar, dialog.sheet, dialog.panel { -webkit-backdrop-filter: none; backdrop-filter: none; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
 </style>
 
+<div class="glow" aria-hidden="true"></div>
 <div class="shell">
   <aside class="side" aria-label="Store navigation">
     <div class="wordmark"><span class="mark" id="mark"></span>Skillshelf</div>
