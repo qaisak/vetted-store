@@ -37,6 +37,9 @@ const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'ast
   'localsend/localsend': 'LocalSend', 'upscayl/upscayl': 'Upscayl', 'qarmin/czkawka': 'Krokiet (Czkawka)', 'flameshot-org/flameshot': 'Flameshot',
   'keepassxreboot/keepassxc': 'KeePassXC', 'syncthing/syncthing': 'Syncthing', 'trufflesecurity/trufflehog': 'TruffleHog',
   'gorhill/uBlock': 'uBlock Origin', 'pi-hole/pi-hole': 'Pi-hole', 'rustdesk/rustdesk': 'RustDesk',
+  'janhq/jan': 'Jan', 'ggml-org/llama.cpp': 'llama.cpp', 'open-webui/open-webui': 'Open WebUI', 'Comfy-Org/ComfyUI': 'ComfyUI', 'cjpais/Handy': 'Handy',
+  'Zackriya-Solutions/meetily': 'Meetily', 'Mintplex-Labs/anything-llm': 'AnythingLLM', 'Stirling-Tools/Stirling-PDF': 'Stirling PDF', 'AppFlowy-IO/AppFlowy': 'AppFlowy',
+  'actualbudget/actual': 'Actual Budget', 'penpot/penpot': 'Penpot', 'immich-app/immich': 'Immich', 'obsproject/obs-studio': 'OBS Studio', 'excalidraw/excalidraw': 'Excalidraw',
   'yt-dlp/yt-dlp': 'yt-dlp', 'Wilfred/difftastic': 'difftastic', 'muesli/duf': 'duf', 'ClementTsang/bottom': 'bottom', 'ducaale/xh': 'xh', 'chmln/sd': 'sd' };
 // Hand-written plain-language lines, job tags and setup level (pipeline/plain.json)
 const SOURCES = JSON.parse(fs.readFileSync(new URL('../data/sources.json', import.meta.url), 'utf8'));
@@ -45,6 +48,8 @@ const HOOKS = fs.existsSync(new URL('../data/install-hooks.json', import.meta.ur
 const VIDEOS = fs.existsSync(new URL('../data/videos.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../data/videos.json', import.meta.url), 'utf8')) : {};
 const PLAIN = JSON.parse(fs.readFileSync(new URL('./plain.json', import.meta.url), 'utf8'));
 // What a listing is a free alternative to, only where the project itself says so, with the source (data/alternatives.json)
+// Skills that only ask Claude to do what it already does well, each read and judged (data/redundant.json): kept reachable, off the shelves
+const REDUNDANT = fs.existsSync(new URL('../data/redundant.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../data/redundant.json', import.meta.url), 'utf8')) : {};
 const ALTS = fs.existsSync(new URL('../data/alternatives.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../data/alternatives.json', import.meta.url), 'utf8')) : {};
 // Install steps for MCP servers whose README gives a JSON config or several steps instead of one command.
 // Every command is the README's own, or its JSON config written as the equivalent `claude mcp add`.
@@ -144,7 +149,9 @@ for (const [repo, m] of Object.entries(d.repos)) {
   const urlRe = new RegExp('github\\.com/' + m.full.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(/|$|#|\\?)', 'i');
   // Licenses GitHub can't classify, read from the repository's own license file (checked November 1, 2026)
   const LICENSE_FIX = { 'muesli/duf': 'MIT', 'nicolargo/glances': 'LGPL-3.0', 'Gathin23/cleanyourtv': 'MIT', 'mksglu/context-mode': 'Elastic License 2.0',
-    'qarmin/czkawka': 'MIT (library), GPL-3.0 (apps)', 'keepassxreboot/keepassxc': 'GPL-2.0 or GPL-3.0', 'pi-hole/pi-hole': 'EUPL' };
+    'qarmin/czkawka': 'MIT (library), GPL-3.0 (apps)', 'keepassxreboot/keepassxc': 'GPL-2.0 or GPL-3.0', 'pi-hole/pi-hole': 'EUPL',
+    // Read November 22, 2026
+    'janhq/jan': 'Apache-2.0', 'open-webui/open-webui': 'Open WebUI License (BSD-3 style, keep its branding)', 'Stirling-Tools/Stirling-PDF': 'MIT, with a proprietary folder' };
   R[m.full] = { st: m.stars, fk: m.forks, is: m.issues, lic: LICENSE_FIX[m.full] || m.license, pu: m.pushed?.slice(0, 10), cr: m.created?.slice(0, 10), ar: m.archived, own: m.owner,
     org: m.ownerType === 'Organization', on: OWNER[m.owner] || m.owner, lang: m.language, br: m.branch,
     sc: sc === 'unchecked' ? 'u' : sc ? { s: sc.score, date: sc.date?.slice(0, 10), ch: sc.checks.filter(c => c.score >= 0).map(c => [c.name, c.score, c.reason]) } : null,
@@ -226,10 +233,16 @@ for (const l of d.listings) {
       'gitui-org/gitui': { brew: 'brew install gitui', winget: 'winget install gitui', scoop: 'scoop install gitui', pacman: 'sudo pacman -S gitui', dnf: 'sudo dnf install gitui' },
       'BurntSushi/ripgrep': { brew: 'brew install ripgrep', winget: 'winget install BurntSushi.ripgrep.MSVC', scoop: 'scoop install ripgrep', apt: 'sudo apt-get install ripgrep', dnf: 'sudo dnf install ripgrep', pacman: 'sudo pacman -S ripgrep' },
       'dandavison/delta': { brew: 'brew install git-delta', winget: 'winget install dandavison.delta', scoop: 'scoop install delta', dnf: 'dnf install git-delta', pacman: 'pacman -S git-delta', cargo: 'cargo install git-delta' },
-      'gitleaks/gitleaks': { brew: 'brew install gitleaks', docker: 'docker pull ghcr.io/gitleaks/gitleaks:latest' } };
+      'gitleaks/gitleaks': { brew: 'brew install gitleaks', docker: 'docker pull ghcr.io/gitleaks/gitleaks:latest' },
+      // From each README's install section (read November 22, 2026)
+      'cjpais/Handy': { brew: 'brew install --cask handy', winget: 'winget install cjpais.Handy' },
+      'ggml-org/llama.cpp': { curl: 'curl -LsSf https://llama.app/install.sh | sh' },
+      'open-webui/open-webui': { pip: 'pip install open-webui' } };
     const i = Object.fromEntries(Object.entries({ ...(l.install || {}), ...(TOOL_INSTALL[repo] || {}) }).map(([k, v]) => [k, v.replace(/\s+#.*$/, '')]));   // drop trailing shell comments
     if (repo === 'ollama/ollama') delete i.pip;
     if (repo === 'astral-sh/uv') delete i.uvTool;
+    if (repo === 'Comfy-Org/ComfyUI') delete i.pip;   // README's developer setup, not an install
+    if (repo === 'Zackriya-Solutions/meetily') delete i.curl;   // Linux-only script; the download card covers every system
     if (repo === 'aristocratos/btop') delete i.brew;   // README line lists build dependencies, not an install
     if (i.cargo && /--path/.test(i.cargo)) delete i.cargo;
     if (repo === 'vercel-labs/skills') delete i.npx;
@@ -241,7 +254,24 @@ for (const l of d.listings) {
       'debpalash/VoiceStudio': 'macOS, Windows, Linux', 'storytold/lightcraft': 'Windows, macOS, Linux',
       'localsend/localsend': 'Windows, macOS, Linux, Android', 'upscayl/upscayl': 'Windows, macOS, Linux', 'qarmin/czkawka': 'Windows, macOS, Linux',
       'flameshot-org/flameshot': 'Windows, Linux', 'keepassxreboot/keepassxc': 'Windows, macOS, Linux', 'syncthing/syncthing': 'Windows, macOS, Linux and more',
-      'rustdesk/rustdesk': 'Windows, macOS, Linux, Android' };
+      'rustdesk/rustdesk': 'Windows, macOS, Linux, Android',
+      'cjpais/Handy': 'Windows, macOS, Linux', 'Zackriya-Solutions/meetily': 'Windows, macOS, Linux', 'AppFlowy-IO/AppFlowy': 'Windows, macOS, Linux' };
+    // Desktop apps whose own site has the download page (each link checked November 22, 2026)
+    const SITE_DL = { 'janhq/jan': ['Windows, macOS, Linux', 'https://jan.ai/download', 'Download from jan.ai'],
+      'Comfy-Org/ComfyUI': ['Windows, macOS', 'https://www.comfy.org/download', 'Download the ComfyUI desktop app', 'Its README also lists a portable Windows build and a manual install.'],
+      'Mintplex-Labs/anything-llm': ['Windows, macOS, Linux', 'https://anythingllm.com/desktop', 'Download AnythingLLM Desktop'],
+      'Stirling-Tools/Stirling-PDF': ['Windows, macOS, Linux', 'https://www.stirling.com/download', 'Download Stirling PDF'],
+      'actualbudget/actual': ['Windows, macOS, Linux', 'https://actualbudget.org/download', 'Download Actual'],
+      'obsproject/obs-studio': ['Windows, macOS, Linux', 'https://obsproject.com/download', 'Download OBS Studio'],
+      'open-webui/open-webui': ['macOS, Windows, Linux', 'https://github.com/open-webui/desktop', 'Get the desktop app', 'A separate desktop app from the same team. Open WebUI itself is a chat interface for models you run, like Ollama.'] };
+    if (SITE_DL[repo]) { const [to, link, linkText, note] = SITE_DL[repo]; inst.push({ to, how: 'Download', link, linkText, note: note || 'Pick the installer for your computer.' }); }
+    // Apps you use in the browser, or host for your household (from each README and website, November 22, 2026)
+    if (repo === 'excalidraw/excalidraw') inst.push({ to: 'Any browser', how: 'Web app', link: 'https://excalidraw.com', linkText: 'Open Excalidraw', note: 'Free to use in your browser, nothing to install. Drawings stay in your browser unless you share them.' });
+    if (repo === 'penpot/penpot') inst.push({ to: 'Any browser', how: 'Web app', link: 'https://design.penpot.app', linkText: 'Open Penpot', note: 'Free account on Penpot\'s own server. You can also host it yourself with Docker, as its docs explain.' });
+    if (repo === 'immich-app/immich') inst.push({ to: 'A home server or always-on computer', how: 'Docker', link: 'https://immich.app/docs/install/docker-compose', linkText: 'Open the install guide', note: 'Runs on a computer at home with Docker, then phone apps back up your photos to it. Claude can walk you through it.' });
+    if (repo === 'open-webui/open-webui') inst.push({ to: 'Docker', how: 'Docker', cmds: ['docker run -d -p 3000:8080 --add-host=host.docker.internal:host-gateway -v open-webui:/app/backend/data --name open-webui --restart always ghcr.io/open-webui/open-webui:main'], note: 'From the README. Then open http://localhost:3000.' });
+    if (repo === 'Stirling-Tools/Stirling-PDF') inst.push({ to: 'Docker', how: 'Docker', cmds: ['docker run -p 8080:8080 docker.stirlingpdf.com/stirlingtools/stirling-pdf'], note: 'From the README: runs it in your browser at http://localhost:8080.' });
+    if (repo === 'Comfy-Org/ComfyUI') inst.push({ to: 'Command line', how: 'comfy-cli', cmds: ['pip install comfy-cli && comfy install'], note: 'From the README.' });
     // App stores linked from LocalSend's README (read November 2, 2026): the easiest install for most people, and the only one for iPhone
     if (repo === 'localsend/localsend') inst.push({ to: 'Windows', how: 'App store', link: 'https://www.microsoft.com/store/apps/9NCB4Z0TZ6RR', linkText: 'Get it from the Microsoft Store' },
       { to: 'Mac, iPhone and iPad', how: 'App store', link: 'https://apps.apple.com/us/app/localsend/id1661733229', linkText: 'Get it from the App Store' },
@@ -277,6 +307,7 @@ for (const l of d.listings) {
     lines: l.lines || null, lic: l.license || null, inst, pl: PLAIN[id]?.[0] || null, jb: PLAIN[id]?.[1] || [], lv: PLAIN[id]?.[2] || null,
     vd: (VIDEOS[l.kind === 'mcp' && l.path ? `${repo}:${l.path}` : repo] || []).map(v => [v.kind, v.url, v.label || null, v.id || null]),
     ...(ALTS[id] ? { alt: ALTS[id] } : {}),
+    ...(REDUNDANT[id] ? { rd: REDUNDANT[id].why } : {}),
     ...(HOOKS[l.id] ? { ih: HOOKS[l.id].map(h => ({ f: h.file, s: h.script, c: h.cmd, refs: h.refs })) } : {}) });
   if (!PLAIN[id]) console.error('NO PLAIN TEXT', id);
 }

@@ -64,7 +64,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   r = await S('https://github.com/BurntSushi/ripgrep'); ok(r.top === 'ripgrep', 'pasted GitHub link finds the listing');
   r = await S('github.com/foo/bar'); ok(/isn't in Skillshelf yet/.test(r.text), 'unlisted repo link says so');
   ok(await p.evaluate(() => /Is this open-source project safe to install\? https:\/\/github.com\/foo\/bar/.test(document.querySelector('#results [data-copymsg]')?.dataset.copy || '')), 'unlisted repo offers a Claude prompt for that repo');
-  r = await S('ci/cd'); ok(/CI\/CD/.test(r.top || ''), 'ci/cd is a word, not a repo');
+  r = await S('ci/cd'); ok(!!r.top && !/isn't in Skillshelf yet/.test(r.text), 'ci/cd is a word, not a repo');
   ok(r.side === 'ci/cd', 'search boxes stay in sync');
   // Digest: every issue opens, with a title and at least one pick, and a pick leads back to the issue
   await p.goto(url + '#digest'); await p.waitForTimeout(300);

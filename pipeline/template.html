@@ -721,6 +721,10 @@ blockquote.said a { display: block; margin-top: 6px; font-size: 13.5px; font-wei
 .vthumb img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .vthumb .vplay { position: relative; width: 40px; height: 40px; aspect-ratio: auto; border-radius: 50%; background: rgba(0,0,0,.6); color: #FFFFFF; font-size: 18px; }
 .before .inst-card.ask { margin-top: 14px; max-width: 620px; }
+.rd-note { display: flex; gap: 12px; align-items: flex-start; margin-top: 18px; padding: 14px 16px; border-radius: 14px; background: var(--fill); }
+.rd-note > .ic { flex: none; color: var(--label2); margin-top: 3px; }
+.rd-note b { display: block; font-size: 16px; }
+.rd-note p { color: var(--label2); font-size: 14px; margin-top: 2px; max-width: 70ch; }
 .before .worth { margin-top: 12px; }
 @media (max-width: 760px) {
   .hero h1 { font-size: 32px; }
@@ -869,11 +873,8 @@ const KITS = [
     ['zarazhangrui-frontend-slides', 'Animated slide decks, or a PowerPoint turned into one.'],
     ['cathrynlavery-diagram-design', 'Clean flowcharts, timelines and architecture diagrams.'],
     ['mcp-mcp-for-blender', 'Build 3D scenes in Blender from a chat.']]],
-  ['founder', 'Founder\'s kit', 'From idea to launch: risks, market, numbers, payments and launch day', 'gauge', ['#0E7490', '#06B6D4'], [
+  ['founder', 'Founder\'s kit', 'From idea to launch: risks, payments and launch day', 'gauge', ['#0E7490', '#06B6D4'], [
     ['wshobson-before-you-build', 'Checks the idea for risks before you spend weeks building it.'],
-    ['wshobson-market-sizing-analysis', 'How big the market is, for your plan or pitch.'],
-    ['wshobson-competitive-landscape', 'Who you\'re up against and where you can stand out.'],
-    ['wshobson-startup-financial-modeling', 'A 3 to 5 year model of revenue, costs and cash.'],
     ['wshobson-stripe-integration', 'Take payments: checkout and subscriptions with Stripe.'],
     ['alirezarezvani-launch-strategy', 'Plans launch day, including Product Hunt, and checks you\'re ready.']]],
   ['smallbiz', 'Small business kit', 'Quotes, invoices, contracts, reviews and cash, with Claude doing the paperwork', 'brief', ['#0F766E', '#14B8A6'], [
@@ -893,10 +894,10 @@ const KITS = [
 ];
 const KIT = Object.fromEntries(KITS.map(k => [k[0], k]));
 const kitCard = ([k, t, sub, g, c, items]) => `<a class="job-card" href="#kit-${k}"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span>
-  <span style="min-width:0"><b>${esc(t)}</b><span class="s">${esc(sub)}</span></span><span class="n">${items.filter(([id]) => BY[id]).length} picks</span></a>`;
+  <span style="min-width:0"><b>${esc(t)}</b><span class="s">${esc(sub)}</span></span><span class="n">${items.filter(([id]) => BY[id] && !BY[id].rd).length} picks</span></a>`;
 function pageKit(k) {
   const [, title, sub, g, c, items] = KIT[k];
-  const list = items.filter(([id]) => BY[id]);
+  const list = items.filter(([id]) => BY[id] && !BY[id].rd);
   return `<div class="navbar"><div class="in"><a class="back" href="#${S.back && !S.back.startsWith('kit-') ? S.back : 'browse'}">${ic('back', 2.4)}Back</a></div></div>
   <div class="page" style="padding-top:12px">
     <div class="large-title"><div class="job-card" style="background:none;padding:0;margin-bottom:6px"><span class="jg" style="background:linear-gradient(150deg,${c[0]},${c[1]})">${ic(g, 2)}</span><h1>${esc(title)}</h1></div>
@@ -1117,9 +1118,11 @@ function stories() {
 const lastFetch = () => Object.values(R).map(r => r.fd).filter(Boolean).sort().pop() || D.gen;
 const fmtLong = s => new Date(s + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 // Ideas under the home search: each one finds listings (checked by the flows test)
-const HOME_IDEAS = [['Edit photos', 'photo editor'], ['Clone a voice', 'voice'], ['Read and fill PDFs', 'pdf'], ['Help on another PC', 'remote desktop'], ['Make writing sound human', 'humanizer']];
+const HOME_IDEAS = [['Run AI offline', 'offline ai'], ['Edit photos', 'photo editor'], ['Type with your voice', 'speech to text'], ['Edit PDFs', 'pdf'], ['Take meeting notes', 'meeting notes'], ['Help on another PC', 'remote desktop']];
 // The top of a kind, by stars: one listing per repository, unusual star growth left out
 const topOf = k => uniqueRepos(byStars(vis(L.filter(l => l.k === k))).filter(l => !oddStars(l))).slice(0, 9);
+// AI that runs on your own computer: private, offline once set up, no subscription. Desktop apps first, then engines.
+const LOCAL_AI = ['jan', 'handy', 'meetily', 'anythingllm', 'voicestudio', 'comfyui', 'upscayl', 'ollama', 'open-webui', 'llama-cpp'];
 // Free alternatives to paid tools, only where the project itself says so
 const paidAlts = () => byStars(vis(L.filter(l => l.alt?.paid)));
 const altCard = l => `<a class="alt-card" href="#${l.id}"><span class="was">Instead of <s>${esc(l.alt.n)}</s></span>
@@ -1137,6 +1140,7 @@ function pageToday() {
     ${claudeBox()}
     ${alts.length ? `<section class="shelf alts"><div class="shelf-head"><h2>Free alternatives to tools you pay for<span class="sub">Each project says so in its own words. We link the line.</span></h2></div>
       <div class="alt-grid">${alts.map(altCard).join('')}</div></section>` : ''}
+    ${(list => list.length >= 3 ? `<section class="shelf"><div class="shelf-head"><h2>AI that runs on your computer<span class="sub">Private and offline once it's set up, with no subscription</span></h2></div>${ranked(list)}</section>` : '')(vis(pick(LOCAL_AI)))}
     <section class="shelf jobs"><div class="shelf-head"><h2>Find something for your work</h2><a class="see-all" href="#browse">See all</a></div>
       <div class="job-chips">${jobsFirst().slice(0, 10).map(([k, t]) => `<a href="#for-${k}">${esc(t)}<span>${vis(byJob(k)).length}</span></a>`).join('')}</div></section>
     <section class="shelf"><div class="shelf-head"><h2>Top free apps<span class="sub">Programs for your computer, by GitHub stars</span></h2><a class="see-all" href="#tools">See all</a></div>${ranked(topOf('tool'), true)}</section>
@@ -1386,7 +1390,7 @@ const searchHits = q => {
     return [re(exact), re((SYNMAP[w] || SYNMAP[w.replace(/s$/, '')] || []).filter(x => !exact.includes(x)))]; });
   const fields = l => [[l.n + ' ' + l.sl, 6], [l.pl || '', 4], [[KIND[l.k], KINDS[l.k], ...(l.jb || []).map(j => JOB[j]?.[1])].join(' '), 3], [[l.t, l.d, l.r, repoOf(l).on, l.nv ? 'nvidia verified' : '', ...l.inst.map(o => o.to || '')].join(' '), 1]]
     .map(([t, w]) => [t.toLowerCase(), w]);
-  const scored = L.map(l => { const f = fields(l); let score = 0, hit = 0;
+  const scored = L.filter(l => !l.rd).map(l => { const f = fields(l); let score = 0, hit = 0;
     for (const [i, [ex, sy]] of alts.entries()) { const inName = words[i].length >= 3 && f[0][0].includes(words[i]) ? 6 : 0;   // "grep" in ripgrep, "git" in lazygit
       const best = Math.max(inName, ...f.map(([t, w]) => ex.some(x => x.test(t)) ? w : sy.some(x => x.test(t)) ? w * 0.6 : 0)); if (best) hit++; score += best; }
     return { l, score, hit }; });
@@ -1697,6 +1701,7 @@ function pageProduct(id) {
       <div><span class="k">License</span><span class="v">${ic('scale', 2)}</span><span class="c ${lic ? '' : 'c-orange'}" ${lic ? '' : 'title="The author hasn\'t said how you may reuse it"'}>${esc(lic || 'None listed')}</span></div>
     </div>
 
+    ${l.rd ? `<div class="rd-note">${ic('info', 2)}<div><b>Claude already does this well without it</b><p>${esc(l.rd)} We took it off the shelves; this page stays so old links still work.</p></div></div>` : ''}
     <section class="block" id="what"><h2>What it does</h2>
       <p class="big">${esc(plainOf(l))}</p>
       ${tryAsking(l)}
@@ -1981,7 +1986,8 @@ function osFit(l) {
 const fits = l => (!FOCUS.kinds.length || FOCUS.kinds.includes(l.k)) && (FOCUS.level >= 3 || (l.lv || 3) <= FOCUS.level) && osFit(l)
   && !(FOCUS.ai.length === 1 && FOCUS.ai[0] === 'none' && l.k !== 'tool');
 const jobScore = l => (l.jb || []).filter(j => FOCUS.jobs.includes(j)).length;
-const vis = list => filtering() ? list.filter(fits) : list;
+// Off the shelves: skills that only ask Claude to do what it already does well (data/redundant.json, as `rd` on each listing)
+const vis = list => (filtering() ? list.filter(fits) : list).filter(l => !l.rd);
 // The viewer's jobs first, and jobs with nothing that fits their settings last
 const jobsFirst = () => { const has = k => !filtering() || vis(byJob(k)).length > 0;
   return [...JOBS.filter(([k]) => FOCUS.jobs.includes(k) && has(k)), ...JOBS.filter(([k]) => !FOCUS.jobs.includes(k) && has(k)), ...JOBS.filter(([k]) => !has(k))]; };
