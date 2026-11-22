@@ -88,9 +88,12 @@ const mkt = JSON.parse(fs.readFileSync(path.join(HERE, '..', '..', '.claude-plug
 const am = ci.add_marketplace;
 ok(mkt.plugins.some(p => p.name === 'pbakaus-impeccable') && am && am.plugin === 'pbakaus-impeccable@skillshelf' && am.claude_code[0] === `/plugin marketplace add ${am.marketplace}` && am.claude_code[1] === '/plugin install pbakaus-impeccable@skillshelf', 'a skill in the marketplace gets the add-the-marketplace route, with both Claude Code commands');
 ok(/Add marketplace/.test(am.claude_app.join(' ')) && am.claude_app.join(' ').includes(am.marketplace) && am.plugins_page === 'https://claude.ai/plugins' && /^Easiest/.test(am.how), 'and Claude app steps: Plugins, Add, Add marketplace, the repo to enter');
-const risky = (await call('check_skill', { skill: 'openai-winui-app' }, session)).structuredContent;
-ok(risky.badge === 'risk' && risky.add_marketplace === null, 'a skill with a serious risk is never offered the marketplace route');
-const noCommit = (await call('check_skill', { skill: 'anthropics-pdf' }, session)).structuredContent;
+// No skill in today's catalog has a serious risk, so check a risky connector, and that the build keeps every risky listing out of the marketplace
+const CAT = JSON.parse(fs.readFileSync(path.join(SRC, 'catalog.json'), 'utf8')).listings;
+const riskyIds = CAT.filter(l => l.notes.some(n => n.level !== 'note')).map(l => l.id);
+const risky = (await call('check_skill', { skill: 'mcp-whatsapp-mcp' }, session)).structuredContent;
+ok(risky.badge === 'risk' && risky.add_marketplace === null && riskyIds.length > 0 && !riskyIds.some(id => mkt.plugins.some(p => p.name === id)), `a listing with a serious risk is never offered the marketplace route, and none is in it (${riskyIds.join(', ')})`);
+const noCommit = (await call('check_skill', { skill: 'dietrichgebert-ponytail' }, session)).structuredContent;
 ok(noCommit.add_marketplace === null && noCommit.claude_app, 'a skill without an exact checked commit keeps the upload route only');
 const fm = (await call('find_skills', { task: 'brainstorm an idea before building' }, session)).structuredContent.picks;
 ok(fm.length && fm.every(p => 'add_marketplace' in p) && fm.filter(p => p.add_marketplace).every(p => mkt.plugins.some(x => `${x.name}@skillshelf` === p.add_marketplace.plugin)), 'find_skills picks carry the route too, only for skills in the marketplace');
@@ -102,12 +105,12 @@ ok(t2.structuredContent.steps.some(s => s.includes('"skillOverrides": { "impecca
 
 // My skills: what Claude has in this chat, matched to Skillshelf's checks
 const ms = (await call('my_skills', { skills: [
-  { name: 'pdf', description: 'Use this skill whenever the user wants to do anything with PDF files: reading, extracting, merging, splitting' },
+  { name: 'humanizer', description: 'Rewrite AI-sounding text so it reads like a person wrote it, without changing what it says' },
   { name: 'docs', description: 'Editable docs people can share and comment on' },
-  { name: 'frontend-design', description: 'Guidance for distinctive, intentional visual design when building new UI' },
+  { name: 'impeccable', description: 'Files your tax return and keeps track of receipts for your accountant' },
   { name: 'pdf2', description: 'x' }, 'impeccable'] }, session)).structuredContent;
 ok(ms.view === 'panel' && ms.skills.length === 5, 'my_skills lists every skill Claude passes, names alone too');
-ok(ms.skills[0].check?.id === 'anthropics-pdf' && ms.skills[2].check?.id === 'anthropics-frontend-design', 'skills are matched to their Skillshelf checks by name and description (pdf is Anthropic\'s, not OpenAI\'s)');
+ok(ms.skills[0].check?.id === 'blader-humanizer' && ms.skills[2].check === null, 'skills are matched by name and description: a skill that shares a listed name but does another job isn\'t taken for that listing');
 ok(ms.skills[1].check === null && ms.skills[3].check === null, 'skills Skillshelf never checked say so');
 ok(ms.skills[4].check?.id === 'pbakaus-impeccable' && ms.skills[4].check.badge === 'note', 'a unique name matches without a description');
 const me = (await call('my_skills', { skills: [] }, session)).structuredContent;
