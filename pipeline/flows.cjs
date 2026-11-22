@@ -205,6 +205,29 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(await p.evaluate(() => document.querySelectorAll('#before details.check-only').length === 1 && document.querySelectorAll('#main [data-copy^="Set up"]').length === 1), 'a listing page has one Copy for Claude; the check-only question is folded');
   ok(await p.evaluate(() => /github\.com\/qaisak\/vetted-store/.test(document.querySelector('.data-note').innerHTML)), 'the footer links to Skillshelf\'s own code on GitHub');
   ok(await p.evaluate(() => SITE === 'https://getskillshelf.pages.dev/' && !COUNTING && document.querySelector('meta[property="og:image"]').content === 'https://getskillshelf.pages.dev/og.png'), 'shared links and the link preview use the public site, and a local copy counts nothing');
+  // The sidebar: topics, Suggest a project and the bar card
+  await p.goto(url + '#today'); await p.waitForTimeout(300);
+  const side = await p.evaluate(() => ({ topics: document.querySelectorAll('#side-topics a.topic').length, card: !!document.querySelector('#side-extra [data-tobar]'), suggest: !!document.querySelector('#side-extra [data-propose]') }));
+  ok(side.topics >= 10 && side.card && side.suggest, `the sidebar lists topics (${side.topics}), Suggest a project and the bar card`);
+  await p.evaluate(() => document.querySelector('#side-topics a[href="#for-dev"]').click()); await p.waitForTimeout(300);
+  ok(await p.evaluate(() => location.hash === '#for-dev' && document.querySelector('#side-topics a[href="#for-dev"]').getAttribute('aria-current') === 'page' && /Developers/.test(document.querySelector('#main h1').textContent)), 'a sidebar topic opens Browse on it and lights up');
+  await p.evaluate(() => document.querySelector('#side-extra [data-tobar]').click()); await p.waitForTimeout(700);
+  ok(await p.evaluate(() => location.hash === '#today' && Math.abs(document.getElementById('in-claude').getBoundingClientRect().top) < 150), 'the bar card goes to the Skillshelf bar on Home');
+  // Suggest a project: a bad link is caught, a listed project says so, a new one is sent (the Worker answered by a stand-in)
+  await p.route('https://skillshelf.skillshelf.workers.dev/suggest', r => r.fulfill({ status: 200, contentType: 'application/json', headers: { 'Access-Control-Allow-Origin': '*' }, body: JSON.stringify({ ok: true, status: 'new' }) }));
+  await p.evaluate(() => { window.SUGGEST_ANYWHERE = true; document.querySelector('#side-extra [data-propose]').click(); }); await p.waitForTimeout(200);
+  await p.fill('#pf-repo', 'not a link'); await p.click('#propose-form button[type=submit]'); await p.waitForTimeout(150);
+  const sgBad = await p.evaluate(() => document.getElementById('pf-err').textContent);
+  await p.fill('#pf-repo', 'https://github.com/pbakaus/impeccable'); await p.click('#propose-form button[type=submit]'); await p.waitForTimeout(150);
+  const sgListed = await p.evaluate(() => document.querySelector('#propose .propose-done b')?.textContent);
+  await p.evaluate(() => openPropose('')); await p.fill('#pf-repo', 'github.com/some-one/new-tool'); await p.fill('#pf-note', 'Like Notion, offline');
+  const sent = p.waitForRequest('https://skillshelf.skillshelf.workers.dev/suggest'); await p.click('#propose-form button[type=submit]');
+  const sgBody = JSON.parse((await sent).postData()); await p.waitForTimeout(300);
+  const sgDone = await p.evaluate(() => document.querySelector('#propose .propose-done b')?.textContent);
+  ok(/Paste a GitHub link/.test(sgBad) && /already on Skillshelf/.test(sgListed) && sgBody.repo === 'some-one/new-tool' && sgBody.note === 'Like Notion, offline' && /Thanks/.test(sgDone), `Suggest a project checks the link, knows what's listed, and sends the rest (${sgListed} / ${sgDone})`);
+  await p.keyboard.press('Escape'); await p.unroute('https://skillshelf.skillshelf.workers.dev/suggest');
+  await p.goto(url + '#browse'); await p.waitForTimeout(300);
+  ok(await p.evaluate(() => !!document.querySelector('#main .suggest-line [data-propose]') && !!document.querySelector('.data-note [data-propose]')), 'Suggest is on Browse and in every page\'s footer, phones included');
   ok(!errs.length, 'no page errors ' + errs.join('; '));
   await b.close();
 })();

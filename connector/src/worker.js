@@ -268,6 +268,49 @@ async function countHit(request, env) {
   await env.DB.prepare('INSERT INTO hits (day, kind, key, n) VALUES (?, ?, ?, 1) ON CONFLICT (day, kind, key) DO UPDATE SET n = n + 1')
     .bind(new Date().toISOString().slice(0, 10), b.k, key).run();
 }
+// ---------- Suggestions: a GitHub project someone thinks belongs on Skillshelf ----------
+const LISTED_REPOS = new Set(L.map(l => String(l.repo).toLowerCase()));
+async function suggest(request, env) {
+  if (!HIT_ORIGINS.test(request.headers.get('Origin') || '')) return json({ ok: false, error: 'Suggestions are sent from getskillshelf.pages.dev.' }, 403);
+  if (!env.DB) return json({ ok: false, error: 'Suggestions are closed right now.' }, 503);
+  let b; try { b = JSON.parse((await request.text()).slice(0, 2000)); } catch { return json({ ok: false, error: 'That didn\'t look right. Try again.' }, 400); }
+  const m = String(b?.repo || '').trim().match(/^([A-Za-z0-9-]{1,39})\/([A-Za-z0-9._-]{1,100})$/);
+  if (!m) return json({ ok: false, error: 'Paste a GitHub link, like github.com/owner/project.' }, 400);
+  const repo = `${m[1]}/${m[2]}`, key = repo.toLowerCase(), day = new Date().toISOString().slice(0, 10);
+  if (LISTED_REPOS.has(key)) return json({ ok: true, status: 'listed' });
+  const note = String(b?.note || '').replace(/\s+/g, ' ').trim().slice(0, 280);
+  const seen = await env.DB.prepare('SELECT n FROM suggestions WHERE repo = ?').bind(key).first();
+  if (seen) {
+    await env.DB.prepare("UPDATE suggestions SET n = n + 1, last = ?, note = CASE WHEN note = '' THEN ? ELSE note END WHERE repo = ?").bind(day, note, key).run();
+    return json({ ok: true, status: 'again' });
+  }
+  // A new one: a real public repository (when GitHub answers), and at most 300 new ones a day
+  const today = await env.DB.prepare('SELECT COUNT(*) AS c FROM suggestions WHERE first = ?').bind(day).first();
+  if ((today?.c || 0) >= 300) return json({ ok: false, error: 'Lots of suggestions today. Please try again tomorrow.' }, 429);
+  // GitHub's API gives the numbers; when it won't answer (its limit for requests without a login), the project's own page says whether it exists
+  const gh = await fetch(`https://api.github.com/repos/${repo}`, { headers: { 'User-Agent': 'skillshelf-suggestions', Accept: 'application/vnd.github+json' } }).catch(() => null);
+  const page = gh && (gh.ok || gh.status === 404) ? null : await fetch(`https://github.com/${repo}`, { method: 'HEAD', headers: { 'User-Agent': 'skillshelf-suggestions' } }).catch(() => null);
+  if (gh?.status === 404 || page?.status === 404) return json({ ok: false, error: 'There\'s no public GitHub project at that link.' }, 404);
+  const r = gh?.ok ? await gh.json().catch(() => null) : null;
+  await env.DB.prepare('INSERT INTO suggestions (repo, name, about, stars, note, n, first, last) VALUES (?, ?, ?, ?, ?, 1, ?, ?)')
+    .bind(key, String(r?.full_name || repo).slice(0, 140), String(r?.description || '').slice(0, 300), Number.isFinite(r?.stargazers_count) ? r.stargazers_count : null, note, day, day).run();
+  return json({ ok: true, status: 'new' });
+}
+// The list to review: most-suggested first, then the newest
+async function suggestionsPage(env) {
+  const rows = env.DB ? (await env.DB.prepare('SELECT * FROM suggestions ORDER BY n DESC, last DESC LIMIT 300').all()).results || [] : [];
+  const k = n => n == null ? '' : n >= 1000 ? (n / 1000).toFixed(n >= 10000 ? 0 : 1) + 'K' : String(n);
+  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Skillshelf suggestions</title>
+<style>:root{--bg:#F3F2EF;--card:#FFF;--ink:#16161A;--ink2:#5B5B66;--line:rgba(20,20,40,.1);--blue:#0062CC}@media (prefers-color-scheme:dark){:root{--bg:#0A0B0E;--card:#17181D;--ink:#F4F4F7;--ink2:#A6A6B2;--line:rgba(255,255,255,.09);--blue:#5AACFF}}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 -apple-system,"Segoe UI",system-ui,sans-serif}main{max-width:980px;margin:0 auto;padding:28px 16px 60px}h1{font-size:28px;margin:0}.sub{color:var(--ink2);margin:4px 0 18px}
+.s{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:10px}.s a{color:var(--blue);font-weight:600;overflow-wrap:anywhere}.m{color:var(--ink2);font-size:13px}.about{margin:4px 0 0}
+.note{margin:6px 0 0;padding:8px 10px;border-radius:10px;background:color-mix(in srgb,var(--blue) 8%,transparent)}.none{color:var(--ink2)}</style></head><body><main>
+<h1>Suggestions</h1><p class="sub">${rows.length} projects people suggested from the site, most-suggested first. Nothing about who sent them is kept. <a href="/stats">Visit counts</a></p>
+${rows.length ? rows.map(r => `<div class="s"><a href="https://github.com/${esc(r.name || r.repo)}" target="_blank" rel="noopener nofollow">${esc(r.name || r.repo)}</a> <span class="m">${r.stars != null ? `★ ${k(r.stars)} · ` : ''}suggested ${r.n} time${r.n === 1 ? '' : 's'} · first ${esc(r.first)}${r.last !== r.first ? `, last ${esc(r.last)}` : ''}</span>
+${r.about ? `<p class="about">${esc(r.about)}</p>` : ''}${r.note ? `<p class="note">“${esc(r.note)}”</p>` : ''}</div>`).join('') : '<p class="none">No suggestions yet.</p>'}
+</main></body></html>`;
+  return new Response(html, { headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' } });
+}
 // A plain page of the counts: visits a day, where visits came from, the pages people open and what they click
 async function statsPage(url, env) {
   const days = [7, 30, 90].includes(Number(url.searchParams.get('days'))) ? Number(url.searchParams.get('days')) : 30;
@@ -289,7 +332,7 @@ body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 -apple-system
 section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}h2{font-size:16px;margin:0 0 8px}table{width:100%;border-collapse:collapse;font-size:14px}
 th{text-align:left;color:var(--ink2);font-weight:600;font-size:12px;padding:4px 0;border-bottom:1px solid var(--line)}td{padding:5px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}td.n,th+th{text-align:right;font-variant-numeric:tabular-nums}
 .none{color:var(--ink2)}a{color:var(--blue)}nav a{margin-right:12px}</style></head><body><main>
-<h1>Skillshelf visits</h1><p class="sub">Last ${days} days, counted without cookies or anything about the visitor. <nav style="display:inline">${[7, 30, 90].map(d => d === days ? `<b>${d} days</b>` : `<a href="?days=${d}">${d} days</a>`).join(' ')}</nav></p>
+<h1>Skillshelf visits</h1><p class="sub">Last ${days} days, counted without cookies or anything about the visitor. <a href="/suggestions">Suggestions</a> · <nav style="display:inline">${[7, 30, 90].map(d => d === days ? `<b>${d} days</b>` : `<a href="?days=${d}">${d} days</a>`).join(' ')}</nav></p>
 <div class="tot"><div><b>${sum(perDay, 'visits')}</b><span>visits</span></div><div><b>${sum(perDay, 'pages')}</b><span>pages opened</span></div><div><b>${kinds['bar-command'] || 0}</b><span>copied the bar's commands</span></div><div><b>${kinds['copy-for-claude'] || 0}</b><span>Copy for Claude</span></div></div>
 <div class="grid"><section><h2>Each day</h2>${table(['Day', 'Visits', 'Pages'], perDay.map(r => [r.day, r.visits, r.pages]))}</section>
 <section><h2>Where visits came from</h2>${table(['Source', 'Visits'], sources.map(r => [r.key, r.n]))}</section>
@@ -330,6 +373,11 @@ export default {
       return json(null, 204);
     }
     if (url.pathname === '/stats') return statsPage(url, env);
+    if (url.pathname === '/suggest') {
+      if (request.method !== 'POST') return json({ error: 'POST only' }, 405);
+      return suggest(request, env).catch(() => json({ ok: false, error: 'Something went wrong. Try again.' }, 500));
+    }
+    if (url.pathname === '/suggestions') return suggestionsPage(env);
     if (url.pathname === '/' || url.pathname === '') {
       const mcp = `${url.origin}/mcp`, cmd = `claude mcp add --transport http skillshelf ${mcp}`, market = MARKET?.repo || 'qaisak/vetted-store';
       if ((request.headers.get('Accept') || '').includes('text/html')) {

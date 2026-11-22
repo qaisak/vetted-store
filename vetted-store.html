@@ -876,6 +876,36 @@ blockquote.said a { display: block; margin-top: 6px; font-size: 13.5px; font-wei
   .list-bar h2 { flex-basis: 100%; }
   .shelf-head { flex-wrap: wrap; }
 }
+/* Sidebar: topics scroll in the middle; Suggest, the bar card and the footer stay at the bottom */
+.side-topics { flex: 1 1 auto; min-height: 0; overflow-y: auto; display: flex; flex-direction: column; gap: 1px; margin: 12px -6px 0; padding: 0 6px 6px; scrollbar-width: thin; }
+.side-label { font-size: 12px; font-weight: 600; color: var(--label2); padding: 4px 10px; }
+.nav-item.topic { font-size: 14px; font-weight: 500; padding: 6px 10px; }
+.nav-item.topic .ic { font-size: 16px; }
+.side-extra { display: flex; flex-direction: column; gap: 8px; padding-top: 10px; border-top: 1px solid var(--line); }
+.side-suggest { display: flex; align-items: center; gap: 8px; padding: 6px 10px; border-radius: 8px; color: var(--blue); font-weight: 600; font-size: 14px; text-align: left; }
+.side-suggest:hover { background: color-mix(in srgb, var(--fill) 60%, transparent); }
+.side-suggest .ic { font-size: 16px; }
+.side-card { display: grid; gap: 5px; padding: 12px; border-radius: 14px; background: var(--band-blue); border: 1px solid var(--line); box-shadow: var(--glass-hl); }
+.side-card b { font-size: 14px; display: flex; align-items: center; gap: 6px; }
+.side-card b .ic { color: color-mix(in oklab, var(--k-tool), #FFFFFF var(--lift)); }
+.side-card span { font-size: 12.5px; color: var(--band-blue-2); line-height: 1.4; }
+.side-card .get { justify-self: start; height: 28px; min-width: 0; font-size: 13.5px; padding: 0 14px; margin-top: 3px; }
+.side-foot { margin-top: 0; padding: 6px 10px 0; }
+/* Suggest a project */
+.propose-form { display: grid; gap: 12px; }
+.pf { display: grid; gap: 6px; font-size: 14px; font-weight: 600; }
+.pf i { font-style: normal; font-weight: 400; color: var(--label2); }
+.pf input, .pf textarea { font: inherit; font-weight: 400; font-size: 16px; color: var(--label); background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; box-shadow: var(--glass-hl); resize: vertical; min-width: 0; }
+.pf input:focus-visible, .pf textarea:focus-visible { outline: 2px solid var(--blue); outline-offset: 1px; border-radius: 10px; }
+.pf-err { color: color-mix(in oklab, var(--red), var(--label) 30%); font-size: 13.5px; }
+.pf-err:empty { display: none; }
+.propose-form .get { justify-self: start; height: 36px; padding: 0 20px; }
+.propose-form .get:disabled { opacity: .6; cursor: default; }
+.propose-done { display: grid; gap: 8px; justify-items: start; padding: 4px 2px 6px; }
+.propose-done b { font-size: 17px; }
+.propose-done p { color: var(--label2); font-size: 14.5px; line-height: 1.45; }
+.suggest-line { margin-top: 24px; color: var(--label2); font-size: 15px; }
+.suggest-line .text-btn { font-size: 15px; font-weight: 600; }
 /* ---------- Glass (2026-11): translucent surfaces with a lit top edge on a soft glow. Only what floats blurs. ---------- */
 .glow { position: fixed; inset: 0; z-index: -1; pointer-events: none; background: var(--glow); }
 .card, .alt-card, .how3 li, .way, .inst-card, .job-card, .t-card, .pc-card, .pc-verdict, .hn, .rv, .rep > *, .findings, .worth, .rd-note,
@@ -914,12 +944,15 @@ dialog::backdrop { -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px
     <div class="wordmark"><span class="mark" id="mark"></span>Skillshelf</div>
     <label class="side-search" for="side-q"><span id="side-q-ic"></span><input id="side-q" type="search" placeholder="Search" autocomplete="off" aria-label="Search Skillshelf"></label>
     <nav id="side-nav"></nav>
+    <nav class="side-topics" id="side-topics" aria-label="Topics"></nav>
+    <div class="side-extra" id="side-extra"></div>
     <div class="side-foot" id="side-foot"></div>
   </aside>
   <main class="main" id="main"></main>
 </div>
 <nav class="tabbar" id="tabbar" aria-label="Tabs"></nav>
 <dialog class="sheet" id="sheet" aria-label="Install"><div class="sheet-in" id="sheet-body"></div></dialog>
+<dialog class="sheet" id="propose" aria-label="Suggest a project"><div class="sheet-in" id="propose-body"></div></dialog>
 <dialog class="story-ov" id="story" aria-label="Story"></dialog>
 <dialog class="panel" id="panel" aria-label="Make Skillshelf yours"><div class="panel-in" id="panel-body"></div></dialog>
 <div class="toast" id="toast" role="status" aria-live="polite" popover="manual"></div>
@@ -971,6 +1004,7 @@ const G = {
   grid: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
   bulb: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',
   info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/>',
+  plus: '<path d="M12 5v14M5 12h14"/>',
   flag: '<path d="M5 21V4M5 4h12l-2.5 4 2.5 4H5"/>',
   heart: '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
   tag: '<path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
@@ -1220,7 +1254,7 @@ function dataDates() { const last = Object.values(R).map(r => r.fd).filter(Boole
 const shownN = () => L.filter(l => !l.rd).length;
 // Who makes Skillshelf, and where its own code is
 const MAKER = ['qaisak', 'https://github.com/qaisak'];
-const dataNote = () => `<p class="data-note">${shownN()} open-source projects from GitHub. Data from ${dataDates()}. Skillshelf isn't affiliated with these projects. Skillshelf is open source too, made by <a href="${MAKER[1]}" target="_blank" rel="noopener">${MAKER[0]}</a>: <a href="https://github.com/${MARKET_REPO}" target="_blank" rel="noopener">see the code or star it on GitHub</a>. Visits are counted without cookies or anything that identifies you. <button class="text-btn" style="font-size:12px" data-story="community">How we check</button></p>`;
+const dataNote = () => `<p class="data-note">${shownN()} open-source projects from GitHub. Data from ${dataDates()}. Skillshelf isn't affiliated with these projects. Skillshelf is open source too, made by <a href="${MAKER[1]}" target="_blank" rel="noopener">${MAKER[0]}</a>: <a href="https://github.com/${MARKET_REPO}" target="_blank" rel="noopener">see the code or star it on GitHub</a>. Visits are counted without cookies or anything that identifies you. <button class="text-btn" style="font-size:12px" data-story="community">How we check</button> · <button class="text-btn" style="font-size:12px" data-propose>Suggest a project</button></p>`;
 
 // ---------- stories ----------
 const community = () => L.filter(l => !l.tr);
@@ -1494,6 +1528,7 @@ function pageInstead() {
     <label class="search-field" for="iq">${ic('search')}<input id="iq" type="search" placeholder="Try WHOOP, Notion or Zapier" aria-label="Search by the product you use now" value="${esc(S.iq || '')}" autocomplete="off" enterkeyhint="search"></label>
     <p class="topic-sub">Most install on your computer or phone. The business tools run on a server you control, and Claude Code can set one up with you: their cards say “Free to host yourself”.</p>
     <div id="instead-results">${insteadHTML()}</div>
+    <p class="suggest-line">Know a free alternative we're missing? <button class="text-btn" data-propose>Suggest it from GitHub</button></p>
     ${dataNote()}</div>`;
 }
 
@@ -1531,6 +1566,7 @@ function pageBrowse() {
       <label class="sort">Sort <select data-sort>${BROWSE_SORTS.map(([k, label]) => `<option value="${k}" ${S.sort === k ? 'selected' : ''}>${label}</option>`).join('')}</select></label></div>
     ${shown.length ? cards(shown, [], 'browse-cards') : `<p class="empty">Nothing here${S.easy ? ' with one-step setup' : ''} yet.${S.easy ? '<br><button class="text-btn" data-easyoff>Show everything</button>' : ''}</p>`}
     ${list.length > shown.length ? `<p class="more-row"><button class="pill-link" data-more="${shown.length + 30}">Show ${Math.min(30, list.length - shown.length)} more</button></p>` : ''}
+    <p class="suggest-line">Missing a project? <button class="text-btn" data-propose>Suggest one from GitHub</button></p>
     ${kits.length ? `<section class="shelf"><div class="shelf-head"><h2>Starter kits<span class="sub">A few picks for one goal, to save together</span></h2></div><div class="job-grid">${kits.map(kitCard).join('')}</div></section>` : ''}
     </div>
     ${dataNote()}</div>`;
@@ -1626,6 +1662,8 @@ const searchHits = q => {
   res.partial = !all.length;   // nothing matched every word: these are only the closest
   return res;
 };
+// "Think it belongs here?": a way to suggest a GitHub project, with the link filled in when there is one
+const proposeLine = rq => `<p class="suggest-line"${rq ? ' style="text-align:center"' : ''}>${rq ? 'Think it belongs here?' : 'Know a project that does this?'} <button class="text-btn" data-propose="${esc(rq || '')}">Suggest it for Skillshelf</button></p>`;
 function resultsHTML() {
   const q = S.q.trim();
   if (!q) return `<h2 style="font-size:22px;margin-bottom:6px">${FOCUS.jobs.length ? 'Ideas for you' : 'Discover'}</h2><ul class="suggest">${suggestions().map(s => `<li><button data-suggest="${s}">${ic('search')}${s}</button></li>`).join('')}</ul>`;
@@ -1637,11 +1675,11 @@ function resultsHTML() {
   }
   // "ci/cd" or "a/b testing" look like owner/repo too, so only a GitHub link, or text nothing else matches, counts as a repository
   const notListed = `<p class="empty" style="padding-bottom:16px">${esc(rq)} isn't in Skillshelf yet, so we haven't checked it.<br>Ask your own Claude to check it before you install:</p><div class="inst-grid" style="max-width:640px;margin:0 auto">${askCard(rq, null)}</div>${BY['skillspector'] ? `<p class="result-count" style="text-align:center;margin-top:14px">Developers can also run <a href="#skillspector">SkillSpector</a> on it.</p>` : ''}`;
-  if (rq && /github\.com/i.test(q)) return notListed;
+  if (rq && /github\.com/i.test(q)) return notListed + proposeLine(rq);
   let res = searchHits(q), fixed = null;
-  if (rq && !res.length && !/\s/.test(q)) return notListed;
+  if (rq && !res.length && !/\s/.test(q)) return notListed + proposeLine(rq);
   if (!res.length) { fixed = correct(q); if (fixed) res = searchHits(fixed); }
-  if (!res.length) return `<p class="empty">No results for “${esc(q)}”.<br>Try a task, like “spreadsheet” or “deploy”, or browse by the work you do:</p><div class="job-grid">${['everyday', 'vibe', 'office', 'data', 'writing', 'business', 'design', 'dev'].map(k => jobCard(JOB[k])).join('')}</div>`;
+  if (!res.length) return `<p class="empty">No results for “${esc(q)}”.<br>Try a task, like “spreadsheet” or “deploy”, or browse by the work you do:</p><div class="job-grid">${['everyday', 'vibe', 'office', 'data', 'writing', 'business', 'design', 'dev'].map(k => jobCard(JOB[k])).join('')}</div>${proposeLine('')}`;
   return `${fixed ? `<p class="result-count">No results for “${esc(q)}”. Showing results for <button class="text-btn" data-suggest="${esc(fixed)}">${esc(fixed)}</button></p>` : ''}<p class="result-count">${res.partial ? `Nothing matches all of “${esc(fixed || q)}”. The closest we have:` : `${res.length} result${res.length > 1 ? 's' : ''}`}</p>${list(res)}`;
 }
 // ---------- install blocks ----------
@@ -2436,6 +2474,9 @@ function chrome() {
   // Listing pages, job pages and kits light up the tab they belong to
   const cur = k => S.tab === k || (k === 'browse' && !['today', 'list', 'instead'].includes(S.tab));
   document.getElementById('side-nav').innerHTML = TABS.map(([k, l, g]) => `<button class="nav-item" data-tab="${k}" style="--c:${TAB_C[k]}" aria-current="${cur(k) && !S.detail ? 'page' : 'false'}">${ic(g)}${l}${n[k] ? `<span class="n">${n[k]}</span>` : ''}</button>`).join('');
+  // Topics, like the Mac App Store's categories: each opens Browse on that topic
+  const tp = document.getElementById('side-topics');
+  if (tp) tp.innerHTML = `<span class="side-label">Topics</span>${jobsFirst().filter(([k]) => vis(byJob(k)).length).map(([k, label, , g, col]) => `<a class="nav-item topic" href="#for-${k}" style="--c:${col[0]}" aria-current="${S.job === k && !S.detail ? 'page' : 'false'}">${ic(g)}${esc(label)}</a>`).join('')}`;
   document.getElementById('tabbar').innerHTML = TABS.map(([k, l, g, short]) => `<button data-tab="${k}" style="--c:${TAB_C[k]}" aria-current="${cur(k) ? 'page' : 'false'}">${ic(g, 1.8)}${short || l}${k === 'list' && LIST.length ? `<i class="badge">${LIST.length}</i>` : ''}</button>`).join('');
 }
 function render() {
@@ -2457,6 +2498,7 @@ function route() {
   S.job = null; S.kit = null; S.issue = null; S.shared = null; S.test = null;
   // A shared setup applies Make it yours, then shows Today; a shared list opens read-only
   if (h.startsWith('setup?')) { applySetup(h.slice(6)); history.replaceState(history.state, '', '#today'); toast('Set up from the link. Edit it any time in Make it yours.'); return route(); }
+  if (h === 'suggest') { history.replaceState(history.state, '', '#browse'); setTimeout(() => openPropose(''), 0); return route(); }
   if (h.startsWith('list=')) { S.shared = h.slice(5).split(',').filter(id => BY[id]); S.detail = null; S.tab = 'list'; S.back = 'list'; render(); return; }
   if (!BY[h]) S.back = h || 'today';
   if (BY[h]) { S.detail = h; if (!S.tab) S.tab = 'today'; }
@@ -2515,6 +2557,46 @@ function openStory(id) {
   story.scrollTop = 0;
 }
 
+// Suggest a project: a GitHub link and, if they like, a line on what it's good for. Sent to Skillshelf's Worker (/suggest), which
+// checks the project exists and keeps one row per project (read at /suggestions). Nothing about the person is sent or kept.
+const SUGGEST = 'https://skillshelf.skillshelf.workers.dev/suggest';
+const propose = document.getElementById('propose');
+const repoOf_ = raw => { const m = String(raw || '').trim().match(/^(?:https?:\/\/)?(?:www\.)?github\.com\/([\w.-]+)\/([\w.-]+?)(?:\.git)?(?:[\/#?].*)?$/i) || String(raw || '').trim().match(/^([\w.-]+)\/([\w.-]+)$/); return m ? `${m[1]}/${m[2]}` : null; };
+function drawPropose(done, repo) {
+  document.getElementById('propose-body').innerHTML = `<div class="sheet-bar"><span>Suggest a project</span><button class="text-btn" data-closepropose>Close</button></div>
+    ${done || `<p class="sheet-help">Know a free, open-source project on GitHub that belongs here? Send its link. Suggestions are reviewed, and anything we list gets the same checks as everything else.</p>
+    <form class="propose-form" id="propose-form" novalidate>
+      <label class="pf"><span>GitHub link</span><input id="pf-repo" type="text" inputmode="url" placeholder="github.com/owner/project" value="${esc(repo || '')}" autocomplete="off" spellcheck="false"></label>
+      <label class="pf"><span>What's it good for? <i>Optional</i></span><textarea id="pf-note" rows="3" maxlength="280" placeholder="For example: a free alternative to Notion that works offline"></textarea></label>
+      <p class="pf-err" id="pf-err" role="alert"></p>
+      <button class="get primary" type="submit">Send suggestion</button></form>`}`;
+}
+function openPropose(repo) {
+  drawPropose(null, repo); if (!propose.open) { propose.showModal(); pushModal(propose); }
+  setTimeout(() => document.getElementById(repo ? 'pf-note' : 'pf-repo')?.focus(), 30);
+}
+const proposeDone = (title, body, action) => `<div class="propose-done"><b>${title}</b><p>${body}</p>${action}</div>`;
+document.addEventListener('submit', async e => {
+  if (e.target.id !== 'propose-form') return;
+  e.preventDefault();
+  const err = m => { document.getElementById('pf-err').textContent = m; };
+  const repo = repoOf_(document.getElementById('pf-repo').value), note = document.getElementById('pf-note').value.trim().slice(0, 280);
+  if (!repo) return err('Paste a GitHub link, like github.com/owner/project.');
+  const listed = L.find(l => l.r.toLowerCase() === repo.toLowerCase() && !l.rd);
+  if (listed) return drawPropose(proposeDone(`${esc(listed.n)} is already on Skillshelf.`, 'Thanks for thinking of it.', `<a class="get primary" href="#${listed.id}" data-closepropose>Open its page</a>`));
+  // Only the public site sends (a Claude artifact or a local copy can't reach the Worker)
+  if (!COUNTING && !window.SUGGEST_ANYWHERE) return drawPropose(proposeDone('Send it from the public site.', 'This copy of Skillshelf can\'t send suggestions.', `<a class="get primary" href="${SITE}#suggest" target="_blank" rel="noopener">Open getskillshelf.pages.dev</a>`));
+  const btn = e.target.querySelector('button[type="submit"]'); btn.disabled = true; btn.textContent = 'Sending…';
+  try {
+    const r = await fetch(SUGGEST, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8' }, body: JSON.stringify({ repo, note }) });
+    const j = await r.json().catch(() => ({}));
+    if (r.ok && j.ok) { track('click/suggest', 1);
+      return drawPropose(proposeDone(j.status === 'listed' ? 'It\'s already on Skillshelf.' : 'Thanks, got it.', j.status === 'listed' ? 'Search for it to find its page.' : `${esc(repo)} is on the list to review. If it's a good fit, we read its code before it goes on the shelf.`, '<button class="pill-link" data-propose>Suggest another</button>')); }
+    err(j.error || 'That didn\'t go through. Try again in a minute.');
+  } catch (x) { err('That didn\'t go through. Check your connection and try again.'); }
+  btn.disabled = false; btn.textContent = 'Send suggestion';
+});
+
 // Visit counts, sent to Skillshelf's own Worker (connector/src/worker.js; the numbers are at /stats). No cookies and nothing about
 // the visitor: a page name, a click name, or where a visit came from (a site name like linkedin.com, or "direct"). A per-tab mark
 // in sessionStorage stops one visit counting twice. Only on the public site, never in a Claude artifact or a local copy.
@@ -2531,7 +2613,7 @@ if (COUNTING) {
 }
 document.addEventListener('click', e => { const a = e.target.closest('a.dl-file'); if (a) track('click/download/' + a.dataset.dl, 1); }, true);
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-more],[data-focus],[data-fset],[data-focusreset],[data-closepanel],[data-showall],[data-tab],[data-get],[data-story],[data-closestory],[data-closesheet],[data-copy],[data-agent],[data-suggest],[data-seeall],[data-easy],[data-jump],[data-unclamp],[data-save],[data-audit],[data-share],[data-sharelist],[data-sharekit],[data-savekit],[data-savelist],[data-mdlist],[data-clearlist],[data-copysetup],[data-kind],[data-easyoff],.story-ov .row-txt');
+  const t = e.target.closest('[data-more],[data-focus],[data-fset],[data-focusreset],[data-closepanel],[data-showall],[data-tab],[data-get],[data-story],[data-closestory],[data-closesheet],[data-copy],[data-agent],[data-suggest],[data-seeall],[data-easy],[data-jump],[data-unclamp],[data-save],[data-audit],[data-share],[data-sharelist],[data-sharekit],[data-savekit],[data-savelist],[data-mdlist],[data-clearlist],[data-copysetup],[data-kind],[data-propose],[data-closepropose],[data-tobar],[data-easyoff],.story-ov .row-txt');
   if (!t) return;
   const d = t.dataset;
   if (d.copy) track(d.copy.startsWith('/plugin') ? 'click/bar-command' : d.copy.startsWith('Set up') ? 'click/copy-for-claude' : 'click/copy', 1);
@@ -2551,6 +2633,10 @@ document.addEventListener('click', e => {
   if ('mdlist' in d) { copyText(listMarkdown((S.shared || LIST).map(id => BY[id]).filter(Boolean)), 'Copied as Markdown'); return; }
   if ('clearlist' in d) { if (confirm(`Remove all ${LIST.length} from your list?`)) { LIST = []; saveList(); refocus(); } return; }
   // A kind keeps the topic you're on; with no topic it's Browse's own link (#tools), so it can be shared
+  if ('propose' in d) { e.preventDefault(); openPropose(d.propose || ''); return; }
+  if ('closepropose' in d) { if (target) e.preventDefault(); closeModal(propose, target); return; }
+  // The sidebar's bar card: Home, at the Skillshelf bar
+  if ('tobar' in d) { if (S.tab !== 'today' || S.detail) { history.pushState(null, '', '#today'); route(); } document.getElementById('in-claude')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return; }
   if (d.kind) { S.kind = KIND_HASH[d.kind]; S.more = 0; if (!S.job) history.replaceState(history.state, '', '#' + (d.kind === 'all' ? 'browse' : d.kind)); refocus(); return; }
   if ('easyoff' in d) { S.easy = false; refocus(); return; }
   if ('copysetup' in d) { copyText(`${SITE}#${setupHash()}`, 'Link to this setup copied'); return; }
@@ -2597,6 +2683,7 @@ story.addEventListener('click', e => { if (e.target === story) story.close(); })
 sheet.addEventListener('close', () => onModalClose(sheet));
 story.addEventListener('close', () => onModalClose(story));
 panel.addEventListener('close', () => onModalClose(panel));
+propose.addEventListener('close', () => onModalClose(propose));
 panel.addEventListener('click', e => { if (e.target === panel) panel.close(); });
 // Each page visit gets an id in its history entry. Going back to a page restores where you were on it; a new visit starts at the top.
 const POS = {};
@@ -2623,6 +2710,8 @@ document.addEventListener('click', e => {
 
 document.getElementById('mark').innerHTML = MARK;
 document.getElementById('side-q-ic').innerHTML = ic('search');
+document.getElementById('side-extra').innerHTML = `<button class="side-suggest" data-propose>${ic('plus', 2.2)}Suggest a GitHub project</button>
+  <div class="side-card"><b>${ic('sliders', 2)}The Skillshelf bar</b><span>Switch skills on and off and flag slop, right in Claude Code.</span><button class="get primary" data-tobar>Get it</button></div>`;
 document.getElementById('side-foot').innerHTML = `${shownN()} open-source projects from GitHub. Data from ${dataDates()}.<br><a href="https://github.com/${MARKET_REPO}" target="_blank" rel="noopener">Skillshelf on GitHub ${ic('ext')}</a>`;
 route();
 </script>

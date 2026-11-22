@@ -80,6 +80,8 @@ The old address, https://skillshelf-dgcx.onrender.com/, is now only a redirect (
 
 **Visit counts.** The site sends a page name, a click name, or where a visit came from to the connector Worker (`POST /hit`), which adds one to a daily count in its D1 database (table `hits` in `connector/schema.sql`). No cookies and nothing about the visitor. Only the public site counts; local copies and the artifact don't. Read the numbers at **https://skillshelf.skillshelf.workers.dev/stats** (`?days=7`, `30` or `90`). After changing the Worker, deploy it from `connector/` with `npx wrangler deploy`.
 
+**Suggestions.** "Suggest a project" (sidebar, Browse, search, every footer) sends a GitHub link and an optional line to the Worker (`POST /suggest`). It checks the project exists on GitHub, keeps one row per project in the `suggestions` table with a count, and says so when a project is already listed. Nothing about the sender is kept. Review them at **https://skillshelf.skillshelf.workers.dev/suggestions**.
+
 ## The Skillshelf plugin marketplace
 
 People can install a checked skill in one step instead of downloading a folder and uploading it. The build writes

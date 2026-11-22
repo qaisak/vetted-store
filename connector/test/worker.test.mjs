@@ -150,5 +150,25 @@ ok(rows === 'click:click/bar-command:1 page:noop:2 page:scriptalert1/script:1 vi
 const st = await (await worker.fetch(new Request('https://x.test/stats'), env)).text();
 ok(/<b>1<\/b><span>visits<\/span>/.test(st) && /<b>3<\/b><span>pages opened<\/span>/.test(st) && st.includes('linkedin.com') && st.includes('Copied the bar&#39;s install commands') && !st.includes('<script>'), '/stats shows visits, pages, sources and clicks, escaped');
 
+// Suggestions: only from the site, one row per project, a real repository, already-listed ones say so, readable at /suggestions
+const realFetch = globalThis.fetch;
+// GitHub stand-ins: the API knows cool-tool, says 404 for nobody/nothing, and is over its limit for limited/*, where only the page answers
+globalThis.fetch = async u => { u = String(u);
+  if (u.startsWith('https://api.github.com/repos/')) return /nobody\/nothing/i.test(u) ? new Response('{}', { status: 404 }) : /limited\//i.test(u) ? new Response('{}', { status: 403 })
+    : new Response(JSON.stringify({ full_name: 'Some-One/Cool-Tool', description: 'A <b>cool</b> tool', stargazers_count: 1234 }), { status: 200 });
+  if (u.startsWith('https://github.com/')) return new Response(null, { status: /limited\/gone/i.test(u) ? 404 : 200 });
+  return realFetch(u); };
+const suggestPost = async (body, origin = 'https://getskillshelf.pages.dev') => { const r = await worker.fetch(new Request('https://x.test/suggest', { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8', ...(origin ? { Origin: origin } : {}) }, body: JSON.stringify(body) }), env); return [r.status, await r.json()]; };
+const sug1 = await suggestPost({ repo: 'some-one/cool-tool', note: 'Like   Notion,\n but offline' }), sug2 = await suggestPost({ repo: 'Some-One/Cool-Tool' }), sug3 = await suggestPost({ repo: 'nobody/nothing' });
+const sug4 = await suggestPost({ repo: 'not a repo' }), sug5 = await suggestPost({ repo: 'a/b' }, 'https://evil.example'), sug6 = await suggestPost({ repo: 'pbakaus/impeccable' });
+const sugRows = db.prepare("SELECT * FROM suggestions WHERE repo NOT LIKE 'limited/%'").all();
+const sug7 = await suggestPost({ repo: 'limited/gone' }), sug8 = await suggestPost({ repo: 'limited/here' });
+ok(sug7[0] === 404 && sug8[1].status === 'new', 'when GitHub\'s API is over its limit, the project\'s own page decides whether it exists');
+ok(sug1[0] === 200 && sug1[1].status === 'new' && sug2[1].status === 'again' && sugRows.length === 1 && sugRows[0].n === 2 && sugRows[0].stars === 1234 && sugRows[0].note === 'Like Notion, but offline', 'a suggestion is kept once per project, counted again when someone else sends it, with GitHub\'s numbers');
+ok(sug3[0] === 404 && /no public GitHub project/.test(sug3[1].error) && sug4[0] === 400 && sug5[0] === 403 && sug6[1].status === 'listed', 'missing repos, bad links and other sites are turned away; a listed project says it is listed');
+const sugPage = await (await worker.fetch(new Request('https://x.test/suggestions'), env)).text();
+ok(sugPage.includes('Some-One/Cool-Tool') && sugPage.includes('suggested 2 times') && sugPage.includes('A &lt;b&gt;cool&lt;/b&gt; tool') && !sugPage.includes('<b>cool</b>'), '/suggestions lists them, escaped');
+globalThis.fetch = realFetch;
+
 fs.rmSync(tmp, { recursive: true, force: true });
 process.exitCode = fails ? 1 : 0;

@@ -20,3 +20,16 @@ CREATE TABLE IF NOT EXISTS hits (
   n INTEGER NOT NULL DEFAULT 0,
   PRIMARY KEY (day, kind, key)
 );
+
+-- Projects people suggest from the site (POST /suggest, reviewed at /suggestions). One row per repository (lowercase owner/repo);
+-- nothing about who sent it. name/about/stars come from GitHub when the suggestion arrives; note is the sender's optional line.
+CREATE TABLE IF NOT EXISTS suggestions (
+  repo TEXT PRIMARY KEY,
+  name TEXT,
+  about TEXT,
+  stars INTEGER,
+  note TEXT NOT NULL DEFAULT '',
+  n INTEGER NOT NULL DEFAULT 1,
+  first TEXT NOT NULL,
+  last TEXT NOT NULL
+);
