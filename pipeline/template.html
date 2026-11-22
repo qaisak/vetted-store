@@ -1045,7 +1045,7 @@ function toast(m) {
 }
 // The span of fetch dates: most listings were fetched with D.gen, later additions carry their own date
 function dataDates() { const last = Object.values(R).map(r => r.fd).filter(Boolean).sort().pop(); return last && last !== D.gen ? `${fmtDate(D.gen)} to ${fmtDate(last)}` : fmtDate(D.gen); }
-const dataNote = () => `<p class="data-note">Real projects from GitHub, each scanned and checked before it's listed. Data from ${dataDates()}. Skillshelf isn't affiliated with these projects. <button class="text-btn" style="font-size:12px" data-story="labels">How we check</button></p>`;
+const dataNote = () => `<p class="data-note">${L.length} open-source projects from GitHub. Data from ${dataDates()}. Skillshelf isn't affiliated with these projects. <button class="text-btn" style="font-size:12px" data-story="community">How we check</button></p>`;
 
 // ---------- stories ----------
 const community = () => L.filter(l => !l.tr);
@@ -2197,7 +2197,8 @@ function route() {
     if (h && S.tab !== h) { S.back = 'today'; setTimeout(() => toast('That page isn\'t in Skillshelf. Here\'s Home.'), 0); }
     // Browse's kind filters and search are Browse with a setting
     if (S.tab === 'browse' || BROWSE_HASHES.includes(S.tab)) {
-      if (S.tab !== 'search') { const k = S.tab === 'browse' ? null : KIND_HASH[S.tab]; if (k !== S.kind) S.more = 0; S.kind = k; }
+      // Opening Apps, Skills or Connectors shows that list, not an old search
+      if (S.tab !== 'search') { const k = S.tab === 'browse' ? null : KIND_HASH[S.tab]; if (k !== S.kind) S.more = 0; S.kind = k; if (S.tab !== 'browse') setQuery(''); }
       S.focusSearch = S.tab === 'search'; S.tab = 'browse';
     }
   }

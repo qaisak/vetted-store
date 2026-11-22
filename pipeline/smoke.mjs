@@ -15,7 +15,7 @@ if (shots) fs.mkdirSync(shots, { recursive: true });
 const problems = [];
 const fail = (where, what) => { problems.push(`${where}: ${what}`); };
 
-const browser = await chromium.launch();
+const browser = await chromium.launch(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {});
 for (const [label, viewport, scheme] of [['desktop', { width: 1280, height: 860 }, 'light'], ['phone', { width: 390, height: 844 }, 'dark']]) {
   const ctx = await browser.newContext({ viewport, colorScheme: scheme, deviceScaleFactor: 1 });
   const page = await ctx.newPage();

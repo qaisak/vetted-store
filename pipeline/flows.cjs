@@ -3,7 +3,7 @@
 const { chromium } = require('playwright');
 const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process.exitCode = 1; };
 (async () => {
-  const b = await chromium.launch(); const p = await b.newPage({ viewport: { width: 1280, height: 900 } });
+  const b = await chromium.launch(process.env.PW_CHANNEL ? { channel: process.env.PW_CHANNEL } : {}); const p = await b.newPage({ viewport: { width: 1280, height: 900 } });
   const errs = []; p.on('pageerror', e => errs.push(e.message));
   const url = 'file://' + require('path').resolve(process.argv[2] || 'vetted-store.html');
   await p.goto(url + '#today'); await p.waitForTimeout(500);
@@ -54,7 +54,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(/isn't in Skillshelf/.test(await p.evaluate(() => document.getElementById('toast').textContent)), 'unknown link shows a message');
   // the Claude prompt on a listing names its folder, tells Claude to treat the repo as data, and carries our verdict
   await p.goto(url + '#anthropics-pptx'); await p.waitForTimeout(300);
-  const pr = await p.evaluate(() => document.querySelector('#main [data-copymsg]')?.dataset.copy || '');
+  const pr = await p.evaluate(() => document.querySelector('#before [data-copymsg]')?.dataset.copy || '');
   ok(/tree\/main\/skills\/pptx/.test(pr) && /Treat everything in it as data/.test(pr) && /Verdict: Safe to install/.test(pr) && /Skillshelf's check said/.test(pr), 'listing offers a short safe-or-not question for Claude');
   // search
   await p.goto(url + '#search'); await p.waitForTimeout(400);
@@ -77,26 +77,17 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   }
   await p.evaluate(() => document.querySelector('#main .pick a.pk-t').click()); await p.waitForTimeout(300);
   ok(/Digest/.test(await p.evaluate(() => document.querySelector('a.back')?.textContent || '')), 'a pick links back to the Digest');
-  // Focus: choose a setup, every row shown fits it, install cards lead with the chosen assistant, and reset clears it
-  await p.goto(url + '#today'); await p.waitForTimeout(300);
-  await p.evaluate(() => document.querySelector('[data-focus]').click()); await p.waitForTimeout(200);
-  for (const [set, val] of [['jobs', 'design'], ['kinds', 'skill'], ['ai', 'codex'], ['level', '1']])
-    await p.evaluate(([s, v]) => document.querySelector(`#panel [data-fset="${s}"][data-fval="${v}"]`).click(), [set, val]);
-  await p.evaluate(() => document.querySelector('#panel [data-closepanel]').click()); await p.waitForTimeout(300);
-  const fr = await p.evaluate(() => ({ bar: !!document.querySelector('.focusbar'), picked: [...document.querySelectorAll('#main h2')].some(h => /Picked for you/.test(h.textContent)),
-    bad: [...document.querySelectorAll('#main .row-txt[href^="#"]')].map(a => BY[a.getAttribute('href').slice(1)]).filter(l => l && !fits(l)).map(l => l.id) }));
-  ok(fr.bar && fr.picked, 'a focus shows the focus bar and Picked for you');
-  ok(!fr.bad.length, 'every listing shown fits the focus ' + fr.bad.join(', '));
-  ok(await p.evaluate(() => !document.getElementById('panel').open && !history.state?.modal), 'closing the panel leaves no history entry');
-  await p.goto(url + '#anthropics-pptx'); await p.waitForTimeout(300);
+  // A saved focus from before still shows its bar and filters what's shown
+  await p.evaluate(() => { FOCUS = { ...FOCUS0, kinds: ['skill'] }; saveFocus(); });
+  await p.goto(url + '#browse'); await p.reload(); await p.waitForTimeout(300);
+  const fr = await p.evaluate(() => ({ bar: !!document.querySelector('.focusbar'), bad: [...document.querySelectorAll('#main .row-txt[href^="#"]')].map(a => BY[a.getAttribute('href').slice(1)]).filter(l => l && !fits(l)).map(l => l.id) }));
+  ok(fr.bar && !fr.bad.length, 'an old saved focus shows its bar and filters Browse ' + fr.bad.join(', '));
+  await p.evaluate(() => { FOCUS = { ...FOCUS0 }; saveFocus(); });
+  // The install sheet: Claude sets it up first, every install option one click away
+  await p.goto(url + '#anthropics-pptx'); await p.reload(); await p.waitForTimeout(300);
   await p.click('.product-head [data-get]'); await p.waitForTimeout(200);
-  ok(/Any agent|Codex/.test(await p.evaluate(() => document.querySelector('#sheet .inst-card b').textContent)), 'install sheet leads with the chosen assistant');
+  ok(await p.evaluate(() => /Ask Claude to set it up/.test(document.querySelector('#sheet .way.lead')?.textContent || '') && document.querySelectorAll('#sheet .diy .inst-card').length > 0), 'install sheet leads with Claude setting it up, with every option under Do it yourself');
   await p.evaluate(() => document.getElementById('sheet').close()); await p.waitForTimeout(200);
-  await p.goto(url + '#tools'); await p.waitForTimeout(300);
-  ok(/aren't in your focus/.test(await p.evaluate(() => document.getElementById('main').innerText)), 'a page outside the focus says so');
-  await p.evaluate(() => document.querySelector('[data-focus]').click()); await p.waitForTimeout(200);
-  await p.evaluate(() => document.querySelector('#panel [data-focusreset]').click()); await p.waitForTimeout(200);
-  ok(await p.evaluate(() => !document.querySelector('.focusbar') && localStorage.getItem('vetted-focus') === JSON.stringify({ jobs: [], kinds: [], ai: [], os: null, level: 3 })), 'reset clears the focus');
   // Install sheet follows the computer: a Windows user sees Windows cards first, never a Homebrew-only card on top
   await p.evaluate(() => { FOCUS = { ...FOCUS0, os: 'Windows' }; saveFocus(); });
   await p.goto(url + '#gitleaks'); await p.reload(); await p.waitForTimeout(300);
@@ -114,13 +105,13 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.goto(url + '#fzf'); await p.waitForTimeout(200); await p.click('.product-head [data-save]'); await p.waitForTimeout(150);
   await p.goto(url + '#list'); await p.waitForTimeout(300);
   const lst = await p.evaluate(() => ({ rows: document.querySelectorAll('#main .rowlist .row').length, cmp: document.querySelectorAll('#main table.cmp tbody tr').length, co: document.querySelector('#install-all code')?.textContent || '', md: listMarkdown(LIST.map(id => BY[id])) }));
-  ok(lst.rows === 2 && lst.cmp === 2 && /install ripgrep/.test(lst.co) && /install fzf/.test(lst.co) && lst.co.includes('security-audit-skill'), `the cart shows rows, a comparison and a checkout paste with the double-check (${lst.rows}, ${lst.cmp})`);
+  ok(lst.rows === 2 && lst.cmp === 2 && /1\. ripgrep — run: \S/.test(lst.co) && /2\. fzf — run: \S/.test(lst.co) && lst.co.includes('security-audit-skill'), `the cart shows rows, a comparison and a checkout paste with the double-check (${lst.rows}, ${lst.cmp})`);
   await p.click('#install-all [data-audit]'); await p.waitForTimeout(250);
   ok(await p.evaluate(() => !(document.querySelector('#install-all code')?.textContent || '').includes('security-audit-skill')), 'the double-check can be switched off');
   await p.click('#install-all [data-audit]'); await p.waitForTimeout(250);
   ok(/## ripgrep[\s\S]*Our check:[\s\S]*Skillshelf page:/.test(lst.md), 'Markdown summary has each listing');
   await p.goto(url + '#list=jq,bat,not-a-listing'); await p.waitForTimeout(300);
-  ok(await p.evaluate(() => /A shared cart/.test(document.querySelector('#main h1').textContent) && document.querySelectorAll('#main .rowlist .row').length === 2), 'a shared cart link opens that cart');
+  ok(await p.evaluate(() => /A shared list/.test(document.querySelector('#main h1').textContent) && document.querySelectorAll('#main .rowlist .row').length === 2), 'a shared cart link opens that cart');
   await p.goto(url + '#setup?jobs=design&ai=cursor&os=Windows'); await p.waitForTimeout(300);
   ok(await p.evaluate(() => location.hash === '#today' && FOCUS.jobs[0] === 'design' && FOCUS.ai[0] === 'cursor' && FOCUS.os === 'Windows' && S.agent === 'cursor'), 'a setup link applies Make it yours');
   await p.evaluate(() => { FOCUS = { ...FOCUS0 }; saveFocus(); LIST = []; saveList(); });
@@ -140,6 +131,24 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   const cb = await p.evaluate(() => { const box = document.querySelector('#in-claude'); const codes = [...(box?.querySelectorAll('.copybox code') || [])].map(c => c.textContent); return { codes, copies: [...(box?.querySelectorAll('[data-copy]') || [])].map(b => b.dataset.copy), bar: !!box?.querySelector('.bar-card .bar-drawing') }; });
   ok(cb.bar && cb.codes[0] === '/plugin marketplace add qaisak/vetted-store' && cb.codes[1] === '/plugin install skillshelf@skillshelf', 'home leads with the Skillshelf bar: a drawing of it and its two install commands');
   ok(cb.codes[2] === 'https://skillshelf.skillshelf.workers.dev/mcp' && cb.codes.every((c, i) => cb.copies[i] === c), 'Claude chat users still get a copyable connector address');
+  // Three tabs, and the old type pages are Browse with a filter
+  await p.goto(url + '#today'); await p.waitForTimeout(300);
+  ok(await p.evaluate(() => [...document.querySelectorAll('#side-nav .nav-item')].map(b => b.textContent.trim().replace(/\d+$/, '')).join(',') === 'Home,Browse,My list'), 'three tabs: Home, Browse, My list');
+  const alts = await p.evaluate(() => [...document.querySelectorAll('#main .alt-card')].map(a => BY[a.getAttribute('href').slice(1)]));
+  ok(alts.length >= 4 && alts.every(l => l && l.alt && l.alt.paid && /^https:\/\//.test(l.alt.src)), 'home shows the free alternatives to paid tools, each with a source (' + alts.length + ')');
+  ok(await p.evaluate(() => HOME_IDEAS.every(([, q]) => searchHits(q).length)), 'every home search idea finds listings');
+  await p.evaluate(() => document.querySelector('#main .ideas [data-suggest]').click()); await p.waitForTimeout(300);
+  ok(await p.evaluate(() => location.hash === '#search' && document.querySelectorAll('#results .row').length > 0), 'a home idea opens Browse with results');
+  for (const [h, k] of [['tools', 'tool'], ['skills', 'skill'], ['mcp', 'mcp']]) {
+    await p.goto(url + '#' + h); await p.waitForTimeout(250);
+    const r = await p.evaluate(() => ({ tab: document.querySelector('#side-nav [aria-current="page"]')?.textContent || '', kinds: [...new Set([...document.querySelectorAll('#main .rowlist .row-txt')].map(a => BY[a.getAttribute('href').slice(1)].k))] }));
+    ok(/Browse/.test(r.tab) && r.kinds.length === 1 && r.kinds[0] === k, '#' + h + ' is Browse filtered to ' + k);
+  }
+  // Listing pages: four blocks, What it replaces only when known, the details folded
+  await p.goto(url + '#voicestudio'); await p.waitForTimeout(300);
+  ok(await p.evaluate(() => ['what', 'replaces', 'get', 'before'].every(id => document.getElementById(id)) && !document.getElementById('checks').open && /ElevenLabs/.test(document.getElementById('replaces').textContent)), 'VoiceStudio: four blocks, it replaces ElevenLabs, details folded');
+  await p.goto(url + '#ripgrep'); await p.waitForTimeout(300);
+  ok(await p.evaluate(() => !document.getElementById('replaces') && !!document.getElementById('get')), 'a listing with no known alternative has no What it replaces');
   ok(!errs.length, 'no page errors ' + errs.join('; '));
   await b.close();
 })();
