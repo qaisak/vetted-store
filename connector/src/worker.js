@@ -8,8 +8,6 @@ import CATALOG from './catalog.json';
 import { analyzeSlop } from './slop.js';
 import CARD_HTML from './card.html';
 import SETUP_HTML from './setup.html';
-// The setup page's picture: the real card with find_skills results, a JPEG saved as .bin so Workers bundle it as raw bytes
-import SETUP_SHOT from './setup-shot.jpg.bin';
 // The Claude desktop extension (desktop/pack.mjs copies it here as .bin, which Workers bundle as raw bytes), served at /skillshelf.mcpb
 import DESKTOP_MCPB from './skillshelf-desktop.bin';
 
@@ -281,14 +279,13 @@ export default {
       const flags = {}; for (const r of results || []) (flags[r.listing] ||= {})[r.reason] = r.n;
       return json({ since_days: 30, reasons: REASONS, flags });
     }
-    if (url.pathname === '/setup-shot.jpg') return new Response(SETUP_SHOT, { headers: { 'Content-Type': 'image/jpeg', 'Cache-Control': 'public, max-age=86400', ...CORS } });
     if (url.pathname === '/' || url.pathname === '') {
-      const mcp = `${url.origin}/mcp`, cmd = `claude mcp add --transport http skillshelf ${mcp}`;
+      const mcp = `${url.origin}/mcp`, cmd = `claude mcp add --transport http skillshelf ${mcp}`, market = MARKET?.repo || 'qaisak/vetted-store';
       if ((request.headers.get('Accept') || '').includes('text/html')) {
-        const fill = { MCP: mcp, CMD: cmd, PLUGINS: CLAUDE_PLUGINS, COUNT: String(L.length), DATE: CATALOG.generated };
+        const fill = { MCP: mcp, CMD: cmd, MARKET: market, PLUGINS: CLAUDE_PLUGINS, COUNT: String(L.length), DATE: CATALOG.generated };
         return new Response(SETUP_HTML.replace(/{{(\w+)}}/g, (m, k) => k in fill ? esc(fill[k]) : m), { headers: { 'Content-Type': 'text/html; charset=utf-8', ...CORS } });
       }
-      return new Response(`Skillshelf connector for Claude.\n\nIn Claude: Plugins, Add, Add custom connector, name it Skillshelf, then paste:\n${mcp}\nThen start a new chat and switch Skillshelf on in the + menu before your first message.\n\nIn Claude Code, run once:\n${cmd}\n\nThen ask Claude things like "find me a skill to make my site look less AI-made" or "is Impeccable safe?".\n\nCatalog: ${L.length} listings, checked ${CATALOG.generated}.\n`, { headers: { 'Content-Type': 'text/plain; charset=utf-8', ...CORS } });
+      return new Response(`Skillshelf connector for Claude.\n\nIn Claude: Plugins, Add, Add custom connector, name it Skillshelf, then paste:\n${mcp}\nThen start a new chat and switch Skillshelf on in the + menu before your first message.\n\nIn Claude Code, get the Skillshelf bar (it brings the connector too):\n/plugin marketplace add ${market}\n/plugin install skillshelf@skillshelf\nOr add only the connector: ${cmd}\n\nThen ask Claude things like "find me a skill to make my site look less AI-made" or "is Impeccable safe?".\n\nCatalog: ${L.length} listings, checked ${CATALOG.generated}.\n`, { headers: { 'Content-Type': 'text/plain; charset=utf-8', ...CORS } });
     }
     return json({ error: 'Not found' }, 404);
   },

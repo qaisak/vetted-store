@@ -1,7 +1,7 @@
 // Checks the Skillshelf plugin marketplace that the build writes (.claude-plugin/marketplace.json).
 // Usage: node pipeline/marketplace.test.mjs   (after the build)
 import fs from 'node:fs';
-import { buildMarketplace, commitsFrom, branchesFrom, leftOut, sourceOf, MARKETPLACE, MARKETPLACE_FILE } from './marketplace.mjs';
+import { buildMarketplace, commitsFrom, branchesFrom, leftOut, sourceOf, installName, MARKETPLACE, MARKETPLACE_FILE, BAR, BAR_DIR } from './marketplace.mjs';
 
 const read = p => JSON.parse(fs.readFileSync(new URL(p, import.meta.url), 'utf8'));
 const cat = read('../connector/src/catalog.json'), sources = read('../data/sources.json'), data = read('../data/data.json');
@@ -14,23 +14,34 @@ ok(fs.existsSync(new URL(`../${MARKETPLACE_FILE}`, import.meta.url)), `${MARKETP
 const mk = read(`../${MARKETPLACE_FILE}`);
 ok(JSON.stringify(mk) === JSON.stringify(buildMarketplace(cat, commits, branchesFrom(data)).marketplace), 'the committed file matches what the build writes from the current catalog');
 ok(mk.name === MARKETPLACE && /^[a-z0-9]+(-[a-z0-9]+)*$/.test(mk.name) && mk.owner?.name && Array.isArray(mk.plugins) && mk.plugins.length > 50, `has a kebab-case name, an owner and plugins (${mk.plugins.length})`);
-const names = mk.plugins.map(p => p.name);
-ok(new Set(names).size === names.length && names.every(n => /^[a-z0-9]+(-[a-z0-9]+)*$/.test(n)), 'plugin names are unique and kebab-case');
-ok(mk.plugins.every(p => p.description && p.source?.source === 'git-subdir' && p.source.path && !('skills' in p) && !('strict' in p)),
+const all = mk.plugins.map(p => p.name);
+ok(new Set(all).size === all.length && all.every(n => /^[a-z0-9]+(-[a-z0-9]+)*$/.test(n)), 'plugin names are unique and kebab-case');
+
+// Skillshelf's own plugin comes first: the Skills bar, kept in this repo, with the connector
+const bar = mk.plugins[0], barDir = new URL(`../${BAR_DIR}/`, import.meta.url), readBar = p => JSON.parse(fs.readFileSync(new URL(p, barDir), 'utf8'));
+ok(bar.name === 'skillshelf' && bar.source === './plugins/skillshelf' && bar.description, 'the first plugin is the Skillshelf bar, from plugins/skillshelf in this repo');
+ok(readBar('.claude-plugin/plugin.json').name === 'skillshelf' && !fs.existsSync(new URL('.claude-plugin/marketplace.json', barDir)), 'the bar folder is a plugin named skillshelf, with no marketplace file of its own');
+ok(readBar('.mcp.json').mcpServers?.skillshelf?.url === 'https://skillshelf.skillshelf.workers.dev/mcp', 'the bar brings the Skillshelf connector');
+ok(JSON.stringify(readBar('hooks/hooks.json').modules) === '["./register.tsx"]' && fs.existsSync(new URL('hooks/register.tsx', barDir)), 'the bar registers its hooks module');
+ok(installName(mk, 'skillshelf') === null && buildMarketplace({ ...cat, listings: [{ id: 'skillshelf', kind: 'skill' }] }, {}, {}).marketplace.plugins.length === 1, 'no listing can take the name of the bar');
+
+// The rest are checked skills
+const skills = mk.plugins.slice(1), names = skills.map(p => p.name);
+ok(skills.every(p => p.description && p.source?.source === 'git-subdir' && p.source.path && !('skills' in p) && !('strict' in p)),
   'every plugin is one skill folder (a git-subdir source, and no skills list, which would add the default skills/ scan)');
 
 // Only checked skills with no serious risk, pinned to the commit Skillshelf checked
 const byId = Object.fromEntries(cat.listings.map(l => [l.id, l]));
-const bad = mk.plugins.filter(p => { const l = byId[p.name]; return !l || l.kind !== 'skill' || l.notes.some(n => n.level !== 'note'); });
+const bad = skills.filter(p => { const l = byId[p.name]; return !l || l.kind !== 'skill' || l.notes.some(n => n.level !== 'note'); });
 ok(!bad.length, `every plugin is a listed skill with no serious risk (badge ok or note)${bad.length ? ': ' + bad.map(p => p.name).join(', ') : ''}`);
 const risky = cat.listings.filter(l => l.kind === 'skill' && l.notes.some(n => n.level !== 'note'));
 ok(risky.length > 0 && risky.every(l => !names.includes(l.id)), `no skill with a serious risk is in it (${risky.map(l => l.id).join(', ')} left out)`);
-ok(mk.plugins.every(p => { const l = byId[p.name], s = p.source;
+ok(skills.every(p => { const l = byId[p.name], s = p.source;
   return /^[0-9a-f]{40}$/.test(s.sha) && s.sha === commits[l.repo] && s.sha.startsWith(l.checkedCommit) && s.url === `https://github.com/${l.repo}.git`; }),
   'every plugin is pinned to the full 40-character commit Skillshelf checked, from its own GitHub repo');
-ok(mk.plugins.every(p => p.source.path === byId[p.name].path), 'each plugin is exactly the skill folder Skillshelf checked');
-ok(mk.plugins.every(p => typeof p.source === 'object'), 'no plugin uses a relative path, so the file also works copied to another repo or added by its URL');
-ok(mk.plugins.every(p => p.homepage === `${cat.site}#${p.name}`), 'every plugin links to its Skillshelf page');
+ok(skills.every(p => p.source.path === byId[p.name].path), 'each plugin is exactly the skill folder Skillshelf checked');
+ok(skills.every(p => typeof p.source === 'object'), 'no skill uses a relative path, so each points at its own repo even if the file is copied elsewhere');
+ok(skills.every(p => p.homepage === `${cat.site}#${p.name}`), 'every plugin links to its Skillshelf page');
 
 // The connector catalog knows which listings are in it
 const inCat = cat.listings.filter(l => l.plugin).map(l => l.id).sort();

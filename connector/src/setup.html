@@ -3,73 +3,95 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Add Skillshelf to Claude</title>
-<meta name="description" content="Find AI skills for any task and see in plain English what each one does and whether it's safe, before you add it.">
+<title>Skillshelf for Claude</title>
+<meta name="description" content="A Skills bar that stays above your message box in Claude Code: switch skills on or off, and add any skill after Skillshelf checks its code.">
 <style>
   /* Same look as the Skillshelf site (pipeline/template.html) */
   :root {
     --bg: #FFFFFF; --bg2: #F2F2F7; --card: #FFFFFF; --label: #000000; --label2: #6E6E73;
-    --sep: rgba(60, 60, 67, 0.18); --fill: #EEEEF3; --blue: #007AFF; --orange: #C26A00; --code: #F6F6F9;
+    --sep: rgba(60, 60, 67, 0.18); --fill: #EEEEF3; --blue: #007AFF; --orange: #C26A00;
     --shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
     --font: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Segoe UI Variable Text", "Segoe UI", system-ui, "Helvetica Neue", Arial, sans-serif;
     --mono: ui-monospace, "SF Mono", "Cascadia Mono", Menlo, Consolas, monospace;
   }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-    --bg: #000000; --bg2: #1C1C1E; --card: #1C1C1E; --label: #FFFFFF; --label2: #98989F;
-    --sep: rgba(84, 84, 88, 0.6); --fill: #2C2C2E; --blue: #0A84FF; --orange: #FF9F0A; --code: #0F0F11;
+    --bg: #000000; --bg2: #1C1C1E; --card: #2C2C2E; --label: #FFFFFF; --label2: #98989F;
+    --sep: rgba(84, 84, 88, 0.6); --fill: #2C2C2E; --blue: #0A84FF; --orange: #FF9F0A;
     --shadow: 0 10px 40px rgba(0, 0, 0, 0.6); color-scheme: dark;
   } }
   :root[data-theme="dark"] {
-    --bg: #000000; --bg2: #1C1C1E; --card: #1C1C1E; --label: #FFFFFF; --label2: #98989F;
-    --sep: rgba(84, 84, 88, 0.6); --fill: #2C2C2E; --blue: #0A84FF; --orange: #FF9F0A; --code: #0F0F11;
+    --bg: #000000; --bg2: #1C1C1E; --card: #2C2C2E; --label: #FFFFFF; --label2: #98989F;
+    --sep: rgba(84, 84, 88, 0.6); --fill: #2C2C2E; --blue: #0A84FF; --orange: #FF9F0A;
     --shadow: 0 10px 40px rgba(0, 0, 0, 0.6); color-scheme: dark;
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   body { margin: 0; background: var(--bg); color: var(--label); font-family: var(--font); font-size: 15px; line-height: 1.45; -webkit-font-smoothing: antialiased; }
-  h1, h2 { margin: 0; text-wrap: balance; }
+  h1, h2, h3 { margin: 0; text-wrap: balance; }
   p { margin: 0; }
   a { color: var(--blue); text-decoration: none; }
   :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 6px; }
-  .page { max-width: 1000px; margin: 0 auto; padding: 20px max(16px, env(safe-area-inset-right, 0px)) 60px max(16px, env(safe-area-inset-left, 0px)); }
+  .page { max-width: 1040px; margin: 0 auto; padding: 20px max(16px, env(safe-area-inset-right, 0px)) 60px max(16px, env(safe-area-inset-left, 0px)); }
   @media (min-width: 761px) { .page { padding-left: 36px; padding-right: 36px; } }
   .wordmark { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 17px; margin-bottom: 28px; }
   .mark { width: 26px; height: 26px; border-radius: 7px; background: linear-gradient(160deg, #3B82F6, #1D4ED8); color: #FFFFFF; display: grid; place-items: center; }
   .mark svg { width: 16px; height: 16px; }
 
-  .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 40px; align-items: center; }
-  @media (max-width: 860px) { .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; } }
+  .hero { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 44px; align-items: center; }
+  @media (max-width: 880px) { .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; } }
   .eyebrow { font-size: 13px; font-weight: 600; color: var(--label2); text-transform: uppercase; letter-spacing: 0.02em; }
   h1 { font-size: 34px; font-weight: 700; letter-spacing: 0.01em; line-height: 1.12; margin: 4px 0 10px; }
-  .intro { font-size: 17px; line-height: 1.45; max-width: 46ch; margin-bottom: 22px; }
-  .field-label { font-size: 13px; font-weight: 600; color: var(--label2); margin-bottom: 6px; }
-  .copy { display: flex; gap: 8px; align-items: center; }
+  .intro { font-size: 17px; line-height: 1.45; max-width: 44ch; margin-bottom: 22px; }
+  .field-label { font-size: 13px; font-weight: 600; color: var(--label2); margin: 0 0 6px; }
+  .copy { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; }
   .copy code { flex: 1; min-width: 0; overflow-wrap: anywhere; padding: 10px 12px; border-radius: 10px; background: var(--fill); font: 14px/1.4 var(--mono); }
   .get { flex: none; min-width: 76px; height: 34px; border-radius: 17px; border: 0; background: var(--fill); color: var(--blue); font: inherit; font-size: 15px; font-weight: 700; letter-spacing: 0.02em; padding: 0 16px; cursor: pointer; }
   .get.primary { background: var(--blue); color: #FFFFFF; }
-  .hint { color: var(--label2); font-size: 13px; margin-top: 8px; }
+  .hint { color: var(--label2); font-size: 13px; margin-top: 4px; }
 
-  figure { margin: 0; }
-  .shot { border-radius: 18px; background: var(--bg2); padding: 16px; box-shadow: var(--shadow); }
-  .shot img { display: block; width: 100%; height: auto; border-radius: 10px; }
-  figcaption { color: var(--label2); font-size: 13px; text-align: center; margin-top: 12px; }
+  /* A drawing of the Skills bar as it sits above the message box in Claude Code (the bar is plugins/skillshelf in the repo) */
+  .stage { border-radius: 18px; background: var(--bg2); padding: 28px 20px 20px; box-shadow: var(--shadow); }
+  .demo { --d-bg: #FFFFFF; --d-bar: #F3F3F3; --d-ink: #1F1F1F; --d-dim: #6B6B6B; --d-line: #D6D6D6; --d-chip2: #E4E4E4;
+    background: var(--d-bg); color: var(--d-ink); border-radius: 12px; padding: 16px 14px 14px; font: 15px/1.35 var(--font); }
+  .bar { background: var(--d-bar); border-radius: 10px; padding: 10px; display: grid; gap: 10px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+  .demo button { font: inherit; border: 0; cursor: pointer; }
+  .tog { background: none; color: var(--d-ink); padding: 4px 6px; }
+  .chip { background: var(--d-ink); color: #FFFFFF; font-weight: 700; border-radius: 6px; padding: 5px 10px; }
+  .chip.off { background: var(--d-chip2); color: var(--d-ink); font-weight: 400; }
+  .chip.all { background: var(--d-chip2); color: var(--d-ink); font-weight: 400; }
+  .links { display: flex; gap: 18px; padding: 0 6px; }
+  .links button, .cancel { background: none; color: var(--d-dim); padding: 0; }
+  .add { display: grid; gap: 8px; }
+  .add[hidden], .links[hidden] { display: none; }
+  .addrow { display: flex; gap: 10px; align-items: flex-start; }
+  .addrow .box { flex: 1; min-height: 46px; border: 1px solid #3B82F6; border-radius: 8px; background: #F9F9F9; padding: 8px 10px; color: var(--d-dim); font-size: 14px; }
+  .addrow button { background: var(--d-chip2); color: var(--d-ink); border-radius: 6px; padding: 3px 10px; }
+  .addnote { display: flex; gap: 22px; color: var(--d-dim); font-size: 14px; padding: 0 2px; flex-wrap: wrap; }
+  .composer { margin-top: 12px; border: 1px solid var(--d-line); border-radius: 14px; padding: 14px 14px; display: flex; align-items: center; gap: 12px; color: var(--d-dim); }
+  .composer .plus { font-size: 20px; line-height: 1; color: var(--d-ink); }
+  .composer .ph { flex: 1; }
+  .composer svg { width: 18px; height: 18px; color: var(--d-ink); }
+  .caption { color: var(--label2); font-size: 13px; text-align: center; margin-top: 12px; }
 
-  .steps { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; margin: 44px 0 36px; }
-  @media (max-width: 760px) { .steps { grid-template-columns: minmax(0, 1fr); } }
-  .card { min-width: 0; background: var(--bg2); border-radius: 18px; padding: 20px; }
-  .card h2 { font-size: 20px; font-weight: 700; }
-  .card .sub { color: var(--label2); font-size: 13px; margin: 2px 0 14px; }
+  .features { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin: 48px 0 40px; }
+  @media (max-width: 760px) { .features { grid-template-columns: minmax(0, 1fr); } }
+  .feature { background: var(--bg2); border-radius: 18px; padding: 18px; }
+  .feature h3 { font-size: 17px; margin-bottom: 4px; }
+  .feature p { color: var(--label2); }
+
+  .card { background: var(--bg2); border-radius: 18px; padding: 20px; margin-bottom: 36px; }
+  .card h2 { font-size: 22px; font-weight: 700; }
+  .card .sub { color: var(--label2); margin: 4px 0 16px; max-width: 70ch; }
+  .card .cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
+  @media (max-width: 760px) { .card .cols { grid-template-columns: minmax(0, 1fr); } }
+  .card .copy code, .card .copy .get { background: var(--card); }
   ol { margin: 0 0 14px; padding-left: 22px; }
   li { margin-bottom: 6px; }
-  .card .copy code { background: var(--card); }
-  .card .copy .get { background: var(--card); }
-  .key { background: var(--card); border-radius: 10px; padding: 10px 12px; font-size: 14px; margin-bottom: 14px; }
+  .key { background: var(--card); border-radius: 10px; padding: 10px 12px; font-size: 14px; }
   .key b { color: var(--orange); }
-  .more { font-weight: 600; }
 
   h2.section { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
-  .try { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; }
-  .try span { background: var(--fill); border-radius: 17px; padding: 7px 14px; font-size: 15px; }
-  ul.notes { padding-left: 20px; margin: 0; max-width: 70ch; }
+  ul.notes { padding-left: 20px; margin: 0; max-width: 72ch; }
   ul.notes li { margin-bottom: 8px; }
   .data-note { margin-top: 40px; font-size: 12px; color: var(--label2); border-top: 1px solid var(--sep); padding-top: 14px; }
 </style>
@@ -80,61 +102,69 @@
 
   <section class="hero">
     <div>
-      <p class="eyebrow">For Claude and Claude Code</p>
-      <h1>Add Skillshelf to Claude</h1>
-      <p class="intro">Ask Claude for a skill and get picks that were checked by reading their code, with what each one does and anything to know, in plain English.</p>
-      <p class="field-label">Your Skillshelf link</p>
-      <div class="copy">
-        <code id="link">{{MCP}}</code>
-        <button class="get primary" data-copy="link">Copy</button>
-      </div>
-      <p class="hint">Free. No account or sign-in needed.</p>
+      <p class="eyebrow">For Claude Code</p>
+      <h1>Your skills, right above the message box</h1>
+      <p class="intro">The Skillshelf bar stays attached to your chat. Switch skills on or off for the session, and add any skill after Skillshelf checks its code.</p>
+      <p class="field-label">In Claude Code, run these two commands:</p>
+      <div class="copy"><code id="mk">/plugin marketplace add {{MARKET}}</code><button class="get primary" data-copy="mk">Copy</button></div>
+      <div class="copy"><code id="inst">/plugin install skillshelf@skillshelf</code><button class="get primary" data-copy="inst">Copy</button></div>
+      <p class="hint">Then start a new session. The bar shows up above your message box. Free, no account.</p>
     </div>
-    <figure>
-      <div class="shot"><img src="/setup-shot.jpg" width="763" height="812" alt="Skillshelf in Claude: four checked picks for “make my website look less AI-made”, each with a badge such as No issues found or 1 thing to know, and Install and What it can do buttons."></div>
-      <figcaption>What you see when you ask Claude for a skill</figcaption>
+    <figure style="margin:0">
+      <div class="stage">
+        <div class="demo" role="group" aria-label="A working drawing of the Skillshelf bar above the message box: chips for each skill showing ON or OFF, All skills, Add skill and Flag slop.">
+          <div class="bar">
+            <div class="chips">
+              <button class="tog">▾ Skills</button>
+              <button class="chip" data-chip>frontend-design: ON</button>
+              <button class="chip" data-chip>impeccable: ON</button>
+              <button class="chip off" data-chip>pdf: OFF</button>
+              <button class="chip" data-chip>docx: ON</button>
+              <button class="chip" data-chip>webapp-testing: ON</button>
+              <button class="chip all">All skills (12)</button>
+            </div>
+            <div class="links" id="links"><button data-add>+ Add skill</button><button>⚑ Flag slop</button></div>
+            <div class="add" id="add" hidden>
+              <div class="addrow"><div class="box">Paste a GitHub link or skill name, or say what you need (e.g. “write better emails”)</div><button data-close>Add</button></div>
+              <div class="addnote"><span>Any skill works. Claude checks it first and asks before installing.</span><button class="cancel" data-close>Cancel</button></div>
+            </div>
+          </div>
+          <div class="composer"><span class="plus">+</span><span class="ph">Ask Claude to do something…</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 5v7a3 3 0 0 1-3 3H5"/><path d="M9 11l-4 4 4 4"/></svg></div>
+        </div>
+      </div>
+      <figcaption class="caption">Try it: click a skill to switch it, or “+ Add skill”.</figcaption>
     </figure>
   </section>
 
-  <div class="steps">
-    <section class="card" aria-labelledby="app">
-      <h2 id="app">In Claude</h2>
-      <p class="sub">The website, desktop app or phone app</p>
-      <ol>
-        <li>Open <strong>Plugins</strong>, click <strong>Add</strong>, then <strong>Add custom connector</strong>.</li>
-        <li>Name it <strong>Skillshelf</strong> and paste the link.</li>
-        <li>Start a <strong>new chat</strong>. Click <strong>+</strong> and switch Skillshelf on.</li>
-      </ol>
-      <p class="key"><b>Switch it on <strong>before</strong> your first message.</b> Switching it on in the middle of a chat doesn't load it.</p>
-      <a class="more" href="{{PLUGINS}}" target="_blank" rel="noopener">Open Plugins in Claude ↗</a>
-    </section>
+  <div class="features">
+    <section class="feature"><h3>Switch skills on or off</h3><p>One click per skill, for this session. Claude won't use a skill you switched off.</p></section>
+    <section class="feature"><h3>Add any skill, checked first</h3><p>Paste a link or say what you need. Claude checks it with Skillshelf, tells you what it can reach, and asks before installing.</p></section>
+    <section class="feature"><h3>Ban phrases for good</h3><p>Flag a word or phrase Claude keeps writing, and it won't write it again in any session.</p></section>
+  </div>
 
-    <section class="card" aria-labelledby="code">
-      <h2 id="code">In Claude Code</h2>
-      <p class="sub">In your terminal</p>
-      <ol>
-        <li>Run this once:</li>
-      </ol>
-      <div class="copy" style="margin-bottom:14px">
-        <code id="cmd">{{CMD}}</code>
-        <button class="get" data-copy="cmd">Copy</button>
+  <section class="card" aria-labelledby="chats">
+    <h2 id="chats">Using Claude chats instead?</h2>
+    <p class="sub">The bar is for Claude Code. In Claude's website, desktop app or phone app, add Skillshelf as a connector: then ask Claude for a skill and get checked picks.</p>
+    <div class="cols">
+      <div>
+        <p class="field-label">Your Skillshelf link</p>
+        <div class="copy"><code id="link">{{MCP}}</code><button class="get" data-copy="link">Copy</button></div>
+        <a href="{{PLUGINS}}" target="_blank" rel="noopener" style="font-weight:600">Open Plugins in Claude ↗</a>
       </div>
-      <ol start="2">
-        <li>Start a <strong>new</strong> Claude Code session.</li>
-      </ol>
-    </section>
-  </div>
-
-  <h2 class="section">Then ask Claude</h2>
-  <div class="try">
-    <span>“Find me a skill to make my site look less AI-made”</span>
-    <span>“Is Impeccable safe?”</span>
-    <span>“Find me an open-source voice tool”</span>
-  </div>
+      <div>
+        <ol>
+          <li>Open <strong>Plugins</strong>, click <strong>Add</strong>, then <strong>Add custom connector</strong>.</li>
+          <li>Name it <strong>Skillshelf</strong> and paste the link.</li>
+          <li>Start a <strong>new chat</strong>. Click <strong>+</strong> and switch Skillshelf on.</li>
+        </ol>
+        <p class="key"><b>Switch it on <strong>before</strong> your first message.</b> Switching it on in the middle of a chat doesn't load it.</p>
+      </div>
+    </div>
+  </section>
 
   <h2 class="section">Good to know</h2>
   <ul class="notes">
-    <li><strong>Add it only once.</strong> If Skillshelf shows up twice in your list, remove one.</li>
+    <li><strong>Add it only once.</strong> The bar brings Skillshelf's connector with it, so in Claude Code you don't need to add the connector as well. If Skillshelf shows up twice in your list, remove one.</li>
     <li>Searching Claude's connector list won't find Skillshelf yet. Use the link above.</li>
   </ul>
 
@@ -149,6 +179,16 @@
       if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, fallback); else fallback();
     });
   });
+  // The drawing of the bar answers clicks the way the real one does
+  document.querySelectorAll('[data-chip]').forEach(function (c) {
+    c.addEventListener('click', function () {
+      var on = c.classList.toggle('off') === false, name = c.textContent.split(':')[0];
+      c.textContent = name + ': ' + (on ? 'ON' : 'OFF');
+    });
+  });
+  var links = document.getElementById('links'), add = document.getElementById('add');
+  document.querySelector('[data-add]').addEventListener('click', function () { links.hidden = true; add.hidden = false; });
+  document.querySelectorAll('[data-close]').forEach(function (b) { b.addEventListener('click', function () { add.hidden = true; links.hidden = false; }); });
 </script>
 </body>
 </html>

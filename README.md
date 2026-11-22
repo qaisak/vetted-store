@@ -67,6 +67,12 @@ node pipeline/build.mjs data/data.json pipeline/template.html vetted-store.html 
 People can install a checked skill in one step instead of downloading a folder and uploading it. The build writes
 [`.claude-plugin/marketplace.json`](.claude-plugin/marketplace.json), a Claude plugin marketplace with one plugin per skill.
 
+Its first plugin is Skillshelf's own: **the Skillshelf bar** ([`plugins/skillshelf`](plugins/skillshelf)), a Skills bar that
+stays above the message box in Claude Code. It switches skills on or off for the session, adds any skill after Skillshelf
+checks it, bans phrases, and brings the Skillshelf connector with it. Install it with
+`/plugin marketplace add qaisak/vetted-store`, then `/plugin install skillshelf@skillshelf`. The connector's home page
+(https://skillshelf.skillshelf.workers.dev/) leads with it.
+
 **Add it once, then install from it:**
 
 - Claude app (claude.ai, desktop): Plugins, then Add, then Add marketplace, and enter `qaisak/vetted-store`.

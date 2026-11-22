@@ -1,11 +1,25 @@
 {
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "skillshelf",
-  "description": "Skills checked by Skillshelf (https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG): each one's code was read, and none of these has a serious risk. Each is pinned to the exact commit that was checked. Catalog of 2026-10-31.",
+  "description": "The Skillshelf bar for Claude Code, and skills checked by Skillshelf (https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG): each one's code was read, and none of these has a serious risk. Each skill is pinned to the exact commit that was checked. Catalog of 2026-10-31.",
   "owner": {
     "name": "Skillshelf"
   },
   "plugins": [
+    {
+      "name": "skillshelf",
+      "description": "The Skillshelf bar: a Skills bar above the chat box in Claude Code. Switch skills on or off for the session, add any skill after Skillshelf checks it, and ban phrases Claude should never write. Brings the Skillshelf connector with it.",
+      "author": {
+        "name": "Skillshelf"
+      },
+      "homepage": "https://skillshelf.skillshelf.workers.dev/",
+      "keywords": [
+        "skills",
+        "safety",
+        "skill manager"
+      ],
+      "source": "./plugins/skillshelf"
+    },
     {
       "name": "addyosmani-api-and-interface-design",
       "description": "Helps design APIs and interfaces that stay stable as a project grows. Skillshelf check: No issues found, at commit 8bfcc1f.",

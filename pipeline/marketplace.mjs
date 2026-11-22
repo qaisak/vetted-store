@@ -42,9 +42,22 @@ export function sourceOf(l, full, branch) {
 }
 
 // listings: the connector catalog's listings. commits: repo -> full commit (data/sources.json). branches: repo -> default branch.
+// Skillshelf's own plugin, kept in this repo (plugins/skillshelf): the Skills bar above the chat box in Claude Code,
+// with the Skillshelf connector. It comes first in the list; install it with /plugin install skillshelf@skillshelf.
+export const BAR_DIR = 'plugins/skillshelf';
+export const BAR = {
+  name: 'skillshelf',
+  description: 'The Skillshelf bar: a Skills bar above the chat box in Claude Code. Switch skills on or off for the session, add any skill after Skillshelf checks it, and ban phrases Claude should never write. Brings the Skillshelf connector with it.',
+  author: { name: 'Skillshelf' },
+  homepage: 'https://skillshelf.skillshelf.workers.dev/',
+  keywords: ['skills', 'safety', 'skill manager'],
+  source: `./${BAR_DIR}`,
+};
+
 export function buildMarketplace({ listings, site, generated }, commits, branches = {}) {
   const plugins = [], skipped = {};
   for (const l of listings) {
+    if (l.id === BAR.name) { skipped['name taken by the Skillshelf bar'] = (skipped['name taken by the Skillshelf bar'] || 0) + 1; continue; }
     const full = commits[l.repo], why = leftOut(l, full);
     if (why) { skipped[why] = (skipped[why] || 0) + 1; continue; }
     const { source } = sourceOf(l, full, branches[l.repo]);
@@ -63,16 +76,16 @@ export function buildMarketplace({ listings, site, generated }, commits, branche
     marketplace: {
       $schema: 'https://anthropic.com/claude-code/marketplace.schema.json',
       name: MARKETPLACE,
-      description: `Skills checked by Skillshelf (${site}): each one's code was read, and none of these has a serious risk. Each is pinned to the exact commit that was checked. Catalog of ${generated}.`,
+      description: `The Skillshelf bar for Claude Code, and skills checked by Skillshelf (${site}): each one's code was read, and none of these has a serious risk. Each skill is pinned to the exact commit that was checked. Catalog of ${generated}.`,
       owner: { name: 'Skillshelf' },
-      plugins,
+      plugins: [BAR, ...plugins],
     },
     skipped,
   };
 }
 
 // The plugin name a listing installs as, for the connector catalog (null when it isn't in the marketplace)
-export const installName = (marketplace, id) => marketplace.plugins.some(p => p.name === id) ? `${id}@${MARKETPLACE}` : null;
+export const installName = (marketplace, id) => id !== BAR.name && marketplace.plugins.some(p => p.name === id) ? `${id}@${MARKETPLACE}` : null;
 
 // Full commits by repo, from data/sources.json (its first key is a note, not a repo)
 export const commitsFrom = sources => Object.fromEntries(Object.entries(sources).filter(([, v]) => v && typeof v === 'object' && v.commit).map(([k, v]) => [k, v.commit]));
