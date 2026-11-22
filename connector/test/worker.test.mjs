@@ -131,11 +131,11 @@ const home = await (await worker.fetch(new Request('https://x.test/'), env)).tex
 ok(home.includes('Plugins, Add, Add custom connector') && !home.includes('Settings, Connectors') && home.includes('https://x.test/mcp') && home.includes('claude mcp add --transport http skillshelf https://x.test/mcp'), 'the plain-text home page explains how to add it in Claude and in Claude Code');
 const pageRes = await worker.fetch(new Request('https://x.test/', { headers: { Accept: 'text/html,application/xhtml+xml' } }), env), page = await pageRes.text();
 ok(home.includes('/plugin marketplace add qaisak/vetted-store') && home.includes('/plugin install skillshelf@skillshelf'), 'the plain-text home page gives the commands that install the Skillshelf bar');
-ok((pageRes.headers.get('Content-Type') || '').startsWith('text/html') && page.includes('<title>Skillshelf for Claude</title>') && !page.includes('{{'), 'browsers get the setup page, with every placeholder filled');
+ok((pageRes.headers.get('Content-Type') || '').startsWith('text/html') && page.includes('<title>Skillshelf for Claude Code</title>') && !page.includes('{{'), 'browsers get the setup page, with every placeholder filled');
 ok(page.includes('<code id="mk">/plugin marketplace add qaisak/vetted-store</code>') && page.includes('<code id="inst">/plugin install skillshelf@skillshelf</code>') && page.includes('data-copy="mk"') && page.includes('data-copy="inst"'), 'the setup page leads with the two commands that install the Skillshelf bar, each with a Copy button');
 ok(page.includes('class="bar"') && page.includes('data-chip') && page.includes('+ Add skill') && page.includes('class="composer"'), 'the setup page shows the bar attached to the message box');
-ok(page.includes('<code id="link">https://x.test/mcp</code>') && page.includes('<strong>Plugins</strong>, click <strong>Add</strong>, then <strong>Add custom connector</strong>') && page.includes('<strong>before</strong> your first message') && page.includes('href="https://claude.ai/plugins"'), 'the setup page still gives Claude chat users the connector link and steps');
-ok(page.includes('Add it only once') && page.includes('brings Skillshelf'), 'the setup page says the bar brings the connector, so add it only once');
+ok(page.includes('Claude Code only for now') && !page.includes('Copy for the Claude app'), 'the setup page says the bar is Claude Code only for now');
+ok(page.includes('<code class="inline" id="link">https://x.test/mcp</code>') && page.includes('click Add, then Add custom connector') && page.includes('before your first message') && page.includes('href="https://claude.ai/plugins"'), 'the setup page keeps a short note for Claude chat users, with the connector link');
 
 fs.rmSync(tmp, { recursive: true, force: true });
 process.exitCode = fails ? 1 : 0;

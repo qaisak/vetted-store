@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Skillshelf for Claude</title>
+<title>Skillshelf for Claude Code</title>
 <meta name="description" content="A Skills bar that stays above your message box in Claude Code: switch skills on or off, and add any skill after Skillshelf checks its code.">
 <style>
   /* Same look as the Skillshelf site (pipeline/template.html) */
@@ -79,21 +79,12 @@
   .feature h3 { font-size: 17px; margin-bottom: 4px; }
   .feature p { color: var(--label2); }
 
-  .card { background: var(--bg2); border-radius: 18px; padding: 20px; margin-bottom: 36px; }
-  .card h2 { font-size: 22px; font-weight: 700; }
-  .card .sub { color: var(--label2); margin: 4px 0 16px; max-width: 70ch; }
-  .card .cols { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px; }
-  @media (max-width: 760px) { .card .cols { grid-template-columns: minmax(0, 1fr); } }
-  .card .copy code, .card .copy .get { background: var(--card); }
-  ol { margin: 0 0 14px; padding-left: 22px; }
-  li { margin-bottom: 6px; }
-  .key { background: var(--card); border-radius: 10px; padding: 10px 12px; font-size: 14px; }
-  .key b { color: var(--orange); }
 
   h2.section { font-size: 22px; font-weight: 700; margin-bottom: 12px; }
   ul.notes { padding-left: 20px; margin: 0; max-width: 72ch; }
   ul.notes li { margin-bottom: 8px; }
-  .data-note { margin-top: 40px; font-size: 12px; color: var(--label2); border-top: 1px solid var(--sep); padding-top: 14px; }
+  code.inline { font: 12px var(--mono); overflow-wrap: anywhere; }
+  .data-note { margin-top: 40px; line-height: 1.6; font-size: 12px; color: var(--label2); border-top: 1px solid var(--sep); padding-top: 14px; }
 </style>
 </head>
 <body>
@@ -139,36 +130,17 @@
   <div class="features">
     <section class="feature"><h3>Switch skills on or off</h3><p>One click per skill, for this session. Claude won't use a skill you switched off.</p></section>
     <section class="feature"><h3>Add any skill, checked first</h3><p>Paste a link or say what you need. Claude checks it with Skillshelf, tells you what it can reach, and asks before installing.</p></section>
-    <section class="feature"><h3>Ban phrases for good</h3><p>Flag a word or phrase Claude keeps writing, and it won't write it again in any session.</p></section>
+    <section class="feature"><h3>Ban phrases for good</h3><p>Flag a word or phrase Claude keeps writing, and it won't write it again in any Claude Code session.</p></section>
   </div>
-
-  <section class="card" aria-labelledby="chats">
-    <h2 id="chats">Using Claude chats instead?</h2>
-    <p class="sub">The bar is for Claude Code. In Claude's website, desktop app or phone app, add Skillshelf as a connector: then ask Claude for a skill and get checked picks.</p>
-    <div class="cols">
-      <div>
-        <p class="field-label">Your Skillshelf link</p>
-        <div class="copy"><code id="link">{{MCP}}</code><button class="get" data-copy="link">Copy</button></div>
-        <a href="{{PLUGINS}}" target="_blank" rel="noopener" style="font-weight:600">Open Plugins in Claude ↗</a>
-      </div>
-      <div>
-        <ol>
-          <li>Open <strong>Plugins</strong>, click <strong>Add</strong>, then <strong>Add custom connector</strong>.</li>
-          <li>Name it <strong>Skillshelf</strong> and paste the link.</li>
-          <li>Start a <strong>new chat</strong>. Click <strong>+</strong> and switch Skillshelf on.</li>
-        </ol>
-        <p class="key"><b>Switch it on <strong>before</strong> your first message.</b> Switching it on in the middle of a chat doesn't load it.</p>
-      </div>
-    </div>
-  </section>
 
   <h2 class="section">Good to know</h2>
   <ul class="notes">
-    <li><strong>Add it only once.</strong> The bar brings Skillshelf's connector with it, so in Claude Code you don't need to add the connector as well. If Skillshelf shows up twice in your list, remove one.</li>
-    <li>Searching Claude's connector list won't find Skillshelf yet. Use the link above.</li>
+    <li><strong>Claude Code only for now.</strong> The bar shows up in Claude Code (terminal, IDE, or the Code tab of the Claude desktop app), not in Claude chats on claude.ai or the Claude app.</li>
+    <li>After installing, start a <strong>new</strong> session. The bar appears above your message box there.</li>
+    <li>Banned phrases stay on your computer.</li>
   </ul>
 
-  <p class="data-note">{{COUNT}} skills, connectors and apps, checked {{DATE}}.</p>
+  <p class="data-note">Use Claude chats? You can still add Skillshelf there as a connector to find checked skills: in Claude, open <a href="{{PLUGINS}}" target="_blank" rel="noopener">Plugins</a>, click Add, then Add custom connector, and paste <code class="inline" id="link">{{MCP}}</code>. Start a new chat and switch it on before your first message.<br>{{COUNT}} skills, connectors and apps, checked {{DATE}}.</p>
 </main>
 <script>
   document.querySelectorAll('[data-copy]').forEach(function (b) {

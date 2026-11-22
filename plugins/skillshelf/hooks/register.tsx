@@ -2,8 +2,7 @@
 // - Each chip switches one skill on or off for this session; a switched-off skill is refused when Claude reaches for
 //   it, and Claude is told up front which ones are off.
 // - "Flag slop" bans a word or phrase for good: the person types what Claude wrote, and from then on every session
-//   tells Claude never to write it. The list is kept across sessions and can be copied into the Claude app's
-//   Instructions, which covers claude.ai chats the mod can't reach.
+//   tells Claude never to write it. The list is kept across sessions. It covers Claude Code only for now.
 // - "+ Add skill" hands the search to the Skillshelf connector, bundled in this plugin's .mcp.json.
 import { atom, read, update } from 'claude-code'
 import type { Engine, Register } from 'claude-code'
@@ -34,7 +33,7 @@ const shortName = (name: string) => name.split(':').pop() || name
 // The Skill tool may name a skill with or without its plugin prefix
 const sameSkill = (a: string, b: string) => a === b || shortName(a) === shortName(b)
 const quoted = (list: string[]) => list.map(p => `"${p}"`).join(', ')
-// The rule as Claude reads it, and as the person pastes it into the Claude app's Instructions
+// The rule as Claude reads it
 const banRule = (list: string[]) => `Never write these words or phrases, in any form, in anything you write for me: ${quoted(list)}. If one would fit, say it another way.`
 
 // Reads the session's skills from the context listing (estimated locally, so it costs nothing)
@@ -83,14 +82,6 @@ async function banPhrases($: Engine, typed: string) {
 async function unban($: Engine, phrase: string) {
   await saveBanned($, (await read($, banned)).filter(p => p !== phrase))
   $.ui.toast(`"${phrase}" is allowed again`)
-}
-
-async function copyForClaudeApp($: Engine, surface: string) {
-  const list = await read($, banned)
-  const copied = await $.ui.copy({ text: banRule(list), surface: surface as never })
-  $.ui.toast(copied.isCopied
-    ? 'Copied. In the Claude app, paste it into Settings, Your Claude, Instructions to ban these in every chat there too.'
-    : 'Couldn\'t copy here. Open /skills-bar on the desktop app to copy it.')
 }
 
 // Any skill can be added, on Skillshelf or not. One that Skillshelf hasn't checked gets its code read first, and the
@@ -223,7 +214,6 @@ export const register: Register = on => {
             <Button key={`unban-${p}`} plain dimColor label="Allow again" onPress={() => unban($, p)} />
           </Box>
         ))}
-        {bannedList.length > 0 && <Button key="copy" variant="secondary" label="Copy for the Claude app" onPress={() => copyForClaudeApp($, e.surface)} />}
         <Text bold>Skills</Text>
         <Text dimColor>{list.length ? `${onCount} of ${list.length} on. Switches apply to this session.` : 'No skills in this session yet.'}</Text>
         {list.map(s => {
