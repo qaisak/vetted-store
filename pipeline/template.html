@@ -201,7 +201,7 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .copybox { display: flex; gap: 8px; align-items: center; background: var(--code); border: 1px solid var(--sep); border-radius: 10px; padding: 8px 8px 8px 12px; min-width: 0; }
 .copybox code { flex: 1; min-width: 0; font-family: var(--mono); font-size: 12.5px; white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.45; }
 .dev-scan { margin-top: 4px; }
-.inst-card.ask { background: color-mix(in srgb, var(--blue) 8%, var(--bg2)); }
+.inst-card.ask { background: var(--band-blue); }
 .claude-steps { margin: 0; padding-left: 20px; display: grid; gap: 8px; line-height: 1.45; }
 .claude-steps .copybox { margin-top: 6px; }
 .claude-tries { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 4px; color: var(--label2); }
@@ -220,7 +220,7 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .bd-composer .ph { flex: 1; }
 .bd-composer span:first-child, .bd-composer span:last-child { color: #1F1F1F; }
 .claude-note { margin: 0; font-size: 12.5px; color: var(--label2); line-height: 1.45; }
-.sheet .inst-card.ask { background: color-mix(in srgb, var(--blue) 8%, var(--card)); }
+.sheet .inst-card.ask { background: var(--band-blue); }
 .ask-btns { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
 .ask-btns .get { width: auto; padding: 0 16px; }
 .ask-q { flex-basis: 100%; }
@@ -468,7 +468,7 @@ details.full > summary span { font-size: 14px; color: var(--label2); }
 .scan-anyway[open] > summary { margin-bottom: 4px; }
 
 .worth { margin-top: 12px; background: color-mix(in srgb, var(--orange) 10%, var(--bg2)); border-radius: 14px; padding: 14px 16px; display: flex; flex-direction: column; gap: 6px; }
-.worth.lv-note { background: color-mix(in srgb, var(--blue) 8%, var(--bg2)); }
+.worth.lv-note { background: var(--band-blue); }
 .worth.lv-warn { background: color-mix(in srgb, var(--orange) 13%, var(--bg2)); }
 .worth.lv-bad { background: color-mix(in srgb, var(--red) 13%, var(--bg2)); }
 .worth:first-of-type { margin-top: 0; }
@@ -796,7 +796,13 @@ blockquote.said { margin: 12px 0 0; padding: 12px 16px; background: var(--bg2); 
 blockquote.said a { display: block; margin-top: 6px; font-size: 13.5px; font-weight: 600; }
 .ways { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 14px; margin-top: 12px; }
 .way { background: var(--bg2); border-radius: 16px; padding: 16px; display: flex; flex-direction: column; gap: 8px; min-width: 0; align-items: flex-start; }
-.way.lead { background: color-mix(in srgb, var(--blue) 9%, var(--bg2)); }
+.way.lead { background: var(--band-blue); }
+.way .more-dl { font-size: 13.5px; font-weight: 600; }
+.check-only { margin-top: 14px; }
+.check-only > summary { cursor: pointer; color: var(--blue); font-weight: 600; font-size: 15px; padding: 2px 0; }
+.check-only[open] > summary { margin-bottom: 4px; }
+.strip .c:has(.odd-btn) { white-space: normal; overflow: visible; }
+.strip .odd-btn { font-size: 12px; line-height: 1.25; }
 .way > b { font-size: 17px; }
 .way p { font-size: 14px; color: var(--label2); line-height: 1.45; }
 .way .copybox { align-self: stretch; }
@@ -1148,7 +1154,9 @@ function toast(m) {
 // The span of fetch dates: most listings were fetched with D.gen, later additions carry their own date
 function dataDates() { const last = Object.values(R).map(r => r.fd).filter(Boolean).sort().pop(); return last && last !== D.gen ? `${fmtDate(D.gen)} to ${fmtDate(last)}` : fmtDate(D.gen); }
 const shownN = () => L.filter(l => !l.rd).length;
-const dataNote = () => `<p class="data-note">${shownN()} open-source projects from GitHub. Data from ${dataDates()}. Skillshelf isn't affiliated with these projects. <button class="text-btn" style="font-size:12px" data-story="community">How we check</button></p>`;
+// Who makes Skillshelf, and where its own code is
+const MAKER = ['qaisak', 'https://github.com/qaisak'];
+const dataNote = () => `<p class="data-note">${shownN()} open-source projects from GitHub. Data from ${dataDates()}. Skillshelf isn't affiliated with these projects. Skillshelf is open source too, made by <a href="${MAKER[1]}" target="_blank" rel="noopener">${MAKER[0]}</a>: <a href="https://github.com/${MARKET_REPO}" target="_blank" rel="noopener">see the code or star it on GitHub</a>. <button class="text-btn" style="font-size:12px" data-story="community">How we check</button></p>`;
 
 // ---------- stories ----------
 const community = () => L.filter(l => !l.tr);
@@ -1235,7 +1243,7 @@ const altCard = l => `<a class="alt-card" href="#${l.id}"><span class="was">Inst
 // A calm card: the project, what it does in one full sentence, and one quiet line of facts. The listing page has Get.
 const card = (l, note) => `<a class="card" href="#${l.id}"><span class="card-top">${icon(l, 52)}<span class="card-name"><b>${esc(l.n)}</b><span class="kd k-${l.k}">${KIND1[l.k]}</span></span></span>
   <span class="card-line">${esc(plainOf(l))}</span>
-  <span class="card-foot">${note ? `<span class="up">${esc(note)}</span>` : ''}<span>${ic('star', 2)} ${fmtK(repoOf(l).st)}</span>${l.alt?.paid ? `<span class="free">Free instead of ${esc(l.alt.n)}</span>` : ''}</span></a>`;
+  <span class="card-foot">${note ? `<span class="up">${esc(note)}</span>` : ''}<span>${ic('star', 2)} ${fmtK(repoOf(l).st)}</span>${oddStars(l) ? '<span>Unusual star growth</span>' : ''}${l.alt?.paid ? `<span class="free">Free instead of ${esc(l.alt.n)}</span>` : ''}</span></a>`;
 const cards = (list, notes = [], cls = '') => `<div class="cards${cls ? ' ' + cls : ''}">${list.map((l, i) => card(l, notes[i])).join('')}</div>`;
 const shelfOf = (title, sub, body, more, cls) => `<section class="shelf${cls ? ' ' + cls : ''}"><div class="shelf-head"><h2>${title}${sub ? `<span class="sub">${sub}</span>` : ''}</h2>${more ? `<a class="see-all" href="${more}">See all</a>` : ''}</div>${body}</section>`;
 // Hand-picked for anyone: well-known free apps with a normal download, no account and no subscription (shown most-starred first)
@@ -1426,7 +1434,8 @@ function browseList() {
   const list = vis(L.filter(l => (!S.kind || l.k === S.kind) && inJob(l) && (!S.easy || l.lv === 1)));
   if (S.sort === 'az') return [...list].sort((a, b) => a.n.localeCompare(b.n, 'en', { sensitivity: 'base' }));
   if (S.sort === 'new') return [...list].sort((a, b) => String(repoOf(b).pu).localeCompare(String(repoOf(a).pu)) || repoOf(b).st - repoOf(a).st);
-  return byStars(list);
+  // Most stars: projects with unusual star growth (stars can be bought) come after the rest, so they never lead the list
+  return [...byStars(list.filter(l => !oddStars(l))), ...byStars(list.filter(l => oddStars(l)))];
 }
 // Search, then what kind (All, Apps, Skills, Connectors) and which topic, then the cards. Topics are links (#for-writing),
 // so Back undoes them; the kind is a setting that a topic keeps. Starter kits come after the list.
@@ -1496,7 +1505,7 @@ const SYN = [['iphone', 'ios', 'ipad'], ['dictation', 'dictate', 'speech-to-text
   ['notes', 'note', 'obsidian', 'notion'], ['password', 'passwords', 'secret', 'secrets', 'credential'], ['photo', 'photos', 'image', 'images', 'picture'],
   ['email', 'emails', 'mail', 'inbox', 'gmail'], ['website', 'site', 'web page', 'landing page', 'webpage'], ['blog', 'article', 'post', 'content', 'copy', 'writing'],
   ['meeting', 'meetings', 'agenda'], ['word', 'docx', 'document'], ['calendar', 'schedule', 'events'], ['ai', 'llm', 'model', 'agent'], ['download', 'downloads'],
-  ['browser', 'chrome', 'playwright', 'web'], ['design', 'figma', 'ui'], ['security', 'vulnerability', 'scan', 'scanner', 'safe', 'safety', 'privacy'], ['research', 'papers', 'paper', 'arxiv', 'zotero'],
+  ['browser', 'chrome', 'playwright', 'web'], ['design', 'figma', 'ui', 'canva', 'graphic', 'graphics'], ['offline', 'local', 'locally', 'own computer', 'your computer', 'on-device'], ['security', 'vulnerability', 'scan', 'scanner', 'safe', 'safety', 'privacy'], ['research', 'papers', 'paper', 'arxiv', 'zotero'],
   // Names people type for the tools they already know
   ['grep', 'rg', 'ripgrep'], ['find', 'fd'], ['cat', 'bat'], ['top', 'htop', 'btop', 'glances', 'bottom', 'monitor'], ['diff', 'delta', 'difftastic'], ['json', 'jq'],
   ['docker', 'container', 'containers', 'lazydocker'], ['kubernetes', 'k8s', 'kubectl', 'k9s'], ['git', 'lazygit', 'github'], ['tv', 'television', 'cleanyourtv'],
@@ -1527,19 +1536,23 @@ const searchHits = q => {
   const words = q.trim().toLowerCase().split(/\s+/).filter(w => w.length > 1 && !STOP.has(w));
   if (!words.length) return [];
   // [exact forms, synonyms]: a synonym match counts for less than the word itself
-  const alts = words.map(w => { const exact = [...new Set([w, w.replace(/ies$/, 'y').replace(/([^s])s$/, '$1')])];
+  // A word's stem finds its other forms: "edit" finds editor and editing, "photos" finds photo, "recording" finds recorder
+  const stem = w => { for (const s of ['ings', 'ing', 'ions', 'ion', 'ers', 'ors', 'er', 'or', 'ed', 'es', 's']) if (w.endsWith(s) && w.length - s.length >= 4) return w.slice(0, -s.length); return w; };
+  const alts = words.map(w => { const exact = [...new Set([w, w.replace(/ies$/, 'y').replace(/([^s])s$/, '$1'), stem(w)])];
     const reEsc = x => x.replace(/[.*+?^$(){}|[\]\\]/g, '\\$&');
-    const re = xs => xs.map(x => new RegExp('(^|[^a-z0-9])' + reEsc(x) + '(s|es)?([^a-z0-9]|$)'));
+    const re = xs => xs.map(x => new RegExp('(^|[^a-z0-9])' + reEsc(x) + (x.length >= 4 ? '(s|es|e|ed|er|ers|or|ors|ing|ings|ion|ions)?' : '(s|es)?') + '([^a-z0-9]|$)'));
     return [re(exact), re((SYNMAP[w] || SYNMAP[w.replace(/s$/, '')] || []).filter(x => !exact.includes(x)))]; });
   const fields = l => [[l.n + ' ' + l.sl, 6], [(l.pl || '') + (l.alt ? ' ' + l.alt.n : ''), 4], [[KIND[l.k], KINDS[l.k], ...(l.jb || []).map(j => JOB[j]?.[1])].join(' '), 3], [[l.t, l.d, l.r, repoOf(l).on, l.nv ? 'nvidia verified' : '', ...l.inst.map(o => o.to || '')].join(' '), 1]]
     .map(([t, w]) => [t.toLowerCase(), w]);
   const scored = L.filter(l => !l.rd).map(l => { const f = fields(l); let score = 0, hit = 0;
     for (const [i, [ex, sy]] of alts.entries()) { const inName = words[i].length >= 3 && f[0][0].includes(words[i]) ? 6 : 0;   // "grep" in ripgrep, "git" in lazygit
       const best = Math.max(inName, ...f.map(([t, w]) => ex.some(x => x.test(t)) ? w : sy.some(x => x.test(t)) ? w * 0.6 : 0)); if (best) hit++; score += best; }
-    return { l, score, hit }; });
+    return { l, score: oddStars(l) ? score / 2 : score, hit }; });   // unusual star growth never tops a search
   const all = scored.filter(x => x.hit === words.length);
   const pool = all.length ? all : scored.filter(x => x.hit > 0 && words.length > 1);   // nothing matches every word: show the closest
-  return pool.sort((a, b) => b.score - a.score || repoOf(b.l).st - repoOf(a.l).st).map(x => x.l);
+  const res = pool.sort((a, b) => b.score - a.score || repoOf(b.l).st - repoOf(a.l).st).map(x => x.l);
+  res.partial = !all.length;   // nothing matched every word: these are only the closest
+  return res;
 };
 function resultsHTML() {
   const q = S.q.trim();
@@ -1557,7 +1570,7 @@ function resultsHTML() {
   if (rq && !res.length && !/\s/.test(q)) return notListed;
   if (!res.length) { fixed = correct(q); if (fixed) res = searchHits(fixed); }
   if (!res.length) return `<p class="empty">No results for “${esc(q)}”.<br>Try a task, like “spreadsheet” or “deploy”, or browse by the work you do:</p><div class="job-grid">${['everyday', 'vibe', 'office', 'data', 'writing', 'business', 'design', 'dev'].map(k => jobCard(JOB[k])).join('')}</div>`;
-  return `${fixed ? `<p class="result-count">No results for “${esc(q)}”. Showing results for <button class="text-btn" data-suggest="${esc(fixed)}">${esc(fixed)}</button></p>` : ''}<p class="result-count">${res.length} result${res.length > 1 ? 's' : ''}</p>${list(res)}`;
+  return `${fixed ? `<p class="result-count">No results for “${esc(q)}”. Showing results for <button class="text-btn" data-suggest="${esc(fixed)}">${esc(fixed)}</button></p>` : ''}<p class="result-count">${res.partial ? `Nothing matches all of “${esc(fixed || q)}”. The closest we have:` : `${res.length} result${res.length > 1 ? 's' : ''}`}</p>${list(res)}`;
 }
 // ---------- install blocks ----------
 const copyBox = cmd => `<div class="copybox"><code>${esc(cmd)}</code><button class="copy-btn" data-copy="${esc(cmd)}" aria-label="Copy command">${ic('copy')}</button></div>`;
@@ -1818,6 +1831,19 @@ function setupPrompt(l) {
       : 'If I say yes: install it for Claude Code, and tell me how to use it.'].join('\n');
 }
 const promptBox = (pr, msg) => `<div class="ask-btns"><button class="get primary" data-copy="${esc(pr)}" data-copymsg="${esc(msg)}">Copy for Claude</button><details class="ask-q"><summary>Show what it says</summary><code class="snip" style="white-space:pre-wrap">${esc(pr)}</code></details></div>`;
+// "Or get it yourself" with the one installer this computer needs (data/releases.json), and every other download a click away.
+// Phones and tablets get the releases page: their app stores are elsewhere.
+const OS_KEY = { macOS: ['mac', 'Mac'], Windows: ['win', 'Windows'], Linux: ['linux', 'Linux'] };
+const deskOS = () => /android|iphone|ipad|mobile/i.test(navigator.userAgent) ? null : myOS();
+function ownWay(l, dl) {
+  const k = OS_KEY[deskOS()], f = k && dl.files?.[k[0]];
+  if (!f) return '';
+  const apple = k[0] === 'mac' && /arm64|aarch64|silicon/i.test(f[0]) && !/universal/i.test(f[0]);
+  const v = (String(dl.files.v).match(/\d+(?:\.\d+)+/) || [dl.files.v])[0];
+  return `<div class="way"><b>Or get it yourself</b><p>The installer for ${apple ? 'a Mac with an Apple chip' : k[0] === 'mac' ? 'your Mac' : `your ${k[1]} computer`}, version ${esc(v)}, straight from the project's GitHub releases.</p>
+    <a class="get dl-file" data-dl="${l.id}" href="${esc(f[1])}" rel="noopener">Download for ${k[1]}</a>
+    <a class="more-dl" href="${esc(dl.link)}" target="_blank" rel="noopener">${apple ? 'Intel Mac or another computer' : 'Another computer'}? Every download ${ic('ext')}</a></div>`;
+}
 function getHTML(l) {
   const mk = mkName(l), dl = l.k === 'tool' && instOrder(l).find(o => o.how === 'Download' || o.how === 'App store' || o.how === 'Add-on' || (o.link && !o.cmds?.length));
   const claude = `<div class="way lead"><b>Ask Claude to set it up</b>
@@ -1826,7 +1852,7 @@ function getHTML(l) {
   const bar = l.k === 'skill' ? `<div class="way"><b>${mk ? 'With the Skillshelf bar' : 'In Claude Code'}</b>
     ${mk ? `<p>Have the bar? Click <b>+ Add skill</b> and paste this link. Or run:</p>${copyBox(`/plugin install ${mk}@skillshelf`)}<p class="note">Needs the Skillshelf marketplace once: <span class="mono">/plugin marketplace add ${MARKET_REPO}</span></p>`
       : `<p>Have the Skillshelf bar? Click <b>+ Add skill</b> and paste this link:</p>${copyBox(srcUrl(l))}`}</div>` : '';
-  const own = dl ? `<div class="way"><b>Or get it yourself</b><p>${esc(dl.note || `For ${dl.to}.`)}</p>
+  const own = dl ? ownWay(l, dl) || `<div class="way"><b>Or get it yourself</b><p>${esc(dl.note || `For ${dl.to}.`)}</p>
     <a class="get" href="${esc(dl.link || dl.dl)}" target="_blank" rel="noopener">${esc(dl.linkText || (dl.how === 'Add-on' ? 'Get the add-on' : 'Download'))} ${ic('ext')}</a></div>` : '';
   return `<div class="ways">${claude}${bar}${own}</div>
     <details class="dev-scan diy"><summary>Do it yourself: every install option</summary><div class="inst-grid">${instCards(l, 99)}</div></details>`;
@@ -1877,10 +1903,10 @@ function pageProduct(id) {
       ${getHTML(l)}</section>
 
     <section class="block before" id="before"><h2>Before you install</h2>
-      <p>When you set it up with <b>Copy for Claude</b>, Claude first reads ${esc(l.n)}'s code on your own computer and tells you what it can reach. Nothing installs until you say yes. If you download it yourself, you can still ask Claude to check it first:</p>
+      <p>When you set it up with <b>Copy for Claude</b>, Claude first reads ${esc(l.n)}'s code on your own computer and tells you what it can reach. Nothing installs until you say yes.</p>
       ${risks.map(n => `<div class="worth ${NT_LV[n.lv][0]}"><div class="cap-h"><b>${esc(n.t)}</b><span class="chip ${NT_LV[n.lv][1]}">${NT_LV[n.lv][2]}</span></div><p>${esc(n.n)}</p></div>`).join('')}
       ${l.ih ? `<p class="note">Runs a script on its own when npm installs it (${esc(andList([...new Set(l.ih.map(h => h.s))]))}). Details are under Technical details.</p>` : ''}
-      ${askCard(l.r, l)}
+      ${(c => c ? `<details class="check-only"><summary>Downloading it yourself? Ask Claude to check it first</summary>${c}</details>` : '')(askCard(l.r, l))}
     </section>
 
     ${oddStars(l) ? `<div class="worth lv-note" id="odd" style="margin-top:18px"><div class="cap-h"><b>Unusual GitHub numbers</b><span class="chip c-blue">Worth knowing</span></div><p>${esc(oddText(l))}</p></div>` : ''}
@@ -2416,10 +2442,22 @@ function openStory(id) {
   story.scrollTop = 0;
 }
 
+// Visit counts with GoatCounter (no cookies, no personal data), off until GOATCOUNTER holds the site's code, e.g. 'skillshelf'.
+// Counts pages, and clicks on Get, Save, Copy for Claude, the bar's commands and download buttons. Never inside a Claude artifact.
+const GOATCOUNTER = '';
+const track = (path, event) => { try { window.goatcounter?.count?.({ path, title: event ? path : document.title, event: !!event }); } catch (e) {} };
+if (GOATCOUNTER && /^https?:$/.test(location.protocol) && !/claude\.ai|claudeusercontent/.test(location.host)) {
+  const s = document.createElement('script'); s.async = true; s.src = 'https://gc.zgo.at/count.js';
+  s.dataset.goatcounter = `https://${GOATCOUNTER}.goatcounter.com/count`; s.dataset.goatcounterSettings = '{"no_onload":true}';
+  s.onload = () => track(location.hash.slice(1) || 'home'); document.head.appendChild(s);
+}
+document.addEventListener('click', e => { const a = e.target.closest('a.dl-file'); if (a) track('click/download/' + a.dataset.dl, 1); }, true);
 document.addEventListener('click', e => {
   const t = e.target.closest('[data-more],[data-focus],[data-fset],[data-focusreset],[data-closepanel],[data-showall],[data-tab],[data-get],[data-story],[data-closestory],[data-closesheet],[data-copy],[data-agent],[data-suggest],[data-seeall],[data-easy],[data-jump],[data-unclamp],[data-save],[data-audit],[data-share],[data-sharelist],[data-sharekit],[data-savekit],[data-savelist],[data-mdlist],[data-clearlist],[data-copysetup],[data-kind],[data-easyoff],.story-ov .row-txt');
   if (!t) return;
   const d = t.dataset;
+  if (d.copy) track(d.copy.startsWith('/plugin') ? 'click/bar-command' : d.copy.startsWith('Set up') ? 'click/copy-for-claude' : 'click/copy', 1);
+  else if (d.get) track('click/get/' + d.get, 1); else if (d.save) track('click/save/' + d.save, 1);
   const target = t.getAttribute('href')?.startsWith('#') ? t.getAttribute('href').slice(1) : null;
   if (t.matches('.story-ov .row-txt')) { e.preventDefault(); closeModal(story, target); return; }
   if (d.more) { S.more = Number(d.more); refocus(); return; }
@@ -2491,6 +2529,7 @@ let curNav = stamp(), prevHash = null;
 // Today has its own Make it yours link at the top, so the floating one waits until that's scrolled away
 
 window.addEventListener('hashchange', e => {
+  track(location.hash.slice(1) || 'home');
   POS[curNav] = window.scrollY;
   prevHash = decodeURIComponent(new URL(e.oldURL).hash.slice(1));
   const seen = history.state?.nav;
@@ -2506,6 +2545,6 @@ document.addEventListener('click', e => {
 
 document.getElementById('mark').innerHTML = MARK;
 document.getElementById('side-q-ic').innerHTML = ic('search');
-document.getElementById('side-foot').innerHTML = `${shownN()} open-source projects from GitHub. Data from ${dataDates()}.`;
+document.getElementById('side-foot').innerHTML = `${shownN()} open-source projects from GitHub. Data from ${dataDates()}.<br><a href="https://github.com/${MARKET_REPO}" target="_blank" rel="noopener">Skillshelf on GitHub ${ic('ext')}</a>`;
 route();
 </script>

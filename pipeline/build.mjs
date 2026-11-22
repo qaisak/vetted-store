@@ -62,6 +62,8 @@ const REDUNDANT = fs.existsSync(new URL('../data/redundant.json', import.meta.ur
 const CUR = JSON.parse(fs.readFileSync(new URL('../data/curation.json', import.meta.url), 'utf8'));
 // Each project's own logo where a person owns the repository (pipeline/logos.cjs, checked by eye), so no listing shows a developer's photo as its icon
 const LOGOS = fs.existsSync(new URL('../data/logos.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../data/logos.json', import.meta.url), 'utf8')) : {};
+// One installer per kind of computer from each app's latest GitHub release (pipeline/releases.mjs)
+const RELEASES = fs.existsSync(new URL('../data/releases.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../data/releases.json', import.meta.url), 'utf8')) : {};
 // Apps you host yourself: free when you run them, on a server or an always-on computer. Each link is the project's own guide (from its README, November 22, 2026)
 const SELF_HOST = { 'twentyhq/twenty': ['https://docs.twenty.com/developers/self-host/capabilities/docker-compose'], 'makeplane/plane': ['https://developers.plane.so/self-hosting/overview'],
   'hcengineering/platform': ['https://github.com/hcengineering/huly-selfhost'], 'Leantime/leantime': ['https://github.com/Leantime/docker-leantime'],
@@ -353,6 +355,8 @@ for (const l of d.listings) {
     if (repo === 'dandavison/delta') inst.push({ to: 'All platforms', how: 'Note', text: 'The package is called git-delta in most package managers, but the command it installs is delta.' });
     if (repo === 'vercel-labs/skills') inst.push({ to: 'Any agent', how: 'npx', cmds: ['npx skills add vercel-labs/agent-skills'], note: 'No install needed. Runs through npx; this example adds Vercel\'s skills.' });
     if (repo === 'cli/cli') inst.push({ to: 'Coding agents', how: 'Agent skill', cmds: ['gh skill install cli/cli gh --scope user'], note: 'Installs the gh agent skill. Install GitHub CLI itself first.' });
+    // A download from the releases page names the one file each kind of computer needs (data/releases.json)
+    for (const o of inst) if (o.link === `https://github.com/${repo}/releases/latest` && RELEASES[repo]) o.files = RELEASES[repo];
     if (!inst.length || repo === 'cli/cli' || repo === 'jqlang/jq') if (!DESKTOP[repo]) inst.push({ to: 'All platforms', how: 'Install guide', link: repo === 'jqlang/jq' ? 'https://github.com/jqlang/jq/releases' : repo === 'cli/cli' ? 'https://github.com/cli/cli#installation' : repo === 'yt-dlp/yt-dlp' ? 'https://github.com/yt-dlp/yt-dlp#installation' : `https://github.com/${repo}#readme`, note: repo === 'jqlang/jq' ? 'Download the binary for your platform from the releases page.' : 'Follow the project\'s install guide.' });
   }
   // Skills whose folder name isn't the name the project goes by (from each README)

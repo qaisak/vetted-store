@@ -190,6 +190,20 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(await p.evaluate(() => !document.getElementById('replaces') && !!document.getElementById('get')), 'a listing with no known alternative has no What it replaces');
   const noCheck = await p.evaluate(() => L.filter(l => !/check it for safety here on my computer/.test(setupPrompt(l)) || !/Ask me before you install/.test(setupPrompt(l))).map(l => l.id));
   ok(!noCheck.length, 'every listing\'s Copy for Claude asks Claude to check the code before installing ' + noCheck.slice(0, 5).join(', '));
+  // Before posting: unusual star growth never leads, everyday phrases find the obvious apps, downloads name the right file
+  await p.goto(url + '#browse'); await p.waitForTimeout(300);
+  ok(await p.evaluate(() => !oddStars(BY[document.querySelector('.browse-cards a.card').getAttribute('href').slice(1)])), 'Browse never opens on a project with unusual star growth');
+  const firstHit = async q => { await p.fill('#q', q); await p.waitForTimeout(200); return p.evaluate(() => [...document.querySelectorAll('#results a.card')].map(a => a.getAttribute('href').slice(1))); };
+  const ep = await firstHit('edit photos'), ro = await firstHit('run ai offline'), tr = await firstHit('tax return');
+  ok(ep[0] === 'photocraft' && ep.includes('compositor'), `"edit photos" leads with PhotoCraft, not a flagged project (${ep.slice(0, 3).join(', ')})`);
+  ok(ro.includes('ollama') && ro.includes('jan'), `"run ai offline" finds Ollama and Jan (${ro.slice(0, 4).join(', ')})`);
+  ok(await p.evaluate(() => /The closest we have/.test(document.getElementById('results').textContent)) || !tr.length, 'a search where nothing matches every word says these are only the closest');
+  await p.fill('#q', ''); await p.goto(url + '#handy'); await p.waitForTimeout(300);
+  const dl = await p.evaluate(() => { const a = document.querySelector('#get a.dl-file'); return a ? [a.textContent.trim(), a.getAttribute('href')] : null; });
+  const wantOS = await p.evaluate(() => myOS());
+  ok(!wantOS || (dl && dl[0] === `Download for ${({ macOS: 'Mac', Windows: 'Windows', Linux: 'Linux' })[wantOS]}` && /^https:\/\/github\.com\/cjpais\/Handy\/releases\/download\//.test(dl[1])), `an app's download names the file for this computer (${wantOS}: ${dl && dl[0]})`);
+  ok(await p.evaluate(() => document.querySelectorAll('#before details.check-only').length === 1 && document.querySelectorAll('#main [data-copy^="Set up"]').length === 1), 'a listing page has one Copy for Claude; the check-only question is folded');
+  ok(await p.evaluate(() => /github\.com\/qaisak\/vetted-store/.test(document.querySelector('.data-note').innerHTML)), 'the footer links to Skillshelf\'s own code on GitHub');
   ok(!errs.length, 'no page errors ' + errs.join('; '));
   await b.close();
 })();
