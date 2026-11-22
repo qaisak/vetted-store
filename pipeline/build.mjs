@@ -364,10 +364,8 @@ const TD = new URL('../tests/', import.meta.url);
 const TESTS = fs.existsSync(TD) ? fs.readdirSync(TD).filter(d => fs.existsSync(new URL(`${d}/results.json`, TD))).map(d => JSON.parse(fs.readFileSync(new URL(`${d}/results.json`, TD), 'utf8')))
   .map(t => ({ ...t, contestants: t.contestants.filter(c => !c.listing || L.some(l => l.id === c.listing)) })).sort((a, b) => b.date.localeCompare(a.date)) : [];
 const DATA = { gen: d.generated.slice(0, 10), L, R, AV: d.avatars, SC, MR, TR, DG, TESTS };
-const json = JSON.stringify(DATA).replace(/</g, '\\u003c');
-const tpl = fs.readFileSync(tplPath, 'utf8');
-// A function replacement, so "$'" or "$&" inside scanned text is inserted literally
-fs.writeFileSync(outPath, tpl.replace('/*__DATA__*/null', () => json));
+// Each skill's install name in the Skillshelf marketplace (plugin@skillshelf), filled in below, so listing pages can offer it
+const MK = {};
 
 // The Checkup's copy of Skillshelf's checks (checkup/skills/skillshelf-checkup/skillshelf-data.json): every listed skill with its label and notes,
 // plus groups of skills that do the same job, so the Checkup can say "you have two of these, keep one".
@@ -389,9 +387,17 @@ if (fs.existsSync(CONNECTOR_DIR)) {
   const { marketplace: mk, skipped } = buildMarketplace(cat, commitsFrom(SOURCES), branchesFrom(d));
   cat.marketplace = { name: MARKETPLACE, repo: MARKETPLACE_REPO };
   for (const l of cat.listings) { const n = installName(mk, l.id); if (n) l.plugin = n; }
+  for (const l of cat.listings) if (l.plugin) MK[l.id] = l.plugin;
   fs.writeFileSync(new URL('catalog.json', CONNECTOR_DIR), JSON.stringify(cat) + '\n');
   console.error('connector catalog:', cat.listings.length, 'listings');
   console.error('marketplace:', mk.plugins.length, 'skills, written to', writeMarketplace(mk), 'left out:', JSON.stringify(skipped));
+}
+// The store page, written once the marketplace install names are known
+{
+  const json = JSON.stringify({ ...DATA, MK }).replace(/</g, '\\u003c');
+  const tpl = fs.readFileSync(tplPath, 'utf8');
+  // A function replacement, so "$'" or "$&" inside scanned text is inserted literally
+  fs.writeFileSync(outPath, tpl.replace('/*__DATA__*/null', () => json));
 }
 const CHECKUP_DIR = new URL('../checkup/skills/skillshelf-checkup/', import.meta.url);
 if (fs.existsSync(CHECKUP_DIR)) {

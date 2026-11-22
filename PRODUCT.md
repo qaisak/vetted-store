@@ -51,6 +51,7 @@ Success, in the owner's order:
 ## Brand Commitments
 
 - Name: Skillshelf.
+- Look: a familiar app store. The owner chose the category standard on purpose (2026-11-22): it should feel like Apple's App Store and the Mac App Store (big titles, rows with a Get button, clean product pages, a left sidebar on desktop and a bottom tab bar on phones). Their craft level is the bar. Skillshelf's own touch stays small: the "Free alternative to X" tag.
 - Voice: plain, simple, friendly English for non-technical readers. No jargon without a one-line explanation. No AI-writing tells (the owner bans them; see the Avoid AI Writing skill).
 - Only real data. Nothing invented: no fake reviews, counts, testimonials or alternatives.
 - Never call a project unsafe without reading its code.
