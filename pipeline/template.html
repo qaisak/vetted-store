@@ -26,7 +26,9 @@ html, body { height: 100%; }
 body { margin: 0; background: var(--bg); color: var(--label); font-family: var(--font); font-size: 15px; line-height: 1.4; -webkit-font-smoothing: antialiased; }
 body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--bg); }
 h1, h2, h3, h4 { margin: 0; text-wrap: balance; }
-p { margin: 0; }
+p { margin: 0; text-wrap: pretty; }
+::placeholder { color: var(--label2); opacity: 1; }
+::selection { background: color-mix(in srgb, var(--blue) 26%, transparent); }
 a { color: var(--blue); text-decoration: none; }
 button { font: inherit; color: inherit; cursor: pointer; border: 0; background: none; padding: 0; }
 :focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 6px; }
@@ -147,7 +149,7 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .strip::-webkit-scrollbar { display: none; }
 .strip > div { text-align: center; padding: 0 10px; border-left: 1px solid var(--sep); display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 0; }
 .strip > div:first-child { border-left: 0; }
-.strip .k { font-size: 11px; font-weight: 600; color: var(--label3); text-transform: uppercase; letter-spacing: 0.02em; white-space: nowrap; }
+.strip .k { font-size: 11px; font-weight: 600; color: var(--label2); text-transform: uppercase; letter-spacing: 0.02em; white-space: nowrap; }
 .strip .v { font-size: 20px; font-weight: 700; color: var(--label2); display: flex; align-items: center; gap: 4px; white-space: nowrap; font-variant-numeric: tabular-nums; }
 .strip .v.c-green { color: var(--green); } .strip .v.c-blue { color: var(--blue); }
 .strip .c { font-size: 12px; color: var(--label2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
@@ -665,7 +667,7 @@ dialog.story-ov[open] { animation: grow .38s cubic-bezier(.2,.8,.2,1); }
 .alt-app .t > span { font-size: 13px; color: var(--label2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .alt-foot { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--label2); margin-top: auto; }
 .alt-foot .ic { width: 12px; height: 12px; vertical-align: -1px; }
-.alt-tag { display: inline-block; align-self: flex-start; font-size: 12px; font-weight: 700; line-height: 1.2; padding: 3px 8px; border-radius: 6px; background: color-mix(in srgb, var(--green) 16%, transparent); color: var(--green-ink); margin-top: 4px; white-space: normal; }
+.alt-tag { display: inline-block; align-self: flex-start; font-size: 12px; font-weight: 700; line-height: 1.2; padding: 4px 8px; border-radius: 6px; background: color-mix(in srgb, var(--green) 16%, transparent); color: var(--green-ink); margin-top: 4px; white-space: normal; }
 .alt-tag.plain { background: var(--fill); color: var(--label2); }
 .alt-tag.big { font-size: 13.5px; padding: 4px 10px; margin-top: 8px; }
 .alt-foot .alt-tag { margin-top: 0; }
@@ -699,7 +701,7 @@ dialog.story-ov[open] { animation: grow .38s cubic-bezier(.2,.8,.2,1); }
 .block .note { font-size: 13.5px; color: var(--label2); margin-top: 8px; }
 .dev-says { margin-top: 16px; }
 .dev-says .lbl { display: block; font-size: 13px; font-weight: 600; color: var(--label2); margin-bottom: 4px; }
-.dev-says p { font-size: 15px; line-height: 1.55; max-width: 72ch; overflow-wrap: anywhere; }
+.dev-says p { font-size: 15px; line-height: 1.55; max-width: 66ch; overflow-wrap: anywhere; }
 .dev-says p.clamp { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .dev-says .more { color: var(--blue); font-size: 15px; font-weight: 600; margin-top: 4px; }
 blockquote.said { margin: 12px 0 0; padding: 12px 16px; background: var(--bg2); border-radius: 12px; font-size: 15px; line-height: 1.5; max-width: 70ch; }
@@ -711,6 +713,7 @@ blockquote.said a { display: block; margin-top: 6px; font-size: 13.5px; font-wei
 .way p { font-size: 14px; color: var(--label2); line-height: 1.45; }
 .way .copybox { align-self: stretch; }
 .way .note { font-size: 12.5px; }
+.way .note .mono { font-size: 12.5px; }
 .way a.get { display: inline-flex; align-items: center; gap: 6px; width: auto; white-space: nowrap; }
 .diy { margin-top: 10px; }
 .vids { margin-top: 16px; }
@@ -728,6 +731,9 @@ blockquote.said a { display: block; margin-top: 6px; font-size: 13.5px; font-wei
   .page.home > * { order: 4; }
   .page.home > .hero { order: 1; } .page.home > .alts { order: 2; } .page.home > .bar-shelf { order: 3; }
   .vthumb { width: 120px; }
+  .alt-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 82%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
+  .alt-grid::-webkit-scrollbar { display: none; }
+  .alt-grid > * { scroll-snap-align: start; }
   .kind-seg { display: flex; }
   .kind-seg a { flex: 1 1 auto; justify-content: center; padding: 6px 8px; }
   .shelf-head { flex-wrap: wrap; }
