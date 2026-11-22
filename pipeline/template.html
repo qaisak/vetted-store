@@ -678,6 +678,21 @@ mark.hl { color: inherit; background: linear-gradient(180deg, transparent 56%, v
 .ideas button:hover { background: color-mix(in oklab, var(--c) var(--tint), var(--card)); border-color: color-mix(in oklab, var(--c) 35%, var(--line)); }
 .bar-card { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 28px; background: var(--band-blue); border-radius: 24px; padding: 26px; }
 .bar-card .copybox { background: var(--card); }
+.bar-card h2 { font-size: 26px; }
+.bar-art { display: grid; gap: 12px; align-content: start; }
+.bar-feats { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 14px; }
+.bar-feats li { display: grid; grid-template-columns: 38px minmax(0, 1fr); column-gap: 12px; row-gap: 1px; }
+.bar-feats .fi { grid-row: span 2; width: 38px; height: 38px; border-radius: 11px; display: grid; place-items: center; font-size: 19px; background: color-mix(in oklab, var(--c) calc(var(--tint) + 4%), var(--card)); color: color-mix(in oklab, var(--c), #FFFFFF var(--lift)); }
+.bar-feats b { font-size: 16px; }
+.bar-feats .t { font-size: 14.5px; line-height: 1.45; color: var(--band-blue-2); }
+.bar-steps { grid-column: 1 / -1; justify-self: stretch; border-top: 1px solid color-mix(in srgb, var(--band-blue-2) 22%, transparent); padding-top: 18px; }
+.bar-cmds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 6px; }
+.bar-cmds .copybox { margin-top: 0; }
+.bd-hl { color: #C2255C; font-weight: 600; }
+.bd-flag { gap: 8px; }
+.bd-input { border: 1px solid #D6D6D6; border-radius: 10px; padding: 10px 12px; display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; color: #1F1F1F; line-height: 1.45; }
+.bd-btn { background: #1F1F1F; color: #FFFFFF; font-weight: 700; border-radius: 6px; padding: 4px 10px; flex: none; }
+.bd-hint { color: #6B6B6B; font-size: 12.5px; }
 .bar-card .claude-note { color: var(--band-blue-2); }
 .shelf.band { border-radius: 24px; padding: 0 24px 26px; }
 .shelf.band > .shelf-head { border-top: 0; padding-top: 22px; }
@@ -824,6 +839,8 @@ blockquote.said a { display: block; margin-top: 6px; font-size: 13.5px; font-wei
   .hero h1 { font-size: 32px; }
   .hero .intro { font-size: 17px; }
   .bar-card { grid-template-columns: minmax(0, 1fr); padding: 18px; gap: 18px; }
+  .bar-card h2 { font-size: 22px; }
+  .bar-cmds { grid-template-columns: minmax(0, 1fr); }
   .cards { grid-template-columns: minmax(0, 1fr); }
   .cards.home-cards { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 84%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
   .cards.home-cards::-webkit-scrollbar { display: none; }
@@ -908,6 +925,7 @@ const G = {
   grid: '<rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/>',
   bulb: '<path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/>',
   info: '<circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 7.5v.5"/>',
+  flag: '<path d="M5 21V4M5 4h12l-2.5 4 2.5 4H5"/>',
   heart: '<path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/>',
   tag: '<path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/>',
   share: '<path d="M12 3v12M7 8l5-5 5 5"/><path d="M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/>',
@@ -1263,7 +1281,7 @@ function risers(max = 6) {
     }
   return out.slice(0, max);
 }
-// One home for everyone: apps anyone can install, free swaps for paid tools, the Skillshelf bar, what's rising on GitHub,
+// One home for everyone: the Skillshelf bar first, then apps anyone can install, free swaps for paid tools, what's rising on GitHub,
 // free AI for your own computer, then skills and connectors for Claude. Nothing shows twice: each shelf skips projects an earlier one showed.
 function pageToday() {
   const seen = new Set();
@@ -1280,10 +1298,10 @@ function pageToday() {
       <label class="search-field hero-search" for="home-q">${ic('search')}<input id="home-q" type="search" placeholder="What do you want to do?" autocomplete="off" enterkeyhint="search"></label>
       <div class="ideas">${HOME_IDEAS.map(([t, q, g, c]) => `<button data-suggest="${esc(q)}" style="--c:${c}">${ic(g)}${esc(t)}</button>`).join('')}</div>
     </section>
+    ${claudeBox()}
     ${shelfOf('Start here', 'Free apps anyone can install. No account, no subscription.', cards(start, [], 'home-cards'))}
     ${alts.length ? `<section class="shelf band green alts"><div class="shelf-head"><h2>Free alternatives to tools you pay for<span class="sub">Each project says so in its own words. We link the line.</span></h2><a class="see-all" href="#instead">See all ${altsAll().length}</a></div>
       <div class="alt-grid">${alts.map(altCard).join('')}</div></section>` : ''}
-    ${claudeBox()}
     ${rise.length >= 3 ? shelfOf('Rising on GitHub', 'From GitHub\'s own trending lists', cards(rise.map(r => r[0]), rise.map(r => r[1]), 'home-cards')) : ''}
     ${ownAI.length ? shelfOf('Free AI on your own computer', 'Private, works offline, no monthly fee', cards(ownAI, [], 'home-cards')) : ''}
     ${skills.length ? shelfOf('Skills people install most', 'A skill teaches Claude a job, like making slides or reviewing code. Most-starred first, one per project.', cards(skills, [], 'home-cards'), '#skills', 'band violet') : ''}
@@ -1307,23 +1325,31 @@ const INST_HOW = { 'skills CLI': 'Terminal' };
 const MARKET_REPO = 'qaisak/vetted-store';
 const SETUP_PAGE = CONNECTOR.replace(/\/mcp$/, '/');
 
-// A small drawing of the bar as it sits above the message box (the setup page has a clickable one)
+// Drawings of the bar as it sits above the message box, and of its Flag slop box (wording from plugins/skillshelf/hooks/register.tsx)
 function barDrawing() {
   const chip = (t, off) => `<span class="bd-chip${off ? ' off' : ''}">${t}: ${off ? 'OFF' : 'ON'}</span>`;
-  return `<div class="bar-drawing" role="img" aria-label="The Skillshelf bar above the message box in Claude Code: a chip for each skill showing ON or OFF, All skills, Add skill and Flag slop.">
+  return `<div class="bar-drawing" role="img" aria-label="The Skillshelf bar above the message box in Claude Code: a chip for each skill showing ON or OFF, All skills, Add skill, Flag slop and Banned (3).">
     <div class="bd-bar"><div class="bd-chips"><span class="bd-tog">▾ Skills</span>${chip('impeccable')}${chip('ponytail')}${chip('caveman', true)}${chip('archify')}<span class="bd-chip all">All skills (12)</span></div>
-      <div class="bd-links"><span>+ Add skill</span><span>⚑ Flag slop</span></div></div>
+      <div class="bd-links"><span>+ Add skill</span><span class="bd-hl">⚑ Flag slop</span><span>Banned (3)</span></div></div>
     <div class="bd-composer"><span>+</span><span class="ph">Ask Claude to do something…</span><span>↵</span></div></div>`;
 }
+const flagDrawing = () => `<div class="bar-drawing bd-flag" role="img" aria-label="Flag slop open in the bar: the words delve and game-changer typed in, a Ban it button, and the note: Claude won't write it again, in this session or any new one.">
+    <div class="bd-input"><span>delve<br>game-changer</span><span class="bd-btn">Ban it</span></div>
+    <span class="bd-hint">Claude won't write it again, in this session or any new one.</span></div>`;
+// What the bar does, one line each
+const BAR_FEATS = [['sliders', '#2156D1', 'Skills on a switch', 'Each skill is a chip. Turn one off and Claude won\'t use it for the rest of the session.'],
+  ['shieldok', '#0E7A6E', 'Add skills without the worry', 'Paste a link or say what you need. Claude reads the code first and asks before it installs.'],
+  ['flag', '#D2335C', 'Flag slop', 'Claude wrote “delve” or “game-changer” again? Flag the phrase once and Claude won\'t write it again, in this session or any new one. Your list stays on your computer.']];
 
 function claudeBox() {
   return `<section class="shelf bar-shelf" id="in-claude">
     <div class="bar-card">
-      <div class="bar-copy"><h2>Skillshelf for Claude Code</h2>
-        <p>A bar above your message box. Switch skills on and off, and add new ones from here. Claude reads each one before it installs.</p>
-        ${barDrawing()}</div>
+      <div class="bar-copy"><h2>Our favourite feature: the Skillshelf bar</h2>
+        <p>A bar above your message box in Claude Code. It's free, and it takes two commands to add.</p>
+        <ul class="bar-feats">${BAR_FEATS.map(([g, c, h, s]) => `<li style="--c:${c}"><span class="fi">${ic(g)}</span><b>${h}</b><span class="t">${s}</span></li>`).join('')}</ul></div>
+      <div class="bar-art">${barDrawing()}${flagDrawing()}</div>
       <div class="bar-steps"><b>Add it in two steps</b>
-        <ol class="claude-steps"><li>In Claude Code, run these two commands:${copyBox(`/plugin marketplace add ${MARKET_REPO}`)}${copyBox('/plugin install skillshelf@skillshelf')}</li>
+        <ol class="claude-steps"><li>In Claude Code, run these two commands:<div class="bar-cmds">${copyBox(`/plugin marketplace add ${MARKET_REPO}`)}${copyBox('/plugin install skillshelf@skillshelf')}</div></li>
           <li>Start a new session. The bar appears above your message box.</li></ol>
         <p class="claude-note">Claude Code only for now: the terminal, your code editor, or the Code tab of the Claude desktop app. <a href="${SETUP_PAGE}" target="_blank" rel="noopener">How it works ${ic('ext')}</a></p>
         <details class="chat-way"><summary>Use Claude chats instead?</summary>
