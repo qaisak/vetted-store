@@ -179,6 +179,19 @@ button { font: inherit; color: inherit; cursor: pointer; border: 0; background: 
 .claude-steps .copybox { margin-top: 6px; }
 .claude-tries { margin: 6px 0 0; padding-left: 18px; display: grid; gap: 4px; color: var(--label2); }
 .claude-desk { display: grid; gap: 6px; justify-items: start; border-top: 1px solid var(--sep); padding-top: 12px; line-height: 1.45; }
+.bar-card { justify-items: start; }
+.bar-card .pill-link { align-self: flex-start; }
+/* A drawing of the Skills bar above Claude Code's message box: fixed light colours, like a picture of the app */
+.bar-drawing { background: #FFFFFF; color: #1F1F1F; border: 1px solid var(--sep); border-radius: 12px; padding: 12px; display: grid; gap: 10px; font-size: 13.5px; line-height: 1.3; }
+.bd-bar { background: #F3F3F3; border-radius: 9px; padding: 8px; display: grid; gap: 8px; }
+.bd-chips { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.bd-tog { padding: 0 4px; }
+.bd-chip { background: #1F1F1F; color: #FFFFFF; font-weight: 700; border-radius: 6px; padding: 4px 8px; white-space: nowrap; }
+.bd-chip.off, .bd-chip.all { background: #E4E4E4; color: #1F1F1F; font-weight: 400; }
+.bd-links { display: flex; gap: 16px; color: #6B6B6B; padding: 0 4px; }
+.bd-composer { border: 1px solid #D6D6D6; border-radius: 12px; padding: 10px 12px; display: flex; gap: 10px; color: #6B6B6B; }
+.bd-composer .ph { flex: 1; }
+.bd-composer span:first-child, .bd-composer span:last-child { color: #1F1F1F; }
 .claude-note { margin: 0; font-size: 12.5px; color: var(--label2); line-height: 1.45; }
 .sheet .inst-card.ask { background: color-mix(in srgb, var(--blue) 8%, var(--card)); }
 .ask-btns { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
@@ -1015,25 +1028,41 @@ const CONNECTOR = 'https://skillshelf.skillshelf.workers.dev/mcp';
 const INST_TO = { 'Any agent': 'Claude Code and other agents' };
 const INST_HOW = { 'skills CLI': 'Terminal' };
 
+// The Skillshelf bar (plugins/skillshelf in the repo): a Skills bar above the message box in Claude Code, from our marketplace
+const MARKET_REPO = 'qaisak/vetted-store';
+const SETUP_PAGE = CONNECTOR.replace(/\/mcp$/, '/');
+
+// A small drawing of the bar as it sits above the message box (the setup page has a clickable one)
+function barDrawing() {
+  const chip = (t, off) => `<span class="bd-chip${off ? ' off' : ''}">${t}: ${off ? 'OFF' : 'ON'}</span>`;
+  return `<div class="bar-drawing" role="img" aria-label="The Skillshelf bar above the message box in Claude Code: a chip for each skill showing ON or OFF, All skills, Add skill and Flag slop.">
+    <div class="bd-bar"><div class="bd-chips"><span class="bd-tog">▾ Skills</span>${chip('frontend-design')}${chip('impeccable')}${chip('pdf', true)}${chip('docx')}<span class="bd-chip all">All skills (12)</span></div>
+      <div class="bd-links"><span>+ Add skill</span><span>⚑ Flag slop</span></div></div>
+    <div class="bd-composer"><span>+</span><span class="ph">Ask Claude to do something…</span><span>↵</span></div></div>`;
+}
+
 function claudeBox() {
-  return `<section class="shelf" id="in-claude"><div class="shelf-head"><h2>Use Skillshelf inside Claude<span class="sub">Find checked skills and switch yours on or off without leaving the chat</span></h2></div>
+  return `<section class="shelf" id="in-claude"><div class="shelf-head"><h2>Use Skillshelf inside Claude Code<span class="sub">The Skillshelf bar stays above your message box: switch skills on or off, and add any skill after we check it</span></h2></div>
     <div class="inst-grid">
-      <div class="inst-card ask claude-box"><div class="h"><b>In Claude chats</b><span class="how">2 steps</span></div>
+      <div class="inst-card ask claude-box bar-card"><div class="h"><b>The Skillshelf bar</b><span class="how">2 steps</span></div>
+        ${barDrawing()}
+        <ol class="claude-steps"><li>In Claude Code, run:${copyBox(`/plugin marketplace add ${MARKET_REPO}`)}${copyBox('/plugin install skillshelf@skillshelf')}</li>
+          <li>Start a new session. The bar appears above your message box.</li></ol>
+        <ul class="claude-tries"><li>Click a skill to switch it on or off for the session.</li>
+          <li><b>+ Add skill</b>: paste a link or say what you need. Claude checks it with Skillshelf and asks before installing.</li>
+          <li><b>⚑ Flag slop</b>: ban a phrase Claude keeps writing, in every Claude Code session.</li></ul>
+        <a class="pill-link" href="${SETUP_PAGE}" target="_blank" rel="noopener">See how it works ↗</a>
+        <span class="claude-note">Claude Code only for now (terminal, IDE, or the Code tab of the Claude desktop app). It brings the Skillshelf connector with it.</span>
+      </div>
+      <div class="inst-card ask claude-box"><div class="h"><b>Use Claude chats?</b><span class="how">2 steps</span></div>
+        <p class="claude-note">The bar isn't in Claude chats yet, but you can add Skillshelf as a connector there to find checked skills.</p>
         <ol class="claude-steps"><li>In Claude, open <b>Plugins</b>, click <b>Add</b>, then <b>Add custom connector</b>.</li>
           <li>Name it Skillshelf and paste this address:${copyBox(CONNECTOR)}</li></ol>
-        <div><span class="lbl">Then ask, in a new chat</span><ul class="claude-tries"><li><i>“open my skills in Skillshelf”</i></li>
-          <li><i>“find me a skill to make my website look less AI-made”</i></li>
-          <li><i>“check this for AI slop: …”</i> and paste your text</li></ul></div>
-      </div>
-      <div class="inst-card ask claude-box"><div class="h"><b>In Claude Code</b><span class="how">1 step</span></div>
-        <p class="claude-note">Run this once in a terminal:</p>${copyBox(`claude mcp add --transport http skillshelf ${CONNECTOR}`)}
-        <div class="claude-desk"><b>On/off switches for your Claude Code skills</b>
-          <span>The desktop extension lists every Claude Code skill on your computer with a switch and our check on each. After installing, ask Claude <i>“show my Claude Code skills in Skillshelf”</i>.</span>
-          <a class="get primary" href="${CONNECTOR.replace(/\/mcp$/, '/skillshelf.mcpb')}" target="_blank" rel="noopener">Get the extension</a>
-          <span class="claude-note">For the Claude desktop app on Mac and Windows. Open the downloaded file and click Install.</span></div>
+        <div><span class="lbl">Then ask, in a new chat</span><ul class="claude-tries"><li><i>“find me a skill to make my website look less AI-made”</i></li>
+          <li><i>“is Impeccable safe?”</i></li></ul></div>
       </div>
     </div>
-    <p class="claude-note" style="margin-top:10px">Free, no account. Skillshelf only sees the short search Claude sends (like “design skills”) and keeps nothing. It can't see your chats, files or settings.</p></section>`;
+    <p class="claude-note" style="margin-top:10px">Free, no account. Skillshelf only sees the short search Claude sends (like “design skills”) and keeps nothing. Banned phrases stay on your computer.</p></section>`;
 }
 
 // What Skillshelf is, in one breath, with only claims the data backs

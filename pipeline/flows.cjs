@@ -137,9 +137,9 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.goto(url + '#pbakaus-impeccable'); await p.waitForTimeout(300);
   ok(await p.evaluate(() => /Our pick/.test(document.querySelector('.tested-box')?.textContent || '') && document.querySelector('.tested-box').getAttribute('href') === '#test-design-2026-11'), 'a tested listing links to its test');
   await p.goto(url + '#today'); await p.waitForTimeout(300);
-  const cb = await p.evaluate(() => { const box = document.querySelector('#in-claude'); return { code: box?.querySelector('.copybox code')?.textContent, copy: box?.querySelector('[data-copy]')?.dataset.copy, cc: box?.querySelectorAll('.copybox').length }; });
-  ok(cb.code === 'https://skillshelf.skillshelf.workers.dev/mcp' && cb.copy === cb.code && cb.cc === 2, 'home has the Add Skillshelf to Claude box with a copyable connector address');
-  ok(await p.evaluate(() => document.querySelector('#in-claude .claude-desk a')?.getAttribute('href') === 'https://skillshelf.skillshelf.workers.dev/skillshelf.mcpb'), 'the box offers the desktop extension download');
+  const cb = await p.evaluate(() => { const box = document.querySelector('#in-claude'); const codes = [...(box?.querySelectorAll('.copybox code') || [])].map(c => c.textContent); return { codes, copies: [...(box?.querySelectorAll('[data-copy]') || [])].map(b => b.dataset.copy), bar: !!box?.querySelector('.bar-card .bar-drawing') }; });
+  ok(cb.bar && cb.codes[0] === '/plugin marketplace add qaisak/vetted-store' && cb.codes[1] === '/plugin install skillshelf@skillshelf', 'home leads with the Skillshelf bar: a drawing of it and its two install commands');
+  ok(cb.codes[2] === 'https://skillshelf.skillshelf.workers.dev/mcp' && cb.codes.every((c, i) => cb.copies[i] === c), 'Claude chat users still get a copyable connector address');
   ok(!errs.length, 'no page errors ' + errs.join('; '));
   await b.close();
 })();
