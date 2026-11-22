@@ -44,6 +44,8 @@ const SOURCES = JSON.parse(fs.readFileSync(new URL('../data/sources.json', impor
 const HOOKS = fs.existsSync(new URL('../data/install-hooks.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../data/install-hooks.json', import.meta.url), 'utf8')) : {};
 const VIDEOS = fs.existsSync(new URL('../data/videos.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../data/videos.json', import.meta.url), 'utf8')) : {};
 const PLAIN = JSON.parse(fs.readFileSync(new URL('./plain.json', import.meta.url), 'utf8'));
+// What a listing is a free alternative to, only where the project itself says so, with the source (data/alternatives.json)
+const ALTS = fs.existsSync(new URL('../data/alternatives.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../data/alternatives.json', import.meta.url), 'utf8')) : {};
 // Install steps for MCP servers whose README gives a JSON config or several steps instead of one command.
 // Every command is the README's own, or its JSON config written as the equivalent `claude mcp add`.
 const MCP_INSTALL = {
@@ -274,6 +276,7 @@ for (const l of d.listings) {
   L.push({ id, k: l.kind, n: name, sl: l.slug, t: tagline(desc), d: desc, r: repo, u: l.url, p: l.path, nv: !!l.nvidia, tr: TRUSTED.has(owner), g: glyphFor(l.slug + ' ' + desc + ' ' + repo), c: colorFor(id),
     lines: l.lines || null, lic: l.license || null, inst, pl: PLAIN[id]?.[0] || null, jb: PLAIN[id]?.[1] || [], lv: PLAIN[id]?.[2] || null,
     vd: (VIDEOS[l.kind === 'mcp' && l.path ? `${repo}:${l.path}` : repo] || []).map(v => [v.kind, v.url, v.label || null, v.id || null]),
+    ...(ALTS[id] ? { alt: ALTS[id] } : {}),
     ...(HOOKS[l.id] ? { ih: HOOKS[l.id].map(h => ({ f: h.file, s: h.script, c: h.cmd, refs: h.refs })) } : {}) });
   if (!PLAIN[id]) console.error('NO PLAIN TEXT', id);
 }
