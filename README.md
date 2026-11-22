@@ -66,6 +66,20 @@ Only needs Node.js 20 or newer:
 node pipeline/build.mjs data/data.json pipeline/template.html vetted-store.html data/scan-reports data/purpose.json
 ```
 
+Before a build, `node pipeline/releases.mjs` refreshes `data/releases.json` (the installer each kind of computer needs, for the Download buttons), and after it `node pipeline/og.cjs` redraws the link preview `assets/og.png` (needs Playwright).
+
+## Publish the site
+
+The public site is **https://getskillshelf.pages.dev/** (Cloudflare Pages, project `getskillshelf`). Put the build in a folder as `index.html` with `assets/og.png` beside it as `og.png`, then, from a folder with no `wrangler.toml` in it (the one in `connector/` would turn this into a Worker deploy):
+
+```bash
+npx wrangler pages deploy <folder> --project-name getskillshelf --branch main --commit-dirty=true
+```
+
+The old address, https://skillshelf-dgcx.onrender.com/, is now only a redirect (the `skillshelf-render` branch, `public/index.html`) that keeps the page a link points to. A private copy is also published as a Claude artifact.
+
+**Visit counts.** The site sends a page name, a click name, or where a visit came from to the connector Worker (`POST /hit`), which adds one to a daily count in its D1 database (table `hits` in `connector/schema.sql`). No cookies and nothing about the visitor. Only the public site counts; local copies and the artifact don't. Read the numbers at **https://skillshelf.skillshelf.workers.dev/stats** (`?days=7`, `30` or `90`). After changing the Worker, deploy it from `connector/` with `npx wrangler deploy`.
+
 ## The Skillshelf plugin marketplace
 
 People can install a checked skill in one step instead of downloading a folder and uploading it. The build writes

@@ -204,6 +204,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(!wantOS || (dl && dl[0] === `Download for ${({ macOS: 'Mac', Windows: 'Windows', Linux: 'Linux' })[wantOS]}` && /^https:\/\/github\.com\/cjpais\/Handy\/releases\/download\//.test(dl[1])), `an app's download names the file for this computer (${wantOS}: ${dl && dl[0]})`);
   ok(await p.evaluate(() => document.querySelectorAll('#before details.check-only').length === 1 && document.querySelectorAll('#main [data-copy^="Set up"]').length === 1), 'a listing page has one Copy for Claude; the check-only question is folded');
   ok(await p.evaluate(() => /github\.com\/qaisak\/vetted-store/.test(document.querySelector('.data-note').innerHTML)), 'the footer links to Skillshelf\'s own code on GitHub');
+  ok(await p.evaluate(() => SITE === 'https://getskillshelf.pages.dev/' && !COUNTING && document.querySelector('meta[property="og:image"]').content === 'https://getskillshelf.pages.dev/og.png'), 'shared links and the link preview use the public site, and a local copy counts nothing');
   ok(!errs.length, 'no page errors ' + errs.join('; '));
   await b.close();
 })();

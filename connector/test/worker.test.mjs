@@ -137,5 +137,15 @@ ok(page.includes('class="bar"') && page.includes('data-chip') && page.includes('
 ok(page.includes('Claude Code only for now') && !page.includes('Copy for the Claude app'), 'the setup page says the bar is Claude Code only for now');
 ok(page.includes('<code class="inline" id="link">https://x.test/mcp</code>') && page.includes('click Add, then Add custom connector') && page.includes('before your first message') && page.includes('href="https://claude.ai/plugins"'), 'the setup page keeps a short note for Claude chat users, with the connector link');
 
+// Visit counts: only from the site's own addresses, one row per day and thing counted, readable at /stats
+const hit = (body, origin = 'https://getskillshelf.pages.dev') => worker.fetch(new Request('https://x.test/hit', { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8', ...(origin ? { Origin: origin } : {}) }, body: JSON.stringify(body) }), env);
+const h1 = await hit({ k: 'visit', p: 'linkedin.com' }); await hit({ k: 'page', p: 'noop' }); await hit({ k: 'page', p: 'noop' }); await hit({ k: 'click', p: 'click/bar-command' });
+await hit({ k: 'page', p: 'noop' }, 'https://evil.example'); await hit({ k: 'page', p: 'noop' }, null); await hit({ k: 'nonsense', p: 'x' }); await hit({ k: 'page', p: '<script>alert(1)</script>' });
+const rows = db.prepare('SELECT kind, key, n FROM hits ORDER BY kind, key').all().map(r => `${r.kind}:${r.key}:${r.n}`).join(' ');
+ok(h1.status === 204 && h1.headers.get('Access-Control-Allow-Origin') === '*', '/hit answers 204 with CORS, so the site can send it without waiting');
+ok(rows === 'click:click/bar-command:1 page:noop:2 page:scriptalert1/script:1 visit:linkedin.com:1', 'only the site\'s own addresses are counted, by day and key, with keys cleaned (' + rows + ')');
+const st = await (await worker.fetch(new Request('https://x.test/stats'), env)).text();
+ok(/<b>1<\/b><span>visits<\/span>/.test(st) && /<b>3<\/b><span>pages opened<\/span>/.test(st) && st.includes('linkedin.com') && st.includes('Copied the bar&#39;s install commands') && !st.includes('<script>'), '/stats shows visits, pages, sources and clicks, escaped');
+
 fs.rmSync(tmp, { recursive: true, force: true });
 process.exitCode = fails ? 1 : 0;

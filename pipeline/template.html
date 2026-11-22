@@ -6,8 +6,8 @@
 <meta property="og:site_name" content="Skillshelf">
 <meta property="og:title" content="Skillshelf: the app store for open source">
 <meta property="og:description" content="Free apps, AI skills and connectors from GitHub, explained in plain English and set up for you by Claude. Free alternatives to tools you pay for.">
-<meta property="og:url" content="https://skillshelf-dgcx.onrender.com/">
-<meta property="og:image" content="https://skillshelf-dgcx.onrender.com/og.png">
+<meta property="og:url" content="https://getskillshelf.pages.dev/">
+<meta property="og:image" content="https://getskillshelf.pages.dev/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
 <meta property="og:image:alt" content="Skillshelf: the app store for open source">
@@ -1174,7 +1174,7 @@ function dataDates() { const last = Object.values(R).map(r => r.fd).filter(Boole
 const shownN = () => L.filter(l => !l.rd).length;
 // Who makes Skillshelf, and where its own code is
 const MAKER = ['qaisak', 'https://github.com/qaisak'];
-const dataNote = () => `<p class="data-note">${shownN()} open-source projects from GitHub. Data from ${dataDates()}. Skillshelf isn't affiliated with these projects. Skillshelf is open source too, made by <a href="${MAKER[1]}" target="_blank" rel="noopener">${MAKER[0]}</a>: <a href="https://github.com/${MARKET_REPO}" target="_blank" rel="noopener">see the code or star it on GitHub</a>. <button class="text-btn" style="font-size:12px" data-story="community">How we check</button></p>`;
+const dataNote = () => `<p class="data-note">${shownN()} open-source projects from GitHub. Data from ${dataDates()}. Skillshelf isn't affiliated with these projects. Skillshelf is open source too, made by <a href="${MAKER[1]}" target="_blank" rel="noopener">${MAKER[0]}</a>: <a href="https://github.com/${MARKET_REPO}" target="_blank" rel="noopener">see the code or star it on GitHub</a>. Visits are counted without cookies or anything that identifies you. <button class="text-btn" style="font-size:12px" data-story="community">How we check</button></p>`;
 
 // ---------- stories ----------
 const community = () => L.filter(l => !l.tr);
@@ -2086,7 +2086,8 @@ const hiddenNote = (all, shown) => { const n = all.length - shown.length;
 
 // ---------- My list: save, share, compare, copy and install together ----------
 // Kept only in this browser. A shared list travels in the link (#list=id,id) and opens read-only until it's saved.
-const SITE = 'https://claude.ai/artifact/FPBcjYdeXFHDF2zDMqhGCG';
+// The public site: every shared link, list and setup link points here (the Claude artifact copy is private)
+const SITE = 'https://getskillshelf.pages.dev/';
 let LIST = [];
 try { const s = JSON.parse(localStorage.getItem('vetted-list') || '[]'); if (Array.isArray(s)) LIST = s.filter(id => BY[id]); } catch (e) {}
 const saveList = () => { try { localStorage.setItem('vetted-list', JSON.stringify(LIST)); } catch (e) {} };
@@ -2468,14 +2469,19 @@ function openStory(id) {
   story.scrollTop = 0;
 }
 
-// Visit counts with GoatCounter (no cookies, no personal data), off until GOATCOUNTER holds the site's code, e.g. 'skillshelf'.
-// Counts pages, and clicks on Get, Save, Copy for Claude, the bar's commands and download buttons. Never inside a Claude artifact.
-const GOATCOUNTER = '';
-const track = (path, event) => { try { window.goatcounter?.count?.({ path, title: event ? path : document.title, event: !!event }); } catch (e) {} };
-if (GOATCOUNTER && /^https?:$/.test(location.protocol) && !/claude\.ai|claudeusercontent/.test(location.host)) {
-  const s = document.createElement('script'); s.async = true; s.src = 'https://gc.zgo.at/count.js';
-  s.dataset.goatcounter = `https://${GOATCOUNTER}.goatcounter.com/count`; s.dataset.goatcounterSettings = '{"no_onload":true}';
-  s.onload = () => track(location.hash.slice(1) || 'home'); document.head.appendChild(s);
+// Visit counts, sent to Skillshelf's own Worker (connector/src/worker.js; the numbers are at /stats). No cookies and nothing about
+// the visitor: a page name, a click name, or where a visit came from (a site name like linkedin.com, or "direct"). A per-tab mark
+// in sessionStorage stops one visit counting twice. Only on the public site, never in a Claude artifact or a local copy.
+const COUNTER = 'https://skillshelf.skillshelf.workers.dev/hit';
+const COUNTING = location.protocol === 'https:' && /(^|\.)getskillshelf\.pages\.dev$/.test(location.host);
+const hitKey = h => h.startsWith('list=') ? 'list-shared' : h.replace(/[^a-z0-9._\-\/:=]/gi, '').slice(0, 80) || 'home';
+const beacon = body => { try { navigator.sendBeacon(COUNTER, JSON.stringify(body)); } catch (e) {} };
+const track = (path, event) => { if (COUNTING) beacon({ k: event ? 'click' : 'page', p: event ? path : hitKey(path) }); };
+if (COUNTING) {
+  try { if (!sessionStorage.getItem('ss-visit')) { sessionStorage.setItem('ss-visit', '1');
+    const src = new URLSearchParams(location.search).get('utm_source'), ref = document.referrer ? new URL(document.referrer).hostname.replace(/^www\./, '') : '';
+    beacon({ k: 'visit', p: src || (ref && ref !== location.host ? ref : 'direct') }); } } catch (e) {}
+  track(location.hash.slice(1) || 'home');
 }
 document.addEventListener('click', e => { const a = e.target.closest('a.dl-file'); if (a) track('click/download/' + a.dataset.dl, 1); }, true);
 document.addEventListener('click', e => {

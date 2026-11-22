@@ -255,6 +255,51 @@ async function handleRpc(msg, env, session) {
   return rpcError(id, -32601, `Method not found: ${method}`);
 }
 
+// ---------- Visit counts for the Skillshelf site ----------
+// Only the site's own addresses are counted. A key is a page (a listing id, "browse"), a source ("linkedin.com", "direct")
+// or a click ("click/get/noop"): never anything about who visited.
+const HIT_ORIGINS = /^https:\/\/([a-z0-9-]+\.)?getskillshelf\.pages\.dev$|^https:\/\/skillshelf-dgcx\.onrender\.com$/;
+const hitKey = s => String(s || '').toLowerCase().replace(/[^a-z0-9._\-\/:=]/g, '').slice(0, 80);
+async function countHit(request, env) {
+  if (!HIT_ORIGINS.test(request.headers.get('Origin') || '') || !env.DB) return;
+  let b; try { b = JSON.parse((await request.text()).slice(0, 600)); } catch { return; }
+  if (!['visit', 'page', 'click'].includes(b?.k)) return;
+  const key = hitKey(b.p) || (b.k === 'visit' ? 'direct' : 'home');
+  await env.DB.prepare('INSERT INTO hits (day, kind, key, n) VALUES (?, ?, ?, 1) ON CONFLICT (day, kind, key) DO UPDATE SET n = n + 1')
+    .bind(new Date().toISOString().slice(0, 10), b.k, key).run();
+}
+// A plain page of the counts: visits a day, where visits came from, the pages people open and what they click
+async function statsPage(url, env) {
+  const days = [7, 30, 90].includes(Number(url.searchParams.get('days'))) ? Number(url.searchParams.get('days')) : 30;
+  const since = new Date(Date.now() - (days - 1) * 864e5).toISOString().slice(0, 10);
+  const q = async (sql, ...a) => (await env.DB.prepare(sql).bind(...a).all()).results || [];
+  const perDay = env.DB ? await q("SELECT day, SUM(CASE WHEN kind = 'visit' THEN n ELSE 0 END) AS visits, SUM(CASE WHEN kind = 'page' THEN n ELSE 0 END) AS pages FROM hits WHERE day >= ? GROUP BY day ORDER BY day DESC", since) : [];
+  const top = async kind => env.DB ? q('SELECT key, SUM(n) AS n FROM hits WHERE kind = ? AND day >= ? GROUP BY key ORDER BY n DESC LIMIT 25', kind, since) : [];
+  const [sources, pages, clicks] = [await top('visit'), await top('page'), await top('click')];
+  const sum = (rows, f) => rows.reduce((a, r) => a + (r[f] || 0), 0);
+  // Clicks by kind (Get, Save, Download, Copy for Claude, the bar's commands), then the listings behind Get and Download
+  const kinds = {}; for (const c of clicks) { const k = c.key.split('/')[1] || c.key; kinds[k] = (kinds[k] || 0) + c.n; }
+  const KIND_NAME = { 'bar-command': "Copied the bar's install commands", 'copy-for-claude': 'Copy for Claude', get: 'Get', save: 'Save', download: 'Download', copy: 'Other copies' };
+  const table = (head, rows) => rows.length ? `<table><tr>${head.map(h => `<th>${h}</th>`).join('')}</tr>${rows.map(r => `<tr>${r.map((c, i) => `<td${i ? ' class="n"' : ''}>${esc(c)}</td>`).join('')}</tr>`).join('')}</table>` : '<p class="none">Nothing yet.</p>';
+  const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="robots" content="noindex"><title>Skillshelf visits</title>
+<style>:root{--bg:#FAF8F5;--card:#FFF;--ink:#1C1A17;--ink2:#5E5850;--line:#E6E1D9;--blue:#0062CC}@media (prefers-color-scheme:dark){:root{--bg:#121110;--card:#1E1C1A;--ink:#F5F2ED;--ink2:#ADA69C;--line:#322E29;--blue:#4BA3FF}}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 -apple-system,"Segoe UI",system-ui,sans-serif}main{max-width:980px;margin:0 auto;padding:28px 16px 60px}h1{font-size:28px;margin:0}
+.sub{color:var(--ink2);margin:4px 0 18px}.tot{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}.tot div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 16px;min-width:150px}
+.tot b{display:block;font-size:26px;font-variant-numeric:tabular-nums}.tot span{color:var(--ink2);font-size:13px}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}h2{font-size:16px;margin:0 0 8px}table{width:100%;border-collapse:collapse;font-size:14px}
+th{text-align:left;color:var(--ink2);font-weight:600;font-size:12px;padding:4px 0;border-bottom:1px solid var(--line)}td{padding:5px 0;border-bottom:1px solid var(--line);overflow-wrap:anywhere}td.n,th+th{text-align:right;font-variant-numeric:tabular-nums}
+.none{color:var(--ink2)}a{color:var(--blue)}nav a{margin-right:12px}</style></head><body><main>
+<h1>Skillshelf visits</h1><p class="sub">Last ${days} days, counted without cookies or anything about the visitor. <nav style="display:inline">${[7, 30, 90].map(d => d === days ? `<b>${d} days</b>` : `<a href="?days=${d}">${d} days</a>`).join(' ')}</nav></p>
+<div class="tot"><div><b>${sum(perDay, 'visits')}</b><span>visits</span></div><div><b>${sum(perDay, 'pages')}</b><span>pages opened</span></div><div><b>${kinds['bar-command'] || 0}</b><span>copied the bar's commands</span></div><div><b>${kinds['copy-for-claude'] || 0}</b><span>Copy for Claude</span></div></div>
+<div class="grid"><section><h2>Each day</h2>${table(['Day', 'Visits', 'Pages'], perDay.map(r => [r.day, r.visits, r.pages]))}</section>
+<section><h2>Where visits came from</h2>${table(['Source', 'Visits'], sources.map(r => [r.key, r.n]))}</section>
+<section><h2>Pages people open</h2>${table(['Page', 'Opened'], pages.map(r => [r.key, r.n]))}</section>
+<section><h2>What people click</h2>${table(['Click', 'Times'], Object.entries(kinds).sort((a, b) => b[1] - a[1]).map(([k, n]) => [KIND_NAME[k] || k, n]))}</section>
+<section><h2>Get, Save and Download, by listing</h2>${table(['Listing', 'Times'], clicks.filter(c => /^click\/(get|save|download)\//.test(c.key)).map(c => [c.key.replace(/^click\//, '').replace('/', ': '), c.n]))}</section></div>
+</main></body></html>`;
+  return new Response(html, { headers: { 'Content-Type': 'text/html; charset=utf-8', 'Cache-Control': 'no-store' } });
+}
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -279,6 +324,12 @@ export default {
       const flags = {}; for (const r of results || []) (flags[r.listing] ||= {})[r.reason] = r.n;
       return json({ since_days: 30, reasons: REASONS, flags });
     }
+    if (url.pathname === '/hit') {
+      if (request.method !== 'POST') return json({ error: 'POST only' }, 405);
+      await countHit(request, env).catch(() => {});
+      return json(null, 204);
+    }
+    if (url.pathname === '/stats') return statsPage(url, env);
     if (url.pathname === '/' || url.pathname === '') {
       const mcp = `${url.origin}/mcp`, cmd = `claude mcp add --transport http skillshelf ${mcp}`, market = MARKET?.repo || 'qaisak/vetted-store';
       if ((request.headers.get('Accept') || '').includes('text/html')) {
