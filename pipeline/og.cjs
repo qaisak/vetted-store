@@ -29,6 +29,7 @@ const SWAPS = ['noop', 'opencut', 'photocraft', 'rustdesk'];
       .og-was s { color: var(--label); text-decoration-color: var(--red); text-decoration-thickness: 3px; }
       .og-pair .alt-tag { font-size: 16px; padding: 5px 12px; margin: 0; align-self: center; }
     </style>
+    <div class="glow"></div>
     <div class="og"><div><div class="og-brand">${mark}Skillshelf</div>
       <h1>The app store for <mark class="hl">open source</mark></h1>
       <p>Free apps, AI skills and connectors from GitHub, in plain English, set up for you by Claude.</p>
