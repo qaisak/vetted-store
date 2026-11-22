@@ -667,7 +667,7 @@ dialog.story-ov[open] { animation: grow .38s cubic-bezier(.2,.8,.2,1); }
 .chat-way > summary { cursor: pointer; color: var(--blue); font-weight: 600; font-size: 14.5px; padding: 4px 0; }
 .chat-way[open] > summary { margin-bottom: 8px; }
 .claude-note a { font-weight: 600; }
-.alt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 14px; }
+.alt-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
 .alt-card { display: flex; flex-direction: column; gap: 12px; background: var(--bg2); border-radius: 18px; padding: 16px; color: var(--label); min-width: 0; transition: transform .2s cubic-bezier(.2,.8,.2,1); }
 .alt-card:hover { transform: translateY(-2px); }
 .alt-card .was { font-size: 14px; color: var(--label2); font-weight: 600; }
@@ -675,13 +675,38 @@ dialog.story-ov[open] { animation: grow .38s cubic-bezier(.2,.8,.2,1); }
 .alt-app { display: flex; gap: 12px; align-items: center; min-width: 0; }
 .alt-app .t { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
 .alt-app b { font-size: 16px; }
-.alt-app .t > span { font-size: 13px; color: var(--label2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.alt-app .t > span { font-size: 14px; color: var(--label2); line-height: 1.4; }
+.alt-app { align-items: flex-start; }
 .alt-foot { display: flex; align-items: center; gap: 10px; font-size: 13px; color: var(--label2); margin-top: auto; }
 .alt-foot .ic { width: 12px; height: 12px; vertical-align: -1px; }
 .alt-tag { display: inline-block; align-self: flex-start; font-size: 12px; font-weight: 700; line-height: 1.2; padding: 4px 8px; border-radius: 6px; background: color-mix(in srgb, var(--green) 16%, transparent); color: var(--green-ink); margin-top: 4px; white-space: normal; }
 .alt-tag.plain { background: var(--fill); color: var(--label2); }
 .alt-tag.big { font-size: 13.5px; padding: 4px 10px; margin-top: 8px; }
 .alt-foot .alt-tag { margin-top: 0; }
+.doors { display: inline-flex; gap: 2px; background: var(--fill); border-radius: 12px; padding: 3px; margin-top: 26px; max-width: 100%; }
+.doors button { padding: 9px 18px; border-radius: 9px; font-size: 15px; font-weight: 600; color: var(--label2); white-space: nowrap; }
+.doors button[aria-selected="true"] { background: var(--card); color: var(--label); box-shadow: 0 1px 3px rgba(0,0,0,.14); }
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.cards.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (min-width: 1300px) { .cards.four { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.card { display: flex; flex-direction: column; gap: 10px; padding: 16px; border-radius: 16px; background: var(--bg2); color: var(--label); min-width: 0; transition: background .15s ease; }
+.card:hover { background: var(--fill); }
+.card-top { display: flex; gap: 12px; align-items: center; min-width: 0; }
+.card-name { display: flex; flex-direction: column; min-width: 0; }
+.card-name b { font-size: 17px; font-weight: 600; line-height: 1.25; overflow-wrap: anywhere; }
+.card-name span { font-size: 13px; color: var(--label2); }
+.card-line { font-size: 15px; line-height: 1.45; }
+.card-foot { margin-top: auto; display: flex; flex-wrap: wrap; align-items: center; gap: 4px 14px; font-size: 13px; color: var(--label2); }
+.card-foot .ic { width: 12px; height: 12px; vertical-align: -1px; }
+.card-foot .up, .card-foot .free { color: var(--green-ink); font-weight: 600; }
+.how3 { list-style: none; counter-reset: how; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+.how3 li { counter-increment: how; display: flex; flex-direction: column; gap: 4px; padding: 16px; border-radius: 16px; background: var(--bg2); }
+.how3 li::before { content: counter(how); width: 26px; height: 26px; border-radius: 50%; background: var(--btn); color: #FFFFFF; font-size: 14px; font-weight: 700; display: grid; place-items: center; margin-bottom: 4px; }
+.how3 b { font-size: 16px; }
+.how3 span { font-size: 14px; color: var(--label2); line-height: 1.45; }
+.see-everything { margin-top: 30px; font-size: 17px; font-weight: 600; }
+.see-everything a { display: inline-flex; align-items: center; gap: 4px; }
+.row-txt > span { white-space: normal; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; line-height: 1.35; }
 .job-chips { display: flex; flex-wrap: wrap; gap: 8px; }
 .job-chips a { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border-radius: 12px; background: var(--bg2); color: var(--label); font-weight: 600; font-size: 15px; }
 .job-chips a span { font-size: 12.5px; font-weight: 500; color: var(--label2); font-variant-numeric: tabular-nums; }
@@ -741,10 +766,9 @@ blockquote.said a { display: block; margin-top: 6px; font-size: 13.5px; font-wei
   .hero h1 { font-size: 32px; }
   .hero .intro { font-size: 17px; }
   .bar-card { grid-template-columns: minmax(0, 1fr); padding: 18px; gap: 18px; }
-  /* Phones can't run Claude Code, so the bar comes after the free alternatives */
-  .page.home { display: flex; flex-direction: column; }
-  .page.home > * { order: 4; }
-  .page.home > .hero { order: 1; } .page.home > .alts { order: 2; } .page.home > .bar-shelf { order: 3; }
+  .doors { display: flex; } .doors button { flex: 1 1 0; padding: 9px 8px; font-size: 14.5px; }
+  .cards { grid-template-columns: minmax(0, 1fr); }
+  .how3 { grid-template-columns: minmax(0, 1fr); }
   .vthumb { width: 120px; }
   .alt-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 82%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding-bottom: 4px; }
   .alt-grid::-webkit-scrollbar { display: none; }
@@ -844,17 +868,16 @@ const JOBS = [
   ['security', 'Security', 'Scanners, secrets and threat models', 'shield', ['#B91C1C', '#EF4444']],
   ['devops', 'Cloud & DevOps', 'Deploying, hosting and infrastructure', 'cloud', ['#334155', '#64748B']],
   ['ai', 'AI & models', 'Run models, build agents, make skills', 'chip', ['#9333EA', '#6366F1']],
-  ['science', 'Science & biotech', 'Proteins, DNA and molecules (NVIDIA)', 'flask', ['#047857', '#0D9488']],
 ];
 const JOB = Object.fromEntries(JOBS.map(j => [j[0], j]));
+for (const l of D.L) l.jb = (l.jb || []).filter(j => JOB[j]);   // a tag for a category the site no longer has
 // Hand-picked starter kits: [key, title, who it's for, glyph, colors, [[listing id, why it's in the kit]]]
 const KITS = [
   ['vibe', 'Vibe coder\'s starter kit', 'Build an app with an AI assistant without it going off the rails', 'spark', ['#7C3AED', '#C026D3'], [
-    ['obra-brainstorming', 'Shapes the idea with you before any code gets written.'],
-    ['obra-writing-plans', 'Turns the idea into a step-by-step plan the assistant follows.'],
+    ['obra-using-superpowers', 'Shapes the idea with you, plans it, finds the real cause of bugs and checks its work before saying "done".'],
     ['mcp-context7', 'Gives the assistant current docs, so it stops inventing APIs.'],
-    ['obra-systematic-debugging', 'When something breaks, finds the real cause instead of guessing.'],
-    ['obra-verification-before-completion', 'Stops it saying "done" until it has actually checked.'],
+    ['dietrichgebert-ponytail', 'Keeps the code small: it reuses what is already there instead of writing more.'],
+    ['plannotator', 'Lets you mark up its plan before it starts building.'],
     ['gitleaks', 'Before you share your code, checks you didn\'t save any passwords or API keys in it.']]],
   ['marketing', 'Marketer\'s kit', 'Copy, ads, SEO and social, with an assistant that knows the playbook', 'megaphone', ['#EA580C', '#F59E0B'], [
     ['alirezarezvani-copywriting', 'Headlines and landing-page copy, with headline options scored.'],
@@ -869,7 +892,7 @@ const KITS = [
     ['weizhena-research-deep', 'Researches every item on your list in depth.'],
     ['mcp-markdownify-mcp', 'Turns PDFs, slides and web pages into text your assistant can read.'],
     ['mcp-duckduckgo-mcp-server', 'Web search with no API key.'],
-    ['weizhena-research-report', 'Writes up the findings, leaving out what isn\'t certain.']]],
+    ['mvanhorn-last30days', 'Sums up what people said about a topic in the last 30 days.']]],
   ['office', 'Office & notes kit', 'Your calendar, inbox, meetings and notes, with an assistant', 'brief', ['#4F46E5', '#6366F1'], [
     ['mcp-google-calendar-mcp', 'Checks and moves events in Google Calendar.'],
     ['alirezarezvani-meetings', 'Agendas, and action items with owners from messy notes.'],
@@ -880,7 +903,7 @@ const KITS = [
   ['design', 'Designer\'s kit', 'From Figma to working pages, plus visuals and slides', 'pen', ['#DB2777', '#F97316'], [
     ['mcp-figma-context-mcp', 'Lets a coding assistant read your Figma file and build it.'],
     ['pbakaus-impeccable', 'Critiques and polishes an interface.'],
-    ['anthropics-frontend-design', 'Pages that look designed, not templated.'],
+    ['leonxlnx-design-taste-frontend', 'Gives it art direction for a page, then checks the result in a browser.'],
     ['zarazhangrui-frontend-slides', 'Animated slide decks, or a PowerPoint turned into one.'],
     ['cathrynlavery-diagram-design', 'Clean flowcharts, timelines and architecture diagrams.'],
     ['mcp-mcp-for-blender', 'Build 3D scenes in Blender from a chat.']]],
@@ -888,19 +911,19 @@ const KITS = [
     ['wshobson-before-you-build', 'Checks the idea for risks before you spend weeks building it.'],
     ['wshobson-stripe-integration', 'Take payments: checkout and subscriptions with Stripe.'],
     ['alirezarezvani-launch-strategy', 'Plans launch day, including Product Hunt, and checks you\'re ready.']]],
-  ['smallbiz', 'Small business kit', 'Quotes, invoices, contracts, reviews and cash, with Claude doing the paperwork', 'brief', ['#0F766E', '#14B8A6'], [
-    ['anthropics-proposal-builder', 'Turns your notes or site photos into a priced quote, built from uploaded files if nothing is connected.'],
-    ['anthropics-invoice-chase', 'Drafts reminders for overdue invoices from your accounting app. Nothing sends until you say so.'],
-    ['anthropics-contract-review', 'Explains the risky parts of a contract in plain English. Not a substitute for a lawyer.'],
-    ['anthropics-triage-nda', 'Tells you whether an NDA is fine to sign or needs a lawyer, and why.'],
-    ['anthropics-review-reputation', 'Sums up your reviews and drafts replies, from pasted reviews if nothing is connected.'],
-    ['anthropics-cash-flow-snapshot', 'Forecasts your cash for the next 90 days, from your accounting app or a spreadsheet.']]],
+  ['smallbiz', 'Small business kit', 'Documents, money, meetings and remote help, with free apps', 'brief', ['#0F766E', '#14B8A6'], [
+    ['genoffice', 'Documents, spreadsheets and slides, free, with an AI helper built in.'],
+    ['actual-budget', 'A budget that keeps your numbers on your own computer.'],
+    ['yogurt', 'Meeting notes with no bot joining the call.'],
+    ['affine', 'Notes, plans and whiteboards for the whole team.'],
+    ['alirezarezvani-process-mapper', 'Maps how your business runs, step by step, so you can hand work off.'],
+    ['rustdesk', 'Help a colleague on their computer from yours.']]],
   ['security', 'Security check kit', 'Check code, secrets and AI add-ons before they ship', 'shield', ['#B91C1C', '#EF4444'], [
     ['skillspector', 'Scans a skill or connector for risky patterns before you install it.'],
     ['gitleaks', 'Finds passwords and keys saved in code or Git history.'],
     ['trivy', 'Scans containers and dependencies for known vulnerabilities.'],
     ['semgrep', 'Finds bug and security patterns in source code.'],
-    ['openai-security-threat-model', 'Writes a threat model for your project.'],
+    ['cloudflare-security-audit', 'Runs a step-by-step security audit of your code, with each finding checked.'],
     ['lukasniessen-terrashark', 'Stops AI-written Terraform from leaking secrets or breaking infrastructure.']]],
 ];
 const KIT = Object.fromEntries(KITS.map(k => [k[0], k]));
@@ -1029,8 +1052,9 @@ const oddText = l => { const o = oddStars(l), r = repoOf(l); if (!o) return '';
 // Who published it, for every row: the GitHub owner's display name, with a building for a company's own organization
 const byLine = l => { const r = repoOf(l); return `<i class="by">${l.tr ? ic('building', 2) : ''}${esc(r.on)}${l.lv === 3 ? '<span class="tech">· Technical setup</span>' : ''}${oddStars(l) ? '<span class="odd">· Unusual star growth</span>' : ''}</i>`; };
 // Every listing's picture is its maker's real GitHub picture (inlined at build time)
+// The app icon: the project's own logo, or its organisation's avatar. A person's profile photo is never used as an icon; those projects get a drawn one.
 function icon(l, size) {
-  const av = D.AV[owner(l)];
+  const av = (D.LG || {})[l.r] || (repoOf(l).org ? D.AV[owner(l)] : null);
   const st = size ? `width:${size}px;height:${size}px;` : '';
   return av ? `<span class="icon" style="${st}"><img src="${av}" alt=""></span>`
     : `<span class="icon" style="${st}background:linear-gradient(160deg,${l.c[0]},${l.c[1]})">${ic(l.g, 1.9)}</span>`;
@@ -1063,7 +1087,8 @@ function toast(m) {
 }
 // The span of fetch dates: most listings were fetched with D.gen, later additions carry their own date
 function dataDates() { const last = Object.values(R).map(r => r.fd).filter(Boolean).sort().pop(); return last && last !== D.gen ? `${fmtDate(D.gen)} to ${fmtDate(last)}` : fmtDate(D.gen); }
-const dataNote = () => `<p class="data-note">${L.length} open-source projects from GitHub. Data from ${dataDates()}. Skillshelf isn't affiliated with these projects. <button class="text-btn" style="font-size:12px" data-story="community">How we check</button></p>`;
+const shownN = () => L.filter(l => !l.rd).length;
+const dataNote = () => `<p class="data-note">${shownN()} open-source projects from GitHub. Data from ${dataDates()}. Skillshelf isn't affiliated with these projects. <button class="text-btn" style="font-size:12px" data-story="community">How we check</button></p>`;
 
 // ---------- stories ----------
 const community = () => L.filter(l => !l.tr);
@@ -1131,34 +1156,69 @@ function stories() {
 const lastFetch = () => Object.values(R).map(r => r.fd).filter(Boolean).sort().pop() || D.gen;
 const fmtLong = s => new Date(s + 'T00:00:00Z').toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric', timeZone: 'UTC' });
 // Ideas under the home search: each one finds listings (checked by the flows test)
-const HOME_IDEAS = [['Run AI offline', 'offline'], ['Edit photos', 'photo editor'], ['Type with your voice', 'dictation'], ['Edit PDFs', 'pdf'], ['Take meeting notes', 'meeting notes'], ['Help on another PC', 'remote desktop']];
+const HOME_IDEAS = [['Run AI offline', 'offline'], ['Take meeting notes', 'meeting notes'], ['Type with your voice', 'dictation'], ['Edit PDFs', 'pdf']];
 // The top of a kind, by stars: one listing per repository, unusual star growth left out
 const topOf = k => uniqueRepos(byStars(vis(L.filter(l => l.k === k))).filter(l => !oddStars(l))).slice(0, 9);
-// AI that runs on your own computer: private, offline once set up, no subscription. Desktop apps first, then engines.
-const LOCAL_AI = ['jan', 'handy', 'meetily', 'anythingllm', 'voicestudio', 'comfyui', 'upscayl', 'ollama', 'open-webui', 'llama-cpp'];
 // Free alternatives to paid tools, only where the project itself says so
-const paidAlts = () => byStars(vis(L.filter(l => l.alt?.paid)));
+// One per paid tool (the most-starred), six at most
+const paidAlts = () => { const seen = new Set(); return byStars(vis(L.filter(l => l.alt?.paid))).filter(l => !seen.has(l.alt.n) && seen.add(l.alt.n)).slice(0, 6); };
 const altCard = l => `<a class="alt-card" href="#${l.id}"><span class="was">Instead of <s>${esc(l.alt.n)}</s></span>
   <span class="alt-app">${icon(l, 56)}<span class="t"><b>${esc(l.n)}</b><span>${esc(plainOf(l))}</span></span></span>
   <span class="alt-foot"><span class="alt-tag">Free</span><span>${KIND1[l.k]} · ${ic('star', 2)} ${fmtK(repoOf(l).st)}</span></span></a>`;
+// A calm card: the project, what it does in one full sentence, and one quiet line of facts. The listing page has Get.
+const card = (l, note) => `<a class="card" href="#${l.id}"><span class="card-top">${icon(l, 52)}<span class="card-name"><b>${esc(l.n)}</b><span>${KIND1[l.k]}</span></span></span>
+  <span class="card-line">${esc(plainOf(l))}</span>
+  <span class="card-foot">${note ? `<span class="up">${esc(note)}</span>` : ''}<span>${ic('star', 2)} ${fmtK(repoOf(l).st)}</span>${l.alt?.paid ? `<span class="free">Free instead of ${esc(l.alt.n)}</span>` : ''}</span></a>`;
+const cards = (list, notes = [], cls = '') => `<div class="cards${cls ? ' ' + cls : ''}">${list.map((l, i) => card(l, notes[i])).join('')}</div>`;
+const shelfOf = (title, sub, body, more) => `<section class="shelf"><div class="shelf-head"><h2>${title}${sub ? `<span class="sub">${sub}</span>` : ''}</h2>${more ? `<a class="see-all" href="${more}">See all</a>` : ''}</div>${body}</section>`;
+// Hand-picked for someone new to AI: free apps with a normal download, no account and no subscription
+const START = ['hob', 'handy', 'affine', 'localsend', 'excalidraw', 'obs-studio'];
+// Free AI that runs on your own computer
+const OWN_AI = ['strata', 'jan', 'ollama', 'deeptutor', 'anythingllm', 'upscayl'];
+// Jev, TypeSafe's decision model, and its open-source side
+const JEV = ['typesafe-ai-typesafe-ai', 'laya', 'ollaya', 'kev'];
+// Rising on GitHub: listings on GitHub's own trending lists (data/trending.json), this week first
+function risers(max = 6) {
+  const T = D.TR || {}, seen = new Set(), out = [];
+  for (const [per, word] of [['weekly', 'this week'], ['daily', 'today'], ['monthly', 'this month']])
+    for (const [repo, , gained] of T[per] || []) {
+      if (seen.has(repo)) continue;
+      const l = vis(L.filter(x => x.r === repo))[0];
+      if (l) { seen.add(repo); out.push([l, `+${fmtK(gained)} stars ${word}`]); }
+    }
+  return out.slice(0, max);
+}
+const DOORS = [['new', "I'm new to AI"], ['code', 'I use Claude Code']];
 function pageToday() {
+  const door = S.door === 'code' ? 'code' : 'new';
   const alts = paidAlts();
+  const rise = risers();
+  const fresh = list => list.filter(l => !rise.some(r => r[0].r === l.r));
+  const body = door === 'new' ? `
+    ${shelfOf('Start here', 'Free apps anyone can install. No account, no subscription.', cards(vis(pick(START))))}
+    ${alts.length ? `<section class="shelf alts"><div class="shelf-head"><h2>Free alternatives to tools you pay for<span class="sub">Each project says so in its own words. We link the line.</span></h2></div>
+      <div class="alt-grid">${alts.map(altCard).join('')}</div></section>` : ''}
+    ${shelfOf('Free AI on your own computer', 'Private, works offline, no monthly fee', cards(vis(pick(OWN_AI))))}
+    <section class="shelf how"><div class="shelf-head"><h2>How it works</h2></div>
+      <ol class="how3"><li><b>Pick something free</b><span>Every listing says what it does in plain English.</span></li>
+        <li><b>Get it</b><span>Download it like any app, or copy one line and paste it to Claude.</span></li>
+        <li><b>Claude checks it first</b><span>It reads the code on your computer and asks you before it installs anything.</span></li></ol></section>`
+  : `
+    ${claudeBox()}
+    ${rise.length >= 3 ? shelfOf('Rising on GitHub', 'From GitHub\'s own trending lists', cards(rise.map(r => r[0]), rise.map(r => r[1]))) : ''}
+    ${(list => list.length >= 3 ? shelfOf('Jev and decision models', 'TypeSafe\'s Jev answers typed questions with probabilities instead of writing text. Here is its open-source side.', cards(list, [], 'four')) : '')(vis(pick(JEV)))}
+    ${shelfOf('Skills people install most', 'By GitHub stars, one per project', cards(fresh(topOf('skill')).slice(0, 6)), '#skills')}
+    ${shelfOf('Connectors', 'Let Claude use your apps, your browser and your phone', cards(fresh(topOf('mcp')).slice(0, 6)), '#mcp')}`;
   return `<div class="page home">
     <section class="hero">
       <h1>The app store for open source</h1>
-      <p class="intro">Apps, skills and connectors from GitHub, explained in plain English, and set up for you by Claude.</p>
+      <p class="intro">Free apps and AI add-ons from GitHub, explained in plain English, and set up for you by Claude.</p>
       <label class="search-field hero-search" for="home-q">${ic('search')}<input id="home-q" type="search" placeholder="What do you want to do?" autocomplete="off" enterkeyhint="search"></label>
       <div class="ideas">${HOME_IDEAS.map(([t, q]) => `<button data-suggest="${esc(q)}">${esc(t)}</button>`).join('')}</div>
+      <div class="doors" role="tablist" aria-label="Show picks for">${DOORS.map(([k, t]) => `<button role="tab" aria-selected="${k === door}" data-door="${k}">${esc(t)}</button>`).join('')}</div>
     </section>
-    ${claudeBox()}
-    ${alts.length ? `<section class="shelf alts"><div class="shelf-head"><h2>Free alternatives to tools you pay for<span class="sub">Each project says so in its own words. We link the line.</span></h2></div>
-      <div class="alt-grid">${alts.map(altCard).join('')}</div></section>` : ''}
-    ${(list => list.length >= 3 ? `<section class="shelf"><div class="shelf-head"><h2>AI that runs on your computer<span class="sub">Private and offline once it's set up, with no subscription</span></h2></div>${ranked(list)}</section>` : '')(vis(pick(LOCAL_AI)))}
-    <section class="shelf jobs"><div class="shelf-head"><h2>Find something for your work</h2><a class="see-all" href="#browse">See all</a></div>
-      <div class="job-chips">${jobsFirst().slice(0, 10).map(([k, t]) => `<a href="#for-${k}">${esc(t)}<span>${vis(byJob(k)).length}</span></a>`).join('')}</div></section>
-    <section class="shelf"><div class="shelf-head"><h2>Top free apps<span class="sub">Programs for your computer, by GitHub stars</span></h2><a class="see-all" href="#tools">See all</a></div>${ranked(topOf('tool'), true)}</section>
-    <section class="shelf"><div class="shelf-head"><h2>Top skills<span class="sub">Teach Claude a job, like making slides or reviewing code</span></h2><a class="see-all" href="#skills">See all</a></div>${ranked(topOf('skill'), true)}</section>
-    <section class="shelf"><div class="shelf-head"><h2>Top connectors<span class="sub">Let Claude use your apps and accounts: your browser, Figma, your calendar</span></h2><a class="see-all" href="#mcp">See all</a></div>${ranked(topOf('mcp'), true)}</section>
+    ${body}
+    <p class="see-everything"><a href="#browse">See all ${vis(L).length} apps, skills and connectors ›</a></p>
     ${dataNote()}</div>`;
 }
 
@@ -1176,7 +1236,7 @@ const SETUP_PAGE = CONNECTOR.replace(/\/mcp$/, '/');
 function barDrawing() {
   const chip = (t, off) => `<span class="bd-chip${off ? ' off' : ''}">${t}: ${off ? 'OFF' : 'ON'}</span>`;
   return `<div class="bar-drawing" role="img" aria-label="The Skillshelf bar above the message box in Claude Code: a chip for each skill showing ON or OFF, All skills, Add skill and Flag slop.">
-    <div class="bd-bar"><div class="bd-chips"><span class="bd-tog">▾ Skills</span>${chip('frontend-design')}${chip('impeccable')}${chip('pdf', true)}${chip('docx')}<span class="bd-chip all">All skills (12)</span></div>
+    <div class="bd-bar"><div class="bd-chips"><span class="bd-tog">▾ Skills</span>${chip('impeccable')}${chip('ponytail')}${chip('caveman', true)}${chip('archify')}<span class="bd-chip all">All skills (12)</span></div>
       <div class="bd-links"><span>+ Add skill</span><span>⚑ Flag slop</span></div></div>
     <div class="bd-composer"><span>+</span><span class="ph">Ask Claude to do something…</span><span>↵</span></div></div>`;
 }
@@ -1255,12 +1315,12 @@ function startHere() {
 // Things an AI assistant can't do by itself, and the checked picks that add each one.
 // Instruction-only skills sharpen what it already does; these give it reach it simply lacks.
 const POWERS = [
-  ['memory', "Remember between sessions", "Your AI forgets everything when a chat ends. These keep what it learned.", 'clock', ['#7C3AED', '#A855F7'], ['mcp-context-mode', 'thedotmack-mem-search', 'mcp-memory', 'mcp-codebase-memory-mcp']],
+  ['memory', "Remember between sessions", "Your AI forgets everything when a chat ends. These keep what it learned.", 'clock', ['#7C3AED', '#A855F7'], ['mcp-context-mode', 'thedotmack-mem-search', 'mempalace-mempalace', 'mcp-codebase-memory-mcp']],
   ['browser', "Use a real browser", "It can't open pages, click or sign in anywhere. These let it browse like you do.", 'globe', ['#2563EB', '#0EA5E9'], ['mcp-playwright-mcp', 'sawyerhood-dev-browser', 'mcp-chrome-devtools-mcp', 'mcp-mcp-chrome']],
   ['accounts', "Use your apps and accounts", "It can't see your calendar, notes, designs or tickets. Connectors sign it in.", 'brief', ['#4F46E5', '#6366F1'], ['mcp-google-calendar-mcp', 'mcp-mcp-notion-server', 'mcp-figma-context-mcp', 'mcp-zotero-mcp', 'mcp-airtable-mcp-server', 'jeffallan-atlassian-mcp']],
-  ['web', "Read the live web", "Its knowledge has a cutoff date. These fetch pages, docs and transcripts as they are today.", 'pulse', ['#0369A1', '#38BDF8'], ['mcp-context7', 'mcp-fetch', 'mcp-duckduckgo-mcp-server', 'mcp-mcp-server-youtube-transcript', 'mcp-markdownify-mcp', 'mcp-arxiv-mcp-server']],
-  ['computer', "Work on your computer", "In the chat app it can't touch your files or run programs. These open that door, with limits you set.", 'tool', ['#334155', '#64748B'], ['mcp-filesystem', 'mcp-git', 'mcp-desktopcommandermcp']],
-  ['software', "Drive real software and devices", "It has no hands. These let it run Blender, CAD, your smart home and your TV.", 'chip', ['#047857', '#0D9488'], ['mcp-mcp-for-blender', 'earthtojake-cad', 'komal-skynet-home-assistant-manager', 'tonylofgren-home-assistant-yaml', 'cleanyourtv']],
+  ['web', "Read the live web", "Its knowledge has a cutoff date. These fetch pages, docs and transcripts as they are today.", 'pulse', ['#0369A1', '#38BDF8'], ['mcp-context7', 'mvanhorn-last30days', 'mcp-duckduckgo-mcp-server', 'mcp-mcp-server-youtube-transcript', 'mcp-markdownify-mcp', 'mcp-arxiv-mcp-server']],
+  ['computer', "Work on your computer", "In the chat app it can't touch your files or run programs. These open that door, with limits you set.", 'tool', ['#334155', '#64748B'], ['mcp-desktopcommandermcp', 'cli-anything']],
+  ['software', "Drive real software and devices", "It has no hands. These let it run Blender, CAD, your smart home and your TV.", 'chip', ['#047857', '#0D9488'], ['mcp-mcp-for-blender', 'earthtojake-cad', 'komal-skynet-home-assistant-manager', 'tonylofgren-home-assistant-yaml', 'cleanyourtv', 'mcp-pinky']],
 ];
 function pagePowers() {
   return `<div class="page"><div class="large-title"><h1>New powers</h1><p>Most skills make your AI better at things it can already do. These are different: each gives it an ability it doesn't have on its own. Every pick is checked like everything else, and anything risky says so in orange on its page.</p></div>
@@ -1979,10 +2039,10 @@ function applySetup(q) {
   SHOW_ALL = false; saveFocus();
 }
 // Search ideas for the viewer's jobs; each one finds listings (checked by the flows test)
-const JOB_SUGGEST = { everyday: ['photos', 'video', 'send files', 'passwords'], business: ['invoices', 'contracts', 'proposals', 'pricing'], office: ['email', 'calendar', 'meetings', 'notes'],
+const JOB_SUGGEST = { everyday: ['photos', 'video', 'send files', 'passwords'], business: ['launch', 'pitch deck', 'business plan', 'pricing'], office: ['email', 'calendar', 'meetings', 'notes'],
   design: ['figma', 'slides', 'diagrams', 'blender'], marketing: ['seo', 'ads', 'social media', 'copywriting'], writing: ['docs', 'editing', 'humanizer'], data: ['spreadsheet', 'csv', 'sql', 'charts'],
   research: ['papers', 'web search', 'zotero'], dev: ['code review', 'git', 'testing', 'debugging'], vibe: ['plan', 'debugging', 'deploy', 'frontend'], security: ['secrets', 'threat model', 'scanner'],
-  devops: ['deploy', 'docker', 'kubernetes'], ai: ['models', 'agents', 'write a skill'], science: ['protein', 'dna', 'molecules'] };
+  devops: ['deploy', 'docker', 'kubernetes'], ai: ['models', 'agents', 'write a skill'] };
 const suggestions = () => { const s = [...new Set(FOCUS.jobs.flatMap(j => JOB_SUGGEST[j] || []))]; return s.length >= 4 ? s.slice(0, 10) : ['email', 'slides', 'spreadsheet', 'notes', 'video', 'website', 'security', 'figma', 'research', 'deploy']; };
 
 // ---------- Focus: the viewer's own setup, kept only in their browser ----------
@@ -2107,7 +2167,7 @@ function trendingToday() {
 // Weekly, monthly and yearly issues written by pipeline/digest.mjs from GitHub's trending lists and launch dates.
 // Every headline and sentence below is computed from those numbers; only listings in Skillshelf appear.
 const JOB_PHRASE = { everyday: 'everyday apps', vibe: 'AI building tools', dev: 'developer tools', design: 'design tools', marketing: 'marketing tools', business: 'business tools',
-  writing: 'writing tools', office: 'office tools', data: 'data tools', research: 'research tools', security: 'security tools', devops: 'cloud tools', ai: 'AI tools', science: 'science tools' };
+  writing: 'writing tools', office: 'office tools', data: 'data tools', research: 'research tools', security: 'security tools', devops: 'cloud tools', ai: 'AI tools' };
 const ISSUE_LOOK = { weekly: [['#7C2D12', '#F97316'], 'pulse', 'Weekly'], monthly: [['#312E81', '#6366F1'], 'clock', 'Monthly'], yearly: [['#064E3B', '#10B981'], 'star', 'Yearly'] };
 const repoLs = repo => vis(byStars(byRepo(repo)));
 const listedOf = arr => (arr || []).filter(x => repoLs(x.repo).length);
@@ -2190,6 +2250,8 @@ function pageIssue(id) {
 // ---------- routing ----------
 const S = { tab: 'today', detail: null, job: null, easy: false, q: '', kind: null, sort: 'stars', more: 0, audit: true, agent: FOCUS.ai.find(a => AGENTS.some(x => x[0] === a)) || 'claude-code' };
 try { const a = localStorage.getItem('vetted-agent'); if (AGENTS.some(x => x[0] === a)) S.agent = a; } catch (e) {}
+// Which door the home page opens on: "new" (new to AI) or "code" (uses Claude Code), remembered per viewer
+try { S.door = localStorage.getItem('vetted-door') === 'code' ? 'code' : 'new'; } catch (e) { S.door = 'new'; }
 // Three tabs: Home, Browse and My list. Kinds are a filter inside Browse.
 const TABS = [['today', 'Home', 'today'], ['browse', 'Browse', 'grid'], ['list', 'My list', 'heart']];
 // Pages without a tab of their own (Browse's kind filters and search included, so old links keep working)
@@ -2278,7 +2340,7 @@ function openStory(id) {
 }
 
 document.addEventListener('click', e => {
-  const t = e.target.closest('[data-more],[data-focus],[data-fset],[data-focusreset],[data-closepanel],[data-showall],[data-tab],[data-get],[data-story],[data-closestory],[data-closesheet],[data-copy],[data-agent],[data-suggest],[data-seeall],[data-easy],[data-jump],[data-unclamp],[data-save],[data-audit],[data-share],[data-sharelist],[data-sharekit],[data-savekit],[data-savelist],[data-mdlist],[data-clearlist],[data-copysetup],.story-ov .row-txt');
+  const t = e.target.closest('[data-more],[data-focus],[data-fset],[data-focusreset],[data-closepanel],[data-showall],[data-tab],[data-get],[data-story],[data-closestory],[data-closesheet],[data-copy],[data-agent],[data-suggest],[data-seeall],[data-easy],[data-jump],[data-unclamp],[data-save],[data-audit],[data-share],[data-sharelist],[data-sharekit],[data-savekit],[data-savelist],[data-mdlist],[data-clearlist],[data-copysetup],[data-door],.story-ov .row-txt');
   if (!t) return;
   const d = t.dataset;
   const target = t.getAttribute('href')?.startsWith('#') ? t.getAttribute('href').slice(1) : null;
@@ -2295,6 +2357,7 @@ document.addEventListener('click', e => {
     LIST = [...LIST, ...add]; saveList(); refocus(); toast(add.length ? `${add.length} saved to your list` : 'Already in your list'); return; }
   if ('mdlist' in d) { copyText(listMarkdown((S.shared || LIST).map(id => BY[id]).filter(Boolean)), 'Copied as Markdown'); return; }
   if ('clearlist' in d) { if (confirm(`Remove all ${LIST.length} from your list?`)) { LIST = []; saveList(); refocus(); } return; }
+  if (d.door) { S.door = d.door; try { localStorage.setItem('vetted-door', S.door); } catch (err) {} const y = scrollY; render(); scrollTo(0, y); return; }
   if ('copysetup' in d) { copyText(`${SITE}#${setupHash()}`, 'Link to this setup copied'); return; }
   if ('focusreset' in d) { FOCUS = { ...FOCUS0 }; SHOW_ALL = false; saveFocus(); refocus(); return; }
   if ('closepanel' in d) { closeModal(panel); return; }
@@ -2362,6 +2425,6 @@ document.addEventListener('click', e => {
 
 document.getElementById('mark').innerHTML = MARK;
 document.getElementById('side-q-ic').innerHTML = ic('search');
-document.getElementById('side-foot').innerHTML = `${L.length} open-source projects from GitHub. Data from ${dataDates()}.`;
+document.getElementById('side-foot').innerHTML = `${shownN()} open-source projects from GitHub. Data from ${dataDates()}.`;
 route();
 </script>

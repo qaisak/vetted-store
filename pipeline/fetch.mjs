@@ -91,6 +91,21 @@ const SKILL_REPOS = [
   { repo: 'tonylofgren/aurora-smart-home', pick: ['home-assistant'] },
   { repo: 'ericporres/family-assistant-skill', pick: [''] },
   { repo: 'cooklang/cooklang-skills', pick: ['skills/recipe-import', 'skills/meal-planning', 'skills/shopping-list'] },
+  // Rising on GitHub, Hacker News and GitHub's trending lists, November 22, 2026: one listing per pack
+  { repo: 'DietrichGebert/ponytail', pick: ['skills/ponytail'] },
+  { repo: 'JuliusBrussee/caveman', pick: ['plugins/caveman/skills/caveman'] },
+  { repo: 'tt-a1i/archify', pick: ['archify'] },
+  { repo: 'mvanhorn/last30days-skill', pick: ['skills/last30days'] },
+  { repo: 'google-labs-code/stitch-skills', pick: ['plugins/stitch-design/skills/generate-design'] },
+  { repo: 'GoogleChrome/modern-web-guidance', pick: ['skills/modern-web-guidance'] },
+  { repo: 'alibaba/open-code-review', pick: ['skills/open-code-review'] },
+  { repo: 'kajisho5/ffmpeg-skill', pick: ['skills/ffmpeg-skill'] },
+  { repo: 'typesafe-ai/skills', pick: ['skills/typesafe-ai'] },
+  { repo: 'latent-spaces/brag', pick: ['skills/brag'] },
+  { repo: 'Jakeschincariol/instagram-agent-skill', pick: ['skills/ig-reel'] },
+  { repo: 'MemPalace/mempalace', pick: ['plugins/mempalace/skills/mempalace'] },
+  { repo: 'career-ops-hq/career-ops', pick: ['.agents/skills/career-ops'] },
+  { repo: 'vercel-labs/agent-browser', pick: ['skills/agent-browser'] },
 ];
 const MCP = [
   { repo: 'modelcontextprotocol/servers', sub: ['everything', 'fetch', 'filesystem', 'git', 'memory', 'sequentialthinking', 'time'] },
@@ -128,6 +143,8 @@ const MCP = [
   { repo: 'marcelmarais/spotify-mcp-server' },
   { repo: 'morluto/rea' },
   { repo: 'mksglu/context-mode' },
+  // Rising on GitHub, November 22, 2026
+  { repo: 'DIYgod/pinky' },
 ];
 const TOOLS = ['NVIDIA/SkillSpector', 'vercel-labs/skills', 'BurntSushi/ripgrep', 'sharkdp/fd', 'junegunn/fzf', 'jqlang/jq', 'cli/cli', 'astral-sh/uv',
   'sharkdp/bat', 'jesseduffield/lazygit', 'ollama/ollama', 'aquasecurity/trivy', 'semgrep/semgrep', 'gitleaks/gitleaks',
@@ -145,7 +162,12 @@ const TOOLS = ['NVIDIA/SkillSpector', 'vercel-labs/skills', 'BurntSushi/ripgrep'
   'Stirling-Tools/Stirling-PDF', 'AppFlowy-IO/AppFlowy', 'actualbudget/actual', 'penpot/penpot', 'immich-app/immich', 'obsproject/obs-studio', 'excalidraw/excalidraw',
   // Filling thin job categories (everyday and security), November 1, 2026
   'localsend/localsend', 'upscayl/upscayl', 'qarmin/czkawka', 'flameshot-org/flameshot', 'keepassxreboot/keepassxc', 'syncthing/syncthing', 'trufflesecurity/trufflehog',
-  'gorhill/uBlock', 'pi-hole/pi-hole', 'rustdesk/rustdesk'];
+  'gorhill/uBlock', 'pi-hole/pi-hole', 'rustdesk/rustdesk',
+  // Rising on GitHub, Hacker News and GitHub's trending lists, November 22, 2026: free AI you run yourself, Jev's open-source side, everyday apps
+  'Niko1221/Strata', 'FrigadeHQ/hob', 'FrigadeHQ/yogurt', 'HKUDS/nanobot', 'jaredpalmer/kev', 'ollaya-dev/ollaya', 'NandhaKishorM/laya',
+  'toeverything/AFFiNE', 'genspark-ai/genoffice', 'HKUDS/DeepTutor', 'nexu-io/open-design', 'backnotprop/plannotator', 'HKUDS/CLI-Anything',
+  // A CLI that installs its own skill (its skill file is skill.md, which the skill reader above doesn't pick up)
+  'Graphify-Labs/graphify'];
 
 const meta = {}, scores = {}, hn = {}, avatars = {};
 async function repoMeta(repo) {

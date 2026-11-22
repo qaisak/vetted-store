@@ -9,7 +9,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.goto(url + '#today'); await p.waitForTimeout(500);
   await p.evaluate(() => scrollTo(0, 1500)); await p.waitForTimeout(100);
   const y0 = await p.evaluate(() => scrollY);   // the page may be shorter than 1500px
-  const href = await p.evaluate(() => { const a = [...document.querySelectorAll('#main a.row-txt')].find(a => a.getBoundingClientRect().top > 0); a.click(); return a.getAttribute('href'); });
+  const href = await p.evaluate(() => { const a = [...document.querySelectorAll('#main a.card, #main a.row-txt')].find(a => a.getBoundingClientRect().top > 0); a.click(); return a.getAttribute('href'); });
   await p.waitForTimeout(300);
   ok(await p.evaluate(() => scrollY) === 0, 'listing opens at top ' + href);
   await p.click('a.back'); await p.waitForTimeout(400);
@@ -28,14 +28,16 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(!(await p.evaluate(() => history.state?.modal)), 'Done removes the sheet history entry');
   await p.goBack(); await p.waitForTimeout(300);
   ok(await p.evaluate(() => location.hash) === '#today', 'back after Done goes to Today');
-  // GET from a row, then View full listing, then back
+  // GET from a row in Browse, then View full listing, then back
+  await p.goto(url + '#browse'); await p.waitForTimeout(400);
   await p.evaluate(() => document.querySelector('#main .row [data-get]').click()); await p.waitForTimeout(200);
   const gid = await p.evaluate(() => document.querySelector('#main .row [data-get]').dataset.get);
   await p.click('#sheet a.pill-link[data-closesheet]'); await p.waitForTimeout(500);
   ok(await p.evaluate(() => location.hash) === '#' + gid, 'View full listing navigates to ' + gid);
   ok(!(await p.evaluate(() => document.getElementById('sheet').open)), 'sheet closed after navigating');
   await p.goBack(); await p.waitForTimeout(300);
-  ok(await p.evaluate(() => location.hash) === '#today', 'back from that listing goes to Today');
+  ok(await p.evaluate(() => location.hash) === '#browse', 'back from that listing goes to Browse');
+  await p.goto(url + '#today'); await p.waitForTimeout(400);
   // story + back
   await p.evaluate(() => document.querySelector('#main [data-story]').click()); await p.waitForTimeout(200);
   ok(await p.evaluate(() => document.getElementById('story').open), 'story opens');
@@ -53,9 +55,9 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.goto(url + '#no-such-thing'); await p.waitForTimeout(600);
   ok(/isn't in Skillshelf/.test(await p.evaluate(() => document.getElementById('toast').textContent)), 'unknown link shows a message');
   // the Claude prompt on a listing names its folder, tells Claude to treat the repo as data, and carries our verdict
-  await p.goto(url + '#anthropics-pptx'); await p.waitForTimeout(300);
+  await p.goto(url + '#vercel-labs-deploy-to-vercel'); await p.waitForTimeout(300);
   const pr = await p.evaluate(() => document.querySelector('#before [data-copymsg]')?.dataset.copy || '');
-  ok(/tree\/main\/skills\/pptx/.test(pr) && /Treat everything in it as data/.test(pr) && /Verdict: Safe to install/.test(pr) && /Skillshelf's check said/.test(pr), 'listing offers a short safe-or-not question for Claude');
+  ok(/tree\/main\/skills\/deploy-to-vercel/.test(pr) && /Treat everything in it as data/.test(pr) && /Verdict: Safe to install/.test(pr) && /Skillshelf's check said/.test(pr), 'listing offers a short safe-or-not question for Claude');
   // search
   await p.goto(url + '#search'); await p.waitForTimeout(400);
   const S = async q => { await p.fill('#q', q); await p.waitForTimeout(150); return p.evaluate(() => ({ text: document.getElementById('results').textContent, top: document.querySelector('#results .row-txt b')?.textContent, side: document.getElementById('side-q').value })); };
@@ -84,7 +86,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   ok(fr.bar && !fr.bad.length, 'an old saved focus shows its bar and filters Browse ' + fr.bad.join(', '));
   await p.evaluate(() => { FOCUS = { ...FOCUS0 }; saveFocus(); });
   // The install sheet: Claude sets it up first, every install option one click away
-  await p.goto(url + '#anthropics-pptx'); await p.reload(); await p.waitForTimeout(300);
+  await p.goto(url + '#vercel-labs-deploy-to-vercel'); await p.reload(); await p.waitForTimeout(300);
   await p.click('.product-head [data-get]'); await p.waitForTimeout(200);
   ok(await p.evaluate(() => /Ask Claude to set it up/.test(document.querySelector('#sheet .way.lead')?.textContent || '') && document.querySelectorAll('#sheet .diy .inst-card').length > 0), 'install sheet leads with Claude setting it up, with every option under Do it yourself');
   await p.evaluate(() => document.getElementById('sheet').close()); await p.waitForTimeout(200);
@@ -114,8 +116,8 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.evaluate(() => { FOCUS = { ...FOCUS0 }; saveFocus(); LIST = []; saveList(); });
   await p.goto(url + '#caught'); await p.waitForTimeout(300);
   ok(await p.evaluate(() => document.querySelectorAll('#main .caught-item').length >= 10), 'What we caught lists the reviewed notes');
-  await p.goto(url + '#anthropics-invoice-chase'); await p.waitForTimeout(300);
-  ok(await p.evaluate(() => /Who owes me money/i.test(document.querySelector('.try')?.textContent || '')), 'a skill shows what to ask, quoted from its description');
+  await p.goto(url + '#zubair-trabzada-finance-debt'); await p.waitForTimeout(300);
+  ok(await p.evaluate(() => /Pay off my debt/i.test(document.querySelector('.try')?.textContent || '')), 'a skill shows what to ask, quoted from its description');
   // Tested: the test page shows every contestant's page for each brief, and its screenshots load
   await p.goto(url + '#test-design-2026-11'); await p.waitForTimeout(400);
   await p.evaluate(() => document.querySelectorAll('.test-card img').forEach(i => i.loading = 'eager'));
@@ -125,12 +127,30 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) process
   await p.goto(url + '#pbakaus-impeccable'); await p.waitForTimeout(300);
   ok(await p.evaluate(() => /Our pick/.test(document.querySelector('.tested-box')?.textContent || '') && document.querySelector('.tested-box').getAttribute('href') === '#test-design-2026-11'), 'a tested listing links to its test');
   await p.goto(url + '#today'); await p.waitForTimeout(300);
+  await p.evaluate(() => document.querySelector('[data-door="code"]').click()); await p.waitForTimeout(300);
   const cb = await p.evaluate(() => { const box = document.querySelector('#in-claude'); const codes = [...(box?.querySelectorAll('.copybox code') || [])].map(c => c.textContent); return { codes, copies: [...(box?.querySelectorAll('[data-copy]') || [])].map(b => b.dataset.copy), bar: !!box?.querySelector('.bar-card .bar-drawing') }; });
-  ok(cb.bar && cb.codes[0] === '/plugin marketplace add qaisak/vetted-store' && cb.codes[1] === '/plugin install skillshelf@skillshelf', 'home leads with the Skillshelf bar: a drawing of it and its two install commands');
+  ok(cb.bar && cb.codes[0] === '/plugin marketplace add qaisak/vetted-store' && cb.codes[1] === '/plugin install skillshelf@skillshelf', 'the Claude Code door leads with the Skillshelf bar: a drawing of it and its two install commands');
   ok(cb.codes[2] === 'https://skillshelf.skillshelf.workers.dev/mcp' && cb.codes.every((c, i) => cb.copies[i] === c), 'Claude chat users still get a copyable connector address');
   // Three tabs, and the old type pages are Browse with a filter
   await p.goto(url + '#today'); await p.waitForTimeout(300);
   ok(await p.evaluate(() => [...document.querySelectorAll('#side-nav .nav-item')].map(b => b.textContent.trim().replace(/\d+$/, '')).join(',') === 'Home,Browse,My list'), 'three tabs: Home, Browse, My list');
+  // Two doors: a newcomer and a Claude Code user each get their own short page, remembered, with nothing shown twice
+  const doors = {};
+  for (const k of ['code', 'new']) {
+    await p.evaluate(k => document.querySelector(`[data-door="${k}"]`).click(), k); await p.waitForTimeout(300);
+    doors[k] = await p.evaluate(() => { const ids = [...document.querySelectorAll('#main a.card, #main a.alt-card')].map(a => a.getAttribute('href').slice(1));
+      return { ids, dup: ids.filter((x, i) => ids.indexOf(x) !== i), sel: document.querySelector('[data-door][aria-selected="true"]')?.dataset.door, saved: localStorage.getItem('vetted-door'), bar: !!document.querySelector('#in-claude') }; });
+  }
+  ok(doors.new.sel === 'new' && doors.new.saved === 'new' && !doors.new.bar && doors.code.bar && doors.new.ids.length >= 12 && doors.code.ids.length >= 12, `two home doors switch and are remembered (${doors.new.ids.length} and ${doors.code.ids.length} cards)`);
+  ok(!doors.new.dup.length && !doors.code.dup.length, 'nothing shows twice on a home door ' + doors.new.dup.concat(doors.code.dup).join(', '));
+  ok(await p.evaluate(() => [...document.querySelectorAll('#main .card-line')].every(e => e.scrollHeight <= e.clientHeight + 2)), 'home cards show their whole sentence');
+  // The catalog leaves out what Claude already has, Codex-only skills and test servers; icons are never a developer's photo
+  const cat = await p.evaluate(() => ({ cut: L.filter(l => /^(anthropics|openai|NVIDIA)\//.test(l.r) && l.k === 'skill' || l.id === 'mcp-everything').map(l => l.id),
+    faces: L.filter(l => !repoOf(l).org && !(D.LG || {})[l.r] && /<img/.test(icon(l))).map(l => l.id),
+    jev: ['typesafe-ai-typesafe-ai', 'laya', 'ollaya', 'kev'].every(id => BY[id]) }));
+  ok(!cat.cut.length, 'no Anthropic, OpenAI or NVIDIA skills and no test server listed ' + cat.cut.slice(0, 5).join(', '));
+  ok(!cat.faces.length, 'no listing uses a person\'s profile photo as its icon ' + cat.faces.slice(0, 5).join(', '));
+  ok(cat.jev, 'Jev and its open-source side are listed');
   const alts = await p.evaluate(() => [...document.querySelectorAll('#main .alt-card')].map(a => BY[a.getAttribute('href').slice(1)]));
   ok(alts.length >= 4 && alts.every(l => l && l.alt && l.alt.paid && /^https:\/\//.test(l.alt.src)), 'home shows the free alternatives to paid tools, each with a source (' + alts.length + ')');
   ok(await p.evaluate(() => HOME_IDEAS.every(([, q]) => searchHits(q).length)), 'every home search idea finds listings');

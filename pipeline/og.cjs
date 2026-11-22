@@ -7,9 +7,10 @@ const h = fs.readFileSync(REPO + '/vetted-store.html', 'utf8');
 const i = h.indexOf('const D = '), j = h.indexOf('\n', i);
 const D = JSON.parse(h.slice(i + 10, j).trim().replace(/;$/, ''));
 const BY = Object.fromEntries(D.L.map(l => [l.id, l]));
-const av = id => D.AV[D.R[BY[id].r].own];
+// The same icon the site shows: the project's own logo, or its organisation's avatar (never a person's photo)
+const av = id => (D.LG || {})[BY[id].r] || D.AV[D.R[BY[id].r].own];
 const pair = (id) => { const l = BY[id]; return `<div class="pair"><img src="${av(id)}"><div><span class="was">Instead of <s>${l.alt.n.replace('Adobe ', '')}</s></span><b>${l.n}</b></div><span class="free">Free</span></div>`; };
-const icons = ['jan', 'handy', 'obs-studio', 'immich', 'comfyui', 'excalidraw', 'ollama', 'anthropics-pdf'].map(id => `<img src="${av(id)}">`).join('');
+const icons = ['strata', 'hob', 'handy', 'affine', 'excalidraw', 'ollama', 'obs-studio', 'localsend'].map(id => `<img src="${av(id)}">`).join('');
 const html = `<!doctype html><html><head><meta charset="utf-8"><style>
 * { box-sizing: border-box; margin: 0; }
 body { width: 1200px; height: 627px; font-family: -apple-system, "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif; background: #FFFFFF; color: #000; display: grid; grid-template-columns: 1fr 470px; gap: 40px; padding: 64px 64px 56px; }
@@ -34,7 +35,7 @@ p { font-size: 27px; line-height: 1.35; color: #4A4A4F; margin-top: 22px; max-wi
 <h1>The app store for open source</h1>
 <p>Free apps, AI skills and connectors from GitHub, in plain English, set up for you by Claude.</p>
 <div class="icons">${icons}</div></div>
-<div class="right"><h2>Free alternatives to tools you pay for</h2>${pair('voicestudio')}${pair('photocraft')}${pair('meetily')}${pair('rustdesk')}</div>
+<div class="right"><h2>Free alternatives to tools you pay for</h2>${pair('genoffice')}${pair('photocraft')}${pair('voicestudio')}${pair('yogurt')}</div>
 </body></html>`;
 const dir = path.join(REPO, 'assets');
 fs.writeFileSync(path.join(dir, 'og.html'), html);   // the source, kept beside the image

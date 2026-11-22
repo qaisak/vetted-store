@@ -40,6 +40,9 @@ const NAME = { 'cli/cli': 'GitHub CLI', 'vercel-labs/skills': 'skills CLI', 'ast
   'janhq/jan': 'Jan', 'ggml-org/llama.cpp': 'llama.cpp', 'open-webui/open-webui': 'Open WebUI', 'Comfy-Org/ComfyUI': 'ComfyUI', 'cjpais/Handy': 'Handy',
   'Zackriya-Solutions/meetily': 'Meetily', 'Mintplex-Labs/anything-llm': 'AnythingLLM', 'Stirling-Tools/Stirling-PDF': 'Stirling PDF', 'AppFlowy-IO/AppFlowy': 'AppFlowy',
   'actualbudget/actual': 'Actual Budget', 'penpot/penpot': 'Penpot', 'immich-app/immich': 'Immich', 'obsproject/obs-studio': 'OBS Studio', 'excalidraw/excalidraw': 'Excalidraw',
+  'Niko1221/Strata': 'Strata', 'FrigadeHQ/hob': 'Hob', 'FrigadeHQ/yogurt': 'Yogurt', 'HKUDS/nanobot': 'nanobot', 'jaredpalmer/kev': 'Kev', 'ollaya-dev/ollaya': 'ollaya',
+  'NandhaKishorM/laya': 'laya', 'toeverything/AFFiNE': 'AFFiNE', 'genspark-ai/genoffice': 'GenOffice', 'HKUDS/DeepTutor': 'DeepTutor', 'nexu-io/open-design': 'Open Design',
+  'backnotprop/plannotator': 'Plannotator', 'HKUDS/CLI-Anything': 'CLI-Anything', 'Graphify-Labs/graphify': 'Graphify', 'DIYgod/pinky': 'Pinky',
   'yt-dlp/yt-dlp': 'yt-dlp', 'Wilfred/difftastic': 'difftastic', 'muesli/duf': 'duf', 'ClementTsang/bottom': 'bottom', 'ducaale/xh': 'xh', 'chmln/sd': 'sd' };
 // Hand-written plain-language lines, job tags and setup level (pipeline/plain.json)
 const SOURCES = JSON.parse(fs.readFileSync(new URL('../data/sources.json', import.meta.url), 'utf8'));
@@ -50,10 +53,16 @@ const PLAIN = JSON.parse(fs.readFileSync(new URL('./plain.json', import.meta.url
 // What a listing is a free alternative to, only where the project itself says so, with the source (data/alternatives.json)
 // Skills that only ask Claude to do what it already does well, each read and judged (data/redundant.json): kept reachable, off the shelves
 const REDUNDANT = fs.existsSync(new URL('../data/redundant.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../data/redundant.json', import.meta.url), 'utf8')) : {};
+// What Skillshelf leaves off the site and why (data/curation.json): Claude's own built-ins, Codex-only skills, test servers, the extra pieces of packs
+const CUR = JSON.parse(fs.readFileSync(new URL('../data/curation.json', import.meta.url), 'utf8'));
+// Each project's own logo where a person owns the repository (pipeline/logos.cjs, checked by eye), so no listing shows a developer's photo as its icon
+const LOGOS = fs.existsSync(new URL('../data/logos.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../data/logos.json', import.meta.url), 'utf8')) : {};
 const ALTS = fs.existsSync(new URL('../data/alternatives.json', import.meta.url)) ? JSON.parse(fs.readFileSync(new URL('../data/alternatives.json', import.meta.url), 'utf8')) : {};
 // Install steps for MCP servers whose README gives a JSON config or several steps instead of one command.
 // Every command is the README's own, or its JSON config written as the equivalent `claude mcp add`.
 const MCP_INSTALL = {
+  'DIYgod/pinky': [{ to: 'Mac, Windows, Linux', how: 'Download', link: 'https://github.com/DIYgod/pinky/releases/latest', linkText: 'Download Pinky', note: 'Then open Settings › Agents in Pinky to connect Claude Code or Claude Desktop in one click. Early software: its README calls it pre-alpha.' },
+    { to: 'macOS', how: 'Homebrew', cmds: ['brew install --cask diygod/tap/pinky'], note: 'From the README.' }],
   'GLips/Figma-Context-MCP': [
     { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add figma -- npx -y figma-developer-mcp --figma-api-key=YOUR-KEY --stdio'], note: 'Run in your terminal. Replace YOUR-KEY with a Figma personal access token. Same settings as the README\'s config.' },
     { to: 'Codex', how: 'CLI', cmds: ['codex mcp add figma -- npx -y figma-developer-mcp --figma-api-key=YOUR-KEY --stdio'], note: 'Run in your terminal. Replace YOUR-KEY with a Figma personal access token.' }],
@@ -109,7 +118,7 @@ const MCP_INSTALL = {
     { to: 'Claude Code', how: 'CLI', cmds: ['claude mcp add google-calendar -e GOOGLE_OAUTH_CREDENTIALS=/path/to/gcp-oauth.keys.json -- npx -y @cocal/google-calendar-mcp'], note: 'First create a Google Cloud OAuth client (Desktop app) and download its keys file, as the README explains. Then ask your assistant to authenticate.' }],
 };
 // Companies whose own repositories are listed as "Trusted publisher" (no scan up front)
-const TRUSTED = new Set(['anthropics', 'openai', 'NVIDIA', 'microsoft', 'github', 'cli', 'modelcontextprotocol', 'ChromeDevTools', 'huggingface', 'vercel-labs', 'upstash', 'aquasecurity', 'semgrep', 'astral-sh', 'ollama', 'cloudflare', 'heygen-com', 'trailofbits', 'trufflesecurity']);
+const TRUSTED = new Set(['anthropics', 'openai', 'NVIDIA', 'microsoft', 'github', 'cli', 'modelcontextprotocol', 'ChromeDevTools', 'huggingface', 'vercel-labs', 'upstash', 'aquasecurity', 'semgrep', 'astral-sh', 'GoogleChrome', 'google-labs-code', 'alibaba', 'ollama', 'cloudflare', 'heygen-com', 'trailofbits', 'trufflesecurity']);
 OWNER.cli = 'GitHub'; OWNER.ChromeDevTools = 'Google Chrome';
 const SUB = { everything: 'Everything (test server)', sequentialthinking: 'Sequential Thinking' };
 const DESC_FIX = { everything: 'Reference test server that exercises every MCP feature (tools, prompts, resources and more). Built for people developing MCP clients, not for daily use.' };
@@ -167,6 +176,7 @@ for (const l of d.listings) {
   let id = l.kind === 'skill' ? `${owner}-${l.slug}` : l.kind === 'mcp' ? `mcp-${l.slug}` : (NAME[repo] || l.slug);
   id = id.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
   if (seen.has(id)) continue; seen.add(id);
+  if (CUR.repos[repo] || CUR.ids[id]) continue;
   const desc = clean(DESC_FIX[l.slug] || l.desc);
   const inst = [];
   if (l.kind === 'skill') {
@@ -195,7 +205,7 @@ for (const l of d.listings) {
     else if (repo === 'tonylofgren/aurora-smart-home') inst.push({ to: 'Claude Code', how: 'Plugin', cmds: ['/plugin marketplace add tonylofgren/aurora-smart-home', '/plugin install aurora@aurora-smart-home'],
       note: 'From the project\'s README. Run inside Claude Code. Installs the whole Aurora smart home pack, which includes this skill.' });
     else if (!TRUSTED.has(owner) && owner !== 'obra' && l.readmeInstall?.plugin)
-      inst.push({ to: 'Claude Code', how: 'Plugin', cmds: [l.readmeInstall.plugin], note: 'From the project\'s README. Run inside Claude Code, then pick what to install from /plugin.' });
+      inst.push({ to: 'Claude Code', how: 'Plugin', cmds: [l.readmeInstall.plugin.replace(/\s+#.*$/, '')], note: 'From the project\'s README. Run inside Claude Code, then pick what to install from /plugin.' });
     if (owner === 'openai') inst.push({ to: 'Codex', how: 'Built-in installer', cmds: [/\.curated\//.test(l.path) ? `$skill-installer ${l.slug}` : `$skill-installer install https://github.com/${repo}/tree/${m.branch}/${l.path}`], note: 'Type this inside Codex.' });
     inst.push({ to: 'Any agent', how: 'skills CLI', agentCmd: `npx skills add ${repo} --skill ${q(l.slug)}`, note: repo === 'cooklang/cooklang-skills' ? 'Adds the skill only. It also needs the Cook server, which the plugin sets up; its README shows how to add it to other clients.' : 'Uses the open skills CLI. Pick the agent to install into.' });
     inst.push({ scan: true, cmds: [`git clone --depth 1 https://github.com/${repo}`, `skillspector scan ${repoName}/${l.path} --no-llm`] });
@@ -237,7 +247,12 @@ for (const l of d.listings) {
       // From each README's install section (read November 22, 2026)
       'cjpais/Handy': { brew: 'brew install --cask handy', winget: 'winget install cjpais.Handy' },
       'ggml-org/llama.cpp': { curl: 'curl -LsSf https://llama.app/install.sh | sh' },
-      'open-webui/open-webui': { pip: 'pip install open-webui' } };
+      'open-webui/open-webui': { pip: 'pip install open-webui' },
+      // From each README's install section (read November 22, 2026)
+      'Niko1221/Strata': { ps: 'irm -TimeoutSec 120 https://github.com/Niko1221/Strata/releases/latest/download/install.ps1 | iex' },
+      'NandhaKishorM/laya': { pip: 'pip install laya' },
+      'HKUDS/CLI-Anything': { pip: 'pip install cli-anything-hub' },
+      'Graphify-Labs/graphify': { uvTool: 'uv tool install graphifyy', pipx: 'pipx install graphifyy' } };
     const i = Object.fromEntries(Object.entries({ ...(l.install || {}), ...(TOOL_INSTALL[repo] || {}) }).map(([k, v]) => [k, v.replace(/\s+#.*$/, '')]));   // drop trailing shell comments
     if (repo === 'ollama/ollama') delete i.pip;
     if (repo === 'astral-sh/uv') delete i.uvTool;
@@ -247,7 +262,11 @@ for (const l of d.listings) {
     if (i.cargo && /--path/.test(i.cargo)) delete i.cargo;
     if (repo === 'vercel-labs/skills') delete i.npx;
     if (repo === 'pi-hole/pi-hole') delete i.curl;   // shown on its own card with the README's caveat
-    if (repo === 'derailed/k9s') delete i.curl;      // a third-party webinstall script; its README lists package managers for every system
+    if (repo === 'derailed/k9s') delete i.curl;
+    if (repo === 'jaredpalmer/kev') { delete i.npx; delete i.pip; }   // a separate skill and a cloud account setup, not the install
+    if (repo === 'nexu-io/open-design') delete i.curl;   // the script takes the agent's name; the desktop download is the plain route
+    if (repo === 'HKUDS/CLI-Anything') delete i.npx;   // installs one of its skills, not the tool
+    if (repo === 'Graphify-Labs/graphify') { delete i.brew; delete i.winget; delete i.curl; delete i.pip; }   // those lines install Python and uv, which Graphify needs first      // a third-party webinstall script; its README lists package managers for every system
     // Desktop apps: installers on each project's releases page (checked in their READMEs, November 1, 2026)
     const DESKTOP = { 'storytold/photocraft': 'macOS, Windows, Linux', 'storytold/pdfcraft': 'macOS, Windows, Linux', 'KnifeLemon/Filee': 'Windows, macOS, Linux',
       'robbietilton/Compositor': 'macOS', 'jub0t/Concat': 'Windows, macOS, Linux', 'crmne/spotifast': 'Linux, macOS, Windows',
@@ -255,7 +274,9 @@ for (const l of d.listings) {
       'localsend/localsend': 'Windows, macOS, Linux, Android', 'upscayl/upscayl': 'Windows, macOS, Linux', 'qarmin/czkawka': 'Windows, macOS, Linux',
       'flameshot-org/flameshot': 'Windows, Linux', 'keepassxreboot/keepassxc': 'Windows, macOS, Linux', 'syncthing/syncthing': 'Windows, macOS, Linux and more',
       'rustdesk/rustdesk': 'Windows, macOS, Linux, Android',
-      'cjpais/Handy': 'Windows, macOS, Linux', 'Zackriya-Solutions/meetily': 'Windows, macOS, Linux', 'AppFlowy-IO/AppFlowy': 'Windows, macOS, Linux' };
+      'cjpais/Handy': 'Windows, macOS, Linux', 'Zackriya-Solutions/meetily': 'Windows, macOS, Linux', 'AppFlowy-IO/AppFlowy': 'Windows, macOS, Linux',
+      'Niko1221/Strata': 'Windows, macOS, Linux', 'FrigadeHQ/hob': 'macOS, Windows, Linux', 'FrigadeHQ/yogurt': 'macOS, Windows, Linux', 'toeverything/AFFiNE': 'Windows, macOS, Linux',
+      'genspark-ai/genoffice': 'macOS, Windows, Linux', 'HKUDS/DeepTutor': 'macOS, Windows', 'nexu-io/open-design': 'macOS, Windows' };
     // Desktop apps whose own site has the download page (each link checked November 22, 2026)
     const SITE_DL = { 'janhq/jan': ['Windows, macOS, Linux', 'https://jan.ai/download', 'Download from jan.ai'],
       'Comfy-Org/ComfyUI': ['Windows, macOS', 'https://www.comfy.org/download', 'Download the ComfyUI desktop app', 'Its README also lists a portable Windows build and a manual install.'],
@@ -293,6 +314,7 @@ for (const l of d.listings) {
     if (i.docker) inst.push({ to: 'Any computer with Docker', how: 'Docker', cmds: [i.docker] });
     if (dev.length) inst.push({ to: 'Any computer with developer tools', how: 'From source', cmds: dev, alt: true, note: 'Needs the matching language tools (Rust, Go, Python or Node).' });
     if (repo === 'gitleaks/gitleaks') inst.push({ to: 'Windows, Linux', how: 'Download', link: 'https://github.com/gitleaks/gitleaks/releases/latest', linkText: 'Download from GitHub', note: 'Its README points to ready-made binaries for many systems on the releases page.' });
+    if (repo === 'Graphify-Labs/graphify') inst.push({ to: 'Then, in your project', how: 'Add the skill', cmds: ['graphify install'], note: 'From the README. Adds the /graphify skill to Claude Code and other assistants it finds. Graphify needs Python 3.10 or newer and uv.' });
     if (repo === 'dandavison/delta') inst.push({ to: 'All platforms', how: 'Note', text: 'The package is called git-delta in most package managers, but the command it installs is delta.' });
     if (repo === 'vercel-labs/skills') inst.push({ to: 'Any agent', how: 'npx', cmds: ['npx skills add vercel-labs/agent-skills'], note: 'No install needed. Runs through npx; this example adds Vercel\'s skills.' });
     if (repo === 'cli/cli') inst.push({ to: 'Coding agents', how: 'Agent skill', cmds: ['gh skill install cli/cli gh --scope user'], note: 'Installs the gh agent skill. Install GitHub CLI itself first.' });
@@ -301,10 +323,13 @@ for (const l of d.listings) {
   // Skills whose folder name isn't the name the project goes by (from each README)
   const SKILL_NAME = { 'zubair-trabzada/ai-finance-claude:finance-debt': 'Debt Payoff Strategy', 'zubair-trabzada/ai-finance-claude:finance-goals': 'Financial Goal Planner', 'heygen-com/hyperframes:hyperframes': 'HyperFrames', 'earthtojake/text-to-cad:cad': 'Text-to-CAD', 'Leonxlnx/taste-skill:design-taste-frontend': 'Taste Skill',
     'AgriciDaniel/claude-seo:seo': 'Claude SEO', 'AgriciDaniel/claude-seo:seo-audit': 'SEO Audit', 'AgriciDaniel/claude-seo:seo-local': 'Local SEO', 'cloudflare/security-audit-skill:security-audit': 'Security Audit',
-    'trailofbits/skills:sharp-edges': 'Sharp Edges', 'anthropics/knowledge-work-plugins:triage-nda': 'NDA Triage' };
-  const name = SKILL_NAME[`${repo}:${l.slug}`] || niceName(l.kind === 'skill' ? l.name : l.kind === 'mcp' && l.path ? (SUB[l.slug] || l.name) : (NAME[repo] || l.name));
+    'trailofbits/skills:sharp-edges': 'Sharp Edges', 'google-labs-code/stitch-skills:stitch::generate-design': 'Stitch Design', 'Jakeschincariol/instagram-agent-skill:ig-reel': 'Instagram Agent',
+    'kajisho5/ffmpeg-skill:ffmpeg-skill': 'FFmpeg Skill', 'typesafe-ai/skills:typesafe-ai': 'TypeSafe Jev Skill', 'mvanhorn/last30days-skill:last30days': 'last30days',
+    'career-ops-hq/career-ops:career-ops': 'Career-Ops', 'MemPalace/mempalace:mempalace': 'MemPalace', 'GoogleChrome/modern-web-guidance:modern-web-guidance': 'Modern Web Guidance',
+    'alibaba/open-code-review:open-code-review': 'Open Code Review', 'vercel-labs/agent-browser:agent-browser': 'agent-browser', 'anthropics/knowledge-work-plugins:triage-nda': 'NDA Triage' };
+  const name = CUR.keep[id]?.n || SKILL_NAME[`${repo}:${l.slug}`] || niceName(l.kind === 'skill' ? l.name : l.kind === 'mcp' && l.path ? (SUB[l.slug] || l.name) : (NAME[repo] || l.name));
   L.push({ id, k: l.kind, n: name, sl: l.slug, t: tagline(desc), d: desc, r: repo, u: l.url, p: l.path, nv: !!l.nvidia, tr: TRUSTED.has(owner), g: glyphFor(l.slug + ' ' + desc + ' ' + repo), c: colorFor(id),
-    lines: l.lines || null, lic: l.license || null, inst, pl: PLAIN[id]?.[0] || null, jb: PLAIN[id]?.[1] || [], lv: PLAIN[id]?.[2] || null,
+    lines: l.lines || null, lic: l.license || null, inst, pl: CUR.keep[id]?.pl || PLAIN[id]?.[0] || null, jb: PLAIN[id]?.[1] || [], lv: PLAIN[id]?.[2] || null,
     vd: (VIDEOS[l.kind === 'mcp' && l.path ? `${repo}:${l.path}` : repo] || []).map(v => [v.kind, v.url, v.label || null, v.id || null]),
     ...(ALTS[id] ? { alt: ALTS[id] } : {}),
     ...(REDUNDANT[id] ? { rd: REDUNDANT[id].why } : {}),
@@ -394,8 +419,10 @@ const DG = fs.existsSync(DGD) ? fs.readdirSync(DGD).filter(f => f.endsWith('.jso
 // Head-to-head tests (tests/<id>/results.json): the same task for several skills and plain Claude, judged blind. Newest first.
 const TD = new URL('../tests/', import.meta.url);
 const TESTS = fs.existsSync(TD) ? fs.readdirSync(TD).filter(d => fs.existsSync(new URL(`${d}/results.json`, TD))).map(d => JSON.parse(fs.readFileSync(new URL(`${d}/results.json`, TD), 'utf8')))
-  .map(t => ({ ...t, contestants: t.contestants.filter(c => !c.listing || L.some(l => l.id === c.listing)) })).sort((a, b) => b.date.localeCompare(a.date)) : [];
-const DATA = { gen: d.generated.slice(0, 10), L, R, AV: d.avatars, SC, MR, TR, DG, TESTS };
+  // Every contestant stays in its test, even one no longer on the shelves (its page then has no link to a listing)
+  .sort((a, b) => b.date.localeCompare(a.date)) : [];
+const LG = Object.fromEntries(Object.entries(LOGOS).filter(([k, v]) => !k.startsWith('_') && v?.img && L.some(l => l.r === k)).map(([k, v]) => [k, v.img]));
+const DATA = { gen: d.generated.slice(0, 10), L, R, AV: d.avatars, LG, SC, MR, TR, DG, TESTS };
 // Each skill's install name in the Skillshelf marketplace (plugin@skillshelf), filled in below, so listing pages can offer it
 const MK = {};
 

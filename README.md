@@ -47,6 +47,10 @@ The site is a single self-contained page: [`vetted-store.html`](vetted-store.htm
 | `pipeline/digest.mjs` | Writes the weekly, monthly and yearly Digest issues from the trending lists, launch dates and additions |
 | `data/digests/` | One JSON file per Digest issue; past issues are never rewritten, so the archive keeps what was true then |
 | `data/trending.json` | GitHub's own trending lists (today, this week, this month) with stars gained, read on the date it states |
+| `pipeline/trending.mjs` | Reads GitHub's trending lists into `data/trending.json`; the home page's Rising on GitHub shelf shows the listed ones |
+| `data/curation.json` | What the site leaves out and why: skills Claude already has (Anthropic's own), Codex-only skills, test and reference servers, and the extra pieces of packs (each pack is listed once). The build skips them |
+| `pipeline/logos.cjs` | Finds each project's own logo where a person owns the repository, so no icon is a developer's photo (`data/logos.json`, checked by eye; `_rejected` lists screenshots and other companies' logos it must skip). Needs Playwright |
+| `pipeline/og.cjs` | Draws the 1200×627 link preview (`assets/og.png`) from the site's own data |
 | `tests/<id>/` | A head-to-head test: `results.json` (runs, blind scores, verdict), screenshots, the pages each session made, the scripts, and a README with the method and caveats. The build shows every test on the Tested page |
 | `checkup/skills/vetted-checkup/` | The Checkup skill: `SKILL.md`, `checkup.mjs` (reads installed skills, plugins and the user's own session logs; changes nothing) and `vetted-data.json`, written by the build |
 | `checkup/test/checkup.test.mjs` | Builds a made-up Claude Code setup and checks the Checkup's report |
