@@ -142,7 +142,7 @@ ok(page.includes('<code class="inline" id="link">https://x.test/mcp</code>') && 
 
 // Visit counts: only from the site's own addresses, one row per day and thing counted, readable at /stats
 const hit = (body, origin = 'https://getskillshelf.pages.dev') => worker.fetch(new Request('https://x.test/hit', { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=UTF-8', ...(origin ? { Origin: origin } : {}) }, body: JSON.stringify(body) }), env);
-const h1 = await hit({ k: 'visit', p: 'linkedin.com' }); await hit({ k: 'page', p: 'noop' }); await hit({ k: 'page', p: 'noop' }); await hit({ k: 'click', p: 'click/bar-command' });
+const h1 = await hit({ k: 'visit', p: 'linkedin.com' }, 'https://qaisak.github.io'); await hit({ k: 'page', p: 'noop' }); await hit({ k: 'page', p: 'noop' }); await hit({ k: 'click', p: 'click/bar-command' });
 await hit({ k: 'page', p: 'noop' }, 'https://evil.example'); await hit({ k: 'page', p: 'noop' }, null); await hit({ k: 'nonsense', p: 'x' }); await hit({ k: 'page', p: '<script>alert(1)</script>' });
 const rows = db.prepare('SELECT kind, key, n FROM hits ORDER BY kind, key').all().map(r => `${r.kind}:${r.key}:${r.n}`).join(' ');
 ok(h1.status === 204 && h1.headers.get('Access-Control-Allow-Origin') === '*', '/hit answers 204 with CORS, so the site can send it without waiting');

@@ -70,7 +70,9 @@ Before a build, `node pipeline/releases.mjs` refreshes `data/releases.json` (the
 
 ## Publish the site
 
-The public site is **https://getskillshelf.pages.dev/** (Cloudflare Pages, project `getskillshelf`). Put the build in a folder as `index.html` with `assets/og.png` beside it as `og.png`, then, from a folder with no `wrangler.toml` in it (the one in `connector/` would turn this into a Worker deploy):
+The public site is **https://qaisak.github.io/getskillshelf/** (GitHub Pages, repository `qaisak/getskillshelf`: `index.html` and `og.png` on `main`). It moved there on November 23, 2026 because LinkedIn warns that every `pages.dev` address may hold malicious content. https://getskillshelf.pages.dev/ (Cloudflare Pages, project `getskillshelf`) and the Render address now only redirect to it, keeping the page a link points to.
+
+To publish to Cloudflare Pages, for the redirect page or if the site ever moves back: Put the build in a folder as `index.html` with `assets/og.png` beside it as `og.png`, then, from a folder with no `wrangler.toml` in it (the one in `connector/` would turn this into a Worker deploy):
 
 ```bash
 npx wrangler pages deploy <folder> --project-name getskillshelf --branch main --commit-dirty=true

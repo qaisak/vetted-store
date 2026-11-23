@@ -258,7 +258,7 @@ async function handleRpc(msg, env, session) {
 // ---------- Visit counts for the Skillshelf site ----------
 // Only the site's own addresses are counted. A key is a page (a listing id, "browse"), a source ("linkedin.com", "direct")
 // or a click ("click/get/noop"): never anything about who visited.
-const HIT_ORIGINS = /^https:\/\/([a-z0-9-]+\.)?getskillshelf\.pages\.dev$|^https:\/\/skillshelf-dgcx\.onrender\.com$/;
+const HIT_ORIGINS = /^https:\/\/qaisak\.github\.io$|^https:\/\/([a-z0-9-]+\.)?getskillshelf\.pages\.dev$|^https:\/\/skillshelf-dgcx\.onrender\.com$/;
 const hitKey = s => String(s || '').toLowerCase().replace(/[^a-z0-9._\-\/:=]/g, '').slice(0, 80);
 async function countHit(request, env) {
   if (!HIT_ORIGINS.test(request.headers.get('Origin') || '') || !env.DB) return;
@@ -271,7 +271,7 @@ async function countHit(request, env) {
 // ---------- Suggestions: a GitHub project someone thinks belongs on Skillshelf ----------
 const LISTED_REPOS = new Set(L.map(l => String(l.repo).toLowerCase()));
 async function suggest(request, env) {
-  if (!HIT_ORIGINS.test(request.headers.get('Origin') || '')) return json({ ok: false, error: 'Suggestions are sent from getskillshelf.pages.dev.' }, 403);
+  if (!HIT_ORIGINS.test(request.headers.get('Origin') || '')) return json({ ok: false, error: 'Suggestions are sent from the Skillshelf site.' }, 403);
   if (!env.DB) return json({ ok: false, error: 'Suggestions are closed right now.' }, 503);
   let b; try { b = JSON.parse((await request.text()).slice(0, 2000)); } catch { return json({ ok: false, error: 'That didn\'t look right. Try again.' }, 400); }
   const m = String(b?.repo || '').trim().match(/^([A-Za-z0-9-]{1,39})\/([A-Za-z0-9._-]{1,100})$/);

@@ -6,8 +6,8 @@
 <meta property="og:site_name" content="Skillshelf">
 <meta property="og:title" content="Skillshelf: the app store for open source">
 <meta property="og:description" content="Free apps, AI skills and connectors from GitHub, explained in plain English and set up for you by Claude. Free alternatives to tools you pay for.">
-<meta property="og:url" content="https://getskillshelf.pages.dev/">
-<meta property="og:image" content="https://getskillshelf.pages.dev/og.png">
+<meta property="og:url" content="https://qaisak.github.io/getskillshelf/">
+<meta property="og:image" content="https://qaisak.github.io/getskillshelf/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="627">
 <meta property="og:image:alt" content="Skillshelf: the app store for open source">
@@ -2172,7 +2172,7 @@ const hiddenNote = (all, shown) => { const n = all.length - shown.length;
 // ---------- My list: save, share, compare, copy and install together ----------
 // Kept only in this browser. A shared list travels in the link (#list=id,id) and opens read-only until it's saved.
 // The public site: every shared link, list and setup link points here (the Claude artifact copy is private)
-const SITE = 'https://getskillshelf.pages.dev/';
+const SITE = 'https://qaisak.github.io/getskillshelf/';
 let LIST = [];
 try { const s = JSON.parse(localStorage.getItem('vetted-list') || '[]'); if (Array.isArray(s)) LIST = s.filter(id => BY[id]); } catch (e) {}
 const saveList = () => { try { localStorage.setItem('vetted-list', JSON.stringify(LIST)); } catch (e) {} };
@@ -2602,7 +2602,7 @@ document.addEventListener('submit', async e => {
 // the visitor: a page name, a click name, or where a visit came from (a site name like linkedin.com, or "direct"). A per-tab mark
 // in sessionStorage stops one visit counting twice. Only on the public site, never in a Claude artifact or a local copy.
 const COUNTER = 'https://skillshelf.skillshelf.workers.dev/hit';
-const COUNTING = location.protocol === 'https:' && /(^|\.)getskillshelf\.pages\.dev$/.test(location.host);
+const COUNTING = location.protocol === 'https:' && ((location.host === 'qaisak.github.io' && location.pathname.startsWith('/getskillshelf')) || /(^|\.)getskillshelf\.pages\.dev$/.test(location.host));
 const hitKey = h => h.startsWith('list=') ? 'list-shared' : h.replace(/[^a-z0-9._\-\/:=]/gi, '').slice(0, 80) || 'home';
 const beacon = body => { try { navigator.sendBeacon(COUNTER, JSON.stringify(body)); } catch (e) {} };
 const track = (path, event) => { if (COUNTING) beacon({ k: event ? 'click' : 'page', p: event ? path : hitKey(path) }); };

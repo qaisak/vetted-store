@@ -492,9 +492,15 @@ if (fs.existsSync(CONNECTOR_DIR)) {
   console.error('connector catalog:', cat.listings.length, 'listings');
   console.error('marketplace:', mk.plugins.length, 'skills, written to', writeMarketplace(mk), 'left out:', JSON.stringify(skipped));
 }
+// Quoted code can hold strings shaped like keys or tokens (a scanner's test samples, a README's example). The page never
+// shows one: anything in a known credential format becomes [redacted], so neither visitors nor secret scanners see it.
+const SECRET_SHAPES = [/\bapi_org_[A-Za-z0-9]{20,}/g, /\bhf_[A-Za-z0-9]{30,}/g, /\bgh[pousr]_[A-Za-z0-9]{30,}/g, /\bgithub_pat_[A-Za-z0-9_]{40,}/g,
+  /\bsk-(?:ant-|proj-)?[A-Za-z0-9_-]{30,}/g, /\bxox[baprs]-[A-Za-z0-9-]{20,}/g, /\bAKIA[0-9A-Z]{16}\b/g, /\bAIza[0-9A-Za-z_-]{35}\b/g,
+  /\bglpat-[A-Za-z0-9_-]{20,}/g, /\bnpm_[A-Za-z0-9]{36}\b/g, /\bsk_live_[A-Za-z0-9]{20,}/g, /-----BEGIN [A-Z ]*PRIVATE KEY-----/g];
+const redactSecrets = s => SECRET_SHAPES.reduce((t, re) => t.replace(re, '[redacted]'), s);
 // The store page, written once the marketplace install names are known
 {
-  const json = JSON.stringify({ ...DATA, MK }).replace(/</g, '\\u003c');
+  const json = redactSecrets(JSON.stringify({ ...DATA, MK })).replace(/</g, '\\u003c');
   const tpl = fs.readFileSync(tplPath, 'utf8');
   // A function replacement, so "$'" or "$&" inside scanned text is inserted literally
   fs.writeFileSync(outPath, tpl.replace('/*__DATA__*/null', () => json));
