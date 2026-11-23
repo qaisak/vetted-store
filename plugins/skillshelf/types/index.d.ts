@@ -23,6 +23,8 @@ declare module 'claude-code' {
       isFlagging: boolean
       /** Whether the Add skill box is open */
       isAdding: boolean
+      /** Groups in the full list (All skills) the person opened or closed, against each group's default */
+      flippedGroups: string[]
     }
   }
 }

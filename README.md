@@ -89,15 +89,17 @@ People can install a checked skill in one step instead of downloading a folder a
 
 Its first plugin is Skillshelf's own: **the Skillshelf bar** ([`plugins/skillshelf`](plugins/skillshelf)), a Skills bar that
 stays above the message box in Claude Code. It switches skills on or off for the session, adds any skill after Skillshelf
-checks it, bans phrases, and brings the Skillshelf connector with it. Install it with
-`/plugin marketplace add qaisak/vetted-store`, then `/plugin install skillshelf@skillshelf`. The connector's home page
-(https://skillshelf.skillshelf.workers.dev/) leads with it.
+checks it, bans phrases, and brings the Skillshelf connector with it. Install it with one line in Claude Code (a terminal
+or a code editor): `/plugin install skillshelf --marketplace qaisak/vetted-store`, then `y` and Enter. In the Claude
+desktop app, where `/plugin` doesn't run: + next to the message box, Plugins, Add marketplace with `qaisak/vetted-store`,
+then add Skillshelf. The connector's home page (https://skillshelf.skillshelf.workers.dev/) leads with it.
 
 **Add it once, then install from it:**
 
 - Claude app (claude.ai, desktop): Plugins, then Add, then Add marketplace, and enter `qaisak/vetted-store`.
-- Claude Code: `/plugin marketplace add qaisak/vetted-store`, then `/plugin install <listing-id>@skillshelf`
-  (for example `/plugin install obra-brainstorming@skillshelf`).
+- Claude Code: `/plugin install <listing-id> --marketplace qaisak/vetted-store` adds it and installs in one line
+  (for example `/plugin install pbakaus-impeccable --marketplace qaisak/vetted-store`). Once it's added,
+  `/plugin install <listing-id>@skillshelf` works too.
 
 **What goes in** (`pipeline/marketplace.mjs`):
 

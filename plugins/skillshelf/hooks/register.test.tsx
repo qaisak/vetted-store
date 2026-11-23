@@ -10,13 +10,16 @@ const SKILLS = [
   { name: 'anthropic-skills:docx', source: 'plugin', tokens: 10 },
   { name: 'adhd-mode', source: 'userSettings', tokens: 10 },
   { name: 'no-slop-writing', source: 'userSettings', tokens: 10 },
+  { name: 'bio-research:scvi-tools', source: 'plugin', tokens: 10 },
+  { name: 'update-config', source: 'built-in', tokens: 10 },
 ]
+const PANE = { plugin: 'skillshelf', component: 'Pane', requestId: 'skillshelf-skills', surface: 'desktop', props: { title: 'Skillshelf', isFocused: false, bodyColumns: 40, placement: 'dock', scroll: { offset: 0, bodyRows: 20 }, view: {} } } as const
 
 // Nothing sits beneath the plugin: each hook here stands for the engine
 function engine(on: Parameters<Parameters<typeof test>[1]>[1], filled: string[], sent: string[]) {
   on('command.register', () => ({ value: { command: 'skills-bar' } }))
   on('session.start', (_, e) => ({ cwd: e.cwd }))
-  on('session.usage', () => ({ value: { startedAt: 0, context: { breakdown: { skills: { totalSkills: 3, includedSkills: 3, tokens: 30, skillFrontmatter: SKILLS } } } } }))
+  on('session.usage', () => ({ value: { startedAt: 0, context: { breakdown: { skills: { totalSkills: 5, includedSkills: 5, tokens: 50, skillFrontmatter: SKILLS } } } } }))
   on('tool.call', () => ({ result: {} }))
   on('prompt.compose', () => ({ sections: [{ id: 'intro', text: 'You are Claude.', scope: 'shared' as const }] }))
   on('prompt.fill', (_, e) => { filled.push(e.text); return { isFilled: true, text: e.text, cursor: e.text.length } })
@@ -124,6 +127,31 @@ test('Flag slop bans a phrase for good', async ($, on) => {
   const composed = await $.prompt.compose(COMPOSE)
   const rule = composed.sections.find(s => s.id === 'skillshelf:banned')
   expect(rule?.text).toMatch(/"Glance", "delve into"/)
+})
+
+test('the full list groups skills by where they came from, the person\'s own open and the rest folded', async ($, on) => {
+  engine(on, [], [])
+  await $.session.start({ cwd: '/', surface: 'desktop', isInteractive: true })
+
+  const pane = await $.ui.mount(PANE)
+  // Their own skills first and open
+  expect((await pane.find({ key: 'fold-yours' }))?.text).toBe('▾ Your skills (2)')
+  expect(await pane.find({ key: 'pane-adhd-mode' })).toBeDefined()
+  // Each plugin under its own name, folded, and what Claude Code brings, folded
+  expect((await pane.find({ key: 'fold-plugin:anthropic-skills' }))?.text).toBe('▸ From the anthropic-skills plugin (1)')
+  expect((await pane.find({ key: 'fold-plugin:bio-research' }))?.text).toBe('▸ From the bio-research plugin (1)')
+  expect((await pane.find({ key: 'fold-built-in' }))?.text).toBe('▸ Built into Claude Code (1)')
+  expect(await pane.find({ key: 'pane-anthropic-skills:docx' })).toBeUndefined()
+
+  // Opening a group shows its switches; one switched off shows in the group's count
+  await pane.press({ key: 'fold-plugin:anthropic-skills' })
+  expect(await pane.find({ key: 'pane-anthropic-skills:docx' })).toBeDefined()
+  await pane.press({ key: 'pane-anthropic-skills:docx' })
+  expect((await pane.find({ key: 'fold-plugin:anthropic-skills' }))?.text).toBe('▾ From the anthropic-skills plugin (1, 0 on)')
+  // Folding your own skills hides them
+  await pane.press({ key: 'fold-yours' })
+  expect(await pane.find({ key: 'pane-adhd-mode' })).toBeUndefined()
+  await pane.unmount()
 })
 
 test('a banned phrase is still banned in a new session, until it is allowed again', async ($, on) => {

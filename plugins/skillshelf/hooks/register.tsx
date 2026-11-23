@@ -20,6 +20,7 @@ const banned = atom({ plugin: 'skillshelf', key: 'banned' } as const, [] as stri
 const isOpen = atom({ plugin: 'skillshelf', key: 'isOpen' } as const, true)
 const isFlagging = atom({ plugin: 'skillshelf', key: 'isFlagging' } as const, false)
 const isAdding = atom({ plugin: 'skillshelf', key: 'isAdding' } as const, false)
+const flippedGroups = atom({ plugin: 'skillshelf', key: 'flippedGroups' } as const, [] as string[])
 
 // How many chips the bar shows before "All skills (N)" takes over
 const CHIPS = 5
@@ -30,6 +31,23 @@ const MAX_PHRASE = 120
 const MAX_BANNED = 300
 
 const shortName = (name: string) => name.split(':').pop() || name
+// The full list groups skills by where they came from, so nobody wonders why a skill is there: their own, this project's,
+// each plugin by name, connectors, and what Claude Code brings. Their own and the project's start open; the rest folded.
+type Group = { key: string; title: string; items: BandSkill[] }
+const groupOf = (s: BandSkill): [string, string] => {
+  if (s.source === 'userSettings' || s.source === 'syncedSkills') return ['yours', 'Your skills']
+  if (s.source === 'projectSettings') return ['project', 'This project\'s skills']
+  if (s.source === 'plugin') { const p = s.name.includes(':') ? s.name.split(':')[0] : ''; return [`plugin:${p || 'other'}`, p ? `From the ${p} plugin` : 'From other plugins'] }
+  if (s.source === 'mcp') return ['mcp', 'From connectors']
+  if (s.source === 'built-in') return ['built-in', 'Built into Claude Code']
+  return ['other', 'Other skills']
+}
+const OPEN_FIRST = new Set(['yours', 'project'])
+function groupsOf(list: BandSkill[]): Group[] {
+  const out: Group[] = []
+  for (const s of list) { const [key, title] = groupOf(s); let g = out.find(x => x.key === key); if (!g) out.push(g = { key, title, items: [] }); g.items.push(s) }
+  return out.sort((a, b) => (RANK[a.items[0].source] ?? 9) - (RANK[b.items[0].source] ?? 9) || a.title.localeCompare(b.title))
+}
 // The Skill tool may name a skill with or without its plugin prefix
 const sameSkill = (a: string, b: string) => a === b || shortName(a) === shortName(b)
 const quoted = (list: string[]) => list.map(p => `"${p}"`).join(', ')
@@ -202,6 +220,7 @@ export const register: Register = on => {
     const list = await read($, skills)
     const offList = await read($, off)
     const bannedList = await read($, banned)
+    const flipped = await read($, flippedGroups)
     const onCount = list.length - list.filter(s => offList.includes(s.name)).length
 
     return (
@@ -215,13 +234,23 @@ export const register: Register = on => {
           </Box>
         ))}
         <Text bold>Skills</Text>
-        <Text dimColor>{list.length ? `${onCount} of ${list.length} on. Switches apply to this session.` : 'No skills in this session yet.'}</Text>
-        {list.map(s => {
-          const isOn = !offList.includes(s.name)
+        <Text dimColor>{list.length ? `Every skill in this session, by where it came from. ${onCount} of ${list.length} on. Switches apply to this session.` : 'No skills in this session yet.'}</Text>
+        {groupsOf(list).map(g => {
+          const isShown = OPEN_FIRST.has(g.key) !== flipped.includes(g.key)
+          const onInGroup = g.items.filter(s => !offList.includes(s.name)).length
           return (
-            <Box key={`row-${s.name}`} flexDirection="row" justifyContent="space-between" alignItems="center" columnGap={2}>
-              <Text>{s.label}</Text>
-              <Button key={`pane-${s.name}`} variant={isOn ? 'primary' : 'secondary'} label={isOn ? 'ON' : 'OFF'} onPress={() => toggle($, s.name)} />
+            <Box key={`group-${g.key}`} flexDirection="column" gap={1}>
+              <Button key={`fold-${g.key}`} plain label={`${isShown ? '▾' : '▸'} ${g.title} (${g.items.length}${onInGroup < g.items.length ? `, ${onInGroup} on` : ''})`}
+                onPress={() => update($, flippedGroups, l => l.includes(g.key) ? l.filter(k => k !== g.key) : [...l, g.key])} />
+              {isShown && g.items.map(s => {
+                const isOn = !offList.includes(s.name)
+                return (
+                  <Box key={`row-${s.name}`} flexDirection="row" justifyContent="space-between" alignItems="center" columnGap={2}>
+                    <Text>{s.label}</Text>
+                    <Button key={`pane-${s.name}`} variant={isOn ? 'primary' : 'secondary'} label={isOn ? 'ON' : 'OFF'} onPress={() => toggle($, s.name)} />
+                  </Box>
+                )
+              })}
             </Box>
           )
         })}

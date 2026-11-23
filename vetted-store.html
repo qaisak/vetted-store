@@ -704,6 +704,7 @@ mark.hl { color: inherit; background: linear-gradient(180deg, transparent 56%, v
 .bar-steps { grid-column: 1 / -1; justify-self: stretch; border-top: 1px solid color-mix(in srgb, var(--band-blue-2) 22%, transparent); padding-top: 18px; }
 .bar-cmds { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin-top: 6px; }
 .bar-cmds .copybox { margin-top: 0; }
+.bar-cmds.one { grid-template-columns: minmax(0, 1fr); max-width: 640px; }
 .bd-hl { color: #C2255C; font-weight: 600; }
 .bd-flag { gap: 8px; }
 .bd-input { border: 1px solid #D6D6D6; border-radius: 10px; padding: 10px 12px; display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; color: #1F1F1F; line-height: 1.45; }
@@ -1425,13 +1426,13 @@ function claudeBox() {
   return `<section class="shelf bar-shelf" id="in-claude">
     <div class="bar-card">
       <div class="bar-copy"><h2>Our favourite feature: the Skillshelf bar</h2>
-        <p>A bar above your message box in Claude Code. It's free, and it takes two commands to add.</p>
+        <p>A bar above your message box in Claude Code. It's free, and it takes one line to add.</p>
         <ul class="bar-feats">${BAR_FEATS.map(([g, c, h, s]) => `<li style="--c:${c}"><span class="fi">${ic(g)}</span><b>${h}</b><span class="t">${s}</span></li>`).join('')}</ul></div>
       <div class="bar-art">${barDrawing()}${flagDrawing()}</div>
-      <div class="bar-steps"><b>Add it in two steps</b>
-        <ol class="claude-steps"><li>In Claude Code, run these two commands:<div class="bar-cmds">${copyBox(`/plugin marketplace add ${MARKET_REPO}`)}${copyBox('/plugin install skillshelf@skillshelf')}</div></li>
-          <li>Start a new session. The bar appears above your message box.</li></ol>
-        <p class="claude-note">Claude Code only for now: the terminal, your code editor, or the Code tab of the Claude desktop app. <a href="${SETUP_PAGE}" target="_blank" rel="noopener">How it works ${ic('ext')}</a></p>
+      <div class="bar-steps"><b>Add it with one line</b>
+        <ol class="claude-steps"><li>In Claude Code, in a terminal or your code editor, paste this and press Enter:<div class="bar-cmds one">${copyBox(`/plugin install skillshelf --marketplace ${MARKET_REPO}`)}</div></li>
+          <li>Press <b>y</b> to add the Skillshelf marketplace, then Enter to install. The bar appears above your message box.</li></ol>
+        <p class="claude-note">In the Claude desktop app, where that line doesn't run: click <b>+</b> next to the message box, then <b>Plugins</b>, <b>Add marketplace</b> with <span class="mono">${MARKET_REPO}</span>, then add Skillshelf. Claude Code only for now. <a href="${SETUP_PAGE}" target="_blank" rel="noopener">How it works ${ic('ext')}</a></p>
         <details class="chat-way"><summary>Use Claude chats instead?</summary>
           <ol class="claude-steps"><li>In Claude, open <b>Plugins</b>, click <b>Add</b>, then <b>Add custom connector</b>.</li>
             <li>Name it Skillshelf and paste this address:${copyBox(CONNECTOR)}</li>
@@ -1960,7 +1961,7 @@ function getHTML(l) {
     <p>Paste this into Claude Code or the Claude desktop app. Claude reads the code first, tells you what it can reach, and asks before it installs.</p>
     ${promptBox(setupPrompt(l), 'Copied. Paste it into Claude.')}</div>`;
   const bar = l.k === 'skill' ? `<div class="way"><b>${mk ? 'With the Skillshelf bar' : 'In Claude Code'}</b>
-    ${mk ? `<p>Have the bar? Click <b>+ Add skill</b> and paste this link. Or run:</p>${copyBox(`/plugin install ${mk}@skillshelf`)}<p class="note">Needs the Skillshelf marketplace once: <span class="mono">/plugin marketplace add ${MARKET_REPO}</span></p>`
+    ${mk ? `<p>Have the bar? Click <b>+ Add skill</b> and paste this link. Or run this in Claude Code:</p>${copyBox(`/plugin install ${mk} --marketplace ${MARKET_REPO}`)}`
       : `<p>Have the Skillshelf bar? Click <b>+ Add skill</b> and paste this link:</p>${copyBox(srcUrl(l))}`}</div>` : '';
   const own = dl ? ownWay(l, dl) || `<div class="way"><b>Or get it yourself</b><p>${esc(dl.note || `For ${dl.to}.`)}</p>
     <a class="get" href="${esc(dl.link || dl.dl)}" target="_blank" rel="noopener">${esc(dl.linkText || (dl.how === 'Add-on' ? 'Get the add-on' : 'Download'))} ${ic('ext')}</a></div>` : '';

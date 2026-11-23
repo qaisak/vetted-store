@@ -37,7 +37,7 @@ Success, in the owner's order:
 
 - One self-contained HTML file (`pipeline/template.html` built into `vetted-store.html` with the catalog embedded). Published as a private Claude artifact and on Render.
 - Three kinds of listing: skills (235), connectors / MCP servers (40), apps (59). 334 in total.
-- The Skillshelf bar is a Claude Code plugin: `/plugin marketplace add qaisak/vetted-store`, then `/plugin install skillshelf@skillshelf`. Claude Code only for now.
+- The Skillshelf bar is a Claude Code plugin, installed with one line: `/plugin install skillshelf --marketplace qaisak/vetted-store` (in the desktop app: + next to the message box, Plugins, Add marketplace). Claude Code only for now.
 - The Skillshelf connector (https://skillshelf.skillshelf.workers.dev/mcp) works in Claude chats.
 - My list lives in the visitor's browser (localStorage) and can be shared as a link.
 
