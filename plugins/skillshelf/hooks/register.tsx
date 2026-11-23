@@ -24,6 +24,8 @@ const flippedGroups = atom({ plugin: 'skillshelf', key: 'flippedGroups' } as con
 
 // How many chips the bar shows before "All skills (N)" takes over
 const CHIPS = 5
+// How many of the person's messages pass before the rules ride along beside one again (prompt.submit)
+const REMIND = 20
 // The person's own skills come first: those are the ones they think of switching
 const RANK: Record<string, number> = { userSettings: 0, projectSettings: 1, syncedSkills: 2, plugin: 3, mcp: 4, 'built-in': 5 }
 // A banned entry is a word or phrase, not an essay: long pastes are cut, and the list has a ceiling
@@ -106,6 +108,16 @@ async function banPhrases($: Engine, typed: string) {
   $.ui.toast(added.length ? `Banned ${quoted(added)}. Claude won't write ${added.length > 1 ? 'them' : 'it'} again.` : 'Already banned.')
 }
 
+// What Claude is told: the skills switched off this session and the phrases banned for good
+async function rules($: Engine) {
+  const names = (await read($, off)).map(shortName)
+  const phrases = await read($, banned)
+  return [
+    ...(names.length ? [{ id: `${PLUGIN}:off`, text: `The user switched these skills off for this session with the Skillshelf bar: ${names.join(', ')}. Don't use them unless the user switches them back on or asks for one by name.` }] : []),
+    ...(phrases.length ? [{ id: `${PLUGIN}:banned`, text: `The user banned these as slop with the Skillshelf bar. ${banRule(phrases)} This applies to every reply, file, commit message and document you write.` }] : []),
+  ]
+}
+
 async function unban($: Engine, phrase: string) {
   await saveBanned($, (await read($, banned)).filter(p => p !== phrase))
   $.ui.toast(`"${phrase}" is allowed again`)
@@ -158,13 +170,22 @@ export const register: Register = on => {
   // Claude is told up front: which skills are off, and which words and phrases it must never write
   on('prompt.compose', async ($, e, next) => {
     const composed = await next(e)
-    const names = (await read($, off)).map(shortName)
-    const phrases = await read($, banned)
-    const added = [
-      ...(names.length ? [{ id: `${PLUGIN}:off`, scope: 'session' as const, text: `The user switched these skills off for this session with the Skillshelf bar: ${names.join(', ')}. Don't use them unless the user switches them back on or asks for one by name.` }] : []),
-      ...(phrases.length ? [{ id: `${PLUGIN}:banned`, scope: 'session' as const, text: `The user banned these as slop with the Skillshelf bar. ${banRule(phrases)} This applies to every reply, file, commit message and document you write.` }] : []),
-    ]
+    const added = (await rules($)).map(r => ({ ...r, scope: 'session' as const }))
     return added.length ? { sections: [...composed.sections, ...added] } : composed
+  })
+
+  // A second route for the same rules: context beside the person's message, which Claude reads and the person never sees.
+  // Some sessions keep personal plugins out of the system prompt (Claude Code's sec-default skips this plugin's
+  // prompt.compose hook), and the rules still reach Claude this way. They ride along when they change, and again every
+  // REMIND messages so a long chat keeps them; when they are lifted, Claude is told once that they no longer apply.
+  let lastSent = '', sinceSent = 0
+  on('prompt.submit', async ($, e, next) => {
+    const text = (await rules($)).map(r => r.text).join('\n')
+    sinceSent++
+    if (text === lastSent && (!text || sinceSent < REMIND)) return next(e)
+    const note = text ? `Skillshelf bar: ${text}` : 'Skillshelf bar: the skills switched off and the phrases banned earlier in this chat no longer apply.'
+    lastSent = text; sinceSent = 0
+    return next({ ...e, context: [...(e.context ?? []), note] })
   })
 
   on('ui.render', { component: 'AbovePrompt' }, async ($, e, next) => {

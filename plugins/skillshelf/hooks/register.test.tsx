@@ -17,6 +17,8 @@ const SKILLS = [
 ]
 const PANE = { plugin: 'skillshelf', component: 'Pane', requestId: 'skillshelf-skills', surface: 'desktop', props: { title: 'Skillshelf', isFocused: false, bodyColumns: 40, placement: 'dock', scroll: { offset: 0, bodyRows: 20 }, view: {} } } as const
 
+// What reached the engine beside each message (prompt.submit context), in order
+const CONTEXT: string[][] = []
 // Nothing sits beneath the plugin: each hook here stands for the engine
 function engine(on: Parameters<Parameters<typeof test>[1]>[1], filled: string[], sent: string[]) {
   on('command.register', () => ({ value: { command: 'skills-bar' } }))
@@ -25,7 +27,7 @@ function engine(on: Parameters<Parameters<typeof test>[1]>[1], filled: string[],
   on('tool.call', () => ({ result: {} }))
   on('prompt.compose', () => ({ sections: [{ id: 'intro', text: 'You are Claude.', scope: 'shared' as const }] }))
   on('prompt.fill', (_, e) => { filled.push(e.text); return { isFilled: true, text: e.text, cursor: e.text.length } })
-  on('prompt.submit', (_, e) => { sent.push(e.text); return { text: e.text } })
+  on('prompt.submit', (_, e) => { sent.push(e.text); CONTEXT.push([...(e.context ?? [])]); return { text: e.text } })
   on('ui.toast', () => ({ value: {} }))
 }
 
@@ -173,4 +175,38 @@ test('a banned phrase is still banned in a new session, until it is allowed agai
   await pane.unmount()
   expect(kept.get('banned')).toEqual([])
   expect((await $.prompt.compose(COMPOSE)).sections.some(s => s.id === 'skillshelf:banned')).toBe(false)
+})
+
+test('the rules also ride beside a message, for sessions that keep plugins out of the system prompt', async ($, on) => {
+  engine(on, [], [])
+  const kept = new Map<string, unknown>([['banned', ['delve']]])
+  on('store.get', (_, e) => ({ value: kept.get(e.key) }))
+  on('store.set', (_, e) => { kept.set(e.key, e.value); return { value: {} } })
+  await $.session.start({ cwd: '/', surface: 'desktop', isInteractive: true })
+  CONTEXT.length = 0
+
+  // The first message carries them; the next one doesn't repeat them
+  await $.prompt.submit({ text: 'hello' })
+  await $.prompt.submit({ text: 'and another' })
+  expect(CONTEXT[0].some(c => /^Skillshelf bar: .*banned these as slop.*delve/s.test(c))).toBe(true)
+  expect(CONTEXT[1].some(c => c.startsWith('Skillshelf bar:'))).toBe(false)
+
+  // A change rides along with the next message
+  const bar = await $.ui.mount({ ...BAND, surface: 'desktop' })
+  await bar.press({ key: 'skill-acme-docs:docx' })
+  await bar.unmount()
+  await $.prompt.submit({ text: 'third' })
+  expect(CONTEXT[2].some(c => /switched these skills off.*docx/s.test(c) && /delve/.test(c))).toBe(true)
+
+  // Lifted: Claude is told once that they no longer apply
+  const pane = await $.ui.mount(PANE)
+  await pane.press({ key: 'unban-delve' })
+  await pane.unmount()
+  const bar2 = await $.ui.mount({ ...BAND, surface: 'desktop' })
+  await bar2.press({ key: 'skill-acme-docs:docx' })
+  await bar2.unmount()
+  await $.prompt.submit({ text: 'fourth' })
+  await $.prompt.submit({ text: 'fifth' })
+  expect(CONTEXT[3].some(c => /no longer apply/.test(c))).toBe(true)
+  expect(CONTEXT[4].some(c => c.startsWith('Skillshelf bar:'))).toBe(false)
 })
