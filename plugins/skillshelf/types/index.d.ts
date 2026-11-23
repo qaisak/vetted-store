@@ -6,6 +6,10 @@ export type BandSkill = {
   label: string
   /** Where it came from: userSettings, projectSettings, plugin, built-in, ... */
   source: string
+  /** The plugin that provides it, when one does */
+  plugin?: string
+  /** It comes with Claude, not from the person: Claude Code's own, an organization's, the Claude app's, Anthropic's account plugins */
+  fromClaude: boolean
 }
 
 declare module 'claude-code' {

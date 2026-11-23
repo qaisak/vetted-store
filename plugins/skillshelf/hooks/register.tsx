@@ -14,7 +14,7 @@ const PANE = 'skillshelf-skills'
 // The banned list is kept here across sessions; the state atom below is this session's copy that the bar draws from
 const STORE_BANNED = 'banned'
 // Change a tag when that value's fields change: it declines what an earlier version stored, which outlives a reload
-const skills = atom({ plugin: 'skillshelf', key: 'skills' } as const, [] as BandSkill[], { shape: 'skills-1' })
+const skills = atom({ plugin: 'skillshelf', key: 'skills' } as const, [] as BandSkill[], { shape: 'skills-2' })
 const off = atom({ plugin: 'skillshelf', key: 'off' } as const, [] as string[])
 const banned = atom({ plugin: 'skillshelf', key: 'banned' } as const, [] as string[])
 const isOpen = atom({ plugin: 'skillshelf', key: 'isOpen' } as const, true)
@@ -31,15 +31,23 @@ const MAX_PHRASE = 120
 const MAX_BANNED = 300
 
 const shortName = (name: string) => name.split(':').pop() || name
-// The full list groups skills by where they came from, so nobody wonders why a skill is there: their own, this project's,
-// each plugin by name, connectors, and what Claude Code brings. Their own and the project's start open; the rest folded.
+// Skills that come with Claude rather than from the person stay out of the bar: Claude Code's own (built-in), an
+// organization's (policySettings), the Claude desktop app's Anthropic-managed set (anthropic-skills), and Anthropic's own
+// plugins that reach Claude Code through the Claude account (from anthropics/knowledge-work-plugins, the ones Anthropic
+// wrote; partners' plugins there, like Slack's or Zoom's, stay listed). A plugin the person installs keeps its skills listed.
+const CLAUDES_OWN_PLUGINS = new Set(['anthropic-skills', 'productivity', 'enterprise-search', 'cowork-plugin-management', 'sales', 'finance', 'data',
+  'legal', 'marketing', 'customer-support', 'product-management', 'bio-research', 'engineering', 'human-resources', 'design', 'operations',
+  'small-business', 'pdf-viewer', 'security-guidance'])
+const pluginOf = (name: string, pluginName?: string) => pluginName || (name.includes(':') ? name.split(':')[0] : undefined)
+const comesWithClaude = (source: string, plugin?: string) => source === 'built-in' || source === 'policySettings' || (source === 'plugin' && !!plugin && CLAUDES_OWN_PLUGINS.has(plugin))
+// The full list groups the person's skills by where they came from, so nobody wonders why a skill is there: their own,
+// this project's, each plugin they installed, connectors. Their own and the project's start open; the rest folded.
 type Group = { key: string; title: string; items: BandSkill[] }
 const groupOf = (s: BandSkill): [string, string] => {
   if (s.source === 'userSettings' || s.source === 'syncedSkills') return ['yours', 'Your skills']
   if (s.source === 'projectSettings') return ['project', 'This project\'s skills']
-  if (s.source === 'plugin') { const p = s.name.includes(':') ? s.name.split(':')[0] : ''; return [`plugin:${p || 'other'}`, p ? `From the ${p} plugin` : 'From other plugins'] }
+  if (s.source === 'plugin') return [`plugin:${s.plugin || 'other'}`, s.plugin ? `From the ${s.plugin} plugin` : 'From other plugins']
   if (s.source === 'mcp') return ['mcp', 'From connectors']
-  if (s.source === 'built-in') return ['built-in', 'Built into Claude Code']
   return ['other', 'Other skills']
 }
 const OPEN_FIRST = new Set(['yours', 'project'])
@@ -59,7 +67,8 @@ async function refresh($: Engine) {
   const usage = await $.session.usage({ breakdown: 'summary' })
   const listed = usage.context.breakdown?.skills?.skillFrontmatter ?? []
   const list: BandSkill[] = listed
-    .map(s => ({ name: s.name, label: shortName(s.name), source: String(s.source) }))
+    .map(s => { const source = String(s.source), plugin = pluginOf(s.name, s.pluginName)
+      return { name: s.name, label: shortName(s.name), source, ...(plugin ? { plugin } : {}), fromClaude: comesWithClaude(source, plugin) } })
     .sort((a, b) => (RANK[a.source] ?? 9) - (RANK[b.source] ?? 9) || a.label.localeCompare(b.label))
   await update($, skills, () => list)
 }
@@ -167,8 +176,9 @@ export const register: Register = on => {
     const open = await read($, isOpen)
     const flagging = await read($, isFlagging)
     const adding = await read($, isAdding)
-    // Switched-off skills always show, so nobody loses track of one; then the person's own, up to the chip limit
-    const shown = [...list.filter(s => offList.includes(s.name)), ...list.filter(s => !offList.includes(s.name))].slice(0, Math.max(CHIPS, offList.length))
+    // The person's skills, not what comes with Claude; a switched-off one always shows, so nobody loses track of it
+    const mine = list.filter(s => !s.fromClaude || offList.includes(s.name))
+    const shown = [...mine.filter(s => offList.includes(s.name)), ...mine.filter(s => !offList.includes(s.name))].slice(0, Math.max(CHIPS, offList.length))
 
     return (
       <Box flexDirection="column" gap={1}>
@@ -180,10 +190,10 @@ export const register: Register = on => {
               <Button key={`skill-${s.name}`} variant={isOn ? 'primary' : 'secondary'} label={`${s.label}: ${isOn ? 'ON' : 'OFF'}`} onPress={() => toggle($, s.name)} />
             )
           })}
-          {open && list.length > shown.length && (
-            <Button key="all" variant="secondary" label={`All skills (${list.length})`} onPress={() => $.ui.open({ id: PANE, title: 'Skillshelf' })} />
+          {open && mine.length > shown.length && (
+            <Button key="all" variant="secondary" label={`All skills (${mine.length})`} onPress={() => $.ui.open({ id: PANE, title: 'Skillshelf' })} />
           )}
-          {open && list.length === 0 && <Text dimColor>No skills in this session yet</Text>}
+          {open && mine.length === 0 && <Text dimColor>No skills of your own yet. Add one with + Add skill.</Text>}
         </Box>
         {open && adding && (
           <Box flexDirection="column" gap={1}>
@@ -221,7 +231,10 @@ export const register: Register = on => {
     const offList = await read($, off)
     const bannedList = await read($, banned)
     const flipped = await read($, flippedGroups)
-    const onCount = list.length - list.filter(s => offList.includes(s.name)).length
+    // The person's skills; what comes with Claude is counted, not listed (unless they switched one off this session)
+    const mine = list.filter(s => !s.fromClaude || offList.includes(s.name))
+    const withClaude = list.length - mine.length
+    const onCount = mine.length - mine.filter(s => offList.includes(s.name)).length
 
     return (
       <Box flexDirection="column" gap={1}>
@@ -234,8 +247,8 @@ export const register: Register = on => {
           </Box>
         ))}
         <Text bold>Skills</Text>
-        <Text dimColor>{list.length ? `Every skill in this session, by where it came from. ${onCount} of ${list.length} on. Switches apply to this session.` : 'No skills in this session yet.'}</Text>
-        {groupsOf(list).map(g => {
+        <Text dimColor>{mine.length ? `Your skills, by where they came from. ${onCount} of ${mine.length} on. Switches apply to this session.` : 'No skills of your own yet. Add one below.'}</Text>
+        {groupsOf(mine).map(g => {
           const isShown = OPEN_FIRST.has(g.key) !== flipped.includes(g.key)
           const onInGroup = g.items.filter(s => !offList.includes(s.name)).length
           return (
@@ -255,6 +268,7 @@ export const register: Register = on => {
           )
         })}
         <Button key="pane-add" plain label="+ Add a skill" onPress={() => update($, isAdding, () => true)} />
+        {withClaude > 0 && <Text key="with-claude" dimColor>{`Not listed: ${withClaude} skill${withClaude === 1 ? '' : 's'} that come with Claude (Claude Code's own, the Claude app's and Anthropic's plugins on your account). /skills has their switches.`}</Text>}
       </Box>
     )
   })

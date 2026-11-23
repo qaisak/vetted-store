@@ -7,9 +7,11 @@ const BAND = {
 } as const
 
 const SKILLS = [
-  { name: 'anthropic-skills:docx', source: 'plugin', tokens: 10 },
+  { name: 'acme-docs:docx', source: 'plugin', pluginName: 'acme-docs', tokens: 10 },
   { name: 'adhd-mode', source: 'userSettings', tokens: 10 },
   { name: 'no-slop-writing', source: 'userSettings', tokens: 10 },
+  // What comes with Claude: the desktop app's Anthropic-managed set, an Anthropic account plugin, Claude Code's own
+  { name: 'anthropic-skills:pdf', source: 'plugin', pluginName: 'anthropic-skills', tokens: 10 },
   { name: 'bio-research:scvi-tools', source: 'plugin', tokens: 10 },
   { name: 'update-config', source: 'built-in', tokens: 10 },
 ]
@@ -19,7 +21,7 @@ const PANE = { plugin: 'skillshelf', component: 'Pane', requestId: 'skillshelf-s
 function engine(on: Parameters<Parameters<typeof test>[1]>[1], filled: string[], sent: string[]) {
   on('command.register', () => ({ value: { command: 'skills-bar' } }))
   on('session.start', (_, e) => ({ cwd: e.cwd }))
-  on('session.usage', () => ({ value: { startedAt: 0, context: { breakdown: { skills: { totalSkills: 5, includedSkills: 5, tokens: 50, skillFrontmatter: SKILLS } } } } }))
+  on('session.usage', () => ({ value: { startedAt: 0, context: { breakdown: { skills: { totalSkills: 6, includedSkills: 6, tokens: 60, skillFrontmatter: SKILLS } } } } }))
   on('tool.call', () => ({ result: {} }))
   on('prompt.compose', () => ({ sections: [{ id: 'intro', text: 'You are Claude.', scope: 'shared' as const }] }))
   on('prompt.fill', (_, e) => { filled.push(e.text); return { isFilled: true, text: e.text, cursor: e.text.length } })
@@ -34,7 +36,7 @@ test('the bar lists skills, the person\'s own first, on every surface that draws
   for (const surface of ['terminal', 'desktop'] as const) {
     const ui = await $.ui.mount({ ...BAND, surface })
     expect((await ui.find({ key: 'skill-adhd-mode' }))?.text).toBe('adhd-mode: ON')
-    expect((await ui.find({ key: 'skill-anthropic-skills:docx' }))?.text).toBe('docx: ON')
+    expect((await ui.find({ key: 'skill-acme-docs:docx' }))?.text).toBe('docx: ON')
     expect(await ui.find({ key: 'add' })).toBeDefined()
     await ui.unmount()
   }
@@ -45,8 +47,8 @@ test('switching a skill off refuses it and tells Claude up front', async ($, on)
   await $.session.start({ cwd: '/', surface: 'desktop', isInteractive: true })
 
   const ui = await $.ui.mount({ ...BAND, surface: 'desktop' })
-  await ui.press({ key: 'skill-anthropic-skills:docx' })
-  expect((await ui.find({ key: 'skill-anthropic-skills:docx' }))?.text).toBe('docx: OFF')
+  await ui.press({ key: 'skill-acme-docs:docx' })
+  expect((await ui.find({ key: 'skill-acme-docs:docx' }))?.text).toBe('docx: OFF')
   await ui.unmount()
 
   // Claude may name it without the plugin prefix
@@ -129,26 +131,29 @@ test('Flag slop bans a phrase for good', async ($, on) => {
   expect(rule?.text).toMatch(/"Glance", "delve into"/)
 })
 
-test('the full list groups skills by where they came from, the person\'s own open and the rest folded', async ($, on) => {
+test('the bar and its list show the person\'s skills, not what comes with Claude, grouped by where they came from', async ($, on) => {
   engine(on, [], [])
   await $.session.start({ cwd: '/', surface: 'desktop', isInteractive: true })
 
+  // The bar: their own skills and the plugin they installed; nothing that comes with Claude
+  const bar = await $.ui.mount({ ...BAND, surface: 'desktop' })
+  expect(await bar.find({ key: 'skill-adhd-mode' })).toBeDefined()
+  expect(await bar.find({ key: 'skill-acme-docs:docx' })).toBeDefined()
+  for (const k of ['skill-anthropic-skills:pdf', 'skill-bio-research:scvi-tools', 'skill-update-config']) expect(await bar.find({ key: k })).toBeUndefined()
+  expect(await bar.find({ key: 'all' })).toBeUndefined()
+  await bar.unmount()
+
   const pane = await $.ui.mount(PANE)
-  // Their own skills first and open
   expect((await pane.find({ key: 'fold-yours' }))?.text).toBe('▾ Your skills (2)')
   expect(await pane.find({ key: 'pane-adhd-mode' })).toBeDefined()
-  // Each plugin under its own name, folded, and what Claude Code brings, folded
-  expect((await pane.find({ key: 'fold-plugin:anthropic-skills' }))?.text).toBe('▸ From the anthropic-skills plugin (1)')
-  expect((await pane.find({ key: 'fold-plugin:bio-research' }))?.text).toBe('▸ From the bio-research plugin (1)')
-  expect((await pane.find({ key: 'fold-built-in' }))?.text).toBe('▸ Built into Claude Code (1)')
-  expect(await pane.find({ key: 'pane-anthropic-skills:docx' })).toBeUndefined()
+  expect((await pane.find({ key: 'fold-plugin:acme-docs' }))?.text).toBe('▸ From the acme-docs plugin (1)')
+  for (const k of ['fold-plugin:anthropic-skills', 'fold-plugin:bio-research', 'fold-built-in', 'pane-anthropic-skills:pdf', 'pane-update-config']) expect(await pane.find({ key: k })).toBeUndefined()
+  expect((await pane.find({ type: 'Text', text: /^Not listed:/ }))?.text).toMatch(/^Not listed: 3 skills that come with Claude/)
 
   // Opening a group shows its switches; one switched off shows in the group's count
-  await pane.press({ key: 'fold-plugin:anthropic-skills' })
-  expect(await pane.find({ key: 'pane-anthropic-skills:docx' })).toBeDefined()
-  await pane.press({ key: 'pane-anthropic-skills:docx' })
-  expect((await pane.find({ key: 'fold-plugin:anthropic-skills' }))?.text).toBe('▾ From the anthropic-skills plugin (1, 0 on)')
-  // Folding your own skills hides them
+  await pane.press({ key: 'fold-plugin:acme-docs' })
+  await pane.press({ key: 'pane-acme-docs:docx' })
+  expect((await pane.find({ key: 'fold-plugin:acme-docs' }))?.text).toBe('▾ From the acme-docs plugin (1, 0 on)')
   await pane.press({ key: 'fold-yours' })
   expect(await pane.find({ key: 'pane-adhd-mode' })).toBeUndefined()
   await pane.unmount()
