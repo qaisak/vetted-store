@@ -90,6 +90,7 @@ test('Add skill takes any skill, and Claude checks it before installing', async 
     expect(sent[0]).toMatch(/github\.com\/someone\/not-on-skillshelf/)
     expect(sent[0]).toMatch(/Skillshelf hasn't checked it, read its SKILL\.md/)
     expect(sent[0]).toMatch(/Ask me before installing/)
+    expect(sent[0]).toMatch(/without me typing a slash command.*~\/\.claude\/CLAUDE\.md/)
     expect(await ui.find({ key: 'addskill' })).toBeUndefined()
     await ui.unmount()
   }
@@ -159,6 +160,36 @@ test('the bar and its list show the person\'s skills, not what comes with Claude
   await pane.press({ key: 'fold-yours' })
   expect(await pane.find({ key: 'pane-adhd-mode' })).toBeUndefined()
   await pane.unmount()
+})
+
+test('a skill that only starts with a slash command still shows, and one a CLAUDE.md loads says always on', async ($, on) => {
+  engine(on, [], [])
+  const dir = (name: string) => ({ name, kind: 'dir' as const, size: 0, mtimeMs: 0, isLink: false })
+  const front = (name: string) => `---\nname: ${name}\ndescription: 'Start with /${name}'\ndisable-model-invocation: true\n---\n\n# ${name}\n`
+  const files: Record<string, string> = {
+    'C:/Users/me/.claude/CLAUDE.md': '# Always on\n\n@~/.claude/skills/i-have-adhd/SKILL.md\n',
+    'C:/Users/me/.claude/skills/i-have-adhd/SKILL.md': front('i-have-adhd'),
+    'C:/Users/me/.claude/skills/standup/SKILL.md': front('standup'),
+    // Already in the listing: not listed twice
+    'C:/Users/me/.claude/skills/adhd-mode/SKILL.md': '---\nname: adhd-mode\ndescription: x\n---\n',
+  }
+  on('env.get', (_, e) => ({ value: e.name === 'USERPROFILE' ? 'C:\\Users\\me' : undefined }))
+  const p = (path: string) => path.replace(/\\/g, '/')
+  on('fs.list', (_, e) => p(e.path) === 'C:/Users/me/.claude/skills' ? { value: [dir('i-have-adhd'), dir('standup'), dir('adhd-mode')] } : { deny: 'ENOENT' })
+  on('fs.read', (_, e) => p(e.path) in files ? { value: files[p(e.path)] } : { deny: 'ENOENT' })
+  await $.session.start({ cwd: 'C:\\work\\app', surface: 'desktop', isInteractive: true })
+
+  const pane = await $.ui.mount(PANE)
+  expect((await pane.find({ key: 'fold-yours' }))?.text).toBe('▾ Your skills (4)')
+  expect(await pane.find({ type: 'Text', text: 'i-have-adhd (always on)' })).toBeDefined()
+  expect(await pane.find({ type: 'Text', text: 'standup (starts with /standup)' })).toBeDefined()
+  expect(await pane.find({ type: 'Text', text: 'adhd-mode' })).toBeDefined()
+
+  // Switching an always-on one off tells Claude to stop following it
+  await pane.press({ key: 'pane-i-have-adhd' })
+  await pane.unmount()
+  const composed = await $.prompt.compose(COMPOSE)
+  expect(composed.sections.find(s => s.id === 'skillshelf:off')?.text).toMatch(/i-have-adhd.*follow their instructions if a CLAUDE\.md file loads them/)
 })
 
 test('a banned phrase is still banned in a new session, until it is allowed again', async ($, on) => {

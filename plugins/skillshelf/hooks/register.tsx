@@ -14,7 +14,7 @@ const PANE = 'skillshelf-skills'
 // The banned list is kept here across sessions; the state atom below is this session's copy that the bar draws from
 const STORE_BANNED = 'banned'
 // Change a tag when that value's fields change: it declines what an earlier version stored, which outlives a reload
-const skills = atom({ plugin: 'skillshelf', key: 'skills' } as const, [] as BandSkill[], { shape: 'skills-2' })
+const skills = atom({ plugin: 'skillshelf', key: 'skills' } as const, [] as BandSkill[], { shape: 'skills-3' })
 const off = atom({ plugin: 'skillshelf', key: 'off' } as const, [] as string[])
 const banned = atom({ plugin: 'skillshelf', key: 'banned' } as const, [] as string[])
 const isOpen = atom({ plugin: 'skillshelf', key: 'isOpen' } as const, true)
@@ -72,8 +72,44 @@ async function refresh($: Engine) {
     .map(s => { const source = String(s.source), plugin = pluginOf(s.name, s.pluginName)
       return { name: s.name, label: shortName(s.name), source, ...(plugin ? { plugin } : {}), fromClaude: comesWithClaude(source, plugin) } })
     .sort((a, b) => (RANK[a.source] ?? 9) - (RANK[b.source] ?? 9) || a.label.localeCompare(b.label))
-  await update($, skills, () => list)
+  const extra = await slashOnly($, new Set(list.map(s => s.name))).catch(() => [] as BandSkill[])
+  const all = [...list, ...extra].sort((a, b) => (RANK[a.source] ?? 9) - (RANK[b.source] ?? 9) || a.label.localeCompare(b.label))
+  await update($, skills, () => all)
 }
+
+// A skill that starts only with a slash command (disable-model-invocation: true) is left out of the listing above, so
+// the bar would never show it. Read the person's and this project's skills folders for those, and note which ones a
+// CLAUDE.md imports: those are on in every session without anyone typing the command.
+let cwd = ''
+const HEAD = 4096
+async function slashOnly($: Engine, known: Set<string>): Promise<BandSkill[]> {
+  const slash = (p: string) => p.replace(/\\/g, '/').replace(/\/+$/, '')
+  const home = slash((await $.env.get('USERPROFILE').catch(() => undefined)) || (await $.env.get('HOME').catch(() => undefined)) || '')
+  const here = slash(cwd)
+  const places: [string, string][] = []
+  if (home) places.push([`${home}/.claude`, 'userSettings'])
+  if (here && here !== home) places.push([`${here}/.claude`, 'projectSettings'])
+  const memoryFiles = [...places.map(([dir]) => `${dir}/CLAUDE.md`), ...(here && here !== home ? [`${here}/CLAUDE.md`] : [])]
+  const imports = (await Promise.all(memoryFiles.map(p => ($.fs.read(p, { length: 65536 }) as Promise<string>).catch(() => '')))).join('\n')
+  const found: BandSkill[] = []
+  for (const [dir, source] of places) {
+    const entries = await $.fs.list(`${dir}/skills`).catch(() => [])
+    for (const d of entries) {
+      if (d.kind === 'file') continue
+      const head = await ($.fs.read(`${dir}/skills/${d.name}/SKILL.md`, { length: HEAD }) as Promise<string>).catch(() => '')
+      const front = /^---\r?\n([\s\S]*?)\r?\n---/.exec(head)?.[1]
+      if (!front || !/^disable-model-invocation:\s*true\s*$/m.test(front)) continue
+      const name = /^name:\s*['"]?([^'"\r\n]+?)['"]?\s*$/m.exec(front)?.[1] || d.name
+      if (known.has(name)) continue
+      known.add(name)
+      const alwaysOn = imports.includes(`skills/${d.name}/SKILL.md`)
+      found.push({ name, label: name, source, fromClaude: false, slashOnly: true, ...(alwaysOn ? { alwaysOn: true } : {}) })
+    }
+  }
+  return found
+}
+// What the full list says beside a skill's name, when how it starts isn't the usual way
+const how = (s: BandSkill) => s.alwaysOn ? `${s.label} (always on)` : s.slashOnly ? `${s.label} (starts with /${s.label})` : s.label
 
 async function toggle($: Engine, name: string) {
   let nowOff = false
@@ -113,7 +149,7 @@ async function rules($: Engine) {
   const names = (await read($, off)).map(shortName)
   const phrases = await read($, banned)
   return [
-    ...(names.length ? [{ id: `${PLUGIN}:off`, text: `The user switched these skills off for this session with the Skillshelf bar: ${names.join(', ')}. Don't use them unless the user switches them back on or asks for one by name.` }] : []),
+    ...(names.length ? [{ id: `${PLUGIN}:off`, text: `The user switched these skills off for this session with the Skillshelf bar: ${names.join(', ')}. Don't use them, or follow their instructions if a CLAUDE.md file loads them, unless the user switches them back on or asks for one by name.` }] : []),
     ...(phrases.length ? [{ id: `${PLUGIN}:banned`, text: `The user banned these as slop with the Skillshelf bar. ${banRule(phrases)} This applies to every reply, file, commit message and document you write.` }] : []),
   ]
 }
@@ -133,12 +169,14 @@ async function addSkill($: Engine, typed: string) {
 
 - If it's a link or a name, check it with Skillshelf first. If Skillshelf hasn't checked it, read its SKILL.md and any scripts it runs, and tell me in plain words what it does, what it can reach, and anything risky.
 - If it's a description of what I need, find the best fits with Skillshelf (and elsewhere if Skillshelf has none) and let me pick one.
-- Ask me before installing anything, then install it and tell me how to use it.` })
+- Ask me before installing anything, then install it and tell me how to use it.
+- Make it work without me typing a slash command. If its SKILL.md says disable-model-invocation: true, or it's meant to stay on (a writing style, a way of replying), add an @ import of its SKILL.md to ~/.claude/CLAUDE.md so it loads by itself in every session, and tell me you did. If it's already installed, still check this.` })
 }
 
 export const register: Register = on => {
   on('session.start', async ($, e, next) => {
     const ran = await next(e)
+    cwd = String((e as { cwd?: unknown }).cwd ?? '')
     await $.command.register({ name: 'skills-bar', description: 'Open Skillshelf: your skills with on/off switches, and the phrases you banned' })
     await loadBanned($).catch(() => {})
     await refresh($).catch(() => {})
@@ -280,7 +318,7 @@ export const register: Register = on => {
                 const isOn = !offList.includes(s.name)
                 return (
                   <Box key={`row-${s.name}`} flexDirection="row" justifyContent="space-between" alignItems="center" columnGap={2}>
-                    <Text>{s.label}</Text>
+                    <Text>{how(s)}</Text>
                     <Button key={`pane-${s.name}`} variant={isOn ? 'primary' : 'secondary'} label={isOn ? 'ON' : 'OFF'} onPress={() => toggle($, s.name)} />
                   </Box>
                 )

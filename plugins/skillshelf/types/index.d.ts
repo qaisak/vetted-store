@@ -10,6 +10,10 @@ export type BandSkill = {
   plugin?: string
   /** It comes with Claude, not from the person: Claude Code's own, an organization's, the Claude app's, Anthropic's account plugins */
   fromClaude: boolean
+  /** It starts only when the person types its slash command (disable-model-invocation), so it's read from disk */
+  slashOnly?: boolean
+  /** A CLAUDE.md imports it, so it's on in every session */
+  alwaysOn?: boolean
 }
 
 declare module 'claude-code' {

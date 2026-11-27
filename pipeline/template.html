@@ -1939,8 +1939,10 @@ function setupPrompt(l) {
   return [`Set up the ${l.n} ${what} for me: ${codeUrl(l)}`, '', ...safetyCheck(l), '',
     l.k === 'tool' ? 'If I say yes: install the latest release for this computer, check it runs, and tell me what you did.'
       : l.k === 'mcp' ? 'If I say yes: add it to Claude Code, and tell me how to check it works.'
-      : 'If I say yes: install it for Claude Code, and tell me how to use it.'].join('\n');
+      : `If I say yes: install it for Claude Code. ${NO_SLASH} Then tell me how to use it.`].join('\n');
 }
+// A skill should work without the person typing its slash command: that's much of why they use Skillshelf
+const NO_SLASH = 'Make it work without me typing a slash command: if its SKILL.md says disable-model-invocation: true, or it\'s meant to stay on (a writing style, a way of replying), add an @ import of its SKILL.md to ~/.claude/CLAUDE.md so it loads by itself in every session, and tell me you did.';
 const promptBox = (pr, msg) => `<div class="ask-btns"><button class="get primary" data-copy="${esc(pr)}" data-copymsg="${esc(msg)}">Copy for Claude</button><details class="ask-q"><summary>Show what it says</summary><code class="snip" style="white-space:pre-wrap">${esc(pr)}</code></details></div>`;
 // "Or get it yourself" with the one installer this computer needs (data/releases.json), and every other download a click away.
 // Phones and tablets get the releases page: their app stores are elsewhere.
@@ -2209,6 +2211,7 @@ function checkoutText(list) {
   const skills = list.filter(l => l.k === 'skill').length, steps = safetyCheck(skills === n ? { k: 'skill' } : null);
   if (skills && skills < n) steps[2] = '2. Read what it would run: for a skill, SKILL.md and every other file in its folder; for anything else, the code that runs when I use it and anything that runs on its own at install (install scripts, postinstall hooks, setup files). Skip tests and docs.';
   out.push('', `For each one, ${steps[0].charAt(0).toLowerCase() + steps[0].slice(1)}`, ...steps.slice(1));
+  if (skills) out.push('', `${skills === 1 && n > 1 ? 'For the skill' : skills > 1 ? 'For each skill' : 'Then'}: ${NO_SLASH}`);
   out.push('', 'When you\'re done, give me a short list: what you installed, what you skipped, and anything the check flagged.');
   return out.join('\n');
 }
