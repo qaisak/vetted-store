@@ -711,6 +711,9 @@ mark.hl { color: inherit; background: linear-gradient(180deg, transparent 56%, v
 .bd-btn { background: #1F1F1F; color: #FFFFFF; font-weight: 700; border-radius: 6px; padding: 4px 10px; flex: none; }
 .bd-hint { color: #6B6B6B; font-size: 12.5px; }
 .bar-card .claude-note { color: var(--band-blue-2); }
+.bar-update { margin-top: 12px; font-size: 13px; line-height: 1.45; color: var(--band-blue-2); max-width: 640px; }
+.bar-update b { color: var(--label); }
+.bar-update .copybox { margin-top: 6px; }
 .shelf.band { border-radius: 24px; padding: 0 24px 26px; }
 .shelf.band > .shelf-head { border-top: 0; padding-top: 22px; }
 .shelf.band.green { background: var(--band-green); } .shelf.band.green .shelf-head .sub { color: var(--band-green-2); }
@@ -1422,6 +1425,8 @@ const BAR_FEATS = [['sliders', '#2156D1', 'Skills on a switch', 'Each skill is a
   ['shieldok', '#0E7A6E', 'Add skills without the worry', 'Paste a link or say what you need. Claude reads the code first and asks before it installs.'],
   ['flag', '#D2335C', 'Flag slop', 'Claude wrote “delve” or “game-changer” again? Flag the phrase once and Claude won\'t write it again, in this session or any new one. Your list stays on your computer.']];
 
+// Claude Code doesn't auto-update plugins from marketplaces it doesn't run itself, so people who added the bar early need this
+const BAR_UPDATE = 'Update my Skillshelf bar to the newest version: run claude plugin marketplace update skillshelf, then claude plugin update skillshelf@skillshelf, and tell me which version I have now.';
 function claudeBox() {
   return `<section class="shelf bar-shelf" id="in-claude">
     <div class="bar-card">
@@ -1433,6 +1438,7 @@ function claudeBox() {
         <ol class="claude-steps"><li>In Claude Code, in a terminal or your code editor, paste this and press Enter:<div class="bar-cmds one">${copyBox(`/plugin install skillshelf --marketplace ${MARKET_REPO}`)}</div></li>
           <li>Press <b>y</b> to add the Skillshelf marketplace, then Enter to install. The bar appears above your message box.</li></ol>
         <p class="claude-note">In the Claude desktop app, where that line doesn't run: click <b>+</b> next to the message box, then <b>Plugins</b>, <b>Add marketplace</b> with <span class="mono">${MARKET_REPO}</span>, then add Skillshelf. Claude Code only for now. <a href="${SETUP_PAGE}" target="_blank" rel="noopener">How it works ${ic('ext')}</a></p>
+        <div class="bar-update"><b>Already have the bar?</b> Claude Code doesn't update it by itself. Paste this into Claude Code to get the newest version, then start a new session:${copyBox(BAR_UPDATE)}</div>
         <details class="chat-way"><summary>Use Claude chats instead?</summary>
           <ol class="claude-steps"><li>In Claude, open <b>Plugins</b>, click <b>Add</b>, then <b>Add custom connector</b>.</li>
             <li>Name it Skillshelf and paste this address:${copyBox(CONNECTOR)}</li>
